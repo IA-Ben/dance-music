@@ -662,7 +662,7 @@ body.paper .page.hero-page .toc a{color:var(--text)}
    Plan: a book you read on screen. One reading column (about 66
    characters) with its cards beside it on wide screens; display type
    cut like a club sign (Big Shoulders, drawn for Chicago), body in
-   Newsreader, interface in Archivo, labels in JetBrains Mono. Linocut
+   Newsreader, interface in Archivo, labels in JetBrains Mono. Collage
    plates in each strand's ink open the strands.
    ===================================================================== */
 :root{
@@ -701,7 +701,7 @@ body.paper .page .card p,body.paper .page .card li{font-size:15.5px;line-height:
 @media (min-width:701px) and (max-width:1179px){
   body.paper .page .grid2{grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
 }
-/* ---------- linocut plates ---------- */
+/* ---------- collage plates ---------- */
 .art-hero{margin:-6px 0 30px;position:relative}
 .art-hero img{display:block;width:100%;height:auto;aspect-ratio:1376/768;object-fit:cover;border-radius:4px;background:#1b1b22;box-shadow:0 1px 0 #fff6 inset,0 14px 34px #0003;border:1px solid #0002}
 .art-hero.banner img{aspect-ratio:21/8}
@@ -869,3 +869,23 @@ body.paper[data-strand=newyork] .page{--bg:#eef3fa;--bg3:#dfe7f3}
 .pm-inset{margin-top:16px}.pm-inset h4{margin:0 0 6px}
 .pm-zoom{font:600 11.5px var(--f-ui);background:transparent;color:var(--text);border:1px solid var(--line);border-radius:999px;padding:6px 11px;cursor:pointer}
 .art-credits{margin-bottom:18px}.art-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:8px}
+
+/* era stamp: a rubber stamp in the strand's fluorescent ink, set over the plate */
+.art-frame{position:relative;overflow:hidden;border-radius:4px}
+.art-stamp{position:absolute;right:4%;top:8%;transform:rotate(-6deg);display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 12px 6px;color:var(--ink);border:3px solid currentColor;outline:1.5px solid currentColor;outline-offset:3px;border-radius:5px;background:color-mix(in srgb,#0a0a0d 55%,transparent);box-shadow:0 0 0 1px #0004;text-shadow:0 0 12px color-mix(in srgb,var(--ink) 45%,transparent);pointer-events:none;mix-blend-mode:normal;filter:url(#artRough)}
+.art-stamp b{font:900 clamp(15px,2.5vw,30px)/.9 var(--f-display);text-transform:uppercase;letter-spacing:.05em}
+.art-stamp i{font:700 clamp(10px,1.3vw,14px)/1 var(--f-mono);font-style:normal;letter-spacing:.12em;text-transform:uppercase}
+.cover-art .art-stamp{top:auto;bottom:30%;right:5%}
+@media (max-width:700px){.art-stamp{padding:5px 8px 4px;border-width:2px;outline-width:1px}}
+/* a year plate's stamp is just the year, set bigger, like a date stamp */
+.art-stamp.solo{padding:6px 12px 3px}
+.art-stamp.solo b{font-size:clamp(22px,3.6vw,44px);letter-spacing:.04em}
+/* the plates on the credits page */
+.art-thumbs a{display:block;line-height:0}
+.art-thumbs img{width:100%;height:auto;aspect-ratio:1376/768;object-fit:cover;border-radius:4px;border:1px solid var(--line)}
+.art-thumbs.years{grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:6px;margin-top:10px}
+/* the year's plate in the timeline card */
+.c2-plate{float:right;width:min(42%,230px);margin:2px 0 8px 14px;line-height:0}
+.c2-plate img{width:100%;height:auto;aspect-ratio:1376/768;object-fit:cover;border-radius:3px;border:1px solid var(--line)}
+.c2-card::after{content:'';display:block;clear:both}
+@media (max-width:700px){.c2-plate{width:38%;margin-left:10px}}

@@ -71,16 +71,17 @@ window.Charts2 = (() => {
       list.innerHTML = Object.keys(by).sort((a, b) => a - b).map(y => `<li class="c2-tlrow" data-y="${y}"><span class="c2-tlyear">${y}</span><span class="c2-tlevs">${by[y].map(([ev, i]) => `<button type="button" class="c2-tlev" data-i="${i}" style="--k:var(${SCENES.find(s => s[0] === ev[1])[2]})"><i></i>${esc(ev[2])}</button>`).join('')}</span></li>`).join('');
       paint();
     }
+    const plate = y => (window.ART_YEARS || []).includes(+y) ? `<a class="c2-plate" href="#y${y}" aria-label="The year ${y}"><img src="img/art/y${y}-720.webp" alt="" loading="lazy" decoding="async" width="720" height="402"></a>` : '';
     function story(i) {
       const ev = TLd[i]; if (!ev) return; const sc = SCENES.find(s => s[0] === ev[1]);
       const Y = window.YEARS && YEARS[ev[0]]; const pre = Y && Y[2] && Y[2].find(g => !window.PRESET || PRESET(g));
-      card.innerHTML = `<p class="c2-kick"><i style="background:var(${sc[2]})"></i>${ev[0]} · ${esc(sc[1])}</p><h4>${esc(ev[2])}</h4><p>${esc(ev[4])}</p><p class="c2-acts"><a class="xl" href="#${ev[3]}">Read the chapter →</a>${Y ? ` <a class="xl" href="#y${ev[0]}">The year ${ev[0]} →</a>` : ''}${pre ? ` <button type="button" class="play c2-hear" data-g="${esc(pre)}">Hear ${ev[0]}</button>` : ''}</p>`;
+      card.innerHTML = `${plate(ev[0])}<p class="c2-kick"><i style="background:var(${sc[2]})"></i>${ev[0]} · ${esc(sc[1])}</p><h4>${esc(ev[2])}</h4><p>${esc(ev[4])}</p><p class="c2-acts"><a class="xl" href="#${ev[3]}">Read the chapter →</a>${Y ? ` <a class="xl" href="#y${ev[0]}">The year ${ev[0]} →</a>` : ''}${pre ? ` <button type="button" class="play c2-hear" data-g="${esc(pre)}">Hear ${ev[0]}</button>` : ''}</p>`;
       const hb = card.querySelector('.c2-hear'); if (hb) hb.addEventListener('click', () => { cancel(); playOne(hb.dataset.g, hb); });
       if (window.autolink) try { autolink(card, null); } catch (e) {}
     }
     function yearCard(y) {
       const evs = TLd.map((ev, i) => [ev, i]).filter(([ev]) => ev[0] === y && !off.has(ev[1])); const Y = window.YEARS && YEARS[y]; const pre = Y && Y[2] && Y[2].find(g => !window.PRESET || PRESET(g));
-      card.innerHTML = `<p class="c2-kick">${y}</p>${Y ? `<h4>${esc(Y[0])}</h4>` : ''}${evs.length ? `<ul class="c2-yl">${evs.map(([ev, i]) => `<li><button type="button" class="c2-link" data-i="${i}"><i style="background:var(${SCENES.find(s => s[0] === ev[1])[2]})"></i>${esc(ev[2])}</button></li>`).join('')}</ul>` : `<p class="cap">No timeline events in ${y}${Y ? ' — the year page has the rest' : ''}.</p>`}<p class="c2-acts">${Y ? `<a class="xl" href="#y${y}">The year ${y} →</a>` : ''}${pre ? ` <button type="button" class="play c2-hear" data-g="${esc(pre)}">Hear ${y}</button>` : ''}</p>`;
+      card.innerHTML = `${plate(y)}<p class="c2-kick">${y}</p>${Y ? `<h4>${esc(Y[0])}</h4>` : ''}${evs.length ? `<ul class="c2-yl">${evs.map(([ev, i]) => `<li><button type="button" class="c2-link" data-i="${i}"><i style="background:var(${SCENES.find(s => s[0] === ev[1])[2]})"></i>${esc(ev[2])}</button></li>`).join('')}</ul>` : `<p class="cap">No timeline events in ${y}${Y ? ' — the year page has the rest' : ''}.</p>`}<p class="c2-acts">${Y ? `<a class="xl" href="#y${y}">The year ${y} →</a>` : ''}${pre ? ` <button type="button" class="play c2-hear" data-g="${esc(pre)}">Hear ${y}</button>` : ''}</p>`;
       card.querySelectorAll('.c2-link').forEach(b => b.addEventListener('click', () => { sel = +b.dataset.i; story(sel); paint(); }));
       const hb = card.querySelector('.c2-hear'); if (hb) hb.addEventListener('click', () => { cancel(); playOne(hb.dataset.g, hb); });
     }
