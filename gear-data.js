@@ -1,20 +1,22 @@
 window.GEAR = {
 "rec-acidtracks": {
 "machines": [
-"tb303",
-"tr707"
+"tb303"
 ],
-"other_gear": [
-"Roland TR-727"
-],
+"other_gear": [],
 "samples": [],
 "studio": null,
-"note": "The drums are a TR-707 and TR-727, not an 808; the 303 line was found by turning the box's knobs at random.",
+"note": "Spanky bought the TB-303 second-hand and the group programmed it without understanding it; Marshall Jefferson is credited as producer/mixer.",
 "sources": [
 {
-"url": "https://en.wikipedia.org/wiki/Phuture",
-"title": "Phuture — Wikipedia",
-"says": "TR-707 and TR-727; TB-303"
+"url": "https://en.wikipedia.org/wiki/Acid_Tracks",
+"title": "Acid Tracks - Wikipedia",
+"says": "TB-303 bought second-hand by Spanky; Marshall Jefferson credited as producer/mixer; track slowed from ~130 to ~120 bpm; no drum machine named"
+},
+{
+"url": "https://djmag.com/node/5505",
+"title": "DJ Mag - Game Changers: Phuture 'Acid Tracks'",
+"says": "303 bought for $40 second-hand; jam session at Spanky's house; Pierre twisted the knobs live"
 }
 ]
 },
@@ -1158,6 +1160,2200 @@ window.GEAR = {
 "url": "https://daily.redbullmusicacademy.com/2017/05/interview-derrick-may/",
 "title": "Interview: Derrick May - RBMA Daily",
 "says": "May says he sold a TR-909 to Frankie Knuckles"
+}
+]
+},
+"rec-ifeellove": {
+"machines": [
+"moog"
+],
+"other_gear": [
+"Studer A80 16-track tape machine",
+"Harrison 32/32 console",
+"Lexicon reverb",
+"Neumann U87 (vocals)"
+],
+"samples": [],
+"studio": "Musicland Studios, Munich",
+"note": "Robby Wedel synced a borrowed Moog modular to tape via a click track; only Keith Forsey's kick drum and the vocal were played by humans.",
+"sources": [
+{
+"url": "https://www.soundonsound.com/techniques/classic-tracks-donna-summer-feel-love",
+"title": "Sound on Sound — Classic Tracks: Donna Summer 'I Feel Love'",
+"says": "Moog modular brought in by Robbie Wedel who programmed it and simulated hi-hat, snare, kick and pad; recorded on 16-track Studer A80 in Eastlake room at Musicland with Harrison desk, Lexicon reverb, U87 on vocals; no drum machine on this track."
+},
+{
+"url": "https://en.wikipedia.org/wiki/I_Feel_Love",
+"title": "Wikipedia — I Feel Love",
+"says": "Recorded at Musicland, Munich; Moog borrowed from Eberhard Schoener, his assistant Robby Wedel synced it with a click track; kick drum played by Keith Forsey because the Moog couldn't make a good kick."
+}
+]
+},
+"rec-clear": {
+"machines": [
+"tr808"
+],
+"other_gear": [
+"Sequential Circuits Pro-One (sequencer triggered from the 808)",
+"Roland RS-09 string machine"
+],
+"samples": [],
+"studio": null,
+"note": "Atkins ran the Pro-One's sequencer from the TR-808's trigger output, and used a cheap RS-09 string machine because polysynths were unaffordable in 1982.",
+"sources": [
+{
+"url": "https://reverb.com/news/the-synths-and-drum-machines-of-classic-electro",
+"title": "Reverb — The Synths and Drum Machines of 10 Classic Electro Tracks",
+"says": "TR-808 formed the backbone of Clear; Pro One sequencer triggered from the 808 trigger out; Roland RS-09 used for poly duties; Atkins: 'I had a TR-808, a Pro One, and a Korg MS-10'."
+},
+{
+"url": "https://en.wikipedia.org/wiki/Clear_(Cybotron_song)",
+"title": "Wikipedia — Clear (Cybotron song)",
+"says": "Recorded April 1982; produced by Juan Atkins; LA Times called it a 'Kraftwerk-sampling song'; later sampled by Missy Elliott 'Lose Control'."
+}
+]
+},
+"rec-strings": {
+"machines": [
+"tr909",
+"tr707"
+],
+"other_gear": [
+"Ensoniq Mirage (strings — 'almost certainly', per Attack)",
+"Kurzweil digital piano with built-in sequencer ('probably', per Attack)"
+],
+"samples": [],
+"studio": "Derrick May's home studio, Detroit",
+"note": "The piano part was recorded by May's friend Michael James while visiting; May built the track from sections of that recording a year later.",
+"sources": [
+{
+"url": "https://www.attackmagazine.com/technique/deconstructed/rhythim-is-rhythim-strings-of-life-derrick-may/",
+"title": "Attack Magazine — Deconstructed: Rhythim Is Rhythim 'Strings of Life'",
+"says": "909 snare; Roland TR-727 bongos; strings 'almost certainly' an Ensoniq Mirage; piano 'probably' a mid-80s Kurzweil with inbuilt sequencer; Michael James recorded the piano at May's home studio; May reused sections a year later."
+}
+]
+},
+"rec-technocomp": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "Compiled by Derrick May and Neil Rushton for Virgin's 10 Records; the working title 'The House Sound of Detroit' changed after Atkins' track 'Techno Music'.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Techno!_The_New_Dance_Sound_of_Detroit",
+"title": "Wikipedia — Techno! The New Dance Sound of Detroit",
+"says": "Released on Virgin imprint 10 Records; compiled by Derrick May and Neil Rushton; working title The House Sound of Detroit; Atkins' 'Techno Music' uses speech synthesis; Inner City 'Big Fun' nearly left off."
+}
+]
+},
+"rec-chime": {
+"machines": [
+"tr909",
+"tb303"
+],
+"other_gear": [
+"four-track recorder",
+"cassette tape"
+],
+"samples": [
+{
+"what": "a couple of samples (unspecified)",
+"from": "a random vinyl record (unidentified)"
+}
+],
+"studio": "Hartnoll family home (a knocked-through stair cupboard), Sevenoaks, Kent",
+"note": "Made in an afternoon on a TR-909 and a £100 TB-303, recorded to cassette on a four-track in a stair cupboard, reportedly for under £1.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Chime_(Orbital_song)",
+"title": "Wikipedia — Chime (Orbital song)",
+"says": "Recorded in home studio in a knocked-through stair cupboard in Sevenoaks, Kent; TB-303 bought for £100; recorded to cassette on a recorder that ran fast; allegedly cost under £1."
+},
+{
+"url": "https://articles.roland.com/chime-orbital",
+"title": "Roland — Sound Behind the Song: 'Chime' by Orbital",
+"says": "Hartnoll booted up his Roland TR-909 and TB-303; four-track recorder; grabbed a couple of samples from a random vinyl."
+}
+]
+},
+"rec-forgemasters": {
+"machines": [
+"akai-s900"
+],
+"other_gear": [],
+"samples": [
+{
+"what": "sampled material",
+"from": "Manu Dibango — Abele Dance"
+}
+],
+"studio": "Rob Gordon's home studio, Sheffield",
+"note": "Gordon, Winston Hazel and DJ Parrot developed the track in four hours one night after sampling Manu Dibango's 'Abele Dance' on a new Akai S900.",
+"sources": [
+{
+"url": "https://www.vice.com/en/article/warp-25-forgemasters/",
+"title": "Vice — Warp 25: Forgemasters",
+"says": "Rob Gordon got an Akai S900 and invited Hazel to his house studio; they sampled Manu Dibango 'Abele Dance' and developed Track With No Name in 4 hours; made by Gordon, Sean Maher (DJ Parrot) and Winston Hazel."
+}
+]
+},
+"rec-dominator": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "Wikipedia calls it one of the first records to use the hoover sound but names no synth; Beltram's remix borrowed the 'Mentasm' hoover.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Human_Resource_(band)",
+"title": "Wikipedia — Human Resource (band)",
+"says": "Dominator includes one of the first uses of the Hoover sound; remixed by Joey Beltram; lineup included mixer Robert Mahu and keyboardist Johan van Beek."
+},
+{
+"url": "https://en.wikipedia.org/wiki/Dominator_(Human_Resource_song)",
+"title": "Wikipedia — Dominator (Human Resource song)",
+"says": "Written and produced by Johan van Beek and Robert Mahu; Beltram remix includes the hoover taken from his 'Mentasm'; no equipment or vocal-sample source given."
+}
+]
+},
+"rec-activ8": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "loops",
+"from": "early electro compilations (unspecified)"
+}
+],
+"studio": null,
+"note": "Mark Archer says both 'Activ 8' and 'Infiltrate 202' were built on loops sampled from early electro compilations.",
+"sources": [
+{
+"url": "https://www.attackmagazine.com/features/long-read/mark-archer-ive-always-tried-to-just-make-stuff-straight-for-the-dance-floor/",
+"title": "Attack Magazine — Mark Archer long read",
+"says": "'Infiltrate 202' and 'Activ-8' had loops sampled off early electro compilations; Nexus 21 work at KMS studios in Detroit with Atari disks; early Casio SK1."
+}
+]
+},
+"rec-weareie": {
+"machines": [
+"atari-cubase"
+],
+"other_gear": [
+"reel-to-reel tape",
+"sampler (model unspecified)"
+],
+"samples": [
+{
+"what": "the Amen break",
+"from": "Mantronix — King of the Beats (lifted from that record rather than The Winstons' original)"
+},
+{
+"what": "spinback and gunshot effects",
+"from": "a Simon Harris sample compilation"
+},
+{
+"what": "vocal chant",
+"from": "unidentified recording (part of a longer chant)"
+}
+],
+"studio": null,
+"note": "Lennie De Ice took the Amen break off Mantronix's 'King of the Beats' and sequenced on a 4MB Atari running Cubase, taught by Uncle 22.",
+"sources": [
+{
+"url": "https://www.thesocial.com/an-extract-who-say-reload-paul-terzulli-eddie-otchere-lennie-de-ice-on-we-are-i-e/",
+"title": "The Social — Who Say Reload extract: Lennie De Ice on We Are I.E.",
+"says": "Atari (4MB) running Cubase, taught by Uncle 22; reel-to-reel and a sampler; Amen taken off Mantronix King Of The Beats; spinback and gunshot from a Simon Harris sample compilation; chant vocal; began December 1988 at 118bpm."
+}
+]
+},
+"rec-28gun": {
+"machines": [
+"akai-s900",
+"mpc",
+"atari-cubase"
+],
+"other_gear": [
+"Soundtracs Quartz mixing desk",
+"Lexicon reverb and delay",
+"Yamaha SBX90 (x2)",
+"Roland JD-800 (on 'Disneyband')"
+],
+"samples": [],
+"studio": "The Machine Room, Manchester city centre",
+"note": "The album was made like a mixtape at Manchester's Machine Room on two Akai S950s sequenced from an MPC60 and an Atari ST running Cubase.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/28_Gun_Bad_Boy",
+"title": "Wikipedia — 28 Gun Bad Boy",
+"says": "Produced at the Machine Room Studio, Manchester; two Akai S950 samplers, Akai MPC60 sequencer, Soundtracs Quartz desk, Lexicon units, two Yamaha SBX90s, Atari ST running Cubase; JD-800 on Disneyband; released on Juice Box; mixtape concept."
+}
+]
+},
+"rec-papua": {
+"machines": [
+"atari-cubase"
+],
+"other_gear": [
+"C-Lab Creator on Atari 1040",
+"Roland JX-3P (lead synth, played live)",
+"Fostex 3070 compressor (mix)",
+"Akai S612/S900/S950/S1000 samplers (studio)",
+"Soundtracs 28-input desk",
+"DAT recorders"
+],
+"samples": [
+{
+"what": "bassline",
+"from": "Meat Beat Manifesto — Radio Babylon"
+},
+{
+"what": "female vocal (SOS gives conflicting accounts: cassette sample vs. session singer)",
+"from": "Dead Can Dance — Dawn of the Iconoclast"
+},
+{
+"what": "ambient sounds",
+"from": "a TV nature documentary about Papua New Guinea"
+},
+{
+"what": "one-note harp, strings chord, flute, breakbeats, tribal percussion",
+"from": "various unidentified sources"
+}
+],
+"studio": "Earthbeat, Dollis Hill, north-west London",
+"note": "Built in a closet-sized studio beside a tube station; the Meat Beat Manifesto bassline was chopped in late and the lead played on a JX-3P.",
+"sources": [
+{
+"url": "https://www.soundonsound.com/techniques/classic-tracks-future-sound-london-papua-new-guinea",
+"title": "Sound on Sound — Classic Tracks: FSOL 'Papua New Guinea'",
+"says": "Earthbeat studio in Dollis Hill; Atari 1040 running Creator; JX3P top line played live; Fostex 3070; Meat Beat Manifesto 'Radio Babylon' bassline; Dead Can Dance 'Dawn of the Iconoclast' vocal (conflicting account of a male session vocalist); nature documentary audio captured to DAT; S612/S1000/S950/S900 in studio."
+}
+]
+},
+"rec-spiraltribe": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "Released anonymously on Big Life in 1992; the crew spent the advance turning a trailer into mobile 'Studio 23' with Crystal Distortion and 69db.",
+"sources": [
+{
+"url": "https://sp23.org/?p=6267",
+"title": "SP23 — Forward the Revolution",
+"says": "First released 1992 on Big Life Records; agreed no one would put their name to the track; money to the collective."
+},
+{
+"url": "https://direct.djmag.com/features/history-spiral-tribe-uks-most-notorious-travelling-sound-system",
+"title": "DJ Mag — The history of Spiral Tribe",
+"says": "Big Life deal advance spent on a trailer mobile studio 'Studio 23' with Crystal Distortion and 69db; Youth gave them run of his Brixton studio; delay on the kick for their rolling sound."
+}
+]
+},
+"rec-jupiterjazz": {
+"machines": [
+"tr909",
+"tb303"
+],
+"other_gear": [
+"Roland Juno synthesizer (model unspecified)"
+],
+"samples": [],
+"studio": null,
+"note": "Insomniac describes TR-909 beats, a heavily tweaked TB-303 acid line and a Juno on top, dating it to autumn 1992 after UR's original trio split.",
+"sources": [
+{
+"url": "https://www.insomniac.com/?p=67998",
+"title": "Insomniac — Galaxy 2 Galaxy 'Jupiter Jazz'",
+"says": "Beats from a Roland TR-909, heavily tweaked acid line from a Roland TB-303, a Juno synthesizer on top; first UR recording after the original group split; released fall 1992 on Underground Resistance."
+}
+]
+},
+"rec-bubble": {
+"machines": [
+"tr808"
+],
+"other_gear": [
+"Korg Mono/Poly"
+],
+"samples": [],
+"studio": null,
+"note": "Mad Mike Banks attributes Drexciya's sound to the Korg Mono/Poly and the 808's clock timing (said of the project generally, not this EP specifically).",
+"sources": [
+{
+"url": "https://daily.redbullmusicacademy.com/2017/06/drexciya-infinite-journey-to-inner-space",
+"title": "Red Bull Music Academy Daily — Infinite Journey to Inner Space: The Legacy of Drexciya",
+"says": "Mike Banks: 'The Korg Mono/Poly and the use of clock timing from the 808'; vocals distorted with voice processing; recorded live; Bubble Metropolis title track features a woman's voice giving docking instructions."
+}
+]
+},
+"rec-m4": {
+"machines": [],
+"other_gear": [
+"Speck Electronics SSM-24 mixing console"
+],
+"samples": [],
+"studio": "Moritz von Oswald's studio, Berlin (unnamed)",
+"note": "Von Oswald's Speck SSM-24 console served Basic Channel, Maurizio and Rhythm & Sound; the records were cut in Detroit and pressed in the US.",
+"sources": [
+{
+"url": "https://mixmag.net/read/buy-the-original-studio-mixer-of-moritz-von-oswald-news",
+"title": "Mixmag — Buy 'the original studio mixer' of Moritz von Oswald",
+"says": "Speck Electronics SSM-24 console used for Basic Channel, Rhythm & Sound, Maurizio and Recomposed productions."
+},
+{
+"url": "https://www.redbullmusicacademy.com/lectures/moritz-von-oswald-early-morning-freestyles",
+"title": "RBMA Lecture — Moritz von Oswald",
+"says": "People came to Berlin to record at his place; all Basic Channel and Maurizio records were cut in Detroit and manufactured in the States."
+}
+]
+},
+"rec-magneze": {
+"machines": [],
+"other_gear": [
+"Korg Poly-800",
+"Cheetah drum machine (MD16)",
+"Seck mixing desk",
+"DAT (live takes)"
+],
+"samples": [],
+"studio": "Mick Harris's home studio, Moseley, Birmingham",
+"note": "Surgeon walked to Napalm Death's Mick Harris's house with a Poly-800 on his back and a Cheetah drum machine; Harris passed the tracks to Regis.",
+"sources": [
+{
+"url": "https://ra.co/reviews/23874",
+"title": "Resident Advisor — Rewind: Surgeon – Surgeon EP",
+"says": "Recorded at Mick Harris's little studio in his house in Moseley with a Korg Poly-800 and Cheetah drum machine; Harris played tracks to Karl O'Connor (Regis) who released them as the first techno EP on Downwards; 1994 debut."
+},
+{
+"url": "https://forcedexposure.com/Catalog/surgeon-surgeon-ep-2014-remaster-12-/SRX.001EP.html",
+"title": "Forced Exposure — Surgeon EP (2014 remaster)",
+"says": "Tracklist: Magneze, Move, Atol, Argon; originally recorded ~20 years earlier; transferred from original DAT tapes."
+},
+{
+"url": "https://www.soundonsound.com/people/generations-part2-surgeon",
+"title": "Sound on Sound — Generations Part 2: Surgeon",
+"says": "Early setup: Korg Poly 800, Cheetah MD16 drum machine sending MIDI clock, Seck desk, live takes to DAT; mostly borrowed gear before Tresor deal."
+}
+]
+},
+"rec-freekfunk": {
+"machines": [
+"tr808"
+],
+"other_gear": [
+"guitar through filters and effect pedals"
+],
+"samples": [
+{
+"what": "choir samples",
+"from": "unidentified"
+}
+],
+"studio": null,
+"note": "The title track rides a looped, distorted TR-808 kick with guitar noise pushed through pedals and filters; Hulal is credited for recording.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Freek_Funk",
+"title": "Wikipedia — Freek Funk",
+"says": "Written and produced by Slater with Hulal aiding recording; title track has a looped, distorted Roland TR-808 kick, choir samples, guitar through filters and pedals; released by NovaMute 20 October 1997."
+}
+]
+},
+"rec-accident": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "field recordings",
+"from": "Sven Väth's own recordings made in Goa"
+}
+],
+"studio": null,
+"note": "Väth and Ralf Hildenbeutel wrote the album on the spot in the studio, weaving in field recordings Väth had just brought back from Goa.",
+"sources": [
+{
+"url": "https://threadsradio.com/ralf-hildenbeutel-eye-q-earth-nation-and-frankfurts-90s-trance-scene/",
+"title": "Threads Radio — Ralf Hildenbeutel: Eye Q, Earth Nation and Frankfurt's 90s trance scene",
+"says": "Sven returned from Goa with field recordings used on the album; they wrote in the studio; work was 50/50."
+},
+{
+"url": "https://en.wikipedia.org/wiki/Accident_in_Paradise",
+"title": "Wikipedia — Accident in Paradise",
+"says": "Produced by Sven Väth and Ralf Hildenbeutel; released 1992 on Eye Q; 'Coda' uses only flute and harpsichord."
+}
+]
+},
+"rec-extra": {
+"machines": [
+"korg-m1"
+],
+"other_gear": [
+"Roland JD-800 (main synth on Jelly Tones)",
+"Korg DDD-1 drum machine",
+"Roland S-330 sampler",
+"Nord Lead (mentioned)"
+],
+"samples": [],
+"studio": "Ken Ishii's bedroom, Tokyo (original 'Extra' / Jelly Tones; not the Luke Slater remix)",
+"note": "Ishii made Jelly Tones in a Tokyo bedroom on a JD-800, M1, DDD-1 and S-330, deliberately without the 909/808/303/Akai gear techno producers used.",
+"sources": [
+{
+"url": "https://www.beatportal.com/articles/1286056-when-techno-became-a-global-language-the-legacy-of-ken-ishiis-jelly-tones",
+"title": "Beatportal — The Legacy of Ken Ishii's 'Jelly Tones'",
+"says": "Main synth Roland JD-800; also Korg M1, second-hand Korg DDD-1, Roland S-330 sampler; mentions a Nord Lead; no 909/808/303/Akai; recorded in his bedroom in a tiny Tokyo apartment. Nothing on the Luke Slater remix."
+}
+]
+},
+"rec-closer": {
+"machines": [
+"cubase-vst"
+],
+"other_gear": [],
+"samples": [],
+"studio": "The Building, Ontario, Canada",
+"note": "Hawtin says Closer was his experiment in working entirely in the box with Pro Tools, and that he got lost in the machine.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Closer_(Plastikman_album)",
+"title": "Wikipedia — Closer (Plastikman album)",
+"says": "Studio: The Building (Ontario, Canada); all tracks written and produced by Richie Hawtin."
+},
+{
+"url": "https://www.musicradar.com/news/tech/richie-hawtin-talks-old-school-techno-and-thinking-inside-the-box-612342",
+"title": "MusicRadar — Richie Hawtin talks old-school techno and thinking inside the box",
+"says": "Moved 'on-board' for Closer in 2003, experimenting with working in the box; Pro Tools as editing tool; main studio in Windsor, Ontario."
+}
+]
+},
+"rec-twinsvirgo": {
+"machines": [],
+"other_gear": [
+"analogue gear and modular synthesizer systems (unspecified)"
+],
+"samples": [],
+"studio": null,
+"note": "The album began as a live set for Japan's Labyrinth festival; Dozzy and Neel recorded material for more than ten albums, sleeping in the studio.",
+"sources": [
+{
+"url": "https://dekmantel.com/editorial/voices-from-the-lake-with-every-listen-a-new-discovery",
+"title": "Dekmantel — Voices From The Lake: With Every Listen, a New Discovery",
+"says": "Analogue gear and modular systems; project started as a live set for Labyrinth festival; recorded material for more than ten albums; Neel slept in the studio."
+}
+]
+},
+"rec-ghettokraviz": {
+"machines": [],
+"other_gear": [
+"microphone (improvised vocal)"
+],
+"samples": [],
+"studio": "Home recording, Moscow (2011)",
+"note": "Kraviz improvised the vocal straight into a mic over loops from a stalled remix, deliberately breaking vocal-recording rules in a Dance Mania spirit.",
+"sources": [
+{
+"url": "https://es-mx.ra.co/reviews/24049",
+"title": "Resident Advisor — Rewind: Nina Kraviz – Ghetto Kraviz",
+"says": "Recorded in Moscow in 2011; began as a remix, she recorded a quick vocal over loops; 'against the science of recording vocals'; inspired by ghetto house/Dance Mania; Rekids REKIDS059."
+}
+]
+},
+"rec-doppler": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "No Doppler-specific gear found; de Witte speaks only generally of the TB-303's importance to her techno sound and of mixing analog and digital gear.",
+"sources": [
+{
+"url": "https://soundcloud.com/stories/post/charlotte-de-witte-interview-sound-advice",
+"title": "SoundCloud Stories — Charlotte de Witte interview: Sound Advice",
+"says": "Works off a variety of analog and digital gear; discusses the importance of the Roland TB-303 in her techno sound; Native Instruments plug-ins for ambient vocalisations. Not about Doppler specifically."
+}
+]
+},
+"rec-999": {
+"machines": [
+"elektron",
+"tr8"
+],
+"other_gear": [
+"Cyclone TT-303 (303 clone)",
+"Abstrakt Instruments Avalon (303 clone)",
+"reverb and delay effects"
+],
+"samples": [],
+"studio": null,
+"note": "The duo's 2018 setup was almost all Elektron (Analog Rytm, Analog Four, Octatrack) plus 303 clones — general setup, not stated for 300000003 specifically.",
+"sources": [
+{
+"url": "https://dancingastronaut.com/2018/11/techno-tuesday-diving-world-improv-techno-999999999/",
+"title": "Dancing Astronaut — Techno Tuesday: diving into the world of improv techno with 999999999",
+"says": "Use almost all Elektron (Analog Rytm, Analog Four, Octatrack); acid from 303 clones Cyclone TT303, Roland TB-03 and Avalon; effects just reverb and delay."
+}
+]
+},
+"rec-ifeelit": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "soulful vocal snippets",
+"from": "unidentified"
+}
+],
+"studio": "Carl Cox's home studio (per Frankie Bones' account of a December 1989 visit)",
+"note": "Frankie Bones says Cox had just built a home studio in December 1989 and produced the track for Perfecto weeks later; it reached UK #23.",
+"sources": [
+{
+"url": "https://www.insomniac.com/?p=67586",
+"title": "Insomniac — Carl Cox 'I Want You (Forever)'",
+"says": "Bones visited Cox's new home recording studio December 1989; Cox produced the track for Perfecto weeks later; acid bassline, breakbeat, sampled soulful vocals; UK #23 September 1991; Cox's first single."
+},
+{
+"url": "https://909originals.com/2018/02/26/this-video-for-carl-coxs-i-want-you-forever-is-so-1991-it-hurts/",
+"title": "909originals — This video for Carl Cox's I Want You (Forever) is so 1991 it hurts",
+"says": "Released on Paul Oakenfold's Perfecto; slamming breakbeats, vocal snippets and Mentasm-style rave stabs."
+}
+]
+},
+"set-packard": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": "Packard Plant, Detroit",
+"note": "Vice lists Hawtin's 1994 Spastik parties at the Packard Plant as among the first public parties of the early underground Detroit scene.",
+"sources": [
+{
+"url": "https://news.vice.com/en/article/jp4ey3/five-more-unbelievable-places-richie-hawtin-has-played",
+"title": "Vice/Thump — Five more unbelievable places Richie Hawtin has played",
+"says": "Packard Plant, Detroit, 1994: Hawtin's Spastik events were some of the first public parties of the early underground Detroit scene; no gear named."
+}
+]
+},
+"set-cocoon": {
+"machines": [
+"technics"
+],
+"other_gear": [],
+"samples": [],
+"studio": "Amnesia, Ibiza",
+"note": "Väth plays vinyl exclusively on Technics turntables, which he calls his instruments; his rider demands at least two spare decks and a calibrated tonearm.",
+"sources": [
+{
+"url": "https://mixmag.net/feature/sven-vath-technics-vinyl-turntables-cocoon-ibiza",
+"title": "Mixmag — 100% vinyl: Why Sven Väth will never abandon turntables",
+"says": "Loyal Technics devotee; plays vinyl exclusively; rider asks for minimum two spare turntables; team checks tonearm calibration. General setup, not Amnesia-specific."
+}
+]
+},
+"set-exhibitionist": {
+"machines": [
+"tr909"
+],
+"other_gear": [
+"turntable setup (model unspecified)"
+],
+"samples": [],
+"studio": null,
+"note": "The 2004 DVD was shot with a couple of cameras on a turntable setup, with multi-angle options and a solo 'TR-909 Workout' mix.",
+"sources": [
+{
+"url": "https://nl.ra.co/reviews/18029",
+"title": "Resident Advisor — Jeff Mills: Exhibitionist 2 (review, with notes on the 2004 original)",
+"says": "Original 2004 DVD used a couple of cameras and a turntable setup; disc two includes Mix 3 'TR-909 Workout'; Exhibitionist 2 uses three CDJs and a 909."
+}
+]
+},
+"set-rage": {
+"machines": [],
+"other_gear": [
+"Turbosound 'Blue Box' speaker system (bass bins on floor, mids/tops flown from balcony)"
+],
+"samples": [],
+"studio": "Heaven, Charing Cross, London",
+"note": "Rage ran Thursdays at Heaven from October 1988 on a Turbosound rig; Fabio and Grooverider layered breaks over records, playing no A-sides or vocals.",
+"sources": [
+{
+"url": "https://daily.redbullmusicacademy.com/2015/07/nightclubbing-fabio-and-grooverider-rage",
+"title": "Red Bull Music Academy Daily — Nightclubbing: Fabio and Grooverider's Rage",
+"says": "Weekly Thursday party from October 1988 at Heaven; 1,000 upstairs, 1,200 downstairs; Blue Box Turbo Sound system with bass bins on the floor; fizzled by 1993; they put bits of breaks on top of tunes; 'No A-sides, no vocals'."
+}
+]
+},
+"rec-midnightmadness": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "Wikipedia lists 'Midnight Madness' as a 2011 Detroit Techno Militia release on an outside label, catalogue CSI 003; no production details found.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Detroit_Techno_Militia",
+"title": "Wikipedia — Detroit Techno Militia",
+"says": "Lists 'CSI 003 Detroit Techno Militia Midnight Madness, 2011' among releases on other labels."
+}
+]
+},
+"set-dtm5x5": {
+"machines": [],
+"other_gear": [
+"five analogue turntables"
+],
+"samples": [],
+"studio": "Made In Detroit Stage, Movement festival, Detroit",
+"note": "DTM 5x5, formed summer 2007, put five DJs on five analogue turntables at once; their 2011 Movement set is cited as a festival highlight.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Detroit_Techno_Militia",
+"title": "Wikipedia — Detroit Techno Militia",
+"says": "DTM 5x5 first techno group with five DJs performing together on five analog turntables; formed summer 2007; 2011 Made In Detroit Stage set at Movement one of the most memorable."
+}
+]
+},
+"rec-incredible": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "the beat",
+"from": "M-Beat — Style"
+},
+{
+"what": "lyrics",
+"from": "General Levy — Mad Them (vocal adapted from his 'The Wickedest General')"
+},
+{
+"what": "sped-up sampled breakbeat",
+"from": "unidentified"
+}
+],
+"studio": null,
+"note": "M-Beat was 19 when he made it, reusing the beat from his own 'Style' under a live-voiced General Levy; released on Renk in 1994.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Incredible_(M-Beat_song)",
+"title": "Wikipedia — Incredible (M-Beat song)",
+"says": "Produced by M-Beat; uses the beat from M-Beat's 'Style'; lyrics from Levy's 'Mad Them', adapted from 'The Wickedest General'; NME: sped-up sampled breakbeat over start/stop ragga rhythm; Renk Records 1994."
+},
+{
+"url": "https://direct.djmag.com/longreads/m-beat-return-jungle-pioneer",
+"title": "DJ Mag — M-Beat: return of a jungle pioneer",
+"says": "First entered his father's studio at 15; made 'Incredible' at 19."
+}
+]
+},
+"rec-innercitylife": {
+"machines": [
+"akai-s1000"
+],
+"other_gear": [
+"Akai S3200 samplers",
+"Eventide effects",
+"Oberheim",
+"E-mu Vintage Keys",
+"MESA editing software"
+],
+"samples": [
+{
+"what": "sample",
+"from": "Ike Turner — Funky Mule (1969, A Black Man's Soul)"
+}
+],
+"studio": "Moving Shadow HQ — Rob Playford's semi-detached house, Stevenage (Timeless album sessions)",
+"note": "Goldie says 'Timeless' came first and 'Inner City Life' grew from it; the team used Akai S3200s before anyone else, cutting audio in MESA.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Inner_City_Life",
+"title": "Wikipedia — Inner City Life",
+"says": "Written by Goldie with Rob Playford; samples Ike Turner 'Funky Mule' from A Black Man's Soul (1969); Diane Charlemagne vocals; Goldie: Timeless was made first and Inner City Life came out of it."
+},
+{
+"url": "https://musicradar.com/news/30-electronic-albums-30-years",
+"title": "MusicRadar — 30 of the best electronic albums of the past 30 years (and how they were made)",
+"says": "Timeless made at Moving Shadow HQ, Rob Playford's semi-detached house in Stevenage; Akai S3200s and S1000s; Eventide, Oberheim, Vintage Keys; MESA files used to cut audio."
+}
+]
+},
+"rec-circles": {
+"machines": [
+"atari-cubase",
+"akai-s1000"
+],
+"other_gear": [
+"Allen & Heath mixing desk (second-hand)",
+"Fender Rhodes 73"
+],
+"samples": [
+{
+"what": "sample",
+"from": "Bob James — Westchester Lady"
+}
+],
+"studio": "Adam F's bedroom studio 'Bible Studios', London",
+"note": "Adam F heard Bob James's 'Westchester Lady' while driving, rushed back upstairs and reworked the track around it as the final element.",
+"sources": [
+{
+"url": "https://www.musicradar.com/news/tech/classic-album-adam-f-on-colours-594465",
+"title": "MusicRadar — Classic album: Adam F on Colours",
+"says": "Circles samples Bob James 'Westchester Lady', added last after he heard it while driving; Fender Rhodes on the album."
+},
+{
+"url": "https://15questions.net/interview/adam-f-about-colours-career-and-re-creating-classic/",
+"title": "15 Questions — Adam F about Colours, career and re-creating a classic",
+"says": "Atari 1040 STE with Notator as DAW, Akai S1000 sampler, second-hand Allen & Heath desk, Fender Rhodes, in his bedroom studio 'Bible Studios' in London."
+}
+]
+},
+"rec-nitenichiryu": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "No gear or sample sources found; Photek describes his method as using sonics rather than instruments and misusing samplers beyond their intended purpose.",
+"sources": [
+{
+"url": "https://djmag.com/longreads/solid-gold-how-beat-science-photeks-modus-operandi-redefined-drum-bass",
+"title": "DJ Mag — How beat science: Photek's Modus Operandi redefined drum & bass",
+"says": "Photek: 'a style of using sonics to make music, as opposed to using instruments'; Ni-Ten-Ichi-Ryu cited as a 1995-era 12-inch; no gear or samples named."
+},
+{
+"url": "https://linenoise.substack.com/p/fine-margins-of-genius-a-photek-interview",
+"title": "Line Noise — Fine margins of genius: A Photek interview, part one",
+"says": "Describes misusing a sampler from its intended purpose; no specific gear named."
+}
+]
+},
+"rec-thenine": {
+"machines": [
+"atari-cubase"
+],
+"other_gear": [
+"E-mu Ultra sampler (quoted as 'EMU 16400 Ultra')",
+"analogue mixing desk",
+"Mackie monitors",
+"external distortion pedals and compressors"
+],
+"samples": [
+{
+"what": "unspecified samples from old music and films",
+"from": "unidentified"
+}
+],
+"studio": null,
+"note": "Fresh and Maldini wrote it in about a day, finishing in one sitting because their analogue, Atari-Cubase setup couldn't save and recall a mix.",
+"sources": [
+{
+"url": "https://breakbeat.co.uk/features/the-story-behind-the-nine",
+"title": "Breakbeat.co.uk — The story behind The Nine",
+"says": "Written by Fresh and Maldini; heart was an EMU Ultra sampler; sequenced on an Atari ST with an early Cubase; live analogue desk, Mackies, distortion pedals and compressors; reece bassline; finished in one sitting of about a day."
+}
+]
+},
+"rec-breakitoff": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "the track's drum & bass backing",
+"from": "Adam F — Circles (1995)"
+}
+],
+"studio": null,
+"note": "PinkPantheress wrote and produced it while at university, with Adam F himself credited as co-writer, co-producer and mixer on his own 'Circles' sample.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Break_It_Off_(PinkPantheress_song)",
+"title": "Wikipedia — Break It Off (PinkPantheress song)",
+"says": "Samples Adam F's 'Circles'; written and produced by PinkPantheress and Adam F; written while she was at university; Stuart Hawkes mastering."
+},
+{
+"url": "https://www.npr.org/2021/10/15/1046460096/pinkpantheress-reimagines-garage-music-for-a-new-generation",
+"title": "NPR — PinkPantheress reimagines garage music for a new generation",
+"says": "Recorded at home; 'Break It Off' samples Adam F's 'Circles'; early on she took existing beats and adjusted them rather than building from scratch."
+}
+]
+},
+"rec-stella": {
+"machines": [],
+"other_gear": [
+"Oberheim Xpander"
+],
+"samples": [],
+"studio": "A small studio inside a rock venue that was a former cinema (where all Dance 2 Trance and Jam & Spoon records were made)",
+"note": "Jam El Mar credits the Oberheim Xpander's resonating filter modulation for Stella's signature sound; released on R&S shortly before their 'Age of Love' remix.",
+"sources": [
+{
+"url": "https://www.15questions.net/interview/fifteen-questions-interview-jam-el-mar/",
+"title": "15 Questions — Jam El Mar interview",
+"says": "Oberheim Xpander made the characteristic sounds for 'Stella' and the 'Age Of Love' remix; studio was a little room in a rock venue that was a former cinema."
+},
+{
+"url": "https://www.insomniac.com/?p=42165",
+"title": "Insomniac — Jam & Spoon 'Stella'",
+"says": "Markus Löffel and Rolf Elmer formed Jam & Spoon in 1991; Stella issued on R&S shortly before their Age of Love remix."
+}
+]
+},
+"rec-cafedelmar": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "main melody (interpolated, not stated as a literal sample)",
+"from": "Wim Mertens — Struggle for Pleasure (1983)"
+}
+],
+"studio": null,
+"note": "Kid Paul heard Wim Mertens' piece at Café del Mar; he and Cosmic Baby worked Sept–Dec 1992, and Eye Q allegedly released it without permission.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Caf%C3%A9_del_Mar_(song)",
+"title": "Wikipedia — Café del Mar (song)",
+"says": "Written by Paul Schmitz-Moormann and Harald Blüchel; Eye Q EYE Q 001; main melody based on Wim Mertens 'Struggle for Pleasure'."
+},
+{
+"url": "https://insomniac.com/?p=41054",
+"title": "Insomniac — Energy 52 'Café del Mar'",
+"says": "Berlin duo Cosmic Baby and Paul M; melody from Mertens' 1983 piece heard at Café del Mar; worked September–December 1992, finished January 1993; one mix per producer per side; Eye Q released it without permission, court withdrawal; Superstition reissue 1997."
+}
+]
+},
+"rec-lsd": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "vocal sample",
+"from": "BBC documentary 'The Rise and Fall of LSD'"
+}
+],
+"studio": null,
+"note": "The track's spoken vocal is lifted from a BBC documentary on LSD; the album was released by Dragonfly Records on 16 October 1995.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Twisted_(Hallucinogen_album)",
+"title": "Wikipedia — Twisted (Hallucinogen album)",
+"says": "'LSD' contains a vocal sample from the BBC documentary The Rise And Fall Of LSD; produced by Simon Posford; Dragonfly Records; released 16 October 1995."
+}
+]
+},
+"rec-binaryfinary": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "Recorded in 1997 and first issued that year on Aquarius with 'Zapya' on the flip; the 1998 Positiva release reached UK #24.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/1998_(instrumental)",
+"title": "Wikipedia — 1998 (instrumental)",
+"says": "Composed by Matt Laws and Stuart Matheson; recorded 1997; first released 1997 on Aquarius; Positiva 1998 release peaked UK #24; remixed repeatedly as '1999', '2000'."
+}
+]
+},
+"rec-communication": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": "Armin van Buuren's parents' home, Leiden",
+"note": "Armin produced it alone in two days in April 1999 at his parents' house in Leiden, citing Speedy J's 'Ginger' album as inspiration.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Communication_(Armin_van_Buuren_song)",
+"title": "Wikipedia — Communication (Armin van Buuren song)",
+"says": "Studio: Armin's parents' home, Leiden; produced alone for 2 days; recorded April 1999; inspired by Speedy J's Ginger; Cyber Records 19 July 1999; UK #18 in 2000."
+},
+{
+"url": "https://www.soundonsound.com/people/armin-van-buuren",
+"title": "Sound on Sound — Armin van Buuren",
+"says": "General late-90s setup: big mixer, Akai S3000s and an Atari; TX81Z used on 'Blue Fear'. Does not mention Communication."
+}
+]
+},
+"rec-adagio": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "melody, moved from 3/4 to 4/4 (reworked, not a recording sample)",
+"from": "Samuel Barber — Adagio for Strings"
+}
+],
+"studio": null,
+"note": "A trance remake shifting Barber's melody from 3/4 into 4/4, released January 2005 on Magik Muzik/Black Hole as the fourth single from 'Just Be'.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Adagio_for_Strings_(Ti%C3%ABsto_song)",
+"title": "Wikipedia — Adagio for Strings (Tiësto song)",
+"says": "Trance remake of Barber's composition taking its melody from 3/4 to 4/4; Tiësto producer; Magik Muzik / Black Hole; released 31 January 2005 as fourth single from Just Be."
+},
+{
+"url": "https://www.musicradar.com/artists/william-orbit-ferry-corsten-adagio-for-strings",
+"title": "MusicRadar — William Orbit, Ferry Corsten and Adagio for Strings",
+"says": "Context only: Ferry Corsten's 1999 remix of Orbit's version relied heavily on the Roland JP-8000; Tiësto and Oakenfold later released their own takes."
+}
+]
+},
+"rec-onandon": {
+"machines": [
+"tr808",
+"tb303"
+],
+"other_gear": [
+"Korg Poly-61"
+],
+"samples": [
+{
+"what": "bassline (re-played 'with a twist', not a recording sample)",
+"from": "Player [1] — Space Invaders"
+}
+],
+"studio": null,
+"note": "Saunders made it on a TR-808, TB-303 and Korg Poly-61, reworking the Player [1] 'Space Invaders' bassline; it was mastered at Omni's studio.",
+"sources": [
+{
+"url": "https://daily.redbullmusicacademy.com/2017/03/jesse-saunders-interview",
+"title": "Red Bull Music Academy Daily — Interview: Jesse Saunders",
+"says": "Made with a TR-808, TB-303 and a Korg Poly 61; bassline his own twist on Player [1] 'Space Invaders'; mastered at Omni's studio."
+}
+]
+},
+"rec-jackyourbody": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "bassline (borrowed/re-played)",
+"from": "First Choice — Let No Man Put Asunder (Shep Pettibone 1983 remix)"
+},
+{
+"what": "'jack' vocal sample",
+"from": "unidentified"
+}
+],
+"studio": null,
+"note": "Hurley composed and produced it himself; Insomniac says the kick sounds like a 909 and the rubber-band bassline came from Pettibone's First Choice remix.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Jack_Your_Body",
+"title": "Wikipedia — Jack Your Body",
+"says": "Composed and produced by Hurley; Rolling Stone notes its 'Roland-centered electronic spine'; Hardfloor's Bondzio on the sampled 'jack'; label Underground; UK #1 January 1987."
+},
+{
+"url": "https://www.insomniac.com/?p=40688",
+"title": "Insomniac — Steve 'Silk' Hurley 'Jack Your Body'",
+"says": "Kick sounds 'like a Roland 909 kick drum'; rubber-band bassline borrowed from Shep Pettibone's 1983 remix of First Choice 'Let No Man Put Asunder'; vocal samples."
+}
+]
+},
+"rec-dafunk": {
+"machines": [
+"tb303"
+],
+"other_gear": [
+"Homework-era studio list (not Da Funk-specific): Roland Juno-106, MC-202, MKS-80, E-mu SP-1200, Akai and E-mu samplers, Roland S-760, Mackie MS1202 mixer, Mac running Emagic MicroLogic, Alesis 3630 and Microverb II, Panasonic SV-3700 DAT"
+],
+"samples": [],
+"studio": null,
+"note": "The bassline came from a pattern Bangalter had already programmed on his 1993-bought TB-303; the lead began as a siren sound.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Da_Funk",
+"title": "Wikipedia — Da Funk",
+"says": "Bass composed on a Roland TB-303 bought by Bangalter in 1993, chosen from patterns already programmed; riff began as a siren sound; G-funk and Moroder influences; Soma May 1995, Virgin 1997."
+},
+{
+"url": "https://www.musicradar.com/news/daft-punk-homework-25-synths-drum-machines-sampler",
+"title": "MusicRadar — Daft Punk's Homework turns 25: the gear and production techniques",
+"says": "Homework gear: TB-303, Juno-106, MC-202, MKS-80, Roland TR drum machines, E-mu SP1200, Akai/E-mu samplers, S-760, Mackie MS1202, Mac with MicroLogic, Alesis units, DAT; no Da Funk-specific gear; MS-20 lead speculation not on the list."
+}
+]
+},
+"rec-gabriel": {
+"machines": [],
+"other_gear": [
+"Fender Rhodes",
+"eight-track recorders (for other unreleased tracks)"
+],
+"samples": [],
+"studio": "Roy Davis Jr.'s home studio, next to his garage (Chicago)",
+"note": "The 'Live Garage' mix is named for Davis's studio beside his garage; Everett sang and played Rhodes, and the beat nods to 'Funkanova'.",
+"sources": [
+{
+"url": "https://ra.co/reviews/34764",
+"title": "Resident Advisor — Rewind: Roy Davis Jr. & Peven Everett – Gabriel",
+"says": "Davis's studio was next to his garage, hence 'Live Garage' mix; Everett visited Chicago from New York and played the Rhodes; beat inspired by Wood, Brass & Steel 'Funkanova'; Large Records 1996, later XL; Everett disputes credit."
+}
+]
+},
+"set-oakenfold-goa": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "film-score snippets and dialogue (incl. the 'Tears in Rain' speech)",
+"from": "Vangelis — Blade Runner soundtrack"
+},
+{
+"what": "film-score snippets",
+"from": "Wojciech Kilar pieces"
+}
+],
+"studio": null,
+"note": "Broadcast on Radio 1's Essential Mix on 18 December 1994; Oakenfold built it as a cinematic story, layering Blade Runner and Kilar score snippets.",
+"sources": [
+{
+"url": "https://909originals.com/2019/12/18/it-was-a-sound-and-style-that-had-never-been-heard-before-909originals-catches-up-with-paul-oakenfold-on-the-25th-anniversary-of-the-goa-mix/",
+"title": "909originals — Paul Oakenfold on the 25th anniversary of the Goa Mix",
+"says": "Aired early hours 18 December 1994 on Radio 1 Essential Mix; long preparation, arranged in key to tell a story; 'based around a cinematic experience'; peppered with film snippets incl. Wojciech Kilar and Blade Runner 'Tears in Rain'; Vangelis tracks in tracklist."
+}
+]
+},
+"set-alfredo": {
+"machines": [
+"technics"
+],
+"other_gear": [
+"Numark beat counter",
+"earlier weight-adjusted decks without reliable pitch control"
+],
+"samples": [],
+"studio": "Amnesia, Ibiza",
+"note": "Amnesia only got Technics 1200s in summer 1985 or '86; before that Alfredo mixed by ear on weight-adjusted decks without reliable speed control.",
+"sources": [
+{
+"url": "https://testpressing.org/magazine/alfredo-an-interview",
+"title": "Test Pressing — Alfredo: An Interview",
+"says": "Early decks had hanging weights and no speed adjustment; 'in the summer of 85 or 86, we bought (Technics) 1200s'; bought a Numark machine to count beats; resident from 1984; best years 84–86; Sade, Talking Heads, Prince, U2, Waterboys."
+}
+]
+},
+"rec-tee": {
+"machines": [],
+"other_gear": [
+"Synthanorma Sequenzer (custom 32-step/16-channel analog sequencer by Matten & Wiechers)",
+"Vako Orchestron"
+],
+"samples": [],
+"studio": "Kling Klang Studio, Düsseldorf (mixed partly at Record Plant, Los Angeles)",
+"note": "Kraftwerk listened to real trains at railway bridges, found the rhythm undanceable and altered it slightly for the track.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Trans-Europe_Express_(album)",
+"title": "Trans-Europe Express (album) - Wikipedia",
+"says": "recorded at Kling Klang Studio, Düsseldorf; mixing sessions in Los Angeles (Record Plant) partly dropped; custom Matten & Wiechers 32-step 16-channel sequencer; band studied train sounds at railway bridges"
+},
+{
+"url": "https://factmag.com/2017/06/24/kraftwerk-gear-synths-drum-machines",
+"title": "FACT - Kraftwerk gear: synths, drum machines",
+"says": "Synthanorma Sequenzer first used on Trans Europe Express; Vako Orchestron used on the 1977 album"
+}
+]
+},
+"rec-noufos": {
+"machines": [
+"tr909"
+],
+"other_gear": [
+"Sequential Circuits DrumTraks",
+"Roland MSQ-700 sequencer",
+"Sequential Circuits Six-Trak",
+"Sequential Circuits Pro-One",
+"Lexicon PCM-60 reverb",
+"Tascam 8-track tape"
+],
+"samples": [],
+"studio": "Metroplex Soundworks, Atkins's home studio in his grandmother's basement",
+"note": "A DrumTraks drove the TR-909 over MIDI and the whole record was mixed at home to a small Tascam two-track.",
+"sources": [
+{
+"url": "https://www.soundonsound.com/techniques/classic-tracks-model-500-no-ufos",
+"title": "Sound on Sound - Classic Tracks: Model 500 'No UFO's'",
+"says": "TR-909 + DrumTraks for drums, MSQ-700 sequencing Six-Trak bass, Pro-One stabs, Lexicon PCM-60, Tascam 8-track; home recording in grandmother's basement studio"
+}
+]
+},
+"rec-voodooray": {
+"machines": [
+"tr808",
+"sh101",
+"tb303",
+"akai-s900"
+],
+"other_gear": [
+"Yamaha SPX90",
+"Lexicon reverb",
+"Tascam 4-track",
+"Fostex 16-track"
+],
+"samples": [
+{
+"what": "the 'voodoo rage' / 'later!' spoken words (cut short to 'voodoo ray')",
+"from": "Peter Cook & Dudley Moore — Bo Duddley sketch, Derek & Clive (Live) (1976)"
+}
+],
+"studio": "Moonraker Studios, Manchester (home demo on Tascam 4-track first)",
+"note": "The title came from a Derek & Clive sample of 'voodoo rage' that ran out of the S900's 12 seconds of memory.",
+"sources": [
+{
+"url": "https://www.soundonsound.com/techniques/classic-tracks-guy-called-gerald-voodoo-ray",
+"title": "Sound on Sound - Classic Tracks: A Guy Called Gerald 'Voodoo Ray'",
+"says": "TR-808 as main sequencer, two SH-101s, TB-303 counter riff, Akai S900 with ~12 s sample time, SPX90, Lexicon; Derek & Clive sample; Moonraker Studios Manchester; engineer Lee Monteverde; singer Nicola Collier"
+}
+]
+},
+"rec-testone": {
+"machines": [
+"atari-cubase"
+],
+"other_gear": [
+"quarter-inch tape editing"
+],
+"samples": [],
+"studio": null,
+"note": "Testone was the first record Barratt or Kirk had made on an Atari; they spent a week on it and fell back on tape editing.",
+"sources": [
+{
+"url": "https://daily.redbullmusicacademy.com/2016/12/richard-barratt-interview",
+"title": "RBMA Daily - Richard Barratt interview",
+"says": "first record either made on an Atari computer; Robert Gordon helped with the computer; week-long session; quarter-inch tape cutting; first proper Warp release"
+}
+]
+},
+"rec-energyflash": {
+"machines": [
+"tr909",
+"tr707"
+],
+"other_gear": [],
+"samples": [
+{
+"what": "reversed string section (Attack Magazine's attribution)",
+"from": "Orbital — Chime (1989)"
+},
+{
+"what": "whispered voice ('likely', per Attack Magazine)",
+"from": "101 — Rock to the Beat"
+}
+],
+"studio": "Beltram's basement (home studio)",
+"note": "Beltram, aged 19, built it in his basement on a dry TR-909 beat with TR-707 rimshots, writing, producing and mixing it alone.",
+"sources": [
+{
+"url": "https://articles.roland.com/?p=7356",
+"title": "Roland - Sound Behind the Song: 'Energy Flash'",
+"says": "dry TR-909 pattern, TR-707 percussion incl. intro rimshot; produced in his basement at 19; wrote/produced/mixed himself; R&S 1990"
+},
+{
+"url": "https://www.attackmagazine.com/?p=79387",
+"title": "Attack Magazine - Deconstructed: Joey Beltram 'Energy Flash'",
+"says": "TR-909 main beat, TR-707 rimshot; reversed strings sampled from Orbital 'Chime'; whisper 'likely' from 101 'Rock to the Beat'"
+}
+]
+},
+"rec-anasthasia": {
+"machines": [
+"alpha-juno"
+],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "Wikipedia lists Anasthasia among tracks built on the Alpha Juno 'hoover' patch that Eric Persing created and Mentasm popularised.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Hoover_sound",
+"title": "Hoover sound - Wikipedia",
+"says": "Anasthasia listed as a track using the hoover sound; hoover originated on Roland Alpha Juno (Eric Persing patch), first commercial use Second Phase 'Mentasm' 1991"
+},
+{
+"url": "https://909originals.com/2017/12/16/12-tunes-of-christmas-incredible-intros-9-t99-anasthasia-1991/",
+"title": "909originals - T99 Anasthasia",
+"says": "produced by Patrick De Meyer and Olivier Abbeloos"
+}
+]
+},
+"rec-raggatip": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "reggae vocal and piano",
+"from": "Jah Screechy — Walk and Skank"
+},
+{
+"what": "drums (via a Kevin Saunderson track, per DJ Mag)",
+"from": "Kid 'n Play — Gittin' Funky (UK Remix)"
+}
+],
+"studio": null,
+"note": "Planned as a B-side; the Jah Screechy record was found in an old school friend's collection after a Yellowman track failed.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/On_a_Ragga_Tip",
+"title": "On a Ragga Tip - Wikipedia",
+"says": "samples Jah Screechy 'Walk and Skank' and Kid 'n Play 'Gittin' Funky (UK Remix)'; produced by Slipmatt and Lime"
+},
+{
+"url": "https://www.djmag.com/features/how-sl2s-ragga-tip-became-90s-uk-rave-cultures-most-enduring-anthem",
+"title": "DJ Mag - How SL2's 'On A Ragga Tip' became 90s UK rave culture's most enduring anthem",
+"says": "vocals/piano sampled from Walk & Skank; drums from a Kevin Saunderson tune / Kid 'n Play; planned as B-side; Akai S1000 bought only in 1993"
+}
+]
+},
+"rec-somejustice": {
+"machines": [],
+"other_gear": [
+"two Commodore Amiga 500 computers"
+],
+"samples": [
+{
+"what": "vocal",
+"from": "Ce Ce Rogers — Someday"
+}
+],
+"studio": null,
+"note": "Aphrodite and Claudio Giussani made it on two Amiga 500s, landing them a feature in Amiga Format magazine.",
+"sources": [
+{
+"url": "https://thereflex.nl/posts/urban-shakedown-some-justice-1992",
+"title": "The Reflex - Urban Shakedown | Some Justice (1992)",
+"says": "two Amiga 500 computers used; Amiga Format article"
+},
+{
+"url": "https://linenoise.substack.com/p/10-songs-to-know-aphrodite-jump-up",
+"title": "Line Noise - 10 songs to know Aphrodite",
+"says": "vocal borrowed from Ce Ce Rogers 'Someday'; two Amiga computers; Micky Finn collaborator"
+}
+]
+},
+"rec-valley": {
+"machines": [],
+"other_gear": [
+"Future Music magazine cover-CD drum samples"
+],
+"samples": [
+{
+"what": "'long dark tunnel' spoken phrase about an out-of-body experience",
+"from": "BBC documentary series Q.E.D. (1988 episode)"
+},
+{
+"what": "most of the drum sounds",
+"from": "free cover CD with Future Music magazine, February 1993"
+}
+],
+"studio": null,
+"note": "Recorded in four hours, with drum sounds lifted from a Future Music cover CD and the vocal from a BBC Q.E.D. documentary.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Valley_of_the_Shadows",
+"title": "Valley of the Shadows - Wikipedia",
+"says": "recorded in four hours; drums from Future Music Feb 1993 cover CD; vocal from BBC Q.E.D. 1988; produced by Andy C and Ant Miles"
+}
+]
+},
+"rec-hardcoreuproar": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "crowd noise recorded live at a Hardcore Uproar rave in Blackburn, including Suddi Raval shouting 'yeah'",
+"from": "field recording at a Blackburn rave (c. 1990)"
+}
+],
+"studio": null,
+"note": "The rave promoters allowed the crowd recording only if the track took their crew's name, replacing the working title 'Can You Feel the Beat'.",
+"sources": [
+{
+"url": "https://www.theransomnote.com/?p=17866",
+"title": "The Ransom Note - Gone To A Rave #47: Suddi Raval & Hardcore Uproar",
+"says": "crowd recorded at a rave for a sample; Suddi's 'yeah' shout on the intro; original title Can You Feel the Beat; name demanded by Hardcore Uproar crew; voiceover styled on Stu Allen's radio show"
+},
+{
+"url": "https://www.skiddle.com/news/all/Suddi-Raval-Interview/31378/",
+"title": "Skiddle - Suddi Raval Interview",
+"says": "crowd recorded at a Blackburn rave; promoters' naming condition; about six tunes recorded"
+}
+]
+},
+"rec-sonicdestroyer": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "X-101 was an Underground Resistance-related project of Mike Banks, Jeff Mills and Robert Hood and became Tresor Records' first release.",
+"sources": [
+{
+"url": "https://909originals.com/2017/12/19/12-tunes-of-christmas-incredible-intros-6-x-101-sonic-destroyer-1991/",
+"title": "909originals - X-101 Sonic Destroyer [1991]",
+"says": "UR-related project of Banks, Mills and Hood; first release on Tresor Records"
+}
+]
+},
+"rec-bugbassbin": {
+"machines": [],
+"other_gear": [
+"analog synthesizers (unspecified)"
+],
+"samples": [],
+"studio": null,
+"note": "Carl Craig paired a breakbeat with analogue synths; DJs span the 33rpm 12-inch at 45, feeding early drum & bass.",
+"sources": [
+{
+"url": "https://www.insomniac.com/?p=41718",
+"title": "Insomniac - Innerzone Orchestra 'Bug in the Bassbin'",
+"says": "breakbeat with analog synthesizers; played at 45rpm by DJs; Planet E; licensed to Mo' Wax 1996"
+}
+]
+},
+"rec-minimalnation": {
+"machines": [
+"tr909",
+"sh101",
+"juno60",
+"dx7"
+],
+"other_gear": [
+"Roland Alpha Juno 2",
+"Yamaha QY pocket sequencer",
+"four-channel mixer",
+"borrowed sampler and keyboard from Blake Baxter"
+],
+"samples": [],
+"studio": "Hood's apartments in Detroit, including a West Side basement (fall 1993 to winter 1994)",
+"note": "Made on roughly $100 pawn-shop gear with a 909 bought from Drexciya's Gerald Donald; no reverb or compression was used until Ron Murphy mastered it.",
+"sources": [
+{
+"url": "https://daily.redbullmusicacademy.com/2019/05/robert-hood-minimal-nation-track-by-track",
+"title": "RBMA Daily - The Making of Minimal Nation",
+"says": "TR-909 bought from Gerald Donald; SH-101 and Juno 2 secondhand; Juno 106 on 'Acrylic' as a 303 substitute; DX100 borrowed from Jeff Mills; Yamaha QY sequencer; pawn-shop gear; no effects; Detroit West Side basement; Ron Murphy mastering added reverb"
+}
+]
+},
+"rec-marusha": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "A happy-hardcore cover of the Wizard of Oz ballad released on Low Spirit, the label co-founded by Westbam and Klaus Jankuhn.",
+"sources": [
+{
+"url": "https://iumag.co.uk/marusha-the-ambassador-of-raveland/",
+"title": "IU Mag - Marusha: The Ambassador of Raveland",
+"says": "cover of the Wizard of Oz ballad; released via Low Spirit Records (founded by Westbam, Klaus Jankuhn, DJ Dick et al.); no. 3 in Germany; on album Raveland"
+}
+]
+},
+"rec-red2": {
+"machines": [
+"atari-cubase"
+],
+"other_gear": [
+"Ensoniq sampler (EPS, 2MB)",
+"Alesis Quadraverb",
+"Tascam keyboard mixer",
+"Alesis 3630 compressor",
+"Tannoy Mercury monitors",
+"mastered to TDK MA-XG cassette on a Technics deck"
+],
+"samples": [],
+"studio": "Two basement flats on Brighton seafront (home studio)",
+"note": "Red 2 was built around delays Clarke programmed on a £325 Alesis Quadraverb and mastered to a chrome cassette on a Technics deck.",
+"sources": [
+{
+"url": "https://www.discopogo.co/posts/dave-clarke-how-i-made-the-red-series",
+"title": "Disco Pogo - Dave Clarke: How I Made The Red Series",
+"says": "A-sides recorded in two Brighton seafront basement flats; Quadraverb delays 'what Red Two is all about'; Ensoniq sampler; Atari 1040 with C-Lab Notator; Tascam mixer; mastered to TDK cassette; title from The Elect 'I'm House'"
+},
+{
+"url": "https://djmag.com/content/game-changers-dave-clarke-red-1-3",
+"title": "DJ Mag - Game Changers: Dave Clarke 'Red 1-3'",
+"says": "Red series recorded in his Brighton bedroom; Ensoniq sampler, Tascam desk, Roland JD-800, Atari 1040 (Cubase or Notator), Alesis MidiVerb II/Quadraverb; Red 3 used a TR-727; first records recorded to cassette"
+}
+]
+},
+"rec-thebells": {
+"machines": [
+"tr909"
+],
+"other_gear": [
+"mixing desk driven into the red for kick distortion"
+],
+"samples": [],
+"studio": null,
+"note": "Mills made The Bells in 1994 and played it off a custom 13-inch acetate for two years before releasing it on Purpose Maker.",
+"sources": [
+{
+"url": "https://xlr8r.com/?p=113950",
+"title": "XLR8R - Jeff Mills: For Whom the Bells Toll",
+"says": "made in 1994; released spring 1996 on Purpose Maker; previously played from a custom 13-inch record"
+},
+{
+"url": "https://attackmagazine.com/?p=134433",
+"title": "Attack Magazine - Deconstructed: Jeff Mills 'The Bells'",
+"says": "drums from a TR-909 with the kick distorted by driving the desk into the red; arranged by riding the mixer; played live for two years before release; Attack gives release year as 1997"
+}
+]
+},
+"rec-pullover": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "A 1993 Sound on Sound profile lists Speedy J's Rotterdam studio (TR-909/808/727, TB-303, SH-101, Akai S1100, Cubase) but does not tie any item to Pullover.",
+"sources": [
+{
+"url": "https://www.muzines.co.uk/articles/warp-factor-8/7642",
+"title": "mu:zines - Warp Factor 8 (Speedy J profile, 1993)",
+"says": "Pullover first released on Plus 8 compilation From Our Minds To Yours Vol 1; studio gear list (TR-909, TR-808, TR-727, TB-303, SH-101, MC-202, Juno-106, Akai S1100/S3000, Cubase) not linked to specific tracks"
+}
+]
+},
+"rec-drumcodes1": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "Beyer says his 1990s Drumcode records mixed Reese basslines, hoovers and jungle sounds into techno.",
+"sources": [
+{
+"url": "https://djmag.com/longreads/adam-beyer-technos-uncompromising-kingpin",
+"title": "DJ Mag - Adam Beyer: Techno's uncompromising kingpin",
+"says": "Drumcode launched 1996; first release on Direct Drive at 18; '90s records used Reese bassline, hoovers and jungle sounds; worked at Planet Rhythm record store with Cari Lekebusch"
+}
+]
+},
+"rec-dexter": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "looped rain sound effect",
+"from": "unidentified sound-effects recording"
+}
+],
+"studio": null,
+"note": "Attack describes the FM-style lead, a one-note sampled bass through delay, a rain loop and an 'aa-ah' vocal; released on Playhouse's Alcachofa.",
+"sources": [
+{
+"url": "https://www.attackmagazine.com/technique/the-breakdown/ricardo-villalobos-dexter/",
+"title": "Attack Magazine - The Breakdown: Ricardo Villalobos 'Dexter'",
+"says": "from 2003 album Alcachofa on Playhouse; 129 bpm; FM-synthesis-style lead; rain loop sample; vocal sample of unknown origin; reissued 2015 on Sei Es Drum; no gear named"
+}
+]
+},
+"rec-translation": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "NASA radio chatter (on A1 'Barrier')",
+"from": "NASA mission audio"
+}
+],
+"studio": null,
+"note": "RA's review notes NASA radio chatter opening 'Barrier' and sketch-like five-minute tracks with no breakdowns; catalogue OTON052, reviewed September 2011.",
+"sources": [
+{
+"url": "https://ra.co/reviews/9735",
+"title": "Resident Advisor - Marcel Dettmann: Translation EP review",
+"says": "Ostgut Ton OTON052, released September 2011; 'Barrier' opens with NASA radio chatter; no gear named"
+}
+]
+},
+"rec-whytheyhide": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "looped Pras vocal line, truncated so it sounds like the title",
+"from": "Fugees — How Many Mics (The Score, 1996)"
+}
+],
+"studio": null,
+"note": "The hook is a pitched, gravelly loop of Pras from the Fugees' 'How Many Mics', an album from Blawan's mother's collection.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Why_They_Hide_Their_Bodies_Under_My_Garage%3F",
+"title": "Why They Hide Their Bodies Under My Garage? - Wikipedia",
+"says": "samples Pras vocal from Fugees 'How Many Mics'; from mother's favourite album The Score; released 25 Aug 2012 on Hinge Finger; no gear named"
+}
+]
+},
+"rec-qualm": {
+"machines": [],
+"other_gear": [
+"a couple of drum machines and one synthesiser (models not named)"
+],
+"samples": [],
+"studio": null,
+"note": "Hauff returned to a stripped-back setup of a couple of drum machines and a synth, jamming live on the machines, for Qualm.",
+"sources": [
+{
+"url": "https://www.theskinny.co.uk/clubs/interviews/helena-hauff-on-qualm-rising-fame-and-leicester",
+"title": "The Skinny - Helena Hauff on Qualm",
+"says": "'a couple of drum machines and a synthesiser'; stripped-back minimal approach; Bunker Records influence"
+},
+{
+"url": "https://xlr8r.com/news/helena-hauff-details-new-album-qualm/",
+"title": "XLR8R - Helena Hauff Details New Album Qualm",
+"says": "Ninja Tune, 3 August 2018; 'jamming on her machines'; few instruments and layers"
+}
+]
+},
+"rec-hypnotized": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "Hypnotized was released 28 June 2019 on Pan-Pot's Second State label (not Lenske), with a Joyhauser remix.",
+"sources": [
+{
+"url": "https://djmag.com/news/amelie-lens-announces-peak-time-techno-ep-%E2%80%98hypnotized%E2%80%99-listen",
+"title": "DJ Mag - Amelie Lens announces peak-time techno EP 'Hypnotized'",
+"says": "released via Pan-Pot's Second State, out 28 June 2019; two originals plus Joyhauser remix; no gear"
+}
+]
+},
+"rec-ihm": {
+"machines": [
+"eurorack"
+],
+"other_gear": [
+"Sequential Prophet 6",
+"Jomox Xbase 999",
+"Jomox Xbase 09",
+"Electro-Harmonix Hot Tubes",
+"Dreadbox Epsilon",
+"Erica Synths modules",
+"Trogotronic 669/679"
+],
+"samples": [],
+"studio": null,
+"note": "A 2019 studio profile lists his Prophet 6, Jomox Xbase 999, Erica Synths modular and tube pedals, though not tied to Daydream specifically.",
+"sources": [
+{
+"url": "https://xlr8r.com/features/studio-essentials-i-hate-models/",
+"title": "XLR8R - Studio Essentials: I Hate Models (June 2019)",
+"says": "general studio gear: Prophet 6, Jomox Xbase 999 and 09, EHX Hot Tubes, Dreadbox Epsilon, Erica Synths modular, Trogotronic; voice on nearly every track; Daydream not mentioned"
+}
+]
+},
+"set-musicinstitute": {
+"machines": [],
+"other_gear": [
+"basic sound system installed by Carlos Oxholm with Ashly crossover",
+"fog machine and strobe"
+],
+"samples": [],
+"studio": "Music Institute, 1315 Broadway, Detroit (May 1988 – November 1989)",
+"note": "The booth was a glass-fronted office 15 feet above the floor; regulars remember May working the mixer so hard the veins rose on his forearms.",
+"sources": [
+{
+"url": "https://daily.redbullmusicacademy.com/2017/05/music-institute-nightclubbing",
+"title": "RBMA Daily - Nightclubbing: The Music Institute",
+"says": "1315 Broadway; open May 1988–Nov 1989; founders Baker, Chez Damier, Alton Miller; residents Derrick May and D-Wynn; Oxholm sound system; booth 15 ft up; May played Lil Louis 'French Kiss'; 808 State 'Pacific State' closed his last night"
+}
+]
+},
+"set-de9": {
+"machines": [
+"tr909",
+"finalscratch"
+],
+"other_gear": [
+"three turntables",
+"effects box (model not named)"
+],
+"samples": [],
+"studio": "The Building (per Wikipedia infobox, Decks EFX & 909)",
+"note": "Decks, EFX & 909 used three turntables, an effects box and a TR-909; DE9 added Final Scratch to blend vinyl with digital files.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Decks,_EFX_%26_909",
+"title": "Decks, EFX & 909 - Wikipedia",
+"says": "three turntables, an effects box and a Roland TR-909; studio 'The Building'"
+},
+{
+"url": "https://www.avclub.com/richie-hawtin-de9-closer-to-the-edit-1798197036",
+"title": "AV Club - Richie Hawtin: DE9: Closer To The Edit",
+"says": "DE9 used Final Scratch to mix vinyl and digital files; '31 clusters of tracks'; Decks used up to four tracks at once"
+}
+]
+},
+"set-coxspace": {
+"machines": [],
+"other_gear": [
+"vinyl only (turntable model not named by sources)"
+],
+"samples": [],
+"studio": "Space, Ibiza – Discoteca room, 20/21 September 2016",
+"note": "Cox played vinyl for the first time in a decade for a nine-hour-plus finale, ending with Ce Ce Rogers 'Someday' and The Doors 'The End'.",
+"sources": [
+{
+"url": "https://djmag.com/news/carl-cox-play-vinyl-final-music-revolution-closing",
+"title": "DJ Mag - Carl Cox to play vinyl at final Music Is Revolution closing",
+"says": "20 Sept 2016; all night in the Discoteca; vinyl for first time in a decade; end of 15-year residency"
+},
+{
+"url": "https://dancingastronaut.com/2016/09/check-last-10-tracks-carl-coxs-historic-space-ibiza-finale-set/",
+"title": "Dancing Astronaut - The last 10 tracks Carl Cox played at Space finale",
+"says": "9+ hour set performed entirely on vinyl; last tracks incl. Joe Smooth 'Promised Land', Ce Ce Rogers 'Someday', The Doors 'The End'"
+}
+]
+},
+"set-kraviz": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": "Dekmantel Festival, Amsterdam (Selectors stage 2017)",
+"note": "Mixmag says Kraviz never prepares sets and opened Dekmantel's 2017 Selectors stage with three hours of disco rarities including Charlie's 'Spacer Woman'.",
+"sources": [
+{
+"url": "https://mixmag.net/feature/nina-kraviz-is-our-dj-of-the-year",
+"title": "Mixmag - Nina Kraviz is our DJ of the Year (Dec 2017)",
+"says": "never prepares sets; 2017 Dekmantel Selectors stage three-hour disco set; played Charlie 'Spacer Woman'; no equipment named"
+}
+]
+},
+"set-sunrise5000": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": "White Waltham airfield, Berkshire (unlicensed Sunrise 'Midsummer Night's Dream' party, June 1989)",
+"note": "Sun and Mail reporters infiltrated the White Waltham party, dubbed 'Ecstasy Airport'; Colston-Hayter escaped prosecution by calling it a members-only private party.",
+"sources": [
+{
+"url": "https://mixmag.net/read/the-great-british-freak-out-news",
+"title": "Mixmag - The Great British Freak-Out",
+"says": "June 1989 Sun/Daily Mail journalists infiltrated Sunrise rave at White Waltham airstrip, Berkshire; Sun called it 'Ecstasy Airport'; Colston-Hayter branded 'Acid's Mr Big'; Tintin Chambers on pigeon-heads press story"
+},
+{
+"url": "https://en.wikipedia.org/wiki/Sunrise_%26_Back_to_the_Future",
+"title": "Sunrise & Back to the Future - Wikipedia",
+"says": "Sunrise: A Midsummer Night's Dream at White Waltham Airfield aka 'Ecstasy Airport'; unlicensed; Colston-Hayter avoided prison by claiming membership cards made it a private party"
+}
+]
+},
+"rec-ebeneezer": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "spoken intro 'A great philosopher once wrote...'",
+"from": "Malcolm McDowell in O Lucky Man! (1973 film)"
+}
+],
+"studio": null,
+"note": "Written by Colin Angus and Mr C in 1992, remixed by the Beatmasters, and opened with a Malcolm McDowell line from O Lucky Man!",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Ebeneezer_Goode",
+"title": "Ebeneezer Goode - Wikipedia",
+"says": "written by Angus and West; produced by The Shamen, remixed by the Beatmasters; intro sample from O Lucky Man!; released 24 Aug 1992 on One Little Indian"
+},
+{
+"url": "https://purplerevolver.com/music/new-music-releases/how-we-made-ebeneezer-goode-by-the-shamen/",
+"title": "Purple Revolver - How we made Ebeneezer Goode",
+"says": "Colin did chords, synths and songwriting; Mr C wrote rap lyrics, drums and rhythm; recorded 1992"
+}
+]
+},
+"set-rip": {
+"machines": [],
+"other_gear": [
+"Shock soundsystem (second room)"
+],
+"samples": [],
+"studio": "RIP (Revolution In Progress), warehouse/rehearsal space on Clink Street, Bankside, Southwark, London, 1988",
+"note": "Run by Paul Stone and Lu Vukovic; Mr C, Eddie Richards and Colin Faver played Chicago-leaning sets until dancers broke through a wall.",
+"sources": [
+{
+"url": "https://mixmag.net/feature/deep-inside",
+"title": "Mixmag - Deep inside (Clink Street / RIP feature)",
+"says": "RIP run by Paul Stone and Lu Vukovic; Clink Street warehouse in Bankside; residents Mr C, Evil Eddie Richards, Colin Faver, Kid Batchelor; Shock soundsystem with Ashley Beedle in other room; Chicago-oriented; ended autumn 1988"
+},
+{
+"url": "https://909originals.com/2018/09/11/postcards-from-88-richard-west-mr-c/",
+"title": "909originals - Postcards from 88: Mr C",
+"says": "Mr C DJing weekly at RIP in Clink Street, London Bridge, summer 1988"
+}
+]
+},
+"rec-mrkirk": {
+"machines": [],
+"other_gear": [
+"Roland TR-626 drum machine",
+"Yamaha SY22 synth (bassline)",
+"Emagic Creator sequencer (Atari)",
+"sampler (model not named)"
+],
+"samples": [
+{
+"what": "intro",
+"from": "Extra T's — E.T. Boogie (1982)"
+},
+{
+"what": "main breakbeat",
+"from": "an Isley Brothers track (per RA)"
+},
+{
+"what": "'Mr Kirk, your son is dead' anti-drug spoken-word",
+"from": "a record from Marc Mac's collection (source not named by these pages)"
+}
+],
+"studio": "Gus Lawrence's bedroom studio (box room), London",
+"note": "Gus Lawrence picked SY22 bass notes by whichever made his box room shake most, and the TR-626 patterns were transferred to Emagic Creator.",
+"sources": [
+{
+"url": "https://ra.co/reviews/33882",
+"title": "Resident Advisor - Rewind: 4hero 'Mr. Kirk's Nightmare'",
+"says": "E.T. Boogie intro sample; Isley Brothers breakbeat; Yamaha SY22 bassline in resonant box room; Roland TR-626 drum programming; MIDI transferred to Emagic Creator; first on Combat Dancin' EP"
+},
+{
+"url": "https://magazine.waxpoetics.com/rediscovery/4hero-mr-kirk",
+"title": "Wax Poetics - 4hero 'Mr Kirk's Nightmare' rediscovery",
+"says": "vocal sample from records Marc brought round; Gus borrowed Marc's drum machine and bought a sampler; bedroom studio; Iain Bardouille did bassline; Marc wanted vocal removed"
+}
+]
+},
+"rec-originalnuttah": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "intro dialogue/sample",
+"from": "Goodfellas (1990 film)"
+},
+{
+"what": "backing riddim",
+"from": "Shy FX — Gangsta Kid"
+}
+],
+"studio": "a studio in Victoria, London (booked for a day; vocals done in two takes)",
+"note": "UK Apachi sang six-year-old lyrics over Shy FX's 'Gangsta Kid' riddim in two takes at a Victoria studio, then left after an hour.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Original_Nuttah",
+"title": "Original Nuttah - Wikipedia",
+"says": "vocals over Shy FX's 'Gangsta Kid'; Goodfellas sample and horns on intro; studio in Victoria; two takes; SOUR Records 1994"
+},
+{
+"url": "https://magazine.waxpoetics.com/rediscovery/original-nuttah",
+"title": "Wax Poetics - Original Nuttah rediscovery",
+"says": "Goodfellas sample intro; Gangsta Kid riddim; Victoria studio booked all day, Apachi left after an hour; two takes; dubplates cut for DJs"
+}
+]
+},
+"rec-music": {
+"machines": [
+"tr808"
+],
+"other_gear": [],
+"samples": [
+{
+"what": "looped melodic lick in the intro",
+"from": "Abstract Minds — Future"
+},
+{
+"what": "chopped breakbeats (unnamed)",
+"from": "unspecified"
+}
+],
+"studio": null,
+"note": "The Vinyl Factory credits the sub bass to a TR-808 and the grainy looped intro lick to Abstract Minds' 'Future'.",
+"sources": [
+{
+"url": "https://www.thevinylfactory.com/features/an-introduction-to-ltj-bukem-in-10-records",
+"title": "The Vinyl Factory - An introduction to LTJ Bukem in 10 records",
+"says": "'Music (Happy, Raw)' Good Looking 1993; TR-808 sub bass; looped lick from Abstract Minds 'Future'; snappy break edits"
+}
+]
+},
+"rec-supersharpshooter": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "vocal samples",
+"from": "Method Man and LL Cool J recordings (titles not named by sources)"
+},
+{
+"what": "'70s James Brown synths' (per Trench)",
+"from": "James Brown recording (not named)"
+}
+],
+"studio": null,
+"note": "Credited by both sources to DJ Zinc, fusing half-time hip-hop drums and Method Man/LL Cool J vocal samples with jungle breaks.",
+"sources": [
+{
+"url": "https://dnbdojo.co.uk/?p=3940",
+"title": "DNB Dojo - Classic Track: Ganja Kru 'Super Sharp Shooter'",
+"says": "Zinc's track; samples from LL Cool J and Method Man; half-time intro into double-time breaks"
+},
+{
+"url": "https://trenchtrenchtrench.com/features/tiger-style-how-ganja-records-foregrounded-jungles-hip-hop-dna",
+"title": "Trench - Tiger Style: How Ganja Records foregrounded jungle's hip-hop DNA",
+"says": "DJ Zinc made it; Method Man vocals and '70s James Brown synths; Ganja Kru = Hype, Pascal, Zinc"
+}
+]
+},
+"rec-wormhole": {
+"machines": [
+"bass-station",
+"cubase-vst"
+],
+"other_gear": [
+"Mackie 32/8 mixer",
+"two E-mu E6400 Ultra samplers",
+"OSCar",
+"Sequential Pro-One",
+"Prophet 5",
+"PPG Wave 2.1",
+"Korg Z1",
+"Kawai K1r",
+"Alesis Quadraverb",
+"TC Electronic Finalizer/Fireworx",
+"Focusrite Green EQ/compressor",
+"Yamaha NS-10M and Dynaudio BM15 monitors"
+],
+"samples": [
+{
+"what": "half the drums",
+"from": "Optical's own recordings of drummers he knew"
+},
+{
+"what": "the other half of the drums, resampled many times and never sped up",
+"from": "1970s funk records (unnamed)"
+}
+],
+"studio": "Optical's custom-built studio in Rob Playford's Moving Shadow offices, St Anne's Court, Soho, London (mastered by Stuart Hawkes, Metropolis)",
+"note": "Optical says none of Wormhole's drums were sped up: live drummers and funk breaks were cut to single hits and reprogrammed at original pitch.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Wormhole_(album)",
+"title": "Wormhole (album) - Wikipedia",
+"says": "recorded 1997–98 in Optical's studio at Moving Shadow offices, Soho; gear list incl. Mackie 32/8, two E6400 Ultras, Novation Basstation, OSCar, Pro-One, Prophet 5, PPG Wave; computer listed as 'Apple LCII running Cubase SX 1' (implausible pairing, reported as stated); mastered by Stuart Hawkes at Metropolis; drums half live, half funk records, never sped up"
+},
+{
+"url": "https://www.juno.co.uk/junodaily/?p=175187",
+"title": "Juno Daily - I Was There: heading down the Wormhole",
+"says": "first-floor studio at St Anne's Court, Soho, at Rob Playford's invitation; summer 1998; drums from live drummers and old funk records, never sped up; Headhunters CD as reference"
+}
+]
+},
+"rec-holdyourcolour": {
+"machines": [],
+"other_gear": [
+"Steinberg Nuendo (Swire's DAW since Nuendo 1, per 2008 SOS; not explicitly tied to this album)"
+],
+"samples": [
+{
+"what": "dialogue on 'Prelude', 'Slam', 'Axle Grinder'",
+"from": "The Twilight Zone (TV)"
+},
+{
+"what": "vocal on 'Fasten Your Seatbelt'",
+"from": "Buju Banton & Cocoa Tea — Go Home Soundboy; Doctor Octopus clip from Spider-Man 2"
+},
+{
+"what": "Richard Burton narration and a drum sample on 'Another Planet'",
+"from": "Jeff Wayne — The War of the Worlds; Megadeth — Skin o' My Teeth"
+},
+{
+"what": "sample on 'Girl in the Fire'",
+"from": "Black Sheep — The Choice Is Yours (Revisited) (1991)"
+},
+{
+"what": "title-track opening vocal",
+"from": "Xygen (Swire/McGrillen's former metal band) — Lycaeum"
+}
+],
+"studio": "mastered by Stuart Hawkes at Metropolis, London (recording studio not named)",
+"note": "Recorded 2003–05 and mastered at Metropolis; the title track opens with a vocal lifted from Swire and McGrillen's old metal band Xygen.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Hold_Your_Colour",
+"title": "Hold Your Colour - Wikipedia",
+"says": "recorded 2003–2005; producers Swire, McGrillen, Harding; mastered by Stuart Hawkes at Metropolis; sample list (Twilight Zone, Buju Banton, War of the Worlds, Megadeth, Black Sheep, Xygen); Breakbeat Kaos 25 July 2005"
+},
+{
+"url": "https://www.soundonsound.com/people/pendulum",
+"title": "Sound on Sound - Pendulum (June 2008)",
+"says": "Swire switched from Logic to Nuendo around Nuendo 1; 2008 studio in a London suburban house; Prophet 10, Andromeda, OSCar; article is about In Silico, not Hold Your Colour"
+}
+]
+},
+"rec-wecameinpeace": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "First issued in 1990 on the promotional 'Dance 2 Trance' single on Suck Me Plasma, by Rolf Ellmer and DJ Dag Lerner.",
+"sources": [
+{
+"url": "https://www.wikiwand.com/en/articles/Dance_2_Trance",
+"title": "Dance 2 Trance - Wikipedia (via Wikiwand)",
+"says": "duo Rolf Ellmer and DJ Dag Lerner; 1990 promo single on Suck Me Plasma containing 'Dance 2 Trance' and 'We Came In Peace'; no gear or samples given"
+}
+]
+},
+"rec-acperience": {
+"machines": [
+"tb303",
+"tr909",
+"tr808"
+],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "Four tracks of interlocking TB-303s over TR-909 percussion with 808-style kick and cowbells, released as the Hardtrance Acperience EP (Harthouse HH008, 1992).",
+"sources": [
+{
+"url": "https://www.melodicdistraction.com/backtracks-hardfloor-acperience-1",
+"title": "Melodic Distraction - Backtracks: Hardfloor 'Acperience 1'",
+"says": "EP dominated by 303 synths; TR-909 hats, rimshots, claps, crashes; booming 808-like kick layered with dry 909 kick; 808 cowbells; Harthouse HH008 1992; Bondzio and Zenker in Düsseldorf; at least three 303s tweaked live"
+},
+{
+"url": "https://en.wikipedia.org/wiki/Hardfloor",
+"title": "Hardfloor - Wikipedia",
+"says": "group known for TB-303, 'using up to six of these machines at once' (not tied to this track); Hardtrance Acperience EP 1992 on Harthouse"
+},
+{
+"url": "https://www.bonedo.de/artikel/eine-liebeserklaerung-an-die-roland-tb-303",
+"title": "Bonedo - Eine Liebeserklärung an die Roland TB-303",
+"says": "Acperience (1992) by Bondzio and Zenker; Hardfloor toured with three 303s in the 1990s"
+}
+]
+},
+"rec-forangel": {
+"machines": [
+"juno60",
+"tr808"
+],
+"other_gear": [
+"Roland JX-1"
+],
+"samples": [],
+"studio": null,
+"note": "Van Dyk told DJ Mag in 2024 he used a Juno-60, Juno-106, JX-1 and TR-808; it debuted on his 1994 MFS album 45 RPM.",
+"sources": [
+{
+"url": "https://www.wikiwand.com/en/articles/For_an_Angel",
+"title": "For an Angel - Wikipedia (via Wikiwand)",
+"says": "per August 2024 DJ Mag interview, produced with Roland Juno-60, Juno-106, JX-1 and TR-808; released 1994 on 45 RPM (MFS); 1998 E-Werk Remix on Deviant"
+},
+{
+"url": "https://mixmagde.com/read/paul-van-dyk-celebrates-the-30th-anniversary-of-his-iconic-track-for-an-angel-music",
+"title": "Mixmag Germany - Paul van Dyk celebrates 30th anniversary of 'For An Angel'",
+"says": "first released 1994 on debut album 45 RPM; 1998 E-Werk Remix named after the Berlin club where he was resident"
+}
+]
+},
+"rec-offshore": {
+"machines": [],
+"other_gear": [
+"Technics hi-fi amp and hi-fi shop speakers (mixing)",
+"analogue synths that drifted out of tune (unnamed)"
+],
+"samples": [],
+"studio": null,
+"note": "Bracegirdle mixed Offshore on a Technics hi-fi amp and shop speakers, calling it a downtempo breakbeat record about the Isle of Wight.",
+"sources": [
+{
+"url": "https://musicradar.com/news/chicane-interview",
+"title": "MusicRadar - Chicane interview",
+"says": "Offshore 'mixed on a Technics hi-fi amp and a pair of regular hi-fi shop speakers'; analogue gear floated out of tune; album used an old Casio and S750 sampler (not tied to this track)"
+},
+{
+"url": "https://909originals.com/2025/11/25/chicane-chats-to-909originals-about-his-thirty-year-career-in-music/",
+"title": "909originals - Chicane chats about his thirty-year career",
+"says": "early classics made 'on an Atari ST in 1996' (not clearly tied to Offshore); Offshore was a downtempo breakbeat record about the Isle of Wight"
+}
+]
+},
+"rec-universalnation": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "spoken line 'proceed with visual attack formation'",
+"from": "The Last Starfighter (1984 film)"
+}
+],
+"studio": null,
+"note": "Started in late 1997 as an untitled B-side to 'Prisma'; Bonzai made it the A-side and Dierickx named it after Love Parade's themes.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Universal_Nation",
+"title": "Universal Nation - Wikipedia",
+"says": "Mike Dierickx wrote/produced; recorded 1997, released 1998 on Bonzai; began as B-side to 'Prisma'; title from 1997 Love Parade; samples The Last Starfighter; no gear named"
+}
+]
+},
+"rec-airwave": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "Debut release of Benno de Goeij (production) and Piet Bervoets (DJ), the first Dutch track to top the European Dance Chart.",
+"sources": [
+{
+"url": "https://edmidentity.com/?p=24647",
+"title": "EDM Identity - Rank 1 'Airwave'",
+"says": "debut release of Benno De Goeij and Piet Bervoets, 1999; Benno led production; UK Top 10; first Dutch track to top the European Dance Chart; no gear"
+}
+]
+},
+"rec-sunandmoon": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": null,
+"note": "Written by Grant, McGuinness, Siljamäki, Justine Suissa and Sorcha Shepherd, sung by Richard Bedford, released 21 March 2011 on Anjunabeats.",
+"sources": [
+{
+"url": "https://wiki.riteme.site/wiki/Sun_%26_Moon_(Above_%26_Beyond_song)",
+"title": "Sun & Moon (Above & Beyond song) - Wikipedia mirror",
+"says": "writers Jono Grant, Tony McGuinness, Paavo Siljamaki, Justine Suissa, Sorcha Shepherd; vocalist Richard Bedford; Anjunabeats; released 21 March 2011 as lead single from Group Therapy; no gear or studio"
+}
+]
+},
+"rec-moveyourbody": {
+"machines": [],
+"other_gear": [
+"Yamaha 284 synthesizer (as named by Wikipedia)",
+"sequencer",
+"drum machine (unnamed)",
+"mixer"
+],
+"samples": [],
+"studio": null,
+"note": "Jefferson played the piano part at 40-45 bpm into a sequencer bought on post-office credit and sped it to 120; Ron Hardy mixed it.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Move_Your_Body_(Marshall_Jefferson_song)",
+"title": "Move Your Body (Marshall Jefferson song) - Wikipedia",
+"says": "$9,000 of gear on credit incl. a 'Yamaha 284 synthesizer', keyboard, sequencer, drum machine, mixer; piano recorded at 40-45 bpm then sped up; session about 5-6 hours with Thomas Carr and Rudy Forbes; Ron Hardy mixed; Curtis McClain uncredited vocals; Trax TX117 June 1986"
+},
+{
+"url": "https://www.inkl.com/news/nobody-believed-i-sang-it-how-move-your-body-blew-dancefloors-away",
+"title": "The Guardian (via inkl) - How Move Your Body blew dancefloors away",
+"says": "loan for a sequencer; played at 40bpm, sped to 120; Rudy Forbes on keyboards; rough mix in 30 minutes; Ron Hardy mixed with McClain adding harmonies; Larry Sherman had to be paid to press it"
+}
+]
+},
+"rec-lovecantturnaround": {
+"machines": [],
+"other_gear": [],
+"samples": [
+{
+"what": "bassline riff and song basis (reworked, not credited as a sample)",
+"from": "Isaac Hayes — I Can't Turn Around (1975)"
+},
+{
+"what": "parts of the instrumental arrangement",
+"from": "J.M. Silk (Steve 'Silk' Hurley) — I Can't Turn Around (1986)"
+}
+],
+"studio": null,
+"note": "Farley and Jesse Saunders kept Hurley's arrangement and Hayes's bass riff; Vince Lawrence rewrote the lyric for Darryl Pandy's opera-trained voice.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Love_Can%27t_Turn_Around",
+"title": "Love Can't Turn Around - Wikipedia",
+"says": "based on Isaac Hayes 'I Can't Turn Around'; kept some of Hurley's instrumental arrangement and Hayes's bassline riff; Vince Lawrence wrote new words; Darryl Pandy vocals; producers Brothers by Music, J.M. Funk, Jesse Saunders; UK No. 10 Aug 1986; no gear or studio"
+}
+]
+},
+"rec-musicsounds": {
+"machines": [
+"sp1200",
+"tr909"
+],
+"other_gear": [
+"Korg Trident (bassline)",
+"Ensoniq ASR-10 (section triggering)",
+"Rhodes piano",
+"Alesis 3630 compressors"
+],
+"samples": [
+{
+"what": "the guitar/keyboard hook loop",
+"from": "Chaka Khan — Fate (1981)"
+}
+],
+"studio": "Thomas Bangalter's studio (location not stated), after a Rex Club, Paris live show",
+"note": "The Chaka Khan loop sat in an SP-1200, drums came from a TR-909, bass from a Korg Trident, sections triggered from an ASR-10.",
+"sources": [
+{
+"url": "https://musicradar.com/news/how-stardust-made-music-sounds-better-with-you-and-why-it-was-their-only-release",
+"title": "MusicRadar - How Stardust made Music Sounds Better With You",
+"says": "loop from Chaka Khan 'Fate'; E-mu SP-1200 held the sample; TR-909 drums; Korg Trident bass; Rhodes barely audible; Ensoniq ASR-10 triggering sections; Alesis 3630 on vocal and master; written for a Rex Club gig then finished at Bangalter's studio; Roulé, 20 June 1998"
+}
+]
+},
+"set-metalheadz": {
+"machines": [],
+"other_gear": [
+"Eskimo Noise sound system (replaced the club's Turbosound rig); decks decoupled with rubber mats and elastic-band isolators"
+],
+"samples": [],
+"studio": "Blue Note, Hoxton Square, London – Sunday nights 7pm–midnight from early 1995",
+"note": "Eskimo Noise's rig made the decks jump, so the crew isolated them with bar mats and elastic-band discs in a 200-capacity room.",
+"sources": [
+{
+"url": "https://daily.redbullmusicacademy.com/2014/06/eskimo-noise-bevin-denton-interview",
+"title": "RBMA Daily - Eskimo Noise's Bevin Denton on doing sound for Metalheadz at Blue Note",
+"says": "Goldie brought in Eskimo Noise to replace a Turbo Sound rig; speaker stacks positions; decks jumped so rubber mats and elastic-band discs used; MCs Moose, Cleveland Watkiss, Fats; DJs Dillinja, Goldie, Doc Scott, Randall"
+},
+{
+"url": "https://daily.redbullmusicacademy.com/2013/04/nightclubbing-metalheadz-at-blue-note",
+"title": "RBMA Daily - Nightclubbing: Metalheadz at Blue Note",
+"says": "Hoxton; started early 1995 as a five-week Sunday trial; 7pm to midnight; Eskimo Noise system; ~200 capacity, long narrow low room; run by Goldie, Storm, Kemistry; dubplates cut at Music House; ended when Eddie Piller sold the venue"
+}
+]
+},
+"set-tiesto-athens": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": "Olympic Stadium, Athens – opening ceremony, 13 August 2004",
+"note": "First DJ booked for an Olympic ceremony; the set, released as Parade of the Athletes, was mostly his own tracks including Adagio for Strings.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Parade_of_the_Athletes",
+"title": "Parade of the Athletes - Wikipedia",
+"says": "13 August 2004 opening ceremony; first DJ asked to perform at an Olympic ceremony; mostly Tiësto originals incl. Adagio for Strings, Athena, Traffic, Lethal Industry, Forever Today; Dutch team visited the booth; album 7 Sept 2004 on Black Hole, 8 new tracks; no equipment named"
+},
+{
+"url": "https://weraveyou.com/2023/10/dj-tiesto-olympics-2004/",
+"title": "We Rave You - Tiësto at Olympics 2004",
+"says": "original tracks composed for the event; Dutch team came to the booth; first DJ at an Olympic ceremony"
+}
+]
+},
+"set-sasha-digweed": {
+"machines": [],
+"other_gear": [],
+"samples": [],
+"studio": "Twilo, New York (monthly residency, late 1990s until the club closed May 2001); Northern Exposure released 27 Sept 1996 on Ministry of Sound",
+"note": "First British DJs with a monthly Twilo residency, playing all night to around 4,000; Northern Exposure was built as two 'journeys'.",
+"sources": [
+{
+"url": "https://en.wikipedia.org/wiki/Northern_Exposure_(album)",
+"title": "Northern Exposure (album) - Wikipedia",
+"says": "concept album of two journeys 0° North / 0° South; released 27 Sept 1996 on Ministry of Sound (UK) / Ultra (US); vinyl edition unmixed; no mixing equipment named"
+},
+{
+"url": "https://en.wikipedia.org/wiki/Sasha_%26_John_Digweed",
+"title": "Sasha & John Digweed - Wikipedia",
+"says": "late-1990s Twilo residency DJing the entire night; Twilo closed May 2001; Sasha missed last gigs with ear injury"
+},
+{
+"url": "https://grayarea.co/magazine/john-digweed-s-lasting-love-for-new-york",
+"title": "Gray Area - John Digweed's lasting love for New York",
+"says": "first British DJs with a monthly Twilo residency; 10-hour-plus sets; about 4,000 on the floor"
 }
 ]
 }

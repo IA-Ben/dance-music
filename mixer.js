@@ -18,8 +18,8 @@ S.hoover = (ch, t, p = {}) => {
   const c = ch.c, P = { root: 220, decay: 0.45, level: 0.09, ...p };
   const f = c.createBiquadFilter(); f.type = 'lowpass'; f.Q.value = 3; f.frequency.setValueAtTime(3500, t); f.frequency.exponentialRampToValueAtTime(600, t + P.decay);
   const g = c.createGain(); g.gain.setValueAtTime(P.level, t); g.gain.exponentialRampToValueAtTime(0.001, t + P.decay + 0.1);
-  [[-25, 1], [0, 1], [25, 1], [0, 0.5]].forEach(([det, mul]) => {
-    const o = c.createOscillator(); o.type = 'sawtooth'; o.detune.value = det;
+  const sp = P.spread == null ? 1 : P.spread; [[-25, 1], [0, 1], [25, 1], [0, 0.5]].forEach(([det, mul]) => {
+    const o = c.createOscillator(); o.type = 'sawtooth'; o.detune.value = det * sp;
     o.frequency.setValueAtTime(P.root * mul * 1.6, t); o.frequency.exponentialRampToValueAtTime(P.root * mul, t + 0.12);
     o.connect(f); o.start(t); o.stop(t + P.decay + 0.3); reg(ch, o, t + P.decay + 0.3);
   });
@@ -37,16 +37,16 @@ S.bleep = (ch, t, p = {}) => {
 S.reese = (ch, t, p = {}) => {
   const c = ch.c, P = { freq: 55, dur: 0.6, level: 0.35, cutoff: 420, ...p };
   const f = c.createBiquadFilter(); f.type = 'lowpass'; f.Q.value = 2; f.frequency.setValueAtTime(P.cutoff * 1.6, t); f.frequency.exponentialRampToValueAtTime(P.cutoff, t + P.dur);
-  const sh = c.createWaveShaper(); sh.curve = AudioCore.curve(3);
+  const sh = c.createWaveShaper(); sh.curve = AudioCore.curve(P.drive || 3);
   const g = c.createGain(); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(P.level, t + 0.01); g.gain.setValueAtTime(P.level, t + P.dur * 0.8); g.gain.exponentialRampToValueAtTime(0.001, t + P.dur);
-  [-14, 14, 0].forEach((det, i) => { const o = c.createOscillator(); o.type = 'sawtooth'; o.frequency.value = P.freq * (i === 2 ? 0.5 : 1); o.detune.value = det; o.connect(f); o.start(t); o.stop(t + P.dur + 0.05); reg(ch, o, t + P.dur + 0.05); });
+  const rs = P.spread == null ? 1 : P.spread; [-14, 14, 0].forEach((det, i) => { const o = c.createOscillator(); o.type = 'sawtooth'; o.frequency.value = P.freq * (i === 2 ? 0.5 : 1); o.detune.value = det * rs; o.connect(f); o.start(t); o.stop(t + P.dur + 0.05); reg(ch, o, t + P.dur + 0.05); });
   f.connect(sh); sh.connect(g); g.connect(dest(ch, P, 'reese'));
 };
 S.supersaw = (ch, t, p = {}) => {
   const c = ch.c, P = { freq: 440, gate: 0.2, level: 0.05, cutoff: 2600, ...p };
   const f = c.createBiquadFilter(); f.type = 'lowpass'; f.Q.value = 1; f.frequency.value = P.cutoff;
   const g = c.createGain(); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(P.level, t + 0.01); g.gain.setValueAtTime(P.level, t + P.gate); g.gain.exponentialRampToValueAtTime(0.001, t + P.gate + 0.08);
-  [-24, -14, -6, 0, 6, 14, 24].forEach(det => { const o = c.createOscillator(); o.type = 'sawtooth'; o.frequency.value = P.freq; o.detune.value = det; o.connect(f); o.start(t); o.stop(t + P.gate + 0.15); reg(ch, o, t + P.gate + 0.15); });
+  const sp = P.spread == null ? 1 : P.spread, dets = [-24, -14, -6, 0, 6, 14, 24].slice(0, P.voices || 7); dets.forEach(det => { const o = c.createOscillator(); o.type = 'sawtooth'; o.frequency.value = P.freq; o.detune.value = det * sp; o.connect(f); o.start(t); o.stop(t + P.gate + 0.15); reg(ch, o, t + P.gate + 0.15); });
   f.connect(g); g.connect(dest(ch, P, 'super'));
   const vs = c.createGain(); vs.gain.value = 0.5; g.connect(vs); vs.connect(ch.verbSend); const ds = c.createGain(); ds.gain.value = 0.35; g.connect(ds); ds.connect(ch.delSend);
 };
@@ -90,7 +90,7 @@ const GENRES = {
     acid: { cutoff: 380, res: 17, env: 3200, decay: 0.22, wave: 'sawtooth' }, sub: { drive: 1, dur: 0.4 }, offCutoff: 600, acidNotes: [0, 0, 12, 0, 3, 0, 0, 10, 0, 12, 0, 7, 0, 3, 15, 0],
     levels: { acid: 0.7, hatc: 0.45, hato: 0.4, clap: 0.75, tom: 0.5 },
     pat: { kick: 'x...x...x...x...', acid: 'xxAxx.sxxAx.xsAx', hatc: 'x.x.x.x.x.x.x.x.', hato: '..x...x...x...x.', clap: '....x.......x...', tom: '.......x.......x' },
-    notes: 'An 808 under a 303 with the resonance up: Phuture, Trax Records, the sound that crossed to London.'
+    notes: 'A 707 under a 303 with the resonance up: Phuture, Trax Records, the sound that crossed to London.'
   },
   'UK bleep 1990': {
     era: '1989–91', city: 'Sheffield / Leeds', bpm: 118, swing: 0.04, key: ['E', 41.2], sc: 0.3, rumble: 0, rumbleLp: 90,
@@ -351,18 +351,18 @@ class Deck {
       S.acid(ch, t, { ...P.acid, freq: f, accent: p.acid[i] === 2, slideTo: p.acid[i] === 3 ? f2 : null, slideTime: d * n });
     }
     if (p.stab[i] && aud('stab')) S.stab(ch, t, { root: P.root * 4, ...P.stab });
-    if (p.hoover[i] && aud('hoover')) S.hoover(ch, t, { root: P.root * 4 });
+    if (p.hoover[i] && aud('hoover')) S.hoover(ch, t, { root: P.root * 4, ...(P.hoover || {}) });
     if (p.bleep[i] && aud('bleep')) S.bleep(ch, t, { freq: P.root * 8 * Math.pow(2, P.acidNotes[i] / 12) });
     if (p.hatc[i] && aud('hatc')) S.hat(ch, t, { decay: P.hat.decayC, tone: P.hat.tone, level: i % 2 ? 0.25 : 0.35 });
     if (p.hato[i] && aud('hato')) S.hat(ch, t, { open: true, decay: P.hat.decayO, tone: P.hat.tone });
     if (p.ride[i] && aud('ride')) S.hat(ch, t, { open: true, decay: 0.42, tone: 7500, level: 0.2, dest: this.tr.ride });
-    if (p.clap[i] && aud('clap')) S.clap(ch, t);
-    if (p.snare[i] && aud('snare')) S.snare(ch, t);
-    if (p.tom[i] && aud('tom')) S.tom(ch, t, { pitch: 200 });
+    if (p.clap[i] && aud('clap')) S.clap(ch, t, P.clap || {});
+    if (p.snare[i] && aud('snare')) S.snare(ch, t, P.snare || {});
+    if (p.tom[i] && aud('tom')) S.tom(ch, t, { pitch: 200, ...(P.tom || {}) });
     if (p.metal[i] && aud('metal')) S.metal(ch, t, { ratio: 1.41 });
     if (p.shaker[i] && aud('shaker')) S.shaker(ch, t, { level: i % 4 === 2 ? 0.4 : 0.22 });
-    if (p.reese[i] && aud('reese')){ let j = (i + 1) % 16, n = 1; while (!p.reese[j] && n < 16){ j = (j + 1) % 16; n++; } S.reese(ch, t, { freq: P.root * Math.pow(2, (P.bassNotes ? P.bassNotes[i] : 0) / 12), dur: d * n * 0.95 }); }
-    if (p.super[i] && aud('super')){ let j = (i + 1) % 16, n = 1; while (!p.super[j] && n < 16){ j = (j + 1) % 16; n++; } S.supersaw(ch, t, { freq: P.root * 8 * Math.pow(2, (P.leadNotes ? P.leadNotes[i] : P.acidNotes[i]) / 12), gate: d * Math.min(n, 2) * 0.9 }); }
+    if (p.reese[i] && aud('reese')){ let j = (i + 1) % 16, n = 1; while (!p.reese[j] && n < 16){ j = (j + 1) % 16; n++; } S.reese(ch, t, { freq: P.root * Math.pow(2, (P.bassNotes ? P.bassNotes[i] : 0) / 12), dur: d * n * 0.95, ...(P.reese || {}) }); }
+    if (p.super[i] && aud('super')){ let j = (i + 1) % 16, n = 1; while (!p.super[j] && n < 16){ j = (j + 1) % 16; n++; } S.supersaw(ch, t, { freq: P.root * 8 * Math.pow(2, (P.leadNotes ? P.leadNotes[i] : P.acidNotes[i]) / 12), gate: d * Math.min(n, 2) * 0.9, ...(P.super || {}) }); }
     if (p.piano[i] && aud('piano')) S.piano(ch, t, { root: P.root * 4, chord: P.pianoChord || [0, 3, 7, 10] });
     if (p.organ[i] && aud('organ')) S.organ(ch, t, { freq: P.root * 2 * Math.pow(2, (P.bassNotes ? P.bassNotes[i] : 0) / 12), dur: d * 0.9 });
   }

@@ -79,6 +79,7 @@ const NodeView = {
           ${hear}
           ${window.Gear ? Gear.html(n) : ''}
           ${window.HowTo ? HowTo.html(n) : ''}
+          ${window.Panels ? Panels.html(n) : ''}
           ${morph}
           <h3>Connections</h3>
           <div class="rels">${relHtml}${backHtml}${mentionHtml || ''}${(!relHtml && !backHtml && !mentionHtml) ? '<p class="cap">No links yet.</p>' : ''}</div>

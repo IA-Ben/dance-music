@@ -77,6 +77,7 @@ function route(){
   if (window.Flyers) Flyers.mount(inEl, id, isNode);
   if (window.Listings) Listings.mount(inEl, id, isNode);
   if (window.HowTo && isNode){ inEl.dataset.node = id; HowTo.mount(inEl); }
+  if (window.Panels) Panels.mountAll(inEl);
   if (isNode && NODE[id].type === 'record' && window.Crate){ const slot = inEl.querySelector('.chips'); if (slot && !slot.querySelector('.crate-btn')) slot.appendChild(Crate.button(id)); }
   const finish = () => { if (outEl && outEl !== inEl) outEl.classList.remove('show', 'lift', 'out-fwd', 'in-back'); inEl.classList.remove('lift', 'in-back'); inEl.classList.add('show'); FLIPPING = false; if (PageHooks[id]) PageHooks[id](); if (PENDING){ const p = PENDING; PENDING = null; if (p !== location.hash) location.hash = p; } };
   CUR = id;
