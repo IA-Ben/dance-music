@@ -1,0 +1,39 @@
+name: Fetch illustrations
+# Run by hand (workflow_dispatch) with a list of "file-name url" lines.
+# Downloads Krea renders onto the art-raw branch, so the book's build can pick them up.
+on:
+  workflow_dispatch:
+    inputs:
+      list:
+        description: 'One "name.png https://gen.krea.ai/images/..." per line'
+        required: true
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Switch to art-raw
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin art-raw; then git checkout -B art-raw origin/art-raw; else git checkout --orphan art-raw && git rm -rqf . && git clean -fdq; fi
+      - name: Download
+        env:
+          LIST: ${{ github.event.inputs.list }}
+        run: |
+          mkdir -p raw
+          printf '%s\n' "$LIST" | while read -r name url; do
+            [ -z "$name" ] && continue
+            case "$name" in *[!A-Za-z0-9._-]*) echo "bad name $name"; continue;; esac
+            case "$url" in https://gen.krea.ai/images/*) ;; *) echo "skip $url"; continue;; esac
+            curl -fsSL --retry 3 "$url" -o "raw/$name" && echo "got $name"
+          done
+      - name: Commit
+        run: |
+          git add raw
+          git diff --cached --quiet || git commit -qm "Fetch illustrations"
+          git push origin art-raw
