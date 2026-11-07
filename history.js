@@ -68,6 +68,7 @@ const TL = [
   [2016, 'UK', 'fabric closes, then reopens', 'h8', 'September to January: the campaign wins.'],
   [2017, 'UK', 'Printworks', 'h8', 'Canada Water, 2017–2023.'],
   [2020, 'EU', 'Clubs close', 'h9', 'March: the pandemic. Streams, then the hard-techno boom when doors reopen.'],
+  [2026, 'US', 'Juan Atkins dies', 'h2', '31 October, Mexico City, aged 64, before a scheduled set. The Originator; the man who named it.'],
   [2024, 'DE', 'Berlin techno listed as heritage', 'h9', '13 March: added to Germany\'s UNESCO intangible-heritage inventory. Watergate closes on 31 December.'],
   [2025, 'EU', 'Liquid Room at 30', 'h13', 'Mills tours the 1995 set with the original footage.'],
   [2023, 'UK', 'Detroit Techno Militia in Hastings', 'ldn', 'Easter Sunday: the 313 plays a Sussex seaside town; the Hastings Techno Militia follows.']
@@ -249,7 +250,7 @@ function drawFestCal(){
 
 /* ---------- People, clubs, sets, festivals data ---------- */
 const PEOPLE = [
-  ['Juan Atkins', 'Detroit', '1981–', 'Cybotron, Model 500, Metroplex', 'The Originator: "Clear" (1983) and "No UFO\'s" (1985). Named the music after Toffler\'s "techno-rebels".', '--kick'],
+  ['Juan Atkins', 'Detroit', '1962–2026', 'Cybotron, Model 500, Metroplex', 'The Originator: "Clear" (1983) and "No UFO\'s" (1985). Named the music after Toffler\'s "techno-rebels". Died in Mexico City, 31 October 2026, aged 64, before a set.', '--kick'],
   ['Derrick May', 'Detroit', '1986–', 'Rhythim Is Rhythim, Transmat', '"Strings of Life", "Nude Photo". The Music Institute resident; the Innovator.', '--kick'],
   ['Kevin Saunderson', 'Detroit', '1987–', 'Inner City, KMS, E-Dancer', '"Big Fun" and "Good Life" put Detroit in the UK charts; the Elevator.', '--kick'],
   ['Jeff Mills', 'Detroit', '1985–', 'UR, Axis, Purpose Maker', 'The Wizard on WJLB; three decks and a 909; Liquid Room 1995; "The Bells".', '--kick'],
