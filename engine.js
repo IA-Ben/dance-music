@@ -69,6 +69,7 @@ function route(){
   inEl.querySelector('.folio.l').textContent = gidx >= 0 ? String(2 * gidx + 1) : (isNode ? NODE[id].years || '' : ''); inEl.querySelector('.folio.r').textContent = gidx >= 0 ? String(2 * gidx + 2) : (isNode ? TYPE_LABEL[NODE[id].type].toLowerCase() : '');
   if (!isNode && window.renderForks) renderForks(id, inEl);
   if (!isNode && !inEl.dataset.linked && window.autolink){ inEl.dataset.linked = 1; autolink(inEl, id); }
+  if (window.SoundBus && CUR && CUR !== id) SoundBus.all();
   Trail.push(id, titleOf(id)); Visited.add(id);
   if (window.Notes && id !== 'home' && !/^(year|explore|tours|path|quiz|crate|notes|credits|mixer)$/.test(id)) Notes.mount(inEl, id);
   if (isNode && window.Flyer) Flyer.autoMount(inEl, id);
@@ -398,7 +399,7 @@ function duckAt(ch, t, sc){
    =================================================================== */
 function stepDur(){ return 60 / ST.bpm / 4; }
 function demo(bars, fn, btn){
-  const ch = AudioCore.get(); const t0 = ch.c.currentTime + 0.06; const d = stepDur();
+  if (window.SoundBus) SoundBus.claim('engine'); const ch = AudioCore.get(); const t0 = ch.c.currentTime + 0.06; const d = stepDur();
   for (let b = 0; b < bars; b++) for (let i = 0; i < 16; i++) fn(ch, t0 + (b * 16 + i) * d, i, b);
   flash(btn, bars * 16 * d);
 }

@@ -520,6 +520,14 @@ body.paper .makerow{background:var(--bg3)}
 .keyfacts .relrow span{font-size:13.5px}
 .node-body h4{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:14px 0 4px}
 table.charts{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}table.charts th{text-align:left;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:6px 6px;border-bottom:1px solid var(--line)}table.charts td{padding:5px 6px;border-bottom:1px solid var(--line);vertical-align:top}table.charts td.one{color:var(--kick);font-weight:700}table.charts td.ten{font-weight:600}
+.streampick{position:fixed;right:16px;top:52px;z-index:60;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:0 12px 36px #0008;display:flex;flex-direction:column;gap:4px;min-width:220px}
+.streampick b{font:600 13px/1.2 'Space Grotesk',sans-serif}
+.streampick .cap{margin:2px 0 6px}
+.streampick button{text-align:left;background:var(--bg3);border:1px solid var(--line);color:var(--text);border-radius:8px;padding:7px 10px;font:inherit;font-size:13px;cursor:pointer}
+.streampick button.on{border-color:var(--synth);color:var(--synth)}
+.streampick button small{color:var(--muted);font-size:11px}
+#streamBtn{white-space:nowrap}
+@media (max-width:700px){.streampick{right:8px;left:8px;top:auto;bottom:64px}}
 /* =====================================================================
    BOOK SKIN — paper pages, dark plates, spreads on wide screens
    ===================================================================== */

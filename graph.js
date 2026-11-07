@@ -108,24 +108,24 @@ const N = (id, type, title, o = {}) => { const n = { id, type, title, years: o.y
  ['kms', 'KMS', '1987', 'detroit', 'Kevin Saunderson\'s label: Inner City, Reese.', ['techno']],
  ['tresor-records', 'Tresor Records', '1991', 'berlin', 'Founded October 1991 under the club: X-101, Jeff Mills, Blake Baxter, Drexciya — the Detroit–Berlin axis on vinyl.', ['techno']],
  ['warp', 'Warp Records', '1989', 'sheffield', 'Bleep, then Artificial Intelligence, Aphex and Autechre.', ['techno']],
- ['rs', 'R&S Records', '1984', 'ghent', 'Renaat Vandepapeliere\'s label: Energy Flash, Mentasm, Aphex Twin.', ['techno', 'rave']],
+ ['rs', 'R&S Records', '1983', 'ghent', 'Renaat Vandepapeliere\'s label: Energy Flash, Mentasm, Aphex Twin.', ['techno', 'rave']],
  ['downwards', 'Downwards', '1993', 'birmingham', 'Karl O\'Connor\'s label: Regis, Surgeon, Female; the industrial line.', ['techno']],
  ['network', 'Network Records', '1988', 'birmingham', 'Neil Rushton: Detroit on British shelves, the Bio Rhythm compilations.', ['techno']],
  ['ostgut-ton', 'Ostgut Ton', '2005', 'berlin', 'Berghain\'s label: Klock, Dettmann, Function, the 2010s sound.', ['techno']],
  ['drumcode', 'Drumcode', '1996', 'stockholm', 'Adam Beyer\'s label: Swedish loop techno to main-stage peak-time.', ['techno']],
  ['kompakt', 'Kompakt', '1998', 'cologne', 'Voigt, Mayer, Paape: minimal made melodic.', ['techno']],
  ['soma', 'Soma', '1991', 'glasgow', 'Slam\'s label; Daft Punk\'s first records.', ['techno', 'house']],
- ['mnus', 'M_nus', '1998', 'berlin', 'Richie Hawtin\'s minimal label.', ['techno']],
+ ['mnus', 'M_nus', '1998', 'windsor', 'Richie Hawtin\'s minimal label, founded in Windsor, Ontario and run from Berlin from the mid-2000s.', ['techno']],
  ['perlon', 'Perlon', '1997', 'berlin', 'Zip and Markus Nikolai; Villalobos\'s home.', ['techno']],
  ['suf', 'Stay Up Forever', '1993', 'london', 'The Liberators and D.A.V.E. the Drummer: London acid techno.', ['techno', 'rave']],
  ['planet-e', 'Planet E', '1991', 'detroit', 'Carl Craig\'s label.', ['techno']],
  ['plus8', 'Plus 8', '1990', 'windsor', 'Hawtin and Acquaviva, Windsor, Ontario.', ['techno']],
- ['axis', 'Axis', '1992', 'detroit', 'Jeff Mills\'s label after UR.', ['techno']],
- ['m-plant', 'M-Plant', '1994', 'detroit', 'Robert Hood\'s label: Minimal Nation.', ['techno']],
+ ['axis', 'Axis', '1992', 'newyork', 'Jeff Mills\'s label after UR: registered in New York, run from Chicago 1994–2017, Miami since.', ['techno']],
+ ['m-plant', 'M-Plant', '1994', 'detroit', 'Robert Hood\'s label: Internal Empire, Moveable Parts; the 2009 reissue of Minimal Nation (first on Axis, 1994).', ['techno']],
  ['harthouse', 'Harthouse', '1992', 'frankfurt', 'Sven Väth\'s hard-trance label.', ['techno']],
  ['trax', 'Trax Records', '1984', 'chicago', 'Larry Sherman\'s Chicago label: Acid Tracks and most of early house.', ['house']],
  ['shut-up-and-dance', 'Shut Up and Dance', '1989', 'london', 'PJ and Smiley\'s label and group: breakbeat hardcore before it had a name.', ['rave']],
- ['reinforced', 'Reinforced', '1990', 'london', '4hero\'s label; Goldie\'s Metalheads; the hardcore-to-jungle bridge.', ['rave']],
+ ['reinforced', 'Reinforced', '1989', 'london', '4hero\'s label; Goldie\'s Metalheads; the hardcore-to-jungle bridge.', ['rave']],
  ['moving-shadow', 'Moving Shadow', '1990', 'stevenage', 'Rob Playford\'s label: 2 Bad Mice, Omni Trio, darkcore to drum & bass.', ['rave']],
  ['suburban-base', 'Suburban Base', '1991', 'romford', 'Boogie Times shop label: Sonz of a Loop da Loop Era, the hardcore anthems.', ['rave']],
  ['production-house', 'Production House', '1987', 'london', 'Acen, Baby D: hardcore and its pop crossover.', ['rave']],
@@ -187,7 +187,7 @@ P('kevin-saunderson', 'Kevin Saunderson', 'detroit', '1987–', 'Inner City, KMS
 P('jeff-mills', 'Jeff Mills', 'detroit', '1985–', 'UR, Axis, Purpose Maker', 'The Wizard on WJLB; three decks and a 909; Liquid Room 1995; "The Bells".', ['techno'], [['member', 'ur'], ['founded', 'axis'], ['made', 'rec-thebells'], ['played', 'tresor'], ['played', 'lost'], ['played', 'liquid-room'], ['played', 'set-liquidroom'], ['played', 'set-exhibitionist'], ['played', 'the-orbit'], ['played', 'pure']], ['Mills', 'The Wizard']);
 P('mike-banks', '"Mad" Mike Banks', 'detroit', '1989–', 'Underground Resistance, Submerge', 'The militant, masked, anti-corporate conscience of techno.', ['techno'], [['founded', 'ur']], ['Mad Mike', 'Banks']);
 P('robert-hood', 'Robert Hood', 'detroit', '1990–', 'UR, M-Plant, Floorplan', '"Minimal Nation" (1994) invented minimal techno before it had a name.', ['techno'], [['member', 'ur'], ['founded', 'm-plant'], ['made', 'rec-minimalnation']], ['Hood']);
-P('carl-craig', 'Carl Craig', 'detroit', '1989–', 'Planet E, 69, Paperclip People', 'The second wave\'s widest mind; founded DEMF in 2000.', ['techno'], [['founded', 'planet-e'], ['founded', 'movement'], ['made', 'rec-bugbassbin']], ['Craig']);
+P('carl-craig', 'Carl Craig', 'detroit', '1989–', 'Planet E, 69, Paperclip People', 'The second wave\'s widest mind; co-created DEMF in 2000 and was its first artistic director.', ['techno'], [['founded', 'planet-e'], ['founded', 'movement'], ['made', 'rec-bugbassbin']], ['Craig']);
 P('richie-hawtin', 'Richie Hawtin', 'windsor', '1990–', 'Plus 8, Plastikman, M_nus', 'Acid in the Packard Plant, then the laptop, then minimal\'s figurehead; ENTER. in Ibiza.', ['techno'], [['founded', 'plus8'], ['founded', 'mnus'], ['made', 'rec-spastik'], ['played', 'set-packard'], ['played', 'set-de9'], ['played', 'space'], ['uses', 'finalscratch']], ['Hawtin', 'Plastikman']);
 P('drexciya', 'Drexciya', 'detroit', '1992–2002', 'James Stinson & Gerald Donald', 'Electro-techno with an Afrofuturist undersea mythology.', ['techno'], [['made', 'rec-bubble']], ['Stinson']);
 P('eddie-fowlkes', 'Eddie Fowlkes', 'detroit', '1986–', 'Metroplex, Tresor', '"Goodbye Kiss" (1986); Berlin\'s early Detroit link.', ['techno'], [['played', 'tresor']], ['Fowlkes']);
@@ -196,7 +196,7 @@ P('kenny-larkin', 'Kenny Larkin', 'detroit', '1990–', 'Warp, Art of Dance', 'S
 P('mojo', 'The Electrifying Mojo', 'detroit', '1977–', 'WGPR, WJLB', 'Charles Johnson\'s radio show: Kraftwerk, Parliament, Prince and the B-52s for the Belleville Three.', ['techno'], [['played', 'wjlb']], ['Electrifying Mojo', 'Mojo']);
 P('neil-rushton', 'Neil Rushton', 'birmingham', '1988–', 'Network Records', 'Licensed the compilation that named the genre.', ['techno'], [['founded', 'network'], ['made', 'rec-technocomp']], ['Rushton']);
 P('steve-bicknell', 'Steve Bicknell', 'london', '1991–', 'Lost, Cosmic Records', 'Ran the warehouse night that was Jeff Mills\'s London home.', ['techno'], [['founded', 'lost']], ['Bicknell']);
-P('chris-liberator', 'Chris Liberator', 'london', '1993–', 'Stay Up Forever', 'Acid techno: a 303 and a 909 at 140 from a record shop and a free party.', ['techno', 'rave'], [['founded', 'suf'], ['uses', 'tb303']], ['Liberator', 'The Liberators']);
+P('chris-liberator', 'Chris Liberator', 'london', '1993–', 'Stay Up Forever', 'Acid techno: a 303 and a 909 at 140, out of the Stoke Newington squat parties.', ['techno', 'rave'], [['founded', 'suf'], ['uses', 'tb303']], ['Liberator', 'The Liberators']);
 P('ben-sims', 'Ben Sims', 'london', '1997–', 'Hardgroove, Theory', 'Three decks of Detroit-swung loop techno; the hardgroove revival\'s source.', ['techno'], [], ['Sims']);
 P('carl-cox', 'Carl Cox', 'london', '1980s–', 'Space Ibiza, Intec', 'Three decks at the M25 raves, fifteen summers at Space, the people\'s champion of both house and techno.', ['rave', 'techno', 'house'], [['played', 'sunrise'], ['played', 'space'], ['played', 'set-coxspace'], ['played', 'the-orbit'], ['made', 'rec-ifeelit']], ['Cox', 'Coxy']);
 P('dave-clarke', 'Dave Clarke', 'brighton', '1990–', '"Red" series, White Noise', 'The Baron of Techno; the hardest-cut DJ of the 90s.', ['techno'], [['made', 'rec-red2'], ['played', 'pure'], ['played', 'the-orbit']], ['Clarke']);
@@ -228,13 +228,13 @@ P('paula-temple', 'Paula Temple', 'berlin', '1998–', 'Noise Manifesto', 'Indus
 P('miss-djax', 'Miss Djax', 'eindhoven', '1989–', 'Djax-Up-Beats', 'Ran one of Europe\'s first techno labels and put Chicago acid on it.', ['techno', 'house'], []);
 P('speedy-j', 'Speedy J', 'rotterdam', '1991–', 'Plus 8, Novamute', '"Pullover" (1991); the Dutch Detroit link; Time Warp\'s first edition.', ['techno'], [['made', 'rec-pullover'], ['played', 'time-warp']]);
 P('ken-ishii', 'Ken Ishii', 'tokyo', '1993–', 'R&S', 'Japan\'s first techno export; "Extra" in the Liquid Room set.', ['techno'], [['made', 'rec-extra']]);
-P('slam', 'Slam', 'glasgow', '1988–', 'Sub Club, Soma', 'Stuart McMillan and Orde Meikle; Subculture since 1994; "Positive Education".', ['techno'], [['founded', 'soma'], ['played', 'sub-club'], ['made', 'rec-positiveeducation']], ['Stuart McMillan', 'Orde Meikle']);
+P('slam', 'Slam', 'glasgow', '1988–', 'Sub Club, Soma', 'Stuart McMillan and Orde Meikle; Joy and Return to Mono at the Sub Club, Pressure at The Arches; "Positive Education".', ['techno'], [['founded', 'soma'], ['played', 'sub-club'], ['made', 'rec-positiveeducation']], ['Stuart McMillan', 'Orde Meikle']);
 P('aphex-twin', 'Aphex Twin', 'cornwall', '1991–', 'R&S, Rephlex, Warp', 'Richard D. James: Selected Ambient Works 85–92 (R&S), then Warp; the bleep-to-IDM hinge.', ['techno', 'rave'], [['made', 'rec-saw85']], ['Richard D. James']);
 /* house and the Ibiza four (border people) */
-P('frankie-knuckles', 'Frankie Knuckles', 'chicago', '1977–', 'The Warehouse, Power Plant', 'The Godfather of House; the Warehouse residency that named the music.', ['house'], [['played', 'warehouse']], ['Knuckles']);
-P('ron-hardy', 'Ron Hardy', 'chicago', '1982–', 'The Music Box', 'Faster, rawer, reel-to-reel edits; the first floor for the 303.', ['house'], [['played', 'music-box']], ['Hardy']);
+P('frankie-knuckles', 'Frankie Knuckles', 'chicago', '1972–2014', 'The Warehouse, Power Plant', 'The Godfather of House; the Warehouse residency that named the music.', ['house'], [['played', 'warehouse']], ['Knuckles']);
+P('ron-hardy', 'Ron Hardy', 'chicago', '1974–1992', 'The Music Box', 'Faster, rawer, reel-to-reel edits; the first floor for the 303.', ['house'], [['played', 'music-box']], ['Hardy']);
 P('dj-pierre', 'DJ Pierre', 'chicago', '1987–', 'Phuture', 'Twisted the 303\'s knobs and made "Acid Tracks".', ['house', 'rave', 'techno'], [['made', 'rec-acidtracks'], ['uses', 'tb303']], ['Phuture', 'Pierre']);
-P('alfredo', 'DJ Alfredo', 'ibiza', '1984–', 'Amnesia', 'Alfredo Fiorito, Argentine; the Amnesia terrace from midnight to dawn with no genre: the Balearic beat.', ['house', 'rave'], [['played', 'amnesia']], ['Alfredo Fiorito']);
+P('alfredo', 'DJ Alfredo', 'ibiza', '1982–2024', 'Amnesia', 'Alfredo Fiorito, Argentine; the Amnesia terrace from midnight to dawn with no genre: the Balearic beat.', ['house', 'rave'], [['played', 'amnesia']], ['Alfredo Fiorito']);
 P('jose-padilla', 'José Padilla', 'ibiza', '1991–', 'Café del Mar', 'The sunset session; the chill-out as a form.', ['house'], [['played', 'cafe-del-mar']], ['Padilla']);
 P('paul-oakenfold', 'Paul Oakenfold', 'london', '1987–', 'Spectrum, Future, Perfecto', 'Took three friends to Ibiza for his birthday in August 1987; opened Spectrum at Heaven.', ['rave', 'house'], [['founded', 'spectrum'], ['played', 'heaven'], ['played', 'amnesia']], ['Oakenfold', 'Oakey']);
 P('danny-rampling', 'Danny Rampling', 'london', '1987–', 'Shoom', 'Came back from Ibiza and opened a gym to acid house in December 1987.', ['house', 'rave'], [['founded', 'shoom'], ['played', 'amnesia']], ['Rampling']);
@@ -246,24 +246,24 @@ P('andrew-weatherall', 'Andrew Weatherall', 'london', '1988–2020', 'Boy\'s Own
 P('terry-farley', 'Terry Farley', 'london', '1986–', 'Boy\'s Own', 'Fanzine, parties, label; Heller & Farley.', ['house', 'rave'], [['founded', 'boys-own']], ['Farley']);
 /* rave */
 P('tony-colston-hayter', 'Tony Colston-Hayter', 'london', '1988–', 'Sunrise', 'The "Acid House King": Sunrise at White Waltham and Santa Pod; the phone lines, the convoys, the cat and mouse.', ['rave'], [['founded', 'sunrise']], ['Colston-Hayter']);
-P('paul-taylor', 'Paul Taylor', 'blackburn', '1989–', 'Blackburn raves', 'Lancashire\'s warehouse parties, thousands every weekend until the police won.', ['rave'], [['founded', 'blackburn-raves']]);
+P('paul-taylor', 'Paul Taylor', 'blackburn', '1989–', 'Angels, Retro', 'Lancashire\'s other story: Angels in Burnley and Retro, founded 1989, while the Blackburn warehouse parties ran a few miles away.', ['rave'], [['played', 'blackburn-raves']]);
 P('charlie-chester', 'Charlie Chester', 'london', '1988–', 'Flying', 'Flying: Balearic into acid house in the late 80s.', ['house', 'rave'], []);
 P('mr-c', 'Mr. C', 'london', '1987–', 'The Shamen, The End, Plink Plonk', 'Rapper, DJ, club owner: The End (1995–2009) with Layo.', ['rave', 'house', 'techno'], [['founded', 'the-end']], ['Richard West', 'Mr C', 'Mr.C']);
 P('fabio-grooverider', 'Fabio & Grooverider', 'london', '1988–', 'Rage at Heaven', 'Sped the breaks up at Rage (1988–93) and invented jungle on the way.', ['rave'], [['played', 'heaven'], ['played', 'rage']], ['Fabio', 'Grooverider']);
 P('slipmatt', 'Slipmatt', 'london', '1988–', 'SL2, Helter Skelter', '"On a Ragga Tip"; from hardcore to happy hardcore\'s king.', ['rave'], [['made', 'rec-raggatip'], ['played', 'helter-skelter']], ['SL2']);
 P('ellis-dee', 'Ellis Dee', 'london', '1988–', 'Dance Paradise, Raindance', 'The hardcore era\'s workhorse: Raindance, Fantazia, every flyer.', ['rave'], [['played', 'raindance'], ['played', 'fantazia']]);
 P('ratpack', 'Ratpack', 'london', '1989–', 'Evenson Allen & Lipmaster Mark', 'MC and DJ: "Searchin\' for My Rizla"; the rave duo.', ['rave'], []);
-P('top-buzz', 'Top Buzz', 'london', '1990–', 'Mad P, Jason Kaye', 'The MC-and-DJ unit of Dreamscape and Fantazia; "Living in Darkness".', ['rave'], [['played', 'dreamscape']]);
-P('dj-hype', 'DJ Hype', 'london', '1989–', 'Ganja Records, Kool FM', 'From hardcore scratching to jungle\'s pioneer; "The Bee".', ['rave'], [['played', 'kool-fm']]);
+P('top-buzz', 'Top Buzz', 'london', '1988–', 'Mad P, Jason Kaye, Mikee B', 'The MC-and-DJ unit of Dreamscape and Fantazia; "Living in Darkness".', ['rave'], [['played', 'dreamscape']]);
+P('dj-hype', 'DJ Hype', 'london', '1989–', 'Ganja Records, Fantasy FM, Kiss', 'From hardcore scratching on Fantasy FM to jungle\'s pioneer; "The Bee".', ['rave'], [['played', 'fantasy-fm']]);
 P('ltj-bukem', 'LTJ Bukem', 'london', '1991–', 'Good Looking', '"Demon\'s Theme", "Music": the atmospheric side of jungle; Speed at the Mars Bar.', ['rave'], []);
 P('doc-scott', 'Doc Scott', 'coventry', '1991–', 'Absolute 2, Reinforced', '"NHS", darkcore; from Coventry\'s Eclipse to drum & bass.', ['rave'], [['played', 'eclipse']]);
-P('mickey-finn', 'Mickey Finn', 'london', '1988–', 'Urban Shakedown', '"Some Justice"; the hardcore-to-jungle DJ.', ['rave'], [['made', 'rec-somejustice']]);
-P('jumpin-jack-frost', 'Jumpin\' Jack Frost', 'london', '1988–', 'V Recordings', 'Brixton; from Centreforce to V Recordings with Bryan Gee.', ['rave'], [['played', 'centreforce']]);
+P('mickey-finn', 'Micky Finn', 'london', '1988–', 'Urban Shakedown', '"Some Justice"; the hardcore-to-jungle DJ.', ['rave'], [['made', 'rec-somejustice']], ['Mickey Finn']);
+P('jumpin-jack-frost', 'Jumpin\' Jack Frost', 'london', '1988–', 'V Recordings', 'Brixton; from Passion and Lightning FM to V Recordings with Bryan Gee.', ['rave'], [['founded', 'v-recordings']]);
 P('goldie', 'Goldie', 'london', '1992–', 'Metalheadz, Reinforced', '"Terminator" (1992) invented timestretch jungle; Metalheadz at the Blue Note.', ['rave'], [['made', 'rec-terminator'], ['member', 'reinforced']]);
 P('sasha', 'Sasha', 'manchester', '1989–', 'Shelley\'s, Renaissance', 'The first superstar DJ: Shelley\'s Laserdome in Stoke, then progressive house with Digweed.', ['rave', 'house'], [['played', 'shelleys']]);
-P('graham-gold', 'Graham Gold', 'london', '1988–', 'Kiss FM', 'Kiss\'s rave show; the ravers\' DJ at the M25 parties.', ['rave'], [['played', 'kiss-fm']]);
+P('graham-gold', 'Graham Gold', 'london', '1969–', 'Kiss FM, Peach', 'Mayfair soul DJ turned Kiss 100 presenter from its legal launch in 1990; the Friday-night show from 1993 and Peach at Camden Palace, 1993–2004.', ['rave'], [['played', 'kiss-fm']]);
 P('colin-dale', 'Colin Dale', 'london', '1985–', 'Kiss FM, Abstrakt Dance', 'Kiss\'s techno show; the Detroit connection on London radio.', ['techno', 'rave'], [['played', 'kiss-fm']]);
-P('colin-faver', 'Colin Faver', 'london', '1985–2015', 'Kiss FM, Camden Palace', 'Techno on Kiss before anyone; the Camden Palace DJ.', ['techno', 'rave'], [['played', 'kiss-fm']]);
+P('colin-faver', 'Colin Faver', 'london', '1982–2015', 'Kiss FM, Camden Palace', 'Techno on Kiss before anyone; the Camden Palace DJ.', ['techno', 'rave'], [['played', 'kiss-fm']]);
 P('a-guy-called-gerald', 'A Guy Called Gerald', 'manchester', '1988–', '808 State, Juice Box', '"Voodoo Ray" (house), "28 Gun Bad Boy" (jungle): the one person on every strand.', ['house', 'rave', 'techno'], [['made', 'rec-voodooray'], ['made', 'rec-28gun']], ['Gerald Simpson']);
 P('808-state', '808 State', 'manchester', '1988–', 'Graham Massey, Martin Price', '"Pacific State" (1989): acid house and techno from Eastern Bloc records.', ['rave', 'techno', 'house'], [['made', 'rec-pacific']]);
 P('orbital', 'Orbital', 'sevenoaks', '1989–', 'Phil & Paul Hartnoll', '"Chime" (1989), named after the M25; Paul was beaten by police at a Sevenoaks rave the year before.', ['rave', 'techno'], [['made', 'rec-chime']], ['Hartnoll']);
@@ -374,7 +374,7 @@ E('cocoon', 'Cocoon Ibiza', 'ibiza', '2000–19', 'Sven Väth\'s Monday at Amnes
 
 /* ---------- pirate stations ---------- */
 [['kiss-fm', 'Kiss FM', '1985–', 'Pirate from 1985, legal from 1990: Colin Dale, Colin Faver, Norman Jay, Graham Gold.', ['rave', 'techno', 'house']],
- ['centreforce', 'Centreforce 88.3', '1989–', 'The first acid house pirate; Jumpin\' Jack Frost; raided weekly.', ['rave']],
+ ['centreforce', 'Centreforce 88.3', '1989–', 'East London\'s seven-day rave station of 1989, by its own claim the first; raided and back on air through the year.', ['rave']],
  ['sunrise-fm', 'Sunrise FM', '1988–91', 'The rave station of the orbital era.', ['rave']],
  ['fantasy-fm', 'Fantasy FM', '1989–91', 'Techno, house and hardcore across the capital.', ['rave', 'techno']],
  ['kool-fm', 'Kool FM', '1991–', 'The jungle station; Hype, Brockie, Eastman.', ['rave']],
@@ -500,7 +500,7 @@ const NODE_PUSH_REL = (id, rel) => { const n = NODES.find(x => x.id === id); if 
 P('eddie-richards', 'Eddie Richards', 'london', '1982–', 'Dy-na-mix, Wiggle', 'Evil Eddie Richards: Camden Palace resident, Clink Street resident with Mr. C, the Dy-na-mix agency (1990), tech-house\'s elder.', ['techno', 'house'], [['played', 'camden-palace'], ['played', 'clink-street'], ['made', 'rec-page67'], ['played', 'wiggle']], ['Evil Eddie Richards']);
 P('layo-bushwacka', 'Layo & Bushwacka!', 'london', '1995–', 'End Recordings, Olmeto', 'Layo Paskin and Matthew Benjamin: The End\'s residents and co-owner; "Love Story" (2002); four tech-house albums.', ['techno', 'house'], [['founded', 'the-end'], ['founded', 'end-recordings'], ['made', 'rec-lovestory']], ['Layo Paskin', 'Layo', 'Bushwacka']);
 P('terry-francis', 'Terry Francis', 'london', '1994–', 'Wiggle, fabric', 'Wiggle with Nathan Coles (1994 —); fabric\'s resident from the first night; tech-house\'s name on the door.', ['techno', 'house'], [['founded', 'wiggle'], ['played', 'fabric']]);
-P('craig-richards', 'Craig Richards', 'london', '1999–', 'fabric, Tyrant', 'fabric\'s resident for twenty years; the slow, strange, Friday-night room.', ['techno', 'house'], [['played', 'fabric']]);
+P('craig-richards', 'Craig Richards', 'london', '1999–', 'fabric, Tyrant', 'fabric\'s Saturday-night resident for twenty years; the slow, strange room.', ['techno', 'house'], [['played', 'fabric']]);
 P('t-linder', 'T.Linder', 'detroit', '2002–', 'Detroit Techno Militia', 'Tom Linder: "No Retreat. No Surrender" (2002), "Liver-Noise"; the Militia\'s most-travelled DJ; Hastings 2023, 2024, 2026.', ['techno'], [['member', 'detroit-techno-militia'], ['played', 'dtm-hastings'], ['played', 'movement']], ['Tom Linder']);
 P('dj-seoul', 'DJ Seoul', 'detroit', '2000s–', 'Detroit Techno Militia', 'Half of DTM 2x4 with T.Linder; the Rust Belt Tour; Hastings, Edinburgh and Amsterdam over one Christmas week in 2024.', ['techno'], [['member', 'detroit-techno-militia'], ['played', 'dtm-hastings'], ['played', 'movement']]);
 C('camden-palace', 'Camden Palace', 'london', '1982–2004', 'The Camden theatre where Colin Faver and Eddie Richards played Detroit and Chicago to London first, with Mr. C on the mic from 1986. Now KOKO.', ['techno', 'house'], [], ['KOKO']);
@@ -563,7 +563,7 @@ NODE_PUSH_REL('jeff-mills', ['played', 'club-uk']); NODE_PUSH_REL('john-digweed'
  ['eye-q', 'Eye Q', '1991', 'frankfurt', 'Sven Väth, Heinz Roth, Matthias Hoffmann: Frankfurt trance\'s first label; Cygnus X, Energy 52.', ['trance']],
  ['mfs', 'MFS', '1990', 'berlin', 'Mark Reeder\'s Masterminded For Success: Paul van Dyk, Cosmic Baby, Berlin trance.', ['trance']],
  ['platipus', 'Platipus', '1993', 'london', 'Art of Trance, Union Jack: British trance.', ['trance']],
- ['hooj-choons', 'Hooj Choons', '1991', 'london', 'Progressive house and trance\'s UK label; Hybrid, Tilt, Lustral.', ['trance']],
+ ['hooj-choons', 'Hooj Choons', '1990', 'london', 'Red Jerry and Alex Simons\' progressive house and trance label; Hybrid, Tilt, Lustral.', ['trance']],
  ['perfecto', 'Perfecto', '1989', 'london', 'Paul Oakenfold\'s label; Grace, BT, the Goa mix era.', ['trance']],
  ['dragonfly', 'Dragonfly', '1993', 'london', 'Youth\'s Goa trance label; Hallucinogen\'s first records.', ['trance']],
  ['tip', 'TIP Records', '1994', 'london', 'Raja Ram and Graham Wood: The Infinity Project; Goa to psytrance.', ['trance']],
@@ -751,7 +751,7 @@ SET2('set-alfredo', 'Alfredo at Amnesia', 'ibiza', '1984–89', 'Midnight to daw
 SET2('set-sasha-digweed', 'Sasha & Digweed — Northern Exposure / Twilo', 'newyork', '1996–2001', 'Progressive as a journey: the monthly at Twilo and the mixes.', ['trance', 'house'], [['at', 'twilo']]);
 
 /* ---------- shops, press, sound systems, the law ---------- */
-const SHOP = (id, name, city, years, blurb, strands, aliases = []) => N(id, 'shop', name, { city, years, blurb, strands, rel: [['in', city]], aliases });
+const SHOP = (id, name, city, years, blurb, strands, aliases = []) => N(id, 'shop', name, { city, years, blurb, strands, rel: city ? [['in', city]] : [], aliases });
 const PRESS = (id, name, city, years, blurb, strands, aliases = []) => N(id, 'press', name, { city, years, blurb, strands, rel: city ? [['in', city]] : [], aliases });
 const SOUND = (id, name, city, years, blurb, strands, aliases = []) => N(id, 'sound', name, { city, years, blurb, strands, rel: city ? [['in', city]] : [], aliases });
 const LAW = (id, name, city, years, blurb, strands, aliases = []) => N(id, 'law', name, { city, years, blurb, strands, rel: city ? [['in', city]] : [], aliases });
