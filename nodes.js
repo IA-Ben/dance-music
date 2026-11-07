@@ -12,7 +12,7 @@ let ALIASES = null;
 function buildAliases(){
   if (ALIASES) return ALIASES; const list = [];
   NODES.forEach(n => { const names = [n.title, ...(n.aliases || [])]; if (n.type === 'record'){ const t = n.title.split(' — ')[1]; if (t) names.push('"' + t + '"'); } const STOP = /^(Space|Future|Hospital|Virus|Planet|Flying|Base|Release|Harmony|Drop|Cyclone|Trip|Music|Energy|Strings|Circles|Original|Loaded|Pure|Speed|Flavour|Incredible|Terrorist)$/; names.forEach(a => { if (!a || a.length < 3) return; if (STOP.test(a)) return; if (n.type === 'record' && !/\s/.test(a) && !/^"/.test(a) && a.length < 9) return; list.push([a, n.id]); }); });
-  Object.entries(CHAPTER_TITLES).forEach(([id, t]) => { if (!/^(home|year|explore)$/.test(id)) list.push([t, id]); });
+  Object.entries(CHAPTER_TITLES).forEach(([id, t]) => { if (!/^(home|year|explore)$/.test(id)) list.push([t, id]); if (/^y\d{4}$/.test(id)) list.push([id.slice(1), id]); });
   list.sort((a, b) => b[0].length - a[0].length);
   const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   ALIASES = { list, re: new RegExp('(^|[^\\w\\-])(' + list.map(x => esc(x[0])).join('|') + ')(?![\\w\\-])', 'g'), map: Object.fromEntries(list) };

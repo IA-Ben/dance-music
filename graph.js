@@ -4,6 +4,7 @@
    Relations are declared one way; backlinks are computed.
    =================================================================== */
 const STRANDS = {
+  years:  { title: 'Forty years', color: '--mix', spine: Object.keys(window.YEARS || {}).map(y => 'y' + y) },
   techno: { title: 'Techno', color: '--rumble', spine: ['h0', 'pre', 'h1', 'h2', 'h3', 'ldn', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'h11', 'h12', 'h13', 'h14'] },
   house:  { title: 'House', color: '--drums', spine: ['house0', 'hh1', 'chicagohouse', 'hh2', 'hh3', 'balearic', 'hh4', 'acid', 'hh5', 'hh6', 'techhouse'] },
   rave:   { title: 'Rave', color: '--perc', spine: ['r0', 'r1', 'r2', 'r3', 'split1992', 'r4', 'castlemorton', 'r5', 'r6', 'r7', 'r8'] },
@@ -17,9 +18,10 @@ const CHAPTER_TITLES = {
   r0: 'What a rave is', r1: 'Acid house parties and the orbital raves, 1988–90', r2: 'Pirate radio', r3: 'Hardcore, 1990–92', r4: 'The free party and the protest', r5: 'The Criminal Justice Act, 1994', r6: 'Licensed raves and the superclubs', r7: 'The split: jungle, happy hardcore and after', r8: 'Rave people, crews and stations',
   house0: 'The house strand', hh1: 'Chicago, 1977–88', hh2: 'New York and the garage', hh3: 'Ibiza: the island\'s own story', hh4: 'The Ibiza Four and London', hh5: 'Madchester and the North', hh6: 'House after 1990',
   j0: 'What jungle is', j1: 'Rage and the breakbeat, 1988–92', j2: 'Jungle, 1993–95', j3: 'Drum & bass, 1995–2000', j4: 'The 2000s and the revival', j5: 'Jungle people, labels and rooms',
-  t0: 'What trance is', t1: 'Frankfurt and Berlin, 1990–95', t2: 'Goa and psytrance', t3: 'The boom, 1995–2001', t4: 'After the peak', t5: 'Trance people, labels and rooms', credits: 'Image credits', tours: 'Guided tours', path: 'Six degrees', quiz: 'Blind test', crate: 'Your crate', notes: 'Marginalia',
+  t0: 'What trance is', t1: 'Frankfurt and Berlin, 1990–95', t2: 'Goa and psytrance', t3: 'The boom, 1995–2001', t4: 'After the peak', t5: 'Trance people, labels and rooms', credits: 'Image credits', forty: 'Forty of everything', tours: 'Guided tours', path: 'Six degrees', quiz: 'Blind test', crate: 'Your crate', notes: 'Marginalia',
   a0: 'The map', a1: 'Kick', a2: 'Drums', a3: 'Percussion', a4: 'Rumble', a5: 'Bass', a6: 'Synth', a7: 'Sampling', a8: 'Mix', a9: 'Studio sequencer', mixer: 'The set builder', year: 'Everywhere in one year', explore: 'Explore the graph'
 };
+Object.keys(window.YEARS || {}).forEach(y => { CHAPTER_TITLES['y' + y] = y + (y === '1986' ? ' · year one' : y === '2026' ? ' · forty years on' : ''); });
 /* forks: where a chapter's history divides. [label, target, strand] */
 const FORKS = {
   r7: [['The breaks go to 170 → jungle strand', 'j2', 'jungle'], ['The pianos go to 165 → happy hardcore (rave)', 'r7', 'rave'], ['The straight beats → UK techno', 'h3', 'techno']],

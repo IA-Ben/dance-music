@@ -383,6 +383,17 @@ button.chip{cursor:pointer;font:inherit}
 .lbnav{display:flex;gap:8px;align-items:center;font:11px 'JetBrains Mono',monospace;color:#8f8fa0}.lbnav .sm{color:#ebebf1}
 .ytwrap{position:relative;padding-top:56.25%}.ytwrap iframe{position:absolute;inset:0;width:100%;height:100%}
 .yt-embed i{background:#ff0000!important}
+/* forty years */
+.yeargrid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin:4px 6px 10px}
+.yeargrid a.yr{font:600 10px 'JetBrains Mono',monospace;color:#c9c9d4;text-decoration:none;text-align:center;padding:5px 0;border-radius:5px;background:var(--bg3)}
+.yeargrid a.yr:hover{color:var(--text);background:#2a2a35}.yeargrid a.yr.active{background:var(--mix);color:#000}
+.yeargrid.home{grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px;margin:12px 0 26px}.yeargrid.home a.yr{font-size:12px;padding:9px 0;background:var(--bg2);border:1px solid var(--line)}
+.yearbody .ybirth{display:grid;grid-template-columns:1fr;gap:10px}
+.ynav{display:flex;justify-content:space-between;font:11px 'JetBrains Mono',monospace;color:var(--muted);margin:0 0 10px}
+.ynav a{color:var(--muted)}
+.ystats{display:flex;flex-wrap:wrap;gap:14px;font:11px 'JetBrains Mono',monospace;color:var(--muted);margin:6px 0 14px}.ystats b{color:var(--text);font-size:16px;display:block}
+.fortylist{columns:2;column-gap:28px;padding-left:22px;margin:8px 0 0;font-size:14px}.fortylist li{break-inside:avoid;padding:3px 0}.fortylist small{display:block;font:10px 'JetBrains Mono',monospace;color:var(--muted)}
+@media(max-width:700px){.fortylist{columns:1}}
 /* =====================================================================
    BOOK SKIN — paper pages, dark plates, spreads on wide screens
    ===================================================================== */
