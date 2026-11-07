@@ -517,6 +517,9 @@ body.paper .makerow{background:var(--bg3)}
 .relrow.dispute b{color:var(--kick)}.relrow.dispute em{font-style:normal;font-weight:600}.relrow.dispute .vs{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:4px}.relrow.dispute small{color:var(--muted)}
 .dcard{margin:10px 0}.dcard h3{margin-bottom:6px}.dcard p{margin:4px 0;font-size:14.5px}
 .relrow.correction b{color:var(--synth)}.relrow.correction em{font-style:normal;font-weight:600}.relrow.correction small{color:var(--muted)}.dcard.corr{border-left:3px solid var(--synth)}
+.keyfacts .relrow span{font-size:13.5px}
+.node-body h4{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:14px 0 4px}
+table.charts{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}table.charts th{text-align:left;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:6px 6px;border-bottom:1px solid var(--line)}table.charts td{padding:5px 6px;border-bottom:1px solid var(--line);vertical-align:top}table.charts td.one{color:var(--kick);font-weight:700}table.charts td.ten{font-weight:600}
 /* =====================================================================
    BOOK SKIN — paper pages, dark plates, spreads on wide screens
    ===================================================================== */
@@ -534,6 +537,7 @@ body.paper[data-strand=house] .page{--bg:#faf4e6;--bg3:#efe6d1}
 body.paper[data-strand=rave] .page{--bg:#f9f7e3;--bg3:#eeebcf}
 body.paper[data-strand=jungle] .page{--bg:#eff3ec;--bg3:#e0e7dc}
 body.paper[data-strand=trance] .page{--bg:#f3eff9;--bg3:#e6e0f1}
+body.paper[data-strand=law] .page{--bg:#f8f0ee;--bg3:#efe2de}
 body.paper[data-strand=tech] .page{--bg:#eef6f2;--bg3:#dfeee6}
 body.paper[data-strand=anatomy] .page{--bg:#f6f3ee;--bg3:#ebe6dd}
 body.paper .page,body.paper .page p,body.paper .page li{color:var(--text)}

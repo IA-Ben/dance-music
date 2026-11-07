@@ -85,7 +85,8 @@ const NodeView = {
           <div class="rels">${relHtml}${backHtml}${mentionHtml || ''}${(!relHtml && !backHtml && !mentionHtml) ? '<p class="cap">No links yet.</p>' : ''}</div>
         </div>
         <div>
-          <div class="card"><h3>Neighbourhood</h3><svg id="hood" class="diag"></svg><p class="cap">Click any node to travel. Grey ring = chapters that mention this.</p></div>
+          ${window.People ? People.html(n) : ''}
+          <div class="card" style="margin-top:14px"><h3>Neighbourhood</h3><svg id="hood" class="diag"></svg><p class="cap">Click any node to travel. Grey ring = chapters that mention this.</p></div>
           <div class="card" style="margin-top:14px"><h3>Outside the book</h3><div class="chips"></div></div>
           ${n.type === 'person' ? '<p class="cap">No portrait is bundled: images of named people are linked, not embedded.</p>' : ''}
         </div>

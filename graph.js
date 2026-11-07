@@ -11,21 +11,30 @@ const STRANDS = {
   jungle: { title: 'Jungle & D&B', color: '--samp', spine: ['j0', 'j1', 'j2', 'j3', 'j4', 'j5'] },
   trance: { title: 'Trance', color: '--synth', spine: ['t0', 't1', 't2', 't3', 't4', 't5'] },
   tech: { title: 'Technology', color: '--synth', spine: ['k0','k1','k2','k3','k4','k5'] },
+  law: { title: 'The law', color: '--kick', spine: ['l0','l1','l2','l3','l4','l5','l6'] },
   anatomy:{ title: 'Anatomy', color: '--kick', spine: ['a0', 'a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9'] },
   mixer:  { title: 'Mixer', color: '--seq', spine: ['mixer'] }
 };
 const CHAPTER_TITLES = {
+  l0: 'Drugs, the law and the dance floor', l1: 'Ecstasy arrives, 1985–89', l2: 'The Bright Bill and the Pay Party Unit, 1989–90', l3: 'From Castlemorton to the Criminal Justice Act, 1992–94', l4: 'Leah Betts and safer dancing, 1995–2000', l5: 'Licensing, Form 696 and the superclub years, 2003–17', l6: 'Fabric, the Night Czar, Covid and after, 2016–26',
   k0: 'The machines: a route through forty years', k1: 'The analogue bargain bin, 1980–88', k2: 'The sampler, 1986–96', k3: 'Virtual analogue and the system, 1995–2001', k4: 'The laptop, 2001–12', k5: 'Hardware comes back, 2012–26',
   home: 'Cover', h0: 'Forty years in one picture', pre: 'Prehistory, 1920–80', h1: 'Roots, 1974–85', h2: 'Detroit, 1985–92', h3: 'Britain, 1988–99', ldn: 'London, 1986–2026', h4: 'Berlin, 1988–99', h5: 'Europe and the world', h6: 'The 2000s: minimal', h7: 'Ibiza, 2000–', h8: 'The 2010s: Berghain', h9: 'The 2020s: harder, faster', h10: 'Key DJs and producers', h11: 'Clubs', h12: 'Festivals and events', h13: 'Landmark sets', h14: 'Branches: the genres that emerged',
   r0: 'What a rave is', r1: 'Acid house parties and the orbital raves, 1988–90', r2: 'Pirate radio', r3: 'Hardcore, 1990–92', r4: 'The free party and the protest', r5: 'The Criminal Justice Act, 1994', r6: 'Licensed raves and the superclubs', r7: 'The split: jungle, happy hardcore and after', r8: 'Rave people, crews and stations',
   house0: 'The house strand', hh1: 'Chicago, 1977–88', hh2: 'New York and the garage', hh3: 'Ibiza: the island\'s own story', hh4: 'The Ibiza Four and London', hh5: 'Madchester and the North', hh6: 'House after 1990',
   j0: 'What jungle is', j1: 'Rage and the breakbeat, 1988–92', j2: 'Jungle, 1993–95', j3: 'Drum & bass, 1995–2000', j4: 'The 2000s and the revival', j5: 'Jungle people, labels and rooms',
   t0: 'What trance is', t1: 'Frankfurt and Berlin, 1990–95', t2: 'Goa and psytrance', t3: 'The boom, 1995–2001', t4: 'After the peak', t5: 'Trance people, labels and rooms', credits: 'Image credits', forty: 'Forty of everything', timeline: 'Forty years in one line', listings: 'What was on: listings', nights: 'Club nights', flyers: 'Real flyers', djs: 'DJs and producers', cities: 'Cities and the spread', tours: 'Guided tours', path: 'Six degrees', quiz: 'Blind test', crate: 'Your crate', notes: 'Marginalia',
-  a0: 'The map', a1: 'Kick', a2: 'Drums', a3: 'Percussion', a4: 'Rumble', a5: 'Bass', a6: 'Synth', a7: 'Sampling', a8: 'Mix', a9: 'Studio sequencer', mixer: 'The set builder', make: 'Learn to make each genre', disputes: 'Corrections and open questions', year: 'Everywhere in one year', explore: 'Explore the graph'
+  a0: 'The map', a1: 'Kick', a2: 'Drums', a3: 'Percussion', a4: 'Rumble', a5: 'Bass', a6: 'Synth', a7: 'Sampling', a8: 'Mix', a9: 'Studio sequencer', mixer: 'The set builder', make: 'Learn to make each genre', disputes: 'Corrections and open questions', charts: 'What charted', shops: 'Record shops', press: 'The press', sound: 'Sound systems', year: 'Everywhere in one year', explore: 'Explore the graph'
 };
 Object.keys(window.YEARS || {}).forEach(y => { CHAPTER_TITLES['y' + y] = y + (y === '1986' ? ' · year one' : y === '2026' ? ' · forty years on' : ''); });
 /* forks: where a chapter's history divides. [label, target, strand] */
 const FORKS = {
+  l1: [['The parties the drug arrived at → Shoom and the orbital raves', 'r1', 'rave'], ['Ibiza, where the Four found it', 'hh3', 'house']],
+  l2: [['Sunrise, Energy and the M25 → the rave strand', 'r1', 'rave'], ['Where the parties went next → licensed clubs', 'r6', 'rave']],
+  l3: [['Castlemorton told in full', 'r4', 'rave'], ['The Act and the protests', 'r5', 'rave']],
+  l4: [['The superclubs the guidelines were written for', 'r6', 'rave'], ['Manchester, where Lifeline started', 'hh5', 'house']],
+  l5: [['The rooms the Licensing Act changed → Clubs', 'h11', 'techno'], ['UK garage, the nights Form 696 closed', 'g-ukgarage', 'house']],
+  l6: [['fabric and The End → London', 'ldn', 'techno'], ['The 2020s on the floor', 'h9', 'techno']],
+  r5: [['The law strand: the Act in context', 'l3', 'law']],
   k1: [['Hear the same boxes taken apart → Anatomy: Kick', 'a1', 'anatomy'], ['The records the 808 made → Chicago', 'hh1', 'house'], ['The 909 in Detroit', 'h2', 'techno']],
   k2: [['Chop a break yourself → Anatomy: Sampling', 'a7', 'anatomy'], ['The records the S1000 made → jungle', 'j2', 'jungle'], ['The same years in the fields → rave', 'r3', 'rave']],
   k3: [['The supersaw at work → trance', 't3', 'trance'], ['What the synth section does → Anatomy: Synth', 'a6', 'anatomy']],
@@ -741,6 +750,90 @@ SET2('set-knuckles-warehouse', 'Frankie Knuckles at the Warehouse', 'chicago', '
 SET2('set-alfredo', 'Alfredo at Amnesia', 'ibiza', '1984–89', 'Midnight to dawn, no genre, the terrace open to the sky.', ['house'], [['at', 'amnesia']]);
 SET2('set-sasha-digweed', 'Sasha & Digweed — Northern Exposure / Twilo', 'newyork', '1996–2001', 'Progressive as a journey: the monthly at Twilo and the mixes.', ['trance', 'house'], [['at', 'twilo']]);
 
+/* ---------- shops, press, sound systems, the law ---------- */
+const SHOP = (id, name, city, years, blurb, strands, aliases = []) => N(id, 'shop', name, { city, years, blurb, strands, rel: [['in', city]], aliases });
+const PRESS = (id, name, city, years, blurb, strands, aliases = []) => N(id, 'press', name, { city, years, blurb, strands, rel: city ? [['in', city]] : [], aliases });
+const SOUND = (id, name, city, years, blurb, strands, aliases = []) => N(id, 'sound', name, { city, years, blurb, strands, rel: city ? [['in', city]] : [], aliases });
+const LAW = (id, name, city, years, blurb, strands, aliases = []) => N(id, 'law', name, { city, years, blurb, strands, rel: city ? [['in', city]] : [], aliases });
+
+// record shops
+SHOP('shop-importes', 'Importes Etc.', 'chicago', '1979–', 'Frankie Knuckles\' Warehouse records sold here under a sign that said "house music" — one origin of the word.', ['house'], ['Imports Etc']);
+SHOP('shop-grammaphone', 'Gramaphone Records', 'chicago', '1969–', 'Chicago\'s dance shop on North Clark Street: Derrick Carter and Mark Farina behind the counter.', ['house']);
+SHOP('shop-buy-rite', 'Buy-Rite Records', 'detroit', '1980s', 'Mike Banks and Jeff Mills\' Detroit shop stop; where the first UR records were sold over the counter.', ['techno']);
+SHOP('shop-record-time', 'Record Time', 'detroit', '1983–2011', 'Roseville, Michigan: the back room where Detroit\'s second wave bought their imports; Plus 8 and Transmat in the racks.', ['techno']);
+SHOP('shop-vinyl-mania', 'Vinyl Mania', 'newyork', '1978–2007', 'Carmine Street: Larry Levan\'s record shop, where Garage records went on sale the Monday after he played them.', ['house']);
+SHOP('shop-black-market', 'Black Market Records', 'london', '1988–2015', 'D\'Arblay Street, Soho: the house upstairs, the jungle basement with Nicky Blackmarket and Ray Keith behind the counter.', ['jungle', 'house', 'rave'], ['BM Soho', 'Blackmarket']);
+SHOP('shop-fat-cat', 'Fat Cat Records', 'london', '1989–97', 'Covent Garden: the techno shop where Dave Clarke, Richie Hawtin and Andrew Weatherall dug; a label from 1997.', ['techno']);
+SHOP('shop-eastern-bloc', 'Eastern Bloc', 'manchester', '1985–', 'Afflecks Palace then Oldham Street: Manchester\'s dance shop, the source of 808 State and the Creed label.', ['house', 'rave']);
+SHOP('shop-spin-inn', 'Spin Inn', 'manchester', '1970s–', 'Manchester\'s import shop where Mike Pickering and Graeme Park bought the Chicago records they played at the Haçienda.', ['house']);
+SHOP('shop-warp', 'Warp Records (shop)', 'sheffield', '1989–', 'The Division Street shop that became the label: Rob Mitchell and Steve Beckett behind the counter.', ['techno', 'rave']);
+SHOP('shop-fon', 'FON Records', 'sheffield', '1986–89', 'Sheffield\'s shop and studio before Warp: where the bleep records were sold and some were made.', ['techno']);
+SHOP('shop-de-underground', 'De Underground Records', 'london', '1991–2001', 'Forest Gate: Mike De Underground and the Reinforced/4hero circle\'s shop, hardcore and jungle\'s east London counter.', ['jungle', 'rave']);
+SHOP('shop-lucky-spin', 'Lucky Spin', 'london', '1990s', 'Hackney: Jumpin\' Jack Frost\'s shop and label, the V Recordings prehistory.', ['jungle']);
+SHOP('shop-boogie-times', 'Boogie Times', 'london', '1990–98', 'Romford: Danny Donnelly\'s shop and Suburban Base label, hardcore and jungle\'s Essex end.', ['rave', 'jungle']);
+SHOP('shop-unity', 'Unity Records', 'london', '1990s', 'Soho: the shop under the Unity FM crew; hardcore and jungle twelves by the box.', ['jungle', 'rave']);
+SHOP('shop-hard-wax', 'Hard Wax', 'berlin', '1989–', 'Mark Ernestus\'s Kreuzberg shop: Basic Channel\'s counter, the source of Berlin\'s techno and dub taste, still open.', ['techno']);
+SHOP('shop-delirium', 'Delirium Records', 'frankfurt', '1988–', 'Frankfurt\'s techno shop in the Nordend; the Harthouse and Eye Q records sold from the counter.', ['techno', 'trance']);
+SHOP('shop-rush-hour', 'Rush Hour', 'amsterdam', '1997–', 'Amsterdam\'s shop, label and distributor: the Dutch techno and house counter since 1997.', ['techno', 'house']);
+SHOP('shop-clone', 'Clone', 'rotterdam', '1992–', 'Serge Verschuur\'s Rotterdam shop and label: electro, Italo and techno, and the Dutch West Coast sound.', ['techno']);
+SHOP('shop-pure-groove', 'Pure Groove', 'london', '1990s–2010', 'Holloway Road then Smithfield: the UK garage counter, where the two-step white labels went first.', ['house']);
+SHOP('shop-rough-trade', 'Rough Trade', 'london', '1976–', 'Not a dance shop, but Talbot Road sold the first Warp and Rephlex records to a different crowd.', ['techno']);
+SHOP('shop-phonica', 'Phonica', 'london', '2003–', 'Poland Street, Soho: the dance shop of the 2000s and 2010s, still open where Black Market and the rest closed.', ['techno', 'house']);
+SHOP('shop-idle-hands', 'Idle Hands', 'bristol', '2011–', 'Bristol\'s shop and label on Stokes Croft: dubstep\'s and techno\'s counter in the 2010s.', ['jungle', 'techno']);
+SHOP('shop-juno', 'Juno Records', 'london', '1996–', 'The online shop that replaced the counter for most of the world: the distributor-sized catalogue of the 2000s.', ['techno', 'house', 'trance', 'jungle']);
+SHOP('shop-discogs', 'Discogs', null, '2000–', 'The database that became the marketplace: every pressing catalogued by its users, and the second-hand record trade moved online.', ['techno', 'house']);
+
+// press
+PRESS('press-face', 'The Face', 'london', '1980–2004', 'The style monthly that put acid house on its cover in 1988 and made the smiley a national symbol.', ['rave', 'house']);
+PRESS('press-ID', 'i-D', 'london', '1980–', 'Terry Jones\'s straight-up fashion magazine; its club pages and the early rave reporting.', ['rave', 'house']);
+PRESS('press-nme', 'NME', 'london', '1952–2018', 'Reported acid house as a moral panic and then as a movement; the 1988 "Summer of Love" coverage.', ['rave']);
+PRESS('press-mixmag', 'Mixmag', 'london', '1983–', 'From DMC\'s DJ newsletter to the biggest dance monthly in the world; the cover-mount CDs and the DJ of the Year.', ['house', 'techno', 'trance']);
+PRESS('press-djmag', 'DJ Mag', 'london', '1991–', 'The Top 100 DJs poll, since 1993, that made and measured the superstar DJ.', ['trance', 'house', 'techno']);
+PRESS('press-muzik', 'Muzik', 'london', '1995–2003', 'IPC\'s dance monthly: the Muzik Awards, the serious long reads of the superclub years.', ['house', 'techno', 'trance']);
+PRESS('press-jockey-slut', 'Jockey Slut', 'manchester', '1993–2004', 'Manchester\'s fanzine turned magazine: the funny, knowledgeable voice of the 1990s underground.', ['house', 'techno']);
+PRESS('press-knowledge', 'Knowledge', 'london', '1994–2008', 'Drum & bass\'s own magazine, from Colin Steven\'s Brixton bedroom to the newsstand.', ['jungle']);
+PRESS('press-generator', 'Generator', 'london', '1990s', 'The techno and trance monthly of the mid-1990s; the Megadog and Tribal Gathering years in print.', ['trance', 'techno']);
+PRESS('press-eternity', 'Eternity', 'london', '1993–98', 'The hardcore and happy hardcore magazine: the rave scene reporting on itself after the press moved on.', ['rave']);
+PRESS('press-wire', 'The Wire', 'london', '1982–', 'The experimental monthly that took techno seriously as music in the 1990s; Kodwo Eshun and Simon Reynolds\' writing.', ['techno']);
+PRESS('press-frontpage', 'Frontpage', 'berlin', '1989–97', 'Berlin\'s free techno magazine: the Love Parade\'s house journal, Tresor and the Mayday years.', ['techno']);
+PRESS('press-groove', 'Groove', 'berlin', '1989–', 'Germany\'s longest-running dance magazine, from Frankfurt to Berlin.', ['techno', 'trance']);
+PRESS('press-ra', 'Resident Advisor', 'london', '2001–', 'Started in Sydney in 2001, the website that replaced the magazines: listings, reviews, the RA podcast and the ticketing business.', ['techno', 'house']);
+PRESS('press-fact', 'FACT', 'london', '2003–', 'The free magazine turned website; the FACT mix series and the grime and dubstep reporting of the 2000s.', ['jungle', 'techno']);
+PRESS('press-boiler-room', 'Boiler Room (broadcast)', 'london', '2010–', 'A webcam in a Dalston warehouse that became the dance world\'s television.', ['techno', 'house']);
+PRESS('press-energy-flash', 'Energy Flash (Simon Reynolds)', null, '1998', 'The history that most of the later histories, this one included, argue with: Reynolds\'s book on rave culture, revised 2008 and 2013.', ['rave', 'techno', 'jungle']);
+PRESS('press-last-night', 'Last Night a DJ Saved My Life', null, '1999', 'Brewster and Broughton\'s history of the DJ; with "Altered State" and "Adventures in Wonderland" the shelf behind this book.', ['house', 'techno']);
+
+// sound systems and engineers
+SOUND('sound-richard-long', 'Richard Long & Associates', 'newyork', '1970s–86', 'The Paradise Garage system designer: the Levan horns, the bass array, the sound the whole genre was built to be played on.', ['house'], ['Richard Long']);
+SOUND('sound-alex-rosner', 'Alex Rosner', 'newyork', '1960s–', 'Rosie\'s mixer for Francis Grasso and the Loft systems; the engineer who gave the DJ a cue button.', ['house']);
+SOUND('sound-turbosound', 'Turbosound', 'london', '1978–', 'Tony Andrews and John Newsham\'s company: the Glastonbury rig, the Haçienda\'s system, Funktion-One\'s parent.', ['rave', 'house']);
+SOUND('sound-tony-andrews', 'Tony Andrews', 'london', '1970s–', 'The engineer behind Turbosound and Funktion-One: horn-loading, the Resolution series, the system of Space, fabric and Berghain.', ['techno', 'house']);
+SOUND('sound-jah-shaka', 'Jah Shaka Sound System', 'london', '1970s–', 'The south London dub sound system whose bass taught the jungle producers what a room could do.', ['jungle']);
+SOUND('sound-spiral-tribe-rig', 'The Spiral Tribe rig', 'london', '1990–', 'The free party sound system: the Castlemorton rig, impounded after the Criminal Justice Act, rebuilt in France.', ['rave']);
+SOUND('sound-bedlam', 'Bedlam Sound System', 'london', '1990–', 'The free party crew whose rig stood beside Spiral Tribe\'s at Castlemorton; a decade of unlicensed parties.', ['rave']);
+SOUND('sound-desert-storm', 'Desert Storm Sound System', 'glasgow', '1992–', 'Glasgow\'s free party crew that drove a rig to Bosnia during the war and to Castlemorton before it.', ['rave']);
+SOUND('sound-void', 'Void Acoustics', 'brighton', '1999–', 'Rog Mogale\'s Brighton company: the Incubus and Air systems of the 2010s clubs and festivals.', ['techno', 'house']);
+SOUND('sound-martin-audio', 'Martin Audio', 'london', '1971–', 'Dave Martin\'s company: the Ministry of Sound\'s original system and the Pink Floyd rigs before it.', ['house']);
+SOUND('sound-kirsch', 'Kirsch Audio', 'berlin', '2000s–', 'The Berlin firm behind Berghain\'s Funktion-One install and the room\'s tuning.', ['techno']);
+SOUND('sound-despacio', 'Despacio', null, '2013–', 'James Murphy and 2manydjs\' seven-stack McIntosh system: the audiophile dance floor as an idea.', ['house']);
+
+// drugs, policy and the law
+LAW('law-mdma', 'MDMA', null, '1912 / 1985–', 'Synthesised by Merck in 1912, used in therapy in the 1970s, banned in the US in 1985 and Britain in 1977; the drug the music is inseparable from.', ['rave', 'house'], ['Ecstasy', 'E']);
+LAW('law-misuse', 'Misuse of Drugs Act 1971', 'london', '1971', 'The Act that classifies MDMA as Class A; the framework every later policy argument has been held inside.', ['rave']);
+LAW('law-bright-bill', 'Entertainments (Increased Penalties) Act 1990', 'london', '1990', 'Graham Bright\'s private member\'s bill: fines of £20,000 and six months for unlicensed parties — the law that ended the orbital raves.', ['rave'], ['Bright Bill']);
+LAW('law-pay-party-unit', 'The Pay Party Unit', 'london', '1989–90', 'The Metropolitan Police intelligence unit that tracked the rave organisers\' phone lines and convoys; Ken Tappenden\'s operation.', ['rave']);
+LAW('law-leah-betts', 'Leah Betts', 'london', '1995', 'The eighteen-year-old whose death after taking ecstasy at her birthday party became the "Sorted" billboard campaign and the decade\'s moral panic.', ['rave']);
+LAW('law-safer-dancing', 'Safer dancing and harm reduction', 'manchester', '1990s–', 'Lifeline\'s Peanut Pete leaflets, the Safer Dancing guidelines, free water and chill-out rooms: the policy response that worked.', ['rave', 'house']);
+LAW('law-licensing-2003', 'Licensing Act 2003', 'london', '2003–05', 'Twenty-four-hour licensing, the end of the 2am close and the superclubs\' last advantage; in force November 2005.', ['house', 'techno']);
+LAW('law-form-696', 'Form 696', 'london', '2005–17', 'The Met\'s risk-assessment form that asked promoters for the ethnicity of the audience; blamed for closing grime and garage nights, scrapped in 2017.', ['house', 'jungle']);
+LAW('law-fabric-closure', 'The fabric closure, 2016', 'london', '2016', 'Islington revoked fabric\'s licence after two deaths; the campaign, the £320,000 crowdfund and the reopening in January 2017 under new conditions.', ['techno', 'house']);
+LAW('law-night-czar', 'The Night Czar and the night-time economy', 'london', '2016–', 'Amy Lamé\'s appointment, the Night Time Commission and the idea that a city\'s clubs are infrastructure.', ['techno', 'house']);
+LAW('law-agent-of-change', 'Agent of Change', 'london', '2018', 'The planning principle that makes developers, not venues, responsible for soundproofing: the Ministry of Sound\'s long fight written into policy.', ['house']);
+LAW('law-the-loop', 'The Loop', 'manchester', '2013–', 'Fiona Measham\'s drug-checking charity: the first front-of-house testing at a UK festival, Secret Garden Party 2016.', ['rave', 'techno']);
+LAW('law-covid', 'Covid closures, 2020–21', 'london', '2020–21', 'Sixteen months with every club in Britain shut; the Night Time Industries Association\'s count of what did not reopen.', ['techno', 'house']);
+LAW('law-psychoactive', 'Psychoactive Substances Act 2016', 'london', '2016', 'The blanket ban on "legal highs" and nitrous oxide\'s long road to a 2023 ban.', ['rave']);
+LAW('law-cja-link', 'The Criminal Justice and Public Order Act (see the rave strand)', 'london', '1994', 'Section 63 and "repetitive beats": the law strand\'s central event is told in the rave strand.', ['rave']);
+
 /* ---------- the technology route: machines, software, formats ---------- */
 /* [id, title, years, kind, blurb, strands, preset, rel, aliases, era(k1..k5)] */
 const TECH = [
@@ -800,5 +893,5 @@ const NODE = Object.fromEntries(NODES.map(n => [n.id, n]));
 const BACK = {}; NODES.forEach(n => n.rel.forEach(([r, t]) => { (BACK[t] = BACK[t] || []).push([r, n.id]); }));
 const REL_LABEL = { in: 'in', played: 'played at', founded: 'founded', made: 'made', member: 'member of', uses: 'uses', label: 'on', by: 'by', genre: 'genre', from: 'descends from', told: 'told in', at: 'at' };
 const REL_BACK = { in: 'based here', played: 'played here', founded: 'founded by', made: 'made by', member: 'members', uses: 'used on', label: 'released', by: 'records', genre: 'records', from: 'led to', told: 'genres in this chapter', at: 'sets here' };
-const TYPE_LABEL = { city: 'City', machine: 'Machine', label: 'Label', genre: 'Genre', border: 'Crossing', collective: 'Collective', person: 'Person', club: 'Club', event: 'Event', station: 'Radio station', record: 'Record', set: 'Landmark set' };
-const TYPE_COLOR = { city: '--mix', machine: '--synth', label: '--samp', genre: '--rumble', border: '--perc', collective: '--kick', person: '--kick', club: '--rumble', event: '--perc', station: '--drums', record: '--bass', set: '--drums' };
+const TYPE_LABEL = { city: 'City', machine: 'Machine', label: 'Label', genre: 'Genre', border: 'Crossing', collective: 'Collective', person: 'Person', club: 'Club', event: 'Event', station: 'Radio station', record: 'Record', set: 'Landmark set', shop: 'Record shop', press: 'Press', sound: 'Sound system', law: 'Law and policy' };
+const TYPE_COLOR = { city: '--mix', machine: '--synth', label: '--samp', genre: '--rumble', border: '--perc', collective: '--kick', person: '--kick', club: '--rumble', event: '--perc', station: '--drums', record: '--bass', set: '--drums', shop: '--samp', press: '--mix', sound: '--drums', law: '--kick' };
