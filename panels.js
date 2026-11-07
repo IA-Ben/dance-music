@@ -240,3 +240,46 @@
   const _play = PatternGrid.play.bind(PatternGrid);
   PatternGrid.play = st => { _play(st); if (st.over && st.over.bpmOverride){ const G = PRESET(st.genre); const bpm = st.over.bpmOverride; clearInterval(st.timer); const dk = deck(); dk.setDelayForBpm(bpm); const tick = () => { const c = dk.ch.c; while (st.nextTime < c.currentTime + 0.15){ const d = 60 / bpm / 4; dk.scheduleStep(st.step, st.nextTime, bpm); st.queue.push({ step: st.step, time: st.nextTime }); st.nextTime += d; st.step = (st.step + 1) % 16; } }; st.timer = setInterval(tick, 25); } };
 })();
+
+/* ---------- the machines of each history chapter, working ---------- */
+(() => {
+  const C = window.CHAPTER_PANELS = {
+    pre: [['moog', 'The modular that Wendy Carlos and Giorgio Moroder patched: a VCO, a filter, an LFO and a cable.']],
+    h1: [['tr808', 'The box under "Planet Rock" and "Clear": write a pattern the way Bambaataa and Atkins did.'], ['korg-ms', 'Cybotron\'s semi-modular: patch the LFO into the filter and the Korg starts to talk.']],
+    h2: [['tr909', 'Detroit\'s drum machine: a warm kick, a clap on 2 and 4, shakers underneath.'], ['juno60', 'The chord: a minor seventh through the chorus, the way May and Saunderson played it.']],
+    h3: [['akai-s900', 'The bedroom sampler of 1988–92: Gerald\'s S950, the hardcore break, the pitched-up vocal.'], ['atari-cubase', 'The Atari ST that sequenced Warp, Sheffield and most of this chapter.']],
+    ldn: [['tb303', 'Clink Street\'s instrument: the 303 that Mr C and the Shoom crowd heard arrive from Chicago.'], ['tr909', 'The End\'s tech-house at 126: a 909 with the hats loud and the kick dry.']],
+    h4: [['tr909', 'Tresor\'s kick: drive it, add the vault\'s rumble, run.'], ['sh101', 'The little monosynth that gave Berlin and Birmingham their basslines.']],
+    h5: [['nord-lead', 'The red keyboard of the late 1990s: the European lead sound, seven saws wide.'], ['tr909', 'The 909 as every European room heard it, 135–145.']],
+    h6: [['ableton', 'Minimal\'s instrument: clips launched on the bar, the set built live.'], ['cubase-vst', 'Audio in the computer: the piano roll that replaced the Atari.']],
+    h7: [['jp8000', 'The island\'s trance summers, 1999–2003: the supersaw at 138.'], ['mpc', 'The MPC swing that the tech-house and garage DJs brought to the terrace.']],
+    h8: [['elektron', 'The Octatrack and Machinedrum generation: sequencer first, no laptop on the table.'], ['eurorack', 'Patch cables again: the modular of the hypnotic lineage.']],
+    h9: [['behringer', 'The 808 circuit for a tenth of the price: hard techno\'s drum machine.'], ['fl-studio', 'The step sequencer the 2020s producers learned on.']],
+    hh1: [['tr707', 'The Chicago drum box: Phuture\'s 707 and 727 under the 303.'], ['tb303', 'The resonance knob that DJ Pierre turned: acid.'], ['korg-m1', 'Later Chicago: the M1 piano and organ bass of the Trax and DJ International records.']],
+    hh2: [['korg-m1', 'The garage piano and organ bass: Todd Terry, MAW, the Strictly Rhythm sound.'], ['mpc', 'The swing of New York and New Jersey, on pads.']],
+    hh3: [['juno60', 'Alfredo\'s Balearic chord: a Juno through its chorus at 108.']],
+    hh4: [['tb303', 'The acid that came back from Ibiza to Shoom: the 303 at 120.'], ['tr909', 'The Ibiza Four\'s London rooms: house drums with the open hat on the offbeat.']],
+    hh5: [['akai-s900', '"Voodoo Ray" and Madchester: the S950 that ran out of memory.'], ['tr808', 'The 808 that named 808 State.']],
+    hh6: [['mpc', 'UK garage\'s swing: 62–66% on the MPC.'], ['korg-m1', 'The M1 organ bass that ran from garage to speed garage.'], ['cubase-vst', 'Progressive house in the computer, 1996–2000.']],
+    r1: [['tb303', 'The acid of the acid house parties: 1988\'s instrument.'], ['tr909', 'The drum machine of Sunrise and Energy.']],
+    r3: [['alpha-juno', 'The hoover: the Alpha Juno "WhatThe" patch on "Mentasm" and "Dominator".'], ['akai-s900', 'The hardcore sampler: a break, a piano, a vocal pitched up.']],
+    r6: [['jp8000', 'The superclub\'s sound: the supersaw of Gatecrasher and Cream.'], ['tr909', 'The 909 of the licensed rooms, 1994–99.']],
+    r7: [['akai-s1000', 'Where the split happened: the timestretch that took the break to 160.'], ['korg-m1', 'The piano that took the other half to happy hardcore.']],
+    j1: [['akai-s900', 'The Rage era: the Amen chopped on an S950, 1990–92.'], ['alpha-juno', 'The hoover that hardcore carried into darkcore.']],
+    j2: [['akai-s1000', 'Jungle\'s sampler: stretch the break, drop the sub.'], ['casio-cz', 'The reese bass by way of the Casio CZ.']],
+    j3: [['casio-cz', 'Techstep\'s reese: resample it, filter it, resample it.'], ['cubase-vst', 'Drum & bass in the computer: Photek\'s edits, Optical\'s neurofunk.']],
+    j4: [['ableton', 'The 2000s liquid and the revival, built in Live.'], ['akai-s1000', 'The old Akai, back in fashion for the jungle revival.']],
+    t1: [['tr909', 'Frankfurt\'s clean 909 at 136.'], ['juno60', 'The Juno arpeggio of Dance 2 Trance and Jam & Spoon.']],
+    t2: [['tb303', 'Goa\'s 303 at 145: 16ths with the resonance high.'], ['nord-lead', 'The Nord Lead that replaced the 303 on the beach.']],
+    t3: [['jp8000', 'The boom\'s instrument: the supersaw.'], ['access-virus', 'The Virus: Armin\'s, Tiësto\'s and Ferry\'s lead.']],
+    t4: [['ableton', 'Trance after the peak, made in the box.'], ['access-virus', 'The Virus survives into the 2010s.']],
+    a0: [['web-audio', 'The engine this strand takes apart: oscillators and filters in your browser.']]
+  };
+  const mountChapter = (page, id) => {
+    const spec = C[id]; if (!spec || !page || page.dataset.chpanels) return; page.dataset.chpanels = 1;
+    const card = document.createElement('div'); card.className = 'card chpanels'; card.innerHTML = `<h3>The machines of this chapter, working</h3><p class="cap">Reconstructions driven by the book's engine — the controls change what you hear. Each has its own page in the Technology strand.</p>` + spec.map(([m, cap]) => `<p class="cap" style="margin:10px 0 2px"><a class="xl" href="#${m}">${NODE[m] ? NODE[m].title : m}</a> — ${cap}</p><div class="hwpanel" data-machine="${m}"></div>`).join('');
+    const anchor = page.querySelector('.forks') || page.querySelector('.pagenav') || null; if (anchor) anchor.before(card); else page.appendChild(card);
+    Panels.mountAll(card);
+  };
+  Panels.mountChapter = mountChapter;
+})();

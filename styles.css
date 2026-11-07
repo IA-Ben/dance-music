@@ -590,6 +590,7 @@ body.paper .page{padding:44px 48px 70px 56px}
   body.paper .page .grid2,body.paper .page .grid3,body.paper .page .grid2>div,body.paper .page .grid3>div{display:block}
   body.paper .page .grid2>div>*,body.paper .page .grid3>*{margin-bottom:14px}
   body.paper .page .card,body.paper .page figure,body.paper .page .pg,body.paper .page .pgbox,body.paper .page svg.diag,body.paper .page .pcard,body.paper .page .ccard,body.paper .page .relrow,body.paper .page table,body.paper .page .framing,body.paper .page .notice,body.paper .page .chips,body.paper .page .era,body.paper .page h3,body.paper .page .hwpanel,body.paper .page .hw,body.paper .page .hstep,body.paper .page .howgrid{break-inside:avoid}
+body.paper .page .chpanels{column-span:all;margin-top:18px}
   body.paper .page h3{break-after:avoid}
   body.paper .page .runhead{margin:-10px 0 34px}
   body.paper .page .folio.l{left:72px}body.paper .page .folio.r{right:72px}
