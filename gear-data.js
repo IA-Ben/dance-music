@@ -18,6 +18,21 @@ window.GEAR = {
 "title": "DJ Mag - Game Changers: Phuture 'Acid Tracks'",
 "says": "303 bought for $40 second-hand; jam session at Spanky's house; Pierre twisted the knobs live"
 }
+],
+"disputes": [
+{
+"what": "the drum machine",
+"a": {
+"claim": "a TR-707 and TR-727",
+"source": "Phuture — Wikipedia",
+"url": "https://en.wikipedia.org/wiki/Phuture"
+},
+"b": {
+"claim": "no drum machine is named in the track's own article; the book had assumed an 808",
+"source": "Acid Tracks — Wikipedia",
+"url": "https://en.wikipedia.org/wiki/Acid_Tracks"
+}
+}
 ]
 },
 "rec-autobahn": {
@@ -166,6 +181,21 @@ window.GEAR = {
 "title": "Classic Tracks: 808 State 'Pacific State' - Sound on Sound",
 "says": "909 drums not 808; SH-101 bass; Juno 106 chords sampled into Casio FZ1; D-50 strings; Akai S900 loon sample; Massey played soprano sax; Spirit Studios Manchester; Square Dance Studios Stoke"
 }
+],
+"disputes": [
+{
+"what": "the drum machine",
+"a": {
+"claim": "a TR-909, despite the band's name",
+"source": "Sound on Sound, Classic Tracks",
+"url": "https://www.soundonsound.com/techniques/classic-tracks-808-state-pacific-state"
+},
+"b": {
+"claim": "an 808, as the band's name suggests",
+"source": "common assumption",
+"url": null
+}
+}
 ]
 },
 "rec-lfo": {
@@ -189,6 +219,21 @@ window.GEAR = {
 "url": "https://909originals.com/2020/07/26/interview-how-lfo-made-lfo-909originals-catches-up-with-gez-varley-on-the-30th-anniversary-of-a-techno-classic/",
 "title": "Interview: How LFO made 'LFO' - 909originals",
 "says": "FZ10 sampler, Kawai K1, Jen SX1000, Speak and Spell for the voice; Martin Williams's Atari ST, Fostex mixer and Yamaha FX; Leeds background"
+}
+],
+"disputes": [
+{
+"what": "the gear",
+"a": {
+"claim": "a Casio FZ-10 sampler, a Kawai K1, a Jen SX1000 and a Speak & Spell",
+"source": "Gez Varley, 909originals",
+"url": "https://909originals.com/2020/07/26/interview-how-lfo-made-lfo-909originals-catches-up-wit"
+},
+"b": {
+"claim": "the book had assumed a 909",
+"source": "the book's assumption",
+"url": null
+}
 }
 ]
 },
@@ -215,6 +260,21 @@ window.GEAR = {
 "url": "https://daily.redbullmusicacademy.com/2014/05/key-tracks-mundo-muzique-on-mentasm",
 "title": "Key Tracks: Mundo Muzique on Second Phase's 'Mentasm' - RBMA Daily",
 "says": "Alpha Juno 1 What The patch; Mac SE with Master Tracks Pro; MPC60 for all drums; Casio FZ-1 sampling the loop; Mackie 32-8; began in Muzique's studio, finished in Beltram's, New York"
+}
+],
+"disputes": [
+{
+"what": "the drums",
+"a": {
+"claim": "all the drums on an MPC60, resampled into a Casio FZ-1",
+"source": "Mundo Muzique, Red Bull Music Academy",
+"url": "https://daily.redbullmusicacademy.com/2014/05/key-tracks-mundo-muzique-on-mentasm"
+},
+"b": {
+"claim": "the book had assumed a 909",
+"source": "the book's assumption",
+"url": null
+}
 }
 ]
 },
@@ -250,6 +310,21 @@ window.GEAR = {
 "url": "https://en.wikipedia.org/wiki/Charly_(song)",
 "title": "Charly (song) - Wikipedia",
 "says": "samples Charley Says public information film; studio C.W.S. (Essex); produced by Howlett with Chaz Stevens additional production"
+}
+],
+"disputes": [
+{
+"what": "the gear",
+"a": {
+"claim": "two Roland W-30 workstations and a turntable, in a bedroom; the 909 bought afterwards with the royalties",
+"source": "MusicRadar",
+"url": "https://musicradar.com/news/the-prodigy-charly-story"
+},
+"b": {
+"claim": "the book had assumed an Akai sampler and a 909",
+"source": "the book's assumption",
+"url": null
+}
 }
 ]
 },
@@ -306,6 +381,21 @@ window.GEAR = {
 "url": "https://trenchtrenchtrench.com/news/heritage-goldie-breaks-down-how-he-established-his-sound-with-time-stretching-2012",
 "title": "Heritage: Goldie breaks down time-stretching (2012) - Trench",
 "says": "H3 Harmonizer, designed for pitching guitars, used on breakbeats"
+}
+],
+"disputes": [
+{
+"what": "how the time-stretch was done",
+"a": {
+"claim": "drums put through an Eventide H3000 Harmonizer, a guitar pitch-shifter",
+"source": "4hero's Marc Mac, Red Bull Music Academy",
+"url": "https://daily.redbullmusicacademy.com/2016/04/reinforced-interview"
+},
+"b": {
+"claim": "early Akai-sampler time-stretching",
+"source": "Music Is My Sanctuary",
+"url": "https://www.musicismysanctuary.com/?p=20138"
+}
 }
 ]
 },
@@ -391,6 +481,21 @@ window.GEAR = {
 "url": "https://factmag.com/2019/05/18/richie-hawtin-signal-path",
 "title": "Richie Hawtin on his origins as F.U.S.E. - FACT",
 "says": "early-90s studio 'Under The Kitchen' in Windsor, Ontario; 909 as master control, 808, 303, SH-101, Akai S950, Allen & Heath GS2, Atari"
+}
+],
+"disputes": [
+{
+"what": "the drum machines",
+"a": {
+"claim": "a 909, an 808 and \"probably some 707\", jammed live and nothing else",
+"source": "Richie Hawtin, Insomniac interview",
+"url": "https://www.insomniac.com/?p=42217"
+},
+"b": {
+"claim": "built on TR-808 percussion",
+"source": "Spastik — Wikipedia",
+"url": "https://en.wikipedia.org/wiki/Spastik"
+}
 }
 ]
 },
@@ -524,6 +629,21 @@ window.GEAR = {
 "title": "How Aphex Twin made Selected Ambient Works 85-92 - MusicRadar",
 "says": "MS-20, SH-101, DX7 setup; Casio FZ-10M on ~80% of tracks; Quadraverb on all tracks; Atari 520ST and Korg SQ-10 sequencing; R-8 with 808 card, no TR-808 owned; cassette masters; Evil At Play, RoboCop, Willy Wonka, Apache samples"
 }
+],
+"disputes": [
+{
+"what": "the 808",
+"a": {
+"claim": "a Roland R-8 with the 808 card — James did not own an 808 yet",
+"source": "MusicRadar",
+"url": "https://www.musicradar.com/news/how-aphex-twin-made-saw-85-92"
+},
+"b": {
+"claim": "a TR-808, as the sound suggests",
+"source": "common assumption",
+"url": null
+}
+}
 ]
 },
 "rec-immer": {
@@ -629,6 +749,21 @@ window.GEAR = {
 "url": "https://909originals.com/2017/11/17/something-for-the-weekend-jeff-mills-live-at-the-liquid-room-tokyo-1996/",
 "title": "Something for the weekend: Jeff Mills - Live At The Liquid Room - 909originals",
 "says": "vinyl audibly pushed to change tempo; three sections, third all Mills's own tracks"
+}
+],
+"disputes": [
+{
+"what": "the rig",
+"a": {
+"claim": "two turntables and two reel-to-reel tape machines",
+"source": "Live at the Liquid Room — Wikipedia",
+"url": "https://en.wikipedia.org/wiki/Live_at_the_Liquid_Room,_Tokyo"
+},
+"b": {
+"claim": "three decks and a 909, as Mills usually played",
+"source": "common assumption",
+"url": null
+}
 }
 ]
 },
@@ -1138,6 +1273,21 @@ window.GEAR = {
 "title": "The clubs that made London's drum 'n' bass scene - Londonist",
 "says": "describes a residency starting as Speed in 1995 with LTJ Bukem that became Fabio's Swerve at the Velvet Rooms (conflicts on venue/year)"
 }
+],
+"disputes": [
+{
+"what": "where and when",
+"a": {
+"claim": "at the Mars Bar, London",
+"source": "Mixmag",
+"url": "https://mixmag.net/feature/25-parties-that-changed-dance-music-forever/17"
+},
+"b": {
+"claim": "started in 1995 at the Velvet Rooms with LTJ Bukem, becoming Fabio's Swerve",
+"source": "Londonist (London Elektricity)",
+"url": "https://londonist.com/2016/09/london-elektricity-s-guide-to-london-drum-n-bass-venues"
+}
+}
 ]
 },
 "set-knuckles-warehouse": {
@@ -1160,6 +1310,21 @@ window.GEAR = {
 "url": "https://daily.redbullmusicacademy.com/2017/05/interview-derrick-may/",
 "title": "Interview: Derrick May - RBMA Daily",
 "says": "May says he sold a TR-909 to Frankie Knuckles"
+}
+],
+"disputes": [
+{
+"what": "the 909 from Derrick May",
+"a": {
+"claim": "May says he sold it to Knuckles",
+"source": "Derrick May, Red Bull Music Academy",
+"url": "https://daily.redbullmusicacademy.com/2017/05/interview-derrick-may/"
+},
+"b": {
+"claim": "Knuckles describes it as brought to him, arriving in the Power Plant era after the Warehouse",
+"source": "Frankie Knuckles, MusicRadar",
+"url": "https://www.musicradar.com/news/tech/interview-frankie-knuckles-talks-the-birth-of-house-m"
+}
 }
 ]
 },
@@ -1186,6 +1351,21 @@ window.GEAR = {
 "url": "https://en.wikipedia.org/wiki/I_Feel_Love",
 "title": "Wikipedia — I Feel Love",
 "says": "Recorded at Musicland, Munich; Moog borrowed from Eberhard Schoener, his assistant Robby Wedel synced it with a click track; kick drum played by Keith Forsey because the Moog couldn't make a good kick."
+}
+],
+"disputes": [
+{
+"what": "the drums",
+"a": {
+"claim": "the kick drum was played live by Keith Forsey; the Moog did the hi-hat, snare and pad",
+"source": "Sound on Sound, Classic Tracks",
+"url": "https://www.soundonsound.com/techniques/classic-tracks-donna-summer-feel-love"
+},
+"b": {
+"claim": "often described as the first record made entirely by machine",
+"source": "common telling",
+"url": null
+}
 }
 ]
 },
@@ -1230,6 +1410,21 @@ window.GEAR = {
 "url": "https://www.attackmagazine.com/technique/deconstructed/rhythim-is-rhythim-strings-of-life-derrick-may/",
 "title": "Attack Magazine — Deconstructed: Rhythim Is Rhythim 'Strings of Life'",
 "says": "909 snare; Roland TR-727 bongos; strings 'almost certainly' an Ensoniq Mirage; piano 'probably' a mid-80s Kurzweil with inbuilt sequencer; Michael James recorded the piano at May's home studio; May reused sections a year later."
+}
+],
+"disputes": [
+{
+"what": "who played the piano",
+"a": {
+"claim": "May's friend Michael James, recorded while visiting; May cut the track from that tape a year later — strings \"almost certainly\" an Ensoniq Mirage",
+"source": "Attack Magazine, Deconstructed",
+"url": "https://www.attackmagazine.com/technique/deconstructed/rhythim-is-rhythim-strings-of-life-"
+},
+"b": {
+"claim": "the common telling credits the piano to May himself",
+"source": "common telling",
+"url": null
+}
 }
 ]
 },
@@ -1314,6 +1509,21 @@ window.GEAR = {
 "url": "https://en.wikipedia.org/wiki/Dominator_(Human_Resource_song)",
 "title": "Wikipedia — Dominator (Human Resource song)",
 "says": "Written and produced by Johan van Beek and Robert Mahu; Beltram remix includes the hoover taken from his 'Mentasm'; no equipment or vocal-sample source given."
+}
+],
+"disputes": [
+{
+"what": "the hoover synth",
+"a": {
+"claim": "no source names the synth; the article says only that it is one of the first hoover records",
+"source": "Dominator — Wikipedia",
+"url": "https://en.wikipedia.org/wiki/Dominator_(Human_Resource_song)"
+},
+"b": {
+"claim": "the book assumes the Alpha Juno \"WhatThe\" patch, as on \"Mentasm\" — Beltram's remix did take its hoover from \"Mentasm\"",
+"source": "the book's assumption",
+"url": null
+}
 }
 ]
 },
@@ -1428,6 +1638,21 @@ window.GEAR = {
 "url": "https://www.soundonsound.com/techniques/classic-tracks-future-sound-london-papua-new-guinea",
 "title": "Sound on Sound — Classic Tracks: FSOL 'Papua New Guinea'",
 "says": "Earthbeat studio in Dollis Hill; Atari 1040 running Creator; JX3P top line played live; Fostex 3070; Meat Beat Manifesto 'Radio Babylon' bassline; Dead Can Dance 'Dawn of the Iconoclast' vocal (conflicting account of a male session vocalist); nature documentary audio captured to DAT; S612/S1000/S950/S900 in studio."
+}
+],
+"disputes": [
+{
+"what": "the Dead Can Dance vocal",
+"a": {
+"claim": "Sound on Sound gives conflicting accounts of how the vocal was used",
+"source": "Sound on Sound, Classic Tracks",
+"url": "https://www.soundonsound.com/techniques/classic-tracks-future-sound-london-papua-new-guine"
+},
+"b": {
+"claim": "the usual telling: Lisa Gerrard's \"Dawn of the Iconoclast\" sampled whole",
+"source": "common telling",
+"url": null
+}
 }
 ]
 },
@@ -1762,6 +1987,21 @@ window.GEAR = {
 "url": "https://nl.ra.co/reviews/18029",
 "title": "Resident Advisor — Jeff Mills: Exhibitionist 2 (review, with notes on the 2004 original)",
 "says": "Original 2004 DVD used a couple of cameras and a turntable setup; disc two includes Mix 3 'TR-909 Workout'; Exhibitionist 2 uses three CDJs and a 909."
+}
+],
+"disputes": [
+{
+"what": "the decks",
+"a": {
+"claim": "the 2004 DVD is a turntable set with a 909; the three-CDJ rig is Exhibitionist 2 (2015)",
+"source": "Resident Advisor review",
+"url": "https://nl.ra.co/reviews/18029"
+},
+"b": {
+"claim": "often remembered as the three-CDJ set",
+"source": "common telling",
+"url": null
+}
 }
 ]
 },
@@ -2145,6 +2385,21 @@ window.GEAR = {
 "title": "Insomniac — Steve 'Silk' Hurley 'Jack Your Body'",
 "says": "Kick sounds 'like a Roland 909 kick drum'; rubber-band bassline borrowed from Shep Pettibone's 1983 remix of First Choice 'Let No Man Put Asunder'; vocal samples."
 }
+],
+"disputes": [
+{
+"what": "the drum machine",
+"a": {
+"claim": "the kick \"sounds like\" a 909 — not confirmed",
+"source": "Insomniac",
+"url": "https://www.insomniac.com/?p=40688"
+},
+"b": {
+"claim": "a \"Roland-centred electronic spine\", no model named",
+"source": "Rolling Stone via Wikipedia",
+"url": "https://en.wikipedia.org/wiki/Jack_Your_Body"
+}
+}
 ]
 },
 "rec-dafunk": {
@@ -2167,6 +2422,21 @@ window.GEAR = {
 "url": "https://www.musicradar.com/news/daft-punk-homework-25-synths-drum-machines-sampler",
 "title": "MusicRadar — Daft Punk's Homework turns 25: the gear and production techniques",
 "says": "Homework gear: TB-303, Juno-106, MC-202, MKS-80, Roland TR drum machines, E-mu SP1200, Akai/E-mu samplers, S-760, Mackie MS1202, Mac with MicroLogic, Alesis units, DAT; no Da Funk-specific gear; MS-20 lead speculation not on the list."
+}
+],
+"disputes": [
+{
+"what": "the lead sound",
+"a": {
+"claim": "the riff began as a siren sound; the bass is a TB-303 pattern Bangalter already had",
+"source": "Da Funk — Wikipedia",
+"url": "https://en.wikipedia.org/wiki/Da_Funk"
+},
+"b": {
+"claim": "the often-repeated claim is a Korg MS-20 lead; the Homework gear list in MusicRadar contains no MS-20",
+"source": "MusicRadar, Homework at 25",
+"url": "https://www.musicradar.com/news/daft-punk-homework-25-synths-drum-machines-sampler"
+}
 }
 ]
 },
@@ -2226,6 +2496,21 @@ window.GEAR = {
 "url": "https://testpressing.org/magazine/alfredo-an-interview",
 "title": "Test Pressing — Alfredo: An Interview",
 "says": "Early decks had hanging weights and no speed adjustment; 'in the summer of 85 or 86, we bought (Technics) 1200s'; bought a Numark machine to count beats; resident from 1984; best years 84–86; Sade, Talking Heads, Prince, U2, Waterboys."
+}
+],
+"disputes": [
+{
+"what": "the decks",
+"a": {
+"claim": "Amnesia only got Technics 1200s in the summer of 1985 or 1986; before that, weighted decks with no speed control",
+"source": "Alfredo, Test Pressing interview",
+"url": "https://testpressing.org/magazine/alfredo-an-interview"
+},
+"b": {
+"claim": "the usual telling has the 1200s there from the start",
+"source": "common telling",
+"url": null
+}
 }
 ]
 },
@@ -2593,6 +2878,21 @@ window.GEAR = {
 "title": "Attack Magazine - Deconstructed: Jeff Mills 'The Bells'",
 "says": "drums from a TR-909 with the kick distorted by driving the desk into the red; arranged by riding the mixer; played live for two years before release; Attack gives release year as 1997"
 }
+],
+"disputes": [
+{
+"what": "when it was made",
+"a": {
+"claim": "made in 1994, played from a one-off acetate for two years, released spring 1996",
+"source": "XLR8R",
+"url": "https://xlr8r.com/?p=113950"
+},
+"b": {
+"claim": "released 1997 on Purpose Maker",
+"source": "Attack Magazine",
+"url": "https://attackmagazine.com/?p=134433"
+}
+}
 ]
 },
 "rec-pullover": {
@@ -2606,6 +2906,21 @@ window.GEAR = {
 "url": "https://www.muzines.co.uk/articles/warp-factor-8/7642",
 "title": "mu:zines - Warp Factor 8 (Speedy J profile, 1993)",
 "says": "Pullover first released on Plus 8 compilation From Our Minds To Yours Vol 1; studio gear list (TR-909, TR-808, TR-727, TB-303, SH-101, MC-202, Juno-106, Akai S1100/S3000, Cubase) not linked to specific tracks"
+}
+],
+"disputes": [
+{
+"what": "the year",
+"a": {
+"claim": "1991, on the Plus 8 compilation From Our Minds to Yours Vol. 1",
+"source": "Sound on Sound profile, 1993 (muzines)",
+"url": "https://www.muzines.co.uk/articles/warp-factor-8/7642"
+},
+"b": {
+"claim": "1992",
+"source": "Speedy J — Wikipedia",
+"url": "https://en.wikipedia.org/wiki/Speedy_J"
+}
 }
 ]
 },
@@ -2712,6 +3027,21 @@ window.GEAR = {
 "url": "https://djmag.com/news/amelie-lens-announces-peak-time-techno-ep-%E2%80%98hypnotized%E2%80%99-listen",
 "title": "DJ Mag - Amelie Lens announces peak-time techno EP 'Hypnotized'",
 "says": "released via Pan-Pot's Second State, out 28 June 2019; two originals plus Joyhauser remix; no gear"
+}
+],
+"disputes": [
+{
+"what": "the label",
+"a": {
+"claim": "Pan-Pot's Second State, 28 June 2019",
+"source": "DJ Mag",
+"url": "https://djmag.com/news/amelie-lens-announces-peak-time-techno-ep-%E2%80%98hypnotized%E2%80"
+},
+"b": {
+"claim": "the book had it on Lenske",
+"source": "the book's earlier text",
+"url": null
+}
 }
 ]
 },
@@ -2832,6 +3162,21 @@ window.GEAR = {
 "url": "https://en.wikipedia.org/wiki/Sunrise_%26_Back_to_the_Future",
 "title": "Sunrise & Back to the Future - Wikipedia",
 "says": "Sunrise: A Midsummer Night's Dream at White Waltham Airfield aka 'Ecstasy Airport'; unlicensed; Colston-Hayter avoided prison by claiming membership cards made it a private party"
+}
+],
+"disputes": [
+{
+"what": "the date",
+"a": {
+"claim": "the book gives 24 June 1989",
+"source": "the book's earlier text",
+"url": null
+},
+"b": {
+"claim": "June 1989; no page read confirmed the day",
+"source": "Mixmag",
+"url": "https://mixmag.net/read/the-great-british-freak-out-news"
+}
 }
 ]
 },
@@ -3039,6 +3384,21 @@ window.GEAR = {
 "url": "https://www.juno.co.uk/junodaily/?p=175187",
 "title": "Juno Daily - I Was There: heading down the Wormhole",
 "says": "first-floor studio at St Anne's Court, Soho, at Rob Playford's invitation; summer 1998; drums from live drummers and old funk records, never sped up; Headhunters CD as reference"
+}
+],
+"disputes": [
+{
+"what": "the computer",
+"a": {
+"claim": "an \"Apple LC II running Cubase SX 1\" — implausible, as SX came out in 2002",
+"source": "Wormhole — Wikipedia",
+"url": "https://en.wikipedia.org/wiki/Wormhole_(album)"
+},
+"b": {
+"claim": "a Cubase-era studio in Soho, 1997–98, drums from live players and breaks cut to hits",
+"source": "Juno Daily",
+"url": "https://www.juno.co.uk/junodaily/?p=175187"
+}
 }
 ]
 },

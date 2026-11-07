@@ -513,6 +513,9 @@ body.paper .makerow{background:var(--bg3)}
 .skinatari{--hwbg:#dedede;--hwfg:#1a1a1f;--hwacc:#3f6bff}.skinatari .hwsect em{background:#dedede}.skinatari .hwcell{background:#f2f2f2;border-color:#ccc}.skinatari .hwrr.blk .hwcell{background:#e4e4e4}.skinatari .hwkbody{fill:#f6f6f6;stroke:#999}.skinatari .hwkl,.skinatari .cap,.skinatari .hwtitle span,.skinatari .hwrr span{color:#444}
 .skinvst{--hwbg:#2c2f36;--hwacc:#6ab0ff}.skinfl{--hwbg:#2a2f3a;--hwacc:#ffa33d}.skinrb{--hwbg:#2a2a2a;--hwacc:#ff8a3d}.skinlive{--hwbg:#2b2b2b;--hwacc:#ffb13f}.skineuro{--hwbg:#1a1a1a;--hwacc:#39ff9a}.skinweb{--hwbg:#101014;--hwacc:#3fe8b0}
 @media (max-width:700px){.hwsteps{gap:2px}.hwsteps .hwst{height:26px;font-size:7px}.hwnotes{gap:2px}.hwpadgrid{grid-template-columns:repeat(4,1fr)}}
+
+.relrow.dispute b{color:var(--kick)}.relrow.dispute em{font-style:normal;font-weight:600}.relrow.dispute .vs{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:4px}.relrow.dispute small{color:var(--muted)}
+.dcard{margin:10px 0}.dcard h3{margin-bottom:6px}.dcard p{margin:4px 0;font-size:14.5px}
 /* =====================================================================
    BOOK SKIN — paper pages, dark plates, spreads on wide screens
    ===================================================================== */

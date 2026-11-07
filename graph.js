@@ -21,7 +21,7 @@ const CHAPTER_TITLES = {
   house0: 'The house strand', hh1: 'Chicago, 1977–88', hh2: 'New York and the garage', hh3: 'Ibiza: the island\'s own story', hh4: 'The Ibiza Four and London', hh5: 'Madchester and the North', hh6: 'House after 1990',
   j0: 'What jungle is', j1: 'Rage and the breakbeat, 1988–92', j2: 'Jungle, 1993–95', j3: 'Drum & bass, 1995–2000', j4: 'The 2000s and the revival', j5: 'Jungle people, labels and rooms',
   t0: 'What trance is', t1: 'Frankfurt and Berlin, 1990–95', t2: 'Goa and psytrance', t3: 'The boom, 1995–2001', t4: 'After the peak', t5: 'Trance people, labels and rooms', credits: 'Image credits', forty: 'Forty of everything', timeline: 'Forty years in one line', listings: 'What was on: listings', nights: 'Club nights', flyers: 'Real flyers', djs: 'DJs and producers', cities: 'Cities and the spread', tours: 'Guided tours', path: 'Six degrees', quiz: 'Blind test', crate: 'Your crate', notes: 'Marginalia',
-  a0: 'The map', a1: 'Kick', a2: 'Drums', a3: 'Percussion', a4: 'Rumble', a5: 'Bass', a6: 'Synth', a7: 'Sampling', a8: 'Mix', a9: 'Studio sequencer', mixer: 'The set builder', make: 'Learn to make each genre', year: 'Everywhere in one year', explore: 'Explore the graph'
+  a0: 'The map', a1: 'Kick', a2: 'Drums', a3: 'Percussion', a4: 'Rumble', a5: 'Bass', a6: 'Synth', a7: 'Sampling', a8: 'Mix', a9: 'Studio sequencer', mixer: 'The set builder', make: 'Learn to make each genre', disputes: 'Where the sources disagree', year: 'Everywhere in one year', explore: 'Explore the graph'
 };
 Object.keys(window.YEARS || {}).forEach(y => { CHAPTER_TITLES['y' + y] = y + (y === '1986' ? ' · year one' : y === '2026' ? ' · forty years on' : ''); });
 /* forks: where a chapter's history divides. [label, target, strand] */
@@ -463,7 +463,7 @@ R('rec-ifeelit', 'Carl Cox', 'I Want You (Forever)', 1991, null, ['rave'], 'Cox\
 /* ---------- landmark sets ---------- */
 const SET = (id, title, city, years, blurb, strands, rel = []) => N(id, 'set', title, { city, years, blurb, strands, rel: [['in', city], ...rel] });
 SET('set-musicinstitute', 'Derrick May at the Music Institute', 'detroit', '1988', 'Acid, Chicago and the first Detroit records, mixed by the man who made them, for the crowd they were made for.', ['techno'], [['at', 'music-institute']]);
-SET('set-liquidroom', 'Jeff Mills — Live at the Liquid Room, Tokyo', 'tokyo', '28 October 1995', 'Released May 1996: around seventy records in 67 minutes across three decks. Confirmed tracks include Surgeon "Argon", Robert Armani "Wet Floor", X-102 "Intro", "Humana", Ken Ishii "Extra" (Luke Slater remix), Jonzon & Hell "Lifeform" and "Strings of Life".', ['techno'], [['at', 'liquid-room']]);
+SET('set-liquidroom', 'Jeff Mills — Live at the Liquid Room, Tokyo', 'tokyo', '28 October 1995', 'Released May 1996: around seventy records in 67 minutes — on three decks by the usual telling, on two turntables and two reel-to-reels by Wikipedia\'s account; the book lists both. Confirmed tracks include Surgeon "Argon", Robert Armani "Wet Floor", X-102 "Intro", "Humana", Ken Ishii "Extra" (Luke Slater remix), Jonzon & Hell "Lifeform" and "Strings of Life".', ['techno'], [['at', 'liquid-room']]);
 SET('set-packard', 'Plastikman at the Packard Plant', 'detroit', '1994', 'Hawtin\'s illegal parties in the abandoned car factory: a 303, a 909 and "Spastik" live.', ['techno']);
 SET('set-de9', 'Richie Hawtin — Decks, EFX & 909 / DE9', 'windsor', '1999 / 2001', 'From a 909 and effects over vinyl to hundreds of loops on Final Scratch: the laptop DJ\'s founding documents.', ['techno']);
 SET('set-garnierrex', 'Laurent Garnier — Rex Club all-nighters', 'paris', '1992–', 'Seven and eight hours from jazz to hard techno and back; the "journey" set.', ['techno'], [['at', 'rex-club']]);
@@ -474,7 +474,7 @@ SET('set-exhibitionist', 'Jeff Mills — Exhibitionist', 'detroit', '2004', 'Thr
 SET('set-kraviz', 'Nina Kraviz — Dekmantel sets', 'amsterdam', '2014–', 'Acid and Russian records broadcast to millions.', ['techno'], [['at', 'dekmantel']]);
 SET('set-surgeonbr', 'Surgeon — Boiler Room / fabric', 'london', '2010s', 'Modular, live-edited, relentless.', ['techno'], [['at', 'fabric']]);
 SET('set-rage', 'Fabio & Grooverider at Rage', 'london', '1988–93', 'Thursday at Heaven: Belgian techno, then breaks pitched to +8, then jungle. The set that split rave.', ['rave'], [['at', 'heaven']]);
-SET('set-sunrise5000', 'Sunrise 5000, White Waltham', 'london', '24 June 1989', 'Eleven thousand in an aircraft hangar; the Sun\'s "Spaced Out" front page and the political panic that followed.', ['rave'], [['at', 'sunrise']]);
+SET('set-sunrise5000', 'Sunrise 5000, White Waltham', 'london', 'June 1989', 'Eleven thousand in an aircraft hangar; the Sun\'s "Spaced Out" front page and the political panic that followed.', ['rave'], [['at', 'sunrise']]);
 SET('set-castlemorton', 'Spiral Tribe at Castlemorton', 'worcestershire', 'May 1992', 'Six days, the Tribe\'s rig running the whole time; the recording that ended the free-party era.', ['rave', 'techno'], [['at', 'castlemorton']]);
 
 const NODE_PUSH_REL = (id, rel) => { const n = NODES.find(x => x.id === id); if (n && !n.rel.some(r => r[0] === rel[0] && r[1] === rel[1])) n.rel.push(rel); };
