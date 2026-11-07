@@ -137,26 +137,26 @@ const N = (id, type, title, o = {}) => { const n = { id, type, title, years: o.y
  ['g-bleep', 'Bleep', '1989–91', 'sheffield', ['techno'], 'Detroit minimalism over sound-system sub-bass.', 'UK bleep 1990', ['h3']],
  ['g-berlin', 'Berlin / Tresor techno', '1991–', 'berlin', ['techno'], 'Detroit played harder and faster in a vault.', 'Tresor 1992', ['h4']],
  ['g-hardcore', 'Breakbeat hardcore', '1990–93', 'london', ['rave'], 'Breakbeats, hoovers, pianos and sub-bass at 140; rave\'s own music.', 'UK rave 1991', ['r3']],
- ['g-acidtek', 'Acid techno', '1993–', 'london', ['techno', 'rave'], '303s and 909s at 140 in the free parties.', 'Acid techno 1994', ['h3', 'r4']],
- ['g-gabber', 'Gabber', '1992–', 'rotterdam', ['rave', 'techno'], 'Distorted kicks at 160–200; hardstyle descends from it.', null, ['h5']],
+ ['g-acidtek', 'Acid techno', '1993–', 'london', ['techno', 'rave'], '303s and 909s in the London squat and free parties.', 'Acid techno 1994', ['h3', 'r4']],
+ ['g-gabber', 'Gabber', '1992–', 'rotterdam', ['rave', 'techno'], 'Distorted kicks, commonly 150–190 bpm, out of Rotterdam.', null, ['h5']],
  ['g-trance', 'Trance', '1991–', 'frankfurt', ['techno'], 'Harthouse and Eye Q: techno\'s melodic exit, later its own industry.', null, ['h5']],
  ['g-bham', 'Birmingham / UK industrial', '1993–', 'birmingham', ['techno'], 'Throbbing Gristle meets Detroit.', 'Birmingham 1995', ['h3']],
  ['g-dub', 'Dub techno', '1993–', 'berlin', ['techno'], 'A chord into a tape delay into a filter.', 'Dub techno 1995', ['h4']],
  ['g-idm', 'Ambient / intelligent techno', '1992–', 'sheffield', ['techno'], 'Warp\'s Artificial Intelligence series.', null, ['h3']],
- ['g-schranz', 'Schranz / hardgroove', '1997–2005', 'frankfurt', ['techno'], 'Loop techno at 140–150.', 'Schranz 2002', ['h6']],
- ['g-minimal', 'Minimal', '2001–08', 'berlin', ['techno'], 'Hood named it; Hawtin, Villalobos and Perlon made it a decade.', 'Minimal 2004', ['h6']],
+ ['g-schranz', 'Schranz / hardgroove', '1997–2005', 'frankfurt', ['techno'], 'Loop techno: hardgroove at 130–140, schranz at 150–160.', 'Schranz 2002', ['h6']],
+ ['g-minimal', 'Minimal', '2001–08', 'berlin', ['techno'], 'Robert Hood\'s Minimal Nation was its ancestor; Hawtin, Villalobos and Perlon made it a decade.', 'Minimal 2004', ['h6']],
  ['g-techhouse', 'Tech-house', '1995–', 'london', ['house', 'techno'], 'House groove, techno sound design: the crossing.', 'Tech-house 1997', ['techhouse']],
- ['g-berghain', 'Berghain / Ostgut Ton sound', '2005–', 'berlin', ['techno'], 'The rumble as bassline.', 'Berghain 2010', ['h8']],
+ ['g-berghain', 'Berghain / Ostgut Ton sound', '2005–', 'berlin', ['techno'], 'Long, deep, functional techno for a concrete hall: Klock, Dettmann and the Ostgut Ton catalogue.', 'Berghain 2010', ['h8']],
  ['g-hypnotic', 'Hypnotic', '2012–', 'rome', ['techno'], 'Polymeters that never resolve.', 'Hypnotic 2015', ['h8']],
  ['g-industrial', 'Industrial revival', '2013–', 'berlin', ['techno'], 'Birmingham\'s line at 140.', 'Industrial 2018', ['h8']],
- ['g-peak', 'Peak-time techno', '2014–', 'stockholm', ['techno'], 'Drumcode and the main stage.', 'Peak-time 2017', ['h8']],
- ['g-electro', 'Electro', '1982 / 2010s', 'detroit', ['techno'], 'Planet Rock to Drexciya to Helena Hauff.', null, ['h1']],
+ ['g-peak', 'Peak-time techno', '2010s–', 'stockholm', ['techno'], 'Drumcode and the main stage; a Beatport category since February 2020.', 'Peak-time 2017', ['h8']],
+ ['g-electro', 'Electro', '1981 / 2010s', 'newyork', ['techno'], 'Born in New York in 1981–82 with "Planet Rock"; Detroit its second home, from Cybotron to Drexciya, and Helena Hauff its revival.', null, ['h1']],
  ['g-hard', 'Hard techno', '2020–', 'everywhere', ['techno', 'rave'], '150+, hoovers, snare rolls, distortion.', 'Hard techno 2023', ['h9']],
  ['g-house', 'House', '1984–', 'chicago', ['house'], 'Disco\'s continuation; a different music with a shared grid.', null, ['house0']],
  ['g-acidhouse', 'Acid house', '1987–89', 'chicago', ['house', 'rave'], 'The 303 record and then the British movement named after it.', 'Chicago acid 1987', ['acid', 'r1']],
  ['g-jungle', 'Jungle / drum & bass', '1993–', 'london', ['rave'], 'Hardcore\'s breakbeats at 160 with reggae bass; Rage, Kool FM, AWOL.', null, ['r7']],
  ['g-happy', 'Happy hardcore', '1993–', 'london', ['rave'], 'Hardcore\'s pianos and vocals sped up; Slipmatt, Helter Skelter.', null, ['r7']],
- ['g-newbeat', 'New beat', '1987–89', 'ghent', ['techno', 'rave'], 'EBM at 33 rpm with the pitch up; Belgium\'s hinge between industrial and house.', null, ['h5']],
+ ['g-newbeat', 'New beat', '1987–89', 'antwerp', ['techno', 'rave'], 'EBM played at 33 with the pitch up, first at Antwerp\'s Ancienne Belgique; Belgium\'s hinge between industrial and house.', null, ['h5']],
  ['g-balearic', 'Balearic beat', '1984–', 'ibiza', ['house'], 'Alfredo\'s anything-goes at Amnesia: house, Italo, rock, reggae.', null, ['balearic']]
 ].forEach(([id, t, y, c, s, b, g, ch]) => N(id, 'genre', t, { years: y, city: c, strands: s, blurb: b, rel: [['in', c], ...ch.map(x => ['told', x])], aliases: [], color: s[0] === 'rave' ? '--perc' : s[0] === 'house' ? '--drums' : '--rumble', q: t + ' techno' }).genre = g);
 NODES.forEach(n => { if (n.type === 'genre') n.preset = { 'g-detroit': 'Detroit 1988', 'g-bleep': 'UK bleep 1990', 'g-berlin': 'Tresor 1992', 'g-hardcore': 'UK rave 1991', 'g-acidtek': 'Acid techno 1994', 'g-bham': 'Birmingham 1995', 'g-dub': 'Dub techno 1995', 'g-schranz': 'Schranz 2002', 'g-minimal': 'Minimal 2004', 'g-berghain': 'Berghain 2010', 'g-hypnotic': 'Hypnotic 2015', 'g-industrial': 'Industrial 2018', 'g-peak': 'Peak-time 2017', 'g-hard': 'Hard techno 2023', 'g-acidhouse': 'Chicago acid 1987' }[n.id] || n.genre || null; });
@@ -532,16 +532,16 @@ NODE_PUSH_REL('jeff-mills', ['played', 'club-uk']); NODE_PUSH_REL('john-digweed'
    =================================================================== */
 /* ---------- genres ---------- */
 [['g-raggajungle', 'Ragga jungle', '1994–95', 'london', ['jungle'], 'Dancehall vocals and reggae bass over timestretched breaks: "Incredible", "Original Nuttah".', 'Jungle 1994', ['j2']],
- ['g-intelligent', 'Intelligent / atmospheric drum & bass', '1994–98', 'london', ['jungle'], 'Bukem, Speed and Good Looking: jazz pads and Rhodes over the breaks.', null, ['j3']],
- ['g-techstep', 'Techstep', '1996–99', 'london', ['jungle'], 'No U Turn, Virus, Ed Rush & Optical: the dark, techno-derived drum & bass.', 'Drum & bass 1998', ['j3']],
- ['g-liquid', 'Liquid funk', '2000–', 'london', ['jungle'], 'Fabio\'s name for the soulful, musical strand: Hospital, High Contrast, Calibre.', null, ['j4']],
+ ['g-intelligent', 'Intelligent / atmospheric drum & bass', '1994–98', 'london', ['jungle'], 'Bukem and Good Looking: jazz pads and Rhodes over the breaks.', null, ['j3']],
+ ['g-techstep', 'Techstep', 'c.1995–99', 'london', ['jungle'], 'No U Turn, Virus, Ed Rush & Optical: dark drum & bass, its "tech" taken from Belgian hardcore.', 'Drum & bass 1998', ['j3']],
+ ['g-liquid', 'Liquid funk', '1999–', 'london', ['jungle'], 'Fabio\'s name, from 1999, for the soulful, musical strand: Hospital, High Contrast, Calibre.', null, ['j4']],
  ['g-neurofunk', 'Neurofunk', '1998–', 'london', ['jungle'], 'Techstep refined into sound design: Noisia, Phace, the basslines as instruments.', null, ['j4']],
  ['g-jumpup', 'Jump-up', '1995–', 'london', ['jungle'], 'Hype\'s Ganja Kru, Aphrodite, Playaz: the bassline hook and the rewind.', null, ['j4']],
  ['g-frankfurt-trance', 'Frankfurt trance', '1990–95', 'frankfurt', ['trance'], 'Dance 2 Trance, Jam & Spoon, Harthouse, Eye Q: techno\'s euphoric exit.', 'Trance 1993', ['t1']],
  ['g-goa', 'Goa / psytrance', '1990–', 'goa', ['trance'], 'Anjuna beach, Goa Gil, Hallucinogen, Infected Mushroom: the psychedelic branch.', null, ['t2']],
  ['g-uplifting', 'Uplifting trance', '1996–', 'netherlands', ['trance'], 'The breakdown, the supersaw, the key change: Tiësto, Armin, Ferry Corsten, Above & Beyond.', 'Trance 1999', ['t3']],
  ['g-progressive', 'Progressive house / trance', '1992–', 'london', ['trance', 'house'], 'Sasha & Digweed, Leftfield, Hooj Choons: long, building, British.', null, ['t3']],
- ['g-hardtrance', 'Hard trance', '1993–', 'frankfurt', ['trance', 'techno'], 'Harder kicks, faster, Scot Project and Yoji; revived inside 2020s hard techno.', null, ['t4']],
+ ['g-hardtrance', 'Hard trance', '1993–', 'frankfurt', ['trance', 'techno'], 'Harder kicks and faster tempos out of Frankfurt; revived inside 2020s hard techno.', null, ['t4']],
  ['g-deephouse', 'Deep house', '1985–', 'chicago', ['house'], 'Larry Heard\'s "Can You Feel It": chords, warmth, the jazz line of house.', null, ['hh1']],
  ['g-garage', 'Garage / US garage', '1980s–', 'newyork', ['house'], 'The Paradise Garage lineage: vocals, gospel, Todd Terry, Masters at Work.', null, ['hh2']],
  ['g-ukgarage', 'UK garage', '1995–2001', 'london', ['house', 'rave'], 'Speed garage and 2-step: US garage at +8 with jungle\'s MCs and bass.', null, ['hh6']],
@@ -747,7 +747,7 @@ SET2('set-speed', 'Bukem & Fabio at Speed', 'london', '1995–96', 'A midweek ni
 SET2('set-oakenfold-goa', 'Paul Oakenfold — The Goa Mix', 'london', '1994', 'The Radio 1 Essential Mix that took Goa trance to a national audience; it was already in UK clubs.', ['trance']);
 SET2('set-tiesto-athens', 'Tiësto at the Athens Olympics', 'athens', '2004', 'A DJ at the opening ceremony: trance\'s global moment.', ['trance']);
 SET2('set-knuckles-warehouse', 'Frankie Knuckles at the Warehouse', 'chicago', '1977–82', 'Disco edits on reel-to-reel, a drum machine underneath: the residency that named a music.', ['house'], [['at', 'warehouse']]);
-SET2('set-alfredo', 'Alfredo at Amnesia', 'ibiza', '1984–89', 'Sunrise to midday — 6am to noon in 1984, from 3am in 1985 — no genre, the terrace open to the sky.', ['house'], [['at', 'amnesia']]);
+SET2('set-alfredo', 'Alfredo at Amnesia', 'ibiza', 'c.1983–89', 'Sunrise to midday — 6am to noon in 1984, from 3am in 1985 — no genre, the terrace open to the sky.', ['house'], [['at', 'amnesia']]);
 SET2('set-sasha-digweed', 'Sasha & Digweed — Northern Exposure / Twilo', 'newyork', '1996–2001', 'Progressive as a journey: the monthly at Twilo and the mixes.', ['trance', 'house'], [['at', 'twilo']]);
 
 /* ---------- shops, press, sound systems, the law ---------- */

@@ -17365,6 +17365,29 @@ window.FACTS = {
 "https://en.wikipedia.org/wiki/Jungle_music"
 ]
 },
+"g-intelligent": {
+"emerged": "London, 1993–94 (from breakbeat hardcore, within jungle)",
+"named_by": null,
+"first_records": [
+"Foul Play — Finest Illusion",
+"LTJ Bukem — Music",
+"Alex Reece — Pulp Fiction",
+"Omni Trio — Renegade Snares",
+"4hero — Two Pages (1998, Mercury-nominated)"
+],
+"tempo": "155–165 bpm (1993) to 170–180 bpm (from c. 1996)",
+"peak": "1994–98",
+"rooms": [],
+"branches": [
+"Jazzstep",
+"Liquid funk"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Jungle_music",
+"https://en.wikipedia.org/wiki/Drum_and_bass",
+"https://en.wikipedia.org/wiki/Liquid_funk"
+]
+},
 "g-techstep": {
 "emerged": "Britain (London), c. 1995, from jungle and hardstep",
 "named_by": "Ed Rush and Trace",
@@ -17408,6 +17431,43 @@ window.FACTS = {
 ],
 "sources": [
 "https://en.wikipedia.org/wiki/Liquid_funk",
+"https://en.wikipedia.org/wiki/Drum_and_bass"
+]
+},
+"g-neurofunk": {
+"emerged": "England (London), 1997–98, from techstep",
+"named_by": "Simon Reynolds, The Wire, December 1997",
+"first_records": [
+"Ed Rush & Optical — Funktion (V Recordings, 1997)",
+"Ed Rush & Optical — Wormhole (Virus Recordings, 1998)"
+],
+"tempo": "drum & bass tempo (mostly 170–180 bpm)",
+"peak": "not stated in sources",
+"rooms": [],
+"branches": [
+"Glitch hop",
+"Neurohop"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Neurofunk",
+"https://en.wikipedia.org/wiki/Techstep",
+"https://en.wikipedia.org/wiki/Drum_and_bass"
+]
+},
+"g-jumpup": {
+"emerged": "London, 1995 (from hardstep)",
+"named_by": null,
+"first_records": [
+"Dead Dred — Dred Bass",
+"DJ Zinc / Ganja Kru — Super Sharp Shooter"
+],
+"tempo": "drum & bass tempo (mostly 170–180 bpm)",
+"peak": "not stated in sources",
+"rooms": [],
+"branches": [],
+"sources": [
+"https://en.wikipedia.org/wiki/Jungle_music",
+"https://en.wikipedia.org/wiki/Ragga_jungle",
 "https://en.wikipedia.org/wiki/Drum_and_bass"
 ]
 },
@@ -17470,6 +17530,33 @@ window.FACTS = {
 "https://articles.roland.com/listening-guide-essential-early-trance/",
 "https://mixmag.net/feature/trance-reborn-the-sound-is-back-and-big-as-ever",
 "https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation"
+]
+},
+"g-progressive": {
+"emerged": "UK (London), early–mid 1990s",
+"named_by": null,
+"first_records": [
+"Energy 52 — Café del Mar (Three 'n One remix, Hooj Choons)",
+"Art of Trance — Octopus",
+"Paul van Dyk — Trance Force"
+],
+"tempo": "house or trance tempo; no specific figure in sources",
+"peak": "mid-1990s – c. 2000",
+"rooms": [
+"Ministry of Sound, London",
+"Cream, Liverpool",
+"Twilo, New York (Sasha & Digweed)"
+],
+"branches": [
+"Uplifting trance"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Trance_music",
+"https://en.wikipedia.org/wiki/Tech_house",
+"https://www.beatportal.com/articles/60692-beatports-definitive-history-of-tech-house",
+"https://articles.roland.com/listening-guide-essential-early-trance/",
+"https://en.wikipedia.org/wiki/House_music",
+"https://mixmag.net/feature/trance-reborn-the-sound-is-back-and-big-as-ever"
 ]
 },
 "g-hardtrance": {
