@@ -12159,23 +12159,29 @@ window.FACTS = {
 ]
 },
 "rec-waterfall": {
-"label": "Eaux",
-"catno": null,
-"released": "2012",
+"label": "Sandwell District",
+"catno": "SD19 (Merchant of Salt; Waterfall is the B-side)",
+"released": "December 2011 (vinyl; reviewed by Resident Advisor 30 December 2011; Bleep lists 23 January 2012)",
 "formats": [
-"12\"",
-"digital"
+"12\""
 ],
 "producers": [
 "Rrose (Seth Horvitz)"
 ],
-"remixes": [],
+"remixes": [
+"Lucy — Waterfall (Lucy Remix) (Eaux, 2013)",
+"Rrose — Waterfall (Birth), early unreleased version (Eaux, 2013)"
+],
 "charts": {},
 "chart_source": null,
-"reissues": [
-"Eaux represses"
-],
-"sources": []
+"reissues": [],
+"sources": [
+"https://de.ra.co/reviews/10214",
+"https://bleep.com/release/33628-rrose-merchant-of-salt?lang=pt",
+"https://www.juno.co.uk/reviews/2013/04/16/rrose-returns-with-waterfall-variations/",
+"https://www.juno.co.uk/junodaily/2013/06/04/rrose-waterfall-variations/",
+"https://direct.djmag.com/cue-rrose-interview-eaux-sutekh"
+]
 },
 "rec-ifeelit": {
 "label": "Perfecto",
@@ -12505,9 +12511,13 @@ window.FACTS = {
 ]
 },
 "rec-promisedland": {
-"label": "DJ International",
+"type": "record",
+"title": "Joe Smooth — Promised Land",
+"blurb": "Joe Smooth's 1987 Chicago vocal house song of hope; an end-of-night record in London in 1988–89 and the name of Steve Proctor's 1989 club night.",
+"years": "1987",
+"label": "D.J. International",
 "catno": null,
-"released": "1987 (US); 1988 (UK); charted February 1989",
+"released": "1987 (US); 1988 (UK and West Germany)",
 "formats": [
 "12\"",
 "7\""
@@ -12515,21 +12525,25 @@ window.FACTS = {
 "producers": [
 "Joe Smooth"
 ],
+"vocals": [
+"Anthony Thomas",
+"Don Connolly"
+],
 "remixes": [
-"Joe Smooth — Club / Underground / Radio mixes (1987)",
-"Freestyle mix (1988)"
+"Club, Underground and Radio mixes (1987)",
+"Freestyle mix (1988)",
+"The Style Council — cover (Polydor, 1989)"
 ],
 "charts": {
-"UK Singles": 56,
-"UK Singles (Style Council cover)": 27,
-"US Hot Dance Club Play (Style Council cover)": 19
+"UK Singles": 56
 },
-"chart_source": "officialcharts.com and Billboard (via Wikipedia)",
-"reissues": [
-"DJ International compilations"
-],
+"chart_source": "Official Charts Company, as cited by Wikipedia",
+"reissues": [],
 "sources": [
-"https://en.wikipedia.org/wiki/Promised_Land_(Joe_Smooth_song)"
+"https://en.wikipedia.org/wiki/Promised_Land_(Joe_Smooth_song)",
+"https://mixmag.net/feature/the-history-of-acid-house-in-100-tracks",
+"https://banbantonton.com/2025/08/25/looking-for-the-balearic-beat-following-the-first-rush-part-1-the-milk-bar-pure-sexy-the-promised-land-and-fascinations",
+"https://download.e-bookshelf.de/download/0010/8815/62/L-X-0010881562-0026716703.XHTML/index.xhtml"
 ]
 },
 "rec-ifeellove": {
@@ -20153,6 +20167,1171 @@ window.FACTS = {
 "https://testpressing.org/magazine/alfredo-an-interview",
 "https://www.amnesia.es/en/news-info/dj-alfredo-the-man-who-gave-sound-to-the-soul-of-ibiza",
 "https://en.wikipedia.org/wiki/Amnesia_(nightclub)"
+]
+},
+"g-goa": {
+"emerged": "Goa, India (Anjuna, Vagator, Arambol), c. 1983–91; named in the early 1990s",
+"named_by": null,
+"first_records": [
+"Various — Project II Trance (1993)",
+"Hallucinogen — Alpha Centauri / LSD (1994)",
+"Hallucinogen — Twisted (1995)",
+"Hallucinogen — The Lone Deranger (1997)",
+"Xenomorph — Cassandra's Nightmare (1998)",
+"Infected Mushroom — The Gathering (1999)"
+],
+"tempo": "130–150 bpm (Goa trance); full-on 140–148 bpm; dark psy 150+ bpm",
+"peak": "1994–97 (first wave; commercial peak 1996–97)",
+"rooms": [
+"Bamboo Forest, south Anjuna beach, Goa",
+"Disco Valley, Vagator, Goa",
+"Arambol beach, Goa",
+"Pangaea, London (1992–)",
+"Megatripolis at Heaven, London (1993–96)",
+"Return to the Source — the Rocket, the Fridge and Brixton Academy, London (1993–2002)",
+"Glade stage, Glastonbury (2004)"
+],
+"branches": [
+"Full-on",
+"Dark psy / forest",
+"Suomisaundi",
+"Progressive psytrance",
+"Hi-tech",
+"Minimal (Zenonesque)",
+"Psybient / psychill"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Goa_trance",
+"https://en.wikipedia.org/wiki/Psychedelic_trance",
+"https://en.wikipedia.org/wiki/Goa_Gil",
+"https://en.wikipedia.org/wiki/Hallucinogen_(musician)",
+"https://en.wikipedia.org/wiki/Infected_Mushroom"
+]
+},
+"g-deephouse": {
+"emerged": "Chicago, 1984–86",
+"named_by": "Unclear; Ron Trent says the term was first applied to Frankie Knuckles's and Ron Hardy's DJ sets",
+"first_records": [
+"Mr. Fingers — Mystery of Love (1985)",
+"Mr. Fingers — Can You Feel It (1986)",
+"Mr. Fingers — Washing Machine (1986)",
+"Marshall Jefferson — Move Your Body (1986)",
+"CeCe Rogers — Someday (1987)",
+"Fingers Inc. — Another Side (1988)"
+],
+"tempo": "110–125 bpm",
+"peak": "1986–99 (underground); mid-2010s (as a loose pop tag)",
+"rooms": [
+"Frankie Knuckles's sets, The Warehouse, Chicago",
+"Ron Hardy's sets, Chicago",
+"Paradise Garage, New York",
+"The Loft, New York"
+],
+"branches": [
+"Jersey / New York deep house",
+"Detroit deep house",
+"South African deep house / afro house",
+"Amapiano",
+"Tropical house"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Deep_house",
+"https://en.wikipedia.org/wiki/Larry_Heard",
+"https://toolroomacademy.com/features/a-history-of-deep-house/",
+"https://grayarea.co/magazine/how-south-africa-created-the-blueprint-for-afro-house"
+]
+},
+"g-garage": {
+"emerged": "New York (Paradise Garage) and Newark, New Jersey (Club Zanzibar), late 1970s–mid-1980s",
+"named_by": "Named after the Paradise Garage, 84 King Street, Manhattan; no individual coiner identified",
+"first_records": [
+"Taana Gardner — Heartbeat (1981)",
+"Inner Life — Ain't No Mountain High Enough (1981)",
+"Peech Boys — Don't Make Me Wait (1982)",
+"Visual — The Music Got Me (1983)",
+"Gwen Guthrie — Padlock (1985)",
+"Todd Terry as Masters at Work — Alright Alright (1987)"
+],
+"tempo": "below c. 130 bpm (UK DJs pitched it up to about 130 for speed garage)",
+"peak": "mid-1980s–early 1990s (US); 1990s (UK)",
+"rooms": [
+"Paradise Garage, 84 King Street, New York (1977–87)",
+"Club Zanzibar, 430 Broad Street, Newark (1979–c. 1990)",
+"Ministry of Sound, London (modelled on the Garage)"
+],
+"branches": [
+"Jersey sound",
+"Speed garage",
+"UK garage",
+"Ballroom house"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Garage_house",
+"https://en.wikipedia.org/wiki/Paradise_Garage",
+"https://daily.redbullmusicacademy.com/2015/02/nightclubbing-zanzibar-oral-history",
+"https://en.wikipedia.org/wiki/New_Jersey_sound",
+"https://en.wikipedia.org/wiki/Masters_at_Work"
+]
+},
+"g-ukgarage": {
+"emerged": "London, early–mid 1990s (Sunday sessions and pirate radio)",
+"named_by": null,
+"first_records": [
+"Justin Cantor & Matt Jam Lamont — Feel My Love (rec. 1991, rel. 1993)",
+"Tina Moore — Never Gonna Let You Go (Kelly G remix, 1995)",
+"Roy Davis Jr. feat. Peven Everett — Gabriel (US 1996; UK 1997)",
+"Sneaker Pimps — Spin Spin Sugar (Armand Van Helden remix, 1997)",
+"Double 99 — RipGroove (1997)",
+"MJ Cole — Sincere (1998)",
+"Shanks & Bigfoot — Sweet Like Chocolate (1999)"
+],
+"tempo": "130–138 bpm",
+"peak": "1997–2001",
+"rooms": [
+"Frog & Nightgown, London (Sunday Scene)",
+"Twice as Nice, London",
+"Gass Club, London",
+"Heaven, Charing Cross, London",
+"Freek FM, Upfront FM, London Underground (pirate radio)"
+],
+"branches": [
+"Speed garage",
+"2-step",
+"Grime",
+"Dubstep",
+"Bassline",
+"UK funky",
+"Future garage"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/UK_garage",
+"https://en.wikipedia.org/wiki/RipGroove",
+"https://www.djmag.com/features/how-double-99s-ripgroove-lit-fuse-speed-garage-uk",
+"https://en.wikipedia.org/wiki/Gabriel_(Roy_Davis_Jr._song)"
+]
+},
+"g-frenchtouch": {
+"emerged": "Paris, early–mid 1990s",
+"named_by": "Phrase from Jean-Claude Lagrèze's 'French Touch' parties at Le Palace, Paris (July 1987); applied to the music by Martin James in Melody Maker (1996)",
+"first_records": [
+"Daft Punk — Da Funk (1995)",
+"Motorbass — Pansoul (1996)",
+"Étienne de Crécy — Super Discount (1996)",
+"Daft Punk — Homework (1997)",
+"Stardust — Music Sounds Better with You (1998)",
+"Cassius — Cassius 1999 (1999)",
+"Modjo — Lady (Hear Me Tonight) (2000)"
+],
+"tempo": null,
+"peak": "1997–2001",
+"rooms": [
+"Le Palace, Paris ('French Touch' parties, 1987)"
+],
+"branches": [
+"Filter house / disco house",
+"French electro",
+"Nu-disco",
+"Electro house"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/French_house",
+"https://en.wikipedia.org/wiki/Da_Funk",
+"https://en.wikipedia.org/wiki/Music_Sounds_Better_with_You",
+"https://www.euronews.com/culture/2024/04/26/justice-for-french-touch-the-gallic-movements-essential-tracks"
+]
+},
+"rec-ihm": {
+"label": "ARTS",
+"catno": null,
+"released": "2016",
+"formats": [],
+"producers": [
+"Guillaume Labadie (I Hate Models)"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"release_title": "Warehouse Memories (EP); \"Daydream\" is a track on it",
+"sources": [
+"https://en.wikipedia.org/wiki/I_Hate_Models",
+"https://fourfourmag.com/listen-brand-new-i-hate-models-ep-arts",
+"https://www.cyclicdefrost.com/2018/12/i-hate-models-spreading-plague-perc-trax/"
+]
+},
+"rec-orangetheme": {
+"label": "Eye Q",
+"catno": "not confirmed for the 1994 original; EYEQ22RMX (1995 remixes); HOOJ88 (Hooj Choons, 2000)",
+"released": "7 November 1994",
+"formats": [],
+"producers": [
+"Matthias Hoffmann",
+"Ralf Hildenbeutel"
+],
+"remixes": [
+"Moonman, Solar Stone, Red Jerry — remix packages (1995, 1999)",
+"Bervoets & De Goeij — remix (Hooj Choons, 2000)",
+"Martin Roth and Frank Erlich — remixes (2004)",
+"deadmau5 — Clockwork (2008)"
+],
+"charts": {
+"UK Singles (1995 remixes)": 95,
+"UK Dance (1995 remixes)": 34,
+"UK Singles (2000 Hooj Choons)": 43,
+"UK Dance (2000 Hooj Choons)": 16,
+"UK Independent (2000 Hooj Choons)": 7
+},
+"chart_source": "officialcharts.com",
+"reissues": [
+"Eye Q (The Orange Theme Remixes), 1995",
+"Hooj Choons, 2000"
+],
+"sources": [
+"https://909originals.com/2019/11/07/throwback-thursday-cygnus-x-the-orange-theme/",
+"https://en.wikipedia.org/wiki/Cygnus_X_(group)",
+"https://www.officialcharts.com/songs/cygnus-x-the-orange-theme/",
+"https://www.officialcharts.com/songs/cygnus-x-the-orange-theme-remixes/"
+]
+},
+"rec-sunandmoon": {
+"label": "Anjunabeats",
+"catno": null,
+"released": "21 March 2011",
+"formats": [
+"download",
+"physical single (format not confirmed)"
+],
+"producers": [
+"Above & Beyond (Jono Grant, Tony McGuinness, Paavo Siljamäki)",
+"Andrew Bayer"
+],
+"remixes": [
+"7 Skies — remix (single, 2011)",
+"Dennis Sheperd — remix (single, 2011)",
+"Distance — remix (single, 2011)",
+"Seiji — remix (single, 2011)",
+"The Others — remix (single, 2011)"
+],
+"charts": {
+"UK Singles": 71,
+"UK Dance": 11,
+"UK Physical Singles": 8,
+"UK Downloads": 90,
+"UK Independent": 10,
+"UK Independent Breakers": 3,
+"Scotland": 66,
+"US Dance/Mix Show Airplay": 6
+},
+"chart_source": "officialcharts.com (UK); Billboard via Wikipedia (US)",
+"reissues": [],
+"sources": [
+"https://en.wikipedia.org/wiki/Sun_%26_Moon_(Above_%26_Beyond_song)",
+"https://www.officialcharts.com/songs/above-beyondrichard-bedford-sun-moon/",
+"https://codamusic.me/articles/above-beyond-sun-moon-group-therapy"
+]
+},
+"sound-richard-long": {
+"founded": "1970s",
+"people": [
+"Richard Long",
+"Alex Rosner",
+"Larry Levan",
+"Michael Brody",
+"Bob Casey",
+"Joey Llanos"
+],
+"installs": [
+"SoHo Place",
+"Paradise Garage (1977–78)",
+"Colosseum, Tel Aviv (1981)",
+"Area (1983)",
+"Studio 54",
+"Bonds International Casino",
+"Club Zanzibar, Newark",
+"Warehouse, Chicago",
+"The Box, Chicago",
+"Dorian Gray, Frankfurt",
+"Eldorado bumper cars, Coney Island"
+],
+"technique": "Hand-built birch-ply bass horns (the J-horn, the Levan horn) and rooms planned around the system, with attention to acoustics and time alignment",
+"status": "ended",
+"sources": [
+"https://en.wikipedia.org/wiki/Richard_Long_(sound_designer)",
+"https://daily.redbullmusicacademy.com/2016/05/richard-long-feature",
+"https://en.wikipedia.org/wiki/Paradise_Garage",
+"https://daily.redbullmusicacademy.com/2018/02/alex-rosner-interview"
+]
+},
+"sound-alex-rosner": {
+"founded": "1967",
+"people": [
+"Alex Rosner",
+"David Mancuso",
+"Francis Grasso",
+"Louis Bozak",
+"Richard Long",
+"Angelo Di Giuseppe"
+],
+"installs": [
+"New York World's Fair discotheques (1964–65)",
+"Ginza (c. 1965–66)",
+"The Haven (the Rosie mixer)",
+"The Sanctuary",
+"The Loft (tweeter arrays, c. 1971)",
+"Tamburlaine",
+"Galaxy 21",
+"Copacabana",
+"Trinity Church, Manhattan (1990s)"
+],
+"technique": "Stereo discotheque sound; the Rosie mixer with a cue switch; bi- and tri-amplified Klipschorns with JBL tweeter arrays at the Loft",
+"status": "unknown",
+"sources": [
+"https://en.wikipedia.org/wiki/Alex_Rosner",
+"https://daily.redbullmusicacademy.com/2018/02/alex-rosner-interview",
+"https://en.wikipedia.org/wiki/Richard_Long_(sound_designer)",
+"https://daily.redbullmusicacademy.com/2016/05/richard-long-feature"
+]
+},
+"back-to-the-future": {
+"type": "event",
+"title": "Back to the Future",
+"blurb": "Dave Roberts's 1989 party series, run alongside Sunrise: grain silos in Hampshire that April, then a joint festival with Sunrise at Longwick in August.",
+"years": "1989–90",
+"event_type": "one-off rave",
+"founded": null,
+"founders": [
+"Dave Roberts"
+],
+"venues": [
+"Grain silos near South Warnborough, Hampshire (29 April 1989)",
+"Longwick, Buckinghamshire (12 August 1989, with Sunrise)"
+],
+"attendance": "c.17,000 tickets (Longwick, with Sunrise)",
+"residents": [],
+"editions": [
+"29 April 1989 — Back to the Future II, grain silos near South Warnborough, Hampshire, after the original site was found",
+"12 August 1989 — 1989 Dance Music Festival with Sunrise, Longwick; c.17,000 tickets; later a legal defeat for the organisers",
+"27 January 1990 — co-organiser of the Freedom to Party rally, Trafalgar Square"
+],
+"status": "ended",
+"notes": "First edition undated in the sources used (the April 1989 party was billed as II). Roberts also co-promoted Apocalypse Now (Wembley Studios, 9 September 1988 per Borosix) and early Sunrise parties.",
+"sources": [
+"https://borosix.co.uk/history/1989_c.html",
+"https://borosix.co.uk/history/1989_i.html",
+"https://borosix.co.uk/history/1989_e.html",
+"https://www.borosix.co.uk/history/1989_r.html",
+"https://borosix.co.uk/history/1988_d.html",
+"https://909originals.com/2020/01/27/on-this-day-in-1990-the-freedom-to-party-rally-took-over-londons-trafalgar-square/"
+]
+},
+"freedom-to-party": {
+"type": "event",
+"title": "Freedom to Party",
+"blurb": "The orbital promoters' campaign against the rave crackdown and Graham Bright's bill: launched October 1989, rallies in London in January and March 1990.",
+"years": "1989–90",
+"event_type": "collective",
+"founded": "1989",
+"founders": [
+"Tony Colston-Hayter",
+"Paul Staines",
+"Association of Dance Party Promoters"
+],
+"venues": [
+"Conservative Party conference, Blackpool (launch, October 1989)",
+"Trafalgar Square, London (27 January 1990)",
+"Radlett, Hertfordshire (all-night party, 27 January 1990)",
+"Hyde Park, London (March 1990)"
+],
+"attendance": "8,000+ (Trafalgar Square, 27 January 1990)",
+"residents": [],
+"editions": [
+"12 October 1989 — campaign launched at the Conservative Party conference, Blackpool (Borosix; The Spectator gives November)",
+"27 January 1990 — Trafalgar Square rally, 8,000+; Obsession FM live; MC Chalky White arrested",
+"27 January 1990 — all-night party at Radlett with Weekend World",
+"March 1990 — Hyde Park rally",
+"27 April 1990 — Commons agrees amendments to Bright's bill",
+"13 July 1990 — Entertainments (Increased Penalties) Act 1990 dated"
+],
+"status": "ended",
+"sources": [
+"https://909originals.com/2020/01/27/on-this-day-in-1990-the-freedom-to-party-rally-took-over-londons-trafalgar-square/",
+"https://www.borosix.co.uk/history/1989_n.html",
+"https://www.spectator.com.au/?p=10233221",
+"https://api.parliament.uk/historic-hansard/commons/1990/apr/27/increase-of-penalties-england-and-wales",
+"https://www.legislation.gov.uk/ukpga/1990/20/data.htm",
+"https://en.wikipedia.org/wiki/Tony_Colston-Hayter"
+]
+},
+"paul-staines": {
+"type": "person",
+"title": "Paul Staines",
+"blurb": "Libertarian who handled publicity for Tony Colston-Hayter's Sunrise parties and helped launch the Freedom to Party campaign in 1989.",
+"years": "1988–90",
+"born": "1967, Ealing, London",
+"from": "Ealing, London",
+"aliases": [
+"Guido Fawkes (blog name, 2004–)"
+],
+"groups": [
+"Sunrise",
+"Freedom to Party"
+],
+"labels": [],
+"residencies": [],
+"radio": [],
+"records": [],
+"active": "1988–90 (rave scene)",
+"sources": [
+"https://en.wikipedia.org/wiki/Paul_Staines",
+"https://909originals.com/2018/09/17/postcards-from-88-paul-staines/",
+"https://www.spectator.com.au/?p=10233221",
+"https://www.borosix.co.uk/history/1989_n.html",
+"https://en.wikipedia.org/wiki/Tony_Colston-Hayter",
+"https://en.wikipedia.org/wiki/Sunrise_%26_Back_to_the_Future"
+]
+},
+"ken-tappenden": {
+"type": "person",
+"title": "Ken Tappenden",
+"blurb": "Kent Police chief superintendent who set up the Pay Party Unit and by 1989 co-ordinated the national police response to the orbital raves.",
+"years": "1988–91",
+"born": null,
+"from": null,
+"aliases": [],
+"groups": [
+"Kent Police (chief superintendent, north-west Kent division)",
+"Pay Party Unit (head)"
+],
+"labels": [],
+"residencies": [],
+"radio": [],
+"records": [],
+"active": "1988–92 (Pay Party Unit to retirement in 1992)",
+"notes": "Unit based first at Dartford, then Gravesend; disbanded by September 1991 per Borosix.",
+"sources": [
+"https://www.kentonline.co.uk/kent/news/amp/how-the-raves-of-1989-turned-nasty-229736/",
+"https://borosix.co.uk/history/1989_e.html",
+"https://borosix.co.uk/history/1989_i.html",
+"https://www.borosix.co.uk/history/1989_r.html",
+"https://www.borosix.co.uk/history/1991_j.html"
+]
+},
+"graham-bright": {
+"type": "person",
+"title": "Graham Bright",
+"blurb": "Conservative MP for Luton South (1983–97) whose private member's bill became the Entertainments (Increased Penalties) Act 1990.",
+"years": "1990",
+"born": "1942, Horndon-on-the-Hill, Essex",
+"died": "19 January 2024, Cambridge",
+"from": "Horndon-on-the-Hill, Essex",
+"aliases": [
+"Sir Graham Bright"
+],
+"groups": [
+"Conservative Party"
+],
+"labels": [],
+"residencies": [],
+"radio": [],
+"records": [],
+"legislation": [
+"Video Recordings Act 1984 (private member's bill)",
+"Entertainments (Increased Penalties) Act 1990 (private member's bill)"
+],
+"active": "1979–97 (MP); 2012–16 (Police and Crime Commissioner, Cambridgeshire)",
+"sources": [
+"https://en.wikipedia.org/wiki/Graham_Bright",
+"https://api.parliament.uk/historic-hansard/commons/1990/apr/27/increase-of-penalties-england-and-wales",
+"https://www.legislation.gov.uk/ukpga/1990/20/data.htm",
+"https://909originals.com/2020/01/27/on-this-day-in-1990-the-freedom-to-party-rally-took-over-londons-trafalgar-square/"
+]
+},
+"wayne-anthony": {
+"type": "person",
+"title": "Wayne Anthony",
+"blurb": "Co-founder of the Genesis warehouse parties (1988–90), Freedom to Party speaker and author of the memoir Class of 88.",
+"years": "1988–",
+"born": null,
+"from": "East End of London",
+"aliases": [],
+"groups": [
+"Genesis '88 (with Andrew Pritchard and Keith B.)",
+"Freedom to Party"
+],
+"labels": [],
+"residencies": [],
+"radio": [
+"The Eighty Eight Podcast (host, 2020–21)"
+],
+"records": [
+"Class of 88: The True Acid House Experience (memoir; rewritten 2011 special edition)",
+"Class of '88: Find the Warehouse. Lose the Hitmen. Pump the Beats. (Virgin Books, 2018)",
+"Havin' It (compilation series)"
+],
+"active": "1988–",
+"notes": "Start date of Genesis varies: Penguin's 2018 bio says 1987, Anthony's own 2011 blog says 1988–90, the first flyer is 10 December 1988 and Matthew Collin dates the first party to October 1988.",
+"sources": [
+"https://www.penguin.co.uk/books/111/1115551/class-of--88/9780753552124.html",
+"https://download.e-bookshelf.de/download/0010/8815/62/L-X-0010881562-0026716703.XHTML/index.xhtml",
+"https://en.wikipedia.org/wiki/Genesis_%2788",
+"https://909originals.com/2020/01/27/on-this-day-in-1990-the-freedom-to-party-rally-took-over-londons-trafalgar-square/",
+"https://acidhousehistory.blogspot.com/2011/07/wayne-anthony-interview-montage-acid.html",
+"https://redcircle.com/shows/ae83cebb-285e-4acd-a5fb-a207bf2a098e"
+]
+},
+"press-acid-tabloids": {
+"type": "press",
+"title": "The tabloids and acid house, 1988–89",
+"blurb": "How the Sun went from selling smiley T-shirts in October 1988 to 'Evils of Ecstasy' a week later, and led the press campaign against the raves until 1990.",
+"years": "1988–90",
+"founded": "1988",
+"closed": "1990",
+"founders": [],
+"editors": [],
+"outlets": [
+"The Sun",
+"Daily Mirror",
+"Daily Star",
+"Daily Mail",
+"Sunday Mirror",
+"Sunday People"
+],
+"notable": [
+"17 August 1988 — the Sun's undercover story on Spectrum at Heaven",
+"12 October 1988 — the Sun's smiley T-shirt offer (£5.50, Bizarre column)",
+"19 October 1988 — the Sun, 'Evils of Ecstasy'",
+"20 October 1988 — Top of the Pops shows 'We Call It Acieed'; BBC drops it from playlists",
+"25 October 1988 — the Sun, 'Acid House Horror'",
+"2 November 1988 — the Sun's anti-acid badge campaign; Stanley Franklin cartoons",
+"June 1989 — 'Ecstasy Airport' (the Sun and Daily Mail on Sunrise at White Waltham)",
+"1990 — the Sun's editorial declaring the party over"
+],
+"status": "closed",
+"sources": [
+"https://mixmag.net/read/the-great-british-freak-out-news",
+"https://en.wikipedia.org/wiki/Acid_house",
+"https://www.vice.com/en/article/luke-bainsbridge-acid-house/",
+"https://www.borosix.co.uk/history/1988_f.html",
+"https://en.wikipedia.org/wiki/We_Call_It_Acieed"
+]
+},
+"rec-frenchkiss": {
+"type": "record",
+"title": "Lil Louis — French Kiss",
+"blurb": "Lil Louis's Chicago record that slows to a stop and restarts over one note; a UK No. 2 in August 1989, at the height of the orbital summer.",
+"years": "1989",
+"label": "ffrr (UK); Epic (US)",
+"catno": "FX 115 (UK 12\")",
+"released": "17 July 1989",
+"formats": [
+"12\""
+],
+"producers": [
+"Lil Louis"
+],
+"writers": [
+"Marvin Burns",
+"Karlana Johnson"
+],
+"remixes": [],
+"b_side": "Wargames (UK 12\")",
+"charts": {
+"UK Singles": 2,
+"US Hot 100": 50,
+"US Hot Dance Club Play": 1,
+"Netherlands": 1,
+"West Germany": 2,
+"Switzerland": 2,
+"Eurochart Hot 100": 3
+},
+"chart_source": "officialcharts.com (UK peak 2; 28th best-seller of 1989); other peaks as cited by Wikipedia",
+"reissues": [],
+"sampled_by": [
+"Black Box — Open Your Eyes (1990)",
+"Wink vs. Lil Louis — How's Your Evening So Far?",
+"Lil' Kim — Custom Made (Give It to You)",
+"Madonna — I Feel So Free (2026)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/French_Kiss_(Lil_Louis_song)",
+"https://www.inkl.com/news/they-re-not-playing-our-song-on-the-radio-why-french-kiss-got-the-kiss-off",
+"https://mail.45worlds.com/12single/record/fx115&ei=1",
+"https://mixmag.net/feature/the-history-of-acid-house-in-100-tracks",
+"https://www.borosix.co.uk/history/1989_m.html",
+"https://officialcharts.com/chart-news/official-top-40-best-selling-songs-of-1989__33088"
+]
+},
+"rec-weallcall": {
+"type": "record",
+"title": "D Mob — We Call It Acieed",
+"blurb": "Danny D's October 1988 hit with Gary Haisman's chant: UK No. 3, on Top of the Pops on 20 October, then dropped from BBC playlists in the tabloid backlash.",
+"years": "1988",
+"label": "ffrr",
+"catno": "FFRX 13 (UK 12\")",
+"released": "3 October 1988",
+"formats": [
+"12\""
+],
+"producers": [
+"Danny D"
+],
+"vocals": [
+"Gary Haisman"
+],
+"remixes": [
+"Danny D — The Matey Mix (1988)"
+],
+"charts": {
+"UK Singles": 3,
+"US Hot Dance Club Play": 1,
+"Germany": 22,
+"Ireland": 16,
+"Netherlands": 42
+},
+"chart_source": "Official Charts Company and Billboard, as cited by Wikipedia",
+"reissues": [],
+"sources": [
+"https://en.wikipedia.org/wiki/We_Call_It_Acieed",
+"https://mail.45worlds.com/12single/record/ffrx13",
+"https://909originals.com/2018/11/30/that-time-top-of-the-pops-went-acieed-october-1988/",
+"https://www.londonmuseum.org.uk/collections/v/object-465799/we-call-it-acieeed/",
+"https://mixmag.net/read/the-great-british-freak-out-news"
+]
+},
+"apocalypse-now": {
+"type": "event",
+"title": "Apocalypse Now",
+"blurb": "Tony Colston-Hayter's 1988 studio parties in London, sold as private events and filmed by TV news; the commercial model that became Sunrise.",
+"years": "1988",
+"city": "london",
+"related": [
+"Tony Colston-Hayter",
+"Sunrise",
+"Shoom",
+"Paul Staines"
+],
+"added": true,
+"event_type": "one-off rave",
+"founded": "1988",
+"founders": [
+"Tony Colston-Hayter",
+"Roger Goodman",
+"Dave Roberts"
+],
+"venues": [
+"Wembley Studios, Wembley, Middlesex (1988)",
+"Lee Studios, London (1988, as remembered by Paul Staines)"
+],
+"attendance": null,
+"residents": [],
+"editions": [
+"August 1988 — Apocalypse Now at Wembley Studios; TV news crews admitted (Wikipedia, 88to98)",
+"9 September 1988 — first Apocalypse Now at Wembley Studios, per Borosix",
+"22 October 1988 — the same team's first Sunrise, Sarratt"
+],
+"status": "ended",
+"sources": [
+"https://borosix.co.uk/history/1988_d.html",
+"https://en.wikipedia.org/wiki/Sunrise_%26_Back_to_the_Future",
+"https://en.wikipedia.org/wiki/Tony_Colston-Hayter",
+"https://88to98.co.uk/?p=1730",
+"https://909originals.com/2018/09/17/postcards-from-88-paul-staines/",
+"https://www.borosix.co.uk/history/1988_f.html"
+]
+},
+"rec-rideontime": {
+"type": "record",
+"title": "Black Box — Ride On Time",
+"blurb": "Italian piano-house record on a sampled Loleatta Holloway vocal; a rave favourite before six weeks at No. 1 and the UK's best-selling single of 1989.",
+"years": "1989",
+"city": "reggio-emilia",
+"related": [
+"Paul Oakenfold",
+"Danny Rampling",
+"Lil Louis — French Kiss"
+],
+"added": true,
+"label": "Discomagic (Italy); Deconstruction (UK)",
+"catno": null,
+"released": "31 July 1989 (UK)",
+"formats": [],
+"producers": [
+"Groove Groove Melody (Daniele Davoli, Mirko Limoni, Valerio Semplici)"
+],
+"remixes": [
+"Massive mix (1989)",
+"Ride on Time (Remix) EP, with Heather Small's replacement vocal (1989)",
+"30th-anniversary disco mix (2019)"
+],
+"charts": {
+"UK Singles": 1,
+"Ireland": 1,
+"Australia": 2,
+"Eurochart Hot 100": 4,
+"US Hot Dance Club Play": 39
+},
+"chart_source": "officialcharts.com (UK year-end: No. 1 best-seller of 1989, 849,000 copies); other peaks as cited by Wikipedia",
+"reissues": [],
+"sources": [
+"https://en.wikipedia.org/wiki/Ride_on_Time",
+"https://officialcharts.com/chart-news/official-top-40-best-selling-songs-of-1989__33088",
+"https://www.electronicsound.co.uk/features/time-machine/ride-on-time",
+"https://mixmag.net/feature/the-history-of-acid-house-in-100-tracks"
+]
+},
+"westbam": {
+"type": "person",
+"title": "Westbam",
+"blurb": "Münster-born Berlin DJ and producer, co-founder of Low Spirit and Mayday, who played every Love Parade 1989–2008 and co-wrote its anthems with Dr. Motte.",
+"years": "1983–",
+"born": "4 March 1965, Münster",
+"from": "Münster, Westphalia; Berlin since 1984",
+"aliases": [
+"Maximilian Lenz",
+"Frank Xerox",
+"Westbam/ML",
+"Members of Mayday (with Klaus Jankuhn)",
+"Westbam and the Love Committee"
+],
+"groups": [
+"Anormal Null",
+"Kriegsschauplatz",
+"Members of Mayday"
+],
+"labels": [
+"Low Spirit (co-founded 1985)"
+],
+"residencies": [
+"Odeon, Münster (from 1983)",
+"Love Parade, Berlin and the Ruhr — every edition 1989–2008"
+],
+"radio": [],
+"records": [
+"Wizards of the Sonic (1995; UK No. 32)",
+"Dr. Motte & Westbam — Sunshine (1997; DE No. 5)",
+"Dr. Motte & Westbam — One World One Future (1998; DE No. 6)",
+"Dr. Motte & Westbam — One World One Loveparade (2000; DE No. 9)",
+"Westbam vs Red Jerry — Wizards of the Sonic (1998; UK Dance No. 1)",
+"Westbam and the Love Committee — Highway to Love (2008)",
+"A Love Story 89–10 (2010)",
+"Götterstrasse (2013)"
+],
+"books": [
+"Mixes, Cuts & Scratches (1997)"
+],
+"active": "1983–",
+"sources": [
+"https://en.wikipedia.org/wiki/WestBam",
+"https://en.wikipedia.org/wiki/Love_Parade",
+"https://offiziellecharts.de/charts/titel-details-3715",
+"https://officialcharts.com/artist/25936/westbam",
+"https://909originals.com/2020/03/04/we-have-always-been-guided-by-the-principle-that-money-and-time-are-irrelevant-westbam-reflects-on-ten-years-of-low-spirit-recordings-august-1995/",
+"https://en.wikipedia.org/wiki/Rave_The_Planet_Parade"
+]
+},
+"danielle-de-picciotto": {
+"type": "person",
+"title": "Danielle de Picciotto",
+"blurb": "American-born Berlin artist and musician who co-founded the Love Parade with Dr. Motte in 1989, handling its visual side, and left it within a few years.",
+"years": "1987–",
+"born": "1965, Tacoma, Washington",
+"from": "Tacoma, Washington; Berlin since 1987",
+"aliases": [],
+"groups": [
+"Space Cowboys",
+"Ocean Club (with Gudrun Gut)",
+"Die Haut (vocals)",
+"Crime & the City Solution",
+"hackedepicciotto (with Alexander Hacke)",
+"Monika Werkstatt"
+],
+"labels": [],
+"residencies": [
+"Das Institut gallery, Berlin — curator (mid-1990s)",
+"Bada Bing event series, Berlin (from 2002, with Alexander Hacke)"
+],
+"radio": [],
+"records": [
+"Space Cowboys — Locked and Loaded (1991)",
+"Crime & the City Solution — American Twilight (2013)",
+"Tacoma (2015)",
+"Monika Werkstatt (2017)",
+"hackedepicciotto — Menetekel (2018)",
+"hackedepicciotto — The Current (2020)",
+"hackedepicciotto — The Silver Threshold (2021)",
+"hackedepicciotto — Keepsakes (2022)"
+],
+"books": [
+"The Beauty of Transgression (2011)",
+"We Are Gypsies Now (2013; English 2015)",
+"Die heitere Kunst der Rebellion (2020)",
+"Gesamtkunstwerk 1987–2023 (2023)",
+"Sonic Magicians (2025)"
+],
+"active": "1987–",
+"sources": [
+"https://en.wikipedia.org/wiki/Danielle_de_Picciotto",
+"https://www.danielledepicciotto.com/bio",
+"https://www.westword.com/?p=40639920",
+"https://www.cafeoto.co.uk/artists/danielle-de-picciotto/",
+"https://en.wikipedia.org/wiki/Love_Parade"
+]
+},
+"low-spirit": {
+"type": "label",
+"title": "Low Spirit",
+"blurb": "Berlin label founded in 1985 by Westbam and four partners: home of Marusha, Members of Mayday and the Love Parade anthems, and the team behind Mayday.",
+"years": "1985–2007",
+"founded": "1985 (English Wikipedia: 1986)",
+"city": "Berlin",
+"founders": [
+"Maximilian Lenz (Westbam)",
+"Fabian Lenz (DJ Dick)",
+"Klaus Jankuhn",
+"Sandra Molzahn",
+"William Röttger"
+],
+"sublabels": [
+"Electric Kingdom",
+"Low Spirit UK Ltd",
+"Fire Recordings",
+"Nextfire Recordings",
+"Road Rage Records",
+"Jakuza Records",
+"Amtrax",
+"B.U.G. Records",
+"Freundschaft Musik",
+"alphakid Recordings",
+"Ghetto Charge Music",
+"Loud & Slow",
+"White Label"
+],
+"key_releases": [
+"Westbam — 17 – This Is Not a Boris Becker Song (first release)",
+"DJ Dick — Exzess (1988)",
+"Westbam — Disco Deutschland (1988)",
+"Westbam — And Party (1989)",
+"Westbam — The Roof Is on Fire (1990)",
+"Marusha — Somewhere Over the Rainbow (1994)",
+"Members of Mayday — Sonic Empire (1997)",
+"Dr. Motte & Westbam — Sunshine (1997)",
+"Dr. Motte & Westbam — Love Parade 1998 (One World One Future) (74321 59595 2, 1998)",
+"Dicktator — Weekend (Electric Kingdom, 2000)"
+],
+"distribution": [
+"EFA",
+"Urban/Polydor (PolyGram)",
+"BMG",
+"Kontor Records (from 2007)"
+],
+"label_code": "LC 04660",
+"status": "closed",
+"sources": [
+"https://en.wikipedia.org/wiki/Low_Spirit",
+"https://wikipedia.jakami.de/content/wikipedia_de_all_mini_2026-04/Low_Spirit",
+"https://www.tagesspiegel.de/kultur/einer-der-urvater-des-techno-ist-gestorben-6321619.html",
+"https://909originals.com/2020/03/04/we-have-always-been-guided-by-the-principle-that-money-and-time-are-irrelevant-westbam-reflects-on-ten-years-of-low-spirit-recordings-august-1995/",
+"https://en.wikipedia.org/wiki/Fabian_Lenz",
+"https://offiziellecharts.de/charts/titel-details-3715"
+]
+},
+"fuckparade": {
+"type": "event",
+"title": "Fuckparade",
+"blurb": "Berlin's yearly counter-demonstration to the Love Parade, started as the Hateparade in 1997 for gabber and hardcore; a court confirmed it as a demo in 2007.",
+"years": "1997–",
+"event_type": "annual festival (counter-demonstration with sound-system trucks)",
+"founded": "1997",
+"founders": [
+"Trauma XP (Martin Kliehm)",
+"Xol Dog 400",
+"DJ Cut-X (Gabba Nation)"
+],
+"venues": [
+"Bunker to Alexanderplatz, Berlin-Mitte (1997)",
+"Bunker to Mauerpark (2000)",
+"Rotes Rathaus area (2002–03)",
+"Leipziger Platz to East Side Gallery (2005)",
+"Strausberger Platz (2007)",
+"Start at the old Bunker, Reinhardtstraße (2026)"
+],
+"attendance": "1997: c. 1,000 to several thousand; 2000: 5,000 (police) to 10,000 (organisers); 2010: over 10,000; 2010s: 5,000–10,000",
+"residents": [
+"DJ Fater",
+"DJ Cut-X",
+"Panacea (1997)",
+"Moog T (organiser)"
+],
+"editions": [
+"12 July 1997 — first march as the Hateparade, Bunker to Alexanderplatz, six trucks",
+"11 July 1998 — renamed Fuckparade",
+"8 July 2000 — largest edition: 28 trucks, Bunker to Mauerpark",
+"2001 — refused demonstration status; march without music, radios confiscated",
+"2002 — permitted with a maximum of three trucks and volume limits",
+"May 2007 — Federal Administrative Court (6 C 23.06) rules it is a demonstration",
+"2025 — called off after a clash with another demonstration",
+"15 August 2026 — 27th edition from the old Bunker, motto '(Un-) Fuck the Planet'"
+],
+"status": "running",
+"sources": [
+"https://www.electronicbeats.net/fuckparade-berlin",
+"https://de-academic.com/dic.nsf/dewiki/480359",
+"https://en.wikipedia.org/wiki/Fuckparade",
+"https://www.technoairlines.com/blog/fuckparade-2026-berlin"
+]
+},
+"rave-the-planet": {
+"type": "event",
+"title": "Rave The Planet",
+"blurb": "Dr. Motte's yearly Berlin techno demonstration since 2022, run by a non-profit company, whose campaign won techno heritage status in 2024.",
+"years": "2022–",
+"event_type": "annual festival (street parade registered as a demonstration)",
+"founded": "2019 (announced); organisation launched 13 January 2020; first parade 9 July 2022",
+"founders": [
+"Dr. Motte (Matthias Roeingh)",
+"the team behind the nineties berlin exhibition"
+],
+"organiser": "Rave The Planet gGmbH (non-profit company), Berlin",
+"venues": [
+"Kurfürstendamm to the Großer Stern, Tiergarten, Berlin (2022)",
+"Brandenburg Gate to the Großer Stern, Berlin (2025)"
+],
+"attendance": "2022: police c. 20,000, organisers 200,000+; 2025: over 200,000 (organisers)",
+"residents": [
+"Dr. Motte"
+],
+"editions": [
+"9 July 2022 — first parade, Kurfürstendamm to Großer Stern, c. 150 DJs; anthem 'Rave The Planet' (A*S*Y*S & Kai Tracid)",
+"2023 — 'Music Is the Answer'; anthem by Dr. Motte & Jam El Mar",
+"March 2024 — techno culture in Berlin added to Germany's nationwide inventory of intangible cultural heritage",
+"17 August 2024 — 'Love Is Stronger'; anthem by Dr. Motte, Westbam/ML & Tom Wax",
+"12 July 2025 — 'Our Future Is Now'; 35 floats, 290 DJs, Brandenburg Gate to Großer Stern; anthem by Dr. Motte & Marc van Linden",
+"2026 — fifth parade; float applications for 2027 opened 1 November 2026"
+],
+"status": "running",
+"sources": [
+"https://en.wikipedia.org/wiki/Rave_The_Planet_Parade",
+"https://ra.co/news/77505",
+"https://www.irishexaminer.com/world/arid-40914650.html",
+"https://taz.de/Technoparade-in-Berlin/!5866495",
+"https://www.ravetheplanet.com/en/press-release-parade-2025/",
+"https://www.ravetheplanet.com/en/history/"
+]
+},
+"lp-duisburg": {
+"type": "event",
+"title": "Love Parade disaster, Duisburg 2010",
+"blurb": "The crowd crush at the Love Parade in Duisburg on 24 July 2010 that killed 21 and ended the parade; the trial closed in 2020 without a verdict.",
+"years": "2010",
+"event_type": "crowd disaster at the final edition of an annual parade",
+"founded": null,
+"founders": [],
+"organiser": "Lopavent GmbH (managing director Rainer Schaller)",
+"venues": [
+"Former freight station grounds, Duisburg, reached through the Karl-Lehr-Tunnel and a ramp (24 July 2010)"
+],
+"attendance": "disputed: police estimate c. 400,000; organisers claimed up to 1.4 million",
+"toll": "21 dead (15 at the scene, 6 in hospital); more than 650 injured",
+"residents": [],
+"editions": [
+"24 July 2010 — crowd crush in the tunnel and at the entrance ramp; 21 dead, more than 650 injured",
+"25 July 2010 — Rainer Schaller announces the Love Parade will not be held again",
+"12 February 2012 — mayor Adolf Sauerland removed by recall election",
+"2014 — indictment of ten people (six city employees, four Lopavent staff)",
+"2016 — Duisburg Regional Court declines to open a trial; April 2017 — Düsseldorf Higher Regional Court orders it",
+"8 December 2017 — trial opens at the Congress Center Düsseldorf",
+"February 2019 — proceedings against seven defendants discontinued",
+"4 May 2020 — trial against the last three defendants ended without verdict after 184 hearing days"
+],
+"status": "ended",
+"sources": [
+"https://en.wikipedia.org/wiki/Love_Parade_disaster",
+"https://www.beck-aktuell.de/heute-im-recht/rechtsgeschehen/lg-duisburg-stellt-loveparade-prozess-ein-mammutverfahren-endet-ohne-urteil-2020-05-04",
+"https://www.bpb.de/themen/recht-justiz/513687/ein-komplexes-sammelsurium-an-kausalitaeten/",
+"https://www.evangelisch.de/index%2ephp/inhalte/172975/24-07-2020/trauerfeier-loveparade-unglueck-auch-nach-zehn-jahren-unbegreiflich",
+"https://en.wikipedia.org/wiki/Love_Parade"
+]
+},
+"rainer-schaller": {
+"type": "person",
+"title": "Rainer Schaller",
+"blurb": "Founder of the McFit gym chain, whose company Lopavent owned and ran the Love Parade from 2006, took it to the Ruhr and organised Duisburg 2010.",
+"years": "2006–10",
+"born": "1969, Bamberg",
+"from": "Schlüsselfeld, Bavaria",
+"died": "21 October 2022, plane crash off Limón, Costa Rica",
+"aliases": [],
+"groups": [],
+"labels": [],
+"companies": [
+"McFit (first gym Würzburg, 1997)",
+"Lopavent GmbH (managing director, Love Parade organiser, 2006–10)"
+],
+"residencies": [],
+"radio": [],
+"records": [],
+"active": "2006–10 (Love Parade)",
+"sources": [
+"https://en.wikipedia.org/wiki/Rainer_Schaller",
+"https://en.wikipedia.org/wiki/Love_Parade_disaster",
+"https://en.wikipedia.org/wiki/Love_Parade",
+"https://ra.co/news/77505",
+"https://mynews13.com/fl/orlando/ap-top-news/2022/11/04/german-gym-outlets-ceo-confirmed-dead-after-costa-rica-crash",
+"https://www.berliner-zeitung.de/article/in-essens-innenstadt-fand-am-wochenende-die-loveparade-statt-und-hunderttausende-kamen-in-den-naechsten-jahren-wird-sie-im-ruhrgebiet-bleiben-raver-im-revier-458479"
+]
+},
+"rec-sunshine": {
+"type": "record",
+"title": "Dr. Motte & Westbam — Sunshine",
+"blurb": "The official anthem of the 1997 Love Parade, Dr. Motte and Westbam's first and most successful: No. 5 in Germany, on Low Spirit.",
+"years": "1997",
+"label": "Low Spirit (UK: Low Spirit Recordings)",
+"catno": "SPIRITCD10 (UK CD)",
+"released": "1997 (UK chart entry 29 November 1997)",
+"formats": [
+"CD single"
+],
+"producers": [
+"Dr. Motte",
+"Westbam"
+],
+"remixes": [],
+"charts": {
+"Germany": 5,
+"UK Singles": 98,
+"UK Independent Singles": 17
+},
+"chart_source": "offiziellecharts.de; officialcharts.com",
+"reissues": [],
+"sources": [
+"https://www.officialcharts.com/songs/dr-motte-westbam-sunshine/",
+"https://offiziellecharts.de/charts/titel-details-3715",
+"https://en.wikipedia.org/wiki/Love_Parade",
+"https://en.wikipedia.org/wiki/Low_Spirit"
+]
+},
+"rec-oneworld": {
+"type": "record",
+"title": "Dr. Motte & Westbam — One World One Future",
+"blurb": "The 1998 Love Parade anthem, issued as Love Parade 1998 (One World One Future) on Low Spirit/BMG; No. 6 in Germany, 14 weeks on the chart.",
+"years": "1998",
+"label": "Low Spirit (BMG)",
+"catno": "74321 59595 2 (CD single)",
+"released": "1998 (dated 15 June 1998 in the German chart archive; chart entry 29 June 1998)",
+"formats": [
+"CD single",
+"12\" (limited edition, 74321 59595 1)",
+"CD single and 12\" The Remixes (74321 61879 2 / 74321 61879 1, August 1998)",
+"digital (2007)"
+],
+"producers": [
+"Dr. Motte",
+"Westbam"
+],
+"remixes": [
+"The Remixes (Low Spirit/BMG, August 1998; remixers not listed in source)"
+],
+"charts": {
+"Germany": 6
+},
+"chart_source": "offiziellecharts.de",
+"reissues": [
+"Digital release, 2007 (8812 26136427)"
+],
+"sources": [
+"https://offiziellecharts.de/charts/titel-details-3715",
+"https://en.wikipedia.org/wiki/Love_Parade",
+"https://officialcharts.com/artist/25936/westbam"
+]
+},
+"lp-abroad": {
+"type": "event",
+"title": "Love Parades abroad",
+"blurb": "The Love Parade's copies and spin-offs outside Germany, 1994–2009: Melbourne, Buenos Aires, Radio 1's Leeds parade of 2000, San Francisco, Santiago.",
+"years": "1994–2009",
+"city": null,
+"related": [
+"Love Parade",
+"Dr. Motte",
+"Street Parade",
+"Rave The Planet"
+],
+"event_type": "annual festival (spin-offs and licensed versions in other countries)",
+"founded": "1994",
+"founders": [],
+"organisers": [
+"BBC Radio 1 (Leeds, 2000)"
+],
+"venues": [
+"Festival Hall, West Melbourne (1996)",
+"Graffiti Hall of Fame, Redfern, Sydney (1997)",
+"Buenos Aires (1999–2000, Buenos Aires Energy Parade)",
+"Roundhay Park, Leeds (8 July 2000)",
+"Mexico City (2002)",
+"San Francisco (2004–09; LoveFest 2006–08, LovEvolution 2009)",
+"Santiago de Chile (2005–06)",
+"Caracas (2007–08)"
+],
+"attendance": "Leeds 2000: estimates 100,000–500,000 (YEP: 300,000); Buenos Aires 2000: 750,000 (reported); San Francisco 2009: over 100,000",
+"residents": [],
+"editions": [
+"1994–96 — Melbourne rave-party versions (1996 at Festival Hall)",
+"1997 — Sydney, Graffiti Hall of Fame, Redfern",
+"1999–2000 — Buenos Aires Energy Parade",
+"8 July 2000 — Leeds, Roundhay Park, BBC Radio 1; 30+ floats",
+"2001 — Newcastle upon Tyne cancelled after police refused a licence",
+"2002 — Mexico City, first North American edition",
+"2004–09 — San Francisco (LoveFest from 2006, LovEvolution 2009)",
+"2005–06 — Santiago de Chile"
+],
+"status": "ended",
+"sources": [
+"https://en.wikipedia.org/wiki/Love_Parade",
+"https://www.nme.com/news/music/love-parade-6-1398822",
+"https://www.yorkshireeveningpost.co.uk/heritage-and-retro/retro/the-day-roundhay-park-hosted-love-parade-a-dance-party-for-300000-clubbers-2905106?page=1",
+"https://ra.co/news/77505"
+]
+},
+"rec-klangderfamilie": {
+"type": "record",
+"title": "3 Phase feat. Dr. Motte — Der Klang der Familie",
+"blurb": "Sven Röhrig's 1992 Tresor record with Dr. Motte, the sixth Tresor release, an early Berlin club hit listed as the 1992 Love Parade anthem.",
+"years": "1992",
+"city": "berlin",
+"related": [
+"Tresor",
+"Dr. Motte",
+"Love Parade",
+"Westbam",
+"Ellen Allien"
+],
+"label": "Tresor",
+"catno": null,
+"catalogue_note": "sixth release on Tresor",
+"released": "1992",
+"formats": [],
+"producers": [
+"Sven Röhrig (3 Phase)",
+"Dr. Motte"
+],
+"remixes": [
+"Dan Curtin remix (2023)"
+],
+"charts": {},
+"chart_source": null,
+"reissues": [
+"Transmat",
+"Space Teddy",
+"Novamute",
+"Re-release, 2010"
+],
+"sources": [
+"https://909originals.com/2017/08/31/throwback-thursday-3-phase-featuring-dr-motte-%e2%80%8e-der-klang-der-familie-1992/amp/",
+"https://xlr8r.com/?p=9742",
+"https://ja.ra.co/dj/dr.motte/biography",
+"https://www.technomag.fr/en/?p=14411",
+"https://mixmag.net/feature/love-parade-92-the-sound-of-the-family/",
+"https://en.wikipedia.org/wiki/Love_Parade"
 ]
 }
 };
