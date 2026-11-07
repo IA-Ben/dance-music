@@ -9,7 +9,8 @@ const LINK = {
 };
 const LINK_LABEL = { yt: 'watch', sp: 'listen', dg: 'discogs', g: 'search' };
 function chipsInto(container, items){
-  items.forEach(([type, label, q]) => { const a = document.createElement('a'); a.className = 'chip ' + type; a.target = '_blank'; a.rel = 'noopener'; a.href = LINK[type](q || label); a.innerHTML = `<i></i><span>${label}</span><small style="color:var(--muted)">· ${LINK_LABEL[type]}</small>`; container.appendChild(a); });
+  items.forEach(([type, label, q]) => { const a = document.createElement('a'); a.className = 'chip ' + type; a.target = '_blank'; a.rel = 'noopener'; a.href = LINK[type](q || label); a.dataset.q = q || label; a.innerHTML = `<i></i><span>${label}</span><small style="color:var(--muted)">· ${LINK_LABEL[type]}</small>`; container.appendChild(a); });
+  if (window.SpotifyEmbed) setTimeout(() => SpotifyEmbed.wire(container.closest('.page') || document), 0);
 }
 /* <div class="chips" data-chips="yt|Title|query;;sp|Title|query"> */
 function renderChipBlocks(){

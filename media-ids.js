@@ -1,0 +1,2 @@
+window.SPOTIFY = {};
+window.YOUTUBE = {};

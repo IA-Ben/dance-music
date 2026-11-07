@@ -365,6 +365,24 @@ button.chip{cursor:pointer;font:inherit}
 .reading{background:color-mix(in srgb,var(--c) 18%,transparent);border-radius:4px;box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 18%,transparent)}
 #readBtn.on{background:var(--c);color:#000}
 @media(max-width:700px){#readBtn{font-size:11px}}
+/* spotify embeds */
+.spbox{flex-basis:100%;width:100%;margin-top:10px;border-radius:12px;overflow:hidden;background:#000}
+.sphead{display:flex;justify-content:space-between;align-items:center;font:11px 'JetBrains Mono',monospace;color:#8f8fa0;padding:6px 10px;background:#121218}
+.chip.has-embed i{background:#1db954}.trackchip.has-embed i{background:#1db954}
+/* galleries */
+.gallery{margin-top:34px;column-span:all;break-inside:avoid}
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:12px}
+.gitem{margin:0;cursor:pointer;background:var(--bg2);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:.15s}.gitem:hover{transform:translateY(-2px);border-color:var(--c)}
+.gitem img{width:100%;height:120px;object-fit:cover;display:block}
+.gitem figcaption{font:11px 'JetBrains Mono',monospace;color:var(--text);padding:6px 8px;line-height:1.3}.gitem figcaption small{display:block;color:var(--muted);font-size:9px;margin-top:2px}
+#lightbox{position:fixed;inset:0;background:#000d;z-index:60;display:none;align-items:center;justify-content:center;padding:20px}
+#lightbox.show{display:flex}
+.lbin{max-width:min(1200px,96vw);max-height:94vh;display:flex;flex-direction:column;gap:8px}
+.lbin img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:8px;background:#000}
+.lbcap{font:12px 'JetBrains Mono',monospace;color:#c9c9d4;display:flex;flex-direction:column;gap:3px}.lbcap b{color:#fff}.lbcap a{color:#8f8fa0}
+.lbnav{display:flex;gap:8px;align-items:center;font:11px 'JetBrains Mono',monospace;color:#8f8fa0}.lbnav .sm{color:#ebebf1}
+.ytwrap{position:relative;padding-top:56.25%}.ytwrap iframe{position:absolute;inset:0;width:100%;height:100%}
+.yt-embed i{background:#ff0000!important}
 /* =====================================================================
    BOOK SKIN — paper pages, dark plates, spreads on wide screens
    ===================================================================== */

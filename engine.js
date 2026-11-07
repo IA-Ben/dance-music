@@ -72,6 +72,8 @@ function route(){
   Trail.push(id, titleOf(id)); Visited.add(id);
   if (window.Notes && id !== 'home' && !/^(year|explore|tours|path|quiz|crate|notes|credits|mixer)$/.test(id)) Notes.mount(inEl, id);
   if (isNode && window.Flyer) Flyer.autoMount(inEl, id);
+  if (window.SpotifyEmbed) setTimeout(() => SpotifyEmbed.wire(inEl), 50);
+  if (window.Gallery) Gallery.mount(inEl, id, isNode);
   if (isNode && NODE[id].type === 'record' && window.Crate){ const slot = inEl.querySelector('.chips'); if (slot && !slot.querySelector('.crate-btn')) slot.appendChild(Crate.button(id)); }
   const finish = () => { if (outEl && outEl !== inEl) outEl.classList.remove('show', 'lift', 'out-fwd', 'in-back'); inEl.classList.remove('lift', 'in-back'); inEl.classList.add('show'); FLIPPING = false; if (PageHooks[id]) PageHooks[id](); if (PENDING){ const p = PENDING; PENDING = null; if (p !== location.hash) location.hash = p; } };
   CUR = id;
