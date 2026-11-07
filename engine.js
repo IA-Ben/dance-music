@@ -182,6 +182,7 @@ function reg(ch, node, stopAt){ if (ch.live) Voices.push({ node, stopAt }); retu
 function pruneVoices(now){ for (let i = Voices.length - 1; i >= 0; i--) if (Voices[i].stopAt < now) Voices.splice(i, 1); }
 function stopAll(){
   if (window.MixerStop) MixerStop(); if (window.GridStop) GridStop();
+  if (window.Fade) Fade.cut();
   Voices.forEach(v => { try { v.node.stop(0); } catch (e) {} });
   Voices.length = 0;
   const ch = AudioCore.peek();

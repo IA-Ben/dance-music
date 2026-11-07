@@ -8,6 +8,9 @@
   const rnd = a => (Math.random() * 2 - 1) * a;
   const pan = (c, v) => { if (!c.createStereoPanner) return null; const p = c.createStereoPanner(); p.pan.value = Math.max(-1, Math.min(1, v)); return p; };
   const via = (node, p, to) => { if (p){ node.connect(p); p.connect(to); } else node.connect(to); };
+  const vel = tr => (S._vel && S._vel[tr]) || 1;
+  const isLite = () => !!(window.SynthV2 && SynthV2.lite);
+  const dsp = (c, v) => window.DSP && DSP.ready(c) && DSP.voice[v] && window.SynthV2 && SynthV2.on;
   const noiseAt = (c, t, dur) => { const n = c.createBufferSource(); n.buffer = AudioCore.noise(c); n.start(t, Math.random() * 1.6); n.stop(t + dur); return n; };
 
   /* ---------- stereo chorus send, one per chain (the Juno's two BBD lines) ---------- */
@@ -31,6 +34,7 @@
   /* ---------- 303: two cascaded poles, RC decay, accent, fixed-time slide ---------- */
   N.acid = (ch, t, p = {}) => {
     const c = ch.c, P = { freq: ST.root * 2, ...ST.acid, accent: false, slideTo: null, slideTime: 0, gate: 0.11, level: 0.5, ...p };
+    if (dsp(c, 'acid')) return DSP.voice.acid(ch, t, P);
     const o = c.createOscillator(); o.type = P.wave || 'sawtooth'; o.frequency.setValueAtTime(P.freq, t); o.detune.value = rnd(3);
     const gate = P.slideTo ? P.slideTime : P.gate;
     if (P.slideTo){ const s0 = t + Math.max(0.01, gate - 0.06); o.frequency.setValueAtTime(P.freq, s0); o.frequency.setTargetAtTime(P.slideTo, s0, 0.02); }
@@ -50,6 +54,7 @@
   /* ---------- poly stab: stereo detune pairs, RC filter, chorus ---------- */
   N.stab = (ch, t, p = {}) => {
     const c = ch.c, P = { root: ST.root * 4, chord: [0, 3, 7], ...ST.stab, delay: 0, level: 0.13, ...p };
+    if (P.fm && S.fm) return S.fm(ch, t, P);
     const f = c.createBiquadFilter(); f.type = 'lowpass'; f.Q.value = 3.5;
     f.frequency.setValueAtTime(Math.min(16000, P.cutoff + P.env), t); f.frequency.setTargetAtTime(Math.max(80, P.cutoff), t + 0.002, Math.max(0.02, P.decay / 3.2));
     const hp = c.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 110;
@@ -57,7 +62,7 @@
     const end = t + P.decay + 0.6;
     P.chord.forEach((semi, i) => [-1, 1].forEach(side => {
       const o = c.createOscillator(); o.type = 'sawtooth'; o.frequency.value = P.root * Math.pow(2, semi / 12); o.detune.value = side * P.detune + rnd(4);
-      via(o, pan(c, side * (0.25 + 0.08 * (i % 3))), f); o.start(t); o.stop(end); reg(ch, o, end);
+      via(o, isLite() ? null : pan(c, side * (0.25 + 0.08 * (i % 3))), f); o.start(t); o.stop(end); reg(ch, o, end);
     }));
     f.connect(hp); hp.connect(g); g.connect(dest(ch, P, 'stab'));
     send(c, g, chorus(ch), 0.75);
@@ -84,7 +89,7 @@
   const SS = [0, -0.0195, 0.0195, -0.0629, 0.0629, -0.1100, 0.1100];
   N.supersaw = (ch, t, p = {}) => {
     const c = ch.c, P = { freq: 440, gate: 0.2, level: 0.05, cutoff: 2600, ...p };
-    const sp = P.spread == null ? 1 : P.spread, nv = Math.max(1, Math.min(7, Math.round(P.voices || 7)));
+    const sp = P.spread == null ? 1 : P.spread, nv = Math.max(1, Math.min(isLite() ? 5 : 7, Math.round(P.voices || 7)));
     const f = c.createBiquadFilter(); f.type = 'lowpass'; f.Q.value = 0.8; f.frequency.value = P.cutoff;
     const hp = c.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = P.freq * 0.85; hp.Q.value = 0.5;
     const norm = P.level * (nv === 1 ? 2.4 : 3.3 / Math.sqrt(nv));
@@ -120,6 +125,7 @@
   /* ---------- reese: two saws split L/R, slow filter drift, clean sub under the dirt ---------- */
   N.reese = (ch, t, p = {}) => {
     const c = ch.c, P = { freq: 55, dur: 0.6, level: 0.35, cutoff: 420, ...p }; const rs = P.spread == null ? 1 : P.spread;
+    if (dsp(c, 'reese')) return DSP.voice.reese(ch, t, P, rs);
     const f = c.createBiquadFilter(); f.type = 'lowpass'; f.Q.value = 3; f.frequency.setValueAtTime(P.cutoff * 1.8, t); f.frequency.setTargetAtTime(P.cutoff, t, Math.max(0.05, P.dur / 3));
     const lfo = c.createOscillator(); lfo.frequency.value = 0.3 + Math.random() * 0.25; const lg = c.createGain(); lg.gain.value = P.cutoff * 0.35; lfo.connect(lg); lg.connect(f.frequency);
     const sh = c.createWaveShaper(); sh.curve = AudioCore.curve(P.drive || 3); sh.oversample = '2x';
@@ -133,7 +139,7 @@
 
   /* ---------- drums: fresh noise each hit, 909-style snare ---------- */
   N.snare = (ch, t, p = {}) => {
-    const c = ch.c, P = { decay: 0.18, level: 0.6, tone: 185, ...p }; const d = dest(ch, P, 'snare');
+    const c = ch.c, P = { decay: 0.18, level: 0.6, tone: 185, ...p }; P.level *= vel('snare'); const d = dest(ch, P, 'snare');
     [[P.tone, 1, 0.08], [P.tone * 1.87, 0.55, 0.05]].forEach(([fr, lv, dk]) => {
       const o = c.createOscillator(); o.type = 'triangle'; o.frequency.setValueAtTime(fr * 1.45, t); o.frequency.exponentialRampToValueAtTime(fr, t + 0.018);
       const g = c.createGain(); g.gain.setValueAtTime(P.level * 0.46 * lv, t); g.gain.exponentialRampToValueAtTime(0.001, t + dk + 0.03);
@@ -147,7 +153,7 @@
     send(c, g, ch.verbSend, 0.12);
   };
   N.clap = (ch, t, p = {}) => {
-    const c = ch.c, P = { decay: ST.clap.decay, level: 0.8, ...p };
+    const c = ch.c, P = { decay: ST.clap.decay, level: 0.8, ...p }; P.level *= vel('clap');
     const n = noiseAt(c, t, P.decay + 0.12);
     const bp = c.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 1250 + rnd(120); bp.Q.value = 1.1;
     const hp = c.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 600;
@@ -159,13 +165,17 @@
     send(c, g, ch.verbSend, 0.35);
   };
   N.shaker = (ch, t, p = {}) => {
-    const c = ch.c, P = { decay: 0.08, level: 0.35, ...p }; const lv = P.level * 0.92 * (1 + rnd(0.12));
+    const c = ch.c, P = { decay: 0.08, level: 0.35, ...p }; const lv = P.level * 0.92 * (1 + rnd(0.12)) * vel('shaker');
     const n = noiseAt(c, t, 0.2);
     const bp = c.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 6500 + rnd(400); bp.Q.value = 2;
     const g = c.createGain(); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(lv, t + 0.012 + Math.random() * 0.006); g.gain.exponentialRampToValueAtTime(0.001, t + 0.02 + P.decay);
-    n.connect(bp); bp.connect(g); g.connect(dest(ch, P, 'shaker')); reg(ch, n, t + 0.2);
+    n.connect(bp); bp.connect(g); via(g, pan(c, ((S._step | 0) % 2 ? 0.34 : -0.34)), dest(ch, P, 'shaker')); reg(ch, n, t + 0.2);
   };
-  N.hat = (ch, t, p = {}) => V1.hat(ch, t, { ...p, level: (p.level || 0.35) * (1 + rnd(0.05)) });
+  const placed = (ch, p, track, x) => { const d = p.dest || dest(ch, p, track); const pn = pan(ch.c, x); if (pn){ pn.connect(d); return pn; } return d; };
+  N.hat = (ch, t, p = {}) => { const tr = p.dest ? 'ride' : (p.open ? 'hato' : 'hatc'); V1.hat(ch, t, { ...p, level: (p.level || 0.35) * (1 + rnd(0.05)) * vel(tr), dest: placed(ch, p, p.open ? 'hato' : 'hatc', tr === 'ride' ? 0.3 : tr === 'hato' ? -0.12 : 0.16) }); };
+  N.tom = (ch, t, p = {}) => { const pitch = p.pitch || ST.perc.tomPitch; V1.tom(ch, t, { ...p, level: (p.level || 0.55) * vel('tom'), dest: placed(ch, p, 'tom', Math.max(-0.35, Math.min(0.35, (pitch - 200) / 400))) }); };
+  N.metal = (ch, t, p = {}) => V1.metal(ch, t, { ...p, level: (p.level || 0.4) * vel('metal'), dest: placed(ch, p, 'metal', -0.22) });
+  N.kick = (ch, t, p = {}) => V1.kick(ch, t, vel('kick') === 1 ? p : { ...p, level: (p.level || 1) * vel('kick') });
 
   /* ---------- M1 piano: hammer click, inharmonic partials; organ bass with key click ---------- */
   N.piano = (ch, t, p = {}) => {
@@ -195,13 +205,18 @@
     const ng = c.createGain(); ng.gain.setValueAtTime(P.level * 0.25, t); ng.gain.exponentialRampToValueAtTime(0.001, t + 0.006); n.connect(hp); hp.connect(ng); ng.connect(g); reg(ch, n, t + 0.02);
     g.connect(dest(ch, P, 'organ'));
   };
-  N.off = (ch, t, p = {}) => V1.off(ch, t, { ...p, freq: (p.freq || ST.root * 2) * Math.pow(2, rnd(3) / 1200) });
+  N.off = (ch, t, p = {}) => { const q = { ...p, freq: (p.freq || ST.root * 2) * Math.pow(2, rnd(3) / 1200) }; if (dsp(ch.c, 'off')) return DSP.voice.off(ch, t, q); return V1.off(ch, t, q); };
 
   /* ---------- switch ---------- */
   const KEYS = Object.keys(N).filter(k => typeof V1[k] === 'function');
+  const CLASSIC = { stab: (ch, t, p = {}) => (p.fm && S.fm) ? S.fm(ch, t, p) : V1.stab(ch, t, p) };
+  let liteSaved = null; try { liteSaved = localStorage.getItem('dm-lite'); } catch (e) {}
   window.SynthV2 = {
     on: true,
-    set(v){ this.on = !!v; try { localStorage.setItem('dm-synth', v ? '2' : '1'); } catch (e) {} KEYS.forEach(k => { S[k] = this.on ? N[k] : V1[k]; }); document.querySelectorAll('.synthab').forEach(b => b.textContent = this.on ? 'Engine: improved' : 'Engine: classic'); },
+    lite: liteSaved ? liteSaved === '1' : ((navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 3),
+    setLite(v){ this.lite = !!v; try { localStorage.setItem('dm-lite', v ? '1' : '0'); } catch (e) {} document.querySelectorAll('.synthlite').forEach(b => b.textContent = this.lite ? 'Quality: light' : 'Quality: full'); },
+    util: { rnd, pan, via, noiseAt, chorus, send, vel },
+    set(v){ this.on = !!v; try { localStorage.setItem('dm-synth', v ? '2' : '1'); } catch (e) {} KEYS.forEach(k => { S[k] = this.on ? N[k] : (CLASSIC[k] || V1[k]); }); document.querySelectorAll('.synthab').forEach(b => b.textContent = this.on ? 'Engine: improved' : 'Engine: classic'); },
     keys: KEYS
   };
   let saved = '2'; try { saved = localStorage.getItem('dm-synth') || '2'; } catch (e) {}

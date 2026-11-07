@@ -7,7 +7,7 @@ window.SoundBus = {
   closeEmbeds(){ document.querySelectorAll('.spbox').forEach(b => b.remove()); },
   // stop everything except the kind that is about to start
   claim(kind){
-    try { if (kind !== 'engine' && typeof Voices !== 'undefined'){ Voices.forEach(v => { try { v.node.stop(0); } catch (e) {} }); Voices.length = 0; } } catch (e) {}
+    try { if (window.Fade) Fade.cut(); else if (typeof Voices !== 'undefined'){ Voices.forEach(v => { try { v.node.stop(0); } catch (e) {} }); Voices.length = 0; } } catch (e) {}
     try { const Sq = _G('Seq'); if (kind !== 'seq' && Sq && Sq.playing) Sq.stop(); } catch (e) {}
     try { const Mx = _G('Mixer'); if (kind !== 'mixer' && Mx && Mx.playing){ if (window.MixerStop) MixerStop(); else Mx.stop(); } } catch (e) {}
     try { if (kind !== 'grid' && window.PatternGrid && PatternGrid.active) PatternGrid.stop(); } catch (e) {}

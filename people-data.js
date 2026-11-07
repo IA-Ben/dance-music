@@ -2486,53 +2486,69 @@ window.FACTS = {
 "awol": {
 "type": "weekly night",
 "founded": "1992",
-"founders": [],
+"founders": [
+"Chris and Jay (World Dance promoters)"
+],
 "venues": [
-"Paradise Club, Parkfield Street, Islington, London (1992–c.1995)",
-"Ministry of Sound, London (1995–)",
-"SE1 and other London venues (reunions, 2000s–)"
+"Paradise Club, Islington, London (1992–mid-1990s)",
+"SW1 club, London",
+"Ministry of Sound, London (mid-1990s; 2022)"
 ],
 "attendance": null,
 "residents": [
+"Mickey Finn",
 "Randall",
 "Kenny Ken",
-"Mickey Finn",
-"Darren Jay",
 "Dr S Gachet",
-"MC GQ"
+"Darren Jay",
+"GQ (MC)",
+"Fearless (MC)",
+"Roy the Roach (house room)"
 ],
 "editions": [
-"1992 — opens at the Paradise Club",
-"1995 — moves to Ministry of Sound; AWOL: A Way of Life — Live at the Ministry of Sound album"
+"1992 — first nights at the Paradise Club, house and breakbeat on separate floors",
+"1994 — AWOL: A Way of Life Live vinyl promo",
+"1995 — AWOL: A Way of Life Live released on cassette, CD and triple vinyl",
+"c.1995–96 — sold-out Thursday one-offs at Ministry of Sound",
+"2022 — 30th anniversary, four rooms at Ministry of Sound"
 ],
 "status": "revived",
-"sources": []
+"sources": [
+"https://goatshedmusic.com/its-a-way-of-life-darren-jay-talks-30-years-of-awol-interview/",
+"https://breakbeat.co.uk/features/jungle-book/jamies-jungle-book-part-15"
+]
 },
 "wiggle": {
-"type": "weekly night",
+"type": "collective",
 "founded": "1994",
 "founders": [
-"Terry Francis",
-"Nathan Coles"
+"Nathan Coles",
+"Terry Francis"
 ],
 "venues": [
-"Warehouses, arches and squats, south London (1994–)",
-"Brixton Jamm and London Bridge arches (2000s)"
+"Temporarily empty warehouses and car parks, London (1994–late 1990s)",
+"Fabric, London (associated from 1999)"
 ],
 "attendance": null,
 "residents": [
 "Terry Francis",
 "Nathan Coles",
-"Evil Eddie Richards"
+"Eddie Richards"
 ],
 "editions": [
-"1994 — first party",
-"1999 — Terry Francis named fabric resident",
-"2014 — 20th anniversary",
-"2019 — 25th anniversary"
+"1994 — first Wiggle parties in empty warehouses and car parks",
+"1996 — Wiggle label launched with Housey Doingz, Gobstopper (WIG001)",
+"October 1999 — Terry Francis begins Fabric residency at the club's opening",
+"2006 — Fabric 28 mixed as Wiggle",
+"2014 — 20th anniversary; Wiggle for 20 Years (Wiggle/Fabric)",
+"2019 — 25th anniversary; Wiggle for 25 Years"
 ],
 "status": "running",
-"sources": []
+"sources": [
+"https://mixmag.net/amp/wiggle-and-the-birth-of-tech-house",
+"https://loose-lips.co.uk/blog/wiggle-turns-25/",
+"https://en.wikipedia.org/wiki/Terry_Francis"
+]
 },
 "sensation": {
 "type": "annual festival",
@@ -2584,26 +2600,39 @@ window.FACTS = {
 "sources": []
 },
 "exodus": {
-"type": "sound system",
+"type": "collective",
 "founded": "1992",
 "founders": [
-"Glenn Jenkins (spokesman) and the Marsh Farm crew"
+"Glenn Jenkins",
+"DJ Hazad"
 ],
 "venues": [
-"Warehouses and quarries around Luton and Dunstable (1992–)",
-"HAZ Manor, Streatley, Bedfordshire (housing project, 1993–)",
-"Long Meadow Community Free Farm, near Luton"
+"Woodland near Luton/Dunstable (1992)",
+"Long Meadow Farm, beside the M1 (1992–2000)",
+"Woodside estate, Luton (1992–99)",
+"HAZ Manor, Luton (1993–2000)",
+"Quarries near Clophill (1997–99)",
+"Near Ridgmont, Woburn estate (2000)"
 ],
-"attendance": "up to 10,000 (by most accounts)",
-"residents": [],
+"attendance": "10,000 (31 December 1992)",
+"residents": [
+"DJ Hazad"
+],
 "editions": [
-"1992 — first free parties",
-"January 1993 — crowd surrounds Luton police station until arrested members are released",
-"1993 — HAZ Manor squatted and renovated",
-"1995 — Marsh Farm riots"
+"June 1992 — first free party, about 150 people",
+"31 December 1992 — Woodside estate, around 10,000",
+"31 January 1993 — Operation Anagram: 36 arrested at Long Meadow, 4,000 outside Luton police station",
+"1 March 1993 — Oakmore Hotel squat evicted (Operation Ashanti)",
+"July 1994 — peak of 7,000",
+"8 July 1995 — out-of-town rave during the Marsh Farm riots, 1,500–2,000",
+"May Day weekend 1999 — Operation Canterbury, later ruled unlawful",
+"2000 — fourth and last Free the Spirit festival; collective disbands"
 ],
 "status": "ended",
-"sources": []
+"sources": [
+"https://en.wikipedia.org/wiki/Exodus_Collective",
+"https://squallmagazine.com/f/f08-42-ex-chron.html"
+]
 },
 "jungle-fever": {
 "type": "one-off rave",
@@ -11393,37 +11422,35 @@ window.FACTS = {
 "founded": "1980",
 "closed": null,
 "founders": [
-"Terry Jones",
-"Tricia Jones"
+"Terry Jones"
 ],
 "editors": [
-"Terry Jones (1980–2012, editor-in-chief)",
-"Dylan Jones and Caryn Franklin (1986–1988)",
-"Alix Sharkey (1988–1989)",
-"John Godfrey (1988–1990)",
-"Matthew Collin (1991–1994)",
+"Terry Jones (1980–2012)",
+"Dylan Jones (1986–88)",
+"Caryn Franklin (1986–88)",
+"Alix Sharkey (1988–89)",
+"John Godfrey (1988–90)",
+"Matthew Collin (1991–94)",
 "Avril Mair (1994–2004)",
-"Glenn Waldron (2004–2006)",
-"Ben Reardon (2006–2010)",
-"Holly Shackleton (2010–2019)",
-"Alastair McKimm (2019–2024)",
-"Thom Bettridge (2024–2026)",
+"Glenn Waldron (2004–06)",
+"Ben Reardon (2006–10)",
+"Holly Shackleton (2010–19)",
+"Alastair McKimm (2019–24)",
+"Thom Bettridge (2024–26)",
 "Steff Yotka (2026–)"
 ],
 "notable": [
-"Straight-up street portrait format from 1977",
-"Wink logo on every cover",
-"Tony Elliott (Time Out) brought in as publisher 1984",
-"September 1988 'Party Party' issue",
-"Sold to Vice Media 2012; to Bedford Media (Karlie Kloss) Nov 2023",
-"Print returned as biannual spring 2025"
+"Straight-up street portraits",
+"Winking cover",
+"Straight-Up Issue, no. 234 (August 2003)",
+"Raf Simons guest issue (February 2001)",
+"Sold to Vice Media (2012)",
+"Bought by Bedford Media (2023)"
 ],
 "status": "print",
 "sources": [
 "https://en.wikipedia.org/wiki/I-D",
-"https://eyemagazine.com/feature/article/reputations-terry-jones",
-"https://djhistory.com/?p=4370",
-"https://www.timeout.com/london/nightlife/these-photos-capture-the-explosion-of-londons-acid-house-scene"
+"https://en.wikipedia.org/wiki/Mr._C"
 ]
 },
 "press-nme": {
@@ -12086,24 +12113,29 @@ window.FACTS = {
 },
 "rec-twinsvirgo": {
 "label": "Prologue",
-"catno": null,
-"released": "2012",
+"catno": "PRGCD001 (album, CD)",
+"released": "February 2012 (album Voices From the Lake)",
 "formats": [
-"2xLP",
 "CD",
-"12\""
+"LP"
 ],
 "producers": [
 "Donato Dozzy",
-"Neel (Giuseppe Tillieci)"
+"Neel"
 ],
-"remixes": [],
+"remixes": [
+"Twins in Virgo (Reprise) — on the album (2012)"
+],
 "charts": {},
 "chart_source": null,
 "reissues": [
-"Prologue represses"
+"Remastered tenth-anniversary reissue, 2023"
 ],
-"sources": []
+"sources": [
+"https://ra.co/reviews/10529",
+"https://factmag.com/2012/04/25/voices-from-the-lake-voices-from-the-lake",
+"https://ra.co/news/83551"
+]
 },
 "rec-qualm": {
 "label": "Ninja Tune",
@@ -12501,112 +12533,115 @@ window.FACTS = {
 ]
 },
 "rec-ifeellove": {
-"label": "Casablanca (US) / GTO (UK)",
-"catno": "NB 884",
-"released": "1977-07-02",
+"label": "Casablanca",
+"catno": "NB 884 (US 7\"); NBD-20104 (US 12\")",
+"released": "2 July 1977",
 "formats": [
 "7\"",
-"12\" (1982 Cowley mix)"
+"12\""
 ],
 "producers": [
 "Giorgio Moroder",
 "Pete Bellotte"
 ],
 "remixes": [
-"Patrick Cowley — extended mix (1982 release)",
-"Masters at Work — remix (1995)",
-"Rollo & Sister Bliss — remix (1995)",
+"Patrick Cowley — MegaMix (Disconet, 1980; Casablanca UK, 1982)",
+"Masters at Work — remix (Manifesto, 1995)",
+"Rollo & Sister Bliss — remix (Manifesto, 1995)",
 "Afrojack — remix (2013)"
 ],
 "charts": {
 "UK Singles": 1,
 "US Hot 100": 6,
-"Netherlands": 1,
+"US Hot Soul Singles": 9,
+"West Germany": 3,
+"Canada": 4,
 "Australia": 1,
-"West Germany": 3
+"Netherlands": 1,
+"UK Singles (1982 Cowley reissue)": 21,
+"UK Singles (1995 reissue)": 8,
+"UK Dance (1995 reissue)": 1
 },
-"chart_source": "officialcharts.com",
+"chart_source": "Wikipedia (citing Official Charts Company and Billboard)",
 "reissues": [
-"Casablanca (UK), 1982 — Patrick Cowley remix, UK No. 21",
-"Manifesto, 1995 — UK No. 8"
+"Casablanca UK (Patrick Cowley mix), 1982",
+"Manifesto, 1995"
 ],
 "sources": [
-"https://en.wikipedia.org/wiki/I_Feel_Love",
-"https://www.soundonsound.com/techniques/classic-tracks-donna-summer-feel-love",
-"https://officialcharts.com/artist/_/Donna%20Summer"
+"https://en.wikipedia.org/wiki/I_Feel_Love"
 ]
 },
 "rec-noufos": {
 "label": "Metroplex",
 "catno": "M-001",
-"released": "1985-04",
+"released": "April 1985",
 "formats": [
 "12\""
 ],
 "producers": [
-"Juan Atkins (as M500)"
+"Juan Atkins"
 ],
 "remixes": [
-"Moodymann — remix (2017/18)",
-"Luciano — remix (2017/18)"
+"Moodymann — remix (2017)",
+"Luciano — remix (2017)"
 ],
 "charts": {},
 "chart_source": null,
 "reissues": [
-"Metroplex, 2017/18 (with Moodymann and Luciano remixes)"
+"Metroplex, 2017 (with Moodymann and Luciano remixes)"
 ],
 "sources": [
-"https://www.soundonsound.com/techniques/classic-tracks-model-500-no-ufos",
-"https://en.wikipedia.org/wiki/No_UFO%27s",
-"https://www.attackmagazine.com/technique/deconstructed/model-500-no-ufos/"
+"https://en.wikipedia.org/wiki/No_UFO%27s"
 ]
 },
 "rec-bigfun": {
-"label": "KMS / 10 Records (Virgin)",
-"catno": "TEN 240 / TENX 240 / TENR 240 (UK)",
-"released": "1988-08-22",
+"label": "10 Records / Virgin (UK); Virgin (US)",
+"catno": "TENX 240 (UK 12\"); 0-96610 (US 12\")",
+"released": "22 August 1988 (UK)",
 "formats": [
 "7\"",
-"12\"",
-"12\" remixes"
+"12\""
 ],
 "producers": [
 "Kevin Saunderson"
 ],
 "remixes": [
-"Kevin Saunderson — Club Remix (1988)",
-"Juan Atkins — Juan's Magic Mix (1988)",
-"Derrick May — edit (1988)",
-"D.O.N.S. & Terri B! — re-recording (2014)"
+"Juan's Magic Remix / Magic Juan Mix (1988)",
+"Duane Bradley — mix (1988)",
+"Master Reese (Kevin Saunderson) — 12\" Remix (1988)",
+"May Day (Derrick May) — Kick the Pump Mix (1988)",
+"L.A. Big Big Fun Remix (1988)"
 ],
 "charts": {
 "UK Singles": 8,
-"US Hot Dance Club": 1,
+"US Dance Club Songs": 1,
 "US Dance Singles Sales": 1,
-"US R&B": 50,
-"Netherlands": 3,
-"West Germany": 5,
-"Ireland": 5
+"US Hot R&B/Hip-Hop Songs": 50,
+"Canada Dance/Urban": 1,
+"Netherlands Single Top 100": 3,
+"Switzerland": 4,
+"Ireland": 5,
+"West Germany": 5
 },
-"chart_source": "officialcharts.com / Billboard (via Wikipedia)",
+"chart_source": "Wikipedia (citing Official Charts Company and Billboard)",
 "reissues": [
-"Carrillo Records, 2014 (D.O.N.S. & Terri B! version)",
-"KMS 25th Anniversary Classics compilation"
+"Carrillo Records (D.O.N.S. & Terri B! new version), 2014"
 ],
 "sources": [
-"https://factmag.com/2014/09/02/kevin-saunderson-inner-city-and-the-inside-story-of-big-fun",
 "https://en.wikipedia.org/wiki/Big_Fun_(Inner_City_song)",
-"https://mail.45worlds.com/12single/record/tenr240"
+"https://en.wikipedia.org/wiki/Techno!_The_New_Dance_Sound_of_Detroit",
+"https://mail.45worlds.com/12single/artist/inner-city",
+"https://www.shugarecords.com/products/21079"
 ]
 },
 "rec-chime": {
-"label": "Oh-Zone Records (1989) / FFRR (1990)",
-"catno": "F 135 / FX 135 / FXR 135 (FFRR)",
-"released": "1989-12 (Oh-Zone); 1990-03 (FFRR)",
+"label": "Oh'Zone (first pressing); FFRR",
+"catno": null,
+"released": "December 1989 (Oh'Zone, 1,000 copies); 12 March 1990 (FFRR)",
 "formats": [
 "12\"",
 "7\"",
-"CD single",
+"CD",
 "cassette"
 ],
 "producers": [
@@ -12614,38 +12649,38 @@ window.FACTS = {
 "Phil Hartnoll"
 ],
 "remixes": [
-"JZJ — Bacardi Mix / Oh Ya Mix (1990)",
+"JZJ — Bacardi Mix and Oh Yah Mix (1990)",
 "Orbital — Helium Mix (1990)",
+"Orbital — Chime Crime (1992)",
 "Ray Keith — Mutation Mix (1992)",
 "Joey Beltram & Program 2 — remix (1992)",
-"Mike Flowers — Krisp DoubleU / Hairy Butter mixes (1997)",
-"Knuckleheadz (2006)",
-"The Shapeshifters (2008)",
-"Special Request (2021)",
-"Eli Brown (2022)",
-"Octave One (2022)"
+"Mike Flowers — version (1997)",
+"Orbital — Live Style Mix (2002)",
+"The Shapeshifters — remix (2008)",
+"Orbital — Christmas Chime (2013)",
+"Special Request — remix (2021)",
+"Eli Brown — remix (2022)",
+"Octave One — remix (2022)",
+"Orbital — 30 Something Years Later Mix (2022)"
 ],
 "charts": {
-"UK Singles": 17
+"UK Singles": 17,
+"Eurochart Hot 100": 49,
+"US Hot Dance Club": 23
 },
-"chart_source": "officialcharts.com",
-"reissues": [
-"FFRR, 1990 (from Oh-Zone original)",
-"Orbital 30 Something Years Later mix, 2022"
-],
+"chart_source": "officialcharts.com (via Wikipedia); Billboard; Music & Media",
+"reissues": [],
 "sources": [
-"https://www.soundonsound.com/techniques/classic-tracks-orbital-chime",
-"https://djmag.com/content/game-changers-orbital-chime",
-"https://www.wikiwand.com/en/articles/Chime_(Orbital_song)",
-"https://officialcharts.com/artist/13342/orbital"
+"https://en.wikipedia.org/wiki/Chime_(Orbital_song)",
+"https://en.wikipedia.org/wiki/Orbital_(band)"
 ]
 },
 "rec-energyflash": {
-"label": "R&S Records (Belgium); Transmat (US)",
-"catno": "RS 926",
+"label": "R&S Records; licensed to Transmat",
+"catno": null,
 "released": "1990",
 "formats": [
-"12\" EP (Beltram Vol. 1)"
+"12\""
 ],
 "producers": [
 "Joey Beltram"
@@ -12656,58 +12691,55 @@ window.FACTS = {
 "charts": {},
 "chart_source": null,
 "reissues": [
-"R&S, 2014 (Matt Colton remaster)",
-"R&S, 2023 (RS926X, Beau Thomas remaster; purple vinyl edition)"
+"R&S (Matt Colton remaster), 2014"
 ],
 "sources": [
-"https://www.vice.com/en/article/the-untold-story-of-joey-beltram-the-techno-titan-behind-the-90s-most-iconic-rave-anthems",
 "https://articles.roland.com/?p=7356",
-"https://factmag.com/2014/08/11/joey-beltrams-anthemic-energy-flash-to-be-remastered-and-reissued",
-"https://aboveboarddist.co.uk/mailouts/announcing-joey-beltram-beltram-vol-1",
-"https://www.melodicdistraction.com/api-sub/article/backtracks-joey-beltram-energy-flash"
+"https://www.vice.com/en/article/the-untold-story-of-joey-beltram-the-techno-titan-behind-the-90s-most-iconic-rave-anthems",
+"https://en.wikipedia.org/wiki/Joey_Beltram",
+"https://en.wikipedia.org/wiki/Energy_Flash"
 ]
 },
 "rec-charly": {
 "label": "XL Recordings",
-"catno": "XLT 21",
-"released": "1991-08-12",
+"catno": "XLT-21",
+"released": "12 August 1991",
 "formats": [
 "7\"",
 "12\"",
-"CD single",
+"CD",
 "cassette"
 ],
 "producers": [
 "Liam Howlett",
-"Chaz Stevens (additional)"
+"Chaz Stevens (additional production)"
 ],
 "remixes": [
-"Liam Howlett — Alley Cat Remix (1991)",
-"Liam Howlett — Trip Into Drum & Bass Version (1992)"
+"Alley Cat Remix (1991, lead version)",
+"Trip into Drum & Bass Version (1992, on Experience)"
 ],
 "charts": {
 "UK Singles": 3,
 "UK Dance": 1,
 "Ireland": 9,
-"Eurochart Hot 100": 11
+"Eurochart Hot 100": 11,
+"UK Club Chart (Record Mirror)": 14
 },
-"chart_source": "officialcharts.com (via Wikipedia)",
+"chart_source": "officialcharts.com; Music Week (via Wikipedia)",
 "reissues": [
-"Elektra (US), 1992 — double A-side with Everybody in the Place",
-"XL, 2005 — Their Law: The Singles 1990–2005",
-"XL, 2008 — Experience Expanded"
+"Elektra (US, double A-side with Everybody in the Place), 1992",
+"XL digital, 2004"
 ],
 "sources": [
-"https://en.wikipedia.org/wiki/Charly_(song)",
-"https://musicradar.com/news/the-prodigy-charly-story"
+"https://en.wikipedia.org/wiki/Charly_(song)"
 ]
 },
 "rec-weareie": {
-"label": "i.e. Records / Reel 2 Reel Productions (De Underground)",
+"label": "Reel 2 Reel Productions / I.E. Records",
 "catno": null,
-"released": "1991",
+"released": "1991 (recorded 1989)",
 "formats": [
-"12\" EP (4 tracks)"
+"12\" EP (33 rpm)"
 ],
 "producers": [
 "Lenworth Green (Lennie De Ice)"
@@ -12715,118 +12747,106 @@ window.FACTS = {
 "remixes": [
 "Jungle remixes (1993, 1994)",
 "R.I.P. Productions — The Chant (We R) (1997)",
-"Distinctive Records house/hard house remixes (1999)",
-"Caspa & Rusko — remix (2008)",
-"Horsepower Productions and others — Hooj Choons remixes (2022)"
+"Distinctive Records house and hard house remixes (1999)",
+"Horsepower Productions — remix (Hooj Choons, 2022)"
 ],
 "charts": {
-"UK Singles": 61,
-"UK Dance": 4,
-"UK Independent": 12
+"UK Singles (1999 remixes)": 61,
+"UK Dance (1999 remixes)": 4,
+"UK Independent (1999 remixes)": 12
 },
-"chart_source": "officialcharts.com (1999 reissue, via Wikipedia)",
+"chart_source": "Wikipedia (citing Official Charts Company)",
 "reissues": [
-"Distinctive Records, 1999",
+"Distinctive Records (remixes), 1999",
 "Hooj Choons, 2022"
 ],
 "sources": [
 "https://en.wikipedia.org/wiki/We_Are_I.E.",
-"https://stage1.thequietus.com/?p=254999",
-"https://www.inkl.com/news/lennie-de-ice-british-producer-who-pioneered-sound-of-jungle-has-died"
+"https://en.wikipedia.org/wiki/Double_99"
 ]
 },
 "rec-valley": {
 "label": "RAM Records",
-"catno": "RAMM 4 (1993); RAMM 16 (1996)",
-"released": "1993",
+"catno": "RAMM 004 (1993, with The Touch); RAMM 16 (1996 reissue)",
+"released": "1993 (B-side of The Touch); reissued 1996",
 "formats": [
-"12\"",
-"CD single (1996)"
+"vinyl",
+"CD (1996)"
 ],
 "producers": [
 "Andy C",
 "Ant Miles"
 ],
 "remixes": [
-"Origin Unknown — Awake 96 remix (1996)"
+"Awake 96 remix (1996)"
 ],
 "charts": {
 "UK Singles": 60,
 "UK Dance": 3
 },
-"chart_source": "officialcharts.com (1996 reissue, via Wikipedia)",
+"chart_source": "officialcharts.com (1996 reissue)",
 "reissues": [
-"RAM Records, 1996 (A-side reissue with Awake 96 mix)",
-"RAM Records represses incl. coloured vinyl (RAMM004 series)"
+"RAM Records, 1996"
 ],
 "sources": [
 "https://en.wikipedia.org/wiki/Valley_of_the_Shadows",
-"https://ra.co/reviews/24963",
-"https://defstar.co.uk/products/ram-records-origin-unknown-the-touch-valley-of-the-shadows-1993-12-white-vinyl-repress-ramm004ep2"
+"https://nl.ra.co/reviews/24963",
+"https://en.wikipedia.org/wiki/Origin_Unknown"
 ]
 },
 "rec-loaded": {
 "label": "Creation Records",
-"catno": "CRE 070",
-"released": "1990-02-19",
+"catno": null,
+"released": "19 February 1990",
 "formats": [
 "7\"",
 "12\"",
-"12\" (Terry Farley remix)",
-"CD single"
+"CD"
 ],
 "producers": [
-"Andrew Weatherall (remix/production)"
+"Andrew Weatherall"
 ],
 "remixes": [
-"Andrew Weatherall — Loaded (1990)",
-"Terry Farley — remix (1990)",
-"Pat Collier — I'm Losing More Than I'll Ever Have remix (1990)"
+"Terry Farley — remix (1990)"
 ],
 "charts": {
 "UK Singles": 16,
-"US Alternative Airplay": 19,
-"Netherlands Top 40": 27,
-"Eurochart Hot 100": 43
+"Eurochart Hot 100": 43,
+"Netherlands Dutch Top 40": 27,
+"Netherlands Single Top 100": 31,
+"US Alternative Airplay": 19
 },
-"chart_source": "officialcharts.com (via Wikipedia)",
+"chart_source": "Wikipedia (citing Official Charts Company and Billboard)",
 "reissues": [
-"Screamadelica (Creation, 1991) and anniversary editions"
+"Screamadelica album version, Creation, 1991"
 ],
 "sources": [
-"https://en.wikipedia.org/wiki/Loaded_(Primal_Scream_song)",
-"https://www.inkl.com/news/bobby-gillespie-remembers-andrew-weatherall-he-was-a-true-bohemian",
-"https://www.testpressing.org/archive/sound-on-soundhugo-nicolsonrecording-primal-screams-screamadelica"
+"https://en.wikipedia.org/wiki/Loaded_(Primal_Scream_song)"
 ]
 },
 "rec-jupiterjazz": {
 "label": "Underground Resistance",
-"catno": "UR-025 (2x12\"); UR-025A (single-disc represses)",
-"released": "1993",
+"catno": null,
+"released": "Autumn 1992 per Insomniac (Matos); 1993 per Wikipedia (on the Galaxy 2 Galaxy EP)",
 "formats": [
-"2x12\"",
-"12\" (represses)"
+"EP"
 ],
 "producers": [
-"Mike Banks",
-"Gerald Mitchell (contributor)"
+"Mike Banks"
 ],
 "remixes": [],
 "charts": {},
 "chart_source": null,
 "reissues": [
-"UR represses incl. 2011 and 2026 (UR-025A)",
-"A Hi-Tech Jazz Compilation — UR vinyl 2005; Submerge CD SUBCD 3010, 2006"
+"A High Tech Jazz Compilation (Galaxy 2 Galaxy), 2005"
 ],
 "sources": [
-"https://en.wikipedia.org/wiki/Galaxy_2_Galaxy",
-"https://rubadub.co.uk/products/galaxy-2-galaxy",
-"https://www.rushhour.nl/node/87801",
-"https://www.vinylfuture.com/Underground_Resistance_Galaxy_2_Galaxy_UR-025_Vinyl__18354/lang_en"
+"https://insomniac.com/?p=67998",
+"https://en.wikipedia.org/wiki/Galaxy_2_Galaxy"
 ]
 },
 "rec-minimalnation": {
-"label": "Axis Records",
+"label": "Axis",
 "catno": null,
 "released": "1994",
 "formats": [
@@ -12839,22 +12859,22 @@ window.FACTS = {
 "charts": {},
 "chart_source": null,
 "reissues": [
-"M-Plant, c. 1999",
-"M-Plant, 2009-06-15 (remastered vinyl + CD, bonus tracks, mix CD)",
-"M-Plant, 2015 (3xLP / 2CD)"
+"M-Plant, 1999",
+"Restored and remastered edition, 2009",
+"M-Plant (3xLP), 2015"
 ],
 "sources": [
-"https://daily.redbullmusicacademy.com/2019/05/robert-hood-minimal-nation-track-by-track",
 "https://en.wikipedia.org/wiki/Minimal_Nation",
-"https://ra.co/news/10513"
+"https://daily.redbullmusicacademy.com/2019/05/robert-hood-minimal-nation-track-by-track",
+"https://en.wikipedia.org/wiki/Robert_Hood"
 ]
 },
 "rec-speaktome": {
 "label": "Downwards",
 "catno": null,
-"released": "1996",
+"released": "1995 (per Regis in the Doyle interview), as lead track of the Montréal EP",
 "formats": [
-"12\""
+"EP"
 ],
 "producers": [
 "Karl O'Connor (Regis)"
@@ -12863,24 +12883,19 @@ window.FACTS = {
 "charts": {},
 "chart_source": null,
 "reissues": [
-"Downwards, 2011 — Complete Works 1994–1996 (CD, part of Vicious Rhythmic Electronics)",
-"Blackest Ever Black, 2015 — Manbait retrospective"
+"Complete Works 1994–1996 (compilation)"
 ],
 "sources": [
+"https://wesleydoylewrites.substack.com/p/we-didnt-think-it-was-going-to-last",
 "https://en.wikipedia.org/wiki/Regis_(musician)",
-"https://stage1.thequietus.com/?p=13564",
-"https://bleep.com/release/34503-regis-regis-complete-works-1994-1996?lang=en_UK",
-"https://ra.co/news/15089"
+"https://raygum.com/releases/uQivuSX73jvh/complete-works-1994-1996"
 ]
 },
 "rec-freekfunk": {
-"label": "NovaMute",
+"label": "NovaMute (Mute)",
 "catno": null,
-"released": "1997-10-20",
-"formats": [
-"CD",
-"LP"
-],
+"released": "20 October 1997",
+"formats": [],
 "producers": [
 "Luke Slater"
 ],
@@ -12894,46 +12909,51 @@ window.FACTS = {
 ]
 },
 "rec-pullover": {
-"label": "Plus 8",
+"label": null,
 "catno": null,
-"released": "1991/1992",
-"formats": [
-"12\""
-],
+"released": "1991 per The Ransom Note (timeline uncertain; apparently a B-side of the Dutch Face the Future EP); 1992 per Wikipedia",
+"formats": [],
 "producers": [
 "Jochem Paap (Speedy J)"
 ],
-"remixes": [],
+"remixes": [
+"Pull Over (First Remix) and (Second Remix), 2021 reissue, remixers uncredited"
+],
 "charts": {},
 "chart_source": null,
-"reissues": [],
+"reissues": [
+"Speedy J (Bandcamp), 12 December 2021, remastered"
+],
 "sources": [
-"https://en.wikipedia.org/wiki/Speedy_J",
-"https://en.wikipedia.org/wiki/Plus_8"
+"https://www.theransomnote.com/music/playlists/gone-to-a-rave-techno-rave-speedy-j-ruling-in-91/",
+"https://speedyj.bandcamp.com/album/pull-over",
+"https://en.wikipedia.org/wiki/Speedy_J"
 ]
 },
 "rec-analogon": {
-"label": "CLR",
+"label": "CLR (listed on Qobuz as 'CL Retry')",
 "catno": null,
-"released": "2001",
-"formats": [
-"12\""
-],
+"released": "1 February 2001 (Analogon E.P. (Remixes 1)); original EP date not documented",
+"formats": [],
 "producers": [
 "Chris Liebing"
 ],
-"remixes": [],
+"remixes": [
+"Analogon E.P. (Remixes 1) (2001) — remixers not documented"
+],
 "charts": {},
 "chart_source": null,
 "reissues": [],
 "sources": [
+"https://www.qobuz.com/au-en/interpreter/chris-liebing/298484/page/3",
+"https://electronicbeats.net/the-feed/discover-schranz-speed-techno-chris-liebing-played-97",
 "https://en.wikipedia.org/wiki/Chris_Liebing"
 ]
 },
 "rec-subzero": {
 "label": "Ostgut Ton",
-"catno": null,
-"released": "2007",
+"catno": "O-TON 19 (Before One EP)",
+"released": "January 2009 (26 January 2009 per Bleep)",
 "formats": [
 "12\""
 ],
@@ -12943,24 +12963,28 @@ window.FACTS = {
 "remixes": [],
 "charts": {},
 "chart_source": null,
-"reissues": [],
+"reissues": [
+"Ostgut Ton O-TONLTD03 (with Coney Island), 23 August 2019"
+],
 "sources": [
-"https://en.wikipedia.org/wiki/Ben_Klock",
-"https://en.wikipedia.org/wiki/Ostgut_Ton"
+"https://ra.co/reviews/5803",
+"https://bleep.com/release/140254-ben-klock-subzero-coney-island?lang=en_GB",
+"https://en.wikipedia.org/wiki/Ben_Klock"
 ]
 },
 "rec-whytheyhide": {
 "label": "Hinge Finger",
 "catno": null,
-"released": "2012-08-25",
+"released": "25 August 2012",
 "formats": [
 "12\" EP (His He She & She)"
 ],
 "producers": [
-"Jamie Roberts (Blawan)"
+"Blawan (Jamie Roberts)"
 ],
 "remixes": [
-"Skrillex — remix (2013)"
+"Skrillex — remix",
+"Gilla Band — cover (Rough Trade, 2015)"
 ],
 "charts": {},
 "chart_source": null,
@@ -12972,32 +12996,36 @@ window.FACTS = {
 },
 "rec-yourmind": {
 "label": "Drumcode",
-"catno": null,
+"catno": "DC191",
 "released": "2018",
 "formats": [
-"12\"",
 "digital"
 ],
 "producers": [
 "Adam Beyer",
 "Bart Skils"
 ],
-"remixes": [],
+"remixes": [
+"Charles D — Acid Mix (2022)",
+"Charles D — Epic Mix (2022)"
+],
 "charts": {},
 "chart_source": null,
-"reissues": [],
+"reissues": [
+"Drumcode vinyl with Charles D remixes (DCX004), 2022"
+],
 "sources": [
-"https://en.wikipedia.org/wiki/Adam_Beyer",
-"https://en.wikipedia.org/wiki/Drumcode_Records"
+"https://www.drumcode.se/releases/your-mind",
+"https://www.comolasgrecas.com/english-charles-d-remixes-your-mind-becoming-the-second-artist-ever-to-officially-re-work-the-drumcode-classic/",
+"https://en.wikipedia.org/wiki/Adam_Beyer"
 ]
 },
 "rec-999": {
-"label": "NineTimesNine",
+"label": "Planet Rhythm",
 "catno": null,
-"released": "2019",
+"released": "2018 (per Insomniac)",
 "formats": [
-"12\"",
-"digital"
+"vinyl"
 ],
 "producers": [
 "999999999"
@@ -13005,20 +13033,22 @@ window.FACTS = {
 "remixes": [],
 "charts": {},
 "chart_source": null,
-"reissues": [],
+"reissues": [
+"Repeated represses (dates not given)"
+],
 "sources": [
-"https://en.wikipedia.org/wiki/Techno"
+"https://www.insomniac.com/?p=298667",
+"https://dancingastronaut.com/2018/11/techno-tuesday-diving-world-improv-techno-999999999/",
+"https://beat.com.au/999999999-the-world-feels-like-its-moving-faster-and-getting-more-intense-and-harder-techno-reflects-that"
 ]
 },
 "rec-page67": {
 "label": null,
 "catno": null,
-"released": "1987-08",
-"formats": [
-"12\""
-],
+"released": "August 1987 (recorded 1986 by one account)",
+"formats": [],
 "producers": [
-"Richard West (Mr. C)",
+"Mr. C (Richard West)",
 "Eddie Richards"
 ],
 "remixes": [],
@@ -13026,94 +13056,97 @@ window.FACTS = {
 "chart_source": null,
 "reissues": [],
 "sources": [
-"https://en.wikipedia.org/wiki/Mr._C",
-"https://en.wikipedia.org/wiki/Eddie_Richards"
+"https://en.wikipedia.org/wiki/Mr_C",
+"https://musicistheanswer.substack.com/p/when-evil-eddie-richards-invited",
+"https://djmag.com/node/5279"
 ]
 },
 "rec-mrkirk": {
-"label": "Reinforced Records",
-"catno": null,
-"released": "1990",
+"label": "Reinforced",
+"catno": "RIVET 1202 (Combat Dancin' EP); RIVET 1203 (three-track 12-inch)",
+"released": "1990 (promo by late August; October 1990 per RA)",
 "formats": [
 "12\""
 ],
 "producers": [
-"4hero (Marc Mac, Dego, Gus Lawrence, Iain Bardouille)"
+"4hero (Gus Lawrence, Marc Mac, Dego, Iain Bardouille)"
 ],
 "remixes": [],
 "charts": {},
 "chart_source": null,
 "reissues": [],
 "sources": [
-"https://en.wikipedia.org/wiki/4hero",
-"https://en.wikipedia.org/wiki/Reinforced_Records"
+"https://ra.co/reviews/33882",
+"https://magazine.waxpoetics.com/rediscovery/4hero-mr-kirk"
 ]
 },
 "rec-terrorist": {
 "label": "Moving Shadow",
 "catno": null,
-"released": "1994",
-"formats": [
-"12\""
-],
+"released": "Made around Christmas 1993; exact release date not given in sources",
+"formats": [],
 "producers": [
-"Ray Keith (as Renegade)"
+"Ray Keith (as Renegade)",
+"Nookie (Gavin Cheung), engineer"
 ],
-"remixes": [],
+"remixes": [
+"T>I — Minimal VIP",
+"Dread Recordings remix package (newer producers)"
+],
 "charts": {},
 "chart_source": null,
 "reissues": [],
 "sources": [
-"https://en.wikipedia.org/wiki/Ray_Keith",
-"https://en.wikipedia.org/wiki/Moving_Shadow"
+"https://djmag.com/longreads/how-renegades-terrorist-created-blueprint-jungle",
+"https://en.wikipedia.org/wiki/Ray_Keith"
 ]
 },
 "rec-circles": {
-"label": "Section 5 (1995); Positiva / F-Jams (1997)",
-"catno": null,
-"released": "1995; re-released 1997",
+"label": "Section 5 (1995); Positiva (1997)",
+"catno": "12FJ002 (Positiva, 1997)",
+"released": "1995 (Section 5); reissued September 1997 (Positiva)",
 "formats": [
-"12\"",
-"CD single (1997)"
+"12\""
 ],
 "producers": [
-"Adam F"
+"Adam F (Adam Fenton)"
 ],
-"remixes": [],
+"remixes": [
+"Roni Size — remix (1997)",
+"Andy C — remix (1997)"
+],
 "charts": {
 "UK Singles": 20,
 "UK Dance": 1
 },
-"chart_source": "officialcharts.com (via Wikipedia)",
+"chart_source": "officialcharts.com",
 "reissues": [
-"Positiva / F-Jams, 1997"
+"Positiva, 1997"
 ],
 "sources": [
-"https://en.wikipedia.org/wiki/Adam_F",
-"https://en.wikipedia.org/wiki/Colours_(Adam_F_album)"
+"https://en.wikipedia.org/wiki/Colours_(Adam_F_album)",
+"https://www.officialcharts.com/songs/adam-f-circles/"
 ]
 },
 "rec-wormhole": {
 "label": "Virus Recordings",
 "catno": null,
-"released": "1998-11-16",
+"released": "16 November 1998",
 "formats": [
-"5x12\" box set",
-"2xCD"
+"2×CD",
+"5×LP box"
 ],
 "producers": [
-"Ed Rush",
-"Optical"
+"Ed Rush & Optical"
 ],
 "remixes": [],
 "charts": {},
 "chart_source": null,
 "reissues": [
-"Virus Recordings, 2012-11-26 (green vinyl LP box and 2CD, new artwork)"
+"Virus Recordings, 26 November 2012 (CD and green vinyl, new artwork)"
 ],
 "sources": [
-"https://en.wikipedia.org/wiki/Wormhole_(album)",
-"https://en.wikipedia.org/wiki/Optical_(musician)"
+"https://en.wikipedia.org/wiki/Wormhole_(album)"
 ]
 },
 "rec-tee": {
@@ -15018,6 +15051,4917 @@ window.FACTS = {
 "https://en.wikipedia.org/wiki/The_Electrifying_Mojo",
 "https://en.wikipedia.org/wiki/WGPR",
 "https://en.wikipedia.org/wiki/Jeff_Mills"
+]
+},
+"rotterdam": {
+"country": "Netherlands",
+"first_record": "Euromasters — Amsterdam Waar Lech Dat Dan? (1992)",
+"first_room": "Parkzicht (1989)",
+"sound": "gabber: 140–190 bpm hardcore with distorted kick drums",
+"peak": "1992–1996",
+"shops": [
+"Clone"
+],
+"radio": [],
+"now": "Gabber is resurgent in the Netherlands, Thunderdome has been back since 2017 and Rotterdam Records has released again since 2018.",
+"sources": [
+"https://en.wikipedia.org/wiki/Gabber",
+"https://artsandculture.google.com/story/a-brief-history-of-gabber/ugXxcmEzFVvjKQ",
+"https://en.wikipedia.org/wiki/Rotterdam_Records",
+"https://en.wikipedia.org/wiki/Speedy_J",
+"https://en.wikipedia.org/wiki/Ferry_Corsten",
+"https://factmag.com/2015/09/24/inside-clone-records"
+]
+},
+"tokyo": {
+"country": "Japan",
+"first_record": null,
+"first_room": "Liquid Room, Kabukicho (by 1995)",
+"sound": "a listening city for long sets by visiting DJs; Ken Ishii's export techno",
+"peak": "1995–2000s",
+"shops": [],
+"radio": [],
+"now": "Late-night dancing has been legal since the fueiho was amended in 2015 (in force 2016), and the Liquid Room runs in Ebisu, mostly as a live venue.",
+"sources": [
+"https://en.wikipedia.org/wiki/Live_at_the_Liquid_Room,_Tokyo",
+"https://en.wikipedia.org/wiki/Ken_Ishii",
+"https://www.timeout.com/tokyo/clubs/liquidroom",
+"https://djmag.com/content/japans-best-clubs-exploring-countrys-innovative-and-exciting-scene",
+"https://globalvoices.org/2015/07/03/you-can-now-legally-dance-the-night-away-in-japan/",
+"https://electronicgroove.com/jeff-mills-reissues-live-at-liquid-room-for-30th-anniversary/"
+]
+},
+"paris": {
+"country": "France",
+"first_record": "Daft Punk — The New Wave (1994)",
+"first_room": "Le Palace — French Touch house parties (1987); Rex Club acid house night (1988)",
+"sound": "French touch: filtered, phased loops of late-1970s disco over a 4/4 house beat",
+"peak": "1992–2001",
+"shops": [],
+"radio": [],
+"now": "The Rex Club still opens four nights a week with resident crews, though it dropped out of DJ Mag's Top 100 Clubs in 2026 for the first time since 2010.",
+"sources": [
+"https://en.wikipedia.org/wiki/French_house",
+"https://en.wikipedia.org/wiki/Laurent_Garnier",
+"https://en.wikipedia.org/wiki/Daft_Punk",
+"https://en.wikipedia.org/wiki/Teknival",
+"https://djmag.com/top100clubs/2009/37/The-Rex",
+"https://www.technoairlines.com/club/rex-club"
+]
+},
+"stevenage": {
+"country": "England, UK",
+"first_record": "Earth Leakage Trip — Psychotronic EP (1991)",
+"first_room": null,
+"sound": "breakbeat hardcore into jungle and drum and bass",
+"peak": "1991–1996",
+"shops": [],
+"radio": [],
+"now": "Moving Shadow stopped new artist releases in 2006, but its whole back catalogue has been on streaming services since 2023.",
+"sources": [
+"https://en.wikipedia.org/wiki/Moving_Shadow",
+"https://en.wikipedia.org/wiki/Rob_Playford"
+]
+},
+"dusseldorf": {
+"country": "Germany",
+"first_record": "Kraftwerk — Kraftwerk 2 (1971)",
+"first_room": "Kling Klang studio, Mintropstraße 16 (1970)",
+"sound": "sequenced machine music: Kraftwerk's treated drum machines and step sequencers",
+"peak": "1970s–early 1980s",
+"shops": [],
+"radio": [],
+"now": "Kling Klang moved to Meerbusch-Osterath in 2009, and the city markets its electronic heritage under the Electri_City banner.",
+"sources": [
+"https://en.wikipedia.org/wiki/Kling_Klang",
+"https://www.electronicsound.co.uk/features/long-reads/dusseldorf-a-psycho-geography-of-electri_city/",
+"https://en.wikipedia.org/wiki/Hardfloor",
+"https://909originals.com/2019/03/25/909rewind-vol-6-hardfloor"
+]
+},
+"stockholm": {
+"country": "Sweden",
+"first_record": "Adam Beyer — Drum Codes 1 (c. 1995)",
+"first_room": "Docklands, Finnboda, Nacka (1990s)",
+"sound": "Swedish techno: loop-based, compressed, percussion-led",
+"peak": "1995–2000; Drumcode's festival era 2010s–2020s",
+"shops": [],
+"radio": [
+"Drumcode Live"
+],
+"now": "Adam Beyer still runs Drumcode, now an international label and event brand, and presents the weekly Drumcode Live show.",
+"sources": [
+"https://distantreader.org/stacks/journals-ojs/dancecult/dancecult-323.htm",
+"https://en.wikipedia.org/wiki/Drumcode_Records",
+"https://en.wikipedia.org/wiki/Adam_Beyer",
+"https://direct.djmag.com/content/10-moments-defined-adam-beyer"
+]
+},
+"rome": {
+"country": "Italy",
+"first_record": "Lory D — Sickness (Sounds Never Seen, c. 1990)",
+"first_room": "Euritmia — first Roman techno rave (1989)",
+"sound": "dark, distorted, broken-beat Roman techno; later the hypnotic techno of Donato Dozzy",
+"peak": "1989–1994",
+"shops": [
+"Remix"
+],
+"radio": [],
+"now": "Donato Dozzy, a Brancaleone resident from 1999, carries the city's trippy techno lineage to Berghain and international festivals.",
+"sources": [
+"https://daily.redbullmusicacademy.com/2015/10/italian-techno-feature",
+"https://forum.mutek.org/en/artists/donato-dozzy"
+]
+},
+"stoke": {
+"country": "England, UK",
+"first_record": null,
+"first_room": "Shelley's Laserdome, Longton (1989)",
+"sound": "early-1990s rave: house and hardcore DJs on the same bill",
+"peak": "1990–1991",
+"shops": [],
+"radio": [],
+"now": "The club closed in 1992; Shelley's Reunion events have been held around Stoke-on-Trent since about 2011.",
+"sources": [
+"https://en.wikipedia.org/wiki/Shelley%27s_Laserdome",
+"https://en.wikipedia.org/wiki/Altern-8"
+]
+},
+"stafford": {
+"country": "England, UK",
+"first_record": "Nexus 21 — (Still) Life Keeps Moving (c. 1989–90)",
+"first_room": null,
+"sound": "chart-bound hardcore rave with techno roots",
+"peak": "1991–1992",
+"shops": [],
+"radio": [],
+"now": "Altern 8 have returned to festival and club stages since 2014, with Mark Archer leading the act.",
+"sources": [
+"https://en.wikipedia.org/wiki/Altern-8",
+"https://en.wikipedia.org/wiki/Shelley%27s_Laserdome"
+]
+},
+"sevenoaks": {
+"country": "England, UK",
+"first_record": "Orbital — Chime (1989)",
+"first_room": null,
+"sound": "home-studio rave: hardware sequenced and mixed live",
+"peak": "1989–1994",
+"shops": [],
+"radio": [],
+"now": "Orbital remain active, with Optical Delusion (2023), a Glastonbury 2024 set and the compilation A Beginner's Guide (2024).",
+"sources": [
+"https://en.wikipedia.org/wiki/Orbital_(band)",
+"https://www.soundonsound.com/techniques/classic-tracks-orbital-chime"
+]
+},
+"cornwall": {
+"country": "England, UK",
+"first_record": "Aphex Twin — Analogue Bubblebath (1991)",
+"first_room": "The Bowgie, Crantock (1989)",
+"sound": "free-party acid and experimental electronics; Rephlex's 'braindance'",
+"peak": "1988–1992",
+"shops": [
+"Mighty Force"
+],
+"radio": [],
+"now": "Rephlex left for London in 1992 and Aphex Twin later lived in Scotland; the county's legacy is the free-party apprenticeship behind both.",
+"sources": [
+"https://en.wikipedia.org/wiki/Aphex_Twin",
+"https://magazine.waxpoetics.com/article/aphex-twin-rephlex-records-and-squarepusher/"
+]
+},
+"wiltshire": {
+"country": "England, UK",
+"first_record": null,
+"first_room": "Stonehenge Free Festival (1974)",
+"sound": "open-air free festival culture giving way to licensed rave",
+"peak": "1974–1985; 1993",
+"shops": [],
+"radio": [],
+"now": "The Stonehenge exclusion zone outlived the festival, and Tribal Gathering moved out of the county after 1993; its name was revived for northern club events from 2000.",
+"sources": [
+"https://en.wikipedia.org/wiki/Battle_of_the_Beanfield",
+"https://en.wikipedia.org/wiki/Tribal_Gathering"
+]
+},
+"blackburn": {
+"country": "England, UK",
+"first_record": null,
+"first_room": "C'est la Vie and the Red Parrott (autumn 1988)",
+"sound": "acid house in disused mills and warehouses",
+"peak": "1989–1990",
+"shops": [],
+"radio": [],
+"now": "The parties survive as archive and art: the 2019 Blackburn Acid House Flashback oral histories and a 2021 Blueprint print of the scene.",
+"sources": [
+"https://mixmag.net/feature/blackburn-raves",
+"https://ueaeprints.uea.ac.uk/97031/1/Jones_Churchman_2024_CBH.pdf",
+"https://djmag.com/news/blueprint-documents-rave-culture-blackburn-1988-1990",
+"https://iumag.co.uk/?p=20119",
+"https://en.wikipedia.org/wiki/Acid_house_party",
+"https://www.puredjs.com/artists/paul-taylor"
+]
+},
+"brighton": {
+"country": "England, UK",
+"first_record": null,
+"first_room": "The Zap, King's Road arches (1984; DJ nights from 1988)",
+"sound": "eclectic seaside club culture: acid house, techno, breakbeat",
+"peak": "1988–early 1990s",
+"shops": [],
+"radio": [],
+"now": "Concorde 2 and a few smaller rooms carry underground nights as the seafront turns commercial; Dave Clarke works from Amsterdam.",
+"sources": [
+"https://www.mybrightonandhove.org.uk/topics/topicent/zap-25-years-of-cultural-innovation/zap-history/zap-25-years-of-cultural-innovation-13",
+"https://en.wikipedia.org/wiki/Dave_Clarke_(DJ)",
+"https://direct.djmag.com/content/behind-scene-brighton",
+"https://voidacoustics.com/history/",
+"https://www.fast-and-wide.com/faw-news/fast-news/18722-void-acoustics-sound-takes-the-helm-in-brighton"
+]
+},
+"leeds": {
+"country": "England, UK",
+"first_record": "LFO — LFO (1990)",
+"first_room": "The Orbit (1991); Back to Basics, the Chocolate Factory (1991)",
+"sound": "northern techno and house; bleep's sub-bass",
+"peak": "1990–2003",
+"shops": [],
+"radio": [],
+"now": "Back to Basics is billed as the UK's longest-running club night; The Orbit closed in 2003 and its Morley building faces an uncertain future.",
+"sources": [
+"https://en.wikipedia.org/wiki/Dave_Beer",
+"https://threadsradio.com/post/revisit-morleys-techno-mecca-the-orbit",
+"https://en.wikipedia.org/wiki/LFO_(British_band)",
+"https://en.wikipedia.org/wiki/Bleep_techno",
+"https://mixmag.net/feature/blackburn-raves"
+]
+},
+"worcestershire": {
+"country": "England, UK",
+"first_record": null,
+"first_room": "Castlemorton Common free festival (May 1992)",
+"sound": "free-party breakbeat hardcore, techno and house",
+"peak": "May 1992",
+"shops": [],
+"radio": [],
+"now": "Castlemorton is remembered through retrospectives and the 2023 documentary Free Party: A Folk History; its legal legacy is the 1994 Criminal Justice Act.",
+"sources": [
+"https://en.wikipedia.org/wiki/Castlemorton_Common_Festival",
+"https://djmag.com/features/castlemorton-1992-photographing-illegal-rave-changed-uk-dance-music-forever"
+]
+},
+"norfolk": {
+"country": "England, UK",
+"first_record": null,
+"first_room": "Houghton festival, Houghton Hall (2017)",
+"sound": "24-hour, selector-led house, techno and ambient",
+"peak": "2017–present",
+"shops": [],
+"radio": [],
+"now": "Houghton's 2025 edition (7–10 August) sold out across 12 stages on the Houghton Hall estate.",
+"sources": [
+"https://mixmag.net/feature/houghton-is-the-festival-of-the-year",
+"https://noctismag.com/music/the-newcomers-guide-to-houghton-festival-2025/"
+]
+},
+"gloucestershire": {
+"country": "England, UK",
+"first_record": null,
+"first_room": "Trance club night, Cheltenham (1988)",
+"sound": "licensed early-1990s rave, later house",
+"peak": "1991–1993",
+"shops": [],
+"radio": [],
+"now": "Fantazia survives as a licensed brand; a 2018 festival under its name was cancelled, and co-founder Gideon Dawson died at his Cheltenham home in 2019.",
+"sources": [
+"https://direct.djmag.com/longreads/let-us-be-your-fantasy-how-fantazia-brought-uk-rave-masses",
+"https://en.wikipedia.org/wiki/Fantazia_(rave_music_promoter)",
+"https://djmag.com/features/castlemorton-1992-photographing-illegal-rave-changed-uk-dance-music-forever"
+]
+},
+"bradford": {
+"country": "England, UK",
+"first_record": "Unique 3 — The Theme (1988)",
+"first_room": null,
+"sound": "bleep techno's sub-bass; later Nia Archives's jungle",
+"peak": "1988–1991; 2020s",
+"shops": [],
+"radio": [],
+"now": "Bradford-born Nia Archives leads a new jungle generation from London, with her own HIJINXX label and Up Your Archives parties.",
+"sources": [
+"https://en.wikipedia.org/wiki/Bleep_techno",
+"https://mixmag.net/feature/nia-archives-jungle-interview-cover-feature",
+"https://www.clashmusic.com/features/queen-of-the-north-nia-archives-interviewed/"
+]
+},
+"antwerp": {
+"country": "Belgium",
+"first_record": null,
+"first_room": "Ancienne Belgique (AB), Antwerp (c. 1987)",
+"sound": "new beat: EBM and new wave slowed down; later Amelie Lens's energetic techno",
+"peak": "1987–1990",
+"shops": [],
+"radio": [],
+"now": "Antwerp-schooled Amelie Lens runs the Lenske label and Exhale events; her debut album Aura was announced for September 2026.",
+"sources": [
+"https://en.wikipedia.org/wiki/New_beat",
+"https://en.wikipedia.org/wiki/Amelie_Lens"
+]
+},
+"barcelona": {
+"country": "Spain",
+"first_record": null,
+"first_room": "Sonar: CCCB by day, Apolo by night (June 1994)",
+"sound": "a festival of 'advanced music': club music beside art and pop",
+"peak": "1997–present",
+"shops": [],
+"radio": [],
+"now": "Sonar draws more than 120,000 people and runs editions abroad, though in 2025 dozens of artists withdrew over its owner's links to KKR.",
+"sources": [
+"https://en.wikipedia.org/wiki/S%C3%B3nar"
+]
+},
+"zurich": {
+"country": "Switzerland",
+"first_record": null,
+"first_room": "Street Parade (5 September 1992)",
+"sound": "techno and house from Lovemobiles along the lake",
+"peak": "1995–2011",
+"shops": [],
+"radio": [],
+"now": "The Street Parade still runs each year as a legal demonstration; about 920,000 attended in 2024.",
+"sources": [
+"https://en.wikipedia.org/wiki/Street_Parade"
+]
+},
+"netherlands": {
+"country": "Netherlands",
+"first_record": "Euromasters — Amsterdam Waar Lech Dat Dan? (1992)",
+"first_room": "Thunderdome, Thialf, Friesland (1992)",
+"sound": "gabber, then melodic trance",
+"peak": "1992–2012",
+"shops": [],
+"radio": [
+"A State of Trance (ID&T Radio, 2001)"
+],
+"now": "Gabber is resurgent and Thunderdome is back, while A State of Trance marked its 25th anniversary at Rotterdam Ahoy in February 2026.",
+"sources": [
+"https://artsandculture.google.com/story/a-brief-history-of-gabber/ugXxcmEzFVvjKQ",
+"https://en.wikipedia.org/wiki/Gabber",
+"https://en.wikipedia.org/wiki/Black_Hole_Recordings",
+"https://en.wikipedia.org/wiki/Ferry_Corsten",
+"https://en.wikipedia.org/wiki/Armin_van_Buuren",
+"https://en.wikipedia.org/wiki/A_State_of_Trance"
+]
+},
+"hornchurch": {
+"country": "England, UK",
+"first_record": "Andy C — Sour Mash (RAM, 1992)",
+"first_room": null,
+"sound": "drum and bass",
+"peak": "1993–present",
+"shops": [],
+"radio": [],
+"now": "RAM Records, still run by Andy C with Scott Bourne, is distributed through BMG and Universal and holds its club nights at Fabric.",
+"sources": [
+"https://en.wikipedia.org/wiki/RAM_Records",
+"https://en.wikipedia.org/wiki/Andy_C"
+]
+},
+"hertfordshire": {
+"country": "England, UK",
+"first_record": "Earth Leakage Trip — Psychotronic EP (Moving Shadow, 1991)",
+"first_room": null,
+"sound": "Amiga-made breakbeat hardcore turning into jungle and drum and bass",
+"peak": "1991–1996",
+"shops": [
+"Parliament Music, Hertford"
+],
+"radio": [],
+"now": "Moving Shadow's catalogue is back on streaming services and Rob Haigh records modern classical piano music under his own name.",
+"sources": [
+"https://daily.redbullmusicacademy.com/2015/03/robert-haigh-interview/",
+"https://en.wikipedia.org/wiki/Omni_Trio",
+"https://en.wikipedia.org/wiki/Moving_Shadow",
+"https://en.wikipedia.org/wiki/Rob_Playford"
+]
+},
+"perth": {
+"country": "Australia",
+"first_record": "Pendulum — Vault (2003)",
+"first_room": "The Drumclub — Perth Producers night (c. 2002)",
+"sound": "drum and bass made by players from rock and metal bands",
+"peak": "2003–2010",
+"shops": [],
+"radio": [],
+"now": "Pendulum, reunited since 2015–16, released the album Inertia on 22 August 2025.",
+"sources": [
+"https://en.wikipedia.org/wiki/Pendulum_(drum_and_bass_band)"
+]
+},
+"tel-aviv": {
+"country": "Israel",
+"first_record": "Astral Projection — Trust in Trance 1 (1994)",
+"first_room": null,
+"sound": "Goa and psychedelic trance",
+"peak": "1994–1999",
+"shops": [],
+"radio": [],
+"now": "Astral Projection remain active, releasing For All Mankind on Iboga in September 2025.",
+"sources": [
+"https://en.wikipedia.org/wiki/Astral_Projection_(band)"
+]
+},
+"leiden": {
+"country": "Netherlands",
+"first_record": "Armin van Buuren — Blue Fear (1997)",
+"first_room": "Club Nexus (1996)",
+"sound": "trance and progressive",
+"peak": "2001–2012",
+"shops": [],
+"radio": [
+"A State of Trance (ID&T Radio, 2001)"
+],
+"now": "A State of Trance still airs weekly and marked its 25th anniversary at Rotterdam Ahoy in February 2026.",
+"sources": [
+"https://en.wikipedia.org/wiki/Armin_van_Buuren",
+"https://en.wikipedia.org/wiki/A_State_of_Trance"
+]
+},
+"italy": {
+"country": "Italy",
+"first_record": "Lory D — Sickness (Sounds Never Seen, c. 1990)",
+"first_room": "Euritmia, Rome — first Roman techno rave (1989)",
+"sound": "from Roman techno's dark broken beats to the piano dream trance of Robert Miles",
+"peak": "1989–1997",
+"shops": [
+"Remix (Rome)"
+],
+"radio": [
+"Open Lab (Ibiza, founded by Robert Miles, 2012)"
+],
+"now": "Robert Miles died in 2017; Rome's lineage continues through Donato Dozzy, and Sardinia's Sunandbass ran its 2025 edition in September.",
+"sources": [
+"https://en.wikipedia.org/wiki/Robert_Miles",
+"https://daily.redbullmusicacademy.com/2015/10/italian-techno-feature",
+"https://forum.mutek.org/en/artists/donato-dozzy",
+"https://www.unionesarda.it/en/here-comes-sunandbass-the-best-of-world-drum-amp-bass-returns-to-sardinia-uayk5xl5"
+]
+},
+"mansfield": {
+"country": "England, UK",
+"first_record": "Sasha and John Digweed — Renaissance: The Mix Collection (1994)",
+"first_room": "Venue 44, Belvedere Street (March 1992)",
+"sound": "Sasha and Digweed's residencies; the mix-compilation era of house",
+"peak": "1992–1994",
+"shops": [],
+"radio": [],
+"now": "Venue 44 was demolished around 2010 and is now a car park; the Renaissance brand passed to Scott Rudmann in 2018.",
+"sources": [
+"https://en.wikipedia.org/wiki/Renaissance_(club)",
+"https://www.inkl.com/news/how-world-renowned-club-event-renaissance-went-from-mansfield-to-ibiza"
+]
+},
+"sardinia": {
+"country": "Italy",
+"first_record": null,
+"first_room": "Sun and Bass, San Teodoro (by the early 2000s)",
+"sound": "drum and bass across its generations",
+"peak": "2000s–present",
+"shops": [],
+"radio": [],
+"now": "Sun and Bass ran its 2025 edition in San Teodoro until 14 September, with over 95% of its audience from abroad.",
+"sources": [
+"https://www.unionesarda.it/en/here-comes-sunandbass-the-best-of-world-drum-amp-bass-returns-to-sardinia-uayk5xl5"
+]
+},
+"miami": {
+"country": "United States",
+"first_record": null,
+"first_room": "Winter Music Conference, Fort Lauderdale Marriott (1986)",
+"sound": "an industry showcase rather than a local style",
+"peak": "late 1990s–2010s",
+"shops": [],
+"radio": [],
+"now": "Ultra's 2026 edition ran at Bayfront Park on 27–29 March; Ultra has owned the Winter Music Conference since 2018.",
+"sources": [
+"https://en.wikipedia.org/wiki/Winter_Music_Conference",
+"https://en.wikipedia.org/wiki/Ultra_Music_Festival"
+]
+},
+"ibiza": {
+"country": "Spain",
+"first_record": null,
+"first_room": "Pacha (1973)",
+"sound": "Balearic eclecticism (Italo, house, soul, rock and pop mixed open-air), later whatever the big residencies played",
+"peak": "1987–1989 and 2000–2016",
+"shops": [],
+"radio": [],
+"now": "A May–October season led by Ushuaïa, Hï and Pacha (sold to FIVE Holdings in 2023), with UNVRS announced for the old Privilege site and new limits on tourist drinking and stays.",
+"sources": [
+"https://en.wikipedia.org/wiki/Balearic_beat",
+"https://en.wikipedia.org/wiki/Space_(Ibiza_nightclub)",
+"https://en.wikipedia.org/wiki/Privilege_Ibiza",
+"https://en.wikipedia.org/wiki/Pacha_Group",
+"https://mixmag.net/feature/history-of-ibiza-how-did-white-isle-become-party-island",
+"https://daily.redbullmusicacademy.com/2019/01/dj-pippi-interview"
+]
+},
+"tbilisi": {
+"country": "Georgia",
+"first_record": null,
+"first_room": "Café Gallery (2008)",
+"sound": "imported, Berlin-linked techno with a local political and queer meaning",
+"peak": "2014–2026",
+"shops": [],
+"radio": [],
+"now": "The clubs reopened in early 2025 after striking against the suspension of Georgia's EU bid, but face money trouble and fear of further repression.",
+"sources": [
+"https://en.wikipedia.org/wiki/Bassiani",
+"https://en.wikipedia.org/wiki/2018_Georgian_protests",
+"https://grayarea.co/magazine/city-beats-techno-in-tbilisi",
+"https://www.huckmag.com/article/tbilisi-nightclubs-reopen-bassiani-left-bank-khidi-new-year-protests"
+]
+},
+"cologne": {
+"country": "Germany",
+"first_record": null,
+"first_room": null,
+"sound": "minimal techno made warm and melodic, with pop elements and German vocals (the Sound of Cologne)",
+"peak": "1998–2010",
+"shops": [
+"Delirium / Kompakt Record Store",
+"A-Musik"
+],
+"radio": [],
+"now": "Kompakt still runs its Belgian Quarter shop and annual series; Fi (2024), Gewölbe and Bootshaus lead the clubs, though gentrification has hurt the scene.",
+"sources": [
+"https://en.wikipedia.org/wiki/Kompakt",
+"https://en.wikipedia.org/wiki/Karlheinz_Stockhausen",
+"https://magazine.cologne-tourism.com/culture/kompakt-records-dj-michael-mayer-on-the-sound-of-cologne-and-the-story-behind-it/",
+"https://nl.in-edit.org/10-moments-cologne-electronic-music/"
+]
+},
+"newyork": {
+"country": "United States",
+"first_record": "Afrika Bambaataa & the Soulsonic Force — Planet Rock (1982)",
+"first_room": "The Loft (1970)",
+"sound": "soulful garage house from the Paradise Garage, plus the machine funk of Planet Rock and Beltram's hoover riff",
+"peak": "1977–1987 and 1989–2001",
+"shops": [],
+"radio": [],
+"now": "The Paradise Garage building was demolished in 2018 and Twilo's space became Sleep No More in 2011; Strictly Rhythm's catalogue belongs to BMG.",
+"sources": [
+"https://en.wikipedia.org/wiki/The_Loft_(New_York_City)",
+"https://en.wikipedia.org/wiki/Paradise_Garage",
+"https://en.wikipedia.org/wiki/Planet_Rock_(song)",
+"https://en.wikipedia.org/wiki/Twilo",
+"https://en.wikipedia.org/wiki/Strictly_Rhythm",
+"https://en.wikipedia.org/wiki/Joey_Beltram"
+]
+},
+"milton-keynes": {
+"country": "United Kingdom",
+"first_record": null,
+"first_room": "The Sanctuary (Dreamscape, December 1991)",
+"sound": "no local sound: a licensed all-night arena for touring promoters, from Dreamscape and Helter Skelter to Garage Nation and Godskitchen",
+"peak": "1991–2004",
+"shops": [],
+"radio": [],
+"now": "The Sanctuary was demolished for an IKEA after closing in 2004; MK Gallery marked its 30th anniversary with an exhibition in 2021–22.",
+"sources": [
+"https://en.wikipedia.org/wiki/Sanctuary_Music_Arena",
+"https://djmag.com/news/new-exhibition-celebrates-history-iconic-uk-rave-venue-sanctuary"
+]
+},
+"windsor": {
+"country": "Canada",
+"first_record": null,
+"first_room": null,
+"sound": "fast industrial techno that slowed into Plastikman's stripped minimalism",
+"peak": "1990–1999",
+"shops": [],
+"radio": [],
+"now": "Windsor's techno legacy survives mainly through Plus 8 reissues and Hawtin's later Berlin-based work with M_nus.",
+"sources": [
+"https://en.wikipedia.org/wiki/Richie_Hawtin",
+"https://en.wikipedia.org/wiki/Plus_8",
+"https://en.wikipedia.org/wiki/Windsor,_Ontario"
+]
+},
+"romford": {
+"country": "United Kingdom",
+"first_record": "Kromozone — The Rush (1991)",
+"first_room": null,
+"sound": "chart breakbeat hardcore turning darker into jungle and drum and bass",
+"peak": "1991–1997",
+"shops": [
+"Boogie Times"
+],
+"radio": [],
+"now": "Suburban Base returned in 2014 and has issued reissues and unreleased material since 2021.",
+"sources": [
+"https://en.wikipedia.org/wiki/Suburban_Base",
+"https://en.wikipedia.org/wiki/Romford"
+]
+},
+"everywhere": {
+"country": "Global",
+"first_record": null,
+"first_room": null,
+"sound": "145–160 bpm distorted kicks, industrial textures, schranz loops and trance breakdowns",
+"peak": "2021–2026",
+"shops": [],
+"radio": [
+"HÖR Berlin"
+],
+"now": "Hard techno and revived schranz fill festivals from Tomorrowland to the Warehouse Project, driven by streamed sets and short video clips, while smaller clubs drift back to slower techno.",
+"sources": [
+"https://futureproofmusicschool.com/blog/what-is-hard-techno",
+"https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation",
+"https://mixmag.net/feature/10-essential-schranz-tracks-selected-by-nikolina"
+]
+},
+"hamburg": {
+"country": "Germany",
+"first_record": null,
+"first_room": "Front (1983)",
+"sound": "imported US house at Front; open-door, experimental electro, techno and leftfield at the Golden Pudel",
+"peak": "1983–1997 (Front) and 1995–2026 (Golden Pudel)",
+"shops": [],
+"radio": [],
+"now": "The Golden Pudel, rebuilt after the 2016 arson and now run by a collective, remains Hamburg's reference club; Helena Hauff is still based in the city.",
+"sources": [
+"https://artsandculture.google.com/story/united-on-hamburg-s-dancefloors-institute-for-sound-and-music/WgXRqX0CUJj5Eg?hl=en-US",
+"https://factmag.com/2016/03/01/hamburg-golden-pudel-ralf-koster-interview",
+"https://en.wikipedia.org/wiki/Helena_Hauff"
+]
+},
+"eindhoven": {
+"country": "Netherlands",
+"first_record": null,
+"first_room": "Effenaar (techno parties, early 1990s)",
+"sound": "Chicago-style house and techno via Djax-Up-Beats",
+"peak": "1989–1999",
+"shops": [],
+"radio": [],
+"now": "Miss Djax is still based in Eindhoven; Dekmantel began reissuing the Djax-Up catalogue in 2019, the label's 30th year.",
+"sources": [
+"https://en.wikipedia.org/wiki/Saskia_Slegers",
+"https://www.electronicbeats.net/the-feed/watch-dekmantels-new-mini-documentary-about-seminal-dutch-techno-label-djax-records/"
+]
+},
+"coventry": {
+"country": "United Kingdom",
+"first_record": "Doc Scott — NHS EP (1991)",
+"first_room": "The Eclipse (1990)",
+"sound": "breakbeat hardcore driven by the Amen break, darkening into proto-jungle",
+"peak": "1990–1994",
+"shops": [],
+"radio": [],
+"now": "The Eclipse building was demolished for a car park, but the club's name was relaunched in 2025 with remastered sets and merchandise.",
+"sources": [
+"https://en.wikipedia.org/wiki/The_Eclipse_(club)",
+"https://djhistory.com/?p=5261",
+"https://en.wikipedia.org/wiki/Doc_Scott"
+]
+},
+"braintree": {
+"country": "United Kingdom",
+"first_record": "The Prodigy — What Evil Lurks (1991)",
+"first_room": "The Barn (c. 1989–90)",
+"sound": "The Prodigy's breakbeat rave",
+"peak": "1990–1997",
+"shops": [],
+"radio": [],
+"now": "The Prodigy's founders left the town around 1998, and Keith Flint died in Essex in 2019.",
+"sources": [
+"https://en.wikipedia.org/wiki/The_Prodigy",
+"https://en.wikipedia.org/wiki/Braintree,_Essex"
+]
+},
+"edinburgh": {
+"country": "United Kingdom",
+"first_record": null,
+"first_room": "UFO at The Venue (1989)",
+"sound": "eclectic house and techno, hardening into techno after 1996",
+"peak": "1990–1996",
+"shops": [],
+"radio": [],
+"now": "Pure ended around 2000; its legacy runs through Optimo, founded in Glasgow in 1998 by Pure's Keith McIvor.",
+"sources": [
+"https://daily.redbullmusicacademy.com/2014/01/nightclubbing-pure-scotland",
+"https://www.scotsman.com/heritage-and-retro/heritage/nightclubbing-the-age-of-1990s-rave-that-found-a-natural-home-in-scotland-3130326"
+]
+},
+"brussels": {
+"country": "Belgium",
+"first_record": "Brussels Sound Revolution — Qui...? (1989)",
+"first_room": "Fuse (1994)",
+"sound": "new beat in the late 1980s, then straight techno at Fuse",
+"peak": "1994–2014",
+"shops": [],
+"radio": [],
+"now": "Fuse won its 2023 appeal against noise and closing-time limits and reopened without restrictions.",
+"sources": [
+"https://en.wikipedia.org/wiki/Fuse_(club)",
+"https://en.wikipedia.org/wiki/New_beat"
+]
+},
+"liverpool": {
+"country": "United Kingdom",
+"first_record": null,
+"first_room": "The State (late 1980s); Quadrant Park (1988)",
+"sound": "house and rave at Quadrant Park, then superclub house and trance at Cream",
+"peak": "1990–2002",
+"shops": [],
+"radio": [],
+"now": "Quadrant Park and Nation are gone, but Creamfields runs four days at Daresbury under Live Nation, with spin-offs abroad.",
+"sources": [
+"https://en.wikipedia.org/wiki/Quadrant_Park",
+"https://en.wikipedia.org/wiki/Cream_(nightclub)",
+"https://en.wikipedia.org/wiki/Creamfields"
+]
+},
+"mannheim": {
+"country": "Germany",
+"first_record": null,
+"first_room": "Milk! (by 1993)",
+"sound": "big-room indoor techno from a stable roster of headliners, with heavy investment in sound and lights",
+"peak": "2008–2026",
+"shops": [
+"Steffen Charles's record shop"
+],
+"radio": [],
+"now": "Time Warp draws more than 40,000 to the Maimarkthalle each spring and runs editions in São Paulo, Madrid and Miami.",
+"sources": [
+"https://en.wikipedia.org/wiki/Time_Warp_Festival",
+"https://www.electronicbeats.net/25-years-time-warp"
+]
+},
+"kastellaun": {
+"country": "Germany",
+"first_record": null,
+"first_room": "Nature One at the Pydna missile base (1996)",
+"sound": "broad festival mix of techno, trance, minimal, hardcore and hard techno",
+"peak": "2004–2014",
+"shops": [],
+"radio": [],
+"now": "Nature One drew about 65,000 people to its 30th-anniversary edition in 2025 and was ranked 94th in DJ Mag's Top 100 Festivals 2026.",
+"sources": [
+"https://en.wikipedia.org/wiki/Nature_One",
+"https://en.wikipedia.org/wiki/Pydna_(missile_base)"
+]
+},
+"tilburg": {
+"country": "Netherlands",
+"first_record": null,
+"first_room": "Draaimolen (2014)",
+"sound": "genre-crossing techno, bass music and ambient with live sets and art installations",
+"peak": "2015–2025",
+"shops": [],
+"radio": [],
+"now": "In September 2025 Draaimolen launched a petition after losing permission to use its MOB Complex forest site beyond that year.",
+"sources": [
+"https://mixmag.net/feature/draaimolen-dance-music-festival-review-2024-tilburg",
+"https://mixmag.net/read/future-in-danger-draaimolen-launches-petition-uncertainty-home-news"
+]
+},
+"kent": {
+"country": "United Kingdom",
+"first_record": null,
+"first_room": "Lydd airport hangar (World Dance, 1990s)",
+"sound": "licensed hardcore and jungle raves; later drum and bass and UK garage",
+"peak": "1990s",
+"shops": [],
+"radio": [],
+"now": "Lydd airport hosted the 12-hour Connected rave in 2019, trading on its 1990s World Dance history.",
+"sources": [
+"https://www.borosix.co.uk/history/1993_l.html",
+"https://www.kentonline.co.uk/romney-marsh/news/weve-hit-the-jackpot-with-our-venue-211670/",
+"https://www.kentonline.co.uk/romney-marsh/news/5-000-set-for-12-hour-rave-213534/"
+]
+},
+"france": {
+"country": "France",
+"first_record": null,
+"first_room": "First French teknivals (1993)",
+"sound": "free tekno at around 180 bpm, mixed with hardcore, frenchcore, jungle and speedcore",
+"peak": "late 1990s–2004",
+"shops": [],
+"radio": [],
+"now": "Free parties of up to 500 are tolerated, larger ones are usually refused, and the state negotiates up to three large teknivals a year.",
+"sources": [
+"https://en.wikipedia.org/wiki/Teknival",
+"https://en.wikipedia.org/wiki/Spiral_Tribe"
+]
+},
+"goa": {
+"country": "India",
+"first_record": null,
+"first_room": "Anjuna beach parties (1970s)",
+"sound": "Goa trance, grown from all-night DJ sets of dub versions played on tape decks",
+"peak": "1994–1997",
+"shops": [],
+"radio": [],
+"now": "Goa Gil died in 2023; the style continues as psytrance.",
+"sources": [
+"https://en.wikipedia.org/wiki/Goa_trance",
+"https://en.wikipedia.org/wiki/Goa_Gil"
+]
+},
+"bristol": {
+"country": "United Kingdom",
+"first_record": "Fresh 4 — Wishing on a Star (1989)",
+"first_room": "Lakota (1989)",
+"sound": "sound-system weight and space: trip hop, then jazz-inflected drum and bass, then dubstep and bass",
+"peak": "1993–2001",
+"shops": [
+"Replay Records",
+"Imperial",
+"Eat The Beat"
+],
+"radio": [
+"Savage Yet Tender",
+"Electro Magnetic Installation",
+"Dialect Radio"
+],
+"now": "A vital drum and bass base with nights all week, though Lakota, Blue Mountain and the Attic Bar were reported at risk as Stokes Croft rents rose.",
+"sources": [
+"https://en.wikipedia.org/wiki/Bristol_underground_scene",
+"https://en.wikipedia.org/wiki/Roni_Size",
+"https://en.wikipedia.org/wiki/Lakota_(club)",
+"https://www.redbull.com/gb-en/bristol-drum-n-bass-history"
+]
+},
+"ipswich": {
+"country": "United Kingdom",
+"first_record": "Studio Pressure (Photek) — Jump (1993)",
+"first_room": null,
+"sound": "Photek's hand-built, precise breakbeat drum and bass",
+"peak": "1993–1998",
+"shops": [],
+"radio": [],
+"now": "Photek works in Los Angeles as a screen composer; Proper Records reissued Modus Operandi (2023) and Solaris (2024).",
+"sources": [
+"https://en.wikipedia.org/wiki/Photek",
+"https://bleep.com/artist/19169-photek?lang=pt",
+"https://ghostdeep.substack.com/p/photek-modus-operandi"
+]
+},
+"cardiff": {
+"country": "United Kingdom",
+"first_record": "High Contrast — True Colours (2002)",
+"first_room": "Silent Running (drum and bass night)",
+"sound": "melodic liquid funk drum and bass shaped by film scores",
+"peak": "2002–2012",
+"shops": [
+"Catapult"
+],
+"radio": [],
+"now": "High Contrast holds the Aperture residency at Clwb Ifor Bach and released Restoration (2024) and Derestoration (2025).",
+"sources": [
+"https://en.wikipedia.org/wiki/High_Contrast"
+]
+},
+"groningen": {
+"country": "Netherlands",
+"first_record": "Noisia — Silicon / Tomahawk (2003)",
+"first_room": null,
+"sound": "neurofunk and techstep drum and bass of exacting sound design",
+"peak": "2010–2016",
+"shops": [],
+"radio": [],
+"now": "Noisia, who split in 2022, announced a reunion in September 2026, with a first show at the Melkweg on 4 December 2026.",
+"sources": [
+"https://en.wikipedia.org/wiki/Noisia"
+]
+},
+"haifa": {
+"country": "Israel",
+"first_record": "Infected Mushroom — The Gathering (1999)",
+"first_room": null,
+"sound": "psytrance crossed with electronica and rock, built on classical training",
+"peak": "1999–2009",
+"shops": [],
+"radio": [],
+"now": "Infected Mushroom, based in Los Angeles since 2004, released IM30 in January 2026.",
+"sources": [
+"https://en.wikipedia.org/wiki/Infected_Mushroom"
+]
+},
+"breda": {
+"country": "Netherlands",
+"first_record": null,
+"first_room": "The Spock (residency from 1985)",
+"sound": "from hardcore and gabber aliases to the Magik and In Search of Sunrise mix series",
+"peak": "1999–2004",
+"shops": [],
+"radio": [],
+"now": "Tiësto was still headlining in the 2020s; in 2025 he was announced to premiere a new In Search of Sunrise set at EDC Las Vegas.",
+"sources": [
+"https://en.wikipedia.org/wiki/Ti%C3%ABsto"
+]
+},
+"washington": {
+"country": "United States",
+"first_record": "BT — Ima (1995)",
+"first_room": null,
+"sound": "progressive house turning to breakbeat, drum and bass and nu skool breaks, with heavily edited detail",
+"peak": "1995–1999",
+"shops": [],
+"radio": [],
+"now": "BT's stutter-edit technique lives on as iZotope's Stutter Edit plug-in, released in 2011.",
+"sources": [
+"https://en.wikipedia.org/wiki/BT_(musician)"
+]
+},
+"utrecht": {
+"country": "Netherlands",
+"first_record": null,
+"first_room": "Jaarbeurs (Trance Energy, from 2003)",
+"sound": "trance, with a hard stage added in 2007",
+"peak": "2003–2009",
+"shops": [],
+"radio": [],
+"now": "After the Utrecht event declined following its 2011 rebrand, Trance Energy survives as a stage at Mysteryland.",
+"sources": [
+"https://en.wikipedia.org/wiki/Trance_Energy",
+"https://en.wikipedia.org/wiki/Time_Warp_Festival"
+]
+},
+"athens": {
+"country": "Greece",
+"first_record": "Tiësto — Parade of the Athletes (2004)",
+"first_room": "Olympic opening ceremony, Athens (August 2004)",
+"sound": "a 90-minute instrumental mix built around Adagio for Strings",
+"peak": "2004",
+"shops": [],
+"radio": [],
+"now": "The Athens set made the DJ part of the Olympic ceremony; London 2012 followed with High Contrast choosing the athletes' parade music.",
+"sources": [
+"https://en.wikipedia.org/wiki/Ti%C3%ABsto",
+"https://en.wikipedia.org/wiki/High_Contrast"
+]
+},
+"the-fridge": {
+"address": "Town Hall Parade, Brixton, London (from 1985); earlier 390 Brixton Road",
+"opened": "1981",
+"closed": "2010",
+"capacity": "1,789",
+"sound": null,
+"owners": [
+"Andrew Czezowski",
+"Susan Carrington"
+],
+"residents": [
+"Soul II Soul (1988–93)",
+"Yvette the Conqueror, Love Muscle hostess (1992–2004)",
+"Return to the Source (residency)"
+],
+"nights": [
+"Daisy Chain — 1987–90",
+"Love Muscle — Saturday, 1992–2004",
+"Escape from Samsara — 1995–2005",
+"Return to the Source — residency"
+],
+"status": "closed",
+"sources": [
+"https://en.wikipedia.org/wiki/The_Fridge_(nightclub)",
+"https://qxmagazine.com/2024/09/qx-interviews-andrew-czezowski-ahead-of-love-muscle-xx-the-birthday-party-21-sep-24"
+]
+},
+"bagleys": {
+"address": "Kings Cross Freight Depot, York Way, London N1",
+"opened": "1991",
+"closed": "2008",
+"capacity": "2,500",
+"sound": null,
+"owners": [
+"Tony Askew (1991–2003)",
+"Billy Reilly (2003–08, as Canvas)",
+"Network Rail (freeholder)"
+],
+"residents": [
+"DJ Ariel (Freedom, 1996–97)"
+],
+"nights": [
+"Freedom — 1990s",
+"Slammin' Vinyl — 1990s",
+"Spirit of Raindance — summer 1995",
+"World Dance — 1990s",
+"Hoo-Haa — 1990s–early 2000s",
+"Ryan Perry drum & bass nights — late 1990s",
+"Mud Club (Philip Sallon)"
+],
+"status": "closed",
+"sources": [
+"https://en.wikipedia.org/wiki/Bagley%27s"
+]
+},
+"paradise-club": {
+"address": "London",
+"opened": null,
+"closed": null,
+"capacity": null,
+"sound": null,
+"owners": [],
+"residents": [
+"Randall (AWOL, 1992–)",
+"Mickey Finn (AWOL)",
+"Kenny Ken (AWOL)",
+"Dr S Gachet (AWOL)",
+"Darren Jay (AWOL)",
+"GQ (MC)",
+"Fearless (MC)",
+"Roy the Roach (house room)"
+],
+"nights": [
+"AWOL (A Way Of Life) — from 1992, breakbeat/jungle upstairs, house downstairs"
+],
+"status": null,
+"sources": [
+"https://goatshedmusic.com/its-a-way-of-life-darren-jay-talks-30-years-of-awol-interview/"
+]
+},
+"shelleys": {
+"address": "Longton, Stoke-on-Trent, Staffordshire",
+"opened": "1989",
+"closed": "1992",
+"capacity": null,
+"sound": null,
+"owners": [],
+"residents": [
+"Sasha (1990–91)",
+"Dave Seaman"
+],
+"nights": [
+"Sindrome (Logical Promotions) — weekly, from July 1990",
+"Delight — weekly, 1990–91"
+],
+"status": "closed",
+"sources": [
+"https://en.wikipedia.org/wiki/Shelley%27s_Laserdome"
+]
+},
+"quadrant-park": {
+"address": "Derby Road, Bootle, Merseyside",
+"opened": "1988",
+"closed": "1991",
+"capacity": "2,400",
+"sound": null,
+"owners": [
+"James Spencer"
+],
+"residents": [
+"Mike Knowler (1990–91)",
+"Andy Carroll (1990–91)",
+"John Kelly (1990–91)",
+"James Barton (1990–91)",
+"Gary J (1990–91)"
+],
+"nights": [
+"House nights — Thursday, then Friday and Saturday, 1990–91",
+"The Pavilion all-nighter — weekly, November 1990–December 1991"
+],
+"status": "closed",
+"sources": [
+"https://en.wikipedia.org/wiki/Quadrant_Park",
+"https://en.wikipedia.org/wiki/Cream_(nightclub)"
+]
+},
+"cream": {
+"address": "Nation (formerly Snobs Disco), Wolstenholme Square, Liverpool",
+"opened": "1992",
+"closed": "2002 (weekly night); Nation demolished 2016",
+"capacity": null,
+"sound": null,
+"owners": [
+"Darren Hughes",
+"James Barton",
+"Andy Carroll"
+],
+"residents": [
+"Steve Lawler",
+"Yousef",
+"Paul van Dyk"
+],
+"nights": [
+"Cream — weekly at Nation, October 1992–June 2002",
+"Cream Ibiza — Thursday at Amnesia",
+"Creamfields — annual festival, August, Daresbury"
+],
+"status": "closed",
+"sources": [
+"https://en.wikipedia.org/wiki/Cream_(nightclub)",
+"https://en.wikipedia.org/wiki/Quadrant_Park",
+"https://www.ibiza-spotlight.com/magazine/2021/04/ibiza-club-rewind-02-eden",
+"https://mixmag.net/feature/cafe-mambo-25-years-anniversaray"
+]
+},
+"front": {
+"address": "Basement near Berliner Tor station, Hamburg",
+"opened": "1983",
+"closed": "1997",
+"capacity": "500",
+"sound": "Quadrophonic sound system",
+"owners": [
+"Willi Prange",
+"Phillip Clarke"
+],
+"residents": [
+"Klaus Stockhausen (1983–92)",
+"Boris Dlugosch (1986–97)"
+],
+"nights": [
+"Friday — gay night",
+"Wednesday, Thursday, Saturday, Sunday — mixed nights"
+],
+"status": "closed",
+"sources": [
+"https://daily.redbullmusicacademy.com/2019/01/klaus-stockhausen-interview",
+"https://finn-johannsen.de/?p=5832"
+]
+},
+"roxy": {
+"address": "Amsterdam",
+"opened": "1987",
+"closed": "1999",
+"capacity": null,
+"sound": null,
+"owners": [
+"Peter Giele"
+],
+"residents": [
+"Eddy de Clercq"
+],
+"nights": [
+"Gay night — Wednesday"
+],
+"status": "closed",
+"sources": [
+"https://www.volkshotel.nl/blog/volksnews/volksnews-the-legendary-night-club-roxy",
+"https://www.vpro.nl/vrije-geluiden/artikelen/15-jaar-na-de-roxy"
+]
+},
+"golden-pudel": {
+"address": "St. Pauli Fischmarkt, Hamburg",
+"opened": "1990s",
+"closed": null,
+"capacity": null,
+"sound": null,
+"owners": [
+"Schorsch Kamerun",
+"Rocko Schamoni",
+"Norbert Karl",
+"Wolf Richter (partner until c.2016)"
+],
+"residents": [
+"Ralf Köster (MFOC, mid-1990s–)",
+"Tim Lorenz / Superdefekt (MFOC, mid-1990s–)",
+"Nina (2017)",
+"Good News (2017)",
+"Helena Hauff"
+],
+"nights": [
+"MFOC (Music For Our Children) — Sunday, mid-1990s–",
+"Smallville — label night"
+],
+"status": "reopened",
+"sources": [
+"https://factmag.com/2016/03/01/hamburg-golden-pudel-ralf-koster-interview",
+"https://de.ra.co/news/39729"
+]
+},
+"camden-palace": {
+"address": "Former Camden Theatre, Camden, London (now KOKO)",
+"opened": "1982",
+"closed": "2004",
+"capacity": null,
+"sound": "Three Technics turntables, Revox reel-to-reel, built-in reverbs (1980s)",
+"owners": [
+"Management company (unnamed); Steve Strange and Rusty Egan as hosts (1982)",
+"Oliver Bengough / Mint Entertainment (as KOKO, from 2004)"
+],
+"residents": [
+"Eddie Richards (from 1982)",
+"Colin Faver (1980s)",
+"Graham Gold (Peach, from 1996)"
+],
+"nights": [
+"Orange (Chris Paul) — c.1987–94",
+"Peach (Graham Gold) — from 1996",
+"Clockwork Orange (Danny Gould) — early 2000s"
+],
+"status": "reopened",
+"sources": [
+"https://www.timeout.com/london/music/koko-the-hidden-history-of-camdens-cathedral-of-indie-sleaze",
+"https://www.theransomnote.com/music/playlists/gone-to-a-rave-60-evil-eddie-richards-from-camden-palace-to-sunrise/"
+]
+},
+"dungeons": {
+"address": "Arches beneath Lea Bridge Road, Leyton, London (entrances via Lammas Road and the Greyhound pub, 91 Lea Bridge Road)",
+"opened": "c.1987",
+"closed": "1994",
+"capacity": null,
+"sound": null,
+"owners": [],
+"residents": [],
+"nights": [
+"First party at the Dungeon — 23 July 1988",
+"Base — 29 April and 22 July 1989",
+"Empathy — 1 and 29 May 1989",
+"Hypnosis — 5 and 12 May 1989"
+],
+"status": "closed",
+"sources": [
+"https://www.rendezvousprojects.org.uk/?p=7094",
+"https://www.rendezvousprojects.org.uk/?p=7263"
+]
+},
+"corsica-studios": {
+"address": "Railway arches near Elephant & Castle station, Elephant and Castle, London SE1",
+"opened": "2002",
+"closed": null,
+"capacity": "500",
+"sound": "Funktion-One, installed 2007",
+"owners": [
+"Amanda Moss",
+"Adrian Jones"
+],
+"residents": [
+"Baba Yaga's Hut (long-term)",
+"Boiler Room (from 2010)"
+],
+"nights": [
+"Trance Party",
+"Jaded",
+"Rupture",
+"Low Life",
+"Hyperdub Ø series — 2017–20"
+],
+"status": null,
+"sources": [
+"https://en.wikipedia.org/wiki/Corsica_Studios"
+]
+},
+"blue-note": {
+"address": "Hoxton Square, Hoxton, London",
+"opened": null,
+"closed": null,
+"capacity": "about 200 (Grooverider's recollection)",
+"sound": "Eskimo Noise hire rig (Nexo speakers, Crown amps), from 1995; previously Turbosound",
+"owners": [
+"Eddie Piller"
+],
+"residents": [
+"Goldie (1995–)",
+"Kemistry (1995–)",
+"Storm (1995–)",
+"Doc Scott",
+"Grooverider",
+"Fabio",
+"Randall",
+"Peshay",
+"Photek",
+"Dillinja",
+"Bailey",
+"Loxy",
+"Ink",
+"DJ Lee",
+"Cleveland Watkiss (MC)",
+"Justyce (MC)"
+],
+"nights": [
+"Metalheadz Sunday Sessions — Sunday, 7pm–midnight, from July 1995"
+],
+"status": "closed",
+"sources": [
+"https://daily.redbullmusicacademy.com/2013/04/nightclubbing-metalheadz-at-blue-note",
+"https://daily.redbullmusicacademy.com/2014/06/eskimo-noise-bevin-denton-interview",
+"https://en.wikipedia.org/wiki/Metalheadz"
+]
+},
+"speed": {
+"address": "The Mars Bar (per Mixmag) or the Velvet Rooms (per Londonist), central London",
+"opened": "1995",
+"closed": "c.1997",
+"capacity": null,
+"sound": null,
+"owners": [],
+"residents": [
+"LTJ Bukem (1995–c.97)",
+"Fabio (1995–c.97)"
+],
+"nights": [
+"Speed — weekly, 1995–c.1997",
+"Speed tribute — XOYO, London, 3 June 2016"
+],
+"status": "closed",
+"sources": [
+"https://factmag.com/2016/04/15/fabio-ltj-bukem-speed-tribute-xoyo-london-tickets",
+"https://daily.redbullmusicacademy.com/2013/04/nightclubbing-metalheadz-at-blue-note",
+"https://londonist.com/2016/09/london-elektricity-s-guide-to-london-drum-n-bass-venues",
+"https://mixmag.net/feature/25-parties-that-changed-dance-music-forever/17"
+]
+},
+"bar-rumba": {
+"address": "Shaftesbury Avenue, West End, London",
+"opened": "1993",
+"closed": null,
+"capacity": null,
+"sound": null,
+"owners": [],
+"residents": [
+"Bryan Gee (Movement)",
+"Gilles Peterson (That's How It Is)",
+"James Manero (music director, 2008)"
+],
+"nights": [
+"Movement — Thursday, weekly (fortnightly by 2008)",
+"That's How It Is — Gilles Peterson",
+"DTPM — gay party",
+"Breakbeat night — Adam Freeland, Rennie Pilgrim, Tayo (Friction)",
+"Zombies Ate My Brain / Leftroom / Latenightaudio / LT Editions — from 2008"
+],
+"status": null,
+"sources": [
+"https://www.londonmuseum.org.uk/collections/v/object-757934/bar-rumba/",
+"https://djmag.com/node/1334",
+"https://xlr8r.com/?p=118033"
+]
+},
+"lakota": {
+"address": "Off Stokes Croft (former Stokes Croft Brewery), Bristol",
+"opened": "1989 (Wikipedia); the club counts from 7 June 1992",
+"closed": null,
+"capacity": null,
+"sound": null,
+"owners": [
+"George Leonards and Martin Woolford (1989–90)",
+"Bentleigh and Marti Burgess (from 1990)"
+],
+"residents": [
+"Roni Size",
+"DJ Krust"
+],
+"nights": [
+"Drum & bass, hardcore, dubstep, psytrance and techno promoters — from 2006",
+"Lakota Gardens — seated events, pandemic",
+"30th birthday with Roni Size — June 2022"
+],
+"status": "open",
+"sources": [
+"https://www.wikiwand.com/en/articles/Lakota_(club)",
+"https://thebristolcable.org/2022/08/lakota-at-30/"
+]
+},
+"godskitchen": {
+"address": "Sanctuary, Digbeth, Birmingham; then CODE / AIR, Digbeth (Custard Factory lease)",
+"opened": "1996 (weekly nights, Northampton; earlier one-offs from the Junction, Cambridge)",
+"closed": "2016",
+"capacity": "2,000 (Sanctuary)",
+"sound": null,
+"owners": [
+"Chris Griffin",
+"Tyrone Matthews",
+"Neil Moffitt"
+],
+"residents": [],
+"nights": [
+"Godskitchen — Friday, 2000–04; Saturday from 2005",
+"Babooshka — Saturday",
+"Polysexual — Sunday",
+"The Strongbow Rooms — 2003–04",
+"Godskitchen at Amnesia, Ibiza — Tuesday, from 1999",
+"Global Gathering — annual festival from 2001"
+],
+"status": "closed",
+"sources": [
+"https://en.wikipedia.org/wiki/Godskitchen"
+]
+},
+"trance-energy": {
+"address": "Jaarbeurs, Utrecht (2002–12); Ziggo Dome, Amsterdam (2013)",
+"opened": "1999",
+"closed": "2013",
+"capacity": "40,000 (peak attendance)",
+"sound": null,
+"owners": [
+"ID&T"
+],
+"residents": [],
+"nights": [
+"Trance Energy — annual, 1999–2010",
+"Energy — annual, 2011–13",
+"Trance Energy stage at Tomorrowland — 21 July 2017",
+"Trance Energy stage at Mysteryland — from 2018"
+],
+"status": "closed",
+"sources": [
+"https://en.wikipedia.org/wiki/Trance_Energy",
+"https://www.festivalling.com/festivalsandevents/absence-seven-years-trance-energy-returns-tomorrowland/"
+]
+},
+"eden": {
+"address": "San Antonio, Ibiza (next to Es Paradís)",
+"opened": "1999 (as Eden; previously Star Club, then Club Kaos from the early 1990s)",
+"closed": null,
+"capacity": null,
+"sound": "Void Incubus",
+"owners": [
+"Dutch owners (unnamed)"
+],
+"residents": [
+"Judge Jules (Judgement Sundays)",
+"Paul van Dyk (SHINE)",
+"Christian Smith (Tronic, 2017–19)"
+],
+"nights": [
+"Judgement Sundays — Sunday, trance era",
+"Godskitchen — from summer 2002",
+"SHINE — weekly in peak season",
+"Tronic — Wednesday, 2017–19",
+"Defected — from 2017",
+"Gatecrasher (rebrand) — 2014"
+],
+"status": "open",
+"sources": [
+"https://www.ibiza-spotlight.com/magazine/2021/04/ibiza-club-rewind-02-eden",
+"https://grayarea.co/magazine/the-forgotten-clubs-of-ibiza-venues-that-came-and-went",
+"https://en.wikipedia.org/wiki/Godskitchen"
+]
+},
+"twilo": {
+"address": "530 West 27th Street (between Tenth and Eleventh Avenues), Chelsea, New York",
+"opened": "1995",
+"closed": "2001",
+"capacity": null,
+"sound": "Phazon sound system",
+"owners": [
+"Phil Smith"
+],
+"residents": [
+"Danny Tenaglia (1995–)",
+"Sasha (1997–2001)",
+"John Digweed (1997–2001)",
+"Junior Vasquez"
+],
+"nights": [
+"Sasha & Digweed residency — 1997–2001",
+"Twilo revival weekend — March 2026"
+],
+"status": "closed",
+"sources": [
+"https://en.wikipedia.org/wiki/Twilo",
+"https://djhistory.com/read/the-life-and-death-of-the-sound-factory/",
+"https://www.thefader.com/2026/03/11/twilo-nyc-club-reopening-reunion-2026"
+]
+},
+"power-plant": {
+"address": "North side of Chicago",
+"opened": "1983",
+"closed": "1986",
+"capacity": null,
+"sound": null,
+"owners": [
+"Frankie Knuckles"
+],
+"residents": [
+"Frankie Knuckles (1983–86)"
+],
+"nights": [
+"Weekend all-nighters (about 12 hours) — 1983–86"
+],
+"status": "closed",
+"sources": [
+"https://daily.redbullmusicacademy.com/2018/02/frankie-knuckles-1995-interview",
+"https://jahsonic.com/PowerPlant.html"
+]
+},
+"the-loft": {
+"address": "647 Broadway (1970–74); 99 Prince Street (1975–84); 3rd Street between Avenues B and C (1984–); 81 Avenue A (1994–); 225 Avenue B, New York",
+"opened": "1970",
+"closed": null,
+"capacity": null,
+"sound": "McIntosh and AR amplifiers, Klipsch horn loudspeakers, Vega bass bins, JBL tweeter array (with Alex Rosner)",
+"owners": [
+"David Mancuso"
+],
+"residents": [
+"David Mancuso (1970–2016)",
+"Richard Vasquez (The Choice, c.1984)",
+"Joey Llanos (The Choice, c.1984)"
+],
+"nights": [
+"Love Saves the Day — 14 February 1970",
+"The Loft — weekly, midnight–6am, 1970s–80s",
+"The Choice — weekly, from c.1984"
+],
+"status": null,
+"sources": [
+"https://en.wikipedia.org/wiki/The_Loft_(New_York_City)"
+]
+},
+"glorys": {
+"address": "Former Can Bufí hippodrome (greyhound track), off the road between Ibiza Town and San Antonio, Ibiza",
+"opened": "c.1975–76",
+"closed": "1985 (reopened 1987 for one season; later intermittent)",
+"capacity": null,
+"sound": null,
+"owners": [
+"Swiss owners (1987 relaunch, unnamed)"
+],
+"residents": [
+"Pepe Velardiez (1970s)",
+"Cesar de Melero (1983)",
+"J.C. Maury (mid-1980s)",
+"Esteban Lahoz (1987)",
+"Nelo (1987)"
+],
+"nights": [
+"After-hours, midnight to midday — 1987 season"
+],
+"status": "closed",
+"sources": [
+"https://banbantonton.com/2023/07/14/looking-for-the-balearic-beat-soundtracking-paradise/"
+]
+},
+"es-paradis": {
+"address": "Sant Antoni (San Antonio), Ibiza",
+"opened": "1975",
+"closed": null,
+"capacity": null,
+"sound": null,
+"owners": [
+"José Manuel \"Pepe\" Aguirre (founder)",
+"Lluís Güell (architect, co-founder)"
+],
+"residents": [],
+"nights": [
+"Fiesta del Agua (water party) — Saturdays in 2026",
+"Clockwork Orange — 1990s; 30th anniversary 2024",
+"Judgement Sundays — Sundays, 2026",
+"Ibiza Records — Tuesdays, 2026",
+"You Know The Vibes — Mondays, 2025"
+],
+"status": "open",
+"sources": [
+"https://amp.periodicodeibiza.es/pitiusas/ibiza-news/2025/07/09/2425571/paradis-celebrates-years-history-and-its-legacy-ibiza.html",
+"https://www.ibiza-spotlight.com/night/clubs/es_paradis_i.htm",
+"https://banbantonton.com/2023/07/14/looking-for-the-balearic-beat-soundtracking-paradise/",
+"https://banbantonton.com/2025/08/28/looking-for-the-balearic-beat-following-the-first-rush-part-4-flying-full-circle-passion-and-queens"
+]
+},
+"cafe-mambo": {
+"address": "Sunset Strip, San Antonio, Ibiza",
+"opened": "1994",
+"closed": null,
+"capacity": null,
+"sound": null,
+"owners": [
+"Javier Anadón",
+"Christian and Alan Anadón (Mambo Brothers)"
+],
+"residents": [
+"Pete Gooding",
+"Jason Bye (from early years)",
+"Andy Baxter",
+"Danny O",
+"Dee Montero",
+"Javi Barreda"
+],
+"nights": [
+"BBC Radio 1 Ibiza broadcasts — from 1995/1997",
+"Pacha pre-parties — through the week, mid-2010s",
+"Defected In The House pre-parties — Tuesday",
+"Release Yourself (Roger Sanchez)"
+],
+"status": "open",
+"sources": [
+"https://mixmag.net/feature/cafe-mambo-25-years-anniversaray",
+"https://defected.com/news/post/cafe-mambo-history"
+]
+},
+"flying": {
+"address": "Queens, Slough (1989); Soho Theatre Club, Falconberg Court, London W1 (c.1990–91)",
+"opened": "1989",
+"closed": null,
+"capacity": "about 200 (Soho Theatre Club)",
+"sound": null,
+"owners": [
+"Brandon Block and Dean Thatcher (founders)",
+"Charlie Chester (took over the brand)"
+],
+"residents": [
+"Brandon Block",
+"Dean Thatcher",
+"Glenn Gunner",
+"Lofty Harper",
+"Rocky & Diesel",
+"Scott Braithwaite",
+"Andrew Weatherall (closing sets)"
+],
+"nights": [
+"Flying — Monday/Tuesday at Queens, Slough, 1989",
+"Flying — Saturday, Soho Theatre Club, 1990–91",
+"Gosh — monthly Friday, Dingwalls",
+"Italian Scream-Up — Sunday, El Metro, Hammersmith",
+"Ibiza 90 — two-week trip, 1990"
+],
+"status": "closed",
+"sources": [
+"https://banbantonton.com/2025/08/28/looking-for-the-balearic-beat-following-the-first-rush-part-4-flying-full-circle-passion-and-queens",
+"https://banbantonton.com/2017/05/15/mix-flying/"
+]
+},
+"g-acidtek": {
+"emerged": "Europe c. 1990–92; London squat and free-party scene, 1990–95",
+"named_by": "The Liberators, by Chris Liberator's (Chris Knowles's) own account",
+"first_records": [
+"Stay Up Forever SUF001 — Hardcore Disco EP (1994)",
+"Stay Up Forever — Firefight (1995)",
+"Stay Up Forever — The Rabbit's Name Was (1995)",
+"Lochi — London Acid City (Routemaster, 1996)",
+"Kektex — Inner City Junkie (1997)",
+"Various — It's Not Intelligent…And It's Not From Detroit… (1997)"
+],
+"tempo": "fast; no figure in sources (Spiral Tribe pitched records to 150–160 bpm)",
+"peak": "1995–97",
+"rooms": [
+"London squat parties (Hackney, Hackney Wick, Stoke Newington, Brixton, Tottenham estates)",
+"Megadog (The Rocket, London; Academy, Manchester)",
+"Spiral Tribe free parties; Castlemorton (1992)",
+"Reclaim the Streets protests; May Day 2000"
+],
+"branches": [
+"Hard tec / tekno (Teknival circuit)",
+"Pounding Grooves purist techno"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Acid_techno",
+"https://daily.redbullmusicacademy.com/2016/06/london-acid-techno-feature",
+"https://theransomnote.com/?p=9851",
+"https://direct.djmag.com/features/history-spiral-tribe-uks-most-notorious-travelling-sound-system",
+"https://djmag.com/news/acid-techno-label-stay-forevers-30th-anniversary-exhibition-london-acid-city-starts-next-week"
+]
+},
+"g-gabber": {
+"emerged": "Rotterdam (with Amsterdam), 1991–92",
+"named_by": "Amsterdam slang for 'mate'; an Amsterdam DJ's put-down, adopted when Paul Elstak etched 'Gabber zijn is geen schande!' into the first Euromasters record (1992)",
+"first_records": [
+"Mescalinum United — We Have Arrived (Industrial Strength, 1991)",
+"T99 — Anasthasia (1991)",
+"Euromasters — Amsterdam Waar Lech Dat Dan? (Rotterdam Records, 1992)",
+"DJ Chosen Few — Chosen Anthem (Against Racism) (Mokum, 1993)",
+"Technohead — I Wanna Be a Hippy (Mokum, 1995)",
+"Hakkûhbar — Gabbertje (1996)"
+],
+"tempo": "c. 140–190 bpm (Wikipedia), rising through the 1990s",
+"peak": "1996",
+"rooms": [
+"Parkzicht, Rotterdam",
+"Energiehal, Rotterdam (A Nightmare in Rotterdam)",
+"Thunderdome (ID&T): Thialf, Friesland, 1992; Jaarbeurs, Utrecht, 1993",
+"Multigroove, Elementenstraat warehouse, Amsterdam",
+"Dead by Dawn, 121 Centre, Brixton"
+],
+"branches": [
+"Happy hardcore (Dutch take)",
+"Early hardcore",
+"Mainstream (Dutch) hardcore",
+"Speedcore"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Gabber",
+"https://artsandculture.google.com/story/ugXxcmEzFVvjKQ",
+"https://en.wikipedia.org/wiki/New_beat",
+"https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation"
+]
+},
+"g-trance": {
+"emerged": "Frankfurt, 1990–92 (from techno and EBM), with Berlin (MFS) close behind",
+"named_by": "Dag Lerner (Dance 2 Trance) claimed he first called it trance",
+"first_records": [
+"The KLF — What Time Is Love? (Pure Trance) (1988)",
+"Dance 2 Trance — We Came in Peace",
+"Jam & Spoon — Stella (R&S, 1992)",
+"Cygnus X — The Orange Theme (Eye Q)",
+"Hardfloor — Acperience (Harthouse)",
+"Robert Miles — Children (1996)"
+],
+"tempo": "c. 125–150 bpm",
+"peak": "late 1990s – early 2000s (commercial)",
+"rooms": [
+"Omen, Frankfurt",
+"Dorian Gray, Frankfurt Airport",
+"Goa beach parties"
+],
+"branches": [
+"Frankfurt trance",
+"Goa / psytrance",
+"Progressive house / trance",
+"Hard trance",
+"Uplifting trance",
+"Dream trance",
+"Vocal trance",
+"Tech trance"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Trance_music",
+"https://articles.roland.com/listening-guide-essential-early-trance/",
+"https://en.wikipedia.org/wiki/New_beat",
+"https://mixmag.net/feature/trance-reborn-the-sound-is-back-and-big-as-ever",
+"https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation"
+]
+},
+"g-bham": {
+"emerged": "Birmingham, 1993",
+"named_by": null,
+"first_records": [
+"Antonym — Consumer Device (Downwards reissue, 1993)",
+"Surgeon — Surgeon EP (Downwards, 1994)",
+"Regis — Montréal, incl. Speak to Me (Downwards, 1995)",
+"Various — Hard Education (Downwards, 1997)",
+"Sandwell District — Feed Forward (2011)"
+],
+"tempo": "fast; no figure in sources",
+"peak": "1993–98",
+"rooms": [
+"House of God club night, Birmingham"
+],
+"branches": [
+"British Murder Boys",
+"Sandwell District",
+"Berghain / Ostgut Ton sound",
+"Industrial revival"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Birmingham_sound",
+"https://stage1.thequietus.com/?p=13564",
+"https://wesleydoylewrites.substack.com/p/we-didnt-think-it-was-going-to-last",
+"https://en.wikipedia.org/wiki/Techstep"
+]
+},
+"g-dub": {
+"emerged": "Berlin, 1992–93",
+"named_by": "The Wire, issue 209 (2001): first printed use of 'dub techno'",
+"first_records": [
+"Maurizio — Ploy (M-1, 1992)",
+"Vainqueur — Lyot (M-2, 1992)",
+"Cyrus — Enforcement (BC-01, 1993)",
+"Basic Channel — Phylyps Trak (BC-02, 1993)",
+"Basic Channel — Quadrant Dub (BC-06, 1994)",
+"Maurizio — M-4 (1995)"
+],
+"tempo": "110–125 bpm",
+"peak": "1993–97 (Basic Channel, Maurizio, Chain Reaction); 2000s international spread",
+"rooms": [
+"Hard Wax record shop, Berlin",
+"Dubplates & Mastering, Berlin"
+],
+"branches": [
+"Rhythm & Sound / Burial Mix",
+"Chain Reaction",
+"Minimal",
+"Berghain / Ostgut Ton sound",
+"Hypnotic"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Dub_techno",
+"https://en.wikipedia.org/wiki/Basic_Channel",
+"https://ra.co/reviews/24143",
+"https://en.wikipedia.org/wiki/Minimal_techno",
+"https://en.wikipedia.org/wiki/Ambient_techno"
+]
+},
+"g-idm": {
+"emerged": "UK, 1991–92 (Warp, Sheffield, with London and Berlin labels)",
+"named_by": "'Intelligent techno': Usenet (Nov 1991) and press (late 1992), fixed by Warp's Artificial Intelligence (1992); 'IDM' from Alan Parry's mailing list (Aug 1993)",
+"first_records": [
+"Aphex Twin — Analogue Bubblebath (1991)",
+"The Orb — Adventures Beyond the Ultraworld (1991)",
+"Various — Artificial Intelligence (Warp, 1992)",
+"Aphex Twin — Selected Ambient Works 85–92 (1992)",
+"B12 — Electro-Soma (Warp, 1993)",
+"The Black Dog — Temple of Transparent Balls (1993)"
+],
+"tempo": "variable; no single figure in sources",
+"peak": "1992–94",
+"rooms": [
+"post-club home listening and after-parties (Warp's stated audience)"
+],
+"branches": [
+"IDM",
+"Ambient techno",
+"Dub techno",
+"Braindance (Rephlex)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Warp_Records",
+"https://en.wikipedia.org/wiki/Intelligent_dance_music",
+"https://en.wikipedia.org/wiki/Ambient_techno",
+"https://thequietus.com/?p=32434"
+]
+},
+"g-schranz": {
+"emerged": "Hardgroove: London, mid-1990s (Ben Sims); schranz: Frankfurt clubs, late 1990s",
+"named_by": "Hardgroove: Ben Sims (c. 1996, Hard Groove Trax mixtapes); schranz: no coiner in sources",
+"first_records": [
+"Ben Sims — Hard Groove Trax mixtapes (mid–late 1990s)",
+"Jeff Mills — The Alarms (1998)",
+"DJ Rolando — Jaguar",
+"Adam Beyer — Drum Codes 1",
+"Chris Liebing — Analogon"
+],
+"tempo": "hardgroove c. 130–140 bpm; schranz often 150–160 bpm",
+"peak": "late 1990s – early 2000s",
+"rooms": [
+"Omen, Frankfurt"
+],
+"branches": [
+"Tribal techno",
+"Hard techno"
+],
+"sources": [
+"https://daily.bandcamp.com/lists/the-second-coming-of-hardgroove",
+"https://www.musicradar.com/tutorials/music-production-tutorials/calling-anything-with-a-loop-or-sample-in-it-hardgroove-is-kinda-annoying-and-often-misunderstands-what-the-sound-actually-is-exploring-the-hardgroove-genre",
+"https://electronicbeats.net/the-feed/discover-schranz-speed-techno-chris-liebing-played-97",
+"https://www.technomag.fr/en/?p=14395",
+"https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation"
+]
+},
+"g-minimal": {
+"emerged": "Detroit, early 1990s (Robert Hood, Daniel Bell); German second wave centred on Berlin, 1998–2008",
+"named_by": "No single coiner; by 1994 'minimal' was already a general label for stripped-down Detroit derivatives (Philip Sherburne)",
+"first_records": [
+"Robert Hood — Minimal Nation (Axis, 1994)",
+"Plastikman — Spastik",
+"Ricardo Villalobos — Alcachofa",
+"Ricardo Villalobos — Easy Lee",
+"Kylie Minogue — Slow (2003)"
+],
+"tempo": "125–130 bpm",
+"peak": "2003–08",
+"rooms": [
+"Ostgut, Berlin (1998–2003)",
+"Berghain / Panorama Bar, Berlin (2004–)",
+"Bar 25, Berlin (2004–)",
+"Club der Visionaere, Berlin",
+"Watergate, Berlin"
+],
+"branches": [
+"Microhouse",
+"Tech-house",
+"Berghain / Ostgut Ton sound"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Minimal_techno",
+"https://en.wikipedia.org/wiki/Minimal_Nation",
+"https://daily.redbullmusicacademy.com/2018/09/berlin-minimal-techno-oral-history",
+"https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation"
+]
+},
+"g-techhouse": {
+"emerged": "London, 1988–94 (Clink Street RIP, The Drop, Wiggle)",
+"named_by": "Swag Records, Croydon (shop shorthand), adopted by journalists",
+"first_records": [
+"Animus Amor — And On (Plink Plonk, 1993)",
+"Calisto — Get House (1994)",
+"Jark Prongo — K-Ucci (1994)",
+"Furry Phreaks — Gonna Find a Way (1995)",
+"Asad Rizvi — Pearl Divers (1996)",
+"Housey Doingz — Gobstopper (1997)"
+],
+"tempo": "not stated in sources",
+"peak": "late 1990s (London underground); 2018–21 (commercial)",
+"rooms": [
+"Clink Street RIP parties, London (1988)",
+"Wiggle, London (1994–)",
+"The Drop / Heart & Soul / Release, London",
+"The End, London",
+"fabric, London",
+"Space, Ushuaïa and Privilege, Ibiza",
+"elrow (2010–)"
+],
+"branches": [
+"West Coast tech-house",
+"Big-room / festival tech-house",
+"Minimal-influenced tech-house"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Tech_house",
+"https://www.beatportal.com/articles/60692-beatports-definitive-history-of-tech-house",
+"https://mixmag.net/amp/wiggle-and-the-birth-of-tech-house",
+"https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation"
+]
+},
+"g-berghain": {
+"emerged": "Berlin, 2004–06 (Berghain opened 2004; Ostgut Ton founded 2005)",
+"named_by": null,
+"first_records": [
+"André Galluzzi — Berghain 01 (Ostgut Ton, 2005)",
+"Cassy — Panorama Bar 01 (Ostgut Ton, 2006)",
+"Dettmann | Klock — Dawning / Dead Man Watches The Clock (Ostgut Ton, 2006)",
+"Len Faki — Rainbow Delta / Mekong Delta (Ostgut Ton, 2007)"
+],
+"tempo": "c. 125–128 bpm in 2006, rising sharply since",
+"peak": "late 2000s – 2010s",
+"rooms": [
+"Ostgut, Berlin (1998–2003)",
+"Berghain, Berlin (2004–)",
+"Panorama Bar, Berlin (2004–)"
+],
+"branches": [
+"Dub techno (root)",
+"Minimal (parallel)",
+"Birmingham / UK industrial (influence)"
+],
+"sources": [
+"https://www.thevinylfactory.com/features/berlin-confidential-20-essential-ostgut-ton-records-that-helped-define-the-citys-techno-sound",
+"https://ra.co/reviews/23588",
+"https://en.wikipedia.org/wiki/Ostgut_Ton",
+"https://en.wikipedia.org/wiki/Birmingham_sound",
+"https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation"
+]
+},
+"g-hypnotic": {
+"emerged": "Italy (Rome area) and Japan's Labyrinth festival, 2011–12",
+"named_by": "Beatport's 'Raw / Deep / Hypnotic' category (February 2020) formalised the label; no coiner in sources",
+"first_records": [
+"Voices From The Lake — Voices From The Lake (Prologue, 2012)",
+"Voices From The Lake — Twins in Virgo",
+"Rrose — Waterfall",
+"Planetary Assault Systems — Temporary Suspension"
+],
+"tempo": "not stated in sources",
+"peak": "2010s–2020s",
+"rooms": [
+"Labyrinth festival, Japan",
+"Lago di Sabaudia parties, Italy",
+"MAXXI, Rome (live recording)",
+"Dekmantel festival (2023)"
+],
+"branches": [
+"Raw / deep techno (Beatport category)"
+],
+"sources": [
+"https://dekmantel.com/editorial/voices-from-the-lake-with-every-listen-a-new-discovery",
+"https://factmag.com/2012/04/25/voices-from-the-lake-voices-from-the-lake",
+"https://sinee.de/en/magazine/what-is-raw-hypnotic-techno-what-defines-the-underground-sub-genre-and-where-it-comes-from",
+"https://mn2s.com/news/dj/beatport-separates-techno-releases-into-two-distinct-categories"
+]
+},
+"g-industrial": {
+"emerged": "London and Berlin, c. 2010–13 (revival of 1990s industrial techno)",
+"named_by": null,
+"first_records": [
+"Final Cut — Deep into the Cut (1989, precursor)",
+"Blawan — Why They Hide Their Bodies Under My Garage?",
+"Perc — The Power & The Glory (2014)",
+"Kobosil — 91"
+],
+"tempo": "fast; no figure in sources",
+"peak": "2012–late 2010s",
+"rooms": [
+"Plex, Corsica Studios, London",
+"Berghain, Berlin",
+"Herrensauna, Berlin",
+"Bangface, London"
+],
+"branches": [
+"Hard techno",
+"EBM revival"
+],
+"sources": [
+"https://www.wikiwand.com/en/articles/Industrial_techno",
+"https://thequietus.com/articles/33968-techno-plex-regis-perc-surgeon-ebm",
+"https://www.vice.com/en/article/joe-muggs-industrial-techno",
+"https://ra.co/reviews/23588",
+"https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation"
+]
+},
+"g-peak": {
+"emerged": "Stockholm (Drumcode, 1996) to festival main stages, 2010s; a Beatport category from February 2020",
+"named_by": "Beatport's 'Peak Time / Driving (/ Hard)' category, February 2020",
+"first_records": [
+"Adam Beyer & Bart Skils — Your Mind",
+"Charlotte de Witte — Doppler",
+"Amelie Lens — Hypnotized",
+"Amelie Lens & Charlotte de Witte — One Mind (Beatport top-ten techno seller, 2025)"
+],
+"tempo": "120s–130s bpm through the 2010s (Mixmag), rising after 2019",
+"peak": "late 2010s – 2020s",
+"rooms": [
+"Drumcode Festival (with Awakenings), c. 15,000 in 2018",
+"festival main stages"
+],
+"branches": [
+"Hard techno (separate Beatport category from July 2020)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Drumcode_Records",
+"https://www.edmtunes.com/2019/02/drumcode-festival-announces-complete-2019-lineup/",
+"https://mn2s.com/news/dj/beatport-separates-techno-releases-into-two-distinct-categories",
+"https://magneticmag.com/2020/07/beatport-reinstates-hard-techno-genre-category/",
+"https://www.beatportal.com/articles/1216868-techno-the-top-selling-tracks-artists-and-labels-of-2025",
+"https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation"
+]
+},
+"g-electro": {
+"emerged": "New York (and Detroit's Cybotron), 1981–82; Detroit second wave from 1992",
+"named_by": "StreetSounds' Electro compilation series (Morgan Khan, UK) helped brand it",
+"first_records": [
+"Kraftwerk — Numbers (1981)",
+"Cybotron — Alleys of Your Mind (1981)",
+"Afrika Bambaataa & Soulsonic Force — Planet Rock (Tommy Boy, 1982)",
+"Cybotron — Clear (1983)",
+"Newcleus — Jam On Revenge (1983)",
+"Drexciya — Deep Sea Dweller (1992)"
+],
+"tempo": "not stated in sources",
+"peak": "1982–85; revival late 2010s",
+"rooms": [],
+"branches": [
+"Miami bass",
+"Detroit techno",
+"Detroit electro (Drexciya, Aux 88, Dopplereffekt)",
+"Electroclash"
+],
+"sources": [
+"https://reverb.com/news/a-not-so-brief-history-of-electro",
+"https://mixmag.net/feature/the-rise-and-rise-of-electro"
+]
+},
+"g-hard": {
+"emerged": "Europe-wide (Berlin, Glasgow, Manchester, Paris, Tbilisi…), 2019–21",
+"named_by": "Older term revived; Beatport restored a separate 'Hard Techno' category in July 2020",
+"first_records": [
+"Minimal Violence — InDreams (2019)",
+"999999999 — 300000003",
+"I Hate Models — Daydream"
+],
+"tempo": "140–160+ bpm",
+"peak": "2021–",
+"rooms": [
+"HÖR, Berlin (streamed sets)",
+"Herrensauna, Berlin",
+"Berghain, Berlin",
+"Bassiani, Tbilisi",
+"Teletech, Manchester",
+"UNFOLD at FOLD, London",
+"Possession, Paris",
+"Animal Farm / NEED 4 SPEED, Glasgow"
+],
+"branches": [
+"Hard trance / tech trance revival",
+"Hard acid"
+],
+"sources": [
+"https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation",
+"https://www.beatportal.com/articles/381960-why-techno-is-harder-faster-and-angrier-than-ever",
+"https://magneticmag.com/2020/07/beatport-reinstates-hard-techno-genre-category/",
+"https://mn2s.com/news/dj/beatport-separates-techno-releases-into-two-distinct-categories"
+]
+},
+"g-house": {
+"emerged": "Chicago, early–mid 1980s",
+"named_by": "Disputed: the Warehouse, record-shop bins marked 'As Heard at the Warehouse', and other claimants (Wikipedia)",
+"first_records": [
+"Colonel Abrams — Trapped (1984, proto-house)",
+"Jesse Saunders — On and On (1984)",
+"Chip E. — It's House (1985)",
+"Marshall Jefferson — Move Your Body (The House Music Anthem) (Trax, 1986)",
+"Farley \"Jackmaster\" Funk — Love Can't Turn Around (1986; UK no. 10)",
+"Steve \"Silk\" Hurley — Jack Your Body (1986; UK no. 1, January 1987)"
+],
+"tempo": "120–130 bpm",
+"peak": "1986–88 in Chicago; late 1980s–1990s worldwide",
+"rooms": [
+"The Warehouse, Chicago",
+"The Power Plant, Chicago",
+"The Music Box, Chicago",
+"WBMX Hot Mix 5 (radio)"
+],
+"branches": [
+"Acid house",
+"Deep house",
+"Garage / US garage",
+"Hip house",
+"Ghetto house",
+"Progressive house / trance",
+"Tech-house",
+"French touch",
+"Afro house / kwaito",
+"Electro house",
+"Amapiano"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/House_music",
+"https://en.wikipedia.org/wiki/Acid_house"
+]
+},
+"g-acidhouse": {
+"emerged": "Chicago, 1985–87; British movement 1987–89",
+"named_by": "From Phuture's 'Acid Tracks' (DJ Pierre has given two accounts of the title)",
+"first_records": [
+"Charanjit Singh — Synthesizing: Ten Ragas to a Disco Beat (1982, precursor)",
+"Sleezy D — I've Lost Control (1986)",
+"Phuture — Acid Tracks (Trax, 1987)",
+"Baby Ford — Oochy Koochy (FU Baby Yeah Yeah) (1988; UK no. 58)",
+"Brian Dougans — Stakker Humanoid (1988; UK no. 17)",
+"A Guy Called Gerald — Voodoo Ray"
+],
+"tempo": "house tempo (c. 120–130 bpm)",
+"peak": "1987–88 (Chicago); 1988–89 (UK)",
+"rooms": [
+"The Music Box, Chicago (Ron Hardy)",
+"Shoom, London (Nov 1987)",
+"The Trip, Astoria, London (June 1988)",
+"Spectrum, London (1988)",
+"Thunderdome, Manchester",
+"Sunrise raves (1988–89)"
+],
+"branches": [
+"Breakbeat hardcore",
+"Acid techno",
+"Goa / psytrance",
+"Acid jazz (name only)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Acid_house",
+"https://en.wikipedia.org/wiki/House_music",
+"https://en.wikipedia.org/wiki/Balearic_beat",
+"https://articles.roland.com/listening-guide-essential-early-trance/",
+"https://en.wikipedia.org/wiki/Acid_techno"
+]
+},
+"g-jungle": {
+"emerged": "London, 1992–93 (from breakbeat hardcore and sound-system culture)",
+"named_by": "Popularised by Rebel MC (a 1991 sample of a 'junglist' chant, per MC Navigator); other claimants include MC Moose and MC Mad P",
+"first_records": [
+"Lennie De Ice — We Are I.E. (dated 1989 in Wikipedia's notes; often given as 1991)",
+"Renegade — Terrorist",
+"M-Beat feat. General Levy — Incredible (1994; UK no. 8)",
+"Goldie — Timeless (1995)",
+"Roni Size / Reprazent — New Forms (1997, Mercury Prize)",
+"Pendulum — Hold Your Colour (2005)"
+],
+"tempo": "c. 130 bpm (1990–91) rising to 155–165 (1993); 170–180 from c. 1996",
+"peak": "1994–95 (jungle); 2020s (drum & bass chart peak)",
+"rooms": [
+"AWOL, London",
+"Roast, London",
+"Telepathy, London",
+"Rage, Heaven, London",
+"Kool FM, Don FM, Rush (pirate radio)",
+"Kiss 100 Givin' It Up (1994)",
+"BBC Radio 1 One in the Jungle (1995)",
+"Corsica Studios (revival)"
+],
+"branches": [
+"Ragga jungle",
+"Intelligent / atmospheric drum & bass",
+"Techstep",
+"Jump-up",
+"Liquid funk",
+"Neurofunk",
+"Darkstep",
+"Jazzstep",
+"Sambass",
+"Drumfunk"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Jungle_music",
+"https://en.wikipedia.org/wiki/Drum_and_bass",
+"https://en.wikipedia.org/wiki/Incredible_(M-Beat_song)"
+]
+},
+"g-happy": {
+"emerged": "London and the South-East, 1992–93 (from breakbeat hardcore)",
+"named_by": null,
+"first_records": [
+"Slipmatt — SMD Volume 1 (anonymous white label)",
+"DJ Vibes — Sing It Loud",
+"Jimmy J & Cru-l-t — 6 Days (1994)",
+"Hixxy & Sharkey — Toytown (c. 1995–96)",
+"Force & Styles — Heart of Gold (UK no. 43)"
+],
+"tempo": "c. 160–170+ bpm",
+"peak": "1994–96",
+"rooms": [
+"Dreamscape",
+"Helter Skelter",
+"Fusion",
+"Dream FM (pirate radio)",
+"Bang Face Weekender, Southport (revival)"
+],
+"branches": [
+"UK hardcore",
+"Freeform",
+"Trancecore",
+"Bouncy techno (Scotland)",
+"Dutch happy hardcore"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Happy_hardcore",
+"https://www.theransomnote.com/music/gone-rave/gone-to-a-rave-35-high-on-a-happy-vibe-the-rise-and-fall-of-hardcore",
+"https://www.dazeddigital.com/music/article/48312/1/happy-hardcore-bang-face-weekender-history?amp=1",
+"https://artsandculture.google.com/story/ugXxcmEzFVvjKQ"
+]
+},
+"g-newbeat": {
+"emerged": "Antwerp, Belgium, 1987 (Ancienne Belgique; popularised at Boccaccio)",
+"named_by": null,
+"first_records": [
+"A Split-Second — Flesh (45 rpm EBM record played at 33 +8)",
+"Various — New Beat Take 1 (sold 40,000 in Belgium)",
+"Brussels Sound Revolution — Qui...? (1989)",
+"Concrete Beat — I Want You (hard beat)",
+"Tribe 22 — Acid-New Beat (hard beat)"
+],
+"tempo": "slow; no figure in sources (Skizzo offshoot considerably faster)",
+"peak": "1987–89",
+"rooms": [
+"Ancienne Belgique (AB), Antwerp",
+"Boccaccio",
+"MTV Europe Party Zone"
+],
+"branches": [
+"Hard beat",
+"Skizzo",
+"Belgian techno / rave",
+"Hardcore techno",
+"Gabber",
+"Hard trance",
+"Goa trance",
+"Eurodance"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/New_beat",
+"https://en.wikipedia.org/wiki/Balearic_beat",
+"https://en.wikipedia.org/wiki/Gabber"
+]
+},
+"g-balearic": {
+"emerged": "Ibiza, 1983–86 (DJ Alfredo at Amnesia)",
+"named_by": "Trevor Fung is said to have originated the term 'Balearic'",
+"first_records": [
+"Various — Balearic Beats – The Album Vol. 1 (1988)",
+"Rupa Biswas — Disco Jazz (1982; retrospective precursor)"
+],
+"tempo": "under 119 bpm (Balearic house); DJ sets mixed tempos freely",
+"peak": "1987–89",
+"rooms": [
+"Amnesia, Ibiza",
+"Pacha and Ku, Ibiza",
+"Project Club, South London",
+"Shoom, London (Nov 1987)",
+"The Trip, Astoria, London (June 1988)",
+"Spectrum, London (1988)",
+"Future, Sound Shaft, London",
+"Land of Oz, Heaven, London",
+"Café del Mar, Ibiza"
+],
+"branches": [
+"Acid house (UK)",
+"Balearic house",
+"Chill-out / downtempo"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Balearic_beat",
+"https://en.wikipedia.org/wiki/House_music",
+"https://en.wikipedia.org/wiki/Acid_house"
+]
+},
+"g-raggajungle": {
+"emerged": "London, 1993–94 (from breakbeat hardcore and sound-system culture)",
+"named_by": null,
+"first_records": [
+"Lennie De Ice — We Are I.E. (precursor; dated 1989 in Wikipedia's notes)",
+"M-Beat feat. General Levy — Incredible (Renk, June 1994; reissue Aug 1994, UK no. 8)",
+"UK Apachi with Shy FX — Original Nuttah (Sound of Underground, 1994; UK no. 39)",
+"Remarc — Sound Murderer",
+"Hitman feat. Cutty Ranks — Limb by Limb",
+"Conquering Lion — Code Red"
+],
+"tempo": "not stated in sources",
+"peak": "1994–95",
+"rooms": [
+"London pirate radio",
+"Kiss 100 Givin' It Up (1994)",
+"BBC Radio 1 One in the Jungle (1995)",
+"Corsica Studios jungle nights (revival)"
+],
+"branches": [
+"Jump-up",
+"Jungle revival / drum-funk"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Ragga_jungle",
+"https://en.wikipedia.org/wiki/Incredible_(M-Beat_song)",
+"https://www.officialcharts.com/songs/uk-apachi-with-shy-fx-original-nuttah/",
+"https://en.wikipedia.org/wiki/Jungle_music"
+]
+},
+"g-frankfurt-trance": {
+"emerged": "Frankfurt, c. 1990–92 (from the city's techno and EBM scene)",
+"named_by": "Dag Lerner (Dance 2 Trance) claimed he first called it trance",
+"first_records": [
+"Dance 2 Trance — We Came in Peace",
+"4Voice — Eternal Spirit",
+"L.S.G. — Hearts",
+"Jam & Spoon — Stella (R&S, 1992)",
+"Cygnus X — The Orange Theme (Eye Q)",
+"Hardfloor — Acperience (Harthouse)"
+],
+"tempo": "within trance's broad 125–150 bpm (Wikipedia)",
+"peak": "1992–95",
+"rooms": [
+"Omen, Frankfurt",
+"Dorian Gray, Frankfurt"
+],
+"branches": [
+"Hard trance",
+"Uplifting trance",
+"Progressive trance",
+"Goa trance"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Trance_music",
+"https://articles.roland.com/listening-guide-essential-early-trance/",
+"https://en.wikipedia.org/wiki/Intelligent_dance_music",
+"https://mixmag.net/feature/trance-reborn-the-sound-is-back-and-big-as-ever",
+"https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation"
+]
+},
+"law-bright-bill": {
+"date": "Royal assent 13 July 1990; s.1 (England and Wales) repealed 24 November 2005 by the Licensing Act 2003; s.2 (Scotland) unrepealed",
+"jurisdiction": "UK",
+"what_it_did": "Raised the maximum penalty for running an unlicensed public entertainment, or breaching a licence's crowd limit, from a £2,000 fine to a £20,000 fine and/or six months' imprisonment in England, Wales and Scotland.",
+"status": "repealed",
+"sources": [
+"https://www.legislation.gov.uk/ukpga/1990/20/data.htm",
+"https://api.parliament.uk/historic-hansard/commons/1990/apr/27/increase-of-penalties-england-and-wales",
+"https://en.wikipedia.org/wiki/Graham_Bright",
+"https://909originals.com/2020/01/27/on-this-day-in-1990-the-freedom-to-party-rally-took-over-londons-trafalgar-square/"
+]
+},
+"law-pay-party-unit": {
+"date": "Formed after September 1988; peak 1989",
+"jurisdiction": "UK",
+"what_it_did": "A Kent Police unit under Chief Superintendent Ken Tappenden, based at Dartford and then Gravesend, that gathered intelligence on acid house party organisers and attenders' vehicles and became the hub of a national police effort to prevent pay parties.",
+"status": null,
+"sources": [
+"https://www.kentonline.co.uk/kent/news/amp/how-the-raves-of-1989-turned-nasty-229736/",
+"https://api.parliament.uk/historic-hansard/written-answers/1989/jul/10/private-events-control",
+"https://www.blackpoolgazette.co.uk/news/thatcher-pushed-plug-be-pulled-noisy-acid-house-parties-656729"
+]
+},
+"law-leah-betts": {
+"date": "Collapsed 11 November 1995; died 16 November 1995",
+"jurisdiction": "UK",
+"what_it_did": "Her death from water intoxication after taking one ecstasy tablet at her eighteenth birthday party drove national press coverage and the 1,500-site Sorted billboard campaign, and her father backed the bill that became the Public Entertainments Licences (Drug Misuse) Act 1997.",
+"status": null,
+"sources": [
+"https://en.wikipedia.org/wiki/Death_of_Leah_Betts",
+"https://psychedelic-library.org/murji.htm"
+]
+},
+"law-safer-dancing": {
+"date": "Peanut Pete from c.1990; Manchester Safer Dancing campaign December 1992; London Dance Till Dawn Safely code 1996; Home Office Safer Clubbing guidance 2002",
+"jurisdiction": "UK",
+"what_it_did": "Made harm reduction a condition of club licensing, first through Manchester City Council's 1992 Safer Dancing code and later through national guidance: free cold water, chill-out rooms, ventilation, drug information, first aid and on-site outreach workers.",
+"status": "ongoing",
+"sources": [
+"https://cache.erowid.org/library/books_online/e_for_ecstasy/e_for_ecstasy-13.shtml",
+"https://www.drinkanddrugsnews.com/a-smack-in-the-eye-michael-linnells-graphic-harm-reduction-campaigns/",
+"https://strathprints.strath.ac.uk/96102/3/Clark-MUP-2026-Tough-Shit-Thomas-and-Peanut-Pete-harm-reduction-comics-and-British-identities.pdf",
+"https://live-popcenter-ws2.ws.asu.edu/sites/default/files/problems/rave_parties/PDFs/saferclubbing.pdf"
+]
+},
+"law-licensing-2003": {
+"date": "Royal assent 10 July 2003; in force 24 November 2005",
+"jurisdiction": "UK",
+"what_it_did": "Replaced fixed permitted hours and six separate licensing regimes in England and Wales with a single premises licence issued by local councils against four licensing objectives, letting premises apply for any hours up to 24 a day.",
+"status": "in force",
+"sources": [
+"https://en.wikipedia.org/wiki/Licensing_Act_2003",
+"https://www.legislation.gov.uk/uksi/2005/2091/made",
+"https://www.john-gaunt.co.uk/docs/Select%20Committee%20on%20the%20Licensing%20Act%202003%20Report.pdf",
+"https://www.morningadvertiser.co.uk/Article/2025/11/24/licensing-act-2003-20-years-of-broken-promises"
+]
+},
+"law-form-696": {
+"date": "Introduced 2005; ethnicity and music-style questions removed 2008–09; withdrawn November 2017",
+"jurisdiction": "UK",
+"what_it_did": "A Metropolitan Police risk assessment, used in 21 London boroughs, that required promoters of DJ and MC events to supply performers' details, music styles and (until 2008–09) the expected ethnicity of the audience, on which police could advise against or stop events.",
+"status": "repealed",
+"sources": [
+"https://www.horniman.ac.uk/story/what-was-form-696/",
+"https://www.localgovernmentlawyer.co.uk/licensing/399-licensing-news/36588-met-police-agree-to-scrap-form-696-risk-assessment-for-venues",
+"https://www.dazeddigital.com/music/article/38031/1/metropolitan-police-to-stop-use-of-controversial-form-696?amp=1"
+]
+},
+"law-fabric-closure": {
+"date": "Licence revoked 7 September 2016; agreement 21 November 2016; reopened 6 January 2017",
+"jurisdiction": "UK",
+"what_it_did": "Islington Council revoked fabric's licence after two drug-related deaths; a court-approved agreement restored it with conditions including ID scanning, enhanced searches, covert surveillance, lifetime bans for drug possession and no under-19s at weekends.",
+"status": null,
+"sources": [
+"https://en.wikipedia.org/wiki/Fabric_(club)",
+"https://www.cityam.com/?p=265146",
+"https://timeout.com/london/blog/fabric-is-officially-reopening-heres-everything-you-need-to-know-120216",
+"https://djmag.com/node/60349"
+]
+},
+"law-night-czar": {
+"date": "Night Czar appointed 4 November 2016; Night Time Commission October 2017 (Think Night report 31 January 2019); Lamé's departure announced October 2024; Nightlife Commission recommended January 2026",
+"jurisdiction": "UK",
+"what_it_did": "Created a City Hall post to champion and protect London's nightlife, backed by a Night Time Commission that set out a 24-hour-city strategy; the post was left unfilled after Lamé left in 2024 and City Hall's 2026 taskforce proposed an independent Nightlife Commission instead.",
+"status": "ongoing",
+"sources": [
+"https://en.wikipedia.org/wiki/Amy_Lamé",
+"https://www.london.gov.uk/think-night",
+"https://www.hackneycitizen.co.uk/2026/01/29/night-czar-nightlife-commission-city-hall/",
+"https://en.wikipedia.org/wiki/Fabric_(club)",
+"https://www.localgovernmentlawyer.co.uk/licensing/399-licensing-news/36588-met-police-agree-to-scrap-form-696-risk-assessment-for-venues"
+]
+},
+"law-agent-of-change": {
+"date": "Ministry of Sound / Eileen House agreement January 2014; NPPF paragraph 182, 2018",
+"jurisdiction": "UK",
+"what_it_did": "Made the developer of a new noise-sensitive scheme (the 'agent of change'), rather than an established venue, responsible for mitigating noise, as a material consideration in English planning decisions.",
+"status": "in force",
+"sources": [
+"https://www.designingbuildings.co.uk/wiki/Agent_of_change",
+"https://shoosmiths.com/insights/articles/nppf-the-agent-of-change-principle-14454",
+"https://www.london.gov.uk/press-releases/mayoral/a-41-storey-block-will-be-constructed",
+"https://morningadvertiser.co.uk/Article/2014/01/08/Ministry-of-Sound-noise-Boris-Johnson",
+"https://localgovernmentlawyer.co.uk/planning/318-planning-features/40235-resolving-agent-of-change-issues-in-planning-as-easy-as-noise-easements"
+]
+},
+"law-the-loop": {
+"date": "2013 (first on-site testing, Warehouse Project, Manchester); July 2016 (first front-of-house checking, Secret Garden Party); 2024 (first Home Office-licensed city-centre service, Bristol)",
+"jurisdiction": "UK",
+"what_it_did": "Introduced drug checking to the UK, analysing substances at events and, from 2016, returning results with harm-reduction advice directly to the people who handed them in.",
+"status": "ongoing",
+"sources": [
+"https://www.wearetheloop.org/our-history",
+"https://www.drugscience.org.uk/drug-testing-disposals-and-dealing-outcomes-of-the-uk-s-first-onsite-drug-checking-service",
+"https://mixmag.net/read/a-reckless-disregard-for-the-safety-nightlife-leaders-and-drug-safety-organisations-condemn-introduction-of-testing-licenses-news"
+]
+},
+"law-covid": {
+"date": "Clubs closed March 2020; reopened in England at midnight on 19 July 2021",
+"jurisdiction": "UK",
+"what_it_did": "Closed every nightclub in the UK from March 2020; in England they could not reopen until 19 July 2021, and the NTIA has since counted about a third of UK clubs lost between March 2020 and November 2024.",
+"status": "repealed",
+"sources": [
+"https://www.lbc.co.uk/news/explained/night-clubs-reopen-uk-covid-safety",
+"https://mixmag.net/read/nightclubs-reopening-freedom-day-restrictions-open-news?next",
+"https://www.timeout.com/uk/news/one-in-five-uk-nightclubs-have-shut-since-the-covid-19-pandemic-began-080222",
+"https://morningadvertiser.co.uk/Article/2024/02/14/number-of-nightclub-closures-since-march-2020",
+"https://ntia.co.uk/nightclub-closures-down-32-7-since-2020-but-recovery-threatened-by-april-tax-raid-says-ntia/"
+]
+},
+"law-psychoactive": {
+"date": "Royal assent 28 January 2016; in force 26 May 2016; nitrous oxide made Class C under the Misuse of Drugs Act 1971 from 8 November 2023",
+"jurisdiction": "UK",
+"what_it_did": "Made it an offence to produce, supply, offer, import or export any substance capable of a psychoactive effect unless specifically exempt, with up to seven years' imprisonment; simple possession outside custodial institutions was not criminalised.",
+"status": "in force",
+"sources": [
+"https://en.wikipedia.org/wiki/Psychoactive_Substances_Act_2016",
+"https://www.gov.uk/government/news/possession-of-nitrous-oxide-is-now-illegal"
+]
+},
+"law-cja-link": {
+"date": "Royal assent 3 November 1994; s.63 threshold cut from 100 to 20 (England and Wales) from 20 January 2004",
+"jurisdiction": "UK",
+"what_it_did": "Section 63 let police direct people to leave open-air night-time gatherings of 100 or more (20 in England and Wales since 2004) with amplified music, defined to include 'a succession of repetitive beats', backed by powers to enter land, seize sound equipment and turn people back within five miles.",
+"status": "in force",
+"sources": [
+"https://legislation.gov.uk/ukpga/1994/33/section/63/enacted",
+"https://www.legislation.gov.uk/ukpga/1994/33/section/63",
+"https://www.legislation.gov.uk/ukpga/1994/33/part/V/crossheading/powers-in-relation-to-raves",
+"https://en.wikipedia.org/wiki/Criminal_Justice_and_Public_Order_Act_1994"
+]
+},
+"tr707": {
+"maker": "Roland",
+"designer": null,
+"released": "1985 (RBMA dates it 1984)",
+"discontinued": null,
+"launch_price": "c. $900 (1985)",
+"units": null,
+"type": "drum machine",
+"notable_users": [
+"Marshall Jefferson",
+"Larry Heard (Mr. Fingers)",
+"INXS",
+"Arabic al jeel producers"
+],
+"clones": [
+"Roland TR-727 (Latin sibling)",
+"Roland TR-505 (sample subset)",
+"Roland TR-8 707/727 expansion"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Roland_TR-707",
+"https://hollowsun.com/nostalgia/vintage/707/index.html",
+"https://daily.redbullmusicacademy.com/2014/11/roland-by-the-numbers"
+]
+},
+"juno60": {
+"maker": "Roland",
+"designer": [
+"Hideki Izuchi (engineer)"
+],
+"released": "1982 (Juno-60, September); 1984 (Juno-106, February)",
+"discontinued": "1984 (Juno-60); 1988 (Juno-106)",
+"launch_price": "US$1,795 / £1,199 (Juno-60 list); £799 (Juno-106, 1984)",
+"units": null,
+"type": "polyphonic synthesiser",
+"notable_users": [
+"Larry Heard (Mr. Fingers)",
+"Fingers Inc.",
+"a-ha",
+"Cyndi Lauper",
+"George Michael",
+"Eurythmics",
+"Vince Clarke",
+"Howard Jones",
+"Metronomy"
+],
+"clones": [
+"Roland Boutique JU-06",
+"Roland Boutique JU-06A",
+"Roland Juno-X",
+"TAL-U-NO-LX",
+"Arturia Jun-6 V",
+"Roland Cloud Juno-60",
+"AudioThing JUNE"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Roland_Juno-60",
+"https://www.wikiwand.com/en/Roland_Juno-106",
+"https://www.muzines.co.uk/articles/the-midi-juno/3325",
+"https://articles.roland.com/?p=17260",
+"https://daily.redbullmusicacademy.com/2014/11/roland-by-the-numbers"
+]
+},
+"alpha-juno": {
+"maker": "Roland",
+"designer": [
+"Eric Persing (sound designer, 'WhatThe' preset)"
+],
+"released": "1985",
+"discontinued": "c. 1986–87",
+"launch_price": "US$895 / £575 (Alpha Juno 1, 1985); US$1,295 / £799 (Alpha Juno 2, 1985)",
+"units": null,
+"type": "polyphonic synthesiser",
+"notable_users": [
+"Mundo Muzique and Joey Beltram (Second Phase)",
+"Human Resource",
+"The Prodigy",
+"Lady Gaga"
+],
+"clones": [
+"Roland MKS-50 (rack version)",
+"Audio Realism ReDominator",
+"TAL-Pha"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Roland_Alpha_Juno",
+"https://daily.redbullmusicacademy.com/2014/05/key-tracks-mundo-muzique-on-mentasm",
+"https://en.wikipedia.org/wiki/Roland_Juno-60"
+]
+},
+"sh101": {
+"maker": "Roland",
+"designer": null,
+"released": "1982",
+"discontinued": "1986",
+"launch_price": "$495 / £249 (1982)",
+"units": null,
+"type": "monophonic synthesiser",
+"notable_users": [
+"Juan Atkins (Model 500)",
+"A Guy Called Gerald",
+"Nightmares on Wax",
+"Forgemasters",
+"Ital Rockers",
+"4hero",
+"Aphex Twin",
+"Orbital",
+"The Prodigy",
+"808 State",
+"Boards of Canada",
+"Autechre"
+],
+"clones": [
+"Roland MC-202 (sequencer version)",
+"Roland SH-101 plug-out (Aira System-1, Roland Cloud)",
+"TAL-BassLine",
+"D16 LuSH-101"
+],
+"sources": [
+"https://daily.redbullmusicacademy.com/2017/09/roland-sh101-instrumental-instruments",
+"https://kiwix.lema.org/wikipedia_en_all_mini_2024-02/A/Roland_SH-101",
+"https://www.soundonsound.com/reviews/roland-mc202",
+"https://www.soundonsound.com/techniques/classic-tracks-orbital-chime",
+"https://www.musicradar.com/news/blast-from-the-past-roland-mc-202-microcomposer",
+"https://daily.redbullmusicacademy.com/2014/11/roland-by-the-numbers"
+]
+},
+"jupiter8": {
+"maker": "Roland",
+"designer": [
+"Toshio Yamabata (engineer)",
+"Chris Franke (reported adviser)"
+],
+"released": "1981",
+"discontinued": null,
+"launch_price": null,
+"units": "~3,300",
+"type": "polyphonic synthesiser",
+"notable_users": [
+"Marvin Gaye",
+"Charanjit Singh",
+"Michael Jackson (Thriller)",
+"Duran Duran",
+"Frankie Goes to Hollywood (Andy Richards)",
+"Howard Jones",
+"Queen",
+"OMD",
+"Tangerine Dream",
+"Pet Shop Boys",
+"Giorgio Moroder",
+"Vince Clarke"
+],
+"clones": [
+"Roland JP-08 Boutique",
+"Roland System-8 Jupiter-8 plug-out",
+"Roland Jupiter-X / Xm",
+"Roland Cloud Jupiter-8",
+"Arturia Jupiter-8V",
+"Black Corporation ISE-NIN",
+"Behringer JT Mini"
+],
+"sources": [
+"https://www.wikiwand.com/en/articles/Jupiter-8",
+"https://articles.roland.com/?p=55227"
+]
+},
+"mc202": {
+"maker": "Roland",
+"designer": null,
+"released": "c. 1980–81 (MC-4); 1983 (MC-202)",
+"discontinued": "c. 1985 (MC-202, after about 17 months)",
+"launch_price": "c. £3,000 system (MC-4); $595 / £350 (MC-202, 1983)",
+"units": null,
+"type": "hardware step sequencer (MC-4); sequencer with built-in monosynth (MC-202)",
+"notable_users": [
+"The Human League",
+"Vince Clarke",
+"Bomb the Bass",
+"K-Klass"
+],
+"clones": [
+"MC-202 Hack (Defective Records Software, 1997)",
+"Roland MC-303 (name successor, 1996)",
+"SH-101 emulations (TAL-BassLine, D16 LuSH-101)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Roland_MC-202",
+"https://www.muzines.co.uk/articles/history-by-numbers/248?theme=2",
+"https://www.soundonsound.com/reviews/roland-mc202",
+"https://www.musicradar.com/news/blast-from-the-past-roland-mc-202-microcomposer",
+"https://daily.redbullmusicacademy.com/2014/11/roland-by-the-numbers"
+]
+},
+"korg-ms": {
+"maker": "Korg",
+"designer": null,
+"released": "1978",
+"discontinued": "c. 1981 (MS-10)",
+"launch_price": "¥53,500 / c. US$300–450 (MS-10, 1978)",
+"units": null,
+"type": "semi-modular monophonic synthesiser",
+"notable_users": [
+"Juan Atkins",
+"The Orb",
+"The Chemical Brothers",
+"Underworld",
+"Autechre",
+"Jean-Michel Jarre",
+"Luke Vibert",
+"Pet Shop Boys",
+"Add N to (X)"
+],
+"clones": [
+"Korg MS-20 mini (2013)"
+],
+"sources": [
+"https://www.korg.com/uk/products/synthesizers/ms_20mini/page_3.php",
+"https://kaweah.freedombox.rocks/kiwix/wikipedia_en_all_maxi_2023-10/Korg_MS-10",
+"https://www.soundonsound.com/techniques/classic-tracks-model-500-no-ufos"
+]
+},
+"korg-m1": {
+"maker": "Korg",
+"designer": [
+"Junichi Ikeuchi (chief engineer)"
+],
+"released": "1988",
+"discontinued": "1995",
+"launch_price": "c. US$2,166 street (1988); US$2,749 list (1990); £1,499 (UK)",
+"units": "~250,000",
+"type": "workstation synthesiser (sample-based, with sequencer)",
+"notable_users": [
+"Robin S",
+"Madonna",
+"Snap!",
+"Basement Jaxx (Mark Knight remix)",
+"Kylie Minogue",
+"Beyoncé",
+"Jay-Z",
+"Bon Iver"
+],
+"clones": [
+"Korg M1R / M3R / M1EX",
+"Korg Legacy Collection M1 (2005)",
+"Korg M01 for Nintendo DS (2010)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Korg_M1",
+"https://www.musicradar.com/news/how-to-create-classic-house-sounds-with-the-korg-m1-and-when-to-use-them",
+"https://www.musicradar.com/how-to/classic-house-organ-robin-s-show-me-love"
+]
+},
+"dx7": {
+"maker": "Yamaha",
+"designer": [
+"John Chowning (FM synthesis, licensed from Stanford)",
+"Dave Bristow and Gary Leuenberger (factory sounds)"
+],
+"released": "1983 (DX7)",
+"discontinued": "1989 (DX7)",
+"launch_price": "$1,995 / £1,495 / ¥248,000 (DX7, 1983)",
+"units": "~200,000 DX7s in three years; ~420,000 DX-series instruments in all (Yamaha)",
+"type": "FM synthesiser",
+"notable_users": [
+"Whitney Houston",
+"Phil Collins",
+"Luther Vandross",
+"Brian Eno",
+"Ryuichi Sakamoto",
+"a-ha",
+"Kenny Loggins",
+"Orbital (DX100)",
+"Babyface (TX81Z)"
+],
+"clones": [
+"Yamaha TX7",
+"Yamaha DX7II",
+"Yamaha TX81Z / DX11",
+"Yamaha reface DX",
+"Native Instruments FM8"
+],
+"sources": [
+"https://wikiwand.com/en/articles/Yamaha_DX7",
+"https://europe.yamaha.com/en/musical-instruments/keyboards/explore/synth-40th/history/chapter02/",
+"https://www.wikiwand.com/en/articles/Yamaha_TX81Z",
+"https://www.polynominal.com/lately-bass-yamaha-tx81z-dx100/index.html",
+"https://www.soundonsound.com/techniques/classic-tracks-orbital-chime"
+]
+},
+"casio-cz": {
+"maker": "Casio",
+"designer": null,
+"released": "1984 (CZ-101, late in the year); CZ-1 1986",
+"discontinued": null,
+"launch_price": "under $500 (CZ-101, 1984)",
+"units": null,
+"type": "phase-distortion synthesiser",
+"notable_users": [
+"Kevin Saunderson (Reese)",
+"The Cure",
+"New Order",
+"Depeche Mode"
+],
+"clones": [],
+"sources": [
+"https://mixmag.net/feature/kevin-saunderson-reese-bassline-transformed-uk-dance-music-jungle-speed-garage-drum-n-bass",
+"https://www.perfectcircuit.com/signal/casio-cz-series"
+]
+},
+"minimoog": {
+"maker": "Moog Music (R. A. Moog)",
+"designer": [
+"Bill Hemsath",
+"Robert Moog"
+],
+"released": "1970",
+"discontinued": "1981 (reissued 2016–17 and from 2022)",
+"launch_price": null,
+"units": "~12,000 (1970–81)",
+"type": "monophonic synthesiser",
+"notable_users": [
+"Sun Ra",
+"Kraftwerk",
+"Parliament",
+"Keith Emerson",
+"Rick Wakeman",
+"Stevie Wonder",
+"Herbie Hancock",
+"Chick Corea",
+"Giorgio Moroder",
+"ABBA",
+"Tangerine Dream",
+"Gary Numan"
+],
+"clones": [
+"Moog Minimoog Voyager",
+"Moog Model D reissues (2016, 2022)",
+"Behringer Model D",
+"Roland SE-02",
+"Minimoog Model D app"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Minimoog",
+"https://www.synthtopia.com/content/2022/11/17/moog-music-brings-back-the-minimoog-model-d/",
+"https://cdm.link/2017/03/behringer-to-make-an-analog-minimoog-clone-for-around-400/"
+]
+},
+"arp2600": {
+"maker": "ARP Instruments",
+"designer": [
+"Alan R. Pearlman",
+"Dennis Colin"
+],
+"released": "1971 (2600); 1972 (Odyssey)",
+"discontinued": "1981 (2600); 1980 (Odyssey)",
+"launch_price": "$2,600 (2600, 1971)",
+"units": "~3,000 each (MusicRadar)",
+"type": "semi-modular synthesiser (2600); duophonic synthesiser (Odyssey)",
+"notable_users": [
+"Edgar Winter",
+"Stevie Wonder",
+"Pete Townshend",
+"Joe Zawinul",
+"Herbie Hancock",
+"Ben Burtt",
+"Michael Jackson (Thriller)",
+"Madonna (Borderline)",
+"ABBA",
+"Ultravox",
+"The Human League",
+"Jean-Michel Jarre"
+],
+"clones": [
+"Korg ARP 2600 FS / 2600M",
+"Behringer 2600",
+"TTSH kit",
+"Arturia and Way Out Ware software",
+"GForce Oddity",
+"Korg ARP Odyssei (iOS)"
+],
+"sources": [
+"https://www.wikiwand.com/en/articles/ARP_2600",
+"https://www.musicradar.com/news/why-does-everyone-love-the-arp-odyssey"
+]
+},
+"emulator": {
+"maker": "E-mu Systems (Emulator); Fairlight (CMI)",
+"designer": [
+"Dave Rossum",
+"Scott Wedge",
+"Kim Ryrie",
+"Peter Vogel",
+"Tony Furse"
+],
+"released": "1979 (Fairlight CMI); 1981 (Emulator)",
+"discontinued": "1984 (Emulator I); Emulator line ended 2002",
+"launch_price": "US$27,500 (Fairlight Series I, 1980); £30,000 (Series II, 1982); £8,050 (Emulator, 1981); $7,995 (Emulator II, 1984)",
+"units": "~500 (Emulator I)",
+"type": "sampler",
+"notable_users": [
+"Peter Gabriel",
+"Kate Bush",
+"Stevie Wonder",
+"Herbie Hancock",
+"Trevor Horn",
+"Arthur Baker / Afrika Bambaataa",
+"Vangelis",
+"Pet Shop Boys",
+"Depeche Mode",
+"Jean-Michel Jarre"
+],
+"clones": [
+"UVI Emulation One",
+"TAL-Sampler (Emulator II converter model)",
+"112dB Morgana"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Fairlight_CMI",
+"https://kaweah.freedombox.rocks/kiwix/wikipedia_en_all_maxi_2023-10/Emulator_I",
+"https://musicradar.com/news/blast-from-the-past-e-mu-emulator",
+"https://www.soundonsound.com/techniques/classic-tracks-afrika-bambaataa-soulsonic-force-planet-rock"
+]
+},
+"sp1200": {
+"maker": "E-mu Systems",
+"designer": [
+"Dave Rossum",
+"Marco Alpert",
+"Donna Murray (software)",
+"Scott Wedge (pad sensing)"
+],
+"released": "1987 (August)",
+"discontinued": "1990; reissued 1993; final edition 1998 (Rossum reissue 2021)",
+"launch_price": "$2,995 (1987)",
+"units": null,
+"type": "sampling drum machine",
+"notable_users": [
+"Public Enemy / Bomb Squad",
+"Ultramagnetic MCs",
+"A Tribe Called Quest",
+"Pete Rock",
+"DJ Premier",
+"Wu-Tang Clan",
+"Todd Terry",
+"Moodymann",
+"Theo Parrish",
+"Daft Punk / Stardust",
+"The Prodigy"
+],
+"clones": [
+"Rossum Electro-Music SP-1200 reissue (2021)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/E-mu_SP-1200",
+"https://attackmagazine.com/features/long-read/nine-samplers-that-defined-dance-music/4",
+"https://daily.redbullmusicacademy.com/2013/05/todd-terry-interview"
+]
+},
+"akai-s900": {
+"maker": "Akai",
+"designer": null,
+"released": "1986 (S900); 1988 (S950)",
+"discontinued": null,
+"launch_price": "£1,599 (S900, UK, 1986)",
+"units": null,
+"type": "sampler",
+"notable_users": [
+"A Guy Called Gerald",
+"4hero",
+"The 45 King",
+"The Bomb Squad",
+"Prince Paul",
+"Juan Atkins",
+"Black Box",
+"Beatmasters",
+"The KLF",
+"Renegade Soundwave",
+"Fatboy Slim"
+],
+"clones": [
+"Unofficial SUPER4.0.2 operating system (2026)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Akai_S900",
+"https://www.muzines.co.uk/articles/akai-s900-sampler/11018",
+"https://daily.redbullmusicacademy.com/2017/02/guy-called-gerald-voodoo-ray-feature",
+"https://daily.redbullmusicacademy.com/2016/04/reinforced-interview",
+"https://musicradar.com/news/the-prodigy-charly-story",
+"https://en.wikipedia.org/wiki/Fairlight_CMI"
+]
+},
+"akai-s1000": {
+"maker": "Akai",
+"designer": null,
+"released": "1988",
+"discontinued": "c. 1993",
+"launch_price": "$5,999 (US list)",
+"units": null,
+"type": "sampler",
+"notable_users": [
+"Goldie",
+"808 State",
+"The Prodigy",
+"The Chemical Brothers",
+"The Future Sound of London",
+"Boards of Canada",
+"Portishead",
+"Primal Scream",
+"Public Enemy",
+"Moby",
+"System 7",
+"Josh Wink"
+],
+"clones": [
+"Akai S1000HD / KB / PB",
+"Akai S1100 / S1100EX"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Akai_S1000",
+"https://daily.redbullmusicacademy.com/2016/04/reinforced-interview",
+"https://electronicbeats.net/mentors-how-4hero-programmed-goldies-software",
+"https://en.wikipedia.org/wiki/Original_Nuttah",
+"https://en.wikipedia.org/wiki/Alex_Reece",
+"https://en.wikipedia.org/wiki/E-mu_SP-1200"
+]
+},
+"mpc": {
+"maker": "Akai (designed by Roger Linn)",
+"designer": [
+"Roger Linn",
+"David Cockerell (circuit design team)"
+],
+"released": "1988 (MPC60, 8 December); 1994 (MPC3000)",
+"discontinued": null,
+"launch_price": "$5,000 (MPC60, 1988)",
+"units": null,
+"type": "sampling drum machine / MIDI sequencer",
+"notable_users": [
+"DJ Shadow",
+"J Dilla",
+"Kanye West",
+"Joey Beltram",
+"Mundo Muzique"
+],
+"clones": [
+"Akai MPC60 MkII",
+"Akai MPC2000 / 2000XL",
+"later inMusic-era Akai MPCs"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Akai_MPC",
+"https://www.attackmagazine.com/features/interview/roger-linn-swing-groove-magic-mpc-timing/2/",
+"https://attackmagazine.com/features/interview/roger-linn-swing-groove-magic-mpc-timing/3",
+"https://daily.redbullmusicacademy.com/2014/05/key-tracks-mundo-muzique-on-mentasm"
+]
+},
+"atari-cubase": {
+"maker": "Atari (computer); Steinberg (Cubase); C-Lab (Creator / Notator)",
+"designer": [
+"Gerhard Lengeling (Creator)",
+"Chris Adam (Notator)",
+"Steinberg team incl. Karl Steinberg, Werner Kracht, Wolfgang Kundrus (Cubase)"
+],
+"released": "1985 (Atari ST); 1987 (Creator); 1988 (Notator); 1989 (Cubase)",
+"discontinued": "1993 (Atari ST line)",
+"launch_price": "$799.99 (520ST with mono monitor, 1985); $999.99 with colour monitor",
+"units": "over 3 million STs in Europe",
+"type": "home computer with MIDI and sequencing software",
+"notable_users": [
+"Utah Saints",
+"Darude",
+"Depeche Mode",
+"Pet Shop Boys",
+"Fatboy Slim",
+"White Town",
+"Dario G",
+"Coldcut",
+"LFO",
+"Nightmares on Wax",
+"The Orb",
+"Orbital",
+"System 7",
+"The Future Sound of London",
+"4hero"
+],
+"clones": [
+"Cubase for Mac (1990) and Windows (1992)",
+"Notator Logic (1993) / Logic Pro"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Atari_ST",
+"https://en.wikipedia.org/wiki/Cubase",
+"https://en.wikipedia.org/wiki/Logic_Pro",
+"https://daily.redbullmusicacademy.com/2016/04/reinforced-interview"
+]
+},
+"funktion-one": {
+"maker": "Funktion One Research Ltd",
+"designer": [
+"Tony Andrews",
+"John Newsham"
+],
+"released": "1992 (company founded)",
+"discontinued": null,
+"launch_price": null,
+"units": null,
+"type": "loudspeaker / sound system",
+"notable_users": [
+"Berghain",
+"Space Ibiza",
+"Cielo (New York)",
+"Jaeger (Oslo)",
+"De School (Amsterdam)",
+"Smartbar (Chicago)",
+"D-Edge (São Paulo)",
+"Millennium Dome"
+],
+"clones": [],
+"sources": [
+"https://en.wikipedia.org/wiki/Funktion-One"
+]
+},
+"jp8000": {
+"maker": "Roland",
+"designer": null,
+"released": "1996 (shipping early 1997); JP-8080 rack 1998",
+"discontinued": "2001",
+"launch_price": "$2,295",
+"units": null,
+"type": "virtual-analogue synthesiser",
+"notable_users": [
+"Darude"
+],
+"clones": [
+"Roland JP-8080",
+"Roland SH-201 / SH-01 Gaia / V-Synth (Supersaw)",
+"Access Virus TI Hypersaw",
+"SUPERWAVE P8",
+"Supersaw Plus"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Roland_JP-8000",
+"https://en.wikipedia.org/wiki/Access_Virus"
+]
+},
+"nord-lead": {
+"maker": "Clavia",
+"designer": [
+"Peter Jubel (contributor)"
+],
+"released": "1995",
+"discontinued": null,
+"launch_price": null,
+"units": null,
+"type": "virtual-analogue synthesiser",
+"notable_users": [],
+"clones": [
+"Nord Lead 2 (1997)",
+"Nord Lead 3 (2001)",
+"Nord Lead 2X (2003)",
+"Nord Lead 4 (2013)",
+"Nord Lead A1 (2014)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Nord_Lead",
+"https://en.wikipedia.org/wiki/Access_Virus"
+]
+},
+"access-virus": {
+"maker": "Access Music",
+"designer": [
+"Christoph Kemper",
+"Guido Kirsch (founder of Access)"
+],
+"released": "1997",
+"discontinued": "2023 (TI2, confirmed February 2024)",
+"launch_price": null,
+"units": "300 in 1997 (Virus A)",
+"type": "virtual-analogue synthesiser",
+"notable_users": [
+"Paul Oakenfold",
+"Sasha",
+"DJ Sammy",
+"John Virgo (Snap!)",
+"Trentemøller",
+"Headhunterz",
+"Hardwell",
+"Angerfist",
+"The Prodigy",
+"Depeche Mode",
+"Jean-Michel Jarre",
+"Hans Zimmer"
+],
+"clones": [
+"Virus B / C / Indigo / Rack",
+"Virus TI / TI Polar / TI Snow / TI2",
+"Virus TDM and PowerCore plug-in versions"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Access_Virus",
+"https://en.wikipedia.org/wiki/Roland_JP-8000",
+"https://en.wikipedia.org/wiki/Nord_Lead"
+]
+},
+"cubase-vst": {
+"maker": "Steinberg (Cubase); Emagic, then Apple (Logic); Digidesign (Pro Tools)",
+"designer": null,
+"released": "1996 (Cubase VST, Macintosh); 1997 (Windows)",
+"discontinued": null,
+"launch_price": "Logic Pro: $499, cut to $199.99 (December 2011)",
+"units": null,
+"type": "digital audio workstation software",
+"notable_users": [],
+"clones": [
+"VST 2.0 / VSTi (1999)",
+"VST3 (2006)",
+"Cubase SX (2002)",
+"Logic Pro X (2013)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Cubase",
+"https://en.wikipedia.org/wiki/Logic_Pro",
+"https://en.wikipedia.org/wiki/Access_Virus"
+]
+},
+"behringer": {
+"maker": "Behringer",
+"designer": [
+"Uli Behringer (founder)"
+],
+"released": "2017 (Model D announced March 2017)",
+"discontinued": null,
+"launch_price": "c. US$400 (Model D, proposed 2017)",
+"units": null,
+"type": "analogue synthesiser and drum machine copies",
+"notable_users": [],
+"clones": [
+"Behringer Model D (Minimoog Model D)",
+"Behringer 2600 (ARP 2600)",
+"Behringer JT Mini / JT-16 (Roland Jupiter-8)"
+],
+"sources": [
+"https://cdm.link/2017/03/behringer-to-make-an-analog-minimoog-clone-for-around-400/",
+"https://www.wikiwand.com/en/articles/ARP_2600",
+"https://www.wikiwand.com/en/articles/Jupiter-8",
+"https://www.synthtopia.com/content/2022/11/17/moog-music-brings-back-the-minimoog-model-d/"
+]
+},
+"production-house": {
+"founded": "1987",
+"city": "London",
+"founders": [
+"Phil Fearon",
+"Laurie Jago",
+"Raj Malkani"
+],
+"sublabels": [],
+"key_releases": [
+"Floyd Gossington Dyce — I Can't Take It (first release)",
+"Baby D — Casanova (1989)",
+"The House Crew — All We Wanna Do (1989)",
+"Baby D — Let Me Be Your Fantasy (c. 1992; UK number one 1994 via Systematic)",
+"Acen — Trip II The Moon",
+"DMS — Love Overdose",
+"The Brothers Grimm — Exodus",
+"Nino — The Gun"
+],
+"status": "closed",
+"sources": [
+"https://en.wikipedia.org/wiki/Production_House_Records",
+"https://www.theransomnote.com/?p=9409",
+"https://abasschronicle.co.uk/history-sessions-production-house-special/"
+]
+},
+"plink-plonk": {
+"founded": "1993",
+"city": "London",
+"founders": [
+"Mr. C (Richard West)"
+],
+"sublabels": [],
+"key_releases": [
+"Mantrac — Coaster / Apok Dub (1993)",
+"Mantrac — In R EP (1994)",
+"Somnambulist — Nightflyte (1994)",
+"Somnambulist — Ambush (1995)",
+"Animus Amor — And On (1995)",
+"Various — Electronic Warfare (1997)",
+"Hydropanic / Insect Kingdom (1999)",
+"Searchin' (2000)",
+"Mr. C & Tom Parris — Nice 'n' Nasty / Class A (2001)"
+],
+"status": "dormant",
+"sources": [
+"https://909originals.com/2018/12/03/the-shamens-mr-c-explores-a-plink-plonk-state-of-consciousness-december-1993/",
+"https://ra.co/dj/mrc/biography",
+"https://en.wikipedia.org/wiki/Mr._C",
+"https://djmag.com/node/3277"
+]
+},
+"superfreq": {
+"founded": "2002",
+"city": "London",
+"founders": [
+"Mr. C (Richard West)"
+],
+"sublabels": [],
+"key_releases": [
+"Glutius Minimus / Numb Numb Numb (2005–06)",
+"Disco 2 Disco / Underground 2 The End (2005–06)",
+"Mr. C — Superfreq Express (2007)",
+"Mr. C — Smell The Coffee (2013)",
+"Indigo Kidz — House EP (2013)",
+"East LA Tek — Innuendo EP (2014)",
+"Mr. C — Incidents (2017)",
+"Mr. C — 30 Years of Mischief (2017)",
+"Show Me (2018)"
+],
+"status": "active",
+"sources": [
+"https://ra.co/dj/mrc/biography",
+"https://en.wikipedia.org/wiki/Mr._C",
+"https://djmag.com/node/3277"
+]
+},
+"v-recordings": {
+"founded": "1993",
+"city": "London",
+"founders": [
+"Bryan Gee",
+"Jumpin' Jack Frost"
+],
+"sublabels": [
+"Philly Blunt",
+"Chronic",
+"Liquid V"
+],
+"key_releases": [
+"Roni Size — It's A Jazz Thing (1994)",
+"Krust — Jazz Note (1994)",
+"Roni Size — All Crew Must Big Up (1995)",
+"Krust — Set Speed (1995)",
+"Krust — Warhead (1997)",
+"Roni Size — Fresh (1997)",
+"Adam F — Brand New Funk (1998)",
+"Roni Size — Strictly Social (1999)",
+"Dillinja — Grimey (2002)",
+"DJ Marky feat. Stamina MC — LK (Carolina Carol Bela) (2002)"
+],
+"status": "active",
+"sources": [
+"https://en.wikipedia.org/wiki/V_Recordings",
+"https://whatson.ae/?p=3946"
+]
+},
+"ram": {
+"founded": "1992",
+"city": "Hornchurch",
+"founders": [
+"Andy C",
+"Ant Miles"
+],
+"sublabels": [
+"Frequency",
+"Program"
+],
+"key_releases": [
+"Andy C — Sour Mash EP (RAMM01, 1992)",
+"Origin Unknown — The Touch / Valley Of The Shadows (RAMM04, 1993)",
+"Randall & Andy C — Sound Control / Feel It (RAMM11, 1994)",
+"Origin Unknown — Truly One / Mission Control (RAMM14, 1995)",
+"Shimon & Andy C — Quest / Night Flight (RAMM17, 1996)",
+"Mutation / Genetix (RAMM18, 1997)",
+"Moving Fusion & Origin Unknown — Turbulence / Sound In Motion (RAMM29, 2000)",
+"Shimon & Andy C — Body Rock / Orient Express (RAMM34, 2001)",
+"Sub Focus — X-Ray / Scarecrow (RAMM54, 2005)",
+"Chase & Status — Hurt You / Sell Me Your Soul (RAMM68, 2007)"
+],
+"status": "active",
+"sources": [
+"https://en.wikipedia.org/wiki/RAM_Records",
+"https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/RAM_Records_discography",
+"https://herecomethedrums.com/2014/04/14/ram-records-the-sheep-years/",
+"https://en.wikipedia.org/wiki/Andy_C"
+]
+},
+"virus": {
+"founded": "1998",
+"city": "London",
+"founders": [
+"Ed Rush (Ben Settle)",
+"Optical (Matt Quinn)"
+],
+"sublabels": [],
+"key_releases": [
+"Ed Rush & Optical — Wormhole (1998)",
+"Ed Rush & Optical — Wormhole (Record Store Day reissue, 2023)"
+],
+"status": null,
+"sources": [
+"https://www.juno.co.uk/junodaily/?p=175187",
+"https://encyc.org/wiki/Virus_Recordings"
+]
+},
+"tip": {
+"founded": "1994",
+"city": "London",
+"founders": [
+"Raja Ram",
+"Graham Wood",
+"Ian St Paul"
+],
+"sublabels": [],
+"key_releases": [
+"The Infinity Project — Hyperactive (Fabulous Music, 1991; pre-label)"
+],
+"status": "closed",
+"sources": [
+"https://en.wikipedia.org/wiki/The_Infinity_Project",
+"https://threadsradio.com/from-goa-to-psy-a-cosmic-pilgrimage-1988-1998/"
+]
+},
+"anjunabeats": {
+"founded": "2000",
+"city": "London",
+"founders": [
+"Jono Grant",
+"Paavo Siljamäki"
+],
+"sublabels": [
+"Anjunadeep"
+],
+"key_releases": [
+"Anjunabeats — Volume One (2000)",
+"Various — Anjunabeats 100 (2008)",
+"Above & Beyond — Group Therapy",
+"Above & Beyond — Sun & Moon",
+"Mat Zo — Damage Control",
+"Andrew Bayer — If It Were You, We'd Never Leave",
+"Arty — Around the World",
+"Above & Beyond — We're All We Need",
+"Above & Beyond — Northern Soul",
+"Various — Anjunabeats Vol. 15 (2020)"
+],
+"status": "active",
+"sources": [
+"https://en.wikipedia.org/wiki/Anjunabeats",
+"https://www.insomniac.com/?p=42367",
+"https://dancingastronaut.com/2020/12/dancing-astronauts-2020-label-of-the-year-anjuna/"
+]
+},
+"dj-international": {
+"founded": "1985",
+"city": "Chicago",
+"founders": [
+"Rocky Jones",
+"Benji Espinoza"
+],
+"sublabels": [
+"Underground"
+],
+"key_releases": [
+"JM Silk — Music Is The Key (1985)",
+"Chip E — Like This (1985)",
+"Farley \"Jackmaster\" Funk — Love Can't Turn Around (1986)",
+"Steve \"Silk\" Hurley — Jack Your Body (1987)",
+"Joe Smooth — Promised Land (1987)",
+"Adonis — The Poke (1987)",
+"Tyree — Acid Over (1987)",
+"Fast Eddie — Hip House (1988)",
+"Tyree — Da Butt (1995)",
+"Frankie Knuckles — Carefree (I Am A Star) (2020)"
+],
+"status": "revived",
+"sources": [
+"https://en.wikipedia.org/wiki/DJ_International_Records",
+"https://www.udiscovermusic.com/stories/dj-international-chicago-house/"
+]
+},
+"nervous": {
+"founded": "1991",
+"city": "New York",
+"founders": [
+"Michael Weiss",
+"Sam Weiss"
+],
+"sublabels": [
+"Wreck",
+"Sorted",
+"Weeded",
+"Made In Miami"
+],
+"key_releases": [
+"Niceguy Soulman — Feel It (first release, 1991)",
+"Black Moon — Enta Da Stage (Wreck, 1993)",
+"Willie Ninja — Hot (1994)",
+"Nuyorican Soul — The Nervous Track",
+"Sandy B — Feel Like Singing",
+"Josh Wink — Don't Laugh",
+"Loni Clark — Rushing",
+"Smif-N-Wessun — Dah Shinin' (Wreck)",
+"Kim English — Unspeakable Joy",
+"Various — Nervous Records – 30 Years (2021)"
+],
+"status": "active",
+"sources": [
+"https://direct.djmag.com/longreads/nervous-records-30-years-new-york-s-pioneering-house-label",
+"https://www.wikiwand.com/en/articles/Nervous_Records_(US)"
+]
+},
+"shop-de-underground": {
+"address": "18 Sebert Road, Forest Gate, London",
+"opened": "1991",
+"closed": "1996",
+"founders": [
+"Michael Aymer (Mike De Underground)",
+"Peter Aymer (Cool Hand Flex)",
+"Desmond Fearon (Uncle 22)",
+"Randall McNeil (DJ Randall)"
+],
+"staff": [
+"DJ Randall (1990s, mixing in the shop)",
+"Marly Marl (1990s)"
+],
+"label": "De Underground Records",
+"status": "closed",
+"sources": [
+"https://en.wikipedia.org/wiki/De_Underground_Records",
+"https://www.theransomnote.com/art-culture/the-story-of-de-underground/"
+]
+},
+"shop-boogie-times": {
+"address": "Romford, Essex",
+"opened": "1989",
+"closed": null,
+"founders": [
+"Danny Donnelly"
+],
+"staff": [
+"Dave Nodz (artwork, later full time with the label)"
+],
+"label": "Suburban Base",
+"status": "closed",
+"sources": [
+"https://en.wikipedia.org/wiki/Suburban_Base",
+"https://www.theransomnote.com/?p=9588"
+]
+},
+"shop-hard-wax": {
+"address": "Reichenberger Straße, Kreuzberg (1989–96); Paul-Lincke-Ufer 44A (1996–2023); Köpenicker Straße 70, Kraftwerk Berlin (2023–)",
+"opened": "1989",
+"closed": null,
+"founders": [
+"Mark Ernestus"
+],
+"staff": [
+"Susanne Kirchmayr (sales, 1993–96)",
+"DJ Hell",
+"Gernot Bronsert",
+"Marcel Dettmann",
+"DJ Rok",
+"Gabriele \"Mo\" Loschelder"
+],
+"label": "Basic Channel (shared premises); distributor for Basic Channel-related labels",
+"status": "open",
+"sources": [
+"https://en.wikipedia.org/wiki/Hard_Wax"
+]
+},
+"shop-delirium": {
+"address": null,
+"opened": null,
+"closed": null,
+"founders": [
+"Ata (Athanassios Christos Macias)"
+],
+"staff": [],
+"label": null,
+"status": null,
+"sources": [
+"https://artsandculture.google.com/story/VQVhP2txEu9pKg",
+"https://www.hessenschau.de/kultur/techno-in-frankfurt-die-ehemalige-raver-hauptstadt-v1,erfindung-des-techno-100.html"
+]
+},
+"shop-rush-hour": {
+"address": null,
+"opened": "1997",
+"closed": null,
+"founders": [
+"Antal"
+],
+"staff": [],
+"label": "Rush Hour (label and distribution)",
+"status": "open",
+"sources": [
+"https://factmag.com/2018/10/09/fact-stories-rush-hour-amsterdam",
+"https://en.wikipedia.org/wiki/Resident_Advisor"
+]
+},
+"shop-clone": {
+"address": "Mauritsweg 60, Rotterdam (to 2015); Raampoortstraat 12, Rotterdam (by 2017)",
+"opened": "1993",
+"closed": null,
+"founders": [
+"Serge Verschuur"
+],
+"staff": [],
+"label": "Clone (with sublabels incl. Clone Jack For Daze, Clone Royal Oak, Clone Basement Series) and a distribution company",
+"status": "open",
+"sources": [
+"https://thevinylfactory.com/features/worlds-best-record-shops-079-clone-rotterdam/",
+"https://factmag.com/2015/09/24/inside-clone-records"
+]
+},
+"shop-pure-groove": {
+"address": "679 Holloway Road, London; later Smithfield, London",
+"opened": "1989",
+"closed": null,
+"founders": [
+"Tarik Nashnush",
+"Ziad Nashnush",
+"Peter Worthington"
+],
+"staff": [],
+"label": "Locked On (1996); later 679 Recordings",
+"status": "closed",
+"sources": [
+"https://daily.redbullmusicacademy.com/2019/04/tarik-nashnush-ukg-locked-on",
+"https://www.dezeen.com/?p=17846"
+]
+},
+"shop-rough-trade": {
+"address": "202 Kensington Park Road, London (1976–82); 130 Talbot Road, London (1982–)",
+"opened": "1976",
+"closed": null,
+"founders": [
+"Geoff Travis"
+],
+"staff": [
+"Ana Da Silva (late 1970s)",
+"Nigel House (from 1981–82)",
+"Pete Donne",
+"Jude Crighton",
+"Stephen Godfroy (store director, 2007)"
+],
+"label": "Rough Trade Records (1978; separated 1982)",
+"status": "open",
+"sources": [
+"https://en.wikipedia.org/wiki/Rough_Trade_(shops)",
+"https://i-d.co/?p=147922"
+]
+},
+"shop-phonica": {
+"address": "Poland Street, Soho, London",
+"opened": "2003",
+"closed": null,
+"founders": [
+"Simon Rigg",
+"Heidi",
+"Tom Relleen",
+"The Vinyl Factory (owners)"
+],
+"staff": [
+"Heidi (2003–)",
+"Tom Relleen (2003–)",
+"Will Saul (2000s)",
+"Pete Herbert (2000s)",
+"Martin Dawson (2000s)",
+"Hector (c. 3–4 years)",
+"Anthea (c. 3–4 years)",
+"Johnny Rock",
+"Alex Egan (The Draughtsman)",
+"Danielle Doobay (c. 10 years)",
+"Luther Vine"
+],
+"label": "Phonica Records (2009), with PhonicaWhite and Phonica Special Editions",
+"status": "open",
+"sources": [
+"https://fabriclondon.com/posts/10-years-of-phonica-a-conversational-history-with-founder-simon-rigg",
+"https://theculturetrip.com/europe/united-kingdom/england/london/articles/how-phonica-records-became-a-soho-institution-in-london"
+]
+},
+"shop-idle-hands": {
+"address": "32a City Road, St Paul's, Bristol (2017–22); central Bristol (2024–)",
+"opened": "2011",
+"closed": null,
+"founders": [
+"Chris Farrell"
+],
+"staff": [],
+"label": "Idle Hands (2010, with Peverelist)",
+"status": "open",
+"sources": [
+"https://www.bristol247.com/lifestyle/shops/shop-of-the-week-idle-hands/",
+"https://mixmag.net/amp/bristol-record-store-label-idle-hands-reopen-two-years-closure"
+]
+},
+"shop-juno": {
+"address": null,
+"opened": "1996",
+"closed": null,
+"founders": [
+"Richard Atherton",
+"Sharon Boyd"
+],
+"staff": [],
+"label": "Juno Distribution (2008); Juno Download (2006–26, later sold); Juno Wholesale (2023)",
+"status": "online",
+"sources": [
+"https://en.wikipedia.org/wiki/Juno_Records",
+"https://www.juno.co.uk/junodaily/?p=175187"
+]
+},
+"shop-discogs": {
+"address": null,
+"opened": "2000",
+"closed": null,
+"founders": [
+"Kevin Lewandowski"
+],
+"staff": [],
+"label": null,
+"status": "online",
+"sources": [
+"https://en.wikipedia.org/wiki/Discogs"
+]
+},
+"press-wire": {
+"founded": "1982",
+"closed": null,
+"founders": [
+"Anthony Wood",
+"Chrissie Murray"
+],
+"editors": [
+"Richard Cook (1985–92)",
+"Mark Sinker (1992–94)",
+"Tony Herrington (1994–2000)",
+"Rob Young (from 2000)",
+"Emily Bick (listed as editor)"
+],
+"notable": [
+"Rewind critics' poll (since 1986)",
+"Invisible Jukebox",
+"The Primer",
+"The Wire Tapper compilations (from 1998)",
+"'Post-rock' (Simon Reynolds, 1994)",
+"'Microhouse' (Philip Sherburne, 2001)",
+"Staff buyout (December 2000)"
+],
+"status": "print",
+"sources": [
+"https://en.wikipedia.org/wiki/The_Wire_(magazine)",
+"https://en.wikipedia.org/wiki/Simon_Reynolds"
+]
+},
+"press-ra": {
+"founded": "2001",
+"closed": null,
+"founders": [
+"Paul Clement",
+"Nick Sabine"
+],
+"editors": [],
+"notable": [
+"RA Podcast (from 6 March 2006)",
+"RA Poll (2006–16)",
+"RA Tickets (2008)",
+"RA Exchange (from 2010)",
+"Real Scenes / RA Films (from 2011)",
+"Move to ra.co (January 2021)"
+],
+"status": "online",
+"sources": [
+"https://en.wikipedia.org/wiki/Resident_Advisor"
+]
+},
+"press-fact": {
+"founded": "2003",
+"closed": null,
+"founders": [],
+"editors": [
+"David Tapley (current)"
+],
+"notable": [
+"Free bi-monthly print edition (2003–08), peak 28,000 copies",
+"FACT Mix (weekly)",
+"FACT TV — Against the Clock",
+"Print relaunch as a biannual (November 2020)"
+],
+"status": "online",
+"sources": [
+"https://en.wikipedia.org/wiki/Fact_(UK_magazine)",
+"https://en.wikipedia.org/wiki/The_Wire_(magazine)"
+]
+},
+"press-boiler-room": {
+"founded": "2010",
+"closed": null,
+"founders": [
+"Blaise Bellville",
+"Thristian Richards"
+],
+"editors": [],
+"notable": [
+"First stream (March 2010)",
+"DJ EZ 24-hour set (February 2016)",
+"4:3 platform (2018)",
+"Boiler Room Festival, Peckham (2019)",
+"Bought by DICE (2021)",
+"Charli XCX 'Partygirl' set (February 2024)",
+"Sold to Superstruct Entertainment/KKR (January 2025)"
+],
+"status": "online",
+"sources": [
+"https://en.wikipedia.org/wiki/Boiler_Room_(music_broadcaster)"
+]
+},
+"press-energy-flash": {
+"founded": "1998",
+"closed": null,
+"founders": [
+"Simon Reynolds"
+],
+"editors": [],
+"notable": [
+"US edition: Generation Ecstasy (abridged, Little, Brown)",
+"Opening chapter: A Tale of Three Cities",
+"Revised edition 2008 (new chapters)",
+"Revised edition 2013 (dubstep, US EDM)"
+],
+"status": "print",
+"sources": [
+"https://en.wikipedia.org/wiki/Energy_Flash",
+"https://en.wikipedia.org/wiki/Simon_Reynolds",
+"https://en.wikipedia.org/wiki/Suburban_Base",
+"https://en.wikipedia.org/wiki/Mr._C"
+]
+},
+"rec-incredible": {
+"label": "Renk Records",
+"catno": null,
+"released": "June 1994; reissued 29 August 1994",
+"formats": [
+"12\"",
+"CD single"
+],
+"producers": [
+"M-Beat"
+],
+"remixes": [
+"Booyaka mix (1994)",
+"Rhino mix (1994)",
+"Underground mix (drum & bass) (1994)",
+"Underground mix (deep bass) (1994)",
+"Jungle Steppers mix (1994)"
+],
+"charts": {
+"UK Singles (June 1994)": 39,
+"UK Singles (August 1994 reissue)": 8,
+"UK Dance": 2,
+"UK Indie (Music Week)": 1,
+"Netherlands Single Top 100": 13,
+"European Dance Radio": 4
+},
+"chart_source": "Wikipedia (citing Official Charts Company)",
+"reissues": [
+"Renk Records re-release with new mixes, August 1994"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Incredible_(M-Beat_song)"
+]
+},
+"rec-lovecantturnaround": {
+"label": "London Records (UK)",
+"catno": null,
+"released": "1986 (UK chart entry week ending 27 August 1986)",
+"formats": [
+"12\"",
+"7\""
+],
+"producers": [
+"Farley \"Jackmaster\" Funk",
+"Jesse Saunders",
+"Brothers by Music"
+],
+"remixes": [
+"Vocal Club Mix (1986)",
+"Houseappella (1986)",
+"Dub Can' Turn Around (1986)"
+],
+"charts": {
+"UK Singles": 10,
+"UK Singles (1996 re-release)": 40
+},
+"chart_source": "Wikipedia (citing Official Charts Company)",
+"reissues": [
+"UK re-release, 1996"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Love_Can%27t_Turn_Around",
+"https://en.wikipedia.org/wiki/Jesse_Saunders"
+]
+},
+"rec-communication": {
+"label": "Cyber Records (NL); AM PM (UK)",
+"catno": "CR033 (NL 12\"); 12AMPM129 / CDAMPM129 (UK)",
+"released": "19 July 1999 (NL); 2000 (UK)",
+"formats": [
+"12\"",
+"CD single"
+],
+"producers": [
+"Armin van Buuren"
+],
+"remixes": [
+"Vocal version feat. Carmen van den Brakel (2000)",
+"Vincent de Moor — remix",
+"Ben Liebrand — Electromix",
+"Paul Oakenfold — Full On Fluoro mix (Perfecto)",
+"David Gravell — remix (Armind)",
+"Communication Part 3 remixes (Armind, 2013)"
+],
+"charts": {
+"UK Singles": 18,
+"UK Dance": 2,
+"Dutch Top 40": 14,
+"Dutch Single Top 100": 95
+},
+"chart_source": "Wikipedia (citing Official Charts Company and Dutch Top 40)",
+"reissues": [
+"Armada Digital, 2013",
+"Music on Vinyl / Armada (Parts 1–3 vinyl), 2024"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Communication_(Armin_van_Buuren_song)",
+"https://en.wikipedia.org/wiki/Armin_van_Buuren"
+]
+},
+"rec-binaryfinary": {
+"label": "Aquarius Records; Positiva (EMI)",
+"catno": null,
+"released": "1997 (Aquarius); 1998 (Positiva)",
+"formats": [
+"12\"",
+"CD single"
+],
+"producers": [
+"Binary Finary (Matt Laws, Ricky Grant, Stuart Matheson)"
+],
+"remixes": [
+"Paul van Dyk — remix (1999)",
+"Gouryella — remix (1999)",
+"Matt Darey — remix (1999)",
+"Kaycee — remix (1999)",
+"Mark Sixma — remix (2018)",
+"Dosem — remix (2018)"
+],
+"charts": {
+"UK Singles (1998)": 24,
+"UK Singles (as \"1999\")": 11,
+"UK Singles (as \"2000\")": 84
+},
+"chart_source": "Wikipedia (citing Official Charts Company)",
+"reissues": [
+"Positiva (\"1999\"), 1999",
+"\"2000\", 2000",
+"20th-anniversary remixes, 2018",
+"Perfecto (with Paul Oakenfold & Marie Vaunt), 2026"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Binary_Finary",
+"https://www.qobuz.com/gb-en/interpreter/binary-finary/541467"
+]
+},
+"rec-wecameinpeace": {
+"label": "Suck Me Plasma",
+"catno": null,
+"released": "1990 (promo single 'Dance 2 Trance'); '91 Mix 1991",
+"formats": [
+"12\" promo"
+],
+"producers": [
+"Rolf Ellmer (Jam El Mar)",
+"DJ Dag (Dag Lerner)"
+],
+"remixes": [
+"'91 Mix (1991)"
+],
+"charts": {},
+"chart_source": null,
+"reissues": [
+"Works compilation (Blow Up), 1996"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Dance_2_Trance",
+"https://infinitespeeds.substack.com/p/states-of-trance-a-history-of-trance",
+"https://4d4m.com/?p=80444"
+]
+},
+"rec-translation": {
+"label": "Ostgut Ton",
+"catno": "O-Ton 052",
+"released": "19 September 2011",
+"formats": [
+"12\"",
+"digital download"
+],
+"producers": [
+"Marcel Dettmann"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://ra.co/reviews/9735",
+"https://kompakt.fm/releases/translation_ep",
+"https://factmag.com/2010/04/26/marcel-dettmann-dettmann",
+"https://en.wikipedia.org/wiki/Marcel_Dettmann"
+]
+},
+"set-musicinstitute": {
+"label": null,
+"catno": null,
+"released": "Fridays, May 1988 – November 1989 (club dates)",
+"formats": [],
+"producers": [
+"Derrick May (DJ)"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://daily.redbullmusicacademy.com/2017/05/music-institute-nightclubbing"
+]
+},
+"set-rage": {
+"label": null,
+"catno": null,
+"released": "Thursdays, October 1988 – November 1993 (club dates)",
+"formats": [],
+"producers": [
+"Fabio (DJ)",
+"Grooverider (DJ)"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [
+"30 Years of Rage compilation series (four parts)",
+"RAGE: The Club Night That Inspired a Generation (documentary), December 2019"
+],
+"sources": [
+"https://daily.redbullmusicacademy.com/2015/07/nightclubbing-fabio-and-grooverider-rage",
+"https://factmag.com/2019/12/05/this-new-documentary-explores-the-legacy-of-fabio-grooveriders-rage-club-night",
+"https://mixmag.net/feature/25-parties-that-changed-dance-music-forever"
+]
+},
+"set-de9": {
+"label": "NovaMute / M-nus",
+"catno": null,
+"released": "2 November 1999 (Decks, EFX & 909); 2001 (DE9: Closer to the Edit)",
+"formats": [],
+"producers": [
+"Richie Hawtin"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://en.wikipedia.org/wiki/Decks,_EFX_%26_909",
+"https://en.wikipedia.org/wiki/DE9:_Closer_to_the_Edit",
+"https://exclaim.ca/music/article/richie_hawtin_are_cueing_up",
+"https://en.wikipedia.org/wiki/Richie_Hawtin"
+]
+},
+"set-exhibitionist": {
+"label": "Axis (with React, NEWS, Sonar)",
+"catno": null,
+"released": "2004",
+"formats": [
+"DVD",
+"CD"
+],
+"producers": [
+"Jeff Mills"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [
+"Exhibitionist 2 (Axis, 2xDVD + CD, AXDV004), 2015"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Jeff_Mills",
+"https://exclaim.ca/music/article/jeff_mills-exhibitionist",
+"https://blog.12edit.com/jeff-mills-exhibitionist",
+"https://www.axisrecords.com/?p=318"
+]
+},
+"set-coxspace": {
+"label": null,
+"catno": null,
+"released": "20 September 2016 (live, streamed)",
+"formats": [
+"live stream"
+],
+"producers": [
+"Carl Cox (DJ)"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://www.ibiza-spotlight.com/night/2016/09/carl-cox-vinyl-final-chapter-space-ibiza",
+"https://mixmag.net/feature/the-15-best-moments-of-carl-coxs-final-space-set",
+"https://en.wikipedia.org/wiki/Carl_Cox"
+]
+},
+"rec-lsd": {
+"label": "Dragonfly Records",
+"catno": null,
+"released": "1994 (single with Alpha Centauri); 16 October 1995 (album Twisted)",
+"formats": [
+"12\" single",
+"album"
+],
+"producers": [
+"Simon Posford (Hallucinogen)"
+],
+"remixes": [
+"LSD (Live Mix) (1995)",
+"LSD (Remixes) (2003)"
+],
+"charts": {
+"France Albums (Twisted)": 27
+},
+"chart_source": "Wikipedia",
+"reissues": [
+"LSD single, 1996",
+"Twisted on Twisted Records, 1999"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Twisted_(Hallucinogen_album)",
+"https://en.wikipedia.org/wiki/Simon_Posford"
+]
+},
+"set-tiesto-athens": {
+"label": "Black Hole (album Parade of the Athletes)",
+"catno": null,
+"released": "13 August 2004 (performance); 7 September 2004 (album)",
+"formats": [
+"CD",
+"4xLP (NL limited)"
+],
+"producers": [
+"Tiësto"
+],
+"remixes": [],
+"charts": {
+"Dutch Albums": 4,
+"Greek Albums": 5,
+"US Top Dance Albums": 3,
+"Belgian Albums (Flanders)": 18,
+"German Albums": 85,
+"UK Albums": 84
+},
+"chart_source": "Wikipedia (album chart table)",
+"reissues": [
+"Unmixed edition, 2004"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Ti%C3%ABsto",
+"https://en.wikipedia.org/wiki/Parade_of_the_Athletes"
+]
+},
+"set-sasha-digweed": {
+"label": "Ministry of Sound (Northern Exposure 1–2); INCredible (Expeditions, Communicate)",
+"catno": null,
+"released": "1996 (Northern Exposure); 1997 (Northern Exposure 2); 1999 (Expeditions); Twilo residency 1997 – 6 May 2001",
+"formats": [
+"2xCD"
+],
+"producers": [
+"Sasha",
+"John Digweed"
+],
+"remixes": [],
+"charts": {
+"US Billboard 200 (Communicate)": 149
+},
+"chart_source": "Wikipedia",
+"reissues": [],
+"sources": [
+"https://en.wikipedia.org/wiki/John_Digweed",
+"https://en.wikipedia.org/wiki/Sasha_(DJ)",
+"https://en.wikipedia.org/wiki/Twilo"
+]
+},
+"set-speed": {
+"label": null,
+"catno": null,
+"released": "Midweek, from 1995 (club dates)",
+"formats": [],
+"producers": [
+"LTJ Bukem (DJ)",
+"Fabio (DJ)",
+"MC Conrad"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [
+"Logical Progression compilations (from 1996)",
+"Progression Sessions mix CDs (from 1998)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Good_Looking_Records",
+"https://www.thevinylfactory.com/features/an-introduction-to-ltj-bukem-in-10-records",
+"https://londonist.com/2016/09/london-elektricity-s-guide-to-london-drum-n-bass-venues",
+"https://mixmag.net/feature/25-parties-that-changed-dance-music-forever",
+"https://en.wikipedia.org/wiki/LTJ_Bukem"
+]
+},
+"rec-music": {
+"label": "Good Looking Records",
+"catno": null,
+"released": "1993",
+"formats": [],
+"producers": [
+"LTJ Bukem"
+],
+"remixes": [
+"Peshay — remix (1996)"
+],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://www.thevinylfactory.com/features/an-introduction-to-ltj-bukem-in-10-records",
+"https://en.wikipedia.org/wiki/LTJ_Bukem",
+"https://en.wikipedia.org/wiki/Good_Looking_Records"
+]
+},
+"rec-thenine": {
+"label": "BC Recordings",
+"catno": null,
+"released": "1998",
+"formats": [
+"12\""
+],
+"producers": [
+"Fresh (Dan Stein)",
+"Maldini"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://linenoise.substack.com/p/the-best-records-ever-to-wreck-a",
+"https://kmag.co.uk/the-essential-bad-company/"
+]
+},
+"set-dtm5x5": {
+"label": null,
+"catno": null,
+"released": "Movement 2011, Memorial Day weekend, Hart Plaza, Detroit",
+"formats": [],
+"producers": [
+"Detroit Techno Militia (five DJs)"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://detroittechnomilitia.com/",
+"https://blog.thephoenix.com/BLOGS/onthedownload/archive/2011/06/06/live-review-movement-electronic-music-festival-2011.aspx"
+]
+},
+"set-rip": {
+"label": null,
+"catno": null,
+"released": "Weekly, summer 1988 (club dates)",
+"formats": [],
+"producers": [
+"Mr. C (DJ)",
+"Eddie Richards (DJ)"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://en.wikipedia.org/wiki/Mr_C",
+"https://909originals.com/2018/09/11/postcards-from-88-richard-west-mr-c/",
+"https://djmag.com/node/5279",
+"https://musicistheanswer.substack.com/p/when-evil-eddie-richards-invited",
+"https://mixmag.net/feature/25-parties-that-changed-dance-music-forever"
+]
+},
+"rec-onandon": {
+"label": "Jes Say Records",
+"catno": null,
+"released": "Early 1984",
+"formats": [],
+"producers": [
+"Jesse Saunders",
+"Vince Lawrence"
+],
+"remixes": [
+"20th Anniversary of House version (2003)",
+"25th Anniversary Remixes (2009)",
+"35th Anniversary Remixes (2019)"
+],
+"charts": {},
+"chart_source": null,
+"reissues": [
+"20th anniversary, 2003",
+"25th anniversary remixes, 2009",
+"35th anniversary remixes, 2019"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Jesse_Saunders",
+"https://en.wikipedia.org/wiki/Love_Can%27t_Turn_Around"
+]
+},
+"rec-rip-groove": {
+"label": "Ice Cream Records / Satellite Recordings (duo's labels; per-release label not specified)",
+"catno": null,
+"released": "1997 (original, as R.I.P. Productions EP 'Double 99'); reissue featuring Top Cat 1997",
+"formats": [],
+"producers": [
+"Tim Deluxe (Timothy Liken)",
+"Omar Adimora"
+],
+"remixes": [
+"Reissue featuring Top Cat (1997)"
+],
+"charts": {
+"UK Singles (original)": 31,
+"UK Singles (reissue feat. Top Cat)": 14,
+"UK Dance (reissue)": 1,
+"Europe (reissue)": 29,
+"Scotland (reissue)": 50,
+"Scotland (original)": 66,
+"Europe (original)": 94
+},
+"chart_source": "Wikipedia (citing Official Charts Company)",
+"reissues": [
+"Reissue featuring Top Cat, 1997",
+"7th High album (BMG/Arista), 2001"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Double_99",
+"https://en.wikipedia.org/wiki/We_Are_I.E."
+]
+},
+"rec-brownpaperbag": {
+"label": "Talkin' Loud (album label)",
+"catno": null,
+"released": "27 October 1997",
+"formats": [],
+"producers": [
+"Roni Size",
+"DJ Die",
+"DJ Suv",
+"Krust"
+],
+"remixes": [],
+"charts": {
+"UK Singles": 20,
+"UK Albums (New Forms)": 8
+},
+"chart_source": "Wikipedia (citing Official Charts Company)",
+"reissues": [
+"New Forms² (remake), 2008"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/New_Forms"
+]
+},
+"rec-doppler": {
+"label": "KNTXT",
+"catno": "KNTXT010 (Formula EP)",
+"released": "30 April 2021 (per Snack); 12-inch 25 June 2021",
+"formats": [
+"12\"",
+"digital"
+],
+"producers": [
+"Charlotte de Witte"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [
+"KNTXT vinyl represses 2021, 2022, 2023, 2024, 2025"
+],
+"sources": [
+"https://aboveboarddist.co.uk/charlotte-de-witte-formula-ep-kntxt",
+"https://snackmag.co.uk/ep-charlotte-de-witte-formula",
+"https://en.wikipedia.org/wiki/Charlotte_de_Witte"
+]
+},
+"rec-kobosil": {
+"label": "Ostgut Ton",
+"catno": "OSTGUT 091EP (Forced Exposure listing)",
+"released": "28 August 2015",
+"formats": [
+"12\"",
+"digital"
+],
+"producers": [
+"Max Kobosil"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://xlr8r.com/?p=53609",
+"https://www.juno.co.uk/junodaily/2015/07/14/kobosil-debuts-on-ostgut-ton/",
+"https://www.forcedexposure.com/Catalog/kobosil-91-12-/OSTGUT.091EP.html",
+"https://en.wikipedia.org/wiki/Kobosil"
+]
+},
+"set-packard": {
+"label": null,
+"catno": null,
+"released": "1994 (per Vice); no recording known",
+"formats": [],
+"producers": [
+"Richie Hawtin"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://www.vice.com/en/article/five-more-unbelievable-places-richie-hawtin-has-played",
+"https://daily.redbullmusicacademy.com/2014/05/detroit-electronic-music-scene-in-the-90s"
+]
+},
+"set-garnierrex": {
+"label": null,
+"catno": null,
+"released": "Early 1990s, for three years (c. 1992 onward; first anniversary marked by a 1993 Wake Up! release)",
+"formats": [],
+"producers": [
+"Laurent Garnier"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://en.wikipedia.org/wiki/Laurent_Garnier",
+"https://djmag.com/content/hall-fame-laurent-garnier",
+"https://direct.djmag.com/longreads/end-club-changed-london"
+]
+},
+"set-klubnacht": {
+"label": "Ostgut Ton (Berghain mix CD series)",
+"catno": "OSTGUTCD13 (Berghain 04)",
+"released": "Club sets 2005– (not released); Berghain 04 June 2010; Berghain 02 by Dettmann (date not given in sources)",
+"formats": [
+"CD"
+],
+"producers": [
+"Ben Klock",
+"Marcel Dettmann"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://en.wikipedia.org/wiki/Berghain",
+"https://factmag.com/2010/06/28/ben-klock-berghain-04",
+"https://ra.co/reviews/7635"
+]
+},
+"set-surgeonbr": {
+"label": "fabric (mix CD series)",
+"catno": null,
+"released": "fabric 53: 2010; Boiler Room set at Dekmantel: c. 2015 (CDM article July 2015)",
+"formats": [
+"CD",
+"video"
+],
+"producers": [
+"Surgeon (Anthony Child)"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://www.juno.co.uk/junodaily/?p=15146",
+"https://cdm.link/techno-legend-surgeon-breaking-live-modular-set-right-now/",
+"https://budx.mixmag.net/feature/10-of-the-best-live-modular-sets-you-can-watch-online",
+"https://en.wikipedia.org/wiki/Surgeon_(musician)"
+]
+},
+"set-sunrise5000": {
+"label": null,
+"catno": null,
+"released": "June 1989 (exact date, billing and attendance not confirmed in sources)",
+"formats": [],
+"producers": [
+"Sunrise (Tony Colston-Hayter)"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://mixmag.net/read/the-great-british-freak-out-news",
+"https://en.wikipedia.org/wiki/Tony_Colston-Hayter"
+]
+},
+"rec-lovestory": {
+"label": "XL Recordings",
+"catno": null,
+"released": "2002; 'vs. Finally' version 13 January 2003",
+"formats": [],
+"producers": [
+"Layo Paskin",
+"Matthew Benjamin"
+],
+"remixes": [
+"Love Story (vs. Finally), with the vocal from Kings of Tomorrow's Finally (2003)"
+],
+"charts": {
+"UK Singles": 8,
+"UK Dance": 1,
+"US Hot Dance Club": 4,
+"Scotland": 11,
+"Eurochart Hot 100": 29,
+"Netherlands": 96
+},
+"chart_source": "officialcharts.com; Billboard (via Wikipedia)",
+"reissues": [
+"XL Recordings, 13 January 2003 (vs. Finally)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Love_Story_(vs._Finally)",
+"https://en.wikipedia.org/wiki/Layo_%26_Bushwacka!"
+]
+},
+"set-endlast": {
+"label": null,
+"catno": null,
+"released": "Saturday 24 January 2009, 8pm, into Sunday 25 January (no official recording found)",
+"formats": [],
+"producers": [
+"Laurent Garnier",
+"Layo & Bushwacka!",
+"Mr C",
+"Erol Alkan",
+"Ben Watt",
+"Jimpster",
+"Will Saul",
+"Rory Phillips",
+"Frankie Valentine",
+"Don Mac"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://direct.djmag.com/longreads/end-club-changed-london",
+"https://ra.co/events/80031",
+"https://en.wikipedia.org/wiki/The_End_(club)"
+]
+},
+"rec-headzgonewest": {
+"label": null,
+"catno": null,
+"released": "7 April 2021 (single); EP 29 April 2021",
+"formats": [],
+"producers": [
+"Nia Archives"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://mixmag.net/read/nia-archives-headz-gone-west-debut-ep-release-jungle-news",
+"https://www.complex.com/music/a/james-keith/premiere-nia-archives-headz-gone-west"
+]
+},
+"rec-stella": {
+"label": "R&S Records",
+"catno": "R&S 9203 (Tales from a Danceographic Ocean EP)",
+"released": "1992",
+"formats": [
+"12\"",
+"CD"
+],
+"producers": [
+"Jam & Spoon (Rolf Ellmer, Markus Löffel)"
+],
+"remixes": [
+"Moby — Barracuda Mix and Electro Mix (1992)",
+"Frank De Wulf — The Lost Bet Mix (1992)",
+"Jam & Spoon Mix (1992)",
+"Storm — Storm Mix (1999)",
+"Nalin & Kane — remix (1999)",
+"Westbam — remix (1999)",
+"Tall Paul — remix (1999)"
+],
+"charts": {},
+"chart_source": null,
+"reissues": [
+"R&S, 1996",
+"Jam/Dance Pool/Sony (Stella 1999), 1999"
+],
+"sources": [
+"https://www.tursa.franken.de/JamAndSpoon_discog.html"
+]
+},
+"rec-forangel": {
+"label": "MFS (1994); Deviant (1998)",
+"catno": null,
+"released": "1994 (album 45 RPM); E-Werk single 24 August 1998 (UK)",
+"formats": [
+"12\""
+],
+"producers": [
+"Paul van Dyk"
+],
+"remixes": [
+"Paul van Dyk — PvD E-Werk Club Mix (1998)",
+"Way Out West — remix (1998)",
+"Terry Lee Brown Jr — remix (1998)",
+"Paul van Dyk — PvD Remix '09 (2009)"
+],
+"charts": {
+"UK Singles": 28,
+"UK Dance": 1,
+"UK Indie": 3,
+"Ireland": 26,
+"Germany": 44,
+"Belgium (Flanders)": 45,
+"Netherlands": 54,
+"Eurochart Hot 100": 74
+},
+"chart_source": "officialcharts.com (via Wikipedia)",
+"reissues": [
+"For an Angel 2009 (UK 68, Germany 21, Austria 31)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/For_an_Angel"
+]
+},
+"rec-flamingjune": {
+"label": "Perfecto",
+"catno": null,
+"released": "30 June 1997",
+"formats": [
+"12\"",
+"CD"
+],
+"producers": [
+"BT",
+"Paul van Dyk"
+],
+"remixes": [
+"Chicane — remix (1997)",
+"Lemon D — remix (1997)",
+"H.H.C. — remix (1997)",
+"Simon Hale — orchestral version (1997)",
+"Paul Oakenfold — remix (2023)"
+],
+"charts": {
+"UK Singles": 19,
+"UK Dance": 1
+},
+"chart_source": "officialcharts.com",
+"reissues": [
+"1998 chart return (UK Singles 28, UK Dance 1)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Flaming_June_(song)"
+]
+},
+"rec-universalnation": {
+"label": "Bonzai Records",
+"catno": null,
+"released": "1998 (recorded 1997)",
+"formats": [],
+"producers": [
+"Mike Dierickx (M.I.K.E.)"
+],
+"remixes": [
+"DJ JamX & DeLeon — DuMonde Remix and DuMonde Radio Mix",
+"Jeckyll & Hyde — radio remix (2007)"
+],
+"charts": {
+"UK Singles": 36,
+"Belgium (Flanders)": 28,
+"Belgium (Wallonia)": 29,
+"France": 53,
+"Germany": 59,
+"Scotland": 31
+},
+"chart_source": "officialcharts.com; Ultratop (via Wikipedia)",
+"reissues": [
+"UK reissue, 2003 (UK Singles 54)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Universal_Nation"
+]
+},
+"rec-airwave": {
+"label": "Be Yourself Music (UK chart release)",
+"catno": "BYM402LP (as listed by the Official Charts Company)",
+"released": "1 April 1999 (original mix, Innercity 1999 theme)",
+"formats": [],
+"producers": [
+"Piet Bervoets",
+"Benno de Goeij"
+],
+"remixes": [
+"Rank 1 vs. Dutch Force — remix (1999)",
+"Radio Vocal Mix (2000)",
+"Breathing (Airwave 2003), with Aino Laos (2003)",
+"21st Century Mix (2014)",
+"Giuseppe Ottaviani & Alchemyst — remix (2023)"
+],
+"charts": {
+"UK Singles": 10,
+"UK Dance": 4,
+"US Hot Dance Club": 25
+},
+"chart_source": "officialcharts.com; Billboard (via Wikipedia)",
+"reissues": [
+"Airwave (21st Century Mix), August 2014"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Rank_1",
+"https://officialcharts.com/songs/rank-1-airwave"
+]
+},
+"rec-madagascar": {
+"label": "Platipus",
+"catno": "PLAT43 (1998); PLAT58 (1999)",
+"released": "1998 (UK chart entry 31 October 1998)",
+"formats": [],
+"producers": [
+"Simon Berry (Art of Trance)"
+],
+"remixes": [],
+"charts": {
+"UK Singles": 41,
+"UK Dance": 1
+},
+"chart_source": "officialcharts.com (1998 and 1999 runs); Wikipedia (2002 run)",
+"reissues": [
+"Platipus PLAT58, August 1999",
+"Madagascar / Monsoon, 2005",
+"Madagascar Remastered 2009"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Simon_Berry",
+"https://www.officialcharts.com/songs/art-of-trance-madagascar/",
+"https://www.officialcharts.com/songs/art-of-trance-madagasga/"
+]
+},
+"rec-canyoufeelit": {
+"label": "Trax Records",
+"catno": null,
+"released": "1986 (first recorded 1984)",
+"formats": [
+"12\""
+],
+"producers": [
+"Larry Heard"
+],
+"remixes": [
+"Chuck Roberts 'My House' spoken-word version (released by Eddie Richards)",
+"Martin Luther King 'I Have a Dream' version",
+"Robert Owens vocal version"
+],
+"charts": {
+"UK Singles": 78
+},
+"chart_source": "officialcharts.com (via Wikipedia; 1988 UK release)",
+"reissues": [
+"UK 12-inch, 1988",
+"Fingers Inc., Another Side, 1988"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Can_You_Feel_It_(Larry_Heard_song)",
+"https://www.insomniac.com/?p=42046"
+]
+},
+"rec-dafunk": {
+"label": "Soma Quality Recordings (1995); Virgin (1997)",
+"catno": "Soma 025",
+"released": "8 May 1995",
+"formats": [
+"12\""
+],
+"producers": [
+"Daft Punk (Thomas Bangalter, Guy-Manuel de Homem-Christo)"
+],
+"remixes": [
+"Armand van Helden — Ten Minutes of Funk (1997)"
+],
+"charts": {
+"UK Singles": 7,
+"US Hot Dance Club": 1,
+"France": 7,
+"Canada Dance/Urban (RPM)": 1,
+"Italy": 8,
+"Scotland": 5,
+"Iceland": 5,
+"Belgium (Wallonia)": 9,
+"Eurochart Hot 100": 25
+},
+"chart_source": "officialcharts.com; Billboard (via Wikipedia)",
+"reissues": [
+"Virgin, 10 January 1997 (Europe) / 3 February 1997 (UK), with Musique"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Da_Funk"
+]
+},
+"rec-gabriel": {
+"label": "Large Records (US, 1996); XL Recordings (UK, 1997)",
+"catno": "LAR-019",
+"released": "1996 (US, as 'Gabrielle'); October 1997 (UK)",
+"formats": [
+"12\"",
+"CD (UK)"
+],
+"producers": [
+"Roy Davis Jr.",
+"Peven Everett"
+],
+"remixes": [
+"Basement Jaxx — remix (1997)",
+"R.I.P. Productions — R.I.P. Mix (1997)",
+"M-Beat — remix (1997)",
+"Victor Imbres — remix (1997)",
+"Large Joints (Mike Millrain) — 2-step remix (2000)"
+],
+"charts": {
+"UK Singles": 22,
+"UK Dance": 5
+},
+"chart_source": "officialcharts.com",
+"reissues": [
+"XL Recordings, October 1997"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Gabriel_(Roy_Davis_Jr._song)",
+"https://ra.co/reviews/34764"
+]
+},
+"set-oakenfold-goa": {
+"label": "Cream Records (1995, limited, unlicensed); New State Music (The Goa Mix 2011)",
+"catno": null,
+"released": "Broadcast 18 December 1994 (BBC Radio 1 Essential Mix)",
+"formats": [
+"radio broadcast",
+"2×CD"
+],
+"producers": [
+"Paul Oakenfold"
+],
+"remixes": [],
+"charts": {
+"UK Compilation (The Goa Mix 2011)": 33
+},
+"chart_source": "UK Compilation Chart (via Wikipedia)",
+"reissues": [
+"Cream Records, 1995 (limited, club shop only)",
+"New State Music, The Goa Mix 2011, 1 November 2010"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/The_Goa_Mix",
+"https://909originals.com/2019/12/18/it-was-a-sound-and-style-that-had-never-been-heard-before-909originals-catches-up-with-paul-oakenfold-on-the-25th-anniversary-of-the-goa-mix/",
+"https://en.wikipedia.org/wiki/Essential_Mix",
+"https://en.wikipedia.org/wiki/Alfredo_Fiorito"
+]
+},
+"set-alfredo": {
+"label": null,
+"catno": null,
+"released": "Residency from 1984, lasting six years; sets 6am–midday (1984), 3am–noon (1985)",
+"formats": [],
+"producers": [
+"Alfredo Fiorito"
+],
+"remixes": [],
+"charts": {},
+"chart_source": null,
+"reissues": [],
+"sources": [
+"https://en.wikipedia.org/wiki/Alfredo_Fiorito",
+"https://testpressing.org/magazine/alfredo-an-interview",
+"https://www.amnesia.es/en/news-info/dj-alfredo-the-man-who-gave-sound-to-the-soul-of-ibiza",
+"https://en.wikipedia.org/wiki/Amnesia_(nightclub)"
 ]
 }
 };

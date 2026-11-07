@@ -33,7 +33,7 @@
   const setParam = (st, path, v) => { const [k, sub] = path.split('.'); if (sub){ st.over[k] = st.over[k] || {}; st.over[k][sub] = v; } else st.over[k] = v; if (st.playing) applyOver(st); };
   const setLevel = (st, lid, v) => { st.levels[lid] = v; if (st.playing) applyOver(st); };
   const hit = (lid, st) => { const ch = AudioCore.get(); const dk = deck(); if (!st.playing){ dk.load(st.genre); applyOver(st); } const t = ch.c.currentTime + 0.02; const P = dk.P, ch2 = dk.chain; const d = 60 / PRESET(st.genre).bpm / 4;
-    ({ kick: () => { S.kick(ch2, t, P.kick); }, sub: () => S.sub(ch2, t, { freq: P.root, ...P.sub }), off: () => S.off(ch2, t, { freq: P.root * 2, cutoff: P.offCutoff }), acid: () => S.acid(ch2, t, { ...P.acid, freq: P.root * 2, accent: true }), stab: () => S.stab(ch2, t, { root: P.root * 4, ...P.stab }), hoover: () => S.hoover(ch2, t, { root: P.root * 4, ...(P.hoover || {}) }), bleep: () => S.bleep(ch2, t, { freq: P.root * 8 }), hatc: () => S.hat(ch2, t, { decay: P.hat.decayC, tone: P.hat.tone, level: 0.35 }), hato: () => S.hat(ch2, t, { open: true, decay: P.hat.decayO, tone: P.hat.tone }), ride: () => S.hat(ch2, t, { open: true, decay: 0.42, tone: 7500, level: 0.2, dest: dk.tr.ride }), clap: () => S.clap(ch2, t, P.clap || {}), snare: () => S.snare(ch2, t, P.snare || {}), tom: () => S.tom(ch2, t, { pitch: 200, ...(P.tom || {}) }), metal: () => S.metal(ch2, t, { ratio: 1.41 }), shaker: () => S.shaker(ch2, t, { level: 0.4 }), reese: () => S.reese(ch2, t, { freq: P.root, dur: d * 4, ...(P.reese || {}) }), super: () => S.supersaw(ch2, t, { freq: P.root * 8, gate: d * 2, ...(P.super || {}) }), piano: () => S.piano(ch2, t, { root: P.root * 4, chord: P.pianoChord || [0, 3, 7, 10] }), organ: () => S.organ(ch2, t, { freq: P.root * 2, dur: d * 2 }) }[lid] || (() => {}))(); };
+    ({ kick: () => { S.kick(ch2, t, P.kick); }, sub: () => S.sub(ch2, t, { freq: P.root, ...P.sub }), off: () => S.off(ch2, t, { freq: P.root * 2, cutoff: P.offCutoff }), acid: () => S.acid(ch2, t, { ...P.acid, freq: P.root * 2, accent: true }), stab: () => S.stab(ch2, t, { root: P.root * 4, ...P.stab }), hoover: () => S.hoover(ch2, t, { root: P.root * 4, ...(P.hoover || {}) }), bleep: () => S.bleep(ch2, t, { freq: P.root * 8 }), hatc: () => S.hat(ch2, t, { decay: P.hat.decayC, tone: P.hat.tone, level: 0.35 }), hato: () => S.hat(ch2, t, { open: true, decay: P.hat.decayO, tone: P.hat.tone }), ride: () => S.hat(ch2, t, { open: true, decay: 0.42, tone: 7500, level: 0.2, dest: dk.tr.ride }), clap: () => S.clap(ch2, t, P.clap || {}), snare: () => S.snare(ch2, t, P.snare || {}), tom: () => S.tom(ch2, t, { pitch: 200, ...(P.tom || {}) }), metal: () => S.metal(ch2, t, { ratio: 1.41 }), rim: () => S.rim && S.rim(ch2, t, {}), cow: () => S.cow && S.cow(ch2, t, {}), shaker: () => S.shaker(ch2, t, { level: 0.4 }), reese: () => S.reese(ch2, t, { freq: P.root, dur: d * 4, ...(P.reese || {}) }), super: () => S.supersaw(ch2, t, { freq: P.root * 8, gate: d * 2, ...(P.super || {}) }), piano: () => S.piano(ch2, t, { root: P.root * 4, chord: P.pianoChord || [0, 3, 7, 10] }), organ: () => S.organ(ch2, t, { freq: P.root * 2, dur: d * 2 }) }[lid] || (() => {}))(); };
   const stepRow = (lid, cls) => `<div class="hwsteps" data-layer="${lid}">${Array.from({ length: 16 }, (_, i) => `<button class="hwst ${cls || ''} g${Math.floor(i / 4)}" data-i="${i}"><i></i>${i + 1}</button>`).join('')}</div>`;
   const paintSteps = (box, st) => { box.querySelectorAll('.hwsteps').forEach(row => { const lid = row.dataset.layer; row.querySelectorAll('.hwst').forEach(b => { const v = st.pat[lid][+b.dataset.i]; b.classList.toggle('on', v === 1); b.classList.toggle('acc', v === 2); b.classList.toggle('sl', v === 3); }); }); };
   const wireSteps = (box, st, cycle) => { box.querySelectorAll('.hwsteps .hwst').forEach(b => b.onclick = () => { const lid = b.closest('.hwsteps').dataset.layer; const i = +b.dataset.i; const cur = st.pat[lid][i]; st.pat[lid][i] = cycle ? (cur + 1) % 4 : (cur ? 0 : 1); paintSteps(box, st); }); };
@@ -43,7 +43,7 @@
   const P = {};
   // DRUM MACHINE: instrument select, one visible step row, per-voice knobs
   P.drum = (box, m, o) => {
-    const st = mkState(box, o.preset); const kit = o.kit || [['kick', 'BD'], ['snare', 'SD'], ['clap', 'CP'], ['hatc', 'CH'], ['hato', 'OH'], ['tom', 'LT'], ['metal', 'CB'], ['shaker', 'MA']];
+    const st = mkState(box, o.preset); const kit = o.kit || [['kick', 'BD'], ['snare', 'SD'], ['clap', 'CP'], ['hatc', 'CH'], ['hato', 'OH'], ['tom', 'LT'], ['rim', 'RS'], ['ride', 'RD'], ['shaker', 'MA']];
     const G = PRESET(o.preset);
     box.innerHTML = `<div class="hw hwdrum ${o.skin || ''}"><div class="hwtitle"><b>${o.name}</b><span>${o.sub}</span></div>
       <div class="hwrow"><div class="hwsect"><em>bass drum</em>${knob('kick.pitchEnd', 'tune', 35, 90, G.kick.pitchEnd, 'hz')}${knob('kick.ampDecay', 'decay', 0.08, 1.2, G.kick.ampDecay, 'ms')}${knob('kick.click', 'attack', 0, 1, G.kick.click, 'pc')}${knob('kick.drive', 'drive', 1, 12, G.kick.drive, 'x')}</div>
@@ -95,6 +95,35 @@
     box.querySelectorAll('.hwkey').forEach(k => k.onpointerdown = () => { const ch = AudioCore.get(); const dk = deck(); if (!st.playing){ dk.load(st.genre); applyOver(st); } const t = ch.c.currentTime + 0.02; const root = (st.over.root || G.key[1]) * 4 * Math.pow(2, +k.dataset.n / 12); if (hoov) S.hoover(dk.chain, t, { root, ...(dk.P.hoover || {}) }); else S.stab(dk.chain, t, { root, ...dk.P.stab }); k.classList.add('on'); setTimeout(() => k.classList.remove('on'), 150); });
     wireControls(box, (id, v) => { if (id === 'lv') setLevel(st, hoov ? 'hoover' : 'stab', v); else if (id === 'tune'){ st.over.root = G.key[1] * Math.pow(2, v / 12); if (st.playing) applyOver(st); } else setParam(st, id, v); });
   };
+
+  // FM: two operators per voice, with the DX7's best-known patch families
+  P.fm = (box, m, o) => {
+    const st = mkState(box, o.preset); seed(st, 'stab', '..x...x...x...x.'); const G = PRESET(o.preset);
+    const PATCHES = {
+      'E.Piano': { ratio: 1, index: 2.2, idecay: 0.6, decay: 1.2, tine: 0.3, oct: 0, chord: [0, 4, 7, 11] },
+      'Bass': { ratio: 1, index: 4.5, idecay: 0.25, decay: 0.34, tine: 0, oct: -1, gain: 2.6, chord: [0] },
+      'Bells': { ratio: 3.5, index: 3, idecay: 1.4, decay: 2.2, tine: 0, oct: 0, chord: [0, 7, 12] },
+      'Clav': { ratio: 3, index: 1.8, idecay: 0.12, decay: 0.25, tine: 0.1, oct: 0, chord: [0, 7] }
+    };
+    let cur = 'E.Piano';
+    const fmNow = () => (st.over.stab && st.over.stab.fm) || {};
+    const apply = () => { const pp = PATCHES[cur]; st.over.stab = Object.assign({}, st.over.stab || {}, { fm: { ratio: pp.ratio, index: pp.index, idecay: pp.idecay, decay: pp.decay, tine: pp.tine, oct: pp.oct, gain: pp.gain || 1 }, chord: pp.chord, decay: pp.decay }); if (st.playing) applyOver(st); };
+    apply(); const F0 = fmNow();
+    box.innerHTML = `<div class="hw hwfm ${o.skin || ''}"><div class="hwtitle"><b>${o.name}</b><span>${o.sub}</span></div>
+      <div class="hwrow">
+        <div class="hwsect hwchords"><em>patch</em>${Object.keys(PATCHES).map(n => `<button class="hwc ${n === cur ? 'on' : ''}" data-p="${n}">${n}</button>`).join('')}</div>
+        <div class="hwsect"><em>operators</em>${knob('fm.ratio', 'ratio', 0.5, 14, F0.ratio, 'x')}${knob('fm.index', 'index', 0, 10, F0.index, 'x')}${knob('fm.idecay', 'mod decay', 0.02, 2, F0.idecay, 'ms')}${knob('fm.tine', 'tine', 0, 1, F0.tine, 'pc')}</div>
+        <div class="hwsect"><em>amp</em>${knob('fm.decay', 'decay', 0.1, 3, F0.decay, 'ms')}${knob('lv', 'level', 0, 1, G.levels.stab != null ? G.levels.stab : 0.8, 'pc')}</div>
+      </div>
+      <div class="hwkeys">${Array.from({ length: 13 }, (_, i) => `<button class="hwkey ${[1, 3, 6, 8, 10].includes(i) ? 'blk' : ''}" data-n="${i}"></button>`).join('')}</div>
+      ${stepRow('stab')}
+      <div class="hwfoot"><button class="play hwrun">run</button><span class="cap">FM: a modulator sine bends a carrier sine's pitch so fast it becomes tone colour. Ratio sets which overtones; index sets how bright; mod decay is how quickly the brightness falls away — the DX7's whole vocabulary.</span></div></div>`;
+    const setKnob = (id, v) => { const el = box.querySelector(`.hwk[data-id="${id}"]`); if (!el) return; el.dataset.val = v; paint(el); };
+    wireSteps(box, st); wireRun(box, st); paintSteps(box, st);
+    box.querySelectorAll('.hwc').forEach(b => b.onclick = () => { box.querySelectorAll('.hwc').forEach(x => x.classList.remove('on')); b.classList.add('on'); cur = b.dataset.p; apply(); const F = fmNow(); ['ratio', 'index', 'idecay', 'tine', 'decay'].forEach(k => setKnob('fm.' + k, F[k])); });
+    box.querySelectorAll('.hwkey').forEach(k => k.onpointerdown = () => { const ch = AudioCore.get(); const dk = deck(); if (!st.playing){ dk.load(st.genre); applyOver(st); } const t = ch.c.currentTime + 0.02; const root = (st.over.root || G.key[1]) * 4 * Math.pow(2, +k.dataset.n / 12); S.fm(dk.chain, t, { root, ...dk.P.stab, fm: fmNow() }); k.classList.add('on'); setTimeout(() => k.classList.remove('on'), 150); });
+    wireControls(box, (id, v) => { if (id === 'lv') return setLevel(st, 'stab', v); const k = id.split('.')[1]; const F = Object.assign({}, fmNow(), { [k]: v }); st.over.stab = Object.assign({}, st.over.stab || {}, { fm: F }, k === 'decay' ? { decay: v } : {}); if (st.playing) applyOver(st); });
+  };
   // SUPERSAW: detune spread, voices, cutoff, gate, and the lead's notes
   P.super = (box, m, o) => {
     const st = mkState(box, o.preset); seed(st, 'super', 'x.x.x.x.x.x.x.x.'); const G = PRESET(o.preset); const notes = (G.leadNotes || G.acidNotes).slice();
@@ -120,18 +149,18 @@
   };
   // SAMPLER / PADS: pads fire the book's one-shots; pitch and 'stretch' knobs; swing
   P.pads = (box, m, o) => {
-    const st = mkState(box, o.preset); const G = PRESET(o.preset);
+    const st = mkState(box, o.preset); const G = PRESET(o.preset); const gr = Object.assign({ bits: 16, rate: 44100 }, G.grit || {}, o.grit || {}); st.over.grit = { ...gr };
     const pads = o.pads || [['kick', 'kick'], ['snare', 'snare'], ['clap', 'clap'], ['hatc', 'hat'], ['hato', 'open hat'], ['tom', 'tom'], ['metal', 'metal'], ['shaker', 'shaker'], ['stab', 'chord'], ['piano', 'piano'], ['organ', 'organ'], ['sub', 'sub'], ['reese', 'reese'], ['hoover', 'hoover'], ['bleep', 'bleep'], ['super', 'saw']];
     box.innerHTML = `<div class="hw hwpads ${o.skin || ''}"><div class="hwtitle"><b>${o.name}</b><span>${o.sub}</span></div>
       <div class="hwrow"><div class="hwpadgrid">${pads.map(([lid, lab]) => `<button class="hwpad" data-lid="${lid}"><i></i>${lab}</button>`).join('')}</div>
-      <div class="hwsect hwpadk"><em>${o.mpc ? 'timing' : 'sample'}</em>${knob('swing', 'swing', 0, 0.33, G.swing, 'pc')}${knob('tom.pitch', 'pitch', 80, 600, 200, 'hz', 1)}${knob('snare.decay', 'stretch', 0.05, 0.6, 0.18, 'ms')}${knob('bpm', 'tempo', 90, 190, G.bpm, 'bpm')}<p class="cap">${o.note || ''}</p></div></div>
+      <div class="hwsect hwpadk"><em>${o.mpc ? 'timing' : 'sample'}</em>${knob('swing', 'swing', 0, 0.33, G.swing, 'pc')}${knob('tom.pitch', 'pitch', 80, 600, 200, 'hz', 1)}${knob('snare.decay', 'stretch', 0.05, 0.6, 0.18, 'ms')}${knob('bpm', 'tempo', 90, 190, G.bpm, 'bpm')}</div><div class="hwsect hwpadk"><em>grit</em>${knob('grit.bits', 'bits', 6, 16, gr.bits, 'n')}${knob('grit.rate', 'rate', 4000, 48000, gr.rate, 'hz', 1)}<p class="cap">${o.note || ''} Bits and rate are the sampler's grit, applied to the drums: 12-bit at 26 kHz is the SP-1200, 12-bit at 40 kHz the MPC60.</p></div></div>
       <div class="hwinst">${pads.slice(0, 8).map(([lid, lab]) => `<button class="hwi" data-lid="${lid}"><i></i>${lab}</button>`).join('')}</div>${stepRow('kick')}
       <div class="hwfoot"><button class="play hwrun">run</button><span class="cap">Pads play; the row below sequences the selected one. Swing is the MPC's whole reputation: 54–66%.</span></div></div>`;
     box.querySelectorAll('.hwpad').forEach(b => b.onpointerdown = () => { hit(b.dataset.lid, st); b.classList.add('on'); setTimeout(() => b.classList.remove('on'), 120); });
     const select = lid => { box.querySelectorAll('.hwi').forEach(b => b.classList.toggle('on', b.dataset.lid === lid)); box.querySelector('.hwsteps').dataset.layer = lid; paintSteps(box, st); };
     box.querySelectorAll('.hwi').forEach(b => b.onclick = () => select(b.dataset.lid)); select('kick');
     wireSteps(box, st); wireRun(box, st);
-    wireControls(box, (id, v) => { if (id === 'bpm') setParam(st, 'bpmOverride', v); else setParam(st, id, v); });
+    wireControls(box, (id, v) => { if (id === 'bpm') setParam(st, 'bpmOverride', v); else setParam(st, id, id === 'grit.bits' ? Math.round(v) : v); });
   };
   // CLIP LAUNCHER: scenes × tracks, quantised to the bar
   P.clips = (box, m, o) => {
@@ -190,14 +219,14 @@
 
   /* ---------- which machine gets which panel ---------- */
   const MAP = {
-    tr808: ['drum', { name: 'Rhythm composer, 1980', sub: 'analogue drum voices · 16-step write mode', preset: 'Electro 1983', skin: 'skin808', kit: [['kick', 'BD'], ['snare', 'SD'], ['clap', 'CP'], ['hatc', 'CH'], ['hato', 'OH'], ['tom', 'LT'], ['metal', 'CB'], ['shaker', 'MA']] }],
+    tr808: ['drum', { name: 'Rhythm composer, 1980', sub: 'analogue drum voices · 16-step write mode', preset: 'Electro 1983', skin: 'skin808', kit: [['kick', 'BD'], ['snare', 'SD'], ['clap', 'CP'], ['hatc', 'CH'], ['hato', 'OH'], ['tom', 'LT'], ['rim', 'RS'], ['cow', 'CB'], ['shaker', 'MA']] }],
     tr909: ['drum', { name: 'Rhythm composer, 1983', sub: 'analogue drums, sampled cymbals · 16 steps', preset: 'Detroit 1988', skin: 'skin909' }],
-    tr707: ['drum', { name: 'Rhythm composer, 1985', sub: 'sampled drums · the Chicago box', preset: 'Chicago acid 1987', skin: 'skin707', kit: [['kick', 'BD'], ['snare', 'SD'], ['clap', 'HC'], ['hatc', 'CH'], ['hato', 'OH'], ['tom', 'LT'], ['metal', 'CB'], ['shaker', 'TB']] }],
+    tr707: ['drum', { name: 'Rhythm composer, 1985', sub: 'sampled drums · the Chicago box', preset: 'Chicago acid 1987', skin: 'skin707', kit: [['kick', 'BD'], ['snare', 'SD'], ['clap', 'HC'], ['hatc', 'CH'], ['hato', 'OH'], ['tom', 'LT'], ['rim', 'RS'], ['cow', 'CB'], ['shaker', 'TB']] }],
     tr606: ['drum', { name: 'Drumatix, 1981', sub: 'the 303\'s companion · seven voices', preset: 'Chicago acid 1987', skin: 'skin606', kit: [['kick', 'BD'], ['snare', 'SD'], ['hatc', 'CH'], ['hato', 'OH'], ['tom', 'LT'], ['metal', 'CY']] }],
     tr8: ['drum', { name: 'Rhythm performer, 2014', sub: 'the 808 and 909 modelled · the revival box', preset: 'Hard techno 2023', skin: 'skin8' }],
     behringer: ['drum', { name: 'Analogue clone, 2019', sub: 'the 808 circuit for a tenth of the price', preset: 'Hard techno 2023', skin: 'skin808' }],
     elektron: ['drum', { name: 'Machinedrum / Octatrack', sub: 'sequencer-first · parameter locks', preset: 'Industrial 2018', skin: 'skinelk', kit: [['kick', 'BD'], ['snare', 'SD'], ['clap', 'CP'], ['hatc', 'CH'], ['hato', 'OH'], ['metal', 'MT'], ['shaker', 'SH'], ['bleep', 'BL']] }],
-    sp1200: ['pads', { name: 'Sampling drum machine, 1987', sub: '12-bit · 2.5 seconds of memory', preset: 'UK rave 1991', skin: 'skinsp', note: 'Ten seconds of sampling in total, 26 kHz, 12 bits: the grit is the memory running out.' }],
+    sp1200: ['pads', { grit: { bits: 12, rate: 26040, filter: false }, name: 'Sampling drum machine, 1987', sub: '12-bit · 2.5 seconds of memory', preset: 'UK rave 1991', skin: 'skinsp', note: 'Ten seconds of sampling in total, 26 kHz, 12 bits: the grit is the memory running out.' }],
     tb303: ['bass', { name: 'Bass line, 1981', sub: 'one oscillator, one filter, one sequencer', preset: 'Chicago acid 1987', skin: 'skin303' }],
     'bass-station': ['bass', { name: 'Bass Station, 1993', sub: 'the British 303 · two oscillators', preset: 'Acid techno 1994', skin: 'skinbs' }],
     sh101: ['bass', { name: 'Monosynth, 1982', sub: 'one VCO, a sub-oscillator, a sequencer', preset: 'UK rave 1991', skin: 'skin101', wave: 'square' }],
@@ -209,17 +238,17 @@
     juno60: ['poly', { name: 'Polysynth with chorus, 1982', sub: 'six voices, one DCO each, the chorus button', preset: 'Deep house 1990', skin: 'skinjuno' }],
     'alpha-juno': ['poly', { name: 'Alpha Juno, 1985', sub: 'the "WhatThe" patch · the hoover', preset: 'UK rave 1991', skin: 'skinalpha', mode: 'hoover' }],
     jupiter8: ['poly', { name: 'Eight-voice polysynth, 1981', sub: 'two VCOs a voice · the strings', preset: 'Detroit 1988', skin: 'skinjup' }],
-    dx7: ['poly', { name: 'FM synthesiser, 1983', sub: 'six operators · the bass and the bells', preset: 'House 1988', skin: 'skindx' }],
+    dx7: ['fm', { name: 'FM synthesiser, 1983', sub: 'operators, not oscillators · the E.Piano and the bass', preset: 'House 1988', skin: 'skindx' }],
     'casio-cz': ['reese', { name: 'Phase-distortion synth, 1985', sub: 'the reese bass\'s first home', preset: 'Drum & bass 1998', skin: 'skincz' }],
     'korg-m1': ['poly', { name: 'Workstation, 1988', sub: 'the piano, the organ bass, the choir', preset: 'House 1988', skin: 'skinm1' }],
     jp8000: ['super', { name: 'Virtual-analogue, 1996', sub: 'the supersaw oscillator', preset: 'Trance 1999', skin: 'skinjp' }],
     'nord-lead': ['super', { name: 'Virtual-analogue, 1995', sub: 'the red one · four voices of analogue model', preset: 'Goa 1995', skin: 'skinnord' }],
     'access-virus': ['super', { name: 'Virtual-analogue, 1997', sub: 'the trance and Berlin workhorse', preset: 'Peak-time 2017', skin: 'skinvirus' }],
-    'akai-s900': ['pads', { name: 'Rack sampler, 1986', sub: '12-bit · 750 KB · the bedroom studio', preset: 'UK rave 1991', skin: 'skinakai', note: 'Eleven seconds at 40 kHz, in a 2U rack, with a floppy drive. "Voodoo Ray" ran out of memory in it.' }],
-    'akai-s1000': ['pads', { name: 'Rack sampler, 1988', sub: '16-bit · the first with timestretch', preset: 'Jungle 1994', skin: 'skinakai', note: 'The stretch knob slows a sound without lowering it: push it and the snare smears the way "Terminator" does.' }],
-    sampler: ['pads', { name: 'The sampler', sub: 'any sound, on a key', preset: 'UK rave 1991', skin: 'skinakai' }],
-    emulator: ['pads', { name: 'Keyboard sampler, 1981', sub: 'the Emulator and the Fairlight · orchestra hits', preset: 'Electro 1983', skin: 'skinemu', note: 'A sampled orchestra stab from a Fairlight is the hit on "Planet Rock".' }],
-    mpc: ['pads', { name: 'MIDI production centre, 1988', sub: 'Roger Linn\'s pads and swing', preset: 'UK garage 1998', skin: 'skinmpc', mpc: true, note: 'Sixteen velocity pads and a swing setting from 50 to 75%. UK garage lives at 62–66.' }],
+    'akai-s900': ['pads', { grit: { bits: 12, rate: 40000, filter: true }, name: 'Rack sampler, 1986', sub: '12-bit · 750 KB · the bedroom studio', preset: 'UK rave 1991', skin: 'skinakai', note: 'Eleven seconds at 40 kHz, in a 2U rack, with a floppy drive. "Voodoo Ray" ran out of memory in it.' }],
+    'akai-s1000': ['pads', { grit: { bits: 16, rate: 44100 }, name: 'Rack sampler, 1988', sub: '16-bit · the first with timestretch', preset: 'Jungle 1994', skin: 'skinakai', note: 'The stretch knob slows a sound without lowering it: push it and the snare smears the way "Terminator" does.' }],
+    sampler: ['pads', { grit: { bits: 12, rate: 31250, filter: true }, name: 'The sampler', sub: 'any sound, on a key', preset: 'UK rave 1991', skin: 'skinakai' }],
+    emulator: ['pads', { grit: { bits: 8, rate: 27700 }, name: 'Keyboard sampler, 1981', sub: 'the Emulator and the Fairlight · orchestra hits', preset: 'Electro 1983', skin: 'skinemu', note: 'A sampled orchestra stab from a Fairlight is the hit on "Planet Rock".' }],
+    mpc: ['pads', { grit: { bits: 12, rate: 40000, filter: true }, name: 'MIDI production centre, 1988', sub: 'Roger Linn\'s pads and swing', preset: 'UK garage 1998', skin: 'skinmpc', mpc: true, note: 'Sixteen velocity pads and a swing setting from 50 to 75%. UK garage lives at 62–66.' }],
     'atari-cubase': ['roll', { name: 'Atari ST + sequencer, 1988', sub: 'MIDI built in · the studio computer', preset: 'UK bleep 1990', skin: 'skinatari', note: 'A 16-step page of a sequencer like Cubase or Notator: notes on a grid, sent out of the Atari\'s MIDI port to the boxes.' }],
     'cubase-vst': ['roll', { name: 'Audio in the computer, 1996', sub: 'Cubase VST, Logic, Pro Tools', preset: 'Trance 1999', skin: 'skinvst', layer: 'super' }],
     'fl-studio': ['roll', { name: 'FruityLoops, 1997', sub: 'a step sequencer for Windows', preset: 'Hard techno 2023', skin: 'skinfl', note: 'FruityLoops began as this: a step sequencer with a row per sound. The piano roll came later and became its best feature.' }],
@@ -234,7 +263,7 @@
     has: id => !!MAP[id],
     mount(root, id){ const spec = MAP[id]; if (!spec) return; root.querySelectorAll(`.hwpanel[data-machine="${id}"]:not([data-mounted])`).forEach(box => { box.dataset.mounted = 1; try { P[spec[0]](box, id, spec[1]); } catch (e) { console.error('panel', id, e); } }); },
     mountAll(root){ (root || document).querySelectorAll('.hwpanel:not([data-mounted])').forEach(box => this.mount(root || document, box.dataset.machine)); },
-    html(n){ if (n.type !== 'machine' || !MAP[n.id]) return ''; const [type] = MAP[n.id]; const what = { drum: 'a drum machine', bass: 'a bass synthesiser', poly: 'a polysynth', super: 'a supersaw synth', reese: 'a reese bass', pads: 'a sampler', clips: 'a clip launcher', roll: 'a sequencer', modular: 'a modular' }[type]; return `<h3>The panel</h3><p class="cap">A working reconstruction of ${what}, driven by the book\'s own engine. The layout is the idea of the machine, not a copy of it: every control changes the sound you hear.</p><div class="hwpanel" data-machine="${n.id}"></div>`; }
+    html(n){ if (n.type !== 'machine' || !MAP[n.id]) return ''; const [type] = MAP[n.id]; const what = { fm: 'an FM synthesiser', drum: 'a drum machine', bass: 'a bass synthesiser', poly: 'a polysynth', super: 'a supersaw synth', reese: 'a reese bass', pads: 'a sampler', clips: 'a clip launcher', roll: 'a sequencer', modular: 'a modular' }[type]; return `<h3>The panel</h3><p class="cap">A working reconstruction of ${what}, driven by the book\'s own engine. The layout is the idea of the machine, not a copy of it: every control changes the sound you hear.</p><div class="hwpanel" data-machine="${n.id}"></div>`; }
   };
   // tempo override: PatternGrid reads bpm from the preset, so patch its tick through the deck
   const _play = PatternGrid.play.bind(PatternGrid);
