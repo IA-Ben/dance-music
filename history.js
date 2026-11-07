@@ -357,7 +357,7 @@ const BRANCHES = [
   ['idm', 'Ambient / "intelligent" techno', '1992–', 'Sheffield / Cornwall', 'Warp\'s Artificial Intelligence series, Aphex, Autechre, the Black Dog: techno for the chair.', 'Own strand (planned)', null, '--synth'],
   ['schranz', 'Schranz / hardgroove', '1997–2005', 'Frankfurt / London', 'Loop techno at 140–150: Liebing\'s distortion, Sims\'s swing. Revived 2021.', 'Chapter 07', 'Schranz 2002', '--drums'],
   ['minimal', 'Minimal', '1994 / 2001–08', 'Detroit → Berlin', 'Hood named it; Hawtin, Villalobos and Perlon made it a decade.', 'Chapter 07', 'Minimal 2004', '--synth'],
-  ['techhouse', 'Tech-house', '1995–', 'London → Ibiza', 'The border town: house groove, techno sound design. Claimed by both strands; told in the house one and in London (Chapter 04).', 'House strand', 'Tech-house 1997', '--muted'],
+  ['techhouse', 'Tech-house', '1995–', 'London → Ibiza', 'The crossing: house groove, techno sound design. Claimed by both strands; told in the house one and in London (Chapter 04).', 'House strand', 'Tech-house 1997', '--muted'],
   ['berghain', 'Berghain / Ostgut Ton sound', '2005–', 'Berlin', 'The rumble as bassline; tool techno for ten-hour sets.', 'Chapter 09', 'Berghain 2010', '--rumble'],
   ['hypnotic', 'Hypnotic', '2012–', 'Italy / Berlin', 'Polymeters that never resolve, long subs, dub\'s grandchildren: Dozzy, Rrose, Voices From The Lake.', 'Chapter 09', 'Hypnotic 2015', '--rumble'],
   ['industrial', 'Industrial revival', '2013–', 'Berlin / Paris', 'Birmingham\'s line at 140: Ancient Methods, Perc, Paula Temple, Dax J.', 'Chapter 09', 'Industrial 2018', '--drums'],

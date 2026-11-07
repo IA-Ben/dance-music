@@ -11,14 +11,14 @@ const TOURS = [
     ['tb303', 'Roland built it in 1981 to accompany guitarists. It could not keep up with a real bass player and was discontinued in 1984. Second-hand, it cost almost nothing.'],
     ['dj-pierre', 'In Chicago in 1986 DJ Pierre and Phuture bought one, turned the resonance up and the cutoff knob, and heard it squeal.'],
     ['rec-acidtracks', 'Ron Hardy played the tape four times in one night. Trax released it in 1987: twelve minutes of one machine.'],
-    ['acid', 'Britain heard the record through the Ibiza DJs. "Acid" became a movement here, not a production style — a border town the house, rave and techno strands all claim.'],
+    ['acid', 'Britain heard the record through the Ibiza DJs. "Acid" became a movement here, not a production style — a crossing the house, rave and techno strands all claim.'],
     ['shoom', 'December 1987: a gym in Southwark, the smiley face, the record on repeat. The sound and the drug were given the same name by the tabloids.'],
     ['richie-hawtin', 'Across the river from Detroit, Hawtin rebuilt acid as minimal: one 303, one 909, nothing else.'],
     ['rec-spastik', 'And then threw the 303 away altogether for a record made only of snare rolls.'],
     ['chris-liberator', 'In London the free-party sound systems kept the machine: Stay Up Forever, a 303 and a 909 at 140.'],
     ['suf', 'Acid techno — still the city\'s free-party dialect thirty years on. The box that failed never stopped.'] ] },
   { id: 'tour-1992', title: 'One night in 1992', blurb: 'The year everything split, told by the rooms that were open.', stops: [
-    ['split1992', 'Rave split in 1992: the breakbeats went one way towards jungle, the straight 4/4 went another towards techno. This border-town page shows both.'],
+    ['split1992', 'Rave split in 1992: the breakbeats went one way towards jungle, the straight 4/4 went another towards techno. This crossing page shows both.'],
     ['rage', 'Thursday at Heaven. Fabio and Grooverider pitching Belgian techno and breaks to +8 — jungle being invented in real time.'],
     ['rec-terminator', 'Goldie\'s "Terminator": the timestretch, the reese, the hoover. Hardcore going dark.'],
     ['castlemorton', 'Late May, Castlemorton Common: a week-long free festival, Spiral Tribe\'s rig, and the headline that wrote the Criminal Justice Act.'],
@@ -64,7 +64,7 @@ const TOURS = [
     ['amnesia', 'The terrace. The place four Londoners heard it in August 1987.'],
     ['paul-oakenfold', 'Oakenfold\'s birthday trip: four friends, one summer, and London changed when they got home.'],
     ['danny-rampling', 'Shoom, December 1987: the first attempt to rebuild Amnesia in a Southwark gym.'],
-    ['balearic', 'The border town: Balearic as a house dialect, as rave\'s origin story, and as techno\'s summer residency.'],
+    ['balearic', 'The crossing: Balearic as a house dialect, as rave\'s origin story, and as techno\'s summer residency.'],
     ['space', 'Playa d\'en Bossa: Carl Cox\'s fifteen summers, the terrace with the planes overhead.'],
     ['sven-vath', 'Cocoon at Amnesia from 2000: techno gets a Monday on the island, and keeps it for nineteen years.'] ] }
 ];

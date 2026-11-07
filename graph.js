@@ -28,7 +28,7 @@ const FORKS = {
   h5: [['Frankfurt\'s melodic exit → trance strand', 't1', 'trance'], ['Rotterdam\'s hard exit → gabber (rave)', 'r7', 'rave']],
   t1: [['The psychedelic branch → Goa', 't2', 'trance'], ['Väth stays with techno → Cocoon', 'h7', 'techno']],
   t3: [['Progressive\'s house side → house strand', 'hh6', 'house'], ['Ibiza\'s trance summers', 'balearic', 'house']],
-  hh1: [['The 303 record → acid (border town)', 'acid', 'house'], ['The neighbour 280 miles east → Detroit', 'h2', 'techno']],
+  hh1: [['The 303 record → acid (crossing)', 'acid', 'house'], ['The neighbour 280 miles east → Detroit', 'h2', 'techno']],
   hh4: [['Out of the clubs and into the fields → rave strand', 'r1', 'rave'], ['Up north → Madchester', 'hh5', 'house']],
   hh6: [['The jungle MCs at +8 → UK garage, then grime', 'g-ukgarage', 'house'], ['Progressive → trance strand', 't3', 'trance']],
   h1: [['The records reach Detroit → techno', 'h2', 'techno'], ['The same machines in Chicago → house', 'chicagohouse', 'house']],
@@ -124,7 +124,7 @@ const N = (id, type, title, o = {}) => { const n = { id, type, title, years: o.y
  ['g-idm', 'Ambient / intelligent techno', '1992–', 'sheffield', ['techno'], 'Warp\'s Artificial Intelligence series.', null, ['h3']],
  ['g-schranz', 'Schranz / hardgroove', '1997–2005', 'frankfurt', ['techno'], 'Loop techno at 140–150.', 'Schranz 2002', ['h6']],
  ['g-minimal', 'Minimal', '2001–08', 'berlin', ['techno'], 'Hood named it; Hawtin, Villalobos and Perlon made it a decade.', 'Minimal 2004', ['h6']],
- ['g-techhouse', 'Tech-house', '1995–', 'london', ['house', 'techno'], 'House groove, techno sound design: the border town.', 'Tech-house 1997', ['techhouse']],
+ ['g-techhouse', 'Tech-house', '1995–', 'london', ['house', 'techno'], 'House groove, techno sound design: the crossing.', 'Tech-house 1997', ['techhouse']],
  ['g-berghain', 'Berghain / Ostgut Ton sound', '2005–', 'berlin', ['techno'], 'The rumble as bassline.', 'Berghain 2010', ['h8']],
  ['g-hypnotic', 'Hypnotic', '2012–', 'rome', ['techno'], 'Polymeters that never resolve.', 'Hypnotic 2015', ['h8']],
  ['g-industrial', 'Industrial revival', '2013–', 'berlin', ['techno'], 'Birmingham\'s line at 140.', 'Industrial 2018', ['h8']],
@@ -141,12 +141,12 @@ const N = (id, type, title, o = {}) => { const n = { id, type, title, years: o.y
 NODES.forEach(n => { if (n.type === 'genre') n.preset = { 'g-detroit': 'Detroit 1988', 'g-bleep': 'UK bleep 1990', 'g-berlin': 'Tresor 1992', 'g-hardcore': 'UK rave 1991', 'g-acidtek': 'Acid techno 1994', 'g-bham': 'Birmingham 1995', 'g-dub': 'Dub techno 1995', 'g-schranz': 'Schranz 2002', 'g-minimal': 'Minimal 2004', 'g-berghain': 'Berghain 2010', 'g-hypnotic': 'Hypnotic 2015', 'g-industrial': 'Industrial 2018', 'g-peak': 'Peak-time 2017', 'g-hard': 'Hard techno 2023', 'g-acidhouse': 'Chicago acid 1987' }[n.id] || n.genre || null; });
 [['g-detroit', 'g-bleep'], ['g-detroit', 'g-berlin'], ['g-detroit', 'g-minimal'], ['g-detroit', 'g-bham'], ['g-detroit', 'g-dub'], ['g-acidhouse', 'g-hardcore'], ['g-acidhouse', 'g-acidtek'], ['g-hardcore', 'g-jungle'], ['g-hardcore', 'g-happy'], ['g-hardcore', 'g-gabber'], ['g-newbeat', 'g-trance'], ['g-berlin', 'g-schranz'], ['g-bham', 'g-industrial'], ['g-dub', 'g-hypnotic'], ['g-minimal', 'g-berghain'], ['g-dub', 'g-berghain'], ['g-schranz', 'g-hard'], ['g-trance', 'g-hard'], ['g-gabber', 'g-hard'], ['g-house', 'g-acidhouse'], ['g-house', 'g-techhouse'], ['g-balearic', 'g-acidhouse'], ['g-electro', 'g-detroit'], ['g-bleep', 'g-idm'], ['g-peak', 'g-hard']].forEach(([a, b]) => NODES.find(n => n.id === b).rel.push(['from', a]));
 
-/* ---------- border towns (framings live in templates in the HTML) ---------- */
+/* ---------- crossings (framings live in templates in the HTML) ---------- */
 [['acid', 'Acid', '1987–', ['house', 'techno', 'rave'], 'One Chicago record, three different stories. Phuture\'s 303 is a house record; Britain made it a movement; techno took the machine and the attitude.'],
  ['castlemorton', 'Castlemorton Common, May 1992', '1992', ['rave', 'techno'], 'A week-long free festival of 20–40,000 on a Worcestershire common: the end of the free party era and the beginning of acid techno\'s exile.'],
  ['split1992', 'The split, 1991–93', '1991–93', ['rave', 'techno'], 'The point where "rave" stopped being one music: breakbeats went one way, straight 4/4 went the other.'],
  ['balearic', 'Ibiza and the Balearic beat', '1984–', ['house', 'rave', 'techno'], 'The island as origin (house), as catalyst (rave) and as summer residency (techno).'],
- ['techhouse', 'Tech-house', '1995–', ['house', 'techno'], 'The border town: house groove, techno sound design. Claimed by both strands.'],
+ ['techhouse', 'Tech-house', '1995–', ['house', 'techno'], 'The crossing: house groove, techno sound design. Claimed by both strands.'],
  ['chicagohouse', 'Chicago house', '1977–', ['house', 'techno', 'rave'], 'The Warehouse, the Music Box, Trax: the music next door to techno and the source of acid house.']
 ].forEach(([id, t, y, s, b]) => N(id, 'border', t, { years: y, strands: s, blurb: b, aliases: { acid: ['Acid house', 'acid house', 'acieed'], castlemorton: ['Castlemorton', 'Castlemorton Common'], split1992: ['the split'], balearic: ['Balearic', 'Balearic beat'], techhouse: ['Tech-house', 'tech-house'], chicagohouse: ['Chicago house'] }[id] || [] }));
 
@@ -378,7 +378,7 @@ R('rec-clear', 'Cybotron', 'Clear', 1983, null, ['techno'], 'Atkins and Davis; t
 R('rec-noufos', 'Model 500', 'No UFO\'s', 1985, 'metroplex', ['techno'], 'The first techno record.', 'juan-atkins', ['tr909'], 'g-detroit');
 R('rec-nudephoto', 'Rhythim Is Rhythim', 'Nude Photo', 1987, 'transmat', ['techno'], 'The open hat on the offbeat; Detroit\'s groove.', 'derrick-may', ['tr909'], 'g-detroit');
 R('rec-strings', 'Rhythim Is Rhythim', 'Strings of Life', 1987, 'transmat', ['techno', 'rave', 'house'], 'Michael James\'s piano, a 909, no bassline; the record that closed the Music Institute and opened the Liquid Room.', 'derrick-may', ['tr909'], 'g-detroit');
-R('rec-acidtracks', 'Phuture', 'Acid Tracks', 1987, 'trax', ['house', 'rave', 'techno'], 'The 303 twisted until it squealed; the border town\'s founding record.', 'dj-pierre', ['tb303'], 'g-acidhouse');
+R('rec-acidtracks', 'Phuture', 'Acid Tracks', 1987, 'trax', ['house', 'rave', 'techno'], 'The 303 twisted until it squealed; the crossing\'s founding record.', 'dj-pierre', ['tb303'], 'g-acidhouse');
 R('rec-bigfun', 'Inner City', 'Big Fun', 1988, 'kms', ['techno', 'house'], 'Detroit in the UK top ten.', 'kevin-saunderson', [], 'g-detroit');
 R('rec-technocomp', 'Various', 'Techno! The New Dance Sound of Detroit', 1988, 'network', ['techno'], 'The compilation that named the genre.', 'neil-rushton', [], 'g-detroit');
 R('rec-voodooray', 'A Guy Called Gerald', 'Voodoo Ray', 1988, null, ['house', 'rave'], 'Manchester acid house; the first British dance classic.', 'a-guy-called-gerald', ['tb303', 'tr808'], 'g-acidhouse');
@@ -736,5 +736,5 @@ const NODE = Object.fromEntries(NODES.map(n => [n.id, n]));
 const BACK = {}; NODES.forEach(n => n.rel.forEach(([r, t]) => { (BACK[t] = BACK[t] || []).push([r, n.id]); }));
 const REL_LABEL = { in: 'in', played: 'played at', founded: 'founded', made: 'made', member: 'member of', uses: 'uses', label: 'on', by: 'by', genre: 'genre', from: 'descends from', told: 'told in', at: 'at' };
 const REL_BACK = { in: 'based here', played: 'played here', founded: 'founded by', made: 'made by', member: 'members', uses: 'used on', label: 'released', by: 'records', genre: 'records', from: 'led to', told: 'genres in this chapter', at: 'sets here' };
-const TYPE_LABEL = { city: 'City', machine: 'Machine', label: 'Label', genre: 'Genre', border: 'Border town', collective: 'Collective', person: 'Person', club: 'Club', event: 'Event', station: 'Radio station', record: 'Record', set: 'Landmark set' };
+const TYPE_LABEL = { city: 'City', machine: 'Machine', label: 'Label', genre: 'Genre', border: 'Crossing', collective: 'Collective', person: 'Person', club: 'Club', event: 'Event', station: 'Radio station', record: 'Record', set: 'Landmark set' };
 const TYPE_COLOR = { city: '--mix', machine: '--synth', label: '--samp', genre: '--rumble', border: '--perc', collective: '--kick', person: '--kick', club: '--rumble', event: '--perc', station: '--drums', record: '--bass', set: '--drums' };

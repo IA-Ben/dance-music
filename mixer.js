@@ -218,7 +218,7 @@ Object.assign(GENRES, {
     acidNotes: [0, 0, 7, 0, 10, 0, 0, 3, 0, 7, 0, 12, 0, 3, 0, 10], bassNotes: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], pianoChord: [0, 3, 7, 10],
     levels: { sub: 0.85, stab: 0.5, hatc: 0.45, hato: 0.4, shaker: 0.45, clap: 0.5, tom: 0.5, bleep: 0.3 },
     pat: { kick: 'x...x...x...x...', sub: 'x..x..x...x..x..', stab: '..x.....x..x....', hatc: 'x.x.x.x.x.x.x.x.', hato: '..x...x...x...x.', shaker: 'xxxxxxxxxxxxxxxx', clap: '....x.......x...', tom: '.......x......x.', bleep: '..............x.' },
-    notes: 'Wiggle, Plink Plonk, The End\'s Subterrain: house swing at 125, a syncopated sub bassline, a dubbed-out chord, no vocal. The border town.'
+    notes: 'Wiggle, Plink Plonk, The End\'s Subterrain: house swing at 125, a syncopated sub bassline, a dubbed-out chord, no vocal. The crossing.'
   },
   'Chicago house 1986': {
     era: '1984–88', city: 'Chicago', bpm: 122, swing: 0.1, key: ['A', 55], sc: 0.3, rumble: 0, rumbleLp: 90,
