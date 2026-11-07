@@ -28,10 +28,11 @@ window.GEAR = {
 "url": "https://en.wikipedia.org/wiki/Phuture"
 },
 "b": {
-"claim": "no drum machine is named in the track's own article; the book had assumed an 808",
+"claim": "an 808 under the 303",
 "source": "Acid Tracks — Wikipedia",
 "url": "https://en.wikipedia.org/wiki/Acid_Tracks"
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -194,7 +195,8 @@ window.GEAR = {
 "claim": "an 808, as the band's name suggests",
 "source": "common assumption",
 "url": null
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -230,10 +232,11 @@ window.GEAR = {
 "url": "https://909originals.com/2020/07/26/interview-how-lfo-made-lfo-909originals-catches-up-wit"
 },
 "b": {
-"claim": "the book had assumed a 909",
+"claim": "a 909",
 "source": "the book's assumption",
 "url": null
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -271,10 +274,11 @@ window.GEAR = {
 "url": "https://daily.redbullmusicacademy.com/2014/05/key-tracks-mundo-muzique-on-mentasm"
 },
 "b": {
-"claim": "the book had assumed a 909",
+"claim": "a 909",
 "source": "the book's assumption",
 "url": null
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -321,10 +325,11 @@ window.GEAR = {
 "url": "https://musicradar.com/news/the-prodigy-charly-story"
 },
 "b": {
-"claim": "the book had assumed an Akai sampler and a 909",
+"claim": "an Akai sampler and a 909",
 "source": "the book's assumption",
 "url": null
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -392,10 +397,11 @@ window.GEAR = {
 "url": "https://daily.redbullmusicacademy.com/2016/04/reinforced-interview"
 },
 "b": {
-"claim": "early Akai-sampler time-stretching",
+"claim": "an Akai sampler's time-stretch",
 "source": "Music Is My Sanctuary",
 "url": "https://www.musicismysanctuary.com/?p=20138"
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -492,10 +498,11 @@ window.GEAR = {
 "url": "https://www.insomniac.com/?p=42217"
 },
 "b": {
-"claim": "built on TR-808 percussion",
+"claim": "an 808 alone",
 "source": "Spastik — Wikipedia",
 "url": "https://en.wikipedia.org/wiki/Spastik"
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -639,10 +646,11 @@ window.GEAR = {
 "url": "https://www.musicradar.com/news/how-aphex-twin-made-saw-85-92"
 },
 "b": {
-"claim": "a TR-808, as the sound suggests",
+"claim": "a TR-808",
 "source": "common assumption",
 "url": null
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -763,7 +771,8 @@ window.GEAR = {
 "claim": "three decks and a 909, as Mills usually played",
 "source": "common assumption",
 "url": null
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -1286,7 +1295,8 @@ window.GEAR = {
 "claim": "started in 1995 at the Velvet Rooms with LTJ Bukem, becoming Fabio's Swerve",
 "source": "Londonist (London Elektricity)",
 "url": "https://londonist.com/2016/09/london-elektricity-s-guide-to-london-drum-n-bass-venues"
-}
+},
+"kind": "dispute"
 }
 ]
 },
@@ -1324,7 +1334,8 @@ window.GEAR = {
 "claim": "Knuckles describes it as brought to him, arriving in the Power Plant era after the Warehouse",
 "source": "Frankie Knuckles, MusicRadar",
 "url": "https://www.musicradar.com/news/tech/interview-frankie-knuckles-talks-the-birth-of-house-m"
-}
+},
+"kind": "dispute"
 }
 ]
 },
@@ -1362,10 +1373,11 @@ window.GEAR = {
 "url": "https://www.soundonsound.com/techniques/classic-tracks-donna-summer-feel-love"
 },
 "b": {
-"claim": "often described as the first record made entirely by machine",
+"claim": "the first record made entirely by machine",
 "source": "common telling",
 "url": null
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -1421,10 +1433,11 @@ window.GEAR = {
 "url": "https://www.attackmagazine.com/technique/deconstructed/rhythim-is-rhythim-strings-of-life-"
 },
 "b": {
-"claim": "the common telling credits the piano to May himself",
+"claim": "May's own piano playing",
 "source": "common telling",
 "url": null
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -1515,15 +1528,16 @@ window.GEAR = {
 {
 "what": "the hoover synth",
 "a": {
-"claim": "no source names the synth; the article says only that it is one of the first hoover records",
+"claim": "no source names the synth; Beltram's remix took its hoover from \"Mentasm\"",
 "source": "Dominator — Wikipedia",
 "url": "https://en.wikipedia.org/wiki/Dominator_(Human_Resource_song)"
 },
 "b": {
-"claim": "the book assumes the Alpha Juno \"WhatThe\" patch, as on \"Mentasm\" — Beltram's remix did take its hoover from \"Mentasm\"",
-"source": "the book's assumption",
+"claim": "the Alpha Juno \"WhatThe\" patch, as on \"Mentasm\"",
+"source": "common assumption",
 "url": null
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -1652,7 +1666,8 @@ window.GEAR = {
 "claim": "the usual telling: Lisa Gerrard's \"Dawn of the Iconoclast\" sampled whole",
 "source": "common telling",
 "url": null
-}
+},
+"kind": "dispute"
 }
 ]
 },
@@ -1998,10 +2013,11 @@ window.GEAR = {
 "url": "https://nl.ra.co/reviews/18029"
 },
 "b": {
-"claim": "often remembered as the three-CDJ set",
+"claim": "the three-CDJ set",
 "source": "common telling",
 "url": null
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -2390,15 +2406,16 @@ window.GEAR = {
 {
 "what": "the drum machine",
 "a": {
-"claim": "the kick \"sounds like\" a 909 — not confirmed",
+"claim": "unconfirmed — the kick only \"sounds like\" a 909; no source names the box",
 "source": "Insomniac",
 "url": "https://www.insomniac.com/?p=40688"
 },
 "b": {
-"claim": "a \"Roland-centred electronic spine\", no model named",
-"source": "Rolling Stone via Wikipedia",
-"url": "https://en.wikipedia.org/wiki/Jack_Your_Body"
-}
+"claim": "a 909",
+"source": "common assumption",
+"url": null
+},
+"kind": "correction"
 }
 ]
 },
@@ -2433,10 +2450,11 @@ window.GEAR = {
 "url": "https://en.wikipedia.org/wiki/Da_Funk"
 },
 "b": {
-"claim": "the often-repeated claim is a Korg MS-20 lead; the Homework gear list in MusicRadar contains no MS-20",
+"claim": "a Korg MS-20 lead",
 "source": "MusicRadar, Homework at 25",
 "url": "https://www.musicradar.com/news/daft-punk-homework-25-synths-drum-machines-sampler"
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -2507,10 +2525,11 @@ window.GEAR = {
 "url": "https://testpressing.org/magazine/alfredo-an-interview"
 },
 "b": {
-"claim": "the usual telling has the 1200s there from the start",
+"claim": "Technics 1200s from the start",
 "source": "common telling",
 "url": null
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -2891,7 +2910,8 @@ window.GEAR = {
 "claim": "released 1997 on Purpose Maker",
 "source": "Attack Magazine",
 "url": "https://attackmagazine.com/?p=134433"
-}
+},
+"kind": "dispute"
 }
 ]
 },
@@ -2920,7 +2940,8 @@ window.GEAR = {
 "claim": "1992",
 "source": "Speedy J — Wikipedia",
 "url": "https://en.wikipedia.org/wiki/Speedy_J"
-}
+},
+"kind": "dispute"
 }
 ]
 },
@@ -3038,10 +3059,11 @@ window.GEAR = {
 "url": "https://djmag.com/news/amelie-lens-announces-peak-time-techno-ep-%E2%80%98hypnotized%E2%80"
 },
 "b": {
-"claim": "the book had it on Lenske",
+"claim": "a Lenske release",
 "source": "the book's earlier text",
 "url": null
-}
+},
+"kind": "correction"
 }
 ]
 },
@@ -3176,7 +3198,8 @@ window.GEAR = {
 "claim": "June 1989; no page read confirmed the day",
 "source": "Mixmag",
 "url": "https://mixmag.net/read/the-great-british-freak-out-news"
-}
+},
+"kind": "dispute"
 }
 ]
 },
@@ -3398,7 +3421,8 @@ window.GEAR = {
 "claim": "a Cubase-era studio in Soho, 1997–98, drums from live players and breaks cut to hits",
 "source": "Juno Daily",
 "url": "https://www.juno.co.uk/junodaily/?p=175187"
-}
+},
+"kind": "dispute"
 }
 ]
 },

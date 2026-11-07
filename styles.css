@@ -516,6 +516,7 @@ body.paper .makerow{background:var(--bg3)}
 
 .relrow.dispute b{color:var(--kick)}.relrow.dispute em{font-style:normal;font-weight:600}.relrow.dispute .vs{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:4px}.relrow.dispute small{color:var(--muted)}
 .dcard{margin:10px 0}.dcard h3{margin-bottom:6px}.dcard p{margin:4px 0;font-size:14.5px}
+.relrow.correction b{color:var(--synth)}.relrow.correction em{font-style:normal;font-weight:600}.relrow.correction small{color:var(--muted)}.dcard.corr{border-left:3px solid var(--synth)}
 /* =====================================================================
    BOOK SKIN — paper pages, dark plates, spreads on wide screens
    ===================================================================== */
