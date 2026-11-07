@@ -478,7 +478,7 @@ R('rec-bubble', 'Drexciya', 'Bubble Metropolis', 1993, null, ['techno'], 'The un
 R('rec-minimalnation', 'Robert Hood', 'Minimal Nation', 1994, 'm-plant', ['techno'], 'Minimal techno, named.', 'robert-hood', ['tr909'], 'g-minimal');
 R('rec-phylyps', 'Basic Channel', 'Phylyps Trak', 1993, null, ['techno'], 'Dub techno\'s founding 12".', 'basic-channel', [], 'g-dub');
 R('rec-m4', 'Maurizio', 'M4', 1995, null, ['techno'], 'One chord, forever.', 'basic-channel', [], 'g-dub');
-R('rec-marusha', 'Marusha', 'Somewhere Over the Rainbow', 1994, null, ['techno', 'rave'], 'Berlin\'s rave-pop moment, Love Parade\'s soundtrack.', null, [], 'g-trance');
+R('rec-marusha', 'Marusha', 'Somewhere Over the Rainbow', 1994, null, ['techno', 'rave'], 'Berlin\'s rave-pop moment, a 1994 Low Spirit hit.', null, [], 'g-trance');
 R('rec-speaktome', 'Regis', 'Speak to Me', 1995, 'downwards', ['techno'], 'Birmingham\'s dry hammer.', 'regis', [], 'g-bham');
 R('rec-magneze', 'Surgeon', 'Magneze', 1995, 'downwards', ['techno'], 'Surgeon\'s first; the Birmingham sound.', 'surgeon', [], 'g-bham');
 R('rec-red2', 'Dave Clarke', 'Red 2 (Wisdom to the Wise)', 1994, null, ['techno'], 'The Baron\'s hardest cut.', 'dave-clarke');

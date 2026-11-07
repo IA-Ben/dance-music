@@ -36,3 +36,11 @@ window.Art = {
     if (at) el.insertBefore(tmp.firstChild, at); else el.prepend(tmp.firstChild);
   }
 };
+
+/* the credits page lists the plates too */
+(() => { const prev = (window.PageHooks || {}).credits; window.PageHooks = window.PageHooks || {};
+  window.PageHooks.credits = () => { if (prev) prev(); const box = document.getElementById('creditList'); if (!box || box.querySelector('.art-credits')) return;
+    const d = document.createElement('div'); d.className = 'art-credits'; d.style.gridColumn = '1 / -1';
+    d.innerHTML = `<h3>Illustrations</h3><p class="cap">The linocut-style plates that open the strands and the cover were made for this book with Krea, an AI image generator: black ink and one fluorescent ink per strand. They show invented scenes and no real people, logos or record sleeves. Labelled on each page.</p><div class="art-thumbs">${Object.entries(Art.MAP).map(([id, k]) => `<a href="#${id}" title="${Art.ALT[k] || ''}"><img src="img/art/${k}-720.webp" alt="${Art.ALT[k] || ''}" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px"></a>`).join('')}</div>`;
+    box.prepend(d); };
+})();

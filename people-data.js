@@ -1858,7 +1858,7 @@ window.FACTS = {
 "2001 — courts rule it a commercial event",
 "2004–05 — cancelled for lack of funds",
 "2006 — revived under McFit; Dr. Motte leaves",
-"19 July 2008 — Dortmund, c.1.6 million confirmed",
+"19 July 2008 — Dortmund, c.1.6 million (police figure)",
 "24 July 2010 — Duisburg crowd crush, 21 dead"
 ],
 "status": "ended",
@@ -2095,7 +2095,7 @@ window.FACTS = {
 "attendance": "25,000 (Effingham, August 1989)",
 "residents": [],
 "editions": [
-"27 May 1989 — Westway Film Studios, c.6,000 inside; Adamski live",
+"27 May 1989 — Westway Film Studios, c.6,000 inside by one account, 3,500 by another; Adamski live",
 "1 July 1989 — Membury, M4; c.1,000 Thames Valley police close twenty miles of motorway",
 "26 August 1989 — Energy Summer Festival, Effingham, c.25,000"
 ],
@@ -2165,7 +2165,7 @@ window.FACTS = {
 "Mr C"
 ],
 "editions": [
-"16 September 1989 — first party, circus tent at Jenkins Lane, c.400, unlicensed",
+"16 September 1989 — first party, circus tent at Jenkins Lane, c.400 and unlicensed by one account, c.8,000 and licensed by another",
 "November 1989 — licensed Children in Need party, 1,000+",
 "1990–92 — monthly licensed raves with Newham Council, up to 15,000",
 "1993 — pause ahead of the Criminal Justice Act",
@@ -2279,7 +2279,7 @@ window.FACTS = {
 "June 1988 — The Trip at the Astoria",
 "12 October 1988 — The Sun calls acid house 'cool and groovy'",
 "19 October 1988 — 'Evils of Ecstasy'",
-"24 June 1989 — Sunrise at White Waltham; 'Spaced Out!'",
+"24 June 1989 — Sunrise at White Waltham; the Sun's 'Spaced Out!' follows on 26 June",
 "December 1989 — Graham Bright's bill introduced",
 "27 January 1990 — Freedom to Party rally, c.8,000"
 ],
@@ -2594,7 +2594,7 @@ window.FACTS = {
 "attendance": "c.50,000 (capacity 44,492)",
 "residents": [],
 "editions": [
-"12 July 1979 — records detonated between games; crowd storms the field; second game forfeited to Detroit; 39 arrests"
+"12 July 1979 — records detonated between games; crowd storms the field; second game forfeited to Detroit"
 ],
 "status": "ended",
 "sources": []
@@ -3258,7 +3258,7 @@ window.FACTS = {
 "editions": [
 "1990-01-27 — Freedom to Party rally, Trafalgar Square",
 "1990-03-09 — second reading",
-"1990-03 — second rally, Hyde Park",
+"1990-03 — second rally (Hyde Park, or a 3 March march to Trafalgar Square, by different accounts)",
 "1990-04-27 — report stage: penalties confined to attendance-limit breaches",
 "1990-06-20 — Lords debate",
 "1990-07-13 — Royal Assent (1990 c. 20): £20,000 / six months",
@@ -7719,7 +7719,7 @@ window.FACTS = {
 ]
 },
 "ron-hardy": {
-"born": "1958, Chicago",
+"born": "1957 or 1958 (accounts differ), Chicago",
 "from": "Chicago",
 "aliases": [],
 "groups": [],
@@ -8618,7 +8618,7 @@ window.FACTS = {
 ],
 "groups": [
 "Toten Piloten (punk band, 1981–84)",
-"Rave The Planet (founder, 2019)"
+"Rave The Planet (founder; conceived 2019, launched January 2020)"
 ],
 "labels": [
 "PRAXXIZ",
@@ -14817,7 +14817,7 @@ window.FACTS = {
 ]
 },
 "sunrise-fm": {
-"frequency": null,
+"frequency": "88.75 FM (Borosix)",
 "area": "London",
 "years": "1988–c.1991",
 "founders": [],
@@ -20539,7 +20539,7 @@ window.FACTS = {
 "venues": [
 "Conservative Party conference, Blackpool (launch, October 1989)",
 "Trafalgar Square, London (27 January 1990)",
-"Radlett, Hertfordshire (all-night party, 27 January 1990)",
+"Radlett or London Colney, Hertfordshire (all-night party, 27 January 1990; accounts differ)",
 "Hyde Park, London (March 1990)"
 ],
 "attendance": "8,000+ (Trafalgar Square, 27 January 1990)",

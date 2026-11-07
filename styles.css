@@ -868,3 +868,4 @@ body.paper[data-strand=chicago] .page{--bg:#fbf3e8;--bg3:#f1e4cf}
 body.paper[data-strand=newyork] .page{--bg:#eef3fa;--bg3:#dfe7f3}
 .pm-inset{margin-top:16px}.pm-inset h4{margin:0 0 6px}
 .pm-zoom{font:600 11.5px var(--f-ui);background:transparent;color:var(--text);border:1px solid var(--line);border-radius:999px;padding:6px 11px;cursor:pointer}
+.art-credits{margin-bottom:18px}.art-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:8px}
