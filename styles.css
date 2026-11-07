@@ -431,6 +431,7 @@ body.paper[data-strand=house] .page{--bg:#faf4e6;--bg3:#efe6d1}
 body.paper[data-strand=rave] .page{--bg:#f9f7e3;--bg3:#eeebcf}
 body.paper[data-strand=jungle] .page{--bg:#eff3ec;--bg3:#e0e7dc}
 body.paper[data-strand=trance] .page{--bg:#f3eff9;--bg3:#e6e0f1}
+body.paper[data-strand=tech] .page{--bg:#eef6f2;--bg3:#dfeee6}
 body.paper[data-strand=anatomy] .page{--bg:#f6f3ee;--bg3:#ebe6dd}
 body.paper .page,body.paper .page p,body.paper .page li{color:var(--text)}
 body.paper .page p,body.paper .page li,body.paper .page .lede,body.paper .page .framing p,body.paper .node-body p{font-family:'Charter','Iowan Old Style','Palatino Linotype','Book Antiqua',Georgia,serif;font-size:16.5px;line-height:1.62}
@@ -482,8 +483,8 @@ body.paper .page{padding:44px 48px 70px 56px}
 @media (min-width:1180px){
   body.paper main{max-width:1420px;padding:0 28px 120px}
   body.paper .page{padding:48px 64px 76px 72px;border-radius:6px 12px 12px 6px}
-  body.paper .page.show:not(.hero-page):not([data-page=mixer]):not([data-page=explore]):not([data-page=year]):not([data-page=timeline]):not([data-page=cities]):not([data-page=nights]):not([data-page=djs]):not([data-page=flyers]):not([data-page=forty]):not([data-page=listings]):not([data-page=quiz]):not([data-page=path]){columns:2;column-gap:96px;column-fill:balance;orphans:3;widows:3}
-  body.paper .page.show:not(.hero-page):not([data-page=mixer]):not([data-page=explore]):not([data-page=year]):not([data-page=timeline]):not([data-page=cities]):not([data-page=nights]):not([data-page=djs]):not([data-page=flyers]):not([data-page=forty]):not([data-page=listings]):not([data-page=quiz]):not([data-page=path])::after{content:'';position:absolute;top:0;bottom:0;left:50%;width:120px;transform:translateX(-50%);background:linear-gradient(90deg,#0000 0%,#0000000d 38%,#00000026 49%,#00000030 50%,#00000026 51%,#0000000d 62%,#0000 100%);pointer-events:none}
+  body.paper .page.show:not(.hero-page):not([data-page=mixer]):not([data-page=explore]):not([data-page=year]):not([data-page=timeline]):not([data-page=cities]):not([data-page=nights]):not([data-page=djs]):not([data-page=flyers]):not([data-page=forty]):not([data-page=listings]):not([data-page=quiz]):not([data-page=path]):not([data-page=k0]){columns:2;column-gap:96px;column-fill:balance;orphans:3;widows:3}
+  body.paper .page.show:not(.hero-page):not([data-page=mixer]):not([data-page=explore]):not([data-page=year]):not([data-page=timeline]):not([data-page=cities]):not([data-page=nights]):not([data-page=djs]):not([data-page=flyers]):not([data-page=forty]):not([data-page=listings]):not([data-page=quiz]):not([data-page=path]):not([data-page=k0])::after{content:'';position:absolute;top:0;bottom:0;left:50%;width:120px;transform:translateX(-50%);background:linear-gradient(90deg,#0000 0%,#0000000d 38%,#00000026 49%,#00000030 50%,#00000026 51%,#0000000d 62%,#0000 100%);pointer-events:none}
   body.paper .page .runhead,body.paper .page>.kicker,body.paper .page>h2,body.paper .page>.lede,body.paper .page>.hero-img,body.paper .page .pagenav,body.paper .page .forks,body.paper .page>.chips,body.paper .page>.nodeimg,body.paper .page .framing-switch,body.paper .page>.tabs{column-span:all}
   body.paper .page>.lede{max-width:none;columns:2;column-gap:96px}
   body.paper .page>.lede::first-letter{font-size:72px}
