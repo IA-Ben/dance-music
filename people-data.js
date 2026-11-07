@@ -17365,6 +17365,52 @@ window.FACTS = {
 "https://en.wikipedia.org/wiki/Jungle_music"
 ]
 },
+"g-techstep": {
+"emerged": "Britain (London), c. 1995, from jungle and hardstep",
+"named_by": "Ed Rush and Trace",
+"first_records": [
+"T-Power — Mutant Jazz (DJ Trace remix, with Ed Rush and Nico; S.O.U.R., 1995)",
+"Various — Breakage LP (Penny Black, 1997)",
+"Ed Rush & Optical — Funktion (V Recordings, 1997)",
+"Ed Rush & Optical — Wormhole (Virus, 1998)",
+"Bad Company — The Nine"
+],
+"tempo": "drum & bass tempo (mostly 170–180 bpm from c. 1996)",
+"peak": "1995–99",
+"rooms": [],
+"branches": [
+"Neurofunk",
+"Darkstep",
+"Breakcore"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Techstep",
+"https://en.wikipedia.org/wiki/Drum_and_bass",
+"https://en.wikipedia.org/wiki/Neurofunk"
+]
+},
+"g-liquid": {
+"emerged": "UK (London), 1999, from intelligent / atmospheric drum & bass",
+"named_by": "Fabio and Sarah Sandy, via the 1999 'Liquid Funk' compilation on Creative Source",
+"first_records": [
+"Various — Liquid Funk (Creative Source, 1999)",
+"High Contrast — Tough Guys Don't Dance (2007)",
+"High Contrast feat. Diane Charlemagne — If We Ever (2007)"
+],
+"tempo": "drum & bass tempo (mostly 170–180 bpm)",
+"peak": "2003–09",
+"rooms": [
+"Liquicity (YouTube channel 2008; label and events after 2011)"
+],
+"branches": [
+"Jazzstep (precursor)",
+"Sambass"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Liquid_funk",
+"https://en.wikipedia.org/wiki/Drum_and_bass"
+]
+},
 "g-frankfurt-trance": {
 "emerged": "Frankfurt, c. 1990–92 (from the city's techno and EBM scene)",
 "named_by": "Dag Lerner (Dance 2 Trance) claimed he first called it trance",
@@ -17394,6 +17440,64 @@ window.FACTS = {
 "https://en.wikipedia.org/wiki/Intelligent_dance_music",
 "https://mixmag.net/feature/trance-reborn-the-sound-is-back-and-big-as-ever",
 "https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation"
+]
+},
+"g-uplifting": {
+"emerged": "Netherlands (with Germany and the UK), 1996–98",
+"named_by": null,
+"first_records": [
+"Robert Miles — Children (1996)",
+"BT — Godspeed (early JP-8000 use)",
+"System F (Ferry Corsten) — Out of the Blue (early supersaw use)",
+"ATB — 9 PM (Till I Come)",
+"Darude — Sandstorm (Roland JP-8080)"
+],
+"tempo": "within trance's 125–150 bpm (Wikipedia)",
+"peak": "late 1990s – early 2000s",
+"rooms": [
+"Amnesia, Ibiza (Paul van Dyk residency)",
+"Madison Square Garden and the O2 (Above & Beyond)",
+"A State of Trance (radio and events)"
+],
+"branches": [
+"Vocal trance",
+"Epic trance",
+"Orchestral uplifting",
+"Hard uplifting"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Trance_music",
+"https://articles.roland.com/listening-guide-essential-early-trance/",
+"https://mixmag.net/feature/trance-reborn-the-sound-is-back-and-big-as-ever",
+"https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation"
+]
+},
+"g-hardtrance": {
+"emerged": "Germany, mid-1990s (from Frankfurt trance and the Harthouse sound)",
+"named_by": null,
+"first_records": [
+"Jones & Stephenson — The First Rebirth (Bonzai)",
+"Cherry Moon Trax — The House of House",
+"Blue Alphabet — Cybertrance",
+"Hardfloor — Acperience (Harthouse)"
+],
+"tempo": "faster than trance's general 125–150 bpm; no specific figure in sources",
+"peak": "mid–late 1990s",
+"rooms": [],
+"branches": [
+"Hard house",
+"Hard uplifting",
+"Jumpstyle",
+"NRG",
+"Hardstyle",
+"Hard techno (2020s revival context)"
+],
+"sources": [
+"https://en.wikipedia.org/wiki/Trance_music",
+"https://en.wikipedia.org/wiki/New_beat",
+"https://mixmag.net/feature/trance-reborn-the-sound-is-back-and-big-as-ever",
+"https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation",
+"https://www.beatportal.com/articles/381960-why-techno-is-harder-faster-and-angrier-than-ever"
 ]
 },
 "law-bright-bill": {
