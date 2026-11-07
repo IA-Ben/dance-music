@@ -50,7 +50,7 @@
     <div class="notice" style="margin-top:18px">▲ <span><b>Use headphones or monitors.</b> The kick fundamental and the rumble live below 100 Hz. Start quiet.</span></div>
     <h3 style="margin-top:22px">Ways in</h3>
     <div class="chips entry">
-      <a class="chip" href="#years-y1986"><i></i>1986: year one</a><a class="chip" href="#years-y2026"><i></i>2026: forty years on</a><a class="chip" href="#forty"><i></i>The forty lists</a><a class="chip" href="#techno-pre"><i></i>The prehistory: 1920–80</a><a class="chip" href="#techno-h2"><i></i>Detroit, 1985</a><a class="chip" href="#house-hh1"><i></i>Chicago, 1977</a><a class="chip" href="#rave-r1"><i></i>The M25, 1989</a><a class="chip" href="#jungle-j1"><i></i>Rage at Heaven, 1988</a><a class="chip" href="#trance-t1"><i></i>Frankfurt, 1990</a><a class="chip" href="#techno-ldn"><i></i>London, Clink Street to the coast</a><a class="chip" href="#house-acid"><i></i>A crossing: acid</a><a class="chip" href="#year"><i></i>Everything in one year</a><a class="chip" href="#explore"><i></i>Explore the graph</a><a class="chip" href="#tours"><i></i>Take a guided tour</a><a class="chip" href="#path"><i></i>Six degrees</a><a class="chip" href="#quiz"><i></i>Blind test</a><a class="chip" href="#anatomy-a0"><i></i>Take a track apart</a><a class="chip" href="#mixer"><i></i>Build a set</a>
+      <a class="chip" href="#years-y1986"><i></i>1986: year one</a><a class="chip" href="#years-y2026"><i></i>2026: forty years on</a><a class="chip" href="#years-timeline"><i></i>Forty years in one line</a><a class="chip" href="#forty"><i></i>The forty lists</a><a class="chip" href="#flyers"><i></i>Real flyers</a><a class="chip" href="#cities"><i></i>How it spread</a><a class="chip" href="#techno-pre"><i></i>The prehistory: 1920–80</a><a class="chip" href="#techno-h2"><i></i>Detroit, 1985</a><a class="chip" href="#house-hh1"><i></i>Chicago, 1977</a><a class="chip" href="#rave-r1"><i></i>The M25, 1989</a><a class="chip" href="#jungle-j1"><i></i>Rage at Heaven, 1988</a><a class="chip" href="#trance-t1"><i></i>Frankfurt, 1990</a><a class="chip" href="#techno-ldn"><i></i>London, Clink Street to the coast</a><a class="chip" href="#house-acid"><i></i>A crossing: acid</a><a class="chip" href="#year"><i></i>Everything in one year</a><a class="chip" href="#explore"><i></i>Explore the graph</a><a class="chip" href="#tours"><i></i>Take a guided tour</a><a class="chip" href="#path"><i></i>Six degrees</a><a class="chip" href="#quiz"><i></i>Blind test</a><a class="chip" href="#anatomy-a0"><i></i>Take a track apart</a><a class="chip" href="#mixer"><i></i>Build a set</a>
     </div>
     <div class="strip"><i style="background:var(--rumble)"></i><i style="background:var(--drums)"></i><i style="background:var(--perc)"></i><i style="background:var(--samp)"></i><i style="background:var(--synth)"></i><i style="background:var(--kick)"></i><i style="background:var(--seq)"></i></div>
   </header>
@@ -1212,6 +1212,50 @@
   <div id="fortyLists"></div>
 </article>
 
+<!-- ============ TIMELINE ============ -->
+<article class="page" data-page="timeline" style="--c:var(--mix)">
+  <p class="kicker">Forty years · the timeline</p>
+  <h2>Forty years in one line</h2>
+  <p class="lede">Every page in the book placed on one line from 1986 to 2026: the records as dots, the rooms as bars from the night they opened to the night they closed, the people from their first record, the nights, the labels, the machines. Filter by strand or kind, drag to zoom, hover for a name, click to go.</p>
+  <div class="card"><div class="row" id="tlFilters" style="margin:0 0 8px"></div><div class="tlwrap"><svg id="bigTimeline" class="diag"></svg></div><p class="cap" id="tlCap">Drag across the line to zoom into a span of years; double-click to reset.</p></div>
+</article>
+
+<!-- ============ NIGHTS ============ -->
+<article class="page" data-page="nights" style="--c:var(--perc)">
+  <p class="kicker">Explore · club nights</p>
+  <h2>Club nights</h2>
+  <p class="lede">The weekly nights, the one-offs, the raves and the festivals — every night the book knows, by city and by year. A room is a building; a night is what happened in it.</p>
+  <div class="row" id="nightsFilters" style="margin:0 0 10px"></div>
+  <div id="nightsList"></div>
+</article>
+
+<!-- ============ FLYERS ============ -->
+<article class="page" data-page="flyers" style="--c:var(--perc)">
+  <p class="kicker">Explore · real flyers</p>
+  <h2>Real flyers</h2>
+  <p class="lede">The paper the nights were sold on. These are scans released under Creative Commons licences — so far a run of Berlin flyers from 1992 to 1997: Tresor, E-Werk, WMF, the Love Parade weekends, Dubmission with Paul van Dyk, Marusha and Marshall Jefferson on the same bill. Click one to read it. The collection grows when readers add their own.</p>
+  <div class="row" style="margin:0 0 12px"><a class="play" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/Special:UploadWizard?categories=Techno%20flyers&description=Club%20flyer%2C%20contributed%20to%20Dance%20Music%2C%20the%20interactive%20book">Add your flyers (via Wikimedia Commons)</a><span class="cap">Scans you own the rights to, released CC BY-SA, filed under “Techno flyers” — the book picks them up on its next build.</span></div>
+  <div class="ggrid" id="flyerGrid"></div>
+</article>
+
+<!-- ============ DJS ============ -->
+<article class="page" data-page="djs" style="--c:var(--kick)">
+  <p class="kicker">Explore · the DJs</p>
+  <h2>DJs and producers</h2>
+  <p class="lede">Every person in the book, across all five strands, from the year of their first record. Filter by strand or city, sort by year or name; each is a page with their rooms, their records and their links.</p>
+  <div class="row" id="djFilters" style="margin:0 0 10px"></div>
+  <div id="djList" class="djgrid"></div>
+</article>
+
+<!-- ============ CITIES ============ -->
+<article class="page" data-page="cities" style="--c:var(--mix)">
+  <p class="kicker">Explore · cities · the spread</p>
+  <h2>Cities, and how it spread</h2>
+  <p class="lede">Two American cities in 1986; the world by 2026. Drag the year and watch the map fill in — each city appears the year its first page in the book begins, and grows with everything that followed. Click a city for its page.</p>
+  <div class="card"><div class="row" style="margin:0 0 6px"><input type="range" id="cityYear" min="1986" max="2026" value="2026" style="flex:1"><output id="cityYearOut" style="font:700 22px 'Space Grotesk',sans-serif;min-width:70px;text-align:right">2026</output><button class="sm" id="cityPlay">▶ play the spread</button><span id="cityView" class="chips" style="margin-left:8px"><button class="chip on" data-v="world"><i></i>World</button><button class="chip" data-v="europe"><i></i>Europe</button><button class="chip" data-v="britain"><i></i>Britain</button></span></div><svg id="cityMap" class="diag"></svg><p class="cap">Schematic world map; dot size is the number of pages the book has for that city by the chosen year.</p></div>
+  <div id="cityList" style="margin-top:14px"></div>
+</article>
+
 <!-- ===================================================================
      NODE BODIES — hand-written pages for the most connected nodes.
      <template id="node-<id>"> … </template>; the engine inserts the
@@ -1809,6 +1853,8 @@
 <script src="history.js"></script>
 <script src="nodes.js"></script>
 <script src="extras.js"></script>
+<script src="flyers.js"></script>
+<script src="spread.js"></script>
 <script src="spotify.js"></script>
 <script src="gallery.js"></script>
 </body>

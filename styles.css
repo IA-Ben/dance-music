@@ -394,6 +394,17 @@ button.chip{cursor:pointer;font:inherit}
 .ystats{display:flex;flex-wrap:wrap;gap:14px;font:11px 'JetBrains Mono',monospace;color:var(--muted);margin:6px 0 14px}.ystats b{color:var(--text);font-size:16px;display:block}
 .fortylist{columns:2;column-gap:28px;padding-left:22px;margin:8px 0 0;font-size:14px}.fortylist li{break-inside:avoid;padding:3px 0}.fortylist small{display:block;font:10px 'JetBrains Mono',monospace;color:var(--muted)}
 @media(max-width:700px){.fortylist{columns:1}}
+/* spread pages */
+.tlwrap{overflow-x:auto}#bigTimeline{min-width:900px;cursor:crosshair}
+#tlFilters .toggle{margin-right:6px}
+.night .tag{font:600 9px 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--ci,var(--c));margin-left:4px}
+.djgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.djcard{display:flex;flex-direction:column;gap:2px;text-decoration:none;color:var(--text);background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--c);border-radius:8px;padding:9px 11px;transition:.15s}.djcard:hover{border-color:var(--c);transform:translateY(-1px)}
+.djcard b{font-size:14px}.djcard .meta{font:10px 'JetBrains Mono',monospace;color:var(--muted)}.djcard .who{font-size:12px;color:var(--muted)}
+.flyerstrip{margin-top:30px;column-span:all;break-inside:avoid}.gitem.flyer img{height:200px;object-fit:cover;object-position:top}
+#cityMap{width:100%;height:auto}
+body.paper .page .card:has(#cityMap),body.paper .page .card:has(#bigTimeline){--bg:#0e0e13;--bg2:#121218;--bg3:#1b1b24;--line:#272733;--text:#ebebf1;--muted:#8f8fa0;background:var(--bg2);color:var(--text)}
+body.paper .page .card:has(#bigTimeline) .toggle{color:#c9c9d4}
 /* =====================================================================
    BOOK SKIN — paper pages, dark plates, spreads on wide screens
    ===================================================================== */
@@ -462,8 +473,8 @@ body.paper .page{padding:44px 48px 70px 56px}
 @media (min-width:1180px){
   body.paper main{max-width:1420px;padding:0 28px 120px}
   body.paper .page{padding:48px 64px 76px 72px;border-radius:6px 12px 12px 6px}
-  body.paper .page.show:not(.hero-page):not([data-page=mixer]):not([data-page=explore]):not([data-page=year]){columns:2;column-gap:96px;column-fill:balance;orphans:3;widows:3}
-  body.paper .page.show:not(.hero-page):not([data-page=mixer]):not([data-page=explore]):not([data-page=year])::after{content:'';position:absolute;top:0;bottom:0;left:50%;width:120px;transform:translateX(-50%);background:linear-gradient(90deg,#0000 0%,#0000000d 38%,#00000026 49%,#00000030 50%,#00000026 51%,#0000000d 62%,#0000 100%);pointer-events:none}
+  body.paper .page.show:not(.hero-page):not([data-page=mixer]):not([data-page=explore]):not([data-page=year]):not([data-page=timeline]):not([data-page=cities]):not([data-page=nights]):not([data-page=djs]):not([data-page=flyers]):not([data-page=forty]):not([data-page=quiz]):not([data-page=path]){columns:2;column-gap:96px;column-fill:balance;orphans:3;widows:3}
+  body.paper .page.show:not(.hero-page):not([data-page=mixer]):not([data-page=explore]):not([data-page=year]):not([data-page=timeline]):not([data-page=cities]):not([data-page=nights]):not([data-page=djs]):not([data-page=flyers]):not([data-page=forty]):not([data-page=quiz]):not([data-page=path])::after{content:'';position:absolute;top:0;bottom:0;left:50%;width:120px;transform:translateX(-50%);background:linear-gradient(90deg,#0000 0%,#0000000d 38%,#00000026 49%,#00000030 50%,#00000026 51%,#0000000d 62%,#0000 100%);pointer-events:none}
   body.paper .page .runhead,body.paper .page>.kicker,body.paper .page>h2,body.paper .page>.lede,body.paper .page>.hero-img,body.paper .page .pagenav,body.paper .page .forks,body.paper .page>.chips,body.paper .page>.nodeimg,body.paper .page .framing-switch,body.paper .page>.tabs{column-span:all}
   body.paper .page>.lede{max-width:none;columns:2;column-gap:96px}
   body.paper .page>.lede::first-letter{font-size:72px}
