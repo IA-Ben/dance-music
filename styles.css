@@ -405,6 +405,15 @@ button.chip{cursor:pointer;font:inherit}
 #cityMap{width:100%;height:auto}
 body.paper .page .card:has(#cityMap),body.paper .page .card:has(#bigTimeline){--bg:#0e0e13;--bg2:#121218;--bg3:#1b1b24;--line:#272733;--text:#ebebf1;--muted:#8f8fa0;background:var(--bg2);color:var(--text)}
 body.paper .page .card:has(#bigTimeline) .toggle{color:#c9c9d4}
+/* listings */
+.week{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.lsdaycol{background:var(--bg3);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0}.lsdaycol.wide{grid-column:1/-1}
+.lsdaycol h4{margin:0 0 6px;font:600 10px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lsline{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:6px 0;border-top:1px dashed var(--line);font-size:13.5px;line-height:1.4}.lsline:first-of-type{border-top:0}
+.lsday{font:600 10px 'JetBrains Mono',monospace;color:var(--ci,var(--c));padding-top:3px}
+.lsline .cap i{font-style:normal;color:var(--muted)}
+.lsstrip{margin-top:30px;column-span:all;break-inside:avoid}
+@media(max-width:700px){.week{grid-template-columns:1fr}}
 /* =====================================================================
    BOOK SKIN — paper pages, dark plates, spreads on wide screens
    ===================================================================== */
@@ -473,8 +482,8 @@ body.paper .page{padding:44px 48px 70px 56px}
 @media (min-width:1180px){
   body.paper main{max-width:1420px;padding:0 28px 120px}
   body.paper .page{padding:48px 64px 76px 72px;border-radius:6px 12px 12px 6px}
-  body.paper .page.show:not(.hero-page):not([data-page=mixer]):not([data-page=explore]):not([data-page=year]):not([data-page=timeline]):not([data-page=cities]):not([data-page=nights]):not([data-page=djs]):not([data-page=flyers]):not([data-page=forty]):not([data-page=quiz]):not([data-page=path]){columns:2;column-gap:96px;column-fill:balance;orphans:3;widows:3}
-  body.paper .page.show:not(.hero-page):not([data-page=mixer]):not([data-page=explore]):not([data-page=year]):not([data-page=timeline]):not([data-page=cities]):not([data-page=nights]):not([data-page=djs]):not([data-page=flyers]):not([data-page=forty]):not([data-page=quiz]):not([data-page=path])::after{content:'';position:absolute;top:0;bottom:0;left:50%;width:120px;transform:translateX(-50%);background:linear-gradient(90deg,#0000 0%,#0000000d 38%,#00000026 49%,#00000030 50%,#00000026 51%,#0000000d 62%,#0000 100%);pointer-events:none}
+  body.paper .page.show:not(.hero-page):not([data-page=mixer]):not([data-page=explore]):not([data-page=year]):not([data-page=timeline]):not([data-page=cities]):not([data-page=nights]):not([data-page=djs]):not([data-page=flyers]):not([data-page=forty]):not([data-page=listings]):not([data-page=quiz]):not([data-page=path]){columns:2;column-gap:96px;column-fill:balance;orphans:3;widows:3}
+  body.paper .page.show:not(.hero-page):not([data-page=mixer]):not([data-page=explore]):not([data-page=year]):not([data-page=timeline]):not([data-page=cities]):not([data-page=nights]):not([data-page=djs]):not([data-page=flyers]):not([data-page=forty]):not([data-page=listings]):not([data-page=quiz]):not([data-page=path])::after{content:'';position:absolute;top:0;bottom:0;left:50%;width:120px;transform:translateX(-50%);background:linear-gradient(90deg,#0000 0%,#0000000d 38%,#00000026 49%,#00000030 50%,#00000026 51%,#0000000d 62%,#0000 100%);pointer-events:none}
   body.paper .page .runhead,body.paper .page>.kicker,body.paper .page>h2,body.paper .page>.lede,body.paper .page>.hero-img,body.paper .page .pagenav,body.paper .page .forks,body.paper .page>.chips,body.paper .page>.nodeimg,body.paper .page .framing-switch,body.paper .page>.tabs{column-span:all}
   body.paper .page>.lede{max-width:none;columns:2;column-gap:96px}
   body.paper .page>.lede::first-letter{font-size:72px}

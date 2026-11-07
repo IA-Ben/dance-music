@@ -50,7 +50,7 @@
     <div class="notice" style="margin-top:18px">▲ <span><b>Use headphones or monitors.</b> The kick fundamental and the rumble live below 100 Hz. Start quiet.</span></div>
     <h3 style="margin-top:22px">Ways in</h3>
     <div class="chips entry">
-      <a class="chip" href="#years-y1986"><i></i>1986: year one</a><a class="chip" href="#years-y2026"><i></i>2026: forty years on</a><a class="chip" href="#years-timeline"><i></i>Forty years in one line</a><a class="chip" href="#forty"><i></i>The forty lists</a><a class="chip" href="#flyers"><i></i>Real flyers</a><a class="chip" href="#cities"><i></i>How it spread</a><a class="chip" href="#techno-pre"><i></i>The prehistory: 1920–80</a><a class="chip" href="#techno-h2"><i></i>Detroit, 1985</a><a class="chip" href="#house-hh1"><i></i>Chicago, 1977</a><a class="chip" href="#rave-r1"><i></i>The M25, 1989</a><a class="chip" href="#jungle-j1"><i></i>Rage at Heaven, 1988</a><a class="chip" href="#trance-t1"><i></i>Frankfurt, 1990</a><a class="chip" href="#techno-ldn"><i></i>London, Clink Street to the coast</a><a class="chip" href="#house-acid"><i></i>A crossing: acid</a><a class="chip" href="#year"><i></i>Everything in one year</a><a class="chip" href="#explore"><i></i>Explore the graph</a><a class="chip" href="#tours"><i></i>Take a guided tour</a><a class="chip" href="#path"><i></i>Six degrees</a><a class="chip" href="#quiz"><i></i>Blind test</a><a class="chip" href="#anatomy-a0"><i></i>Take a track apart</a><a class="chip" href="#mixer"><i></i>Build a set</a>
+      <a class="chip" href="#years-y1986"><i></i>1986: year one</a><a class="chip" href="#years-y2026"><i></i>2026: forty years on</a><a class="chip" href="#years-timeline"><i></i>Forty years in one line</a><a class="chip" href="#forty"><i></i>The forty lists</a><a class="chip" href="#listings"><i></i>What was on, week by week</a><a class="chip" href="#flyers"><i></i>Real flyers</a><a class="chip" href="#cities"><i></i>How it spread</a><a class="chip" href="#techno-pre"><i></i>The prehistory: 1920–80</a><a class="chip" href="#techno-h2"><i></i>Detroit, 1985</a><a class="chip" href="#house-hh1"><i></i>Chicago, 1977</a><a class="chip" href="#rave-r1"><i></i>The M25, 1989</a><a class="chip" href="#jungle-j1"><i></i>Rage at Heaven, 1988</a><a class="chip" href="#trance-t1"><i></i>Frankfurt, 1990</a><a class="chip" href="#techno-ldn"><i></i>London, Clink Street to the coast</a><a class="chip" href="#house-acid"><i></i>A crossing: acid</a><a class="chip" href="#year"><i></i>Everything in one year</a><a class="chip" href="#explore"><i></i>Explore the graph</a><a class="chip" href="#tours"><i></i>Take a guided tour</a><a class="chip" href="#path"><i></i>Six degrees</a><a class="chip" href="#quiz"><i></i>Blind test</a><a class="chip" href="#anatomy-a0"><i></i>Take a track apart</a><a class="chip" href="#mixer"><i></i>Build a set</a>
     </div>
     <div class="strip"><i style="background:var(--rumble)"></i><i style="background:var(--drums)"></i><i style="background:var(--perc)"></i><i style="background:var(--samp)"></i><i style="background:var(--synth)"></i><i style="background:var(--kick)"></i><i style="background:var(--seq)"></i></div>
   </header>
@@ -1256,6 +1256,14 @@
   <div id="cityList" style="margin-top:14px"></div>
 </article>
 
+<!-- ============ LISTINGS ============ -->
+<article class="page" data-page="listings" style="--c:var(--perc)">
+  <p class="kicker">Explore · listings</p>
+  <h2>What was on</h2>
+  <p class="lede">The listings page a magazine would have printed: pick a city and a year and see the week — which night ran where, on which day, with whom in the booth — plus the monthly nights, the raves and the festivals around it. Every venue and night is a page.</p>
+  <div class="card"><div class="row" style="margin:0 0 10px"><select id="lsCity"></select><input type="range" id="lsYear" min="1986" max="2026" value="1992" style="flex:1"><output id="lsYearOut" style="font:700 22px 'Space Grotesk',sans-serif;min-width:70px;text-align:right">1992</output><span class="cap" id="lsCount"></span></div><div id="lsWeek" class="week"></div></div>
+</article>
+
 <!-- ===================================================================
      NODE BODIES — hand-written pages for the most connected nodes.
      <template id="node-<id>"> … </template>; the engine inserts the
@@ -1854,6 +1862,7 @@
 <script src="nodes.js"></script>
 <script src="extras.js"></script>
 <script src="flyers.js"></script>
+<script src="listings.js"></script>
 <script src="spread.js"></script>
 <script src="spotify.js"></script>
 <script src="gallery.js"></script>

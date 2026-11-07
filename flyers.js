@@ -228,5 +228,115 @@ window.FLYERS = [
   "page": "https://commons.wikimedia.org/wiki/File%3AFlyers_UA.jpg",
   "src": "img/flyers/flyers-ua-jpg.jpg",
   "year": null
+ },
+ {
+  "title": "File:Flyer dello Space Travel vol.2.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "LA_RUE123",
+  "desc": "Italiano:  Flyer che informava dell'evento.",
+  "page": "https://commons.wikimedia.org/wiki/File%3AFlyer_dello_Space_Travel_vol.2.jpg",
+  "src": "img/flyers/flyer-dello-space-travel-vol-2.jpg",
+  "year": null
+ },
+ {
+  "title": "File:World Peace Party flyer.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Boomslang",
+  "desc": "English:  The flyer for the 1991 World Peace Party, considered to be the first rave in Africa",
+  "page": "https://commons.wikimedia.org/wiki/File%3AWorld_Peace_Party_flyer.jpg",
+  "src": "img/flyers/world-peace-party-flyer.jpg",
+  "year": null
+ },
+ {
+  "title": "File:19990129 TRANSPLANT 01 - Flyer a.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "TECHNOKRATIA",
+  "desc": "\u0421\u0440\u043f\u0441\u043a\u0438 / srpski:  TRANSPLANT 1 - Flyer a, Paradiso, Novi Sad, Srbija, 29.1.1999.godina \nDJ SUN (FRACTAL/TECHNOKRATIA/Srbija), DJ KONSTANTIN (New Dimension/TECHNOKRATIA/Srbija), VJ DU\u0160AN KALI\u010cANIN (TEC",
+  "page": "https://commons.wikimedia.org/wiki/File%3A19990129_TRANSPLANT_01_-_Flyer_a.jpg",
+  "src": "img/flyers/19990129-transplant-01-flyer-a.jpg",
+  "year": 1999
+ },
+ {
+  "title": "File:19991119 TRANSSERBIA 4 - Flyer a.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "TECHNOKRATIA",
+  "desc": "\u0421\u0440\u043f\u0441\u043a\u0438 / srpski:  TRANSSERBIA 4  - KREMBO PARTY - DJ ZOO-B & DJ SUN SHY - Flyer a, Mondo, Beograd, Srbija, 19.11.1999.godina \nDJ ZOO-B (Krembo Records/Izrael), DJ SUN-SHY (Krembo Records/Izrael), DJ S",
+  "page": "https://commons.wikimedia.org/wiki/File%3A19991119_TRANSSERBIA_4_-_Flyer_a.jpg",
+  "src": "img/flyers/19991119-transserbia-4-flyer-a.jpg",
+  "year": 1999
+ },
+ {
+  "title": "File:20000701 TRANSSERBIA 7 - Flyer a.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "TECHNOKRATIA",
+  "desc": "\u0421\u0440\u043f\u0441\u043a\u0438 / srpski:  TRANSSERBIA 7  - OPTIMUS PARTY - CHAKRA - Flyer a, Barutana, Beograd, Srbija, 1. 7.2000.godina \nLive act CHAKRA (Optimus rec./Izrael), DJ SUN (FRACTAL/TECHNOKRATIA/Srbija), DJ KONSTA",
+  "page": "https://commons.wikimedia.org/wiki/File%3A20000701_TRANSSERBIA_7_-_Flyer_a.jpg",
+  "src": "img/flyers/20000701-transserbia-7-flyer-a.jpg",
+  "year": 2000
+ },
+ {
+  "title": "File:20020419 TRANSPLANT 08 - Flyer a.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "TECHNOKRATIA",
+  "desc": "\u0421\u0440\u043f\u0441\u043a\u0438 / srpski:  TRANSPLANT 8 - Flyer a, Paradiso, Novi Sad, Srbija, 19.4.2002.godina \nLive P/A LotsOfDotz (Spontaneous Aerobics records/Synaesthesia/Srbija) , DJ KONSTANTIN (TECHNOKRATIA/Srbija), DJ",
+  "page": "https://commons.wikimedia.org/wiki/File%3A20020419_TRANSPLANT_08_-_Flyer_a.jpg",
+  "src": "img/flyers/20020419-transplant-08-flyer-a.jpg",
+  "year": 2002
+ },
+ {
+  "title": "File:20011214 TRANSPLANT 07 - Flyer a.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "TECHNOKRATIA",
+  "desc": "\u0421\u0440\u043f\u0441\u043a\u0438 / srpski:  TRANSPLANT 7 - Flyer a, Paradiso, Novi Sad, Srbija, 14.12.2001.godina \nDJ GREG (Gregas project/Gr\u010dka), DJ BORIS (Sonic Tribe/TECHNOKRATIA/Srbija), DJ SUN (TECHNOKRATIA/Srbija), VJ DU",
+  "page": "https://commons.wikimedia.org/wiki/File%3A20011214_TRANSPLANT_07_-_Flyer_a.jpg",
+  "src": "img/flyers/20011214-transplant-07-flyer-a.jpg",
+  "year": 2001
+ },
+ {
+  "title": "File:Back to Basics Posters Festsaal Kreuzberg.jpg",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "author": "lenore*",
+  "desc": "English:  A wall full of posters for the event \"Back to basics Pt. 11: Technohouse Classics 1989\u201392\" with DJ EZH, DJ Tanith, DJ WolleXDP and others at Festsaal Kreuzberg in Berlin on 30 December 2006.",
+  "page": "https://commons.wikimedia.org/wiki/File%3ABack_to_Basics_Posters_Festsaal_Kreuzberg.jpg",
+  "src": "img/flyers/back-to-basics-posters-festsaal-kreuzberg.jpg",
+  "year": null
+ },
+ {
+  "title": "File:Rave Scout Cookies Handbook Rave Flyers, Interior.png",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Rave Scout Cookies Imprint, Publisher",
+  "desc": "English:  A non-fiction book about the unarticulated political roots and history of dance music counterculture.",
+  "page": "https://commons.wikimedia.org/wiki/File%3ARave_Scout_Cookies_Handbook_Rave_Flyers%2C_Interior.png",
+  "src": "img/flyers/rave-scout-cookies-handbook-rave-flyers-interior.jpg",
+  "year": null
+ },
+ {
+  "title": "File:Ultim8 rave flyer, Knighton, 25 September 1992 (back)",
+  "license": "CC BY-SA 4.0 ",
+  "licenseUrl": "",
+  "author": "ultim8 raves, knighton",
+  "desc": "Ultim8, Knighton, Powys, 25 September 1992: \"It's time to come alive\"",
+  "page": "https://commons.wikimedia.org/wiki/File:Ultim8_rave_flyer,_Knighton,_September_25th_1992-%22Its_time_to_come_alive%22_(back).jpg",
+  "src": "img/flyers/ultim8-knighton-1992-back.jpg",
+  "year": 1992
+ },
+ {
+  "title": "File:Ultim8 rave flyer, Knighton, 25 September 1992 (front)",
+  "license": "CC BY-SA 4.0 ",
+  "licenseUrl": "",
+  "author": "ultim8 raves, knighton",
+  "desc": "Ultim8, Knighton, Powys, 25 September 1992: \"It's time to come alive\"",
+  "page": "https://commons.wikimedia.org/wiki/File:Ultim8_rave_flyer,_Knighton,_September_25th_1992-%22Its_time_to_come_alive%22_(front).jpg",
+  "src": "img/flyers/ultim8-knighton-1992-front.jpg",
+  "year": 1992
  }
 ];
