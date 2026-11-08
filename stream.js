@@ -40,7 +40,7 @@ window.Stream = {
     // keep LINK.sp in step so freshly built chips use the choice
     if (window.LINK) LINK.sp = q => Stream.url(q);
     // only embed where the chosen service allows it
-    if (window.SpotifyEmbed){ const en = SpotifyEmbed.enabled.bind(SpotifyEmbed); SpotifyEmbed.enabled = () => en() && Stream.get() === 'spotify'; }
+    if (window.SpotifyEmbed){ const en = SpotifyEmbed.enabled.bind(SpotifyEmbed); SpotifyEmbed.enabled = () => en() && (Stream.get() === 'spotify' || Stream.get() === 'youtube'); }
     // relink after every route
     const mo = new MutationObserver(() => { clearTimeout(this._t); this._t = setTimeout(() => this.relink(), 60); });
     const book = document.getElementById('book'); if (book) mo.observe(book, { childList: true, subtree: true });

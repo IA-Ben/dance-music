@@ -108,8 +108,10 @@ const NodeView = {
 
 /* ---------- forks ---------- */
 function renderForks(pageId, pageEl){
-  let box = pageEl.querySelector('.forks'); const f = FORKS[pageId];
-  if (!f){ if (box) box.remove(); return; }
+  let box = pageEl.querySelector('.forks');
+  // only crossings into strands this edition has (the Ibiza and Goa strands are not written yet)
+  const f = (FORKS[pageId] || []).filter(([, to, s]) => STRANDS[s] && (!window.PAGE_IDS || PAGE_IDS.includes(to) || (typeof NODE !== 'undefined' && NODE[to])));
+  if (!f.length){ if (box) box.remove(); return; }
   if (!box){ box = document.createElement('div'); box.className = 'forks'; const nav = pageEl.querySelector('.pagenav'); pageEl.insertBefore(box, nav); }
   box.innerHTML = `<div class="kicker" style="margin-bottom:8px">Where the history forks here</div>` + f.map(([label, to, s]) => `<a href="#${s}-${to}" style="--c:var(${STRANDS[s].color})"><small>${STRANDS[s].title} strand</small>${label}</a>`).join('');
 }
