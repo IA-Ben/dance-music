@@ -1,0 +1,28 @@
+name: Browser check
+# Manual: opens the live site in Chromium and checks what needs the open web
+# (the neural reading voice, the player's sources); writes check-out.txt to media-work.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: media-work
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright && python -m playwright install --with-deps chromium
+      - run: timeout 900 python check.py > check-out.txt 2>&1 || true
+      - run: cat check-out.txt
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add check-out.txt
+          git commit -m "Browser check" || echo "nothing to commit"
+          git pull --rebase origin media-work || true
+          git push origin HEAD:media-work
