@@ -1,0 +1,111 @@
+{
+ "space": [
+  38.88611111,
+  1.40305556,
+  "https://en.wikipedia.org/wiki/Space_%28Ibiza_nightclub%29",
+  "wikipedia"
+ ],
+ "amnesia": [
+  38.94777778,
+  1.40805556,
+  "https://en.wikipedia.org/wiki/Amnesia_%28nightclub%29",
+  "wikipedia"
+ ],
+ "pacha": [
+  38.9184411,
+  1.4433152,
+  "https://www.openstreetmap.org/way/324948038",
+  "osm: Pacha, 19, Avinguda 8 d'Agost, s'Hort de sa Fruita, Eivissa, Illes Balears, 07800, España"
+ ],
+ "ku": [
+  38.95777778,
+  1.40805556,
+  "https://en.wikipedia.org/wiki/Privilege_Ibiza",
+  "wikipedia"
+ ],
+ "dc10": [
+  38.8802403,
+  1.3926376,
+  "https://www.openstreetmap.org/way/183971966",
+  "osm: DC-10, Carretera Sant Jordi - Ses Salines, Sant Jordi de ses Salines, Sant Josep de sa Talaia, Eivissa, Illes Balears, 0"
+ ],
+ "cafe-del-mar": [
+  38.98055556,
+  1.29611111,
+  "https://en.wikipedia.org/wiki/Caf%C3%A9_del_Mar",
+  "wikipedia"
+ ],
+ "eden": [
+  38.9662673,
+  1.3101609,
+  "https://www.openstreetmap.org/node/5002146544",
+  "osm: Eden, Avinguda de Sant Agustí, Es Molí, Sant Antoni de Portmany, Eivissa, Illes Balears, 07820, España"
+ ],
+ "es-paradis": [
+  38.9786465,
+  1.3079471,
+  "https://www.openstreetmap.org/way/143574971",
+  "osm: Es Paradís, 2, Carrer de Salvador Espriu, Sant Antoni de Portmany, Eivissa, Illes Balears, 07820, España"
+ ],
+ "cafe-mambo": [
+  38.981171,
+  1.296054,
+  "https://en.wikipedia.org/wiki/Caf%C3%A9_Mambo",
+  "wikipedia"
+ ],
+ "ushuaia": null,
+ "hi-ibiza": [
+  38.8859868,
+  1.4038551,
+  "https://www.openstreetmap.org/way/119370843",
+  "osm: Hï Ibiza, Carretera de Platja d'en Bossa, Platja d'en Bossa, Sant Jordi de ses Salines, Sant Josep de sa Talaia, Eivissa"
+ ],
+ "pikes": [
+  38.9911082,
+  1.3201407,
+  "https://www.openstreetmap.org/way/511047952",
+  "osm: Pikes Hotel, 30, Camí de sa Vorera, Can Figuretes, Can Germà, Sant Antoni de Portmany, Eivissa, Illes Balears, 07820, Es"
+ ],
+ "anjuna": [
+  15.5947625,
+  73.75092389,
+  "https://en.wikipedia.org/wiki/Anjuna",
+  "wikipedia"
+ ],
+ "hilltop": [
+  15.5925099,
+  73.7423509,
+  "https://www.openstreetmap.org/node/2349835663",
+  "osm: Hilltop, Hilltop Market Road, Dehul Vaddo, Anjuna, Bardez, North Goa, Goa, 403509, India"
+ ],
+ "nine-bar": [
+  15.5968528,
+  73.7348487,
+  "https://www.openstreetmap.org/node/2349835664",
+  "osm: 9 Bar, Ozran Beach Road, Dehul Vaddo, Anjuna, Bardez, North Goa, Goa, 403509, India"
+ ],
+ "shiva-valley": [
+  15.5689678,
+  73.7421652,
+  "https://www.openstreetmap.org/node/4168002637",
+  "osm: Shiva Valley, Curlies Road, Grande Peddem, Anjuna, Bardez, North Goa, Goa, 403509, India"
+ ],
+ "disco-valley": [
+  15.5980876,
+  73.7338154,
+  "https://www.openstreetmap.org/node/2663566721",
+  "osm: Disco Valley, Ozran Beach Road, Dehul Vaddo, Anjuna, Bardez, North Goa, Goa, 403509, India"
+ ],
+ "paradiso": [
+  15.5849267,
+  73.7374133,
+  "https://www.openstreetmap.org/way/905374543",
+  "osm: Nyex Beach Club, Anjuna Seafront Plaza, Prais Vaddo, Anjuna, Bardez, North Goa, Goa, 403202, India"
+ ],
+ "curlies": [
+  15.5694159,
+  73.7425556,
+  "https://www.openstreetmap.org/node/12238203260",
+  "osm: Curlies, Curlies Road, Grande Peddem, Anjuna, Bardez, North Goa, Goa, 403509, India"
+ ]
+}
