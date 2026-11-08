@@ -38,6 +38,8 @@ def one(item):
 if __name__ == '__main__':
     if sys.argv[1].endswith('.geo.json'):
         import geo; geo.main(sys.argv[1], sys.argv[2]); sys.exit(0)
+    if sys.argv[1].endswith('.img.json'):
+        import img; img.main(sys.argv[1], sys.argv[2]); sys.exit(0)
     if sys.argv[1].endswith('.links.json'):
         import links; links.main(sys.argv[1], sys.argv[2]); sys.exit(0)
     done = 0
