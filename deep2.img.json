@@ -1,0 +1,18 @@
+[
+ {"name": "cb11-a.jpg", "title": "File:Kowa Nishi-Azabu Bldg. 202307.jpg", "width": 1280},
+ {"name": "cb11-b.jpg", "title": "File:首都高3号渋谷線 seen from 9th floor of Kowa Nishi-Azabu Bldg..jpg", "width": 1280},
+ {"name": "cb11-c.jpg", "title": "File:Nishi Azabu (53332520012).jpg", "width": 1280},
+ {"name": "cb15-a.jpg", "title": "File:Tbilisi Boris Paichadze Dinamo Arena 1.jpg", "width": 1280},
+ {"name": "cb15-b.jpg", "title": "File:Tbilisi Boris Paichadze Dinamo Arena 2.jpg", "width": 1280},
+ {"name": "cb15-c.jpg", "title": "File:Tbilisi Boris Paichadze Dinamo Arena 4.jpg", "width": 1280},
+ {"name": "cb15-d.jpg", "title": "File:Tbilisi Boris Paichadze Dinamo Arena 5.jpg", "width": 1280},
+ {"search": "Digbeth Institute", "prefix": "s-cb12", "limit": 6, "width": 1280},
+ {"search": "Frankie Knuckles Way", "prefix": "s-cb2", "limit": 6, "width": 1280},
+ {"search": "Warehouse Jefferson Street Chicago", "prefix": "s-cb2b", "limit": 6, "width": 1280},
+ {"search": "Broadway Avenue Historic District Detroit", "prefix": "s-cb7", "limit": 8, "width": 1280},
+ {"search": "Sigma Sound Studios", "prefix": "s-rt4", "limit": 6, "width": 1280},
+ {"search": "Baker Beach Golden Gate Bridge", "prefix": "s-ed1", "limit": 6, "width": 1280},
+ {"search": "United States Capitol west front", "prefix": "s-ed4", "limit": 6, "width": 1280},
+ {"search": "Durban skyline", "prefix": "s-rt7", "limit": 6, "width": 1280},
+ {"search": "Luanda skyline", "prefix": "s-rt7b", "limit": 6, "width": 1280}
+]
