@@ -823,7 +823,7 @@ window.FACTS = {
 "sources": [
 "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Bunker_(Berlin)",
 "https://electronicbeats.net/25-german-clubs-closed/",
-"https://electronicbeats.net/the-feed/this-video-takes-you-inside-90s-berlins-notoriously-wild-bunker-techno-club"
+"https://web.archive.org/web/20250315140854/https://www.electronicbeats.net/the-feed/this-video-takes-you-inside-90s-berlins-notoriously-wild-bunker-techno-club/"
 ]
 },
 "hard-wax": {
@@ -849,7 +849,7 @@ window.FACTS = {
 "status": "relocated",
 "sources": [
 "https://en.wikipedia.org/wiki/Hard_Wax",
-"https://032c.com/magazine/berlin-s-sonic-mecca-hard-wax",
+"https://web.archive.org/web/20251012181848/https://032c.com/magazine/berlin-s-sonic-mecca-hard-wax",
 "https://www.the-berliner.com/music-clubs/hard-wax-legendary-record-shop-kopenicker-strasse/"
 ]
 },
@@ -1056,7 +1056,7 @@ window.FACTS = {
 "status": "open",
 "sources": [
 "https://en.wikipedia.org/wiki/Amnesia_(nightclub)",
-"https://defected.com/news/post/amnesia-never-forgotten",
+"https://web.archive.org/web/20251217062312/https://defected.com/news/post/amnesia-never-forgotten",
 "https://www.electronicsound.co.uk/?p=8444",
 "https://factmag.com/2016/07/05/ibiza-club-amnesia-raided-by-police-club-owner-arrested",
 "https://amnesia.es/en/history"
@@ -1479,7 +1479,7 @@ window.FACTS = {
 "status": "open",
 "sources": [
 "https://daily.redbullmusicacademy.com/2019/01/steve-bicknell-interview",
-"https://boilerroom.tv/there-was-no-other-club-artwork-on-the-legend-of-lost",
+"https://web.archive.org/web/20241015055509/https://boilerroom.tv/there-was-no-other-club-artwork-on-the-legend-of-lost//",
 "https://daily.redbullmusicacademy.com/2015/07/london-techno-untold-story",
 "https://djmag.com/content/no-conspiracy-theory"
 ]
@@ -1612,7 +1612,7 @@ window.FACTS = {
 "status": "open",
 "sources": [
 "https://en.wikipedia.org/wiki/Caf%C3%A9_del_Mar",
-"https://shop.cafedelmar.com/pages/about-us"
+"https://web.archive.org/web/20240915141027/https://shop.cafedelmar.com/pages/about-us"
 ]
 },
 "paradise-garage": {
@@ -2517,8 +2517,8 @@ window.FACTS = {
 ],
 "status": "revived",
 "sources": [
-"https://goatshedmusic.com/its-a-way-of-life-darren-jay-talks-30-years-of-awol-interview/",
-"https://breakbeat.co.uk/features/jungle-book/jamies-jungle-book-part-15"
+"https://web.archive.org/web/20260316082317/https://goatshedmusic.com/its-a-way-of-life-darren-jay-talks-30-years-of-awol-interview/",
+"https://web.archive.org/web/20251109013824/https://breakbeat.co.uk/features/jungle-book/jamies-jungle-book-part-15//"
 ]
 },
 "wiggle": {
@@ -2773,7 +2773,7 @@ window.FACTS = {
 "status": "running",
 "sources": [
 "https://en.wikipedia-on-ipfs.org/wiki/Mayday_(music_festival)",
-"https://www.electronicbeats.net/the-feed/relive-the-1991-mayday-rave-that-tried-to-save-berlin-radio/",
+"https://web.archive.org/web/20250121162448/https://www.electronicbeats.net/the-feed/relive-the-1991-mayday-rave-that-tried-to-save-berlin-radio/",
 "https://www.mdwiki.org/wiki/Members_of_Mayday",
 "https://mayday.de/en/discover"
 ]
@@ -2927,7 +2927,7 @@ window.FACTS = {
 ],
 "status": "running",
 "sources": [
-"https://extension.wikiwand.com/en/Boiler_Room_(music_broadcaster)",
+"https://en.wikipedia.org/wiki/Boiler_Room_(music_broadcaster)",
 "https://ra.co/news/82454"
 ]
 },
@@ -2999,7 +2999,7 @@ window.FACTS = {
 "https://www.borosix.co.uk/history/1989_r.html",
 "https://en.wikipedia.org/wiki/Sunrise_%26_Back_to_the_Future",
 "https://88to98.co.uk/?p=1730",
-"https://www.kentonline.co.uk/kent/news/amp/how-the-raves-of-1989-turned-nasty-229736/"
+"https://web.archive.org/web/20220608031338/https://www.kentonline.co.uk/kent/news/amp/how-the-raves-of-1989-turned-nasty-229736/"
 ]
 },
 "biology": {
@@ -3272,7 +3272,7 @@ window.FACTS = {
 "https://api.parliament.uk/historic-hansard/commons/1990/apr/27/increase-of-penalties-england-and-wales",
 "https://www.legislation.gov.uk/ukpga/1990/20/data.html",
 "https://909originals.com/2020/01/27/on-this-day-in-1990-the-freedom-to-party-rally-took-over-londons-trafalgar-square/",
-"https://www.kentonline.co.uk/kent/news/amp/how-the-raves-of-1989-turned-nasty-229736/"
+"https://web.archive.org/web/20220608031338/https://www.kentonline.co.uk/kent/news/amp/how-the-raves-of-1989-turned-nasty-229736/"
 ]
 },
 "reclaim-the-streets": {
@@ -3684,7 +3684,7 @@ window.FACTS = {
 "https://en.wikipedia.org/wiki/Detroit_techno",
 "https://en.wikipedia.org/wiki/Techno!_The_New_Dance_Sound_of_Detroit",
 "https://daily.redbullmusicacademy.com/2017/07/neil-rushton-interview",
-"https://www.redbull.com/us-en/quickfire-history-of-detroit-techno",
+"https://web.archive.org/web/20241213055439/https://www.redbull.com/us-en/quickfire-history-of-detroit-techno",
 "https://en.wikipedia.org/wiki/Big_Fun_(Inner_City_song)"
 ]
 },
@@ -5072,7 +5072,7 @@ window.FACTS = {
 "status": "in force",
 "sources": [
 "https://api.parliament.uk/historic-hansard/lords/1977/jun/20/misuse-of-drugs-act-1971-modification",
-"https://taz4.erowid.org/chemicals/mdma/mdma_timeline.php",
+"https://web.archive.org/web/20070821014039/http://taz4.erowid.org:80/chemicals/mdma/mdma_timeline.php",
 "https://en.wikipedia.org/wiki/Misuse_of_Drugs_Act_1971"
 ]
 },
@@ -5964,7 +5964,7 @@ window.FACTS = {
 ],
 "active": "2000s–",
 "sources": [
-"https://movementfestival.com/pages/t-linder-b2b-dj-seoul",
+"https://web.archive.org/web/20251013063732/https://movementfestival.com/pages/t-linder-b2b-dj-seoul",
 "https://citynomads.com/detroit-techno-militia-interview-t-linder/",
 "https://www.detroittechnomilitia.com/event/catchmydrift-presents-detroit-techno-militia-and-hastings-techno-militia/",
 "https://ra.co/news/83609"
@@ -7534,7 +7534,7 @@ window.FACTS = {
 "https://daily.redbullmusicacademy.com/2019/01/steve-bicknell-interview",
 "https://www.juno.co.uk/junodaily/2014/06/02/steve-bicknell-relaunches-cosmic-records",
 "https://testpressing.org/magazine/20-questions-019steve-bicknellcosmicclub-trackslost",
-"https://boilerroom.tv/there-was-no-other-club-artwork-on-the-legend-of-lost"
+"https://web.archive.org/web/20241015055509/https://boilerroom.tv/there-was-no-other-club-artwork-on-the-legend-of-lost//"
 ]
 },
 "regis": {
@@ -7923,7 +7923,7 @@ window.FACTS = {
 "active": "c. 1980–2015",
 "sources": [
 "https://en.wikipedia.org/wiki/Colin_Faver",
-"https://mixmag.net/read/rip-colin-faver-our-obituary-blog"
+"https://web.archive.org/web/20250211111708/https://mixmag.net/read/rip-colin-faver-our-obituary-blog"
 ]
 },
 "shut-up-and-dance-p": {
@@ -12965,7 +12965,7 @@ window.FACTS = {
 "reissues": [],
 "sources": [
 "https://www.qobuz.com/au-en/interpreter/chris-liebing/298484/page/3",
-"https://electronicbeats.net/the-feed/discover-schranz-speed-techno-chris-liebing-played-97",
+"https://web.archive.org/web/20250115003020/https://www.electronicbeats.net/the-feed/discover-schranz-speed-techno-chris-liebing-played-97/",
 "https://en.wikipedia.org/wiki/Chris_Liebing"
 ]
 },
@@ -14097,7 +14097,7 @@ window.FACTS = {
 "sources": [
 "https://909originals.com/2020/07/26/interview-how-lfo-made-lfo-909originals-catches-up-with-gez-varley-on-the-30th-anniversary-of-a-techno-classic/",
 "https://88to98.co.uk/?p=6673",
-"https://www.chise.org/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/LFO_(British_band).html"
+"https://en.wikipedia.org/wiki/LFO_(British_band)"
 ]
 },
 "rec-dominator": {
@@ -14227,7 +14227,7 @@ window.FACTS = {
 "sources": [
 "https://en.wikipedia.org/wiki/Papua_New_Guinea_(record)",
 "https://ra.co/reviews/23783",
-"https://www.piccadillyrecords.com/150614/The-Future-Sound-Of-London-Papua-New-Guinea-(Andrew-Weatherall-Graham-Massey-Remixes)-2023-Reissuee-Jumpin'-Pumpin'"
+"https://web.archive.org/web/20260218181334/https://www.piccadillyrecords.com/150614/The-Future-Sound-Of-London-Papua-New-Guinea-(Andrew-Weatherall-Graham-Massey-Remixes)-2023-Reissuee-Jumpin'-Pumpin'"
 ]
 },
 "rec-sonicdestroyer": {
@@ -14816,7 +14816,7 @@ window.FACTS = {
 "status": "licensed",
 "sources": [
 "https://en.wikipedia.org/wiki/Centreforce",
-"https://www.centreforceradio.com/about/",
+"https://web.archive.org/web/20260504234437/https://www.centreforceradio.com/about/",
 "https://www.mixcloud.com/blog/2023/07/19/centreforce-is-the-dance-music-radio-station-that-gives-back",
 "https://www.theransomnote.com/art-culture/reviews-art-culture/the-pirates-of-waltham-forest/"
 ]
@@ -14831,7 +14831,7 @@ window.FACTS = {
 "status": "off air",
 "sources": [
 "https://en.wikipedia.org/wiki/UK_pirate_radio",
-"https://www.fantazia.org.uk/radio/index_radioprofiles.htm",
+"https://web.archive.org/web/20251217004114/https://www.fantazia.org.uk/radio/index_radioprofiles.htm",
 "https://en.wikipedia.org/wiki/Sunrise_%26_Back_to_the_Future"
 ]
 },
@@ -14849,7 +14849,7 @@ window.FACTS = {
 "sources": [
 "https://www.mixcloud.com/fantasyfmofficial/",
 "https://en.wikipedia.org/wiki/UK_pirate_radio",
-"https://www.fantazia.org.uk/radio/index_radioprofiles.htm",
+"https://web.archive.org/web/20251217004114/https://www.fantazia.org.uk/radio/index_radioprofiles.htm",
 "https://trackhunter.co.uk/blog/confessions-of-a-pirate-radio-dj"
 ]
 },
@@ -14993,7 +14993,7 @@ window.FACTS = {
 "https://eurozine.com/mutualism-massive-and-the-city-to-come",
 "https://en.wikipedia.org/wiki/UK_pirate_radio",
 "https://vice.com/en/article/kool-fm-jungle-pirate-london-945",
-"https://breakbeat.co.uk/features/reloading-pirate-radio-dial"
+"https://web.archive.org/web/20251021093419/https://breakbeat.co.uk/features/reloading-pirate-radio-dial//"
 ]
 },
 "dance-fm": {
@@ -15728,7 +15728,7 @@ window.FACTS = {
 "now": "Miss Djax is still based in Eindhoven; Dekmantel began reissuing the Djax-Up catalogue in 2019, the label's 30th year.",
 "sources": [
 "https://en.wikipedia.org/wiki/Saskia_Slegers",
-"https://www.electronicbeats.net/the-feed/watch-dekmantels-new-mini-documentary-about-seminal-dutch-techno-label-djax-records/"
+"https://web.archive.org/web/20250216054118/https://www.electronicbeats.net/the-feed/watch-dekmantels-new-mini-documentary-about-seminal-dutch-techno-label-djax-records/"
 ]
 },
 "coventry": {
@@ -16101,7 +16101,7 @@ window.FACTS = {
 ],
 "status": null,
 "sources": [
-"https://goatshedmusic.com/its-a-way-of-life-darren-jay-talks-30-years-of-awol-interview/"
+"https://web.archive.org/web/20260316082317/https://goatshedmusic.com/its-a-way-of-life-darren-jay-talks-30-years-of-awol-interview/"
 ]
 },
 "shelleys": {
@@ -16661,7 +16661,7 @@ window.FACTS = {
 "status": "open",
 "sources": [
 "https://mixmag.net/feature/cafe-mambo-25-years-anniversaray",
-"https://defected.com/news/post/cafe-mambo-history"
+"https://web.archive.org/web/20210405093103/https://defected.com/news/post/cafe-mambo-history"
 ]
 },
 "flying": {
@@ -16907,7 +16907,7 @@ window.FACTS = {
 "sources": [
 "https://daily.bandcamp.com/lists/the-second-coming-of-hardgroove",
 "https://www.musicradar.com/tutorials/music-production-tutorials/calling-anything-with-a-loop-or-sample-in-it-hardgroove-is-kinda-annoying-and-often-misunderstands-what-the-sound-actually-is-exploring-the-hardgroove-genre",
-"https://electronicbeats.net/the-feed/discover-schranz-speed-techno-chris-liebing-played-97",
+"https://web.archive.org/web/20250115003020/https://www.electronicbeats.net/the-feed/discover-schranz-speed-techno-chris-liebing-played-97/",
 "https://www.technomag.fr/en/?p=14395",
 "https://mixmag.net/feature/has-dance-music-got-harder-faster-hor-berlin-hard-techno-rave-music-interview-investigation"
 ]
@@ -17625,7 +17625,7 @@ window.FACTS = {
 "what_it_did": "A Kent Police unit under Chief Superintendent Ken Tappenden, based at Dartford and then Gravesend, that gathered intelligence on acid house party organisers and attenders' vehicles and became the hub of a national police effort to prevent pay parties.",
 "status": null,
 "sources": [
-"https://www.kentonline.co.uk/kent/news/amp/how-the-raves-of-1989-turned-nasty-229736/",
+"https://web.archive.org/web/20220608031338/https://www.kentonline.co.uk/kent/news/amp/how-the-raves-of-1989-turned-nasty-229736/",
 "https://api.parliament.uk/historic-hansard/written-answers/1989/jul/10/private-events-control",
 "https://www.blackpoolgazette.co.uk/news/thatcher-pushed-plug-be-pulled-noisy-acid-house-parties-656729"
 ]
@@ -17707,7 +17707,7 @@ window.FACTS = {
 "status": "in force",
 "sources": [
 "https://www.designingbuildings.co.uk/wiki/Agent_of_change",
-"https://shoosmiths.com/insights/articles/nppf-the-agent-of-change-principle-14454",
+"https://web.archive.org/web/20251014095854/https://www.shoosmiths.com/insights/articles/nppf-the-agent-of-change-principle-14454",
 "https://www.london.gov.uk/press-releases/mayoral/a-41-storey-block-will-be-constructed",
 "https://morningadvertiser.co.uk/Article/2014/01/08/Ministry-of-Sound-noise-Boris-Johnson",
 "https://localgovernmentlawyer.co.uk/planning/318-planning-features/40235-resolving-agent-of-change-issues-in-planning-as-easy-as-noise-easements"
@@ -19358,7 +19358,7 @@ window.FACTS = {
 "sources": [
 "https://en.wikipedia.org/wiki/Jeff_Mills",
 "https://exclaim.ca/music/article/jeff_mills-exhibitionist",
-"https://blog.12edit.com/jeff-mills-exhibitionist",
+"https://web.archive.org/web/20250713081800/https://blog.12edit.com/jeff-mills-exhibitionist//",
 "https://www.axisrecords.com/?p=318"
 ]
 },
@@ -20617,7 +20617,7 @@ window.FACTS = {
 "active": "1988–92 (Pay Party Unit to retirement in 1992)",
 "notes": "Unit based first at Dartford, then Gravesend; disbanded by September 1991 per Borosix.",
 "sources": [
-"https://www.kentonline.co.uk/kent/news/amp/how-the-raves-of-1989-turned-nasty-229736/",
+"https://web.archive.org/web/20220608031338/https://www.kentonline.co.uk/kent/news/amp/how-the-raves-of-1989-turned-nasty-229736/",
 "https://borosix.co.uk/history/1989_e.html",
 "https://borosix.co.uk/history/1989_i.html",
 "https://www.borosix.co.uk/history/1989_r.html",
@@ -22515,7 +22515,7 @@ window.FACTS = {
 "sources": [
 "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Vagator.html",
 "https://www.thrillophilia.com/attractions/hilltop",
-"https://goastreets.com/how-trance-learnt-its-dance-in-goa/",
+"https://web.archive.org/web/20240617114332/https://goastreets.com/how-trance-learnt-its-dance-in-goa/",
 "https://themusic.com.au/features/kris-swales-in-post-soviet-goa/otW1tLe2ubg/19-06-14",
 "https://jamescnorman.com/2018/02/14/dance-party-heaven-with-a-10pm-curfew-welcome-to-techno-in-india/",
 "https://www.freepressjournal.in/amp/weekend/psytrance-is-back-in-india-its-thriving-in-goa-beaches-top-metros"
@@ -22548,9 +22548,9 @@ window.FACTS = {
 ],
 "coords_source": "Wikipedia — Vagator (IPFS mirror): village coordinates 15°36′09″N 73°44′01″E; approximate, not venue-precise",
 "sources": [
-"https://goastreets.com/nine-bar/",
+"https://web.archive.org/web/20240425003547/https://goastreets.com/nine-bar/",
 "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Vagator.html",
-"https://guides.travel.sygic.com/production/en/Vagator",
+"https://web.archive.org/web/20240716063417/https://guides.travel.sygic.com/production/en/Vagator//",
 "https://themusic.com.au/features/kris-swales-in-post-soviet-goa/otW1tLe2ubg/19-06-14",
 "https://hippie-inheels.com/goa-nightlife-most-popular-party-places/",
 "https://tripxl.com/blog/?p=118345"
@@ -22581,7 +22581,7 @@ window.FACTS = {
 "https://huffingtonpost.co.uk/entry/a-clubbers-guide-to-goa-t_b_5794752",
 "https://hippie-inheels.com/goa-nightlife-most-popular-party-places/",
 "https://theculturetrip.com/asia/india/articles/these-are-the-10-best-nightclubs-in-goa",
-"https://goastreets.com/how-trance-learnt-its-dance-in-goa/",
+"https://web.archive.org/web/20240617114332/https://goastreets.com/how-trance-learnt-its-dance-in-goa/",
 "https://tripxl.com/blog/?p=118345",
 "https://en.wikipedia.org/wiki/Anjuna"
 ]
@@ -22610,8 +22610,8 @@ window.FACTS = {
 "https://en.wikipedia.org/wiki/Goa_trance",
 "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Vagator.html",
 "https://www.goaprism.com/vagator-beach/",
-"https://guides.travel.sygic.com/production/en/Vagator",
-"https://goastreets.com/how-trance-learnt-its-dance-in-goa/"
+"https://web.archive.org/web/20240716063417/https://guides.travel.sygic.com/production/en/Vagator//",
+"https://web.archive.org/web/20240617114332/https://goastreets.com/how-trance-learnt-its-dance-in-goa/"
 ]
 },
 "paradiso": {
@@ -22637,7 +22637,7 @@ window.FACTS = {
 "coords_source": "Wikipedia — Anjuna: village coordinates 15°35′00″N 73°44′00″E; approximate, not venue-precise",
 "sources": [
 "https://fodors.fodors.com/world/asia/india/goa/things-to-do/nightlife/reviews/paradiso-587733",
-"https://guides.travel.sygic.com/production/en/Anjuna",
+"https://web.archive.org/web/20240716055039/https://guides.travel.sygic.com/production/en/Anjuna//",
 "https://tripxl.com/blog/?p=118345",
 "https://en.wikipedia.org/wiki/Anjuna"
 ]
@@ -22712,7 +22712,7 @@ window.FACTS = {
 "https://ravenewworld.substack.com/p/a-post-colonial-history-of-psychedelic",
 "https://www.gomantaktimes.com/opinion/goas-party-scene-detailed-described-and-scrutinised",
 "https://www.heraldgoa.in/Edit/Sunset-at-Curlies/193868",
-"https://goastreets.com/nine-bar/"
+"https://web.archive.org/web/20240425003547/https://goastreets.com/nine-bar/"
 ]
 },
 "sunburn": {
@@ -23071,7 +23071,7 @@ window.FACTS = {
 "https://ipfs.aleph.im/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/Tsuyoshi_Suzuki.html",
 "https://trancentral.tv/?p=38974",
 "https://clubberia.com/ja/artists/848-TSUYOSHI-SUZUKI",
-"https://strummerradio.com/index.php/news/493-tsuyoshi-suzuki",
+"https://web.archive.org/web/20221208003756/https://strummerradio.com/index.php/news/493-tsuyoshi-suzuki",
 "https://last.fm/music/Tsuyoshi+Suzuki/+wiki",
 "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Matsuri_Productions.html"
 ],
@@ -23132,7 +23132,7 @@ window.FACTS = {
 "status": "revived",
 "sources": [
 "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Matsuri_Productions.html",
-"https://strummerradio.com/index.php/news/493-tsuyoshi-suzuki",
+"https://web.archive.org/web/20221208003756/https://strummerradio.com/index.php/news/493-tsuyoshi-suzuki",
 "https://clubberia.com/ja/artists/848-TSUYOSHI-SUZUKI",
 "https://trancentral.tv/?p=38974",
 "https://en.wikipedia.org/wiki/Doof_(musician)",
@@ -23228,7 +23228,7 @@ window.FACTS = {
 "https://brainz.musichoarders.xyz/track/117cb237-42dd-36f2-bf2a-d136fe64bf78",
 "https://trancentral.tv/?p=13292",
 "https://releasemagazine.net/Spotlight/spotlightastralp.htm",
-"https://wiki.riteme.site/wiki/Dancing_Galaxy"
+"https://en.wikipedia.org/wiki/Dancing_Galaxy"
 ],
 "blurb": "Astral Projection track from the 1996 album Trust in Trance, by Tel Aviv's Avi Nissim and Lior Perlmutter; a games studio later took its name.",
 "years": "1996"
@@ -23251,7 +23251,7 @@ window.FACTS = {
 "chart_source": null,
 "reissues": [],
 "sources": [
-"https://www.chise.org/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/Classical_Mushroom.html",
+"https://en.wikipedia.org/wiki/Classical_Mushroom",
 "https://en.wikipedia.org/wiki/Infected_Mushroom",
 "https://www.beatportal.com/playlists/21968-infected-mushroom-celebrate-25-years-with-10-iconic-tracks",
 "https://freezenet.ca/review-infected-mushroom-bust-a-move-psytrance",
@@ -23537,7 +23537,7 @@ window.FACTS = {
 "https://www.bonedo.de/artikel/das-geschichtstraechtige-techno-magazin-groove-wird-ein-verein/",
 "https://groove.de/wp-content/uploads/2024/08/GroovePM_20240730_DE.pdf",
 "https://groove.de/2024/10/31/wir-muessen-reden-2/",
-"https://electronicbeats.net/the-feed/the-latest-episode-of-our-teb-podcast-features-groove-magazines-heiko-hoffmann-and-dj-t",
+"https://web.archive.org/web/20250320190833/https://www.electronicbeats.net/the-feed/the-latest-episode-of-our-teb-podcast-features-groove-magazines-heiko-hoffmann-and-dj-t/",
 "https://groove.de/"
 ]
 },
@@ -23948,7 +23948,7 @@ window.FACTS = {
 ],
 "sources": [
 "https://en.wikipedia.org/wiki/CDJ",
-"https://www.pioneerdj.com/en-us/landing/25years/",
+"https://web.archive.org/web/20260302155325/https://www.pioneerdj.com/en-us/landing/25years/",
 "https://djcoursesonline.com/dj-blog/2020/12/1/how-pioneers-cdj-1000s-shaped-dj-history",
 "https://en.wikipedia.org/wiki/Technics_SL-1200"
 ],
@@ -24345,8 +24345,8 @@ window.FACTS = {
 "active": "1989–",
 "sources": [
 "https://en.wikipedia.org/wiki/Kenny_Ken",
-"https://goatshedmusic.com/its-a-way-of-life-darren-jay-talks-30-years-of-awol-interview/",
-"https://breakbeat.co.uk/features/jungle-book/jamies-jungle-book-part-15",
+"https://web.archive.org/web/20260316082317/https://goatshedmusic.com/its-a-way-of-life-darren-jay-talks-30-years-of-awol-interview/",
+"https://web.archive.org/web/20251109013824/https://breakbeat.co.uk/features/jungle-book/jamies-jungle-book-part-15//",
 "https://musicfeeds.com.au/features/kenny-ken/",
 "https://www.shambalafestival.org/2026/act/kenny-ken/",
 "https://en.wikipedia.org/wiki/Kool_FM"
