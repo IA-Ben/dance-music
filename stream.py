@@ -2,6 +2,7 @@
 player can embed them. No keys: all three are public. Writes one JSON line per track."""
 import json, re, sys, time, html, unicodedata, urllib.request, urllib.parse
 import concurrent.futures as cf
+BC_DUMPED = False
 UA = {'User-Agent': 'Mozilla/5.0 (compatible; fortyyearsof.dance media lookup)'}
 
 def get(url, tries=3):
@@ -54,6 +55,10 @@ def deezer(it):
 def bandcamp(it):
     try: page = get('https://bandcamp.com/search?' + urllib.parse.urlencode({'q': f"{it['artist']} {it['title']}", 'item_type': 't'}))
     except Exception as e: return {'error': str(e)[:120]}
+    global BC_DUMPED
+    if not BC_DUMPED:
+        BC_DUMPED = True
+        open('bc-debug.html', 'w').write(page[:200000])
     for blk in re.findall(r'<li class="searchresult[^"]*"(.*?)</li>', page, re.S)[:10]:
         m = re.search(r'<div class="heading">\s*<a href="([^"]+)"[^>]*>\s*(.*?)\s*</a>', blk, re.S)
         b = re.search(r'<div class="subhead">\s*(?:from\s+.*?)?by\s+(.*?)\s*</div>', blk, re.S)
@@ -79,6 +84,7 @@ def main(src, out):
     with cf.ThreadPoolExecutor(3) as ex:
         fs = [ex.submit(run, apple, 'apple', 3.2), ex.submit(run, deezer, 'deezer', 0.4), ex.submit(run, bandcamp, 'bandcamp', 1.5)]
         for f in fs: f.result()
+    import shutil
     with open(out, 'w') as o:
         for v in res.values(): o.write(json.dumps(v, ensure_ascii=False) + '\n')
     print('apple', sum(1 for v in res.values() if v.get('apple') and 'trackId' in v['apple']), 'deezer', sum(1 for v in res.values() if v.get('deezer') and 'id' in v['deezer']), 'bandcamp', sum(1 for v in res.values() if v.get('bandcamp') and 'id' in v['bandcamp']), 'of', len(items))
