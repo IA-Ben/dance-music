@@ -13,7 +13,7 @@ window.Place = (() => {
   const byTitle = {};
   function nodeFor(t) {
     if (!t) return null;
-    if (!Object.keys(byTitle).length && window.NODES) NODES.forEach(n => { byTitle[n.title.toLowerCase()] = n; (n.aliases || []).forEach(a => { byTitle[String(a).toLowerCase()] = byTitle[String(a).toLowerCase()] || n; }); });
+    if (!Object.keys(byTitle).length && typeof NODES !== 'undefined') NODES.forEach(n => { byTitle[n.title.toLowerCase()] = n; (n.aliases || []).forEach(a => { byTitle[String(a).toLowerCase()] = byTitle[String(a).toLowerCase()] || n; }); });
     return byTitle[String(t).toLowerCase()] || null;
   }
   const link = (t, label) => { const n = nodeFor(t); return n ? `<a class="xl" href="#${n.id}">${esc(label || t)}</a>` : esc(label || t); };
@@ -27,11 +27,11 @@ window.Place = (() => {
   /* ---------- markers: the place's own list plus any book page with coordinates in this place ---------- */
   function markers(pid) {
     const D = DATA()[pid] || {}; const out = (D.markers || []).map(m => {
-      if (m.nodeid && window.NODE && NODE[m.nodeid]) { const n = NODE[m.nodeid]; const f = (window.FACTS || {})[n.id] || {}; m = { name: n.title, title: n.title, kind: n.type === 'shop' ? 'shop' : n.type === 'event' ? 'party' : 'club', years: f.years || n.years, note: f.blurb || n.blurb, ...m }; }
+      if (m.nodeid && typeof NODE !== 'undefined' && NODE[m.nodeid]) { const n = NODE[m.nodeid]; const f = (window.FACTS || {})[n.id] || {}; m = { name: n.title, title: n.title, kind: n.type === 'shop' ? 'shop' : n.type === 'event' ? 'party' : 'club', years: f.years || n.years, note: f.blurb || n.blurb, ...m }; }
       return { ...m, yrs: span(m.years || m.date) };
     });
     const have = new Set(out.map(m => (m.title || m.name || '').toLowerCase()));
-    if (window.FACTS && window.NODES) NODES.forEach(n => {
+    if (window.FACTS && typeof NODES !== 'undefined') NODES.forEach(n => {
       const f = FACTS[n.id]; if (!f || !Array.isArray(f.coords) || n.city !== pid) return;
       if (have.has(n.title.toLowerCase())) return;
       out.push({ name: n.title, title: n.title, kind: n.type === 'shop' ? 'shop' : n.type === 'event' ? 'party' : 'club', coords: f.coords, yrs: span(f.years || n.years), note: f.blurb || n.blurb || '' });

@@ -168,7 +168,7 @@ window.Charts2 = (() => {
       svg.querySelectorAll('.c2-city').forEach(g => { const k = g.dataset.k; const reached = upto == null || CITY[k][1] <= upto || EDGE.some(e => e[3] <= upto && (e[0] === k || e[1] === k)); g.classList.toggle('dim', !reached); g.classList.toggle('sel', k === selC); });
     }
     function cityCard(k) {
-      const c = CITY[k]; const outE = EDGE.filter(e => e[0] === k), inE = EDGE.filter(e => e[1] === k); const n = window.NODE && NODE[c[7]];
+      const c = CITY[k]; const outE = EDGE.filter(e => e[0] === k), inE = EDGE.filter(e => e[1] === k); const n = typeof NODE !== 'undefined' && NODE[c[7]];
       const li = e => `<li><button type="button" class="c2-link" data-i="${EDGE.indexOf(e)}">${esc(e[2])}</button> ${e[0] === k ? '→ ' + esc(CITY[e[1]][0]) : '← ' + esc(CITY[e[0]][0])}</li>`;
       card.innerHTML = `<p class="c2-kick"><i style="background:var(${c[2]})"></i>${c[1]}</p><h4>${n ? `<a class="xl" href="#${c[7]}">${esc(c[0])}</a>` : esc(c[0])}</h4>${inE.length ? `<p class="cap">What came in</p><ul class="c2-yl">${inE.map(li).join('')}</ul>` : ''}${outE.length ? `<p class="cap">What went out</p><ul class="c2-yl">${outE.map(li).join('')}</ul>` : ''}`;
       card.querySelectorAll('.c2-link').forEach(b => b.addEventListener('click', () => { selE = +b.dataset.i; selC = null; edgeCard(selE); paint(); }));

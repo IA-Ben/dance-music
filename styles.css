@@ -1133,3 +1133,14 @@ svg.pz:not(.pz-on) *{animation-play-state:paused!important}
 svg.diag .mv-dim{opacity:.1}
 .mv-play{margin:0 0 10px}
 .mv-say{min-height:2.6em}
+/* flyer press */
+.flyerbox.card{margin:22px 0}
+.flyerbox .fl-grid{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:22px;align-items:start}
+.flyerbox .fl-art svg{width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.flyerbox .fl-row{display:flex;align-items:center;gap:10px;margin:10px 0;font:12px var(--f-mono)}
+.flyerbox .fl-row span{min-width:44px;color:var(--muted)}
+.flyerbox .fl-row input[type=range]{flex:1}
+.flyerbox .fl-row select{flex:1;padding:6px;border-radius:6px}
+@media (max-width:760px){.flyerbox .fl-grid{grid-template-columns:1fr}.flyerbox .fl-art{max-width:420px}}
+.strand-reads{margin:8px 0 0;line-height:1.7}
+.strand-reads b{color:var(--c)}

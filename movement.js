@@ -25,13 +25,13 @@ window.Movement = (() => {
     const svg = box.querySelector('svg'); const W = 640, ROW = 30, TOP = 14, H = TOP * 2 + T.length * ROW; svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     const lineCol = getComputedStyle(page).getPropertyValue('--c').trim() || '#bbb';
     mk('line', { x1: 78, y1: TOP, x2: 78, y2: H - TOP, stroke: '#30303d', 'stroke-width': 2 }, svg);
-    T.forEach(([y, label, detail], i) => {
+    T.forEach(([y, label, detail, when], i) => {
       const cy = TOP + ROW / 2 + i * ROW; const g = mk('g', {}, svg);
       mk('circle', { cx: 78, cy, r: 6, fill: lineCol }, g);
       mk('rect', { class: 'dg-hit', x: 0, y: cy - ROW / 2, width: W, height: ROW }, g);
-      const t1 = mk('text', { x: 64, y: cy + 4, 'text-anchor': 'end', fill: '#8f8fa0', 'font-size': 11, 'font-family': 'JetBrains Mono, monospace' }, g); t1.textContent = yr(y);
+      const t1 = mk('text', { x: 64, y: cy + 4, 'text-anchor': 'end', fill: '#8f8fa0', 'font-size': 11, 'font-family': 'JetBrains Mono, monospace' }, g); t1.textContent = when || yr(y);
       const t2 = mk('text', { x: 94, y: cy + 4, fill: '#ebebf1', 'font-size': 12.5, 'font-weight': 600, 'font-family': 'Space Grotesk, sans-serif' }, g); t2.textContent = label.length > 70 ? label.slice(0, 69) + '…' : label;
-      if (window.Dg) Dg.mark(g, { title: label, meta: yr(y), text: detail || '', href: null });
+      if (window.Dg) Dg.mark(g, { title: label, meta: when || yr(y), text: detail || '', href: null });
     });
   }
 

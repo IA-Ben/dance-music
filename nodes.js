@@ -12,7 +12,7 @@ let ALIASES = null;
 /* names that point at a page without being its title: members, festivals, teams, nicknames (used only while no page has the name) */
 const ALIAS_EXTRA = { acid: ['Acid House', 'Acid house'], balearic: ['Balearic Beat', 'Balearic beat'], orbital: ['Paul Hartnoll', 'Phil Hartnoll'], movement: ['DEMF', 'Detroit Electronic Music Festival', 'Movement festival'], 'masters-at-work': ['Louie Vega', 'Kenny Dope', 'Little Louie Vega'], 'dance-2-trance': ['Rolf Ellmer'], wbmx: ['Hot Mix 5', 'Hot Mix Five'], 'paradise-garage': ['the Garage', 'The Garage'] };
 /* a name another page claims by mistake */
-const ALIAS_FORCE = { Universe: 'tribal-gathering' };
+const ALIAS_FORCE = { Universe: 'tribal-gathering', Trax: 'trax', Cocoon: 'cocoon', 'Golden Pudel Club': 'golden-pudel' };
 /* words that are also something else: never linked on their own */
 const ALIAS_DENY = /^(Paradiso|January|February|March|April|May|June|July|August|September|October|November|December|Live|Papua New Guinea|Last Night a DJ Saved My Life|Space|Future|Hospital|Virus|Planet|Flying|Base|Release|Harmony|Drop|Cyclone|Trip|Music|Energy|Strings|Circles|Original|Loaded|Pure|Speed|Flavour|Incredible|Terrorist|Movement|the End|the Loop|the Box|the Club|the Room|the Gallery)$/;
 /* chapter titles too generic to link from running text */
@@ -92,11 +92,15 @@ function smarten(root){
 const unsmart = s => s.replace(/[‘’]/g, "'").replace(/[“”″]/g, '"');
 /* photo captions: a written caption where there is one, else a tidied Commons file name */
 function imgCaption(im){ if (im.caption) return im.caption; return String(im.title || '').replace(/^File:/, '').replace(/\.(jpe?g|png|webp|tiff?)$/i, '').replace(/\s*-\s*geograph\.org\.uk\s*-\s*\d+/i, '').replace(/\s*\(\d{6,}\)/g, '').replace(/_/g, ' ').trim(); }
+/* links: the first mention of each page in every section (a heading, a card or a fact box starts a new one), so a reader who lands mid-page still finds the names linked where they are reading */
+const LINK_SECTION = /^(H2|H3|H4|ASIDE|TABLE|FIGURE|DETAILS)$/;
 function autolink(root, selfId){
-  const A = buildAliases(); const done = new Set([selfId]);
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode(t){ const p = t.parentElement; if (!p || p.closest('a, button, h1, h2, .nolink, .kicker, .tag, code, .chip, .trackchip, .chips, select, option, .seq-table, .deckgrid, .cap, .pagenum, .trail, svg, textarea, input')) return NodeFilter.FILTER_REJECT; if (!p.closest('p, li, .fact span, .pcard, .ccard, .lede, .quote, td, .framing, .node-body')) return NodeFilter.FILTER_REJECT; return NodeFilter.FILTER_ACCEPT; } });
+  const A = buildAliases(); let done = new Set([selfId]);
+  const skip = 'a, button, h1, h2, .nolink, .kicker, .tag, code, .chip, .trackchip, .chips, select, option, .seq-table, .deckgrid, .cap, .pagenum, .trail, svg, textarea, input';
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, { acceptNode(t){ if (t.nodeType === 1) return (t !== root && (t.tagName === 'A' || LINK_SECTION.test(t.tagName) || t.classList.contains('card') || t.classList.contains('facts') || t.classList.contains('glance'))) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP; const p = t.parentElement; if (!p || p.closest(skip)) return NodeFilter.FILTER_REJECT; if (!p.closest('p, li, .fact span, .pcard, .ccard, .lede, .quote, td, .framing, .node-body')) return NodeFilter.FILTER_REJECT; return NodeFilter.FILTER_ACCEPT; } });
   const texts = []; let t; while ((t = walker.nextNode())) texts.push(t);
   texts.forEach(tn => {
+    if (tn.nodeType === 1){ if (tn.tagName === 'A'){ const h = (tn.getAttribute('href') || '').match(/^#(?:[a-z0-9]+-)?([^?&]+)/); if (h){ done.add(h[1]); const full = (tn.getAttribute('href') || '').slice(1).split(/[?&]/)[0]; done.add(full); } return; } done = new Set([selfId]); return; }
     const s = tn.nodeValue; A.re.lastIndex = 0; let m, last = 0; const frag = document.createDocumentFragment(); let any = false;
     const capped = tn.parentElement.classList.contains('lede') && tn === tn.parentElement.firstChild; /* the drop cap would split a link on the opening word */
     while ((m = A.re.exec(s))){ const name = m[2], id = A.map[name] || A.map[unsmart(name)]; if (capped && !s.slice(0, m.index + m[1].length).trim()) continue; if (!id || done.has(id) || !linkable(s, m.index + m[1].length, name)){ continue; } done.add(id); any = true; const start = m.index + m[1].length; frag.appendChild(document.createTextNode(s.slice(last, start))); const a = document.createElement('a'); a.href = '#' + id; a.className = 'xl'; a.textContent = name; frag.appendChild(a); last = start + name.length; }
@@ -117,7 +121,13 @@ const NodeView = {
     const n = NODE[id]; const art = document.querySelector('.page[data-page="node"]'); if (!n || !art) return;
     const col = TYPE_COLOR[n.type] || '--mix'; art.style.setProperty('--c', `var(${col})`);
     const strands = n.strands.filter(s => STRANDS[s]);
-    const spot = strands.map(s => `<a class="chip" href="#${s}-${n.id}" style="--c:var(${STRANDS[s].color})"><i></i>${STRANDS[s].title} strand</a>`).join('');
+    /* a strand chip opens that strand's chapters about this page, not the same page in another colour */
+    let ment = buildMentions()[n.id] || [];
+    if (!ment.length){ /* a name a chapter title has claimed (Chicago, Ibiza): find it in the strand chapters' text */ const re = new RegExp('\\b' + n.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b'); ment = strands.flatMap(s => STRANDS[s].spine).filter((c, i, a) => a.indexOf(c) === i && c !== n.id && re.test((document.querySelector(`.page[data-page="${c}"]`) || {}).textContent || '')); }
+    const inStrand = s => ment.filter(c => STRANDS[s].spine.includes(c) && (!window.PAGE_IDS || PAGE_IDS.includes(c)));
+    const spot = strands.map(s => { const cs = inStrand(s); const to = cs[0] || STRANDS[s].spine[0]; const lbl = cs.length ? `${STRANDS[s].title} strand · ${cs.length} chapter${cs.length > 1 ? 's' : ''}` : `${STRANDS[s].title} strand`; const tip = cs.length ? `Where ${n.title} comes up in the ${STRANDS[s].title} strand: ${cs.map(titleOf).join('; ')}` : `Open the ${STRANDS[s].title} strand`; return `<a class="chip" href="#${s}-${to}" title="${tip.replace(/"/g, '&quot;')}" style="--c:var(${STRANDS[s].color})"><i></i>${lbl}</a>`; }).join('');
+    const reads = strands.map(s => [s, inStrand(s)]).filter(([, cs]) => cs.length > 1);
+    const spotReads = reads.length ? `<p class="cap strand-reads">${reads.map(([s, cs]) => `<span style="--c:var(${STRANDS[s].color})"><b>${STRANDS[s].title}:</b> ${cs.slice(0, 6).map(c => `<a class="xl" href="#${s}-${c}">${titleOf(c)}</a>`).join(' · ')}${cs.length > 6 ? ` and ${cs.length - 6} more` : ''}</span>`).join('<br>')}</p>` : '';
     const spotTree = n.type === 'genre' ? `<a class="chip" href="#genres?g=${n.id}" style="--c:var(--synth)"><i></i>On the family tree</a>` : '';
     const deep = (window.DEEP_DIVES || {})[n.id]; const spotDeep = deep && (!window.PAGE_IDS || PAGE_IDS.includes(deep)) ? `<a class="chip" href="#${deep}" style="--c:var(--kick)"><i></i>${/^tw/.test(deep) ? 'The town, in depth' : /^cb/.test(deep) ? 'The full story of the room' : 'Read the chapter'}</a>` : '';
     const links = [['sp', 'listen', n.q], ['yt', 'watch', n.q + (n.type === 'person' ? ' DJ set' : n.type === 'club' ? ' club' : '')], ['dg', 'discogs', n.q], ['g', 'search', n.q]].filter(l => !(n.type === 'city' && l[0] === 'sp')).filter(l => !(n.type === 'machine' && l[0] === 'sp'));
@@ -146,7 +156,7 @@ const NodeView = {
     art.innerHTML = `
       <p class="kicker"><span>${TYPE_LABEL[n.type] || n.type}${n.city && NODE[n.city] ? ' · ' + NODE[n.city].title : ''}${n.years ? ' · ' + String(n.years).replace(/(\d)s\b/g, '$1<span class="lc">s</span>') : ''}</span></p>
       <h2>${n.title}</h2>
-      <div class="chips" style="margin-top:4px">${spot}${spotTree}${spotDeep}</div>
+      <div class="chips" style="margin-top:4px">${spot}${spotTree}${spotDeep}</div>${spotReads}
       ${n.blurb ? `<p class="lede">${n.blurb}</p>` : ''}
       ${img}
       <div class="grid2">

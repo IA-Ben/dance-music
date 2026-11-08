@@ -1107,7 +1107,7 @@ window.Floor = {
   mount(pageEl, id, isNode) {
     pageEl.querySelectorAll('.floorstrip').forEach(x => x.remove());
     let list = [], title = '';
-    if (isNode && window.NODE && NODE[id]) { const names = [NODE[id].title, ...(NODE[id].aliases || [])].map(x => String(x).toLowerCase()); list = this.all().filter(s => (s.pages || []).some(p => names.includes(String(p).toLowerCase()))); title = 'From the floor'; }
+    if (isNode && typeof NODE !== 'undefined' && NODE[id]) { const names = [NODE[id].title, ...(NODE[id].aliases || [])].map(x => String(x).toLowerCase()); list = this.all().filter(s => (s.pages || []).some(p => names.includes(String(p).toLowerCase()))); title = 'From the floor'; }
     else if (/^y\d{4}$/.test(id)) { const y = +id.slice(1); list = this.all().filter(s => this.year(s) === y); title = `From the floor, ${y}`; }
     if (!list.length) return;
     const d = document.createElement('div'); d.className = 'floorstrip card';

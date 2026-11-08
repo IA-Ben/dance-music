@@ -149,19 +149,94 @@ window.PageHooks.notes = () => { const box = document.getElementById('notesAll')
 
 /* ---------- flyer press ---------- */
 window.Flyer = {
-  styles: ['detroit', 'acid', 'rave', 'ibiza', 'berlin', 'dub', 'minimal', 'berghain', 'hard', 'chicago', 'london'],
-  autoMount(root, id){ const n = NODE[id]; if (!n || !/^(club|event|set|collective)$/.test(n.type)) return; let box = root.querySelector('.flyerbox'); if (box) return; box = document.createElement('div'); box.className = 'flyerbox'; const rels = root.querySelector('.rels'); const anchor = rels ? rels.parentElement : root; box.innerHTML = `<h3>Flyer press</h3><p class="cap" style="margin-bottom:8px">A flyer for this room, set from the line-up the book knows about. Pick a style, download it, stick it on something.</p><div class="chips fstyles">${this.styles.map(s => `<button class="chip fs" data-s="${s}"><i></i>${s}</button>`).join('')}</div><div class="card tint" style="margin-top:10px"><svg id="flyerSvg" class="diag"></svg></div><div class="row"><button class="sm fdl">Download PNG</button><button class="sm fdls">Download SVG</button><span class="cap fmsg"></span></div>`; anchor.appendChild(box);
-    const draw = style => { box.querySelectorAll('.fs').forEach(b => b.classList.toggle('on', b.dataset.s === style)); this.draw(n, style); };
-    box.querySelectorAll('.fs').forEach(b => b.onclick = () => draw(b.dataset.s));
-    box.querySelector('.fdl').onclick = () => this.download(n, 'png'); box.querySelector('.fdls').onclick = () => this.download(n, 'svg');
-    const guess = n.strands[0] === 'rave' ? 'rave' : n.strands[0] === 'house' ? 'chicago' : n.strands[0] === 'trance' ? 'ibiza' : n.strands[0] === 'jungle' ? 'dub' : n.city === 'berlin' ? 'berlin' : n.city === 'london' ? 'london' : 'detroit'; draw(guess); },
-  lineup(n){ const played = (BACK[n.id] || []).filter(([r]) => r === 'played' || r === 'at').map(([, id]) => NODE[id]).filter(x => x && x.type === 'person'); const members = (BACK[n.id] || []).filter(([r]) => r === 'member').map(([, id]) => NODE[id]).filter(Boolean); const residents = n.rel.filter(([r]) => r === 'founded').map(([, id]) => NODE[id]).filter(x => x && x.type === 'person'); const list = [...new Set([...played, ...members, ...residents].map(x => x.title))]; return list.length ? list : ['residents all night']; },
-  draw(n, style){ const svg = document.getElementById('flyerSvg'); if (!svg) return; const city = n.city && NODE[n.city] ? NODE[n.city].title : ''; drawPoster('flyerSvg', style, n.title.toUpperCase().slice(0, 22), [city.toUpperCase(), n.years].filter(Boolean).join(' · ')); const names = this.lineup(n).slice(0, 9); const col = css(TYPE_COLOR[n.type] || '--text');
-    el('rect', { x: 352, y: 22, width: 228, height: 22 + names.length * 19, rx: 6, fill: '#0e0e13', opacity: .82, stroke: col, 'stroke-opacity': .5 }, svg); text(svg, 364, 38, names.length > 1 || names[0] !== 'residents all night' ? 'LINE-UP' : 'ALL NIGHT', { fill: col, 'font-size': 9, 'letter-spacing': '.2em', 'font-weight': 700 }); names.forEach((nm, i) => text(svg, 364, 56 + i * 19, nm.toUpperCase().slice(0, 28), { fill: '#ebebf1', 'font-size': 11, 'font-family': 'Space Grotesk, sans-serif', 'font-weight': 600 }));
-    text(svg, 24, 24, (TYPE_LABEL[n.type] || '').toUpperCase() + ' · FORTYYEARSOF.DANCE · CC BY-NC-SA', { fill: '#8f8fa0', 'font-size': 8, 'letter-spacing': '.16em' }); },
-  download(n, kind){ const svg = document.getElementById('flyerSvg'); if (!svg) return; const clone = svg.cloneNode(true); clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); clone.setAttribute('width', 1200); clone.setAttribute('height', 800); clone.querySelectorAll('text').forEach(t => { if (!t.getAttribute('font-family')) t.setAttribute('font-family', 'JetBrains Mono, monospace'); }); const src = new XMLSerializer().serializeToString(clone); const name = 'flyer-' + n.id; const msg = document.querySelector('.flyerbox .fmsg');
+  STYLES: [['chicago', 'Chicago house'], ['detroit', 'Detroit techno'], ['acid', 'Acid house'], ['rave', 'Rave'], ['ibiza', 'Balearic'], ['london', 'London'], ['dub', 'Dub and jungle'], ['berlin', 'Berlin warehouse'], ['minimal', 'Minimal'], ['berghain', 'Berghain'], ['hard', 'Hard techno']],
+  COL: { detroit: '--kick', acid: '--perc', rave: '--drums', ibiza: '--perc', berlin: '--rumble', minimal: '--synth', berghain: '--rumble', hard: '--kick', dub: '--synth', chicago: '--kick', london: '--samp' },
+  NOW: 2026,
+  /* "1987–90", "2004–", "1990s", "early 1990s", "c. 1983/84–1990", "from 1992" → [from, to] */
+  span(s, open){
+    s = String(s || ''); const ys = (s.match(/\d{4}/g) || []).map(Number); if (!ys.length) return null;
+    const dec = s.match(/(early|mid-?|late)?\s*(\d{3})0s/); const a = ys[0];
+    let b = /(\d{4})\s*[–-]\s*(\d{2,4})/.test(s) ? +s.match(/(\d{4})\s*[–-]\s*(\d{2,4})/)[2] : null; if (b && b < 100) b = Math.floor(a / 100) * 100 + b;
+    if (!b && ys.length > 1 && /[–-]/.test(s)) b = ys[ys.length - 1];
+    if (!b && dec && !/[–-]\s*$/.test(s.trim()) && !/from|since/.test(s)){ const d = +dec[2] * 10; const w = (dec[1] || '').replace('-', ''); return w === 'early' ? [d, d + 3] : w === 'mid' ? [d + 3, d + 6] : w === 'late' ? [d + 6, d + 9] : [d, d + 9]; }
+    if (!b) b = (/[–-]\s*\)?\s*$/.test(s.trim()) || /from|since/.test(s) || open) ? this.NOW : a;
+    return [a, Math.min(b, this.NOW)];
+  },
+  years(n){ const f = (window.FACTS || {})[n.id] || {}; return this.span(n.years, /[–-]\s*$/.test(String(n.years || '').trim())) || this.span(f.opened) || [1990, 1990]; },
+  /* who stands behind the decks: dated residents first, then undated ones, then guests whose careers cover the year */
+  people(n){
+    const F = (window.FACTS || {})[n.id] || {}; const A = buildAliases(); const out = [];
+    (F.residents || []).forEach(s => { const name = String(s).split(' (')[0].split(' / ')[0].trim(); const inner = (String(s).match(/\(([^)]*)\)/) || [])[1] || ''; out.push({ name, id: A.map[name] || null, yrs: this.span(inner), role: 'res' }); });
+    (BACK[n.id] || []).forEach(([r, id]) => { const p = NODE[id]; if (!p || !/^(person|collective)$/.test(p.type)) return; if (r === 'founded'){ out.push({ name: p.title, id, yrs: null, role: 'found' }); return; } if (r === 'played' || r === 'member' || r === 'at') out.push({ name: p.title, id, yrs: this.span(p.years, true), role: 'guest' }); });
+    return out;
+  },
+  lineup(n, y){
+    const P = this.people(n), seen = new Set(), res = [], guests = []; const add = (arr, p) => { const k = (p.id || p.name).toLowerCase(); if (seen.has(k)) return; seen.add(k); arr.push(p.name); };
+    P.filter(p => p.role === 'res' && p.yrs && p.yrs[0] <= y && y <= p.yrs[1]).forEach(p => add(res, p));
+    /* undated names (most lists give today's residents) and guests (the book does not date who played when) only on a flyer for the room's recent years, or for a short-lived room */
+    const [a0, b0] = this.years(n); const recent = y >= b0 - 8 || b0 - a0 <= 12;
+    if (recent) P.filter(p => p.role === 'res' && !p.yrs).forEach(p => add(res, p));
+    if (recent) P.filter(p => p.role === 'guest' && (!p.yrs || (p.yrs[0] <= y && y <= p.yrs[1]))).forEach(p => add(guests, p));
+    const presents = P.filter(p => p.role === 'found').map(p => p.name).slice(0, 2);
+    return { res: res.slice(0, 6), guests: guests.slice(0, Math.max(0, 7 - Math.min(res.length, 6))), presents };
+  },
+  richest(n){ const [a, b] = this.years(n); let best = a, score = -1; for (let y = a; y <= b; y++){ const L = this.lineup(n, y); const sc = L.res.length * 2 + L.guests.length; if (sc > score){ score = sc; best = y; } } return best; },
+  styleFor(n, y){
+    const c = n.city, s = n.strands || [];
+    if (c === 'detroit') return 'detroit'; if (c === 'chicago') return y < 1988 ? 'chicago' : 'acid'; if (c === 'ibiza' || c === 'goa' || s[0] === 'trance') return 'ibiza';
+    if (s[0] === 'jungle') return 'dub'; if (n.id === 'berghain') return 'berghain';
+    if (c === 'berlin') return y < 2003 ? 'berlin' : y < 2016 ? 'minimal' : 'hard';
+    if (c === 'london' && y >= 1997) return 'london';
+    return y < 1988 ? 'chicago' : y < 1990 ? 'acid' : y < 1996 ? 'rave' : y < 2003 ? 'berlin' : y < 2016 ? 'minimal' : 'hard';
+  },
+  autoMount(root, id){
+    const n = NODE[id]; if (!n || !/^(club|event|set|collective)$/.test(n.type)) return; if (root.querySelector('.flyerbox')) return;
+    const [a, b] = this.years(n); const y0 = this.richest(n); const box = document.createElement('div'); box.className = 'flyerbox card';
+    box.innerHTML = `<div class="fl-grid"><div class="fl-art"><svg id="flyerSvg" class="diag" role="img" aria-label="Tribute flyer for ${n.title.replace(/"/g, '&quot;')}"></svg></div>
+      <div class="fl-side"><h3>Flyer press</h3><p class="cap">Set a tribute flyer for a night at ${n.title} in any year it ran. The line-up is the residents and guests the book connects to the room in that year; it is a tribute, not a copy of a real flyer.</p>
+      ${b > a ? `<label class="fl-row"><span>Year</span><input type="range" class="fl-year" min="${a}" max="${b}" value="${y0}" step="1"><b class="fl-yout">${y0}</b></label>` : ''}
+      <label class="fl-row"><span>Style</span><select class="fl-style"><option value="">Match the year</option>${this.STYLES.map(([k, t]) => `<option value="${k}">${t}</option>`).join('')}</select></label>
+      <div class="row"><button class="sm fdl">Download PNG</button><button class="sm fdls">Download SVG</button><span class="cap fmsg"></span></div></div></div>`;
+    const grid = root.querySelector('.grid2'); if (grid) grid.after(box); else { const nav = root.querySelector('.pagenav'); root.insertBefore(box, nav || null); }
+    let y = y0; const yr = box.querySelector('.fl-year'), sel = box.querySelector('.fl-style');
+    const draw = () => { this.draw(n, y, sel.value || this.styleFor(n, y)); const o = box.querySelector('.fl-yout'); if (o) o.textContent = y; };
+    if (yr) yr.oninput = () => { y = +yr.value; draw(); }; sel.onchange = draw;
+    box.querySelector('.fdl').onclick = () => this.download(n, y, 'png'); box.querySelector('.fdls').onclick = () => this.download(n, y, 'svg');
+    draw();
+  },
+  wrap(s, max){ const out = []; let line = ''; String(s).split(/\s+/).forEach(w => { if ((line + ' ' + w).trim().length > max && line){ out.push(line); line = w; } else line = (line + ' ' + w).trim(); }); if (line) out.push(line); return out; },
+  draw(n, y, style){
+    const svg = document.getElementById('flyerSvg'); if (!svg) return; const W = 420, H = 594; clearSvg(svg, W, H); const col = css(this.COL[style] || '--text');
+    el('rect', { width: W, height: H, fill: '#0e0e13' }, svg);
+    const art = el('svg', { id: 'flyerArt', x: 0, y: 0, width: W, height: 318, preserveAspectRatio: 'xMidYMid slice' }, svg); drawPoster('flyerArt', style, '', '');
+    const g = el('linearGradient', { id: 'flfade', x1: 0, y1: 0, x2: 0, y2: 1 }, el('defs', {}, svg)); el('stop', { offset: 0, 'stop-color': '#0e0e13', 'stop-opacity': 0 }, g); el('stop', { offset: 1, 'stop-color': '#0e0e13', 'stop-opacity': 1 }, g);
+    el('rect', { x: 0, y: 210, width: W, height: 110, fill: 'url(#flfade)' }, svg);
+    const L = this.lineup(n, y); const city = n.city && NODE[n.city] ? NODE[n.city].title : '';
+    el('rect', { x: 0, y: 0, width: W, height: 34, fill: '#0e0e13', opacity: .72 }, svg);
+    const head = (L.presents.length ? L.presents.join(' & ') + ' presents' : (TYPE_LABEL[n.type] || '')).toUpperCase(); text(svg, 22, 22, head, { fill: '#ebebf1', 'font-size': Math.min(10, (W - 110) / (head.length * .78)).toFixed(1), 'letter-spacing': '.18em', 'font-weight': 700 });
+    text(svg, W - 22, 23, String(y), { fill: col, 'font-size': 15, 'font-weight': 700, 'text-anchor': 'end', 'letter-spacing': '.06em' });
+    const gl = this.wrap(L.guests.map(x => x.toUpperCase()).join(' · '), 44);
+    const lineupH = (L.res.length ? 22 + L.res.reduce((h, _, i) => h + (i < 2 ? 24 : 19), 0) : 0) + (L.guests.length ? 31 + gl.length * 17 : 0) + (!L.res.length && !L.guests.length ? 26 : 0);
+    const top = 286, avail = (H - 46) - top - lineupH - 44; const name = n.title.toUpperCase(); let fs = 58, lines;
+    for (; fs >= 22; fs -= 2){ lines = this.wrap(name, Math.floor((W - 44) / (fs * .6))); if (lines.length <= 3 && lines.every(l => l.length * fs * .6 <= W - 44) && lines.length * fs * .95 <= Math.max(avail, 60)) break; }
+    let ty = top + fs * .85; lines.slice(0, 3).forEach(l => { text(svg, 22, ty, l, { fill: '#ebebf1', 'font-size': fs, 'font-weight': 700, 'font-family': 'Space Grotesk, sans-serif', 'letter-spacing': '-0.02em' }); ty += fs * .95; });
+    text(svg, 22, ty - fs * .25 + 14, [city, String(y)].filter(Boolean).join(' · ').toUpperCase(), { fill: col, 'font-size': 11, 'letter-spacing': '.2em', 'font-weight': 700 });
+    let ly = ty + 30; const room = H - 46;
+    if (L.res.length){ text(svg, 22, ly, L.res.length > 1 ? 'RESIDENTS' : 'RESIDENT', { fill: '#8f8fa0', 'font-size': 9, 'letter-spacing': '.24em' }); ly += 22;
+      L.res.forEach((nm, i) => { if (ly > room) return; const big = i < 2; text(svg, 22, ly, nm.toUpperCase(), { fill: '#ebebf1', 'font-size': big ? 19 : 14, 'font-weight': 700, 'font-family': 'Space Grotesk, sans-serif' }); ly += big ? 24 : 19; }); }
+    if (L.guests.length && ly < room - 20){ ly += 6; text(svg, 22, ly, L.res.length ? 'WITH' : 'LINE-UP', { fill: '#8f8fa0', 'font-size': 9, 'letter-spacing': '.24em' }); ly += 19;
+      gl.forEach(l => { if (ly > room) return; text(svg, 22, ly, l, { fill: '#ebebf1', 'font-size': 12.5, 'font-family': 'Space Grotesk, sans-serif', 'font-weight': 600 }); ly += 17; }); }
+    if (!L.res.length && !L.guests.length) text(svg, 22, ly + 4, 'RESIDENTS ALL NIGHT', { fill: '#ebebf1', 'font-size': 16, 'font-weight': 700, 'font-family': 'Space Grotesk, sans-serif' });
+    el('line', { x1: 22, y1: H - 30, x2: W - 22, y2: H - 30, stroke: '#2a2a35' }, svg);
+    text(svg, 22, H - 15, 'A TRIBUTE FLYER, NOT AN ORIGINAL · FORTYYEARSOF.DANCE · CC BY-NC-SA', { fill: '#6f6f80', 'font-size': 7.5, 'letter-spacing': '.12em' });
+  },
+  download(n, y, kind){
+    const svg = document.getElementById('flyerSvg'); if (!svg) return; const clone = svg.cloneNode(true); clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); clone.setAttribute('width', 1240); clone.setAttribute('height', 1754);
+    clone.querySelectorAll('text').forEach(t => { if (!t.getAttribute('font-family')) t.setAttribute('font-family', 'JetBrains Mono, monospace'); }); clone.querySelectorAll('[class]').forEach(e => e.removeAttribute('class'));
+    const src = new XMLSerializer().serializeToString(clone); const name = `flyer-${n.id}-${y}`; const msg = document.querySelector('.flyerbox .fmsg');
     if (kind === 'svg'){ const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([src], { type: 'image/svg+xml' })); a.download = name + '.svg'; a.click(); return; }
-    const img = new Image(); img.onload = () => { const c = document.createElement('canvas'); c.width = 1200; c.height = 800; const x = c.getContext('2d'); x.drawImage(img, 0, 0, 1200, 800); c.toBlob(b => { const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = name + '.png'; a.click(); }); }; img.onerror = () => { if (msg) msg.textContent = 'PNG export blocked here — use SVG'; }; img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(src); }
+    const img = new Image(); img.onload = () => { const c = document.createElement('canvas'); c.width = 1240; c.height = 1754; const x = c.getContext('2d'); x.drawImage(img, 0, 0, 1240, 1754); c.toBlob(b => { const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = name + '.png'; a.click(); }); }; img.onerror = () => { if (msg) msg.textContent = 'PNG export is blocked here; use SVG'; }; img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(src);
+  }
 };
 
 /* ---------- audiobook: the browser reads the page ---------- */
