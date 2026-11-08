@@ -74,7 +74,7 @@ const Contents = {
   buildHome(home){
     this.home = home; home.innerHTML = '';
     const parts = this.parts();
-    const chapters = Object.values(STRANDS).reduce((a, S) => a + S.spine.filter(id => !/^y\d{4}$/.test(id) && document.querySelector(`.page[data-page="${id}"]`)).length, 0) + this.years().length;
+    const chapters = Object.values(STRANDS).reduce((a, S) => a + S.spine.length, 0); /* same count as the cover stats: every page in a strand's reading order */
     const head = document.createElement('div'); head.className = 'parthead chead'; head.innerHTML = `<h2>Contents</h2><span>${chapters} chapters in ${Object.keys(STRANDS).length} strands, and ${typeof NODES !== 'undefined' ? NODES.length : ''} pages in the graph</span>`; home.appendChild(head);
     const resume = document.createElement('a'); resume.className = 'resume big'; resume.hidden = true; home.appendChild(resume); this.homeResume = resume;
     parts.forEach(p => {

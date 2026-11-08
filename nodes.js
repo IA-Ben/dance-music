@@ -73,7 +73,8 @@ function autolink(root, selfId){
   const texts = []; let t; while ((t = walker.nextNode())) texts.push(t);
   texts.forEach(tn => {
     const s = tn.nodeValue; A.re.lastIndex = 0; let m, last = 0; const frag = document.createDocumentFragment(); let any = false;
-    while ((m = A.re.exec(s))){ const name = m[2], id = A.map[name]; if (!id || done.has(id) || !linkable(s, m.index + m[1].length, name)){ continue; } done.add(id); any = true; const start = m.index + m[1].length; frag.appendChild(document.createTextNode(s.slice(last, start))); const a = document.createElement('a'); a.href = '#' + id; a.className = 'xl'; a.textContent = name; frag.appendChild(a); last = start + name.length; }
+    const capped = tn.parentElement.classList.contains('lede') && tn === tn.parentElement.firstChild; /* the drop cap would split a link on the opening word */
+    while ((m = A.re.exec(s))){ const name = m[2], id = A.map[name]; if (capped && !s.slice(0, m.index + m[1].length).trim()) continue; if (!id || done.has(id) || !linkable(s, m.index + m[1].length, name)){ continue; } done.add(id); any = true; const start = m.index + m[1].length; frag.appendChild(document.createTextNode(s.slice(last, start))); const a = document.createElement('a'); a.href = '#' + id; a.className = 'xl'; a.textContent = name; frag.appendChild(a); last = start + name.length; }
     if (any){ frag.appendChild(document.createTextNode(s.slice(last))); tn.parentNode.replaceChild(frag, tn); }
   });
 }
@@ -116,7 +117,7 @@ const NodeView = {
     const morph = parent ? `<h3>Morph from ${NODE[parent].title}</h3><p class="cap" style="margin-bottom:8px">This genre descends from <a class="xl" href="#${parent}">${NODE[parent].title}</a>. Drag from the parent's sound to this one and hear what changed.</p><div class="morphbox" data-a="${NODE[parent].preset}" data-b="${n.preset}"></div>` : '';
     const im = (window.IMAGES || {})[n.id]; const img = im ? `<figure class="nodeimg"><img src="${im.src}" alt="${im.title.replace('File:', '')}" loading="lazy"><figcaption>${im.title.replace('File:', '').replace(/\.(jpe?g|png)$/i, '')} · ${im.author} · <a href="${im.page}" target="_blank" rel="noopener">${im.license}</a> via Wikimedia Commons</figcaption></figure>` : '';
     art.innerHTML = `
-      <p class="kicker">${TYPE_LABEL[n.type] || n.type}${n.city && NODE[n.city] ? ' · ' + NODE[n.city].title : ''}${n.years ? ' · ' + n.years : ''}</p>
+      <p class="kicker"><span>${TYPE_LABEL[n.type] || n.type}${n.city && NODE[n.city] ? ' · ' + NODE[n.city].title : ''}${n.years ? ' · ' + String(n.years).replace(/(\d)s\b/g, '$1<span class="lc">s</span>') : ''}</span></p>
       <h2>${n.title}</h2>
       <div class="chips" style="margin-top:4px">${spot}</div>
       ${n.blurb ? `<p class="lede">${n.blurb}</p>` : ''}
@@ -216,7 +217,7 @@ window.PageHooks.explore = () => Explore.build();
 /* ---------- cover: the whole book as a graph ---------- */
 function drawCoverGraph(){
   const svg = document.getElementById('coverGraph'); if (!svg || svg.dataset.drawn) return; svg.dataset.drawn = 1;
-  const W = 900, H = 610, cx = 450, cy = 300; const rOf = y => y < 1980 ? 40 + (y - 1920) / 60 * 50 : 90 + (y - 1980) / 46 * 160; clearSvg(svg, W, H);
+  const W = 900, H = 650, cx = 450, cy = 300; const rOf = y => y < 1980 ? 40 + (y - 1920) / 60 * 50 : 90 + (y - 1980) / 46 * 160; clearSvg(svg, W, H);
   const order = ['techno', 'house', 'rave', 'jungle', 'trance']; const span = Math.PI * 2 / order.length;
   const hash = s => { let h = 7; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 1000003; return h / 1000003; };
   const pos = {};

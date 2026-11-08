@@ -6,13 +6,13 @@ const yrsOf = n => YearView.years(n);
 
 /* ---------- the big timeline ---------- */
 window.BigTimeline = {
-  lo: 1986, hi: 2026, strands: null, types: null,
+  lo: 1986, hi: (typeof BOOK !== 'undefined' ? BOOK.to : 2026), strands: null, types: null,
   build(){ const svg = document.getElementById('bigTimeline'); if (!svg || svg.dataset.built) return; svg.dataset.built = 1;
     const F = document.getElementById('tlFilters'); const strands = ['techno', 'house', 'rave', 'jungle', 'trance']; const types = ['record', 'club', 'event', 'set', 'person', 'label', 'collective', 'station', 'machine', 'genre'];
     this.strands = new Set(strands); this.types = new Set(types.filter(t => t !== 'genre'));
     F.innerHTML = strands.map(s => `<label class="toggle"><input type="checkbox" data-k="s" data-v="${s}" checked> <span style="color:var(${STRANDS[s].color})">■</span> ${STRANDS[s].title}</label>`).join('') + '<span class="cap" style="margin:0 6px">·</span>' + types.map(t => `<label class="toggle"><input type="checkbox" data-k="t" data-v="${t}" ${t === 'genre' ? '' : 'checked'}> <span style="color:var(${TYPE_COLOR[t]})">●</span> ${TYPE_LABEL[t]}</label>`).join('');
     F.querySelectorAll('input').forEach(i => i.onchange = () => { const set = i.dataset.k === 's' ? this.strands : this.types; i.checked ? set.add(i.dataset.v) : set.delete(i.dataset.v); this.draw(); });
-    let drag = null; svg.addEventListener('mousedown', e => { drag = this.xToYear(svg, e); }); svg.addEventListener('mouseup', e => { if (drag === null) return; const b = this.xToYear(svg, e); if (Math.abs(b - drag) >= 1){ this.lo = Math.max(1986, Math.floor(Math.min(drag, b))); this.hi = Math.min(2026, Math.ceil(Math.max(drag, b))); this.draw(); } drag = null; }); svg.addEventListener('dblclick', () => { this.lo = 1986; this.hi = 2026; this.draw(); });
+    let drag = null; svg.addEventListener('mousedown', e => { drag = this.xToYear(svg, e); }); svg.addEventListener('mouseup', e => { if (drag === null) return; const b = this.xToYear(svg, e); if (Math.abs(b - drag) >= 1){ this.lo = Math.max(1986, Math.floor(Math.min(drag, b))); this.hi = Math.min(typeof BOOK !== 'undefined' ? BOOK.to : 2026, Math.ceil(Math.max(drag, b))); this.draw(); } drag = null; }); svg.addEventListener('dblclick', () => { this.lo = 1986; this.hi = (typeof BOOK !== 'undefined' ? BOOK.to : 2026); this.draw(); });
     this.draw(); },
   xToYear(svg, e){ const r = svg.getBoundingClientRect(); const W = 1200; const x = (e.clientX - r.left) / r.width * W; return this.lo + (x - 60) / (W - 80) * (this.hi - this.lo); },
   draw(){ const svg = document.getElementById('bigTimeline'); const W = 1200; const lanes = [['record', 'Records'], ['club', 'Rooms'], ['event', 'Nights & festivals'], ['set', 'Landmark sets'], ['person', 'People'], ['label', 'Labels'], ['collective', 'Crews'], ['station', 'Radio'], ['machine', 'Machines'], ['genre', 'Genres']].filter(([t]) => this.types.has(t));

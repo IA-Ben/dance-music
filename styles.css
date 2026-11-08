@@ -990,3 +990,14 @@ body.paper .scard{--ci:color-mix(in srgb,var(--c) 62%,#17171c)}
 .pw-nightly .pw-day h4{white-space:nowrap}
 @container (max-width:640px){.pw-nightly .pw-day{grid-template-columns:1fr}.pw-nightly .pw-day > *:not(h4){grid-column:1}}
 @media (max-width:700px){.runhead>span:first-child{display:none}.runhead{justify-content:flex-end}}
+
+.kicker .lc{text-transform:none}
+/* index pages: shops, press, sound systems */
+.icards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:8px 0 24px}
+a.icard{display:block;text-decoration:none;color:var(--text);background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--c);border-radius:8px;padding:12px 14px;transition:transform .15s,box-shadow .15s}
+a.icard:hover{transform:translateY(-1px);box-shadow:0 4px 14px #0002}
+a.icard b{display:block;font-weight:700;font-size:15px;line-height:1.25}
+a.icard small{display:block;font:500 11px var(--f-mono);color:var(--muted);margin:3px 0 6px;letter-spacing:.04em}
+a.icard p{margin:0;font-size:13.5px;line-height:1.45;color:var(--muted)}
+body.paper .page a.icard p{font-size:14px;line-height:1.45;color:var(--muted);margin:0}
+body.paper .page a.icard b{color:var(--text)}

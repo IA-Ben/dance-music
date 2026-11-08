@@ -36,6 +36,6 @@ window.PageHooks.charts = () => { const box = document.getElementById('chartsTab
 const indexPage = (type, elId) => () => { const box = document.getElementById(elId); if (!box || box.dataset.done) return; box.dataset.done = 1;
   const items = NODES.filter(n => n.type === type).sort((a, b) => ((NODE[a.city] || {}).title || '').localeCompare((NODE[b.city] || {}).title || '') || (yrsOf(a) || [0])[0] - (yrsOf(b) || [0])[0]);
   const byCity = {}; items.forEach(n => { const c = n.city && NODE[n.city] ? NODE[n.city].title : 'Everywhere'; (byCity[c] = byCity[c] || []).push(n); });
-  box.innerHTML = Object.entries(byCity).map(([c, ns]) => `<h3>${c}</h3><div class="ccards">${ns.map(n => `<a class="ccard" href="#${n.id}" style="--c:var(${TYPE_COLOR[n.type]})"><b>${n.title}</b><small>${n.years || ''}</small><p>${n.blurb}</p></a>`).join('')}</div>`).join('');
+  box.innerHTML = Object.entries(byCity).map(([c, ns]) => `<h3>${c}</h3><div class="icards">${ns.map(n => `<a class="icard" href="#${n.id}" style="--c:var(${TYPE_COLOR[n.type]})"><b>${n.title}</b><small>${n.years || ''}</small><p>${n.blurb}</p></a>`).join('')}</div>`).join('');
 };
 window.PageHooks.shops = indexPage('shop', 'shopsIndex'); window.PageHooks.press = indexPage('press', 'pressIndex'); window.PageHooks.sound = indexPage('sound', 'soundIndex');
