@@ -10,6 +10,6 @@ Open `index.html` locally, or read it at https://fortyyearsof.dance.
 
 ## Licence
 
-Text, diagrams, synthesis and code: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+Text, diagrams, data, synthesis and code: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Share and adapt for non-commercial use, with credit, on the same terms; ask first for commercial use.
 Photographs are from Wikimedia Commons under their own Creative Commons licences, credited on each page and on the Image credits page.
 No recordings are embedded; links go to the records, films and sets themselves.

@@ -118,6 +118,7 @@ const NodeView = {
     const col = TYPE_COLOR[n.type] || '--mix'; art.style.setProperty('--c', `var(${col})`);
     const strands = n.strands.filter(s => STRANDS[s]);
     const spot = strands.map(s => `<a class="chip" href="#${s}-${n.id}" style="--c:var(${STRANDS[s].color})"><i></i>${STRANDS[s].title} strand</a>`).join('');
+    const spotTree = n.type === 'genre' ? `<a class="chip" href="#genres?g=${n.id}" style="--c:var(--synth)"><i></i>On the family tree</a>` : '';
     const links = [['sp', 'listen', n.q], ['yt', 'watch', n.q + (n.type === 'person' ? ' DJ set' : n.type === 'club' ? ' club' : '')], ['dg', 'discogs', n.q], ['g', 'search', n.q]].filter(l => !(n.type === 'city' && l[0] === 'sp')).filter(l => !(n.type === 'machine' && l[0] === 'sp'));
     const cc = `<a class="chip dg" target="_blank" rel="noopener" href="https://commons.wikimedia.org/w/index.php?search=${encodeURIComponent(n.q)}&ns6=1"><i></i>Creative Commons images<small style="color:var(--muted)">· Wikimedia Commons</small></a>`;
     const body = document.getElementById('node-' + n.id); // optional hand-written body in HTML
@@ -144,7 +145,7 @@ const NodeView = {
     art.innerHTML = `
       <p class="kicker"><span>${TYPE_LABEL[n.type] || n.type}${n.city && NODE[n.city] ? ' · ' + NODE[n.city].title : ''}${n.years ? ' · ' + String(n.years).replace(/(\d)s\b/g, '$1<span class="lc">s</span>') : ''}</span></p>
       <h2>${n.title}</h2>
-      <div class="chips" style="margin-top:4px">${spot}</div>
+      <div class="chips" style="margin-top:4px">${spot}${spotTree}</div>
       ${n.blurb ? `<p class="lede">${n.blurb}</p>` : ''}
       ${img}
       <div class="grid2">
@@ -176,9 +177,23 @@ const NodeView = {
     const ch = mentions.map(m => ({ id: m, r: 'mention', dir: 'ch' }));
     const seen = new Set([n.id]); const all = [...out, ...inn, ...ch].filter(x => { if (seen.has(x.id)) return false; seen.add(x.id); return true; }).slice(0, 28);
     const rings = { out: 95, in: 150, ch: 190 }; const groups = { out: [], in: [], ch: [] }; all.forEach(x => groups[x.dir].push(x));
-    Object.entries(groups).forEach(([dir, items]) => { const R = rings[dir]; el('circle', { cx, cy, r: R, fill: 'none', stroke: '#272733', 'stroke-dasharray': dir === 'ch' ? '2 4' : '' }, svg); items.forEach((x, i) => { const a = (i / items.length) * Math.PI * 2 - Math.PI / 2 + (dir === 'in' ? 0.2 : 0); const x1 = cx + Math.cos(a) * R, y1 = cy + Math.sin(a) * R; el('line', { x1: cx, y1: cy, x2: x1, y2: y1, stroke: '#2a2a35' }, svg); const g = el('g', { style: 'cursor:pointer' }, svg); const node = NODE[x.id]; const col = node ? css(TYPE_COLOR[node.type] || '--mix') : '#8f8fa0'; el('circle', { cx: x1, cy: y1, r: dir === 'ch' ? 4 : 6, fill: dir === 'ch' ? '#8f8fa0' : col }, g); const label = node ? ((node.type === 'record' || node.type === 'set') ? node.title.split(' — ').pop() : node.title) : CHAPTER_TITLES[x.id]; const t = text(g, x1 + (Math.cos(a) >= 0 ? 8 : -8), y1 + 3, label.length > 22 ? label.slice(0, 21) + '…' : label, { 'text-anchor': Math.cos(a) >= 0 ? 'start' : 'end', fill: '#ebebf1', 'font-size': 8.5 }); g.addEventListener('click', () => { location.hash = '#' + x.id; }); const tip = document.getElementById('tlTip'); g.addEventListener('mouseenter', () => { tip.innerHTML = `<b>${node ? node.title : CHAPTER_TITLES[x.id]}</b><br>${x.dir === 'out' ? (REL_LABEL[x.r] || x.r) : x.dir === 'in' ? (REL_BACK[x.r] || x.r) : 'mentions this'}`; tip.style.display = 'block'; }); g.addEventListener('mousemove', e => { tip.style.left = (e.clientX + 14) + 'px'; tip.style.top = (e.clientY + 14) + 'px'; }); g.addEventListener('mouseleave', () => tip.style.display = 'none'); }); });
+    Object.entries(groups).forEach(([dir, items]) => {
+      const R = rings[dir]; el('circle', { cx, cy, r: R, fill: 'none', stroke: '#272733', 'stroke-dasharray': dir === 'ch' ? '2 4' : '' }, svg);
+      items.forEach((x, i) => {
+        const a = (i / items.length) * Math.PI * 2 - Math.PI / 2 + (dir === 'in' ? 0.2 : 0); const x1 = cx + Math.cos(a) * R, y1 = cy + Math.sin(a) * R;
+        const spoke = el('line', { class: 'dg-e', x1: cx, y1: cy, x2: x1, y2: y1, stroke: '#2a2a35' }, svg);
+        const g = el('g', {}, svg); const node = NODE[x.id]; const col = node ? css(TYPE_COLOR[node.type] || '--mix') : '#8f8fa0';
+        el('circle', { cx: x1, cy: y1, r: dir === 'ch' ? 4 : 6, fill: dir === 'ch' ? '#8f8fa0' : col }, g); el('circle', { class: 'dg-hit', cx: x1, cy: y1, r: 11 }, g);
+        const label = node ? ((node.type === 'record' || node.type === 'set') ? node.title.split(' — ').pop() : node.title) : CHAPTER_TITLES[x.id];
+        text(g, x1 + (Math.cos(a) >= 0 ? 8 : -8), y1 + 3, label.length > 22 ? label.slice(0, 21) + '…' : label, { 'text-anchor': Math.cos(a) >= 0 ? 'start' : 'end', fill: '#ebebf1', 'font-size': 8.5 });
+        const how = x.dir === 'out' ? (REL_LABEL[x.r] || x.r) : x.dir === 'in' ? (REL_BACK[x.r] || x.r) : 'mentions this page';
+        const kind = node ? [TYPE_LABEL[node.type] || node.type, node.years].filter(Boolean).join(' · ') : 'Chapter';
+        Dg.mark(g, { id: x.id, meta: how.charAt(0).toUpperCase() + how.slice(1) + ' · ' + kind, rel: [spoke] });
+      });
+    });
     el('circle', { cx, cy, r: 16, fill: css(TYPE_COLOR[n.type] || '--mix') }, svg); text(svg, cx, cy + 32, n.title.length > 26 ? n.title.slice(0, 25) + '…' : n.title, { 'text-anchor': 'middle', fill: '#ebebf1', 'font-weight': 600 });
   }
+
 };
 
 /* ---------- forks ---------- */
@@ -254,19 +269,32 @@ window.PageHooks.explore = () => Explore.build();
 /* ---------- cover: the whole book as a graph ---------- */
 function drawCoverGraph(){
   const svg = document.getElementById('coverGraph'); if (!svg || svg.dataset.drawn) return; svg.dataset.drawn = 1;
-  const W = 900, H = 650, cx = 450, cy = 300; const rOf = y => y < 1980 ? 40 + (y - 1920) / 60 * 50 : 90 + (y - 1980) / 46 * 160; clearSvg(svg, W, H);
+  const W = 900, H = 610, cx = 450, cy = 300; const rOf = y => y < 1980 ? 40 + (y - 1920) / 60 * 50 : 90 + (y - 1980) / 46 * 160; clearSvg(svg, W, H);
   const order = ['techno', 'house', 'rave', 'jungle', 'trance']; const span = Math.PI * 2 / order.length;
   const hash = s => { let h = 7; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 1000003; return h / 1000003; };
   const pos = {};
   NODES.forEach(n => { const st = order.indexOf((n.strands || [])[0]); const si = st < 0 ? 0 : st; const yy = YearView.years(n); const yr = yy ? Math.min(2026, Math.max(1920, yy[0])) : null; const r = yr ? rOf(yr) + (hash(n.id + 'r') - .5) * 10 : 262; const a = -Math.PI / 2 + si * span + 0.06 + hash(n.id) * (span - 0.12); pos[n.id] = [cx + Math.cos(a) * r, cy + Math.sin(a) * r, n]; });
   [1950, 1980, 1990, 2000, 2010, 2020].forEach(y => { const r = rOf(y); el('circle', { cx, cy, r, fill: 'none', stroke: '#1e1e28' }, svg); text(svg, cx - 4, cy - r + 9, y, { 'font-size': 8, fill: '#6a6a80', 'text-anchor': 'end' }); });
-  order.forEach((s, i) => { const a = -Math.PI / 2 + i * span; el('line', { x1: cx, y1: cy, x2: cx + Math.cos(a) * 275, y2: cy + Math.sin(a) * 275, stroke: '#1e1e28' }, svg); const am = a + span / 2; text(svg, cx + Math.cos(am) * 278, cy + Math.sin(am) * 278 + 4, STRANDS[s].title.toUpperCase(), { 'text-anchor': 'middle', 'font-size': 9, 'letter-spacing': '.14em', fill: css(STRANDS[s].color) }); });
+  order.forEach((s, i) => { const a = -Math.PI / 2 + i * span; el('line', { x1: cx, y1: cy, x2: cx + Math.cos(a) * 275, y2: cy + Math.sin(a) * 275, stroke: '#1e1e28' }, svg); const am = a + span / 2; const first = (STRANDS[s].spine || [])[0]; const link = el('a', { href: '#' + first, 'aria-label': STRANDS[s].title + ' strand: start reading' }, svg); text(link, cx + Math.cos(am) * 278, cy + Math.sin(am) * 278 + 4, STRANDS[s].title.toUpperCase(), { 'text-anchor': 'middle', 'font-size': 9, 'letter-spacing': '.14em', fill: css(STRANDS[s].color) }); });
   const g = el('g', { opacity: .18 }, svg); let links = 0;
   NODES.forEach(n => n.rel.forEach(([r, t]) => { const q = pos[t]; if (!q || r === 'in') return; links++; const p = pos[n.id]; el('line', { x1: p[0], y1: p[1], x2: q[0], y2: q[1], stroke: css(TYPE_COLOR[n.type] || '--text'), 'stroke-width': .6 }, g); }));
-  NODES.forEach(n => { const [x, y] = pos[n.id]; if (n.type === 'city') return; const deg = n.rel.length + ((BACK[n.id] || []).length); const a = el('a', { href: '#' + n.id }, svg); el('circle', { cx: x, cy: y, r: Math.min(6, 1.6 + Math.sqrt(deg) * .55), fill: css(TYPE_COLOR[n.type] || '--text'), opacity: .9 }, a); const t = el('title', {}, a); t.textContent = n.title + ' · ' + (TYPE_LABEL[n.type] || n.type) + (n.years ? ' · ' + n.years : ''); });
-  ['person', 'club', 'record', 'label', 'event', 'set', 'genre', 'machine', 'station', 'collective', 'border'].forEach((t, i) => { const x = 20 + (i % 6) * 130, y = H - 40 + Math.floor(i / 6) * 18; el('circle', { cx: x, cy: y - 4, r: 4, fill: css(TYPE_COLOR[t]) }, svg); text(svg, x + 10, y, TYPE_LABEL[t], { 'font-size': 9 }); });
+  const hl = el('g', { 'pointer-events': 'none' }, svg); /* the lit links of the dot under the pointer */
+  const dots = {};
+  NODES.forEach(n => { const [x, y] = pos[n.id]; if (n.type === 'city') return; const deg = n.rel.length + ((BACK[n.id] || []).length); const a = el('a', { href: '#' + n.id, 'aria-label': n.title + ', ' + (TYPE_LABEL[n.type] || n.type) + (n.years ? ', ' + n.years : '') }, svg); a.dataset.dgk = n.type; el('circle', { cx: x, cy: y, r: Math.min(6, 1.6 + Math.sqrt(deg) * .55), fill: css(TYPE_COLOR[n.type] || '--text'), opacity: .9 }, a); dots[n.id] = a; });
+  const near = id => { const s = new Set(); (NODE[id].rel || []).forEach(([r, t]) => { if (pos[t] && r !== 'in') s.add(t); }); (BACK[id] || []).forEach(([, src]) => { if (pos[src]) s.add(src); }); return [...s]; };
+  Dg.wire(svg, { reach: 16, onlight(m){ while (hl.firstChild) hl.removeChild(hl.firstChild); if (!m || !m.dataset.dgk) return; const id = m.getAttribute('href').slice(1); const p = pos[id]; if (!p) return; const c = css(TYPE_COLOR[NODE[id].type] || '--text'); near(id).forEach(t => { const q = pos[t]; el('line', { x1: p[0], y1: p[1], x2: q[0], y2: q[1], stroke: c, 'stroke-width': 1.1, opacity: .85 }, hl); if (dots[t]) dots[t].classList.add('dg-lit'); }); } });
+  Object.entries(dots).forEach(([id, a]) => Dg.mark(a, () => { const n = NODE[id]; const k = near(id).length; return { id, meta: [TYPE_LABEL[n.type] || n.type, n.years, k + (k === 1 ? ' link' : ' links')].filter(Boolean).join(' · ') }; }));
+  const types = ['person', 'club', 'record', 'label', 'event', 'set', 'genre', 'machine', 'station', 'collective', 'border'];
+  const bar = Dg.legend(svg, types.filter(t => TYPE_LABEL[t]).map(t => [t, TYPE_LABEL[t], css(TYPE_COLOR[t])]), 'after');
+  /* light up a name */
+  const find = document.createElement('input'); find.type = 'search'; find.className = 'dg-findbox'; find.placeholder = 'Light up a name…'; find.setAttribute('aria-label', 'Light up pages on the graph by name');
+  bar.appendChild(find);
+  const norm = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[‘’“”'"]/g, '').toLowerCase();
+  let hits = [];
+  find.addEventListener('input', () => { const q = norm(find.value.trim()); svg.querySelectorAll('.dg-lit').forEach(e => e.classList.remove('dg-lit')); hits = []; if (q.length < 2){ svg.classList.remove('dg-hl'); return; } Object.entries(dots).forEach(([id, a]) => { const n = NODE[id]; if ([n.title, ...(n.aliases || [])].some(t => norm(t).includes(q))){ a.classList.add('dg-lit'); hits.push(id); } }); svg.classList.toggle('dg-hl', hits.length > 0); });
+  find.addEventListener('keydown', e => { if (e.key === 'Enter' && hits.length){ e.preventDefault(); location.hash = '#' + hits[0]; } if (e.key === 'Escape'){ find.value = ''; find.dispatchEvent(new Event('input')); } });
   const count = t => NODES.filter(n => n.type === t).length; const chapters = Object.values(STRANDS).reduce((s, v) => s + v.spine.length, 0);
-  const st = document.getElementById('coverStats'); if (st) st.innerHTML = `<b>${NODES.length}</b> pages · ${count('person')} people · ${count('club')} clubs and rooms · ${count('record')} records · ${count('label')} labels · ${count('event')} events · ${count('set')} landmark sets · ${count('machine')} machines · ${count('genre')} genres · <b>${NODES.reduce((s, n) => s + n.rel.length, 0)}</b> links, each followed both ways · ${chapters} chapters across ${Object.keys(STRANDS).length} strands · ${typeof GENRE_NAMES !== 'undefined' ? GENRE_NAMES.length : ''} sound presets. Placed by strand and by year, rings mark 1950, 1980, 1990, 2000, 2010 and 2020; dots scale with how connected a page is. Click any dot.`;
+  const st = document.getElementById('coverStats'); if (st) st.innerHTML = `<b>${NODES.length}</b> pages · ${count('person')} people · ${count('club')} clubs and rooms · ${count('record')} records · ${count('label')} labels · ${count('event')} events · ${count('set')} landmark sets · ${count('machine')} machines · ${count('genre')} genres · <b>${NODES.reduce((s, n) => s + n.rel.length, 0)}</b> links, each followed both ways · ${chapters} chapters across ${Object.keys(STRANDS).length} strands · ${typeof GENRE_NAMES !== 'undefined' ? GENRE_NAMES.length : ''} sound presets. Placed by strand and by year, rings mark 1950, 1980, 1990, 2000, 2010 and 2020; dots scale with how connected a page is. Point at a dot to light its links, click to open it; the chips switch kinds of page off and on.`;
 }
 (() => { const prev = window.PageHooks.home; window.PageHooks.home = () => { if (prev) prev(); drawCoverGraph(); }; })();
 if (!location.hash || location.hash === '#home') setTimeout(drawCoverGraph, 50);

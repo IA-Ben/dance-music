@@ -90,7 +90,7 @@ function route(){
   setTimeout(() => { if (FLIPPING) finish(); }, 700);
 }
 function bookControls(){
-  document.addEventListener('keydown', e => { const tag = (e.target.tagName || '').toLowerCase(); if (tag === 'input' || tag === 'select' || tag === 'textarea') return; if (e.key === 'ArrowRight' || e.key === 'PageDown') goTo(1); else if (e.key === 'ArrowLeft' || e.key === 'PageUp') goTo(-1); });
+  document.addEventListener('keydown', e => { if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey) return; const tag = (e.target.tagName || '').toLowerCase(); if (tag === 'input' || tag === 'select' || tag === 'textarea') return; if (e.target.closest && e.target.closest('svg, .dg-tip, [role="slider"], [contenteditable]')) return; if (e.key === 'ArrowRight' || e.key === 'PageDown') goTo(1); else if (e.key === 'ArrowLeft' || e.key === 'PageUp') goTo(-1); });
   let sx = null, sy = null; const m = document.getElementById('book');
   m.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
   m.addEventListener('touchend', e => { if (sx == null) return; const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy; if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.5) goTo(dx < 0 ? 1 : -1); sx = sy = null; }, { passive: true });

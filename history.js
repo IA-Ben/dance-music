@@ -54,11 +54,11 @@ const TL = [
   [1998, 'DE', 'Ostgut · Kompakt', 'h6', 'The club that becomes Berghain; the Cologne label that softens minimal.'],
   [1999, 'UK', 'fabric opens · Decks, EFX & 909', 'h3', 'Farringdon in October; Hawtin\'s 909-in-the-booth mix the same year.'],
   [2000, 'US', 'DEMF / Movement', 'h12', 'Carl Craig\'s Detroit Electronic Music Festival, Hart Plaza, free.'],
-  [2000, 'IB', 'Cocoon at Amnesia', 'h7', 'Sven Väth\'s Monday at Amnesia, eighteen seasons long.'],
+  [1999, 'IB', 'Cocoon at Amnesia', 'h7', 'Sven Väth\'s night begins with four parties, then runs on Mondays at Amnesia until 2017.'],
   [2001, 'IB', 'Carl Cox at Space', 'h7', 'Every summer from 2001 to 2016: Thursdays at first, Tuesdays by the end.'],
   [2001, 'EU', 'Ableton Live · DE9', 'h6', 'The laptop arrives; Hawtin mixes hundreds of loops.'],
   [2003, 'DE', 'Villalobos — Alcachofa', 'h6', 'Minimal\'s high-water mark. Ostgut closes in January.'],
-  [2004, 'DE', 'Berghain opens', 'h6', 'Panorama Bar in October, the main floor in December; Funktion-One from 2005.'],
+  [2004, 'DE', 'Berghain opens', 'h6', 'Panorama Bar on 15 October, the main floor at the end of the year; Funktion-One from 2005.'],
   [2005, 'DE', 'Ostgut Ton', 'h8', 'The label that defines the next decade.'],
   [2010, 'UK', 'Boiler Room', 'h8', 'A webcam taped to a wall in east London; the format of the decade.'],
   [2012, 'IB', 'ENTER. at Space', 'h7', 'Hawtin\'s minimal laboratory on the island, 2012–15.'],
@@ -98,11 +98,18 @@ function drawTimeline(){
 /* ---------- Prehistory timeline ---------- */
 function drawPreTimeline(){
   const svg = document.getElementById('preTimeline'); if (!svg) return; const W = 1000, H = 220, L = 30, R = 975; clearSvg(svg, W, H);
-  const ev = [[1920, 'Theremin'], [1928, 'Ondes Martenot'], [1930, 'Trautonium'], [1931, 'Rhythmicon — the first drum machine'], [1938, 'Novachord'], [1940, 'Vocoder'], [1948, 'Magnetic tape · musique concrète'], [1957, 'RCA Mark II (punch-card sequencing)'], [1958, 'BBC Radiophonic Workshop'], [1963, 'Doctor Who theme'], [1964, 'Moog modular'], [1968, 'Switched-On Bach'], [1971, 'Baba O\'Riley'], [1974, 'Autobahn'], [1977, 'I Feel Love'], [1980, 'TR-808']];
+  /* [year, label, the word to find on this page, the book's page if it has one] */
+  const ev = [[1920, 'Theremin', 'theremin'], [1928, 'Ondes Martenot', 'Martenot'], [1930, 'Trautonium', 'Trautonium'], [1931, 'Rhythmicon — the first drum machine', 'Rhythmicon'], [1938, 'Novachord', 'Novachord'], [1939, 'Vocoder', 'vocoder'], [1948, 'Musique concrète', 'concrète'], [1957, 'RCA Mark II (paper-tape sequencing)', 'RCA'], [1958, 'BBC Radiophonic Workshop', 'Radiophonic'], [1963, 'Doctor Who theme', 'Doctor Who'], [1964, 'Moog modular', 'Moog\'s modular', 'moog'], [1968, 'Switched-On Bach', 'Switched-On'], [1971, 'Baba O\'Riley', 'Riley'], [1974, 'Autobahn', 'Autobahn (1974)', 'rec-autobahn'], [1977, 'I Feel Love', 'I Feel Love', 'rec-ifeellove'], [1980, 'TR-808', '808', 'tr808']];
   const x = y => L + (y - 1918) / (1982 - 1918) * (R - L);
   for (let y = 1920; y <= 1980; y += 10){ el('line', { x1: x(y), y1: 20, x2: x(y), y2: H - 30, stroke: '#272733' }, svg); text(svg, x(y), H - 14, y, { 'text-anchor': 'middle' }); }
   el('line', { x1: L, y1: 130, x2: R, y2: 130, stroke: css('--synth'), opacity: .4 }, svg);
-  ev.forEach((e, i) => { const px = x(e[0]); el('circle', { cx: px, cy: 130, r: 5, fill: css('--synth') }, svg); const t = text(svg, px + 6, 122 - (i % 2) * 0, e[1], { fill: '#ebebf1', 'font-size': 9 }); t.setAttribute('transform', `rotate(-32 ${px + 6} 122)`); });
+  ev.forEach(([yr, label, find, id]) => {
+    const px = x(yr); const g = el('g', {}, svg);
+    el('circle', { cx: px, cy: 130, r: 5, fill: css('--synth') }, g); el('circle', { class: 'dg-hit', cx: px, cy: 130, r: 13 }, g);
+    const t = text(g, px + 6, 122, label, { fill: '#ebebf1', 'font-size': 9 }); t.setAttribute('transform', `rotate(-32 ${px + 6} 122)`);
+    const n = id && NODE[id];
+    Dg.mark(g, n ? { id, find, meta: yr + ' · ' + (TYPE_LABEL[n.type] || n.type) } : { title: label.replace(/ — .*/, ''), meta: String(yr), find, href: null });
+  });
 }
 
 /* ---------- City network ---------- */
@@ -127,9 +134,27 @@ function drawGenreTree(){
     bham: [160, 340, 'Birmingham 1993', '--drums'], dub: [400, 340, 'Dub techno 1993', '--rumble'], jungle: [720, 350, 'Jungle / D&B 1993', '--drums'], gabber: [880, 320, 'Gabber 1992', '--synth'], minimal: [280, 420, 'Minimal 2001', '--synth'], schranz: [560, 420, 'Schranz / hard 2000', '--drums'],
     berghain: [420, 490, 'Berghain sound 2008', '--rumble'], industrial: [660, 490, 'Industrial 2015', '--drums'], hypnotic: [160, 490, 'Hypnotic 2012', '--rumble'], hard: [860, 470, 'Hard techno 2020', '--drums']
   };
+  /* each branch's page in the book, and so its sound and its place on the full family tree */
+  const GID = { kraft: 'g-electro', house: 'g-house', detroit: 'g-detroit', acid: 'g-acidhouse', newbeat: 'g-newbeat', bleep: 'g-bleep', hardcore: 'g-hardcore', berlin: 'g-berlin', trance: 'g-trance', bham: 'g-bham', dub: 'g-dub', jungle: 'g-jungle', gabber: 'g-gabber', minimal: 'g-minimal', schranz: 'g-schranz', berghain: 'g-berghain', industrial: 'g-industrial', hypnotic: 'g-hypnotic', hard: 'g-hard' };
+  const BR = { kraft: 'electro', detroit: 'detroit', bleep: 'bleep', berlin: 'berlin', hardcore: 'hardcore', gabber: 'gabber', trance: 'trance', bham: 'bham', dub: 'dub', minimal: 'minimal', schranz: 'schranz', berghain: 'berghain', hypnotic: 'hypnotic', industrial: 'industrial', hard: 'hard' };
   const E = [['kraft', 'detroit'], ['disco', 'house'], ['house', 'detroit'], ['house', 'acid'], ['ebm', 'newbeat'], ['newbeat', 'trance'], ['detroit', 'bleep'], ['detroit', 'berlin'], ['acid', 'hardcore'], ['acid', 'berlin'], ['ebm', 'berlin'], ['hardcore', 'jungle'], ['hardcore', 'gabber'], ['berlin', 'bham'], ['detroit', 'bham'], ['berlin', 'dub'], ['detroit', 'dub'], ['berlin', 'schranz'], ['bham', 'schranz'], ['dub', 'minimal'], ['detroit', 'minimal'], ['berlin', 'berghain'], ['dub', 'berghain'], ['minimal', 'berghain'], ['bham', 'industrial'], ['schranz', 'industrial'], ['minimal', 'hypnotic'], ['dub', 'hypnotic'], ['schranz', 'hard'], ['trance', 'hard'], ['gabber', 'hard'], ['industrial', 'hard']];
-  E.forEach(([a, b]) => { const A = N[a], B = N[b]; el('path', { d: `M${A[0]} ${A[1] + 14} C ${A[0]} ${(A[1] + B[1]) / 2}, ${B[0]} ${(A[1] + B[1]) / 2}, ${B[0]} ${B[1] - 14}`, fill: 'none', stroke: '#3a3a48', 'stroke-width': 1.5 }, svg); });
-  Object.entries(N).forEach(([key, [x, y, name, col]]) => { const g = el('g', { style: 'cursor:pointer' }, svg); const w = name.length * 6.4 + 18; el('rect', { x: x - w / 2, y: y - 13, width: w, height: 26, rx: 13, fill: '#1b1b24', stroke: css(col), 'stroke-width': 1.5 }, g); text(g, x, y + 4, name, { 'text-anchor': 'middle', fill: '#ebebf1', 'font-size': 10, 'font-weight': 600 }); g.addEventListener('click', () => { window._branchTarget = key; location.hash = key === 'house' ? '#house0' : '#h14'; }); });
+  const paths = E.map(([a, b]) => { const A = N[a], B = N[b]; const p = el('path', { class: 'dg-e', d: `M${A[0]} ${A[1] + 14} C ${A[0]} ${(A[1] + B[1]) / 2}, ${B[0]} ${(A[1] + B[1]) / 2}, ${B[0]} ${B[1] - 14}`, fill: 'none', stroke: '#3a3a48', 'stroke-width': 1.5 }, svg); p.dataset.a = a; p.dataset.b = b; return p; });
+  const up = {}, down = {}; E.forEach(([a, b]) => { (down[a] = down[a] || []).push(b); (up[b] = up[b] || []).push(a); });
+  const walk = (k, m, seen = new Set()) => { (m[k] || []).forEach(j => { if (!seen.has(j)){ seen.add(j); walk(j, m, seen); } }); return seen; };
+  const G = {};
+  Object.entries(N).forEach(([key, [x, y, name, col]]) => { const g = el('g', {}, svg); const w = name.length * 6.4 + 18; el('rect', { x: x - w / 2, y: y - 13, width: w, height: 26, rx: 13, fill: '#1b1b24', stroke: css(col), 'stroke-width': 1.5 }, g); text(g, x, y + 4, name, { 'text-anchor': 'middle', fill: '#ebebf1', 'font-size': 10, 'font-weight': 600 }); G[key] = g; });
+  Object.entries(G).forEach(([key, g]) => {
+    const anc = walk(key, up), des = walk(key, down), line = new Set([key, ...anc, ...des]);
+    const rel = () => [...[...line].map(k => G[k]), ...paths.filter(p => (p.dataset.b === key || anc.has(p.dataset.b)) && (anc.has(p.dataset.a)) || (p.dataset.a === key || des.has(p.dataset.a)) && des.has(p.dataset.b))];
+    const gid = GID[key], n = gid && NODE[gid];
+    const from = [...(up[key] || [])].map(k => N[k][2].replace(/ \d{4}.*| →.*| \(.*\)/g, '')), to = [...(down[key] || [])].map(k => N[k][2].replace(/ \d{4}.*| →.*| \(.*\)/g, ''));
+    const lin = (from.length ? 'From ' + from.join(', ') + '. ' : '') + (to.length ? 'Led to ' + to.join(', ') + '.' : '');
+    const links = [];
+    if (n) links.push(['On the family tree', '#genres?g=' + gid]);
+    if (BR[key]) links.push(['In Branches', '#h14?b=' + BR[key]]);
+    Dg.mark(g, n ? { id: gid, title: N[key][2], meta: [n.years, n.city].filter(Boolean).join(' · '), text: lin + (n.blurb ? ' ' + n.blurb : ''), play: n.preset || null, go: 'Open the genre', links, rel }
+      : { title: N[key][2], meta: 'A root of the tree', text: lin, href: null, links, rel });
+  });
 }
 
 /* ---------- BPM by era ---------- */
@@ -171,9 +196,14 @@ function drawPoster(id, style, title, sub){
 /* ---------- UK techno map ---------- */
 function drawUKMap(){
   const svg = document.getElementById('ukMap'); if (!svg) return; const W = 600, H = 420; clearSvg(svg, W, H);
-  const pts = [[300, 60, 'Glasgow', 'Sub Club 1987 · Soma 1991 · Rubadub 1992'], [360, 100, 'Edinburgh', 'Pure 1990'], [330, 180, 'Leeds / Morley', 'The Orbit 1991 · Back to Basics'], [300, 210, 'Sheffield', 'Warp 1989 · bleep'], [270, 230, 'Manchester', 'Bugged Out 1994'], [280, 280, 'Birmingham', 'Network 1988 · House of God & Downwards 1993 · Atomic Jam 1995'], [240, 320, 'Castlemorton', 'Spiral Tribe, May 1992'], [360, 340, 'London', 'Lost 1991 · Final Frontier 1994 · Stay Up Forever 1993 · fabric 1999'], [350, 385, 'Brighton', 'Dave Clarke · Red 1994']];
-  pts.forEach((p, i) => { if (i) el('line', { x1: pts[i - 1][0], y1: pts[i - 1][1], x2: p[0], y2: p[1], stroke: '#272733' }, svg); });
-  pts.forEach(([x, y, n, d]) => { el('circle', { cx: x, cy: y, r: 7, fill: css('--drums') }, svg); text(svg, x + 12, y - 2, n, { fill: '#ebebf1', 'font-weight': 600 }); text(svg, x + 12, y + 10, d, { 'font-size': 8 }); });
+  const pts = [[300, 60, 'Glasgow', 'Sub Club 1987 · Soma 1991 · Rubadub 1992', 'glasgow'], [360, 100, 'Edinburgh', 'Pure 1990', 'edinburgh'], [330, 180, 'Leeds / Morley', 'The Orbit 1991 · Back to Basics', 'leeds'], [300, 210, 'Sheffield', 'Warp 1989 · bleep', 'sheffield'], [270, 230, 'Manchester', 'Bugged Out 1994', 'manchester'], [280, 280, 'Birmingham', 'Network 1988 · House of God & Downwards 1993 · Atomic Jam 1995', 'birmingham'], [240, 320, 'Castlemorton', 'Spiral Tribe, May 1992', 'castlemorton'], [360, 340, 'London', 'Lost 1991 · Final Frontier 1994 · Stay Up Forever 1993 · fabric 1999', 'london'], [350, 385, 'Brighton', 'Dave Clarke · Red 1994', 'brighton']];
+  const lines = pts.slice(1).map((p, i) => el('line', { class: 'dg-e', x1: pts[i][0], y1: pts[i][1], x2: p[0], y2: p[1], stroke: '#272733' }, svg));
+  pts.forEach(([x, y, n, d, id], i) => {
+    const g = el('g', {}, svg); el('circle', { cx: x, cy: y, r: 7, fill: css('--drums') }, g); el('circle', { class: 'dg-hit', cx: x, cy: y, r: 14 }, g);
+    text(g, x + 12, y - 2, n, { fill: '#ebebf1', 'font-weight': 600 }); text(g, x + 12, y + 10, d, { 'font-size': 8 });
+    const node = NODE[id];
+    Dg.mark(g, { id: node ? id : null, title: n, meta: node ? [node.type === 'city' ? 'City' : TYPE_LABEL[node.type], node.type === 'city' ? '' : node.years].filter(Boolean).join(' · ') : '', text: d.replace(/ · /g, '; ') + '.', find: n.split(' / ')[0], href: node ? '#' + id : null, go: node && node.type === 'city' ? 'Open the city' : null, rel: [lines[i - 1], lines[i]] });
+  });
   text(svg, 20, H - 10, 'North to south; positions schematic.', { 'font-size': 9 });
 }
 
@@ -183,8 +213,15 @@ function drawLondonMap(){
   el('path', { d: 'M0 250 C 150 200, 250 290, 380 250 S 560 180, 650 230 S 820 300, 900 240', fill: 'none', stroke: '#1d3a52', 'stroke-width': 26, 'stroke-linecap': 'round', opacity: .9 }, svg);
   text(svg, 20, 266, 'THE THAMES', { fill: '#4a7fa5', 'font-size': 9, 'letter-spacing': '.2em' });
   const rooms = [['camden-palace', 'Camden Palace', '1982 · Faver, Richards, Mr. C', 300, 60], ['clink-street', 'Clink Street (RIP)', '1988 · Southwark', 470, 300], ['dungeons', 'The Dungeons', '1989 · Lea Bridge Road', 760, 90], ['heaven', 'Heaven', '1979 · Charing Cross', 400, 215], ['lost', 'Lost', '1991 · warehouses, east', 700, 170], ['club-uk', 'Club UK', '1993 · Wandsworth', 150, 340], ['turnmills', 'Turnmills', '1990 · Clerkenwell', 520, 130], ['the-end', 'The End', '1995–2009 · West Central St', 420, 160], ['fabric', 'fabric', '1999 · Smithfield', 560, 175], ['corsica-studios', 'Corsica Studios', '2002 · Elephant & Castle', 520, 330], ['printworks', 'Printworks', '2017–23 · Canada Water', 720, 300], ['fold', 'Fold', '2018 · Canning Town', 850, 200]];
-  rooms.forEach(([id, n, d, x, y]) => { const a = el('a', { href: '#' + id, style: 'cursor:pointer' }, svg); const yr = parseInt(d); const col = yr < 1990 ? '--perc' : yr < 2000 ? '--rumble' : '--synth'; el('circle', { cx: x, cy: y, r: 8, fill: css(col) }, a); text(a, x + 12, y - 1, n, { fill: '#ebebf1', 'font-weight': 600 }); text(a, x + 12, y + 11, d, { 'font-size': 8 }); });
-  text(svg, 20, H - 10, 'Schematic. Orange: 1980s · red: 1990s · violet: 2000s–. Click a room.', { 'font-size': 9 });
+  const ERA = [['80', '1980s', '--perc'], ['90', '1990s', '--rumble'], ['00', '2000s and after', '--synth']];
+  rooms.forEach(([id, n, d, x, y]) => {
+    const yr = parseInt(d); const era = yr < 1990 ? ERA[0] : yr < 2000 ? ERA[1] : ERA[2];
+    const g = el('g', {}, svg); g.dataset.dgk = era[0];
+    el('circle', { cx: x, cy: y, r: 8, fill: css(era[2]) }, g); el('circle', { class: 'dg-hit', cx: x, cy: y, r: 15 }, g);
+    text(g, x + 12, y - 1, n, { fill: '#ebebf1', 'font-weight': 600 }); text(g, x + 12, y + 11, d, { 'font-size': 8 });
+    Dg.mark(g, NODE[id] ? { id, meta: d } : { title: n, meta: d, href: null });
+  });
+  Dg.legend(svg, ERA.map(([k, l, c]) => [k, l, css(c)]));
 }
 /* ---------- Detroit ⇄ London ⇄ Hastings exchange ---------- */
 function drawExchange(){
@@ -192,60 +229,128 @@ function drawExchange(){
   const lanes = [['Detroit', 50], ['London', 135], ['Hastings', 220]]; const L = 110, R = 880; const x = y => L + (y - 1986) / (2027 - 1986) * (R - L);
   lanes.forEach(([n, y]) => { el('line', { x1: L, y1: y, x2: R, y2: y, stroke: '#272733' }, svg); text(svg, 10, y + 4, n, { fill: '#ebebf1', 'font-weight': 600 }); });
   for (let y = 1990; y <= 2025; y += 5){ el('line', { x1: x(y), y1: 40, x2: x(y), y2: 232, stroke: '#1c1c25' }, svg); text(svg, x(y), 248, y, { 'text-anchor': 'middle' }); }
-  const trips = [[1988, 1, 0, 'Neil Rushton goes to Detroit; comes back with the word "techno"', '--drums'], [1988.6, 0, 1, 'The imports reach the Camden Palace and Clink Street', '--perc'], [1991, 0, 1, 'Jeff Mills to Lost', '--rumble'], [1995, 0, 1, 'Tribal Gathering\'s Detroit stage', '--rumble'], [1997, 0, 1, 'May, Saunderson and Craig at The End', '--rumble'], [2011, 0, 0, 'DTM 5x5 on the Made in Detroit stage, Movement', '--kick'], [2023.3, 0, 2, 'Detroit Techno Militia to Hastings, Easter Sunday', '--kick'], [2024.95, 0, 2, 'DTM at The Pig, 27 December', '--kick'], [2025.8, 2, 0, 'DJK plays Detroit, comes back with the wax', '--synth'], [2026.25, 0, 2, 'DTM at the Deep End, Easter Sunday', '--kick']];
-  trips.forEach(([yr, a, b, label, col], i) => { const xx = x(yr); const ya = lanes[a][1], yb = lanes[b][1]; const c = css(col);
-    if (a !== b){ el('line', { x1: xx, y1: ya, x2: xx, y2: yb, stroke: c, 'stroke-width': 2.5 }, svg); const dir = yb > ya ? 1 : -1; el('path', { d: `M${xx - 5} ${yb - dir * 8} L${xx} ${yb} L${xx + 5} ${yb - dir * 8}`, fill: 'none', stroke: c, 'stroke-width': 2.5 }, svg); }
-    el('circle', { cx: xx, cy: ya, r: 9, fill: c }, svg); text(svg, xx, ya + 3.5, i + 1, { 'text-anchor': 'middle', fill: '#000', 'font-weight': 700, 'font-size': 10 });
-    const col2 = i < 5 ? 0 : 1; const row = i % 5; const kx = 20 + col2 * 440, ky = 285 + row * 24; el('circle', { cx: kx + 8, cy: ky - 4, r: 8, fill: c }, svg); text(svg, kx + 8, ky - .5, i + 1, { 'text-anchor': 'middle', fill: '#000', 'font-weight': 700, 'font-size': 10 }); text(svg, kx + 24, ky, Math.floor(yr) + ' · ' + label, { fill: '#c9c9d4', 'font-size': 9.5 }); });
+  /* [year, from lane, to lane, what happened, colour, the book's page] */
+  const trips = [[1988, 1, 0, 'Neil Rushton goes to Detroit and comes back with the word "techno"', '--drums', 'neil-rushton'], [1988.6, 0, 1, 'The imports reach the Camden Palace and Clink Street', '--perc', 'clink-street'], [1991.5, 0, 1, 'Jeff Mills plays Lost, early 1990s', '--rumble', 'lost'], [1994.2, 0, 1, 'Final Frontier at Club UK, Jeff Mills among its residents', '--rumble', 'club-uk'], [2011, 0, 0, 'DTM 5x5 on the Made in Detroit stage, Movement', '--kick', 'set-dtm5x5'], [2023.3, 0, 2, 'Detroit Techno Militia to Hastings, Easter Sunday', '--kick', 'dtm-hastings'], [2024.95, 0, 2, 'DTM at The Pig, 27 December', '--kick', 'the-pig'], [2025.8, 2, 0, 'DJK plays Detroit, comes back with the wax', '--synth', 'hastings-techno-militia'], [2026.25, 0, 2, 'DTM at the Deep End, Easter Sunday', '--kick', 'dtm-hastings']];
+  const pairs = [];
+  trips.forEach(([yr, a, b, label, col, id], i) => {
+    const xx = x(yr); const ya = lanes[a][1], yb = lanes[b][1]; const c = css(col);
+    const g = el('g', {}, svg);
+    el('circle', { cx: xx, cy: ya, r: 9, fill: c }, g);
+    if (a !== b){ el('line', { x1: xx, y1: ya, x2: xx, y2: yb, stroke: c, 'stroke-width': 2.5 }, g); const dir = yb > ya ? 1 : -1; el('path', { d: `M${xx - 5} ${yb - dir * 8} L${xx} ${yb} L${xx + 5} ${yb - dir * 8}`, fill: 'none', stroke: c, 'stroke-width': 2.5 }, g); }
+    el('rect', { class: 'dg-hit', x: xx - 10, y: Math.min(ya, yb) - 10, width: 20, height: Math.abs(yb - ya) + 20 }, g);
+    text(g, xx, ya + 3.5, i + 1, { 'text-anchor': 'middle', fill: '#000', 'font-weight': 700, 'font-size': 10 });
+    const col2 = i < 5 ? 0 : 1; const row = i % 5; const kx = 20 + col2 * 440, ky = 285 + row * 24;
+    const k = el('g', {}, svg); el('circle', { cx: kx + 8, cy: ky - 4, r: 8, fill: c }, k); el('rect', { class: 'dg-hit', x: kx - 2, y: ky - 16, width: 420, height: 22 }, k);
+    text(k, kx + 8, ky - .5, i + 1, { 'text-anchor': 'middle', fill: '#000', 'font-weight': 700, 'font-size': 10 }); text(k, kx + 24, ky, Math.floor(yr) + ' · ' + label, { fill: '#c9c9d4', 'font-size': 9.5 });
+    pairs.push([g, k, { title: label, meta: Math.floor(yr) + ' · ' + lanes[a][0] + (a !== b ? ' → ' + lanes[b][0] : ''), text: NODE[id] ? NODE[id].blurb : '', href: NODE[id] ? '#' + id : null, go: NODE[id] ? 'Open: ' + NODE[id].title : null }]);
+  });
+  pairs.forEach(([g, k, spec]) => { Dg.mark(g, Object.assign({ rel: [k] }, spec)); Dg.mark(k, Object.assign({ rel: [g] }, spec)); });
 }
 /* ---------- Ibiza club road ---------- */
 function drawIbiza(){
   const svg = document.getElementById('ibizaRoad'); if (!svg) return; const W = 900, H = 200; clearSvg(svg, W, H);
   el('path', { d: 'M40 120 C 250 60, 450 160, 860 100', fill: 'none', stroke: '#3a3a48', 'stroke-width': 10, 'stroke-linecap': 'round' }, svg);
-  const stops = [[60, 'San Antonio', '(house strand: Café del Mar, Es Paradis)', 0.02], [250, 'San Rafael', 'Amnesia — Cocoon 2000–19 · Pyramid 2017', 0.26], [520, 'Ibiza Town', 'Pacha — Music On 2012 (tech-house border)', 0.56], [700, 'Playa d\'en Bossa', 'Space — Carl Cox 2001–16 · ENTER. 2012–15 · Hï 2017', 0.78], [850, 'the airport', 'DC10 — Circoloco (house strand)', 0.97]];
-  stops.forEach(([x, name, clubs]) => { const y = 120 - Math.sin(x / 900 * Math.PI) * 30; el('circle', { cx: x, cy: y, r: 9, fill: css('--perc') }, svg); text(svg, x, y - 18, name, { 'text-anchor': 'middle', fill: '#ebebf1', 'font-weight': 600 }); text(svg, x, y + 26, clubs, { 'text-anchor': 'middle', 'font-size': 8.5 }); });
+  const stops = [[60, 'San Antonio', '(house strand: Café del Mar, Es Paradis)', 'cafe-del-mar'], [250, 'San Rafael', 'Amnesia — Cocoon 1999–2017 · Music On 2012–18', 'amnesia'], [520, 'Ibiza Town', 'Pacha — Cocoon 2018–19 · Music On 2019–', 'pacha'], [700, 'Playa d\'en Bossa', 'Space — Carl Cox 2001–16 · ENTER. 2012–15 · Hï 2017', 'space'], [850, 'the airport', 'DC10 — Circoloco (house strand)', 'dc10']];
+  stops.forEach(([x, name, clubs, id]) => {
+    const y = 120 - Math.sin(x / 900 * Math.PI) * 30; const g = el('g', {}, svg);
+    el('circle', { cx: x, cy: y, r: 9, fill: css('--perc') }, g); el('circle', { class: 'dg-hit', cx: x, cy: y, r: 18 }, g);
+    text(g, x, y - 18, name, { 'text-anchor': 'middle', fill: '#ebebf1', 'font-weight': 600 }); text(g, x, y + 26, clubs, { 'text-anchor': 'middle', 'font-size': 8.5 });
+    const n = NODE[id];
+    Dg.mark(g, { id, title: n ? n.title + ', ' + name : name, meta: clubs.replace(/^[^—]*— /, '').replace(/[()]/g, ''), go: n ? 'Open ' + n.title : null });
+  });
 }
 /* ---------- Berlin club lifespans ---------- */
 function drawBerlinClubs(){
-  const svg = document.getElementById('berlinClubs'); if (!svg) return; const clubs = [['UFO', 1988, 1990], ['Tresor (Leipziger Str.)', 1991, 2005], ['Tresor (Kraftwerk)', 2007, 2026], ['Planet', 1991, 1993], ['WMF', 1991, 2010], ['Bunker', 1992, 1996], ['E-Werk', 1993, 1997], ['KitKatClub', 1994, 2026], ['Ostgut', 1998, 2003], ['Watergate', 2002, 2024], ['Bar25', 2004, 2010], ['Berghain / Panorama Bar', 2004, 2026], ['Club der Visionäre', 1999, 2026], ['Sisyphos', 2009, 2026], ['://about blank', 2010, 2026], ['Griessmuehle', 2009, 2020], ['Renate', 2007, 2025]];
+  const svg = document.getElementById('berlinClubs'); if (!svg) return;
+  /* [name, opened, closed (2026 = still open), the book's page, a note] */
+  const clubs = [['UFO', 1988, 1990, 'ufo'], ['Tresor (Leipziger Str.)', 1991, 2005, 'tresor'], ['Tresor (Kraftwerk)', 2007, 2026, 'tresor'], ['Planet', 1991, 1993, null, 'its team went on to run E-Werk'], ['WMF', 1991, 2010], ['Bunker', 1992, 1996, 'bunker', 'closed in 1996 or 1997, depending on the account'], ['E-Werk', 1993, 1997, 'e-werk'], ['KitKatClub', 1994, 2026], ['Ostgut', 1998, 2003, 'ostgut', 'opened in 1998 or 1999, depending on the account'], ['Watergate', 2002, 2024, 'watergate'], ['Bar25', 2004, 2010, 'bar25'], ['Berghain / Panorama Bar', 2004, 2026, 'berghain'], ['Club der Visionäre', 1999, 2026], ['Sisyphos', 2009, 2026], ['://about blank', 2010, 2026], ['Griessmuehle', 2009, 2020], ['Renate', 2007, 2025, null, 'lease due to end in 2025']];
   const W = 900, H = 30 + clubs.length * 20; clearSvg(svg, W, H); const L = 170, R = 880; const x = y => L + (y - 1987) / (2027 - 1987) * (R - L);
   for (let y = 1990; y <= 2025; y += 5){ el('line', { x1: x(y), y1: 10, x2: x(y), y2: H - 18, stroke: '#272733' }, svg); text(svg, x(y), H - 4, y, { 'text-anchor': 'middle' }); }
-  clubs.forEach((c, i) => { const yy = 16 + i * 20; text(svg, 4, yy + 11, c[0], { fill: '#ebebf1' }); el('rect', { x: x(c[1]), y: yy, width: x(c[2]) - x(c[1]), height: 14, rx: 4, fill: css('--rumble'), opacity: c[2] === 2026 ? .9 : .5 }, svg); });
+  const head = el('line', { x1: 0, x2: 0, y1: 8, y2: H - 18, stroke: '#ebebf1', 'stroke-width': 1, 'stroke-dasharray': '3 3', opacity: 0 }, svg);
+  const bars = clubs.map((c, i) => {
+    const yy = 16 + i * 20; const open = c[2] === 2026; const g = el('g', {}, svg);
+    el('rect', { x: x(c[1]), y: yy, width: Math.max(4, x(c[2]) - x(c[1])), height: 14, rx: 4, fill: css('--rumble'), opacity: open ? .9 : .5 }, g);
+    el('rect', { class: 'dg-hit', x: 0, y: yy - 3, width: R, height: 20 }, g);
+    text(g, 4, yy + 11, c[0], { fill: '#ebebf1' });
+    const n = c[3] && NODE[c[3]]; const span = c[1] + (open ? ' to now' : '–' + c[2]);
+    Dg.mark(g, { id: n ? c[3] : null, title: c[0], meta: span + (open ? ' · still open' : ''), text: [c[4] ? c[4].charAt(0).toUpperCase() + c[4].slice(1) + '.' : '', n ? n.blurb : ''].filter(Boolean).join(' '), href: n ? '#' + c[3] : null, find: n ? null : c[0].replace(/ \/.*| \(.*\)|:\/\//g, '') });
+    return [g, c];
+  });
+  /* drag through the years: which rooms were open */
+  const card = svg.closest('.card'); let box = card.querySelector('.dg-scrub'); if (box) box.remove(); let say = card.querySelector('.dg-open'); if (say) say.remove();
+  box = document.createElement('div'); box.className = 'dg-scrub'; box.innerHTML = '<label for="bcYear">Open in</label><input id="bcYear" type="range" min="1988" max="2026" step="1" value="1995"><output for="bcYear">1995</output>';
+  say = document.createElement('p'); say.className = 'dg-open'; say.setAttribute('aria-live', 'polite');
+  svg.insertAdjacentElement('afterend', box); box.insertAdjacentElement('afterend', say);
+  const r = box.querySelector('input'), out = box.querySelector('output');
+  const setYear = y => {
+    out.textContent = y; head.setAttribute('x1', x(y + .5)); head.setAttribute('x2', x(y + .5)); head.setAttribute('opacity', .8);
+    const on = bars.filter(([, c]) => y >= c[1] && y < (c[2] === 2026 ? 2027 : c[2] + 1));
+    bars.forEach(([g, c]) => g.classList.toggle('dg-dim', !on.some(o => o[1] === c)));
+    say.innerHTML = on.length ? `<b>${y}:</b> ${on.map(([, c]) => c[3] && NODE[c[3]] ? `<a class="xl" href="#${c[3]}">${Dg.esc(c[0])}</a>` : Dg.esc(c[0])).join(', ')}.` : `<b>${y}:</b> none of these yet.`;
+  };
+  r.addEventListener('input', () => setYear(+r.value)); setYear(+r.value);
 }
 /* ---------- Europe network ---------- */
 function drawEuroNet(){
   const svg = document.getElementById('euroNet'); if (!svg) return; const W = 900, H = 380; clearSvg(svg, W, H);
-  const cities = [[120, 90, 'Glasgow', 'Slam · Soma · Sub Club', '--drums'], [170, 180, 'Manchester', 'Haçienda · Bugged Out', '--drums'], [230, 250, 'Birmingham', 'Downwards · House of God', '--drums'], [250, 330, 'London', 'Lost · fabric · The End', '--drums'],
-    [380, 300, 'Paris', 'Rex Club · F Comm', '--synth'], [400, 200, 'Ghent / Brussels', 'R&S · Fuse · new beat', '--synth'], [430, 120, 'Rotterdam / Amsterdam', 'gabber · Awakenings · Dekmantel', '--synth'], [520, 60, 'Hamburg', 'Golden Pudel · Helena Hauff', '--rumble'],
-    [600, 150, 'Berlin', 'Tresor · Berghain · Hard Wax', '--rumble'], [540, 230, 'Cologne', 'Kompakt', '--synth'], [560, 300, 'Frankfurt', 'Omen · Cocoon · Harthouse', '--synth'], [640, 330, 'Mannheim', 'Time Warp', '--synth'], [470, 350, 'Barcelona', 'Sonar · Nitsa', '--perc'], [700, 250, 'Munich', 'Gigolo · Ultraschall', '--synth'], [780, 320, 'Naples / Riccione', 'Carola · Cocoricò', '--perc'], [760, 80, 'Stockholm', 'Drumcode', '--drums'], [860, 180, 'Tbilisi', 'Bassiani · Khidi', '--rumble']];
-  cities.forEach(([x, y, n, d, col]) => { el('circle', { cx: x, cy: y, r: 7, fill: css(col) }, svg); text(svg, x + 11, y - 2, n, { fill: '#ebebf1', 'font-weight': 600 }); text(svg, x + 11, y + 10, d, { 'font-size': 8.5 }); });
-  text(svg, 10, H - 8, 'Schematic, not a map: each dot is a scene, the label is what it gave techno.', { 'font-size': 9 });
+  const cities = [[120, 90, 'Glasgow', 'Slam · Soma · Sub Club', '--drums', 'glasgow'], [170, 180, 'Manchester', 'Haçienda · Bugged Out', '--drums', 'manchester'], [230, 250, 'Birmingham', 'Downwards · House of God', '--drums', 'birmingham'], [250, 330, 'London', 'Lost · fabric · The End', '--drums', 'london'],
+    [380, 300, 'Paris', 'Rex Club · F Comm', '--synth', 'paris'], [400, 200, 'Ghent / Brussels', 'R&S · Fuse · new beat', '--synth', 'ghent'], [430, 120, 'Rotterdam / Amsterdam', 'gabber · Awakenings · Dekmantel', '--synth', 'rotterdam'], [520, 60, 'Hamburg', 'Golden Pudel · Helena Hauff', '--rumble', 'hamburg'],
+    [600, 150, 'Berlin', 'Tresor · Berghain · Hard Wax', '--rumble', 'berlin'], [540, 230, 'Cologne', 'Kompakt', '--synth', 'cologne'], [560, 300, 'Frankfurt', 'Omen · Cocoon · Harthouse', '--synth', 'frankfurt'], [640, 330, 'Mannheim', 'Time Warp', '--synth', 'mannheim'], [470, 350, 'Barcelona', 'Sonar · Nitsa', '--perc', 'barcelona'], [700, 250, 'Munich', 'Gigolo · Ultraschall', '--synth'], [780, 320, 'Naples / Riccione', 'Carola · Cocoricò', '--perc'], [760, 80, 'Stockholm', 'Drumcode', '--drums', 'stockholm'], [860, 180, 'Tbilisi', 'Bassiani · Khidi', '--rumble', 'tbilisi']];
+  cities.forEach(([x, y, n, d, col, id]) => {
+    const g = el('g', {}, svg); el('circle', { cx: x, cy: y, r: 7, fill: css(col) }, g); el('circle', { class: 'dg-hit', cx: x, cy: y, r: 14 }, g);
+    text(g, x + 11, y - 2, n, { fill: '#ebebf1', 'font-weight': 600 }); text(g, x + 11, y + 10, d, { 'font-size': 8.5 });
+    const node = id && NODE[id];
+    Dg.mark(g, { id: node ? id : null, title: n, meta: 'What it gave techno', text: d.replace(/ · /g, ', ') + '.', href: node ? '#' + id : null, go: node ? 'Open ' + node.title : null, find: node ? null : n.split(' / ')[0] });
+  });
+  text(svg, 10, H - 8, 'Schematic, not a map: each dot is a scene, the label is what it gave techno. Point at a scene to follow its names.', { 'font-size': 9 });
 }
 /* ---------- Club anatomy ---------- */
 function drawClubAnatomy(){
   const svg = document.getElementById('clubAnatomy'); if (!svg) return; const W = 900, H = 420; clearSvg(svg, W, H);
-  const room = (x, y, w, h, name, note, col) => { el('rect', { x, y, width: w, height: h, rx: 6, fill: '#15151c', stroke: css(col || '--mix'), 'stroke-width': 1.5 }, svg); text(svg, x + 10, y + 18, name, { fill: '#ebebf1', 'font-weight': 600, 'font-size': 11 }); if (note) note.split('|').forEach((s, i) => text(svg, x + 10, y + 34 + i * 12, s, { 'font-size': 9 })); };
-  room(20, 20, 150, 90, 'Door', 'the queue · selection|no photos · stickers on lenses', '--mix');
-  room(20, 130, 150, 90, 'Cloakroom', 'the ritual of leaving|the outside outside', '--mix');
-  room(190, 20, 420, 300, 'Main floor', 'concrete, steel, no decoration|no clock, no windows|the system is the architecture', '--rumble');
-  el('rect', { x: 370, y: 250, width: 60, height: 40, rx: 4, fill: css('--kick'), opacity: .8 }, svg); text(svg, 400, 275, 'DJ', { 'text-anchor': 'middle', fill: '#000', 'font-weight': 700 });
-  [[200, 120], [560, 120], [200, 260], [560, 260]].forEach(([x, y]) => { el('rect', { x, y, width: 40, height: 50, fill: '#2a2a35', stroke: css('--bass') }, svg); text(svg, x + 20, y + 30, '▣', { 'text-anchor': 'middle', fill: css('--bass') }); });
-  text(svg, 250, 150, 'stacks: subs on the floor, mids/highs flown', { 'font-size': 9 });
-  room(630, 20, 250, 110, 'Second floor', 'house, slower, windows (Panorama Bar);|or the harder room (Tresor\'s vault)', '--drums');
-  room(630, 150, 250, 80, 'Bar', 'club mate · water · no glass', '--mix');
-  room(630, 250, 250, 70, 'Darkroom / lab', 'the queer lineage of the music', '--perc');
-  room(190, 340, 420, 60, 'Garden / terrace', 'daylight · Space\'s terrace, Berghain\'s garden, DC10\'s', '--synth');
-  room(630, 340, 250, 60, 'Sound engineer', 'the only person who matters at 7am', '--bass');
+  const room = (x, y, w, h, name, note, col, find) => {
+    const g = el('g', {}, svg);
+    el('rect', { x, y, width: w, height: h, rx: 6, fill: '#15151c', stroke: css(col || '--mix'), 'stroke-width': 1.5 }, g);
+    text(g, x + 10, y + 18, name, { fill: '#ebebf1', 'font-weight': 600, 'font-size': 11 });
+    if (note) note.split('|').forEach((s, i) => text(g, x + 10, y + 34 + i * 12, s, { 'font-size': 9 }));
+    Dg.mark(g, { title: name, meta: 'Club anatomy', text: note ? note.replace(/\|/g, '; ').replace(/;\s*or /, ', or ') + '.' : '', find: find || null, href: null });
+    return g;
+  };
+  room(20, 20, 150, 90, 'Door', 'the queue · selection|no photos · stickers on lenses', '--mix', 'selection');
+  room(20, 130, 150, 90, 'Cloakroom', 'the ritual of leaving|the outside outside', '--mix', null);
+  const main = room(190, 20, 420, 300, 'Main floor', 'concrete, steel, no decoration|no clock, no windows|the system is the architecture', '--rumble', 'Funktion-One');
+  el('rect', { x: 370, y: 250, width: 60, height: 40, rx: 4, fill: css('--kick'), opacity: .8 }, main); text(main, 400, 275, 'DJ', { 'text-anchor': 'middle', fill: '#000', 'font-weight': 700 });
+  [[200, 120], [560, 120], [200, 260], [560, 260]].forEach(([x, y]) => { el('rect', { x, y, width: 40, height: 50, fill: '#2a2a35', stroke: css('--bass') }, main); text(main, x + 20, y + 30, '▣', { 'text-anchor': 'middle', fill: css('--bass') }); });
+  text(main, 250, 150, 'stacks: subs on the floor, mids/highs flown', { 'font-size': 9 });
+  room(630, 20, 250, 110, 'Second floor', 'house, slower, windows (Panorama Bar);|or the harder room (Tresor\'s vault)', '--drums', null);
+  room(630, 150, 250, 80, 'Bar', 'club mate · water · no glass', '--mix', null);
+  room(630, 250, 250, 70, 'Darkroom / lab', 'the queer lineage of the music', '--perc', null);
+  room(190, 340, 420, 60, 'Garden / terrace', 'daylight · Space\'s terrace, Berghain\'s garden, DC10\'s', '--synth', null);
+  room(630, 340, 250, 60, 'Sound engineer', 'the only person who matters at 7am', '--bass', 'sound engineer');
   text(svg, 20, 240, 'A composite: Berghain\'s', { 'font-size': 9 }); text(svg, 20, 252, 'plan, Tresor\'s vault,', { 'font-size': 9 }); text(svg, 20, 264, 'Space\'s terrace, fabric\'s', { 'font-size': 9 }); text(svg, 20, 276, 'three rooms.', { 'font-size': 9 });
 }
 /* ---------- Festival calendar ---------- */
 function drawFestCal(){
   const svg = document.getElementById('festCal'); if (!svg) return; const W = 700, H = 460, cx = 350, cy = 230; clearSvg(svg, W, H);
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  months.forEach((m, i) => { const a = (i / 12) * Math.PI * 2 - Math.PI / 2; el('line', { x1: cx, y1: cy, x2: cx + Math.cos(a) * 200, y2: cy + Math.sin(a) * 200, stroke: '#272733' }, svg); const b = a + Math.PI / 12; text(svg, cx + Math.cos(b) * 212, cy + Math.sin(b) * 212 + 4, m, { 'text-anchor': 'middle', fill: '#ebebf1' }); });
-  const fests = [['Time Warp · Mannheim', 3.1, '--synth'], ['Awakenings · Amsterdam', 6.3, '--synth'], ['Movement · Detroit', 4.8, '--kick'], ['Sonar · Barcelona', 5.5, '--perc'], ['Dekmantel · Amsterdam', 7.2, '--synth'], ['Love Parade · Berlin (1989–2006)', 6.4, '--rumble'], ['Street Parade · Zürich', 7.4, '--synth'], ['Nature One · Kastellaun', 7.0, '--synth'], ['Mayday · Dortmund', 3.9, '--rumble'], ['ADE · Amsterdam', 9.6, '--synth'], ['Draaimolen · Tilburg', 8.3, '--synth'], ['Houghton · Norfolk', 7.1, '--drums'], ['Tresor 31 etc · Berlin', 2.2, '--rumble'], ['Glastonbury Block9', 5.9, '--drums'], ['Nuits Sonores · Lyon', 4.4, '--synth']];
-  const ring = {}; fests.forEach(([n, m, col]) => { const k = Math.round(m); ring[k] = (ring[k] || 0) + 1; const r = 70 + ring[k] * 32; const a = (m / 12) * Math.PI * 2 - Math.PI / 2; const x = cx + Math.cos(a) * r, y = cy + Math.sin(a) * r; el('circle', { cx: x, cy: y, r: 5, fill: css(col) }, svg); text(svg, x + (Math.cos(a) > 0 ? 8 : -8), y + 3, n, { 'text-anchor': Math.cos(a) > 0 ? 'start' : 'end', 'font-size': 8.5, fill: '#ebebf1' }); });
-  text(svg, cx, cy + 4, 'the year', { 'text-anchor': 'middle', fill: '#8f8fa0' });
+  const MONTH = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  /* this month's slice, lit */
+  const now = new Date().getMonth(); const a0 = (now / 12) * Math.PI * 2 - Math.PI / 2, a1 = ((now + 1) / 12) * Math.PI * 2 - Math.PI / 2;
+  el('path', { d: `M${cx} ${cy} L${cx + Math.cos(a0) * 200} ${cy + Math.sin(a0) * 200} A200 200 0 0 1 ${cx + Math.cos(a1) * 200} ${cy + Math.sin(a1) * 200} Z`, fill: '#ebebf1', opacity: .07 }, svg);
+  months.forEach((m, i) => { const a = (i / 12) * Math.PI * 2 - Math.PI / 2; el('line', { x1: cx, y1: cy, x2: cx + Math.cos(a) * 200, y2: cy + Math.sin(a) * 200, stroke: '#272733' }, svg); const b = a + Math.PI / 12; text(svg, cx + Math.cos(b) * 212, cy + Math.sin(b) * 212 + 4, m, { 'text-anchor': 'middle', fill: i === now ? '#fff' : '#ebebf1', 'font-weight': i === now ? 700 : 400 }); });
+  /* [name · place, month (0 = January, fractions through it), colour, the book's page] */
+  const fests = [['Time Warp · Mannheim', 3.1, '--synth', 'time-warp'], ['Awakenings · Amsterdam', 6.3, '--synth', 'awakenings'], ['Movement · Detroit', 4.8, '--kick', 'movement'], ['Sonar · Barcelona', 5.5, '--perc', 'sonar'], ['Dekmantel · Amsterdam', 7.2, '--synth', 'dekmantel'], ['Love Parade · Berlin (1989–2006)', 6.4, '--rumble', 'love-parade'], ['Street Parade · Zürich', 7.4, '--synth', 'street-parade'], ['Nature One · Kastellaun', 7.0, '--synth', 'nature-one'], ['Mayday · Dortmund', 3.9, '--rumble', 'mayday'], ['ADE · Amsterdam', 9.6, '--synth', 'ade'], ['Draaimolen · Tilburg', 8.3, '--synth', 'draaimolen'], ['Houghton · Norfolk', 7.1, '--drums', 'houghton'], ['Tresor anniversary · Berlin', 2.2, '--rumble', 'tresor'], ['Glastonbury Block9', 5.9, '--drums'], ['Nuits Sonores · Lyon', 4.4, '--synth']];
+  const ring = {}; let soon = [];
+  fests.forEach(([n, m, col, id]) => {
+    const k = Math.round(m); ring[k] = (ring[k] || 0) + 1; const r = 70 + ring[k] * 32; const a = (m / 12) * Math.PI * 2 - Math.PI / 2; const x = cx + Math.cos(a) * r, y = cy + Math.sin(a) * r;
+    const g = el('g', {}, svg); el('circle', { cx: x, cy: y, r: 5, fill: css(col) }, g); el('circle', { class: 'dg-hit', cx: x, cy: y, r: 12 }, g);
+    text(g, x + (Math.cos(a) > 0 ? 8 : -8), y + 3, n, { 'text-anchor': Math.cos(a) > 0 ? 'start' : 'end', 'font-size': 8.5, fill: '#ebebf1' });
+    const mi = Math.floor(m), node = id && NODE[id];
+    if (mi === now) soon.push(g);
+    Dg.mark(g, { id: node ? id : null, title: n.replace(/ · /, ', '), meta: (m % 1 < .34 ? 'Early ' : m % 1 < .67 ? 'Mid-' : 'Late ') + MONTH[mi] + (node && node.years ? ' · ' + node.years : ''), href: node ? '#' + id : null, find: node ? null : n.split(' · ')[0] });
+  });
+  soon.forEach(g => g.classList.add('dg-now'));
+  text(svg, cx, cy - 4, 'the year', { 'text-anchor': 'middle', fill: '#8f8fa0' });
+  text(svg, cx, cy + 10, soon.length ? 'lit: this month' : 'lit: this month (quiet)', { 'text-anchor': 'middle', fill: '#6a6a80', 'font-size': 8 });
 }
 
 /* ---------- People, clubs, sets, festivals data ---------- */
@@ -392,37 +497,74 @@ function drawHistoryAll(){
   renderCards(); renderBranches(); renderChipBlocks(); wireEraButtons();
 }
 window.PageHooks = window.PageHooks || {};
-['h0', 'pre', 'h1', 'h2', 'h3', 'ldn', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'h11', 'h12', 'h13', 'h14', 'house0'].forEach(p => { window.PageHooks[p] = () => { if (!window._histDrawn){ window._histDrawn = true; drawHistoryAll(); } if (p === 'h14' && window._branchTarget){ const t = document.getElementById('branch-' + window._branchTarget); window._branchTarget = null; if (t) setTimeout(() => { t.scrollIntoView({ behavior: 'smooth', block: 'center' }); t.style.outline = '2px solid #fff'; setTimeout(() => t.style.outline = '', 1800); }, 350); } }; });
+['h0', 'pre', 'h1', 'h2', 'h3', 'ldn', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'h11', 'h12', 'h13', 'h14', 'house0'].forEach(p => { window.PageHooks[p] = () => { if (!window._histDrawn){ window._histDrawn = true; drawHistoryAll(); } const qb = p === 'h14' && (location.hash.split('?')[1] || '').match(/(?:^|&)b=([a-z0-9-]+)/); if (qb) window._branchTarget = qb[1]; if (p === 'h14' && window._branchTarget){ const t = document.getElementById('branch-' + window._branchTarget); window._branchTarget = null; if (t) setTimeout(() => { t.scrollIntoView({ behavior: 'smooth', block: 'center' }); t.style.outline = '2px solid #fff'; setTimeout(() => t.style.outline = '', 1800); }, 350); } }; });
 
 /* ===================================================================
    RAVE STRAND VISUALS
    =================================================================== */
 function drawOrbital(){
   const svg = document.getElementById('orbitalMap'); if (!svg) return; const W = 600, H = 400; clearSvg(svg, W, H);
-  el('circle', { cx: 300, cy: 200, r: 150, fill: 'none', stroke: css('--perc'), 'stroke-width': 10, opacity: .35 }, svg); text(svg, 300, 60, 'M25', { 'text-anchor': 'middle', fill: css('--perc'), 'font-weight': 600 });
-  el('circle', { cx: 300, cy: 200, r: 34, fill: '#1b1b24', stroke: '#8f8fa0' }, svg); text(svg, 300, 198, 'London', { 'text-anchor': 'middle', fill: '#ebebf1', 'font-weight': 600 }); text(svg, 300, 211, 'Genesis · Shoom · Spectrum', { 'text-anchor': 'middle', 'font-size': 7.5 });
-  const raves = [['Sunrise', 'sunrise', 20], ['Energy', 'energy', 75], ['Biology', 'biology', 130], ['Raindance', 'raindance', 190], ['World Dance', 'world-dance', 250], ['Genesis', 'genesis', 300], ['Back to the Future', null, 340]];
-  raves.forEach(([n, id, a]) => { const r = a * Math.PI / 180, x = 300 + Math.cos(r) * 150, yy = 200 + Math.sin(r) * 150; const g = el('g', { style: id ? 'cursor:pointer' : '' }, svg); el('circle', { cx: x, cy: yy, r: 7, fill: css('--perc') }, g); const ox = Math.cos(r) * 48, oy = Math.sin(r) * 48; text(g, x + ox, yy + oy, n, { 'text-anchor': 'middle', fill: '#ebebf1', 'font-size': 10 }); if (id) g.addEventListener('click', () => location.hash = '#' + id); });
+  const ring = el('circle', { cx: 300, cy: 200, r: 150, fill: 'none', stroke: css('--perc'), 'stroke-width': 10, opacity: .35 }, svg); text(svg, 300, 60, 'M25', { 'text-anchor': 'middle', fill: css('--perc'), 'font-weight': 600 });
+  const mid = el('g', {}, svg);
+  el('circle', { cx: 300, cy: 200, r: 34, fill: '#1b1b24', stroke: '#8f8fa0' }, mid); text(mid, 300, 198, 'London', { 'text-anchor': 'middle', fill: '#ebebf1', 'font-weight': 600 }); text(mid, 300, 211, 'Genesis · Shoom · Spectrum', { 'text-anchor': 'middle', 'font-size': 7.5 });
+  Dg.mark(mid, { id: 'london', meta: 'Genesis · Shoom · Spectrum', go: 'Open London' });
+  const raves = [['Sunrise', 'sunrise', 20], ['Energy', 'energy', 75], ['Biology', 'biology', 130], ['Raindance', 'raindance', 190], ['World Dance', 'world-dance', 250], ['Genesis', 'genesis', 300], ['Back to the Future', 'back-to-the-future', 340]];
+  raves.forEach(([n, id, a]) => {
+    const r = a * Math.PI / 180, x = 300 + Math.cos(r) * 150, yy = 200 + Math.sin(r) * 150; const g = el('g', {}, svg);
+    el('circle', { cx: x, cy: yy, r: 7, fill: css('--perc') }, g); el('circle', { class: 'dg-hit', cx: x, cy: yy, r: 15 }, g);
+    const ox = Math.cos(r) * 48, oy = Math.sin(r) * 48; el('line', { x1: x, y1: yy, x2: x + ox, y2: yy + oy - 3, stroke: 'transparent', 'stroke-width': 18, 'pointer-events': 'stroke' }, g); text(g, x + ox, yy + oy, n, { 'text-anchor': 'middle', fill: '#ebebf1', 'font-size': 10 });
+    Dg.mark(g, NODE[id] ? { id } : { title: n, href: null });
+  });
   text(svg, 20, H - 16, 'Warehouses, hangars and fields ringed the motorway so convoys from London could reach them in under an hour.', { 'font-size': 9 });
 }
 function drawPirateMap(){
   const svg = document.getElementById('pirateMap'); if (!svg) return; const W = 600, H = 330; clearSvg(svg, W, H);
-  const groups = [['acid house & rave, 1988–91', ['kiss-fm', 'centreforce', 'sunrise-fm', 'fantasy-fm', 'pulse-fm', 'dance-fm'], '--perc'], ['hardcore & jungle, 1991–96', ['kool-fm', 'don-fm', 'eruption-fm', 'weekend-rush', 'unity-fm', 'lazer-fm'], '--drums'], ['garage, grime, after', ['rinse-fm'], '--synth']];
-  groups.forEach(([lab, ids, col], gi) => { const y = 40 + gi * 95; text(svg, 20, y, lab, { fill: css(col), 'font-weight': 600 }); ids.forEach((id, i) => { const n = NODE[id]; if (!n) return; const x = 20 + (i % 6) * 95; const g = el('g', { style: 'cursor:pointer' }, svg); el('rect', { x, y: y + 12, width: 86, height: 44, rx: 8, fill: '#1b1b24', stroke: css(col) }, g); text(g, x + 43, y + 30, n.title.replace(/ FM.*|\s88\.3/, ''), { 'text-anchor': 'middle', fill: '#ebebf1', 'font-size': 10, 'font-weight': 600 }); text(g, x + 43, y + 46, n.years, { 'text-anchor': 'middle', 'font-size': 8.5 }); g.addEventListener('click', () => location.hash = '#' + id); }); });
+  const groups = [['acid house & rave, 1988–91', ['kiss-fm', 'centreforce', 'sunrise-fm', 'fantasy-fm', 'pulse-fm', 'dance-fm'], '--perc', 'a'], ['hardcore & jungle, 1991–96', ['kool-fm', 'don-fm', 'eruption-fm', 'weekend-rush', 'unity-fm', 'lazer-fm'], '--drums', 'b'], ['garage, grime, after', ['rinse-fm'], '--synth', 'c']];
+  groups.forEach(([lab, ids, col, k], gi) => {
+    const y = 40 + gi * 95; text(svg, 20, y, lab, { fill: css(col), 'font-weight': 600 });
+    ids.forEach((id, i) => {
+      const n = NODE[id]; if (!n) return; const x = 20 + (i % 6) * 95; const g = el('g', {}, svg); g.dataset.dgk = k;
+      el('rect', { x, y: y + 12, width: 86, height: 44, rx: 8, fill: '#1b1b24', stroke: css(col) }, g);
+      text(g, x + 43, y + 30, n.title.replace(/ FM.*|\s88\.3/, ''), { 'text-anchor': 'middle', fill: '#ebebf1', 'font-size': 10, 'font-weight': 600 }); text(g, x + 43, y + 46, n.years, { 'text-anchor': 'middle', 'font-size': 8.5 });
+      Dg.mark(g, { id });
+    });
+  });
   text(svg, 20, H - 12, 'Transmitter on a tower block, studio elsewhere, a phone line for the rave info. Raided weekly, back by Saturday.', { 'font-size': 9 });
 }
 function drawRaveBpm(){
   const svg = document.getElementById('raveBpm'); if (!svg) return; const W = 400, H = 170, L = 36, R = 390, T = 14, B = 140; clearSvg(svg, W, H);
   const x = y => L + (y - 1988) / 6 * (R - L), yv = v => B - (v - 115) / 65 * (B - T);
   [120, 140, 160, 180].forEach(v => { el('line', { x1: L, y1: yv(v), x2: R, y2: yv(v), stroke: '#272733' }, svg); text(svg, 4, yv(v) + 3, v); });
-  [1988, 1990, 1992, 1994].forEach(y => text(svg, x(y), 158, y, { 'text-anchor': 'middle' }));
-  const lines = [[[[1988, 122], [1990, 128], [1991, 140], [1992, 150], [1993, 158], [1994, 165]], '--perc', 'jungle'], [[[1992, 150], [1993, 160], [1994, 170]], '--drums', 'happy hardcore'], [[[1991, 140], [1992, 138], [1994, 135]], '--rumble', 'techno rooms']];
-  lines.forEach(([pts, col, lab]) => { el('path', { d: pathStr(pts.map(p => [x(p[0]), yv(p[1])])), fill: 'none', stroke: css(col), 'stroke-width': 2.5 }, svg); const last = pts[pts.length - 1]; text(svg, x(last[0]) - 2, yv(last[1]) - 6, lab, { 'text-anchor': 'end', fill: css(col) }); });
+  [1988, 1990, 1992, 1994].forEach(y => text(svg, x(y), 158, y, { 'text-anchor': y === 1994 ? 'end' : 'middle' }));
+  /* [points, colour, label, key, the genre page whose sound to hear] */
+  const lines = [[[[1988, 122], [1990, 128], [1991, 140], [1992, 150], [1993, 158], [1994, 165]], '--perc', 'jungle', 'j', 'g-jungle'], [[[1992, 150], [1993, 160], [1994, 170]], '--drums', 'happy hardcore', 'h', 'g-happy'], [[[1991, 140], [1992, 138], [1994, 135]], '--rumble', 'techno rooms', 't', 'g-berlin']];
+  const paths = {}, at = {};
+  lines.forEach(([pts, col, lab, k, gid]) => {
+    const p = el('path', { class: 'dg-e', d: pathStr(pts.map(q => [x(q[0]), yv(q[1])])), fill: 'none', stroke: css(col), 'stroke-width': 2.5 }, svg); p.dataset.dgk = k; paths[k] = p;
+    const last = pts[pts.length - 1]; const t = text(svg, x(last[0]) - 2, yv(last[1]) - 6, lab, { 'text-anchor': 'end', fill: css(col) }); t.dataset.dgk = k;
+    pts.forEach(([yr, bpm]) => { const key = yr + ',' + bpm; (at[key] = at[key] || { yr, bpm, col, on: [] }).on.push([lab, k, gid]); });
+  });
+  /* one mark per point; where two lines meet (the 1992 split) the mark speaks for both */
+  Object.values(at).forEach(({ yr, bpm, col, on }) => {
+    const g = el('g', {}, svg); if (on.length === 1) g.dataset.dgk = on[0][1];
+    el('circle', { cx: x(yr), cy: yv(bpm), r: on.length > 1 ? 4.2 : 3.2, fill: css(col) }, g); el('circle', { class: 'dg-hit', cx: x(yr), cy: yv(bpm), r: 9 }, g);
+    const n = NODE[on[0][2]]; const names = on.map(o => o[0]); const title = names.join(' and '); 
+    Dg.mark(g, { title: title.charAt(0).toUpperCase() + title.slice(1) + ', ' + yr, meta: 'about ' + bpm + ' BPM' + (on.length > 1 ? ' · where they split' : ''), text: '', href: n ? '#' + on[0][2] : null, go: n ? 'Open ' + n.title : null, play: n && n.preset, links: on.slice(1).filter(o => NODE[o[2]]).map(o => ['Open ' + NODE[o[2]].title, '#' + o[2]]), rel: on.map(o => paths[o[1]]) });
+  });
+  Dg.legend(svg, lines.map(([, col, lab, k]) => [k, lab, css(col)]), 'after');
 }
+
 function drawCjaChart(){
   const svg = document.getElementById('cjaChart'); if (!svg) return; const W = 600, H = 330, L = 60; clearSvg(svg, W, H);
-  const steps = [['1988', 'Warehouse parties; Janet Mayes\'s death; the first raids', '--perc'], ['1989', 'White Waltham and "Spaced Out!"; Kent\'s Pay Party Unit; Thatcher takes an interest', '--perc'], ['1990', 'Bright Bill: £20,000 fines; 836 arrested at Gildersome; promoters go licensed', '--drums'], ['1992', 'Castlemorton: 20–40,000 for a week; Spiral Tribe charged', '--kick'], ['1994', 'CJPOA s.63: "repetitive beats"; three marches; Hyde Park riot', '--kick']];
-  steps.forEach((s, i) => { const y = 30 + i * 58; el('rect', { x: L, y, width: 520, height: 44, rx: 8, fill: '#1b1b24', stroke: css(s[2]) }, svg); text(svg, L + 12, y + 18, s[0], { fill: css(s[2]), 'font-weight': 700, 'font-size': 12 }); text(svg, L + 12, y + 34, s[1], { fill: '#ebebf1', 'font-size': 9.5 }); if (i) el('line', { x1: L + 30, y1: y - 14, x2: L + 30, y2: y, stroke: '#8f8fa0' }, svg); });
+  /* [year, what happened, colour, the book's page for it] */
+  const steps = [['1988', 'Warehouse parties; Janet Mayes\'s death; the first raids', '--perc', null], ['1989', 'White Waltham and "Spaced Out!"; Kent\'s Pay Party Unit; Thatcher takes an interest', '--perc', 'law-pay-party-unit'], ['1990', 'Bright Bill: £20,000 fines; 836 arrested at Gildersome; promoters go licensed', '--drums', 'law-bright-bill'], ['1992', 'Castlemorton: 20–40,000 for a week; Spiral Tribe charged', '--kick', 'castlemorton'], ['1994', 'CJPOA s.63: "repetitive beats"; three marches; Hyde Park riot', '--kick', 'cja']];
+  steps.forEach((s, i) => {
+    const y = 30 + i * 58; if (i) el('line', { x1: L + 30, y1: y - 14, x2: L + 30, y2: y, stroke: '#8f8fa0' }, svg);
+    const g = el('g', {}, svg); el('rect', { x: L, y, width: 520, height: 44, rx: 8, fill: '#1b1b24', stroke: css(s[2]) }, g);
+    text(g, L + 12, y + 18, s[0], { fill: css(s[2]), 'font-weight': 700, 'font-size': 12 }); text(g, L + 12, y + 34, s[1], { fill: '#ebebf1', 'font-size': 9.5 });
+    const n = s[3] && NODE[s[3]];
+    Dg.mark(g, { title: s[0] + ': ' + s[1].split(';')[0], meta: n ? n.title : 'On this page', text: n ? n.blurb : '', href: n ? '#' + s[3] : null, go: n ? 'Open: ' + n.title : null, find: n ? null : s[1].split(';')[1].trim().replace(/'s death/, '') });
+  });
 }
 function renderRaveGrid(){
   const g = document.getElementById('raveGrid'); if (!g || g.childElementCount) return;
