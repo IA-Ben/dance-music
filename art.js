@@ -8,7 +8,7 @@
    =================================================================== */
 window.ART_YEARS = Array.from({ length: 42 }, (_, i) => 1986 + i);
 window.Art = {
-  MAP: { timeline: 'years', h0: 'techno', house0: 'house', r0: 'rave', j0: 'jungle', t0: 'trance', k0: 'tech', l0: 'law', i0: 'ibiza', go0: 'goa', a0: 'anatomy', mixer: 'mixer', orb0: 'm25', lp0: 'lovepar', det0: 'detroit', chi0: 'chicago', ny0: 'newyork', floor: 'floor' },
+  MAP: { timeline: 'years', h0: 'techno', house0: 'house', r0: 'rave', j0: 'jungle', t0: 'trance', k0: 'tech', l0: 'law', i0: 'ibiza', go0: 'goa', a0: 'anatomy', mixer: 'mixer', orb0: 'm25', lp0: 'lovepar', det0: 'detroit', chi0: 'chicago', ny0: 'newyork', floor: 'floor', genres: 'genres', explore: 'explore', djs: 'djs', cities: 'cities', make: 'make', nights: 'nights', crate: 'crate', shops: 'shops' },
   ALT: {
     cover: 'From behind the decks at five in the morning: a record spinning, a hand on the mixer, and a dark crowd with raised arms under a strobe.',
     years: 'Torn strips of night photographs side by side: a figure in a field, laser beams, a warehouse doorway, a crowd at a stage in the rain.',
@@ -28,7 +28,15 @@ window.Art = {
     detroit: 'A derelict tower with broken windows above an empty avenue at night, factory chimneys and sodium lights beyond.',
     chicago: 'An elevated train over a city street at night, a queue outside a club door below.',
     newyork: 'A loft party in the small hours: dancers between cast-iron columns, a tall stack of speakers, a water tower in the window.',
-    floor: 'Inside a crowd on a dance floor: wet hair, raised arms, a strobe in the smoke.'
+    floor: 'Inside a crowd on a dance floor: wet hair, raised arms, a strobe in the smoke.',
+    genres: 'Patch cables spilling across a modular synthesiser in a dark studio like the branches of a tree, small lights glowing.',
+    explore: 'A corkboard of flyers and dance-floor snapshots joined by red string, lit by a desk lamp above a turntable.',
+    djs: 'An empty DJ booth under coloured lights: two turntables, a gaffer-taped mixer, a record bag full of vinyl and a torch.',
+    cities: 'Tower blocks and railway arches seen through a rain-flecked train window at night, a record on the seat.',
+    make: 'A bedroom studio late at night: a drum machine, a synthesiser and a sampler on a cluttered desk under an anglepoise lamp.',
+    nights: 'A queue in the rain along a brick wall towards a red-lit club door, a torch beam in the drizzle.',
+    crate: 'Fingers flicking through a crate of records, one pulled out to show a blank white label.',
+    shops: 'Inside a record shop after closing: racks of vinyl, headphones on hooks, strip lights, the street dark beyond the door.'
   },
   YEAR_ALT: {
     y1986: 'A packed early club night, dancers moving around a turntable and a reel-to-reel tape machine.',
@@ -75,7 +83,7 @@ window.Art = {
     y2027: 'An anniversary: a stack of records with one lit candle on a DJ booth, in front of torn photographs of a packed club, an empty field rave site, a beach at sunset and a laser hall.'
   },
   /* the era stamp: name and dates, in the strand's colour */
-  STAMP: { cover: ['fortyyearsof.dance', '1987–2027', '--samp'], years: ['Forty years', '1987–2027', '--mix'], techno: ['Techno', '1985–', '--rumble'], house: ['House', '1977–', '--drums'], rave: ['Rave', '1988–', '--perc'], jungle: ['Jungle', '1992–', '--samp'], trance: ['Trance', '1990–', '--synth'], tech: ['The machines', '1980–2026', '--synth'], law: ['The law', '1985–2026', '--kick'], ibiza: ['Ibiza', '1983–', '--perc'], goa: ['Goa', '1987–', '--rumble'], anatomy: ['Anatomy', 'of a track', '--kick'], mixer: ['The mix', 'two decks', '--bass'], m25: ['The M25', '1988–90', '--perc'], lovepar: ['Love Parade', '1989–2010', '--samp'], detroit: ['Detroit', '1977–', '--rumble'], chicago: ['Chicago', '1977–', '--drums'], newyork: ['New York', '1970–', '--bass'], floor: ['From the floor', '1977–2026', '--drums'] },
+  STAMP: { cover: ['fortyyearsof.dance', '1987–2027', '--samp'], years: ['Forty years', '1987–2027', '--mix'], techno: ['Techno', '1985–', '--rumble'], house: ['House', '1977–', '--drums'], rave: ['Rave', '1988–', '--perc'], jungle: ['Jungle', '1992–', '--samp'], trance: ['Trance', '1990–', '--synth'], tech: ['The machines', '1980–2026', '--synth'], law: ['The law', '1985–2026', '--kick'], ibiza: ['Ibiza', '1983–', '--perc'], goa: ['Goa', '1987–', '--rumble'], anatomy: ['Anatomy', 'of a track', '--kick'], mixer: ['The mix', 'two decks', '--bass'], m25: ['The M25', '1988–90', '--perc'], lovepar: ['Love Parade', '1989–2010', '--samp'], detroit: ['Detroit', '1977–', '--rumble'], chicago: ['Chicago', '1977–', '--drums'], newyork: ['New York', '1970–', '--bass'], floor: ['From the floor', '1977–2026', '--drums'] , genres: ['Family tree', '40 genres', '--synth'], explore: ['The graph', 'every page', '--mix'], djs: ['DJs', 'and producers', '--kick'], cities: ['Cities', 'how it spread', '--perc'], make: ['Make it', 'forty recipes', '--bass'], nights: ['Club nights', '', '--drums'], crate: ['Your crate', '', '--perc'], shops: ['Record shops', 'the counters', '--samp'] },
   /* a year plate is stamped with its year, in the fluorescent ink of its collage */
   YEAR_INK: { 1986: 'or', 1987: 'or', 1988: 'ye', 1989: 'ye', 1990: 'mi', 1991: 'pi', 1992: 'ye', 1993: 'pi', 1994: 're', 1995: 'cy', 1996: 'or', 1997: 'mi', 1998: 'cy', 1999: 'pi', 2000: 'or', 2001: 'cy', 2002: 'mi', 2003: 'cy', 2004: 're', 2005: 'vi', 2006: 'pi', 2007: 'vi', 2008: 'ye', 2009: 're', 2010: 'vi', 2011: 'or', 2012: 'cy', 2013: 'mi', 2014: 're', 2015: 'vi', 2016: 'pi', 2017: 'or', 2018: 'mi', 2019: 'cy', 2020: 'vi', 2021: 'ye', 2022: 're', 2023: 'cy', 2024: 'vi', 2025: 'or', 2026: 'pi', 2027: 'or' },
   INKS: { or: 'var(--drums)', ye: 'var(--perc)', mi: 'var(--synth)', pi: 'var(--samp)', re: 'var(--kick)', cy: '#4fdcff', vi: 'var(--rumble)' },
@@ -115,6 +123,6 @@ window.Art = {
     const thumb = (href, k, title) => `<a href="#${href}" title="${title}"><img src="img/art/${k}-720.webp" alt="${Art.alt(k)}" loading="lazy" decoding="async" width="720" height="402"></a>`;
     const strands = [['home', 'cover', 'Cover']].concat(Object.entries(Art.MAP).map(([id, k]) => [id, k, (Art.STAMP[k] || [k])[0]]));
     const d = document.createElement('div'); d.className = 'art-credits'; d.style.gridColumn = '1 / -1';
-    d.innerHTML = `<h3>Illustrations</h3><p class="cap">The collage plates on the cover, at the start of each strand and on every year page were made for this book with Krea, an AI image generator, in the manner of photocopied club flyers: a night photograph shot with flash, halftone scraps and torn fluorescent paper. They are invented scenes, with no real people, logos or record sleeves, and each is labelled where it appears. The names and dates stamped on them are set in type, not generated.</p><div class="art-thumbs">${strands.map(([id, k, t]) => thumb(id, k, t)).join('')}</div><div class="art-thumbs years">${window.ART_YEARS.map(y => thumb('y' + y, 'y' + y, String(y))).join('')}</div>`;
+    d.innerHTML = `<h3>Illustrations</h3><p class="cap">The collage plates on the cover, at the start of each strand, on every year page and on the Explore pages were made for this book with Krea, an AI image generator, in the manner of photocopied club flyers: a night photograph shot with flash, halftone scraps and torn fluorescent paper. They are invented scenes, with no real people, logos or record sleeves, and each is labelled where it appears. The names and dates stamped on them are set in type, not generated.</p><div class="art-thumbs">${strands.map(([id, k, t]) => thumb(id, k, t)).join('')}</div><div class="art-thumbs years">${window.ART_YEARS.map(y => thumb('y' + y, 'y' + y, String(y))).join('')}</div>`;
     box.prepend(d); };
 })();

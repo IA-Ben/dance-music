@@ -141,6 +141,7 @@ window.Dg = (() => {
   function wire(svg, opts){
     if (opts) OPTS.set(svg, Object.assign(OPTS.get(svg) || {}, opts));
     if (svg.dataset.dg) return svg; svg.dataset.dg = 1; ensure();
+    enter(svg);
     const label = svg.closest('.card') && svg.closest('.card').querySelector('h3');
     if (!svg.getAttribute('role')) svg.setAttribute('role', 'group');
     if (label && !svg.getAttribute('aria-label')) svg.setAttribute('aria-label', label.textContent.trim() + ' (diagram: arrow keys move between items)');
@@ -169,6 +170,20 @@ window.Dg = (() => {
     });
     return svg;
   }
+  /* the first time a diagram scrolls into view its marks arrive in turn and its lines draw themselves */
+  function enter(svg){
+    if (reduce() || !('IntersectionObserver' in window) || svg.dataset.dgIn) return;
+    svg.classList.add('dg-pre');
+    const io = new IntersectionObserver(es => es.forEach(en => {
+      if (!en.isIntersecting) return; io.disconnect(); svg.dataset.dgIn = 1;
+      let last = 0;
+      svg.querySelectorAll('.dg-m').forEach(m => { last = Math.max(last, parseFloat(m.style.getPropertyValue('--dgd')) || 0); });
+      svg.querySelectorAll('.dg-e').forEach((e, i) => { try { const L = e.getTotalLength(); if (!L || !isFinite(L)) return; e.style.strokeDasharray = L; e.style.strokeDashoffset = L; e.getBoundingClientRect(); e.style.transition = `stroke-dashoffset .9s ease ${Math.min(i * 30, 700)}ms`; e.style.strokeDashoffset = 0; } catch (err) {} });
+      svg.classList.remove('dg-pre'); svg.classList.add('dg-in');
+      setTimeout(() => { svg.classList.remove('dg-in'); svg.querySelectorAll('.dg-e').forEach(e => { e.style.strokeDasharray = ''; e.style.strokeDashoffset = ''; e.style.transition = ''; }); }, last + 1700);
+    }), { threshold: .12 });
+    io.observe(svg);
+  }
   /* make an element a mark: spec is {id} for a book page, or {title, meta, text, href, play, find, rel, links} */
   function mark(el, spec, svg){
     svg = svg || el.ownerSVGElement || el.closest('svg'); if (!svg) return el;
@@ -177,6 +192,7 @@ window.Dg = (() => {
     const first = !svg.querySelector('.dg-m[tabindex="0"]');
     if (el.tagName.toLowerCase() !== 'a' || !el.getAttribute('href')) el.setAttribute('role', 'button');
     el.setAttribute('tabindex', first ? '0' : '-1');
+    if (!el.style.getPropertyValue('--dgd')){ const i = svg.querySelectorAll('.dg-m').length - 1; el.style.setProperty('--dgd', Math.min(i * 40, 900) + 'ms'); }
     if (typeof spec !== 'function'){ const s = resolve(el); if (s.title) el.setAttribute('aria-label', s.title + (s.meta ? ', ' + s.meta : '')); }
     return el;
   }

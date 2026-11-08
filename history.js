@@ -189,8 +189,28 @@ function drawPoster(id, style, title, sub){
   else if (style === 'berghain'){ el('rect', { x: 200, y: 40, width: 200, height: 330, fill: '#15151c', stroke: '#2b2b36' }, svg); for (let i = 0; i < 9; i++) for (let j = 0; j < 4; j++) el('rect', { x: 215 + j * 45, y: 55 + i * 34, width: 30, height: 22, fill: '#0b0b0f', stroke: '#2b2b36' }, svg); el('rect', { x: 260, y: 295, width: 30, height: 22, fill: col, opacity: .9 }, svg); el('rect', { x: 0, y: 370, width: W, height: 30, fill: '#1a1a22' }, svg); }
   else if (style === 'london'){ const lines = ['#e32017', '#0098d4', '#ffd300', '#00782a', '#9b0056', '#003688', '#f3a9bb']; lines.forEach((c, i) => { const y = 70 + i * 36; el('path', { d: `M0 ${y} L ${180 + i * 30} ${y} L ${240 + i * 30} ${y + (i % 2 ? 36 : -30)} L 600 ${y + (i % 2 ? 36 : -30)}`, fill: 'none', stroke: c, 'stroke-width': 7, opacity: .85 }, svg); }); [[120, 70, 'Camden Palace'], [300, 106, 'Clink St'], [420, 142, 'The End'], [200, 178, 'Lost'], [500, 214, 'fabric'], [330, 250, 'Fold']].forEach(([x, y, n]) => { el('circle', { cx: x, cy: y, r: 7, fill: '#0e0e13', stroke: '#fff', 'stroke-width': 3 }, svg); text(svg, x + 11, y - 9, n, { fill: '#ebebf1', 'font-size': 9 }); }); }
   else if (style === 'hard'){ const pts = []; for (let x = 0; x <= W; x += 6) pts.push([x, 200 + (rnd() - .5) * (x % 60 < 6 ? 260 : 60)]); el('path', { d: pathStr(pts), fill: 'none', stroke: col, 'stroke-width': 2 }, svg); for (let i = 0; i < 16; i++) el('rect', { x: i * 38, y: 360 - (i % 4) * 30, width: 30, height: 60 + (i % 4) * 30, fill: col, opacity: .18 }, svg); }
+  animatePoster(svg, style, col, rnd);
   text(svg, 24, H - 48, title, { fill: '#ebebf1', 'font-size': 30, 'font-weight': 700, 'font-family': 'Space Grotesk, sans-serif', 'letter-spacing': '-0.02em' });
   text(svg, 24, H - 24, sub, { fill: col, 'font-size': 11, 'letter-spacing': '.14em' });
+}
+/* the posters breathe while they are on screen: slow, never flashing, and still with reduced motion */
+function animatePoster(svg, style, col, rnd){
+  const add = (sel, cls, delay) => [...svg.querySelectorAll(sel)].forEach((e, i, all) => { e.classList.add(cls); const d = typeof delay === 'function' ? delay(i, all.length) : delay; if (d != null) e.style.animationDelay = d + 's'; });
+  const kids = t => [...svg.children].filter(e => e.tagName === t);
+  if (style === 'detroit'){ kids('circle').forEach(c => { if (+c.getAttribute('r') < 2){ c.classList.add('pz-tw'); c.style.animationDelay = (-rnd() * 4).toFixed(2) + 's'; c.style.animationDuration = (2.6 + rnd() * 3).toFixed(2) + 's'; } else c.classList.add('pz-glow'); }); }
+  else if (style === 'chicago' || style === 'hard'){ kids('rect').slice(1).forEach((r, i) => { r.classList.add('pz-eq'); r.style.animationDelay = (-(i % 5) * .37).toFixed(2) + 's'; r.style.animationDuration = (1.5 + (i % 3) * .35).toFixed(2) + 's'; }); if (style === 'hard') kids('path').forEach(p => p.classList.add('pz-wave')); }
+  else if (style === 'acid'){ kids('path').forEach((p, i) => { p.classList.add('pz-wave'); p.style.animationDelay = (-i * .9).toFixed(2) + 's'; }); }
+  else if (style === 'rave'){ const g = el('g', { class: 'pz-spin' }); kids('line').forEach(l => g.appendChild(l)); svg.insertBefore(g, svg.children[1] || null); kids('circle').forEach((c, i) => { c.classList.add('pz-ring'); c.style.animationDelay = (i * .32).toFixed(2) + 's'; }); }
+  else if (style === 'ibiza'){ kids('circle').forEach(c => c.classList.add('pz-sun')); }
+  else if (style === 'berlin'){ kids('circle').forEach(c => c.classList.add('pz-glow')); kids('rect').slice(1, 41).forEach((r, i) => { if (rnd() < .18){ r.classList.add('pz-blink'); r.style.animationDelay = (-rnd() * 5).toFixed(2) + 's'; r.style.animationDuration = (4 + rnd() * 4).toFixed(2) + 's'; } }); }
+  else if (style === 'dub'){ kids('circle').forEach((c, i) => { c.classList.add('pz-echo'); c.style.animationDelay = (i * .18).toFixed(2) + 's'; }); }
+  else if (style === 'minimal'){ kids('circle').forEach(c => { if (+c.getAttribute('r') > 3){ c.classList.add('pz-blink'); c.style.animationDelay = (-rnd() * 4).toFixed(2) + 's'; c.style.animationDuration = (2.4 + rnd() * 3).toFixed(2) + 's'; } }); }
+  else if (style === 'berghain'){ const wins = kids('rect').filter(r => r.getAttribute('width') === '30'); wins.forEach((r, i) => { if (r.getAttribute('fill') !== '#0b0b0f'){ r.classList.add('pz-glow'); return; } if (rnd() < .14){ r.classList.add('pz-light'); r.style.setProperty('--pzc', col); r.style.animationDelay = (-rnd() * 9).toFixed(2) + 's'; r.style.animationDuration = (6 + rnd() * 6).toFixed(2) + 's'; } }); }
+  else if (style === 'london'){ kids('path').forEach((p, i) => { const t = el('path', { d: p.getAttribute('d'), fill: 'none', stroke: '#fff', 'stroke-width': 3, 'stroke-linecap': 'round', pathLength: 100, class: 'pz-train', opacity: .9 }); p.after(t); t.style.animationDelay = (-i * 1.3).toFixed(2) + 's'; t.style.animationDuration = (7 + (i % 3) * 2).toFixed(2) + 's'; }); }
+  svg.classList.add('pz');
+  if (!('IntersectionObserver' in window)){ svg.classList.add('pz-on'); return; }
+  const io = new IntersectionObserver(es => es.forEach(en => svg.classList.toggle('pz-on', en.isIntersecting)), { threshold: .05 });
+  io.observe(svg);
 }
 
 /* ---------- UK techno map ---------- */

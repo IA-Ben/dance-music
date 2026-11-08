@@ -1090,3 +1090,41 @@ svg.diag .dg-now > circle:first-child{stroke:#fff;stroke-width:1.5;animation:dgn
 .dg-findbox::placeholder{color:var(--muted)}
 @media (max-width:700px){.dg-findbox{margin-left:0;flex:1 1 100%}}
 @media (max-width:700px){.dg-bar{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}.dg-bar::-webkit-scrollbar{display:none}.dg-f{flex:0 0 auto}.dg-bar .dg-findbox{flex:0 0 12em}}
+/* ---------- motion: diagrams arrive, plates drift, posters breathe (all off with reduced motion) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  svg.diag.dg-pre .dg-m{opacity:0}
+  svg.diag.dg-in .dg-m{transform-box:fill-box;transform-origin:center;animation:dgin .45s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:var(--dgd,0ms)}
+  svg.diag.dg-pre .cg-edges{opacity:0}
+  svg.diag.dg-in .cg-edges{animation:cgfade 1.4s ease .8s backwards}
+  .art-frame img{animation:artdrift 42s ease-in-out infinite alternate;transform-origin:50% 42%;will-change:transform}
+}
+@keyframes dgin{from{opacity:0;transform:scale(.8)}}
+@keyframes cgfade{from{opacity:0}}
+@keyframes artdrift{from{transform:scale(1.015)}to{transform:scale(1.085) translate3d(-1.1%,-.7%,0)}}
+@media print{.art-frame img{animation:none!important}}
+/* posters (history.js animatePoster) */
+svg.pz .pz-tw{animation:pztw 3.6s ease-in-out infinite}
+svg.pz .pz-glow{animation:pzglow 5.5s ease-in-out infinite}
+svg.pz .pz-eq{transform-box:fill-box;transform-origin:50% 100%;animation:pzeq 1.9s ease-in-out infinite alternate}
+svg.pz .pz-wave{animation:pzwave 6.5s ease-in-out infinite alternate}
+svg.pz .pz-ring{animation:pzring 4.8s ease-in-out infinite}
+svg.pz .pz-spin{transform-box:view-box;transform-origin:300px 200px;animation:pzspin 120s linear infinite}
+svg.pz .pz-sun{animation:pzsun 9s ease-in-out infinite alternate}
+svg.pz .pz-echo{transform-box:view-box;transform-origin:300px 200px;animation:pzecho 4.4s ease-in-out infinite}
+svg.pz .pz-blink{animation:pzblink 3.4s ease-in-out infinite}
+svg.pz .pz-light{animation:pzlight 9s steps(1,end) infinite}
+svg.pz .pz-train{stroke-dasharray:3 97;animation:pztrain 8s linear infinite}
+svg.pz:not(.pz-on) *{animation-play-state:paused!important}
+@keyframes pztw{0%,100%{opacity:.2}50%{opacity:1}}
+@keyframes pzglow{0%,100%{opacity:.72}50%{opacity:1}}
+@keyframes pzeq{from{transform:scaleY(.7)}to{transform:scaleY(1.06)}}
+@keyframes pzwave{from{transform:translateX(-16px)}to{transform:translateX(16px)}}
+@keyframes pzring{0%,100%{opacity:.1}45%{opacity:.62}}
+@keyframes pzspin{to{transform:rotate(360deg)}}
+@keyframes pzsun{from{transform:translateY(5px)}to{transform:translateY(-7px)}}
+@keyframes pzecho{0%,100%{transform:scale(.965)}50%{transform:scale(1.035)}}
+@keyframes pzblink{0%,100%{opacity:.18}50%{opacity:1}}
+@keyframes pzlight{0%{fill:#0b0b0f}62%{fill:var(--pzc,#888)}86%{fill:#0b0b0f}}
+@keyframes pztrain{to{stroke-dashoffset:-100}}
+@media (prefers-reduced-motion:reduce){svg.pz *{animation:none!important}svg.pz .pz-train{display:none}}
+@media print{svg.diag.dg-pre .dg-m{opacity:1!important}svg.pz *{animation:none!important}svg.pz .pz-train{display:none}}
