@@ -10,8 +10,6 @@ window.Stream = {
     ['youtube', 'YouTube', q => 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q), true],
     ['tidal', 'Tidal', q => 'https://listen.tidal.com/search?q=' + encodeURIComponent(q), false],
     ['deezer', 'Deezer', q => 'https://www.deezer.com/search/' + encodeURIComponent(q), true],
-    ['soundcloud', 'SoundCloud', q => 'https://soundcloud.com/search?q=' + encodeURIComponent(q), false],
-    ['beatport', 'Beatport', q => 'https://www.beatport.com/search?q=' + encodeURIComponent(q), false],
     ['amazon', 'Amazon Music', q => 'https://music.amazon.com/search/' + encodeURIComponent(q), false]
   ],
   get(){ try { return localStorage.getItem('dm-stream') || 'spotify'; } catch (e) { return 'spotify'; } },
@@ -28,7 +26,7 @@ window.Stream = {
   pick(){
     let box = document.getElementById('streamPick'); if (box){ box.remove(); return; }
     box = document.createElement('div'); box.id = 'streamPick'; box.className = 'streampick';
-    box.innerHTML = `<b>Listen on…</b><p class="cap">The player at the foot of the screen plays from this service where the book has the track there, and from YouTube otherwise. Services marked "link" open in a new tab. Remembered in this browser only.</p>${this.SERVICES.map(([id, name, , emb]) => `<button class="${id === this.get() ? 'on' : ''}" data-id="${id}">${name}${emb ? ' <small>· plays here</small>' : ' <small>· link</small>'}</button>`).join('')}`;
+    box.innerHTML = `<b>Listen on…</b><p class="cap">The player at the foot of the screen plays from this service where the book has the track there, and from YouTube otherwise. Services marked "link" open in a new tab. Remembered in this browser only.</p><p class="cap">Elsewhere the book uses each platform for one job: YouTube to watch sets and films, SoundCloud for mixes, radio shows and new artists, Bandcamp to buy a release (Beatport for DJ copies), Discogs for the catalogue and second-hand vinyl.</p>${this.SERVICES.map(([id, name, , emb]) => `<button class="${id === this.get() ? 'on' : ''}" data-id="${id}">${name}${emb ? ' <small>· plays here</small>' : ' <small>· link</small>'}</button>`).join('')}`;
     box.querySelectorAll('button').forEach(b => b.onclick = () => { this.set(b.dataset.id); box.remove(); });
     document.body.appendChild(box);
     setTimeout(() => document.addEventListener('click', function h(e){ if (!box.contains(e.target) && e.target.id !== 'streamBtn'){ box.remove(); document.removeEventListener('click', h); } }), 0);

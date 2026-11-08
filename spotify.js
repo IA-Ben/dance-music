@@ -46,6 +46,13 @@ window.SpotifyEmbed = {
       a.addEventListener('click', e => { e.preventDefault(); sid ? this.open(a, sid, label) : this.openYt(a, yid, label); });
       const s = a.querySelector('small'); if (s) s.textContent = '· play';
     });
+    /* SoundCloud chips (mixes, shows, new artists) play in the dock once the book has the exact SoundCloud URL */
+    (root || document).querySelectorAll('a.chip.sc').forEach(a => {
+      if (a.dataset.scw || !window.Dock || !Dock.ok()) return; a.dataset.scw = 1; const url = (Dock.ids(a.dataset.q) || {}).soundcloud; if (!url) return;
+      a.classList.add('has-embed'); const title = a.closest('.page') && a.closest('.page').querySelector('h2') ? a.closest('.page').querySelector('h2').textContent : a.dataset.q;
+      a.addEventListener('click', e => { if (e.metaKey || e.ctrlKey) return; e.preventDefault(); Dock.play([{ q: a.dataset.q, title, soundcloud: url }], 0); Dock.svc = 'soundcloud'; Dock.render(); });
+      const s = a.querySelector('small'); if (s) s.textContent = '· play';
+    });
     (root || document).querySelectorAll('a.chip.yt').forEach(a => {
       if (a.dataset.yt) return; a.dataset.yt = 1;
       const id = this.ytFor(a.dataset.q); if (!id) return;

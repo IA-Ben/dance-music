@@ -6,9 +6,11 @@ const LINK = {
   sp: q => 'https://open.spotify.com/search/' + encodeURIComponent(q),
   dg: q => 'https://www.discogs.com/search/?q=' + encodeURIComponent(q),
   bc: q => 'https://bandcamp.com/search?q=' + encodeURIComponent(q),
+  bp: q => 'https://www.beatport.com/search?q=' + encodeURIComponent(q),
+  sc: q => 'https://soundcloud.com/search?q=' + encodeURIComponent(q),
   g:  q => 'https://www.google.com/search?q=' + encodeURIComponent(q)
 };
-const LINK_LABEL = { yt: 'watch', sp: 'listen', dg: 'discogs', g: 'search', bc: 'Bandcamp' };
+const LINK_LABEL = { yt: 'watch', sp: 'listen', dg: 'discogs', g: 'search', bc: 'Bandcamp', bp: 'Beatport', sc: 'SoundCloud' };
 function chipsInto(container, items){
   items.forEach(([type, label, q]) => { const a = document.createElement('a'); a.className = 'chip ' + type; a.target = '_blank'; a.rel = 'noopener'; a.href = LINK[type](q || label); a.dataset.q = q || label; a.innerHTML = `<i></i><span>${label}</span><small style="color:var(--muted)">· ${LINK_LABEL[type]}</small>`; container.appendChild(a); });
   if (window.SpotifyEmbed) setTimeout(() => SpotifyEmbed.wire(container.closest('.page') || document), 0);

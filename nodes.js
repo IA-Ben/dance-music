@@ -115,6 +115,18 @@ function buildMentions(){
   return MENTIONS;
 }
 
+/* where the book sends you, by what a page is:
+   listen — the reader's streaming service (the dock plays it where it can); watch — YouTube;
+   mixes, radio shows and new artists — SoundCloud; buy a release — Bandcamp, and Beatport for DJ copies of the dance-era records;
+   the catalogue and second-hand vinyl — Discogs */
+function platformChips(n){
+  const yr = +((String(n.years || '').match(/\d{4}/) || [0])[0]); const out = [];
+  if (n.type === 'record'){ out.push(['bc', 'buy', n.q]); if (yr >= 1985) out.push(['bp', 'buy for DJs', n.q]); }
+  if (n.type === 'set') out.push(['sc', 'the mix', n.q]);
+  if (n.type === 'station') out.push(['sc', 'shows', n.title]);
+  if ((n.type === 'person' || n.type === 'collective') && yr >= 2010) out.push(['sc', 'new music', n.title]);
+  return out;
+}
 /* ---------- node page ---------- */
 const NodeView = {
   render(id, strand){
@@ -130,7 +142,7 @@ const NodeView = {
     const spotReads = reads.length ? `<p class="cap strand-reads">${reads.map(([s, cs]) => `<span style="--c:var(${STRANDS[s].color})"><b>${STRANDS[s].title}:</b> ${cs.slice(0, 6).map(c => `<a class="xl" href="#${s}-${c}">${titleOf(c)}</a>`).join(' · ')}${cs.length > 6 ? ` and ${cs.length - 6} more` : ''}</span>`).join('<br>')}</p>` : '';
     const spotTree = n.type === 'genre' ? `<a class="chip" href="#genres?g=${n.id}" style="--c:var(--synth)"><i></i>On the family tree</a>` : '';
     const deep = (window.DEEP_DIVES || {})[n.id]; const spotDeep = deep && (!window.PAGE_IDS || PAGE_IDS.includes(deep)) ? `<a class="chip" href="#${deep}" style="--c:var(--kick)"><i></i>${/^tw/.test(deep) ? 'The town, in depth' : /^cb/.test(deep) ? 'The full story of the room' : 'Read the chapter'}</a>` : '';
-    const links = [['sp', 'listen', n.q], ['yt', 'watch', n.q + (n.type === 'person' ? ' DJ set' : n.type === 'club' ? ' club' : '')], ['dg', 'discogs', n.q], ...(n.type === 'record' ? [['bc', 'buy', n.q]] : []), ['g', 'search', n.q]].filter(l => !(n.type === 'city' && l[0] === 'sp')).filter(l => !(n.type === 'machine' && l[0] === 'sp'));
+    const links = [['sp', 'listen', n.q], ['yt', 'watch', n.q + (n.type === 'person' ? ' DJ set' : n.type === 'club' ? ' club' : '')], ['dg', 'discogs', n.q], ...platformChips(n), ['g', 'search', n.q]].filter(l => !(l[0] === 'sp' && !/^(record|person|collective|label|genre)$/.test(n.type))).filter(l => !(l[0] === 'dg' && !/^(record|set|person|collective|label|shop)$/.test(n.type)));
     const cc = `<a class="chip dg" target="_blank" rel="noopener" href="https://commons.wikimedia.org/w/index.php?search=${encodeURIComponent(n.q)}&ns6=1"><i></i>Creative Commons images<small style="color:var(--muted)">· Wikimedia Commons</small></a>`;
     const body = document.getElementById('node-' + n.id); // optional hand-written body in HTML
     const framings = [...document.querySelectorAll(`template[data-framing="${n.id}"]`)];
