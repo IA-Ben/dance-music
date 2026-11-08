@@ -1004,3 +1004,4 @@ body.paper .page a.icard b{color:var(--text)}
 #sideSearch .noresults{font-size:12.5px;line-height:1.45;color:var(--muted);margin:8px 2px;padding:0}
 #missingNote{position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);opacity:0;transition:opacity .3s,transform .3s;background:#17171c;color:#f5f1e8;border:1px solid #ffffff22;padding:10px 16px;border-radius:8px;font-size:13.5px;line-height:1.4;z-index:999;max-width:min(560px,90vw);pointer-events:none;box-shadow:0 8px 30px #0006}
 #missingNote.show{opacity:1;transform:translate(-50%,0)}
+@media (max-width:760px){#missingNote{bottom:84px}}

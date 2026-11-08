@@ -26,7 +26,7 @@ function wireEraButtons(){
 /* ---------- Master timeline ---------- */
 const TL = [
   [1974, 'EU', 'Kraftwerk — Autobahn', 'h1', 'Düsseldorf. Machine music becomes pop; the Belleville Three hear it on Detroit radio.'],
-  [1977, 'EU', 'I Feel Love', 'h1', 'Moroder sequences a whole dance record on a Moog: the machine groove techno inherits.'],
+  [1977, 'EU', 'I Feel Love', 'h1', 'Moroder sequences a dance record on a Moog, all but the kick and the vocal: the machine groove techno inherits.'],
   [1980, 'EU', 'Roland TR-808', 'h1', 'Followed by the TB-303 (1981) and the MIDI-equipped TR-909 (1983). All three flop, then get cheap.'],
   [1982, 'US', 'Planet Rock', 'h1', 'Bambaataa builds electro on Kraftwerk; Detroit is listening.'],
   [1983, 'US', 'Cybotron — Clear', 'h1', 'Juan Atkins and Rick Davis: the first Detroit record that sounds like what followed.'],
@@ -34,7 +34,7 @@ const TL = [
   [1987, 'US', 'Strings of Life · Nude Photo', 'h2', 'Rhythim Is Rhythim on Transmat; Derrick May\'s year.'],
   [1988, 'US', 'The Music Institute · "Techno!"', 'h2', '1315 Broadway opens in May; Neil Rushton\'s compilation gives the genre its name.'],
   [1988, 'UK', 'RIP at Clink Street', 'ldn', 'Mr. C and Eddie Richards resident every weekend in a Southwark warehouse: the dark twin of Shoom, where London heard Detroit.'],
-  [1988, 'UK', 'Network Records · Inner City', 'h3', 'Birmingham puts Detroit in the UK charts and on its shelves.'],
+  [1988, 'UK', 'Kool Kat · Inner City', 'h3', 'Birmingham puts Detroit in the UK charts and on its shelves.'],
   [1988, 'DE', 'UFO opens', 'h4', 'West Berlin\'s first acid/techno basement; Hegemann, Dr. Motte, Tanith.'],
   [1989, 'DE', 'Love Parade · the Wall falls', 'h4', '1 July: 150 people behind a truck on the Ku\'damm. 9 November: East Berlin empties out.'],
   [1989, 'UK', 'Warp Records · bleep', 'h3', 'Sheffield: Detroit minimalism over sound-system sub-bass.'],
@@ -42,35 +42,35 @@ const TL = [
   [1990, 'EU', 'Energy Flash (R&S)', 'h5', 'Ghent: Beltram\'s record defines the rave-techno hinge.'],
   [1991, 'DE', 'Tresor opens', 'h4', '13 March, the Wertheim vault. Tresor Records in October: the Detroit–Berlin axis.'],
   [1991, 'UK', 'Lost · the Orbit', 'h3', 'London\'s and Yorkshire\'s purist techno rooms open the same year.'],
-  [1992, 'UK', 'Castlemorton', 'h3', 'Spiral Tribe\'s week-long free festival; the Criminal Justice Act follows in 1994.'],
-  [1993, 'DE', 'Basic Channel · E-Werk', 'h4', 'Ernestus and von Oswald invent dub techno; E-Werk opens in the old substation.'],
+  [1992, 'UK', 'Castlemorton', 'h3', 'A week-long free festival with Spiral Tribe among the sound systems; the Criminal Justice Act follows in 1994.'],
+  [1993, 'DE', 'Basic Channel · E-Werk', 'h4', 'Ernestus and von Oswald define dub techno; E-Werk opens in the old substation.'],
   [1993, 'UK', 'Downwards · House of God', 'h3', 'Birmingham gets hard: Regis, Surgeon.'],
-  [1994, 'EU', 'Time Warp · Sonar · the CJA', 'h12', 'Mannheim and Barcelona start; Britain criminalises "repetitive beats".'],
-  [1994, 'US', 'Minimal Nation', 'h2', 'Robert Hood names minimal techno six years early.'],
+  [1994, 'EU', 'Time Warp · Sónar · the CJA', 'h12', 'Mannheim and Barcelona start; Britain criminalises "repetitive beats".'],
+  [1994, 'US', 'Minimal Nation', 'h2', 'Robert Hood\'s Axis album: the blueprint for minimal techno.'],
   [1995, 'UK', 'The End opens', 'ldn', 'December, 18 West Central Street: Mr. C and Layo Paskin\'s club; booth on the floor, sound before décor. Closed 24 January 2009.'],
-  [1995, 'EU', 'Jeff Mills — Liquid Room, Tokyo', 'h13', '28 October. The most-cited DJ recording in techno.'],
+  [1995, 'EU', 'Jeff Mills — Liquid Room, Tokyo', 'h13', '28 October. Released the next year to wide acclaim.'],
   [1996, 'EU', 'Drumcode founded', 'h5', 'Adam Beyer, Stockholm.'],
   [1997, 'EU', 'Awakenings', 'h12', '30 March, the Gashouder, Amsterdam.'],
   [1998, 'DE', 'Ostgut · Kompakt', 'h6', 'The club that becomes Berghain; the Cologne label that softens minimal.'],
   [1999, 'UK', 'fabric opens · Decks, EFX & 909', 'h3', 'Farringdon in October; Hawtin\'s 909-in-the-booth mix the same year.'],
   [2000, 'US', 'DEMF / Movement', 'h12', 'Carl Craig\'s Detroit Electronic Music Festival, Hart Plaza, free.'],
-  [2000, 'IB', 'Cocoon at Amnesia', 'h7', 'Sven Väth\'s Monday: techno\'s first lasting Ibiza residency.'],
-  [2001, 'IB', 'Carl Cox at Space', 'h7', 'Fifteen summers on Tuesdays, 2001–2016.'],
+  [2000, 'IB', 'Cocoon at Amnesia', 'h7', 'Sven Väth\'s Monday at Amnesia, eighteen seasons long.'],
+  [2001, 'IB', 'Carl Cox at Space', 'h7', 'Every summer from 2001 to 2016: Thursdays at first, Tuesdays by the end.'],
   [2001, 'EU', 'Ableton Live · DE9', 'h6', 'The laptop arrives; Hawtin mixes hundreds of loops.'],
   [2003, 'DE', 'Villalobos — Alcachofa', 'h6', 'Minimal\'s high-water mark. Ostgut closes in January.'],
-  [2004, 'DE', 'Berghain opens', 'h6', 'Panorama Bar in October, the main floor in December; Funktion-One.'],
+  [2004, 'DE', 'Berghain opens', 'h6', 'Panorama Bar in October, the main floor in December; Funktion-One from 2005.'],
   [2005, 'DE', 'Ostgut Ton', 'h8', 'The label that defines the next decade.'],
-  [2010, 'UK', 'Boiler Room', 'h8', 'A webcam in a Dalston warehouse; the format of the decade.'],
+  [2010, 'UK', 'Boiler Room', 'h8', 'A webcam taped to a wall in east London; the format of the decade.'],
   [2012, 'IB', 'ENTER. at Space', 'h7', 'Hawtin\'s minimal laboratory on the island, 2012–15.'],
   [2013, 'EU', 'Dekmantel Festival', 'h12', 'Amsterdamse Bos; the taste-making decade.'],
   [2014, 'EU', 'Bassiani · трип', 'h8', 'Tbilisi\'s club under the Dinamo stadium; Nina Kraviz\'s label.'],
-  [2016, 'IB', 'Cox\'s last Space set', 'h7', '20 September, nine-plus hours on vinyl; the club closes 2 October.'],
+  [2016, 'IB', 'Cox\'s last Space set', 'h7', '20 September, nine-plus hours on vinyl and CDJs; the club closes 2 October.'],
   [2016, 'UK', 'fabric closes, then reopens', 'h8', 'September to January: the campaign wins.'],
   [2017, 'UK', 'Printworks', 'h8', 'Canada Water, 2017–2023.'],
   [2020, 'EU', 'Clubs close', 'h9', 'March: the pandemic. Streams, then the hard-techno boom when doors reopen.'],
   [2026, 'US', 'Juan Atkins dies', 'h2', '31 October, Mexico City, aged 64, before a scheduled set. The Originator; the man who named it.'],
   [2024, 'DE', 'Berlin techno listed as heritage', 'h9', '13 March: added to Germany\'s UNESCO intangible-heritage inventory. Watergate closes on 31 December.'],
-  [2025, 'EU', 'Liquid Room at 30', 'h13', 'Mills tours the 1995 set with the original footage.'],
+  [2025, 'EU', 'Liquid Room at 30', 'h13', 'Mills tours for the mix\'s thirtieth anniversary; London and Paris see unseen footage of the original night.'],
   [2023, 'UK', 'Detroit Techno Militia in Hastings', 'ldn', 'Easter Sunday: the 313 plays a Sussex seaside town; the Hastings Techno Militia follows.']
 ];
 TL.sort((a, b) => a[0] - b[0]);
@@ -296,7 +296,7 @@ const PEOPLE = [
 ];
 const CLUBS = [
   ['The Music Institute', 'Detroit · 1988–89', '1315 Broadway. Juice bar, no alcohol, midnight to 9am. Derrick May closed the last night on 24 November 1989 with "Strings of Life".', 'Music Institute Detroit 1315 Broadway'],
-  ['Amnesia (Cocoon)', 'Ibiza · 2000–', 'The farmhouse super-club\'s Monday night, Sven Väth\'s for nearly twenty years: techno\'s first lasting Ibiza residency. The club\'s own Balearic origin is in the house strand.', 'Cocoon Amnesia Ibiza Sven Vath'],
+  ['Amnesia (Cocoon)', 'Ibiza · 1999–2017', 'The farmhouse super-club\'s Monday night, Sven Väth\'s for eighteen summers until Cocoon moved to Pacha in 2018. The club\'s own Balearic origin is in the house strand.', 'Cocoon Amnesia Ibiza Sven Vath'],
   ['Space', 'Ibiza · 1989–2016', 'Pepe Roselló\'s Playa d\'en Bossa club; the Terrace under the flight path; Carl Cox for 15 summers; closed 2 October 2016. Hï stands there now.', 'Space Ibiza Carl Cox terrace'],
   ['Tresor', 'Berlin · 1991–', 'The Wertheim vault (13 March 1991–2005), then the Kraftwerk power station from 2007. The Detroit–Berlin alliance in a cage.', 'Tresor Berlin club vault'],
   ['E-Werk', 'Berlin · 1993–97', 'An electrical substation on Wilhelmstraße; the big-room Berlin 90s; Paul van Dyk\'s home.', 'E-Werk Berlin club 1993'],
@@ -323,7 +323,7 @@ const SETS = [
   ['Richie Hawtin — Decks, EFX & 909 / DE9: Closer to the Edit', '1999 / 2001', 'The two mixes that moved DJing from records to loops: first with a 909 and effects over vinyl, then with Final Scratch and hundreds of edits of edits.', 'Richie Hawtin DE9 Closer to the Edit'],
   ['Laurent Garnier — Rex Club all-nighters', 'Paris, 1992–', 'Seven and eight hours from jazz to hard techno and back, in the club under the cinema. The template for the "journey" set.', 'Laurent Garnier Rex Club set'],
   ['Sven Väth — Cocoon closing, Amnesia', 'Ibiza, 2000–2019', 'The last Monday of every summer: marathon sets to sunrise under the ice cannons, trance in the morning, techno all night.', 'Sven Vath Cocoon Amnesia closing set'],
-  ['Carl Cox — The Final Chapter, Space', 'Ibiza, 20 September 2016', 'Fifteen years of residency ended with a set of nine-plus hours on vinyl — his first vinyl set in a decade — including Jeff Mills\'s "The Bells" and Boo Williams\'s "Teckno Drome". The club closed two weeks later.', 'Carl Cox Space Ibiza closing 2016 final set'],
+  ['Carl Cox — The Final Chapter, Space', 'Ibiza, 20 September 2016', 'Sixteen summers of residency ended with a set of about ten hours on vinyl and CDJs, including Jeff Mills\'s "The Bells" and Boo Williams\'s "Teckno Drome". The club closed twelve days later.', 'Carl Cox Space Ibiza closing 2016 final set'],
   ['Ben Klock & Marcel Dettmann — Klubnacht closings, Berghain', 'Berlin, 2005–', 'Unrecorded by rule. The ten-hour Sunday closing sets are the reason the Berghain sound exists; the residents\' mixes (Berghain 02 and 04) are the nearest document.', 'Ben Klock Berghain 04 mix Marcel Dettmann Berghain 02'],
   ['Jeff Mills — Exhibitionist', '2004', 'A DVD, not a set: Mills on three decks and a 909, filmed from above, so you can see what the Liquid Room sounds like.', 'Jeff Mills Exhibitionist DVD'],
   ['Nina Kraviz — Dekmantel / Boiler Room sets', '2014–', 'Acid, Russian records and the trip label\'s roster, broadcast to millions; the decade\'s best-known festival sets.', 'Nina Kraviz Dekmantel set'],
@@ -421,7 +421,7 @@ function drawRaveBpm(){
 }
 function drawCjaChart(){
   const svg = document.getElementById('cjaChart'); if (!svg) return; const W = 600, H = 330, L = 60; clearSvg(svg, W, H);
-  const steps = [['1988', 'Warehouse parties; Janet Mayes\'s death; the first raids', '--perc'], ['1989', 'Sunrise 5000; "Spaced Out!"; the Pay Party Unit; Thatcher briefed', '--perc'], ['1990', 'Bright Bill: £20,000 fines; Blackburn broken; promoters go licensed', '--drums'], ['1992', 'Castlemorton: 20–40,000 for a week; Spiral Tribe charged', '--kick'], ['1994', 'CJPOA s.63: "repetitive beats"; three marches; Hyde Park riot', '--kick']];
+  const steps = [['1988', 'Warehouse parties; Janet Mayes\'s death; the first raids', '--perc'], ['1989', 'White Waltham and "Spaced Out!"; Kent\'s Pay Party Unit; Thatcher takes an interest', '--perc'], ['1990', 'Bright Bill: £20,000 fines; 836 arrested at Gildersome; promoters go licensed', '--drums'], ['1992', 'Castlemorton: 20–40,000 for a week; Spiral Tribe charged', '--kick'], ['1994', 'CJPOA s.63: "repetitive beats"; three marches; Hyde Park riot', '--kick']];
   steps.forEach((s, i) => { const y = 30 + i * 58; el('rect', { x: L, y, width: 520, height: 44, rx: 8, fill: '#1b1b24', stroke: css(s[2]) }, svg); text(svg, L + 12, y + 18, s[0], { fill: css(s[2]), 'font-weight': 700, 'font-size': 12 }); text(svg, L + 12, y + 34, s[1], { fill: '#ebebf1', 'font-size': 9.5 }); if (i) el('line', { x1: L + 30, y1: y - 14, x2: L + 30, y2: y, stroke: '#8f8fa0' }, svg); });
 }
 function renderRaveGrid(){
