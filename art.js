@@ -6,7 +6,7 @@
    no record sleeves. The era stamp on each plate is set in type here,
    never drawn by the generator, so the names and dates are always right.
    =================================================================== */
-window.ART_YEARS = Array.from({ length: 41 }, (_, i) => 1986 + i);
+window.ART_YEARS = Array.from({ length: 42 }, (_, i) => 1986 + i);
 window.Art = {
   MAP: { timeline: 'years', h0: 'techno', house0: 'house', r0: 'rave', j0: 'jungle', t0: 'trance', k0: 'tech', l0: 'law', i0: 'ibiza', go0: 'goa', a0: 'anatomy', mixer: 'mixer', orb0: 'm25', lp0: 'lovepar', det0: 'detroit', chi0: 'chicago', ny0: 'newyork', floor: 'floor' },
   ALT: {
@@ -71,12 +71,13 @@ window.Art = {
     y2023: 'A crowd moving between giant rusted printing presses in red light and smoke.',
     y2024: 'A riverside club on its last night: a crowd under glowing ceiling panels, bridge lights on the black water outside.',
     y2025: 'A packed basement jungle night in a seaside town, under a low ceiling.',
-    y2026: 'A record made of torn photographs: a warehouse, a field with a laser, a beach, a crowd and an empty room.'
+    y2026: 'A record made of torn photographs: a warehouse, a field with a laser, a beach, a crowd and an empty room.',
+    y2027: 'An anniversary: a stack of records with one lit candle on a DJ booth, in front of torn photographs of a packed club, an empty field rave site, a beach at sunset and a laser hall.'
   },
   /* the era stamp: name and dates, in the strand's colour */
-  STAMP: { cover: ['fortyyearsof.dance', '1986–2026', '--samp'], years: ['Forty years', '1986–2026', '--mix'], techno: ['Techno', '1985–', '--rumble'], house: ['House', '1977–', '--drums'], rave: ['Rave', '1988–', '--perc'], jungle: ['Jungle', '1992–', '--samp'], trance: ['Trance', '1990–', '--synth'], tech: ['The machines', '1980–2026', '--synth'], law: ['The law', '1985–2026', '--kick'], ibiza: ['Ibiza', '1983–', '--perc'], goa: ['Goa', '1987–', '--rumble'], anatomy: ['Anatomy', 'of a track', '--kick'], mixer: ['The mix', 'two decks', '--bass'], m25: ['The M25', '1988–90', '--perc'], lovepar: ['Love Parade', '1989–2010', '--samp'], detroit: ['Detroit', '1977–', '--rumble'], chicago: ['Chicago', '1977–', '--drums'], newyork: ['New York', '1970–', '--bass'], floor: ['From the floor', '1977–2026', '--drums'] },
+  STAMP: { cover: ['fortyyearsof.dance', '1987–2027', '--samp'], years: ['Forty years', '1987–2027', '--mix'], techno: ['Techno', '1985–', '--rumble'], house: ['House', '1977–', '--drums'], rave: ['Rave', '1988–', '--perc'], jungle: ['Jungle', '1992–', '--samp'], trance: ['Trance', '1990–', '--synth'], tech: ['The machines', '1980–2026', '--synth'], law: ['The law', '1985–2026', '--kick'], ibiza: ['Ibiza', '1983–', '--perc'], goa: ['Goa', '1987–', '--rumble'], anatomy: ['Anatomy', 'of a track', '--kick'], mixer: ['The mix', 'two decks', '--bass'], m25: ['The M25', '1988–90', '--perc'], lovepar: ['Love Parade', '1989–2010', '--samp'], detroit: ['Detroit', '1977–', '--rumble'], chicago: ['Chicago', '1977–', '--drums'], newyork: ['New York', '1970–', '--bass'], floor: ['From the floor', '1977–2026', '--drums'] },
   /* a year plate is stamped with its year, in the fluorescent ink of its collage */
-  YEAR_INK: { 1986: 'or', 1987: 'or', 1988: 'ye', 1989: 'ye', 1990: 'mi', 1991: 'pi', 1992: 'ye', 1993: 'pi', 1994: 're', 1995: 'cy', 1996: 'or', 1997: 'mi', 1998: 'cy', 1999: 'pi', 2000: 'or', 2001: 'cy', 2002: 'mi', 2003: 'cy', 2004: 're', 2005: 'vi', 2006: 'pi', 2007: 'vi', 2008: 'ye', 2009: 're', 2010: 'vi', 2011: 'or', 2012: 'cy', 2013: 'mi', 2014: 're', 2015: 'vi', 2016: 'pi', 2017: 'or', 2018: 'mi', 2019: 'cy', 2020: 'vi', 2021: 'ye', 2022: 're', 2023: 'cy', 2024: 'vi', 2025: 'or', 2026: 'pi' },
+  YEAR_INK: { 1986: 'or', 1987: 'or', 1988: 'ye', 1989: 'ye', 1990: 'mi', 1991: 'pi', 1992: 'ye', 1993: 'pi', 1994: 're', 1995: 'cy', 1996: 'or', 1997: 'mi', 1998: 'cy', 1999: 'pi', 2000: 'or', 2001: 'cy', 2002: 'mi', 2003: 'cy', 2004: 're', 2005: 'vi', 2006: 'pi', 2007: 'vi', 2008: 'ye', 2009: 're', 2010: 'vi', 2011: 'or', 2012: 'cy', 2013: 'mi', 2014: 're', 2015: 'vi', 2016: 'pi', 2017: 'or', 2018: 'mi', 2019: 'cy', 2020: 'vi', 2021: 'ye', 2022: 're', 2023: 'cy', 2024: 'vi', 2025: 'or', 2026: 'pi', 2027: 'or' },
   INKS: { or: 'var(--drums)', ye: 'var(--perc)', mi: 'var(--synth)', pi: 'var(--samp)', re: 'var(--kick)', cy: '#4fdcff', vi: 'var(--rumble)' },
   stamp(k) {
     let S = this.STAMP[k], ink;

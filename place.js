@@ -135,8 +135,8 @@ window.Place = (() => {
     const ls = Listings.on(year).filter(l => l[1] === city);
     if (ls.length < 2) { el.innerHTML = `<p class="cap">Not enough listings yet for ${year}. The listings page has the rest.</p>`; return; }
     const by = {}; Listings.DAYS.forEach(d => by[d] = []); const other = [];
-    ls.forEach(l => { const ds = Listings.days(l[5]); if (ds.length) ds.forEach(d => by[d].push(l)); else other.push(l); });
-    el.innerHTML = `<p class="cap">${year}: ${ls.length} nights the book knows about.</p><div class="pw-week">${Listings.DAYS.map(d => `<div class="pw-day"><h4>${d}</h4>${by[d].length ? by[d].map(l => Listings.line(l, false)).join('') : '<p class="cap">–</p>'}</div>`).join('')}</div>${other.length ? `<div class="pw-other"><h4>Monthly, one-offs and festivals</h4>${other.map(l => Listings.line(l, false)).join('')}</div>` : ''}`;
+    const nightly = []; ls.forEach(l => { if (String(l[5]).toLowerCase() === 'nightly'){ nightly.push(l); return; } const ds = Listings.days(l[5]); if (ds.length) ds.forEach(d => by[d].push(l)); else other.push(l); });
+    el.innerHTML = `<p class="cap">${year}: ${ls.length} nights the book knows about.</p>${nightly.length ? `<div class="pw-week pw-nightly"><div class="pw-day"><h4>Every night</h4>${nightly.map(l => Listings.line(l, false)).join('')}</div></div>` : ''}<div class="pw-week">${Listings.DAYS.map(d => `<div class="pw-day"><h4>${d}</h4>${by[d].length ? by[d].map(l => Listings.line(l, false)).join('') : '<p class="cap">–</p>'}</div>`).join('')}</div>${other.length ? `<div class="pw-other"><h4>Monthly, one-offs and festivals</h4>${other.map(l => Listings.line(l, false)).join('')}</div>` : ''}`;
   }
 
   /* ---------- mount everything on a page ---------- */

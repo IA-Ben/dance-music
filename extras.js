@@ -197,17 +197,25 @@ if ('speechSynthesis' in window) speechSynthesis.getVoices();
 
 /* ---------- forty years: one page a year ---------- */
 window.YearPage = {
-  render(y){ const art = document.querySelector(`.page[data-page="y${y}"]`); if (!art) return; const Y = YEARS[y]; if (!Y) return; const idx = y - 1986;
+  /* the anniversary year: what in the book turns forty, fifty, thirty, twenty-five, twenty and ten */
+  anniversaries(y){
+    const deg = n => n.rel.length + ((typeof BACK !== 'undefined' && BACK[n.id]) || []).length;
+    return [[40, 'Forty'], [50, 'Fifty'], [30, 'Thirty'], [25, 'Twenty-five'], [20, 'Twenty'], [10, 'Ten']].map(([off, word]) => { const y0 = y - off; const tl = TL.filter(e => e[0] === y0); const ns = NODES.filter(n => /^(record|club|event|label|set|station|collective)$/.test(n.type) && YearView.years(n) && YearView.years(n)[0] === y0).sort((a, b) => deg(b) - deg(a)).slice(0, off === 40 ? 40 : 16);
+      if (!tl.length && !ns.length) return '';
+      return `<h3>${word} years since ${y0}</h3>${tl.slice(0, off === 40 ? 12 : 4).map(e => `<p><b>${e[2]}</b> — ${e[4]} <a class="xl" href="#${e[3]}">chapter →</a></p>`).join('')}${ns.length ? `<div class="chips">${ns.map(n => `<a class="chip" href="#${n.id}" style="--c:var(${TYPE_COLOR[n.type]})"><i></i>${n.title}</a>`).join('')}</div>` : ''}<p class="cap"><a class="xl" href="#years-y${y0}">the ${y0} page →</a></p>`; }).join('');
+  },
+  render(y){ const art = document.querySelector(`.page[data-page="y${y}"]`); if (!art) return; const Y = YEARS[y]; if (!Y) return;
     art.querySelector('.yh2').textContent = Y[0]; art.querySelector('.ylede').innerHTML = Y[1];
     const box = art.querySelector('.yearbody'); if (box.dataset.done) return; box.dataset.done = 1;
     const yrs = n => YearView.years(n); const born = NODES.filter(n => n.type !== 'city' && yrs(n) && yrs(n)[0] === y); const alive = NODES.filter(n => yrs(n) && yrs(n)[0] < y && yrs(n)[1] >= y);
     const byType = {}; born.forEach(n => (byType[n.type] = byType[n.type] || []).push(n)); const order = ['record', 'club', 'event', 'person', 'collective', 'label', 'station', 'genre', 'set', 'machine', 'border'];
     const im = Object.entries(window.IMAGES || {}).find(([k]) => { const n = NODE[k]; return n && yrs(n) && yrs(n)[0] === y && /^(club|event|collective|station)$/.test(n.type); }) || Object.entries(window.IMAGES || {}).find(([k]) => { const n = NODE[k]; return n && yrs(n) && yrs(n)[0] === y; });
     const tl = TL.filter(e => e[0] === y); const rooms = alive.filter(n => n.type === 'club'); const chapters = [...new Set(born.flatMap(n => n.rel.filter(r => r[0] === 'told').map(r => r[1])))];
-    box.innerHTML = `<div class="ynav"><span>${y === 1986 ? 'year one' : y === 2026 ? 'forty years on' : 'year ' + (idx + 1)}</span><span>${y > 1986 ? `<a class="xl" href="#years-y${y - 1}">← ${y - 1}</a>` : ''} ${y < 2026 ? `· <a class="xl" href="#years-y${y + 1}">${y + 1} →</a>` : ''}</span></div>
-      <div class="ystats"><span><b>${(byType.record || []).length}</b>records</span><span><b>${(byType.club || []).length + (byType.event || []).length}</b>rooms &amp; nights opened</span><span><b>${(byType.person || []).length + (byType.collective || []).length}</b>people arrived</span><span><b>${(byType.label || []).length}</b>labels started</span><span><b>${rooms.length}</b>rooms open this year</span></div>
+    box.innerHTML = `<div class="ynav"><span>${y < BOOK.from ? 'the year before' : y === BOOK.from ? 'the breakout year' : y === BOOK.to ? 'forty years on' : 'year ' + (y - BOOK.from + 1)}</span><span>${YEARS[y - 1] ? `<a class="xl" href="#years-y${y - 1}">← ${y - 1}</a>` : ''} ${YEARS[y + 1] ? `· <a class="xl" href="#years-y${y + 1}">${y + 1} →</a>` : ''}</span></div>
+      ${born.length || y < BOOK.to ? `<div class="ystats"><span><b>${(byType.record || []).length}</b>records</span><span><b>${(byType.club || []).length + (byType.event || []).length}</b>rooms &amp; nights opened</span><span><b>${(byType.person || []).length + (byType.collective || []).length}</b>people arrived</span><span><b>${(byType.label || []).length}</b>labels started</span><span><b>${rooms.length}</b>rooms open this year</span></div>` : ''}
       ${im ? `<figure class="hero-img"><img src="${im[1].src}" alt="${im[1].title.replace('File:', '')}" loading="lazy"><figcaption>${NODE[im[0]].title} (${NODE[im[0]].years}) · ${im[1].title.replace('File:', '').replace(/\.(jpe?g|png)$/i, '')} · ${im[1].author} · <a href="${im[1].page}" target="_blank" rel="noopener">${im[1].license}</a></figcaption></figure>` : ''}
       <div class="grid2"><div>
+        ${y === BOOK.to ? `<div class="anniv">${this.anniversaries(y)}</div>` : ''}
         ${tl.length ? `<h3>On the timeline</h3>${tl.map(e => `<p><b>${e[2]}</b> — ${e[4]} <a class="xl" href="#${e[3]}">chapter →</a></p>`).join('')}` : ''}
         ${order.filter(t => byType[t]).map(t => `<h3>${{ record: 'Records of the year', club: 'Rooms that opened', event: 'Nights and festivals that began', person: 'Who arrived', collective: 'Crews', label: 'Labels', station: 'On the radio', genre: 'A genre is named', set: 'Landmark sets', machine: 'Machines', border: 'Crossings' }[t]}</h3><div class="chips">${byType[t].map(n => `<a class="chip" href="#${n.id}" style="--c:var(${TYPE_COLOR[n.type]})"><i></i>${n.title}</a>`).join('')}</div>`).join('')}
         ${rooms.length ? `<h3>Open this year</h3><p class="cap">${rooms.slice(0, 40).map(n => `<a class="xl" href="#${n.id}">${n.title}</a>`).join(' · ')}${rooms.length > 40 ? ` · and ${rooms.length - 40} more` : ''}</p>` : ''}

@@ -9,14 +9,63 @@ Visited.load();
 
 /* ---------- alias index for autolinking ---------- */
 let ALIASES = null;
+/* names that point at a page without being its title: members, festivals, teams, nicknames (used only while no page has the name) */
+const ALIAS_EXTRA = { acid: ['Acid House', 'Acid house'], balearic: ['Balearic Beat', 'Balearic beat'], orbital: ['Paul Hartnoll', 'Phil Hartnoll'], movement: ['DEMF', 'Detroit Electronic Music Festival', 'Movement festival'], 'masters-at-work': ['Louie Vega', 'Kenny Dope', 'Little Louie Vega'], 'dance-2-trance': ['Rolf Ellmer'], wbmx: ['Hot Mix 5', 'Hot Mix Five'], 'paradise-garage': ['the Garage', 'The Garage'] };
+/* a name another page claims by mistake */
+const ALIAS_FORCE = { Universe: 'tribal-gathering' };
+/* words that are also something else: never linked on their own */
+const ALIAS_DENY = /^(Paradiso|January|February|March|April|May|June|July|August|September|October|November|December|Live|Papua New Guinea|Last Night a DJ Saved My Life|Space|Future|Hospital|Virus|Planet|Flying|Base|Release|Harmony|Drop|Cyclone|Trip|Music|Energy|Strings|Circles|Original|Loaded|Pure|Speed|Flavour|Incredible|Terrorist|Movement|the End|the Loop|the Box|the Club|the Room|the Gallery)$/;
+/* chapter titles too generic to link from running text */
+const CHAPTER_NOLINK = /^(a\d|h11)$/;
+/* spelling variants of a name: accents, apostrophes, curly quotes (as strong as the name itself) */
+function aliasSpellings(a, n){
+  const out = new Set([a]);
+  if (n && n.type === 'genre' && /\s/.test(a)){ const tc = a.replace(/(^|\s)([a-z])/g, (m, b, c) => b + c.toUpperCase()); if (tc !== a) out.add(tc); }
+  [...out].forEach(x => { const p = x.normalize('NFD').replace(/[̀-ͯ]/g, ''); if (p !== x) out.add(p); });
+  [...out].forEach(x => { if (/['’]/.test(x)){ out.add(x.replace(/’/g, "'")); out.add(x.replace(/'/g, '’')); } });
+  return [...out];
+}
+/* shortened forms of a name: weaker, used only while no page has them as a name */
+function aliasShortenings(a, n){
+  const out = new Set(); const add = x => { x = x.replace(/\s+/g, ' ').trim(); if (x.length >= 3 && x !== a) out.add(x); };
+  add(a.replace(/\s*\([^)]*\)\s*$/, ''));                                               /* "Club UK (Final Frontier)" → "Club UK" */
+  add(a.replace(/\.$/, ''));
+  if (n.type !== 'record' && / \/ /.test(a)) a.split(' / ').forEach(x => { if (/\s/.test(x) || /^[A-Z0-9]{3,}$/.test(x)) add(x); });
+  if (/"[^"]+"/.test(a)){ add(a.replace(/"([^"]+)"/g, '$1')); add(a.replace(/\s*"[^"]+"\s*/g, ' ')); add(a.replace(/"([^"]+)"/g, '“$1”')); }
+  [a, ...out].forEach(x => { if (/^The /.test(x)){ const rest = x.slice(4); if (/\s/.test(rest)) add(rest); else if (/^[A-ZÀ-Þ]/.test(rest)) add('the ' + rest); } });
+  if (n.type === 'record'){ const t = (n.title.split(' — ')[1] || '').replace(/\s*\([^)]*\)\s*$/, ''); if (t && t.split(/\s+/).length >= 3 && t.length >= 12) add(t); }
+  return [...out].flatMap(x => aliasSpellings(x, n));
+}
 function buildAliases(){
-  if (ALIASES) return ALIASES; const list = [];
-  NODES.forEach(n => { const names = [n.title, ...(n.aliases || [])]; if (n.type === 'record'){ const t = n.title.split(' — ')[1]; if (t) names.push('"' + t + '"'); } const STOP = /^(Space|Future|Hospital|Virus|Planet|Flying|Base|Release|Harmony|Drop|Cyclone|Trip|Music|Energy|Strings|Circles|Original|Loaded|Pure|Speed|Flavour|Incredible|Terrorist)$/; names.forEach(a => { if (!a || a.length < 3) return; if (STOP.test(a)) return; if (n.type === 'record' && !/\s/.test(a) && !/^"/.test(a) && a.length < 9) return; list.push([a, n.id]); }); });
-  Object.entries(CHAPTER_TITLES).forEach(([id, t]) => { if (!/^(home|year|explore)$/.test(id)) list.push([t, id]); if (/^y\d{4}$/.test(id)) list.push([id.slice(1), id]); });
-  list.sort((a, b) => b[0].length - a[0].length);
+  if (ALIASES) return ALIASES; const claim = new Map();
+  const ok = a => a && a.length >= 3 && !ALIAS_DENY.test(a);
+  const strong = n => { const names = [n.title, ...(n.aliases || [])]; if (n.type === 'record'){ const t = n.title.split(' — ')[1]; if (t){ const bare = t.replace(/\s*\([^)]*\)\s*$/, ''); names.push('"' + bare + '"', '“' + bare + '”'); if (bare !== t) names.push('"' + t + '"'); } } return names.filter(Boolean).flatMap(a => aliasSpellings(a, n)).filter(a => !(n.type === 'record' && !/\s/.test(a) && !/^["“]/.test(a) && a.length < 9)); };
+  /* 1. names and their spellings (a later page wins a shared name, as before) */
+  NODES.forEach(n => strong(n).forEach(a => { if (ok(a)) claim.set(a, n.id); }));
+  /* 2. extra names, where free */
+  Object.entries(ALIAS_EXTRA).forEach(([id, names]) => { if (typeof NODE !== 'undefined' && !NODE[id]) return; names.forEach(a => { if (ok(a) && !claim.has(a)) claim.set(a, id); }); });
+  /* 3. shortened forms, where free and not claimed by two pages at once */
+  const weak = new Map(); NODES.forEach(n => [n.title, ...(n.aliases || [])].filter(Boolean).forEach(nm => aliasShortenings(nm, n).forEach(a => { if (!ok(a) || claim.has(a)) return; const w = weak.get(a); weak.set(a, w && w !== n.id ? null : n.id); })));
+  weak.forEach((id, a) => { if (id) claim.set(a, id); });
+  Object.entries(ALIAS_FORCE).forEach(([a, id]) => { if (typeof NODE === 'undefined' || NODE[id]) claim.set(a, id); });
+  /* 4. chapter titles and years */
+  Object.entries(CHAPTER_TITLES).forEach(([id, t]) => { if (!/^(home|year|explore)$/.test(id) && !CHAPTER_NOLINK.test(id) && ok(t)) claim.set(t, id); if (/^y\d{4}$/.test(id)) claim.set(id.slice(1), id); });
+  const list = [...claim.entries()].sort((a, b) => b[0].length - a[0].length);
   const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   ALIASES = { list, re: new RegExp('(^|[^\\w\\-])(' + list.map(x => esc(x[0])).join('|') + ')(?![\\w\\-])', 'g'), map: Object.fromEntries(list) };
   return ALIASES;
+}
+/* a bare one-word name inside a longer name ("Desert Storm", "Front 242", "House of God", "Stoke Newington") is not that page */
+const CAP_FUNC = new Set('DJ MC Mr Mrs Ms Dr St Sir Saint Lady Lord A An And As At After Before Between Both But By During Each Even Every For From He Her Here His How I If In Into It Its Like Many Most My No Not Now Of On One Only Or Our Over She Since So Some Than That The Their Then There These They This Those Through To Two Three Four Under Until Unlike We What When Where Which While Who Why With Within Without Yet You Your'.split(' '));
+function linkable(s, start, name){
+  if (!/^[A-ZÀ-Þ][a-zà-ÿ’'.-]+$/.test(name)) return true;   /* only capitalised ordinary words: not acronyms, model numbers or lower-case terms */
+  const after = s.slice(start + name.length, start + name.length + 30), before = s.slice(Math.max(0, start - 60), start);
+  if (/^\s+(of|de|del|der|la|le)\s/.test(after)) return false;
+  if (/^[  ]+[A-Z0-9À-Þ]/.test(after) && !/^[  ]+(I|A)\b/.test(after)) return false;
+  const pm = before.match(/(^|[\s(])([A-ZÀ-Þ][\w’'.&-]*)[  ]+$/);
+  if (pm && !CAP_FUNC.has(pm[2]) && !/['’]s$/.test(pm[2])){ const pre = before.slice(0, before.length - pm[0].length + pm[1].length); if (!/(^|[.!?:;—–]\s*)$/.test(pre)) return false; }
+  if (/["“‘']$/.test(before)) return false;
+  return true;
 }
 function autolink(root, selfId){
   const A = buildAliases(); const done = new Set([selfId]);
@@ -24,7 +73,7 @@ function autolink(root, selfId){
   const texts = []; let t; while ((t = walker.nextNode())) texts.push(t);
   texts.forEach(tn => {
     const s = tn.nodeValue; A.re.lastIndex = 0; let m, last = 0; const frag = document.createDocumentFragment(); let any = false;
-    while ((m = A.re.exec(s))){ const name = m[2], id = A.map[name]; if (!id || done.has(id)){ continue; } done.add(id); any = true; const start = m.index + m[1].length; frag.appendChild(document.createTextNode(s.slice(last, start))); const a = document.createElement('a'); a.href = '#' + id; a.className = 'xl'; a.textContent = name; frag.appendChild(a); last = start + name.length; }
+    while ((m = A.re.exec(s))){ const name = m[2], id = A.map[name]; if (!id || done.has(id) || !linkable(s, m.index + m[1].length, name)){ continue; } done.add(id); any = true; const start = m.index + m[1].length; frag.appendChild(document.createTextNode(s.slice(last, start))); const a = document.createElement('a'); a.href = '#' + id; a.className = 'xl'; a.textContent = name; frag.appendChild(a); last = start + name.length; }
     if (any){ frag.appendChild(document.createTextNode(s.slice(last))); tn.parentNode.replaceChild(frag, tn); }
   });
 }
@@ -32,7 +81,7 @@ function autolink(root, selfId){
 let MENTIONS = null;
 function buildMentions(){
   if (MENTIONS) return MENTIONS; MENTIONS = {}; const A = buildAliases();
-  document.querySelectorAll('.page[data-page]').forEach(pg => { const id = pg.dataset.page; if (id === 'node' || id === 'home') return; const text = pg.textContent; A.re.lastIndex = 0; let m; const seen = new Set(); while ((m = A.re.exec(text))){ const nid = A.map[m[2]]; if (nid && nid !== id && !seen.has(nid)){ seen.add(nid); (MENTIONS[nid] = MENTIONS[nid] || []).push(id); } } });
+  document.querySelectorAll('.page[data-page]').forEach(pg => { const id = pg.dataset.page; if (id === 'node' || id === 'home') return; const text = pg.textContent; A.re.lastIndex = 0; let m; const seen = new Set(); while ((m = A.re.exec(text))){ const nid = A.map[m[2]]; if (nid && nid !== id && !seen.has(nid) && linkable(text, m.index + m[1].length, m[2])){ seen.add(nid); (MENTIONS[nid] = MENTIONS[nid] || []).push(id); } } });
   return MENTIONS;
 }
 
