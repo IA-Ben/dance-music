@@ -52,7 +52,8 @@ function buildAliases(){
   Object.entries(CHAPTER_TITLES).forEach(([id, t]) => { if (!/^(home|year|explore)$/.test(id) && !CHAPTER_NOLINK.test(id) && ok(t)) claim.set(t, id); if (/^y\d{4}$/.test(id)) claim.set(id.slice(1), id); });
   const list = [...claim.entries()].sort((a, b) => b[0].length - a[0].length);
   const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  ALIASES = { list, re: new RegExp('(^|[^\\w\\-])(' + list.map(x => esc(x[0])).join('|') + ')(?![\\w\\-])', 'g'), map: Object.fromEntries(list) };
+  const q = s => esc(s).replace(/['’]/g, "['’]").replace(/["“”]/g, '["“”]');
+  ALIASES = { list, re: new RegExp('(^|[^\\w\\-])(' + list.map(x => q(x[0])).join('|') + ')(?![\\w\\-])', 'g'), map: Object.fromEntries(list) };
   return ALIASES;
 }
 /* a bare one-word name inside a longer name ("Desert Storm", "Front 242", "House of God", "Stoke Newington") is not that page */
@@ -67,6 +68,30 @@ function linkable(s, start, name){
   if (/["“‘']$/.test(before)) return false;
   return true;
 }
+/* typography: straight quotes and apostrophes become curly ones in the reader's text, never in code or inputs */
+const SMART_SKIP = 'script, style, code, pre, textarea, input, select, option, svg, kbd, .nosmart, .seq-table, .deckgrid';
+const SMART_BLOCKS = 'p, li, h1, h2, h3, h4, h5, h6, td, th, dd, dt, figcaption, blockquote, summary, button, label, .lede, .kicker, .cap, .chip, .relrow span, a.icard, .ccard';
+function smarten(root){
+  if (!root) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode(t){ const p = t.parentElement; return (!p || p.closest(SMART_SKIP)) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; } });
+  const OPEN = /[\s(\[{—–\/‘“-]/, ELIDE = /^(s-|t\s|n['’]|em\b|til\b|cause\b|bout\b|Avin\b|tis\b)/; let blk = null, last = ' ', open = false, t;
+  while ((t = w.nextNode())){
+    const b = t.parentElement.closest(SMART_BLOCKS) || root; if (b !== blk){ blk = b; last = ' '; open = false; }
+    const s = t.nodeValue; if (!s) continue;
+    if (s.indexOf('"') < 0 && s.indexOf("'") < 0){ last = s[s.length - 1]; continue; }
+    let out = '';
+    for (let i = 0; i < s.length; i++){
+      const c = s[i], prev = i ? s[i - 1] : last, next = s[i + 1] || '';
+      if (c === '"'){ if (OPEN.test(prev)){ out += '“'; open = true; } else if (open){ out += open === 'de' ? '“' : '”'; open = false; } else out += /\d/.test(prev) ? '″' : '”'; }
+      else if (c === "'"){ out += ((OPEN.test(prev) || (prev === '"' && open)) && !/\d/.test(next) && !ELIDE.test(s.slice(i + 1, i + 7))) ? '‘' : '’'; }
+      else { if (c === '„') open = 'de'; out += c; }
+    }
+    t.nodeValue = out; last = s[s.length - 1];
+  }
+}
+const unsmart = s => s.replace(/[‘’]/g, "'").replace(/[“”″]/g, '"');
+/* photo captions: a written caption where there is one, else a tidied Commons file name */
+function imgCaption(im){ if (im.caption) return im.caption; return String(im.title || '').replace(/^File:/, '').replace(/\.(jpe?g|png|webp|tiff?)$/i, '').replace(/\s*-\s*geograph\.org\.uk\s*-\s*\d+/i, '').replace(/\s*\(\d{6,}\)/g, '').replace(/_/g, ' ').trim(); }
 function autolink(root, selfId){
   const A = buildAliases(); const done = new Set([selfId]);
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode(t){ const p = t.parentElement; if (!p || p.closest('a, button, h1, h2, .nolink, .kicker, .tag, code, .chip, .trackchip, .chips, select, option, .seq-table, .deckgrid, .cap, .pagenum, .trail, svg, textarea, input')) return NodeFilter.FILTER_REJECT; if (!p.closest('p, li, .fact span, .pcard, .ccard, .lede, .quote, td, .framing, .node-body')) return NodeFilter.FILTER_REJECT; return NodeFilter.FILTER_ACCEPT; } });
@@ -74,7 +99,7 @@ function autolink(root, selfId){
   texts.forEach(tn => {
     const s = tn.nodeValue; A.re.lastIndex = 0; let m, last = 0; const frag = document.createDocumentFragment(); let any = false;
     const capped = tn.parentElement.classList.contains('lede') && tn === tn.parentElement.firstChild; /* the drop cap would split a link on the opening word */
-    while ((m = A.re.exec(s))){ const name = m[2], id = A.map[name]; if (capped && !s.slice(0, m.index + m[1].length).trim()) continue; if (!id || done.has(id) || !linkable(s, m.index + m[1].length, name)){ continue; } done.add(id); any = true; const start = m.index + m[1].length; frag.appendChild(document.createTextNode(s.slice(last, start))); const a = document.createElement('a'); a.href = '#' + id; a.className = 'xl'; a.textContent = name; frag.appendChild(a); last = start + name.length; }
+    while ((m = A.re.exec(s))){ const name = m[2], id = A.map[name] || A.map[unsmart(name)]; if (capped && !s.slice(0, m.index + m[1].length).trim()) continue; if (!id || done.has(id) || !linkable(s, m.index + m[1].length, name)){ continue; } done.add(id); any = true; const start = m.index + m[1].length; frag.appendChild(document.createTextNode(s.slice(last, start))); const a = document.createElement('a'); a.href = '#' + id; a.className = 'xl'; a.textContent = name; frag.appendChild(a); last = start + name.length; }
     if (any){ frag.appendChild(document.createTextNode(s.slice(last))); tn.parentNode.replaceChild(frag, tn); }
   });
 }
@@ -82,7 +107,7 @@ function autolink(root, selfId){
 let MENTIONS = null;
 function buildMentions(){
   if (MENTIONS) return MENTIONS; MENTIONS = {}; const A = buildAliases();
-  document.querySelectorAll('.page[data-page]').forEach(pg => { const id = pg.dataset.page; if (id === 'node' || id === 'home') return; const text = pg.textContent; A.re.lastIndex = 0; let m; const seen = new Set(); while ((m = A.re.exec(text))){ const nid = A.map[m[2]]; if (nid && nid !== id && !seen.has(nid) && linkable(text, m.index + m[1].length, m[2])){ seen.add(nid); (MENTIONS[nid] = MENTIONS[nid] || []).push(id); } } });
+  document.querySelectorAll('.page[data-page]').forEach(pg => { const id = pg.dataset.page; if (id === 'node' || id === 'home') return; const text = pg.textContent; A.re.lastIndex = 0; let m; const seen = new Set(); while ((m = A.re.exec(text))){ const nid = A.map[m[2]] || A.map[unsmart(m[2])]; if (nid && nid !== id && !seen.has(nid) && linkable(text, m.index + m[1].length, m[2])){ seen.add(nid); (MENTIONS[nid] = MENTIONS[nid] || []).push(id); } } });
   return MENTIONS;
 }
 
@@ -115,7 +140,7 @@ const NodeView = {
     const hear = n.preset ? (n.type === 'record' ? `<h3>Record anatomy</h3><p class="cap" style="margin-bottom:8px">Rebuilt in the engine: the tempo, the drums, the sound design, the kind of chord and bass — not the tune, which is at the links above. Mute layers to hear what each one does.</p><div class="era"><button class="play era-btn" data-genre="${n.preset}" data-bars="2">Hear the anatomy · 2 bars</button></div>` : `<div class="era"><button class="play era-btn" data-genre="${n.preset}" data-bars="2">Hear it: ${n.preset}</button></div>`) : '';
     const parent = n.type === 'genre' && n.preset ? (n.rel.find(r => r[0] === 'from' && NODE[r[1]] && NODE[r[1]].preset) || [])[1] : null;
     const morph = parent ? `<h3>Morph from ${NODE[parent].title}</h3><p class="cap" style="margin-bottom:8px">This genre descends from <a class="xl" href="#${parent}">${NODE[parent].title}</a>. Drag from the parent's sound to this one and hear what changed.</p><div class="morphbox" data-a="${NODE[parent].preset}" data-b="${n.preset}"></div>` : '';
-    const im = (window.IMAGES || {})[n.id]; const img = im ? `<figure class="nodeimg"><img src="${im.src}" alt="${im.title.replace('File:', '')}" loading="lazy"><figcaption>${im.title.replace('File:', '').replace(/\.(jpe?g|png)$/i, '')} · ${im.author} · <a href="${im.page}" target="_blank" rel="noopener">${im.license}</a> via Wikimedia Commons</figcaption></figure>` : '';
+    const im = (window.IMAGES || {})[n.id]; const img = im ? `<figure class="nodeimg"><img src="${im.src}" alt="${imgCaption(im).replace(/"/g, '&quot;')}" loading="lazy"><figcaption>${imgCaption(im)} · ${im.author} · <a href="${im.page}" target="_blank" rel="noopener">${im.license}</a> via Wikimedia Commons</figcaption></figure>` : '';
     art.innerHTML = `
       <p class="kicker"><span>${TYPE_LABEL[n.type] || n.type}${n.city && NODE[n.city] ? ' · ' + NODE[n.city].title : ''}${n.years ? ' · ' + String(n.years).replace(/(\d)s\b/g, '$1<span class="lc">s</span>') : ''}</span></p>
       <h2>${n.title}</h2>
@@ -207,7 +232,19 @@ const Explore = {
 /* ---------- sidebar search ---------- */
 function buildSearch(){
   const box = document.getElementById('sideSearch'); if (!box) return; const input = box.querySelector('input'), out = box.querySelector('.results');
-  input.oninput = () => { const s = input.value.toLowerCase().trim(); out.innerHTML = ''; if (s.length < 2) return; const hits = []; NODES.forEach(n => { if ((n.title + ' ' + (n.aliases || []).join(' ')).toLowerCase().includes(s)) hits.push([n.title, n.id, TYPE_LABEL[n.type], TYPE_COLOR[n.type]]); }); Object.entries(CHAPTER_TITLES).forEach(([id, t]) => { if (t.toLowerCase().includes(s)) hits.push([t, id, 'Chapter', '--mix']); }); hits.slice(0, 12).forEach(([t, id, ty, col]) => { const a = document.createElement('a'); a.href = '#' + id; a.innerHTML = `<i style="background:var(${col})"></i>${t}<small>${ty}</small>`; a.onclick = () => { input.value = ''; out.innerHTML = ''; document.getElementById('side').classList.remove('open'); }; out.appendChild(a); }); };
+  /* accents, quotes and case don't matter: "hacienda" finds the Haçienda, "vath" finds Väth */
+  const norm = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/['’‘`]/g, '').replace(/[“”"]/g, '').replace(/\s+/g, ' ').trim();
+  let index = null;
+  const build = () => { index = []; NODES.forEach(n => index.push({ t: n.title, id: n.id, ty: TYPE_LABEL[n.type], col: TYPE_COLOR[n.type], k: norm(n.title), a: norm((n.aliases || []).join(' | ')) })); Object.entries(CHAPTER_TITLES).forEach(([id, t]) => index.push({ t, id, ty: 'Chapter', col: '--mix', k: norm(t), a: '' })); };
+  const score = (e, s) => e.k === s ? 0 : e.k.startsWith(s) ? 1 : (' ' + e.k).includes(' ' + s) ? 2 : e.k.includes(s) ? 3 : e.a.includes(s) ? 4 : -1;
+  const go = a => { input.value = ''; out.innerHTML = ''; document.getElementById('side').classList.remove('open'); if (a) location.hash = a.getAttribute('href'); };
+  input.oninput = () => {
+    if (!index) build(); const s = norm(input.value); out.innerHTML = ''; if (s.length < 2) return;
+    const hits = index.map(e => [score(e, s), e]).filter(([sc]) => sc >= 0).sort((x, y) => x[0] - y[0] || x[1].t.length - y[1].t.length).slice(0, 12);
+    if (!hits.length){ const p = document.createElement('p'); p.className = 'noresults'; p.textContent = `No pages match “${input.value.trim()}”. Try part of a name, or browse the contents below.`; out.appendChild(p); return; }
+    hits.forEach(([, e]) => { const a = document.createElement('a'); a.href = '#' + e.id; a.innerHTML = `<i style="background:var(${e.col})"></i>${e.t}<small>${e.ty}</small>`; a.onclick = ev => { ev.preventDefault(); go(a); }; out.appendChild(a); });
+  };
+  input.onkeydown = e => { if (e.key === 'Enter'){ const a = out.querySelector('a'); if (a){ e.preventDefault(); go(a); } } else if (e.key === 'Escape'){ input.value = ''; out.innerHTML = ''; input.blur(); } };
 }
 
 window.PageHooks = window.PageHooks || {};

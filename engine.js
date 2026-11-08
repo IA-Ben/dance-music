@@ -12,8 +12,10 @@ const titleOf = id => CHAPTER_TITLES[id] || (NODE[id] && NODE[id].title) || id;
 function parseHash(){
   let h = (location.hash || '#home').slice(1).split(/[?&]/)[0]; let strand = null;
   for (const s of STRAND_KEYS){ if (h.startsWith(s + '-')){ const rest = h.slice(s.length + 1); if (pageExists(rest)){ strand = s; h = rest; break; } } }
-  if (!pageExists(h)) h = 'home'; return { id: h, strand };
+  MISSING = (!pageExists(h) && h && h !== 'home') ? h : null; if (!pageExists(h)) h = 'home'; return { id: h, strand };
 }
+let MISSING = null;
+function noteMissing(){ if (!MISSING) return; let n = document.getElementById('missingNote'); if (!n){ n = document.createElement('div'); n.id = 'missingNote'; n.setAttribute('role', 'status'); document.body.appendChild(n); } let h = MISSING; try { h = decodeURIComponent(h); } catch (e) {} n.textContent = `There is no page at “${h}”, so here is the cover. Try the search in the contents.`; n.classList.add('show'); clearTimeout(n._t); n._t = setTimeout(() => n.classList.remove('show'), 7000); }
 function strandFor(id, hinted){
   if (hinted && (onSpine(hinted, id) || (NODE[id] && NODE[id].strands.includes(hinted)))) return hinted;
   if (onSpine(CURSTRAND, id)) return CURSTRAND;
@@ -23,7 +25,7 @@ function strandFor(id, hinted){
 }
 function buildShell(){
   const side = document.getElementById('side'); side.innerHTML = '<a class="brand" href="#home">fortyyearsof.dance<small>dance music · ' + BOOK.span + '</small></a><div id="sideSearch"><input type="search" placeholder="search people, clubs, records…"><div class="results"></div></div>';
-  if (typeof Contents !== 'undefined'){ Contents.buildSide(side); const home = document.getElementById('homeToc'); if (home) Contents.buildHome(home); }
+  if (typeof Contents !== 'undefined'){ Contents.buildSide(side); const home = document.getElementById('homeToc'); if (home) Contents.buildHome(home); if (window.smarten){ smarten(side); if (home) smarten(home); } }
   document.getElementById('menuBtn').onclick = () => side.classList.toggle('open');
   const applyTheme = () => { const paper = localStorage.getItem('dm-theme') !== 'dark'; document.body.classList.toggle('paper', paper); const tb = document.getElementById('themeBtn'); if (tb) tb.textContent = paper ? 'Dark' : 'Paper'; }; applyTheme();
   document.getElementById('readBtn').onclick = () => { if (window.Reader) Reader.toggle(); };
@@ -43,7 +45,7 @@ function route(){
   const isNode = !pageEl(id) && !!NODE[id]; const inEl = isNode ? pageEl('node') : pageEl(id); const outEl = CUR ? (pageEl(CUR) || pageEl('node')) : null;
   const sp = STRANDS[strand].spine; const idx = sp.indexOf(id); const fromIdx = CUR ? sp.indexOf(CUR) : -1;
   let dir = 0; if (outEl && outEl !== inEl){ dir = (idx >= 0 && fromIdx >= 0) ? Math.sign(idx - fromIdx) || 1 : 1; }
-  CURSTRAND = strand;
+  CURSTRAND = strand; noteMissing();
   if (isNode) NodeView.render(id, strand);
   const crumb = document.getElementById('crumb'); crumb.innerHTML = id === 'home' ? '<b>Cover</b>' : `${(STANDALONE[id] || STRANDS[strand].title)} · <b>${titleOf(id)}</b>`; crumb.style.setProperty('--c', `var(${STRANDS[strand].color})`);
   const spine = document.getElementById('spine'); if (spine){ spine.style.setProperty('--c', `var(${STRANDS[strand].color})`); spine.firstElementChild.style.width = (idx >= 0 ? (idx + 1) / sp.length * 100 : 0) + '%'; }
@@ -79,7 +81,7 @@ function route(){
   if (window.Floor) Floor.mount(inEl, id, isNode);
   if (window.Place) Place.mountAll(inEl);
   if (isNode && NODE[id].type === 'record' && window.Crate){ const slot = inEl.querySelector('.chips'); if (slot && !slot.querySelector('.crate-btn')) slot.appendChild(Crate.button(id)); }
-  const finish = () => { if (outEl && outEl !== inEl) outEl.classList.remove('show', 'lift', 'out-fwd', 'in-back'); inEl.classList.remove('lift', 'in-back'); inEl.classList.add('show'); FLIPPING = false; if (PageHooks[id]) PageHooks[id](); if (PENDING){ const p = PENDING; PENDING = null; if (p !== location.hash) location.hash = p; } };
+  const finish = () => { if (outEl && outEl !== inEl) outEl.classList.remove('show', 'lift', 'out-fwd', 'in-back'); inEl.classList.remove('lift', 'in-back'); inEl.classList.add('show'); FLIPPING = false; if (PageHooks[id]) PageHooks[id](); if (window.smarten){ smarten(inEl); smarten(document.getElementById('crumb')); setTimeout(() => smarten(inEl), 800); } if (PENDING){ const p = PENDING; PENDING = null; if (p !== location.hash) location.hash = p; } };
   CUR = id;
   if (!outEl || outEl === inEl || dir === 0 || window.matchMedia('(prefers-reduced-motion: reduce)').matches){ document.querySelectorAll('.page').forEach(p => p.classList.toggle('show', p === inEl)); window.scrollTo(0, 0); finish(); return; }
   FLIPPING = true; window.scrollTo(0, 0); pageFlipSound();
