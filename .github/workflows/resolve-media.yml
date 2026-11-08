@@ -1,0 +1,33 @@
+name: Resolve media
+# Manual: looks up YouTube candidates for the book's listen/watch queries
+# (search only, nothing downloaded) and commits the results to media-work.
+on:
+  workflow_dispatch:
+    inputs:
+      queries:
+        description: 'query file on the media-work branch'
+        default: 'queries.json'
+      out:
+        description: 'results file to write'
+        default: 'results.jsonl'
+permissions:
+  contents: write
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: media-work
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -U yt-dlp
+      - run: python resolve.py "${{ inputs.queries }}" "${{ inputs.out }}"
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${{ inputs.out }}"
+          git commit -m "Media results: ${{ inputs.out }}" || echo "nothing to commit"
+          git push origin HEAD:media-work
