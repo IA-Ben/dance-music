@@ -16,7 +16,19 @@ def get(u, tries=4):
 def main(src, outdir):
     os.makedirs(outdir, exist_ok=True)
     meta = {}
+    items = []
     for item in json.load(open(src)):
+        if 'search' in item:   # expand a search into candidate thumbnails
+            q = 'https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode({'action': 'query', 'generator': 'search', 'gsrsearch': item['search'], 'gsrnamespace': 6, 'gsrlimit': item.get('limit', 8), 'prop': 'info', 'format': 'json'})
+            d = json.loads(get(q) or b'{}')
+            pages = sorted(d.get('query', {}).get('pages', {}).values(), key=lambda p: p.get('index', 0))
+            for i, pg in enumerate(pages):
+                if pg['title'].lower().endswith(('.jpg', '.jpeg', '.png', '.webp', '.tif', '.tiff')):
+                    items.append({'name': f"{item['prefix']}-{i}.jpg", 'title': pg['title'], 'width': item.get('width', 400)})
+            time.sleep(2)
+        else:
+            items.append(item)
+    for item in items:
         w = item.get('width', 1280)
         q = 'https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode({'action': 'query', 'titles': item['title'], 'prop': 'imageinfo', 'iiprop': 'url|size|extmetadata', 'iiurlwidth': w, 'format': 'json'})
         d = json.loads(get(q) or b'{}')

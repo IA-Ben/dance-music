@@ -1,0 +1,37 @@
+[
+ {
+  "search": "Privilege Ibiza club",
+  "prefix": "ku",
+  "limit": 8
+ },
+ {
+  "search": "Ministry of Sound Gaunt Street",
+  "prefix": "mos",
+  "limit": 8
+ },
+ {
+  "search": "Space Ibiza club building",
+  "prefix": "space",
+  "limit": 8
+ },
+ {
+  "search": "Stonehenge stones landscape",
+  "prefix": "stone",
+  "limit": 8
+ },
+ {
+  "search": "Amsterdamse Bos",
+  "prefix": "bos",
+  "limit": 8
+ },
+ {
+  "search": "Liquidroom Ebisu",
+  "prefix": "liquid",
+  "limit": 6
+ },
+ {
+  "search": "Old Compton Street Soho night",
+  "prefix": "soho",
+  "limit": 6
+ }
+]
