@@ -41,7 +41,7 @@ window.LISTINGS = [
 ['Turnmills', 'london', 'Trade', 1990, 2008, 'Sun', 'Tony De Vit, Malcolm Duffy, Daz Saund', 'Sunday mornings from 3am at Turnmills; the gay after-hours that became hard house.', 'house'],
 ['lost', 'london', 'Lost', 1991, null, 'monthly', 'Steve Bicknell, Sheree Rashit; Jeff Mills guesting', 'Warehouses and arches; the Detroit-purist night.', 'techno'],
 ['Paradise Club', 'london', 'AWOL', 1992, 1996, 'Sat', 'Randall, Mickey Finn, Darren Jay, Kenny Ken, Dr S Gachet', 'Islington; the jungle weekly.', 'jungle'],
-['club-uk', 'london', 'Final Frontier', 1993, 1996, 'Fri', 'Colin Dale, Colin Faver', 'Wandsworth; purist techno in a 2,000-capacity room.', 'techno'],
+['club-uk', 'london', 'Final Frontier', 1994, 1997, 'Fri', 'Gayle San, Tin Tin, Mr Oz, Murf, Matt Tangent', 'Wandsworth; Universe\'s three-room techno and trance Friday.', 'techno'],
 ['Ministry of Sound', 'london', 'Ministry of Sound — Rulin\'', 1991, 2010, 'Sat', 'various', 'Gaunt Street; the Garage-copied system; US house on Saturdays.', 'house'],
 ['Ministry of Sound', 'london', 'Ministry of Sound — Open All Hours', 1993, 1996, 'Fri', 'various', 'Fridays: the harder house and techno side.', 'techno'],
 ['Mars Bar', 'london', 'Speed', 1994, 1996, 'Thu', 'LTJ Bukem, Fabio, Kemistry & Storm', 'Covent Garden; atmospheric drum & bass.', 'jungle'],
