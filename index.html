@@ -4735,9 +4735,15 @@
 <article class="page" data-page="crate" style="--c:var(--mix)">
   <p class="kicker">Explore · your crate</p>
   <h2>Your crate</h2>
-  <p class="lede">Star records as you read and they land here. The mixer can build a set from the eras you've starred; the list copies out as text for a playlist. Kept in this browser only.</p>
-  <div class="row"><button class="play" id="crateSet">Build a set from my crate</button><button class="sm" id="crateCopy">Copy as a list</button><button class="sm" id="crateClear">Empty the crate</button><span class="cap" id="crateMsg"></span></div>
+  <p class="lede">Star records as you read and they land here. Play the crate in the dock while you keep reading, turn it into a mixer set, or take it to your streaming service. Kept in this browser; share it with a link.</p>
+  <div id="crateShared"></div>
+  <div class="row crate-tools"><button class="play" id="cratePlay">Play the crate</button><button class="sm" id="crateSet">Build a mixer set</button><label class="cap">Sort <select id="crateSort"><option value="added">as added</option><option value="year">by year</option><option value="tempo">by tempo</option></select></label><span class="cap" id="crateStats"></span></div>
   <div id="crateList" style="margin-top:12px"></div>
+  <h3>Take it with you</h3>
+  <div class="row crate-tools"><button class="sm" id="crateYt">YouTube playlist ↗</button><button class="sm" id="crateSpotify">Save to Spotify</button><button class="sm" id="crateCsv">Download CSV</button><button class="sm" id="crateCopy">Copy as a list</button><button class="sm" id="crateShare">Share a link</button><button class="sm" id="crateClear">Empty the crate</button></div>
+  <p class="cap" id="crateMsg" aria-live="polite"></p>
+  <div id="crateDig" style="margin-top:18px"></div>
+  <div id="crateStart" style="margin-top:18px"></div>
 </article>
 
 <!-- ============ NOTES ============ -->
@@ -26082,6 +26088,7 @@
 <script src="spotify.js"></script>
 <script src="gallery.js"></script>
 <script src="stream.js"></script>
+<script src="dock.js"></script>
 <script src="soundbus.js"></script>
 </body>
 </html>

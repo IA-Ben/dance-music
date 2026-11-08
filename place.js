@@ -42,6 +42,7 @@ window.Place = (() => {
 
   /* ---------- the map ---------- */
   function map(el, pid) {
+    if (el) el.dataset.pmap = pid;
     if (!el || el.dataset.done) return; const D = DATA()[pid] || {}; const g = GEO()[D.geo || pid]; if (!g) return; el.dataset.done = 1; const M = markers(pid); const R = D.routes || []; const L = D.landmarks || [];
     const years = [...M.map(m => m.yrs[0]), ...R.map(r => (r.years || [])[0])].filter(Boolean);
     const y0 = years.length ? Math.min(...years) : 1986, y1 = Math.max(2026, ...M.map(m => m.yrs[1] || 0));
@@ -110,8 +111,9 @@ window.Place = (() => {
     el.innerHTML = `<div class="pt-decades" role="tablist">${['All', ...decs].map(d => `<button type="button" class="chip pt-dec${d === 'All' ? ' on' : ''}" data-d="${d}">${d === 'All' ? 'All' : d + 's'}</button>`).join('')}</div>
       <ol class="pt-list">${rows.map((r, i) => `<li class="pt-row" data-y="${esc(r[0])}" data-d="${Math.floor(+r[0] / 10) * 10}"><button type="button" class="pt-year" data-y="${esc(r[0])}" aria-label="Show ${esc(r[0])} on the map">${esc(r[0])}</button><span class="pt-text">${esc(r[1])}${r[2] && nodeFor(r[2]) ? ` <span class="pt-go">${link(r[2], '→ ' + r[2])}</span>` : ''}${r[3] ? ` <a class="pt-src" href="${esc(r[3])}" target="_blank" rel="noopener" aria-label="Source">source</a>` : ''}</span></li>`).join('')}</ol>`;
     el.querySelectorAll('.pt-dec').forEach(b => b.addEventListener('click', () => { el.querySelectorAll('.pt-dec').forEach(x => x.classList.toggle('on', x === b)); const d = b.dataset.d; el.querySelectorAll('.pt-row').forEach(r => r.hidden = d !== 'All' && r.dataset.d !== d); }));
-    el.querySelectorAll('.pt-year').forEach(b => b.addEventListener('click', () => { const y = +b.dataset.y; mark(y); setYear(pid, y, 'timeline'); }));
-    function mark(y) { el.querySelectorAll('.pt-row').forEach(r => r.classList.toggle('now', y != null && +r.dataset.y === y)); }
+    el.querySelectorAll('.pt-year').forEach(b => b.addEventListener('click', () => { const y = +b.dataset.y; mark(y); setYear(pid, y, 'timeline'); const m = document.querySelector(`.page.show [data-pmap="${pid}"]`); if (m){ const r = m.getBoundingClientRect(); if (r.bottom < 60 || r.top > innerHeight - 60) m.scrollIntoView({ block: 'center', behavior: 'smooth' }); } }));
+    /* the chosen year's rows light up, with a way on to that year's page */
+    function mark(y) { el.querySelectorAll('.pt-yl').forEach(a => a.remove()); el.querySelectorAll('.pt-row').forEach(r => { const on = y != null && +r.dataset.y === y; r.classList.toggle('now', on); }); const first = y != null && el.querySelector(`.pt-row[data-y="${y}"]`); if (first && (!window.PAGE_IDS || PAGE_IDS.includes('y' + y))) first.querySelector('.pt-text').insertAdjacentHTML('beforeend', ` <a class="pt-yl xl" href="#y${y}">${y} in the book →</a>`); }
     on(pid, (y, from) => { if (from !== 'timeline') mark(y); });
   }
 

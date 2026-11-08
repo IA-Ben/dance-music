@@ -1144,3 +1144,29 @@ svg.diag .mv-dim{opacity:.1}
 @media (max-width:760px){.flyerbox .fl-grid{grid-template-columns:1fr}.flyerbox .fl-art{max-width:420px}}
 .strand-reads{margin:8px 0 0;line-height:1.7}
 .strand-reads b{color:var(--c)}
+/* the dock: one player at the foot of the screen */
+#dock{position:fixed;right:16px;bottom:16px;z-index:60;width:min(460px,calc(100vw - 32px));background:#121218;color:#ebebf1;border:1px solid #2a2a35;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.45);overflow:hidden;font-family:var(--f-ui)}
+#dock .dk-bar{display:flex;align-items:center;gap:6px;padding:8px 8px 8px 10px;flex-wrap:wrap}
+#dock .dk-now{flex:1;min-width:0;display:flex;flex-direction:column}
+#dock .dk-title{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#dock .dk-meta{font:10px var(--f-mono);color:#8f8fa0;letter-spacing:.06em}
+#dock button{background:transparent;color:#ebebf1;border:1px solid #2a2a35;border-radius:6px;min-width:30px;height:30px;cursor:pointer;font-size:15px}
+#dock button:disabled{opacity:.35;cursor:default}
+#dock .dk-svcs{display:flex;gap:4px;flex-wrap:wrap;order:9;width:100%}
+#dock .dk-svcs:empty{display:none}
+#dock .dk-svc{font:11px var(--f-mono);height:24px;padding:0 8px}
+#dock .dk-svc.on{background:#ebebf1;color:#121218}
+#dock .dk-frame iframe{display:block;width:100%;border:0}
+#dock.video .dk-frame{aspect-ratio:16/9}
+#dock.video .dk-frame iframe{height:100%}
+#dock.folded .dk-frame{height:0;overflow:hidden;aspect-ratio:auto}
+body.docked footer{padding-bottom:120px}
+@media (max-width:700px){#dock{right:8px;left:8px;bottom:8px;width:auto}}
+@media print{#dock{display:none}}
+.crow{grid-template-columns:52px 1fr auto}
+.crow .crow-act{display:flex;gap:4px;align-items:center}
+.crow .crow-act button{min-width:30px}
+.crate-tools{flex-wrap:wrap;gap:8px;align-items:center}
+.crate-tools select{margin-left:6px}
+[hidden]{display:none!important}
+.pt-yl{font-size:.85em;white-space:nowrap}

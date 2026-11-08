@@ -122,15 +122,83 @@ window.PageHooks.quiz = () => { if (!document.getElementById('quizBox').dataset.
 window.Crate = {
   key: 'dm-crate', get(){ try { return JSON.parse(localStorage.getItem(this.key) || '[]'); } catch (e){ return []; } }, set(v){ try { localStorage.setItem(this.key, JSON.stringify(v)); } catch (e){} },
   has(id){ return this.get().includes(id); }, toggle(id){ const v = this.get(); const i = v.indexOf(id); if (i >= 0) v.splice(i, 1); else v.push(id); this.set(v); return i < 0; },
+  add(ids){ const v = this.get(); ids.forEach(id => { if (NODE[id] && !v.includes(id)) v.push(id); }); this.set(v); },
   button(id){ const b = document.createElement('button'); b.className = 'sm crate-btn' + (this.has(id) ? ' on' : ''); b.textContent = this.has(id) ? '★ in your crate' : '☆ add to crate'; b.onclick = () => { const on = this.toggle(id); b.classList.toggle('on', on); b.textContent = on ? '★ in your crate' : '☆ add to crate'; }; return b; },
   presetFor(id){ const n = NODE[id]; if (!n) return null; if (REC_INDEX[id]) return REC_INDEX[id]; const g = (n.rel.find(r => r[0] === 'genre') || [])[1]; return g && NODE[g] && NODE[g].preset ? NODE[g].preset : null; },
-  render(){ const box = document.getElementById('crateList'); if (!box) return; const ids = this.get().filter(id => NODE[id]); if (!ids.length){ box.innerHTML = '<p class="cap">Empty. Every record page has a ☆ button.</p>'; return; } box.innerHTML = ids.map(id => { const n = NODE[id]; const pr = this.presetFor(id); return `<div class="relrow"><b>${n.years}</b><span><a class="xl" href="#${id}">${n.title}</a>${pr ? ` <span class="cap">· ${pr}</span>` : ''} <button class="sm crate-rm" data-id="${id}">remove</button></span></div>`; }).join(''); box.querySelectorAll('.crate-rm').forEach(b => b.onclick = () => { this.toggle(b.dataset.id); this.render(); }); },
-  list(){ return this.get().filter(id => NODE[id]).map(id => `${NODE[id].title} (${NODE[id].years})`).join('\n'); }
+  bpm(id){ const p = this.presetFor(id); try { return p && typeof PRESET === 'function' ? PRESET(p).bpm : 0; } catch (e){ return 0; } },
+  year(id){ const m = String((NODE[id] || {}).years || '').match(/\d{4}/); return m ? +m[0] : 0; },
+  parts(id){ const n = NODE[id]; const [a, t] = n.title.includes(' — ') ? n.title.split(' — ') : ['', n.title]; const lab = n.rel.filter(r => r[0] === 'label').map(r => NODE[r[1]] && NODE[r[1]].title).filter(Boolean)[0] || ''; return { artist: a.trim(), title: t.replace(/\s*\((?:\d{4})\)\s*$/, '').trim(), label: lab }; },
+  sort: 'added',
+  ids(list){ const v = (list || this.get()).filter(id => NODE[id]); if (this.sort === 'year') return [...v].sort((a, b) => this.year(a) - this.year(b)); if (this.sort === 'tempo') return [...v].sort((a, b) => this.bpm(a) - this.bpm(b) || this.year(a) - this.year(b)); return v; },
+  item(id){ const n = NODE[id]; return { q: n.q, title: n.title }; },
+  /* records the crate points to but doesn't hold: same artist, label or genre, scored by how many ways they connect */
+  suggest(){
+    const have = new Set(this.get()); if (!have.size) return []; const score = {};
+    const keys = new Set(); have.forEach(id => (NODE[id] ? NODE[id].rel : []).forEach(([r, t]) => { if (/^(by|label|genre)$/.test(r)) keys.add(r + ':' + t); }));
+    NODES.forEach(n => { if (n.type !== 'record' || have.has(n.id)) return; let s = 0; n.rel.forEach(([r, t]) => { if (keys.has(r + ':' + t)) s += r === 'genre' ? 1 : 2; }); if (s) score[n.id] = s; });
+    return Object.entries(score).sort((a, b) => b[1] - a[1] || this.year(a[0]) - this.year(b[0])).slice(0, 8).map(x => x[0]);
+  },
+  starters(){ const g = {}; NODES.forEach(n => { if (n.type !== 'record') return; n.rel.filter(r => r[0] === 'genre').forEach(([, id]) => { (g[id] = g[id] || []).push(n.id); }); }); return Object.entries(g).filter(([id, l]) => NODE[id] && l.length >= 5).sort((a, b) => b[1].length - a[1].length).slice(0, 8).map(([id, l]) => [id, l.sort((a, b) => this.year(a) - this.year(b))]); },
+  row(id, i, shared){ const n = NODE[id]; const pr = this.presetFor(id); const canPlay = window.Dock && Dock.playable(this.item(id)); return `<div class="relrow crow"><b>${this.year(id) || ''}</b><span><a class="xl" href="#${id}">${n.title}</a>${pr ? ` <span class="cap">· ${pr}</span>` : ''}</span><span class="crow-act">${canPlay ? `<button class="sm crate-play" data-i="${i}" aria-label="Play ${n.title.replace(/"/g, '&quot;')}">▶</button>` : ''}${shared ? '' : `<button class="sm crate-rm" data-id="${id}" aria-label="Remove">✕</button>`}</span></div>`; },
+  render(){
+    const box = document.getElementById('crateList'); if (!box) return; const ids = this.ids();
+    const st = document.getElementById('crateStats'); const yrs = ids.map(id => this.year(id)).filter(Boolean);
+    if (st) st.textContent = ids.length ? `${ids.length} record${ids.length > 1 ? 's' : ''}${yrs.length ? ` · ${Math.min(...yrs)}–${Math.max(...yrs)}` : ''}` : '';
+    box.innerHTML = ids.length ? ids.map((id, i) => this.row(id, i)).join('') : '<p class="cap">Empty. Every record page has a ☆ button, or start from one of the crates below.</p>';
+    box.querySelectorAll('.crate-rm').forEach(b => b.onclick = () => { this.toggle(b.dataset.id); this.render(); });
+    box.querySelectorAll('.crate-play').forEach(b => b.onclick = () => Dock.play(ids.map(id => this.item(id)), +b.dataset.i));
+    const sg = document.getElementById('crateDig'); if (sg){ const s = this.suggest(); sg.innerHTML = s.length ? `<h3>Dig deeper</h3><p class="cap">Records that share an artist, a label or a genre with your crate.</p>` + s.map(id => `<div class="relrow crow"><b>${this.year(id) || ''}</b><span><a class="xl" href="#${id}">${NODE[id].title}</a></span><span class="crow-act"><button class="sm crate-add" data-id="${id}">☆ add</button></span></div>`).join('') : ''; sg.querySelectorAll('.crate-add').forEach(b => b.onclick = () => { this.add([b.dataset.id]); this.render(); }); }
+    const sc = document.getElementById('crateStart'); if (sc && !sc.dataset.done){ sc.dataset.done = 1; sc.innerHTML = `<h3>Starter crates</h3><p class="cap">Every record the book has in a genre, in date order. Adding keeps what you've already starred.</p><div class="chips">${this.starters().map(([g, l]) => `<button class="chip crate-start" data-g="${g}"><i></i>${NODE[g].title} · ${l.length}</button>`).join('')}</div>`; sc.querySelectorAll('.crate-start').forEach(b => b.onclick = () => { const l = this.starters().find(x => x[0] === b.dataset.g); if (l){ this.add(l[1]); this.render(); this.say(`Added ${NODE[b.dataset.g].title}`); } }); }
+  },
+  say(t){ const m = document.getElementById('crateMsg'); if (m) m.innerHTML = t; },
+  list(){ return this.ids().map(id => { const p = this.parts(id); return p.artist ? `${p.artist} - ${p.title}` : NODE[id].title; }).join('\n'); },
+  csv(){ const q = s => '"' + String(s || '').replace(/"/g, '""') + '"'; return 'Artist,Title,Year,Label\n' + this.ids().map(id => { const p = this.parts(id); return [p.artist, p.title, this.year(id) || '', p.label].map(q).join(','); }).join('\n'); },
+  download(name, text, type){ const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name; document.body.appendChild(a); a.click(); a.remove(); },
+  youtube(){ const vids = this.ids().map(id => window.SpotifyEmbed ? SpotifyEmbed.ytFor(NODE[id].q) : null).filter(Boolean).slice(0, 50); return vids.length ? 'https://www.youtube.com/watch_videos?video_ids=' + vids.join(',') : null; },
+  shareUrl(){ return location.origin + location.pathname + '#crate?c=' + this.get().join(','); },
+  /* Spotify: the reader's own account, by PKCE; needs the site's Spotify app id in config */
+  async spotifyStart(){
+    const cid = (window.SITE_KEYS || {}).spotify; if (!cid){ this.say('Saving to Spotify needs the site\'s Spotify app ID, which isn\'t set up yet. Meanwhile, use the CSV or the list with a transfer service.'); return; }
+    const rnd = n => { const a = new Uint8Array(n); crypto.getRandomValues(a); return [...a].map(x => 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~'[x % 66]).join(''); };
+    const ver = rnd(64); const dig = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(ver)); const ch = btoa(String.fromCharCode(...new Uint8Array(dig))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    try { sessionStorage.setItem('sp-ver', ver); sessionStorage.setItem('sp-crate', JSON.stringify(this.ids())); } catch (e){}
+    location.href = 'https://accounts.spotify.com/authorize?' + new URLSearchParams({ client_id: cid, response_type: 'code', redirect_uri: location.origin + location.pathname, code_challenge_method: 'S256', code_challenge: ch, scope: 'playlist-modify-private', state: 'crate' });
+  },
+  async spotifyFinish(){
+    const p = new URLSearchParams(location.search); const code = p.get('code'); if (!code || p.get('state') !== 'crate') return; history.replaceState(null, '', location.pathname + '#crate');
+    const cid = (window.SITE_KEYS || {}).spotify; let ver = '', ids = []; try { ver = sessionStorage.getItem('sp-ver') || ''; ids = JSON.parse(sessionStorage.getItem('sp-crate') || '[]'); } catch (e){}
+    const say = t => setTimeout(() => this.say(t), 300);
+    try {
+      say('Saving to Spotify…');
+      const tk = await (await fetch('https://accounts.spotify.com/api/token', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ client_id: cid, grant_type: 'authorization_code', code, redirect_uri: location.origin + location.pathname, code_verifier: ver }) })).json();
+      if (!tk.access_token) throw new Error(tk.error_description || 'Spotify did not sign you in');
+      const H = { Authorization: 'Bearer ' + tk.access_token, 'Content-Type': 'application/json' }; const uris = [], miss = [];
+      for (const id of ids.filter(x => NODE[x])){ const pr = this.parts(id); const q = pr.artist ? `track:${pr.title} artist:${pr.artist}` : NODE[id].title; const r = await (await fetch('https://api.spotify.com/v1/search?' + new URLSearchParams({ q, type: 'track', limit: 5 }), { headers: H })).json(); const t = r.tracks && r.tracks.items && r.tracks.items[0]; if (t) uris.push(t.uri); else miss.push(NODE[id].title); }
+      const pl = await (await fetch('https://api.spotify.com/v1/me/playlists', { method: 'POST', headers: H, body: JSON.stringify({ name: 'My crate · fortyyearsof.dance', description: 'Records starred in fortyyearsof.dance', public: false }) })).json();
+      if (!pl.id) throw new Error((pl.error && pl.error.message) || 'could not make the playlist');
+      for (let i = 0; i < uris.length; i += 100) await fetch(`https://api.spotify.com/v1/playlists/${pl.id}/items`, { method: 'POST', headers: H, body: JSON.stringify({ uris: uris.slice(i, i + 100) }) });
+      say(`Saved ${uris.length} track${uris.length === 1 ? '' : 's'} to Spotify. <a href="${(pl.external_urls || {}).spotify || '#'}" target="_blank" rel="noopener">Open the playlist ↗</a>${miss.length ? ` Not found: ${miss.slice(0, 5).join('; ')}${miss.length > 5 ? '…' : ''}` : ''}`);
+    } catch (e){ say('Spotify: ' + String(e.message || e)); }
+  }
 };
-window.PageHooks.crate = () => { Crate.render(); const msg = document.getElementById('crateMsg'); if (!msg.dataset.done){ msg.dataset.done = 1;
-  document.getElementById('crateSet').onclick = () => { const segs = Crate.get().map(id => Crate.presetFor(id)).filter(Boolean).filter((g, i, a) => a.indexOf(g) === i).map(g => ({ genre: g, bars: 16, trans: 4 })); if (!segs.length){ msg.textContent = 'star some records first'; return; } segs.sort((x, y) => PRESET(x.genre).bpm - PRESET(y.genre).bpm); Mixer.init(); Mixer.program = segs; if (window.MixerUI && MixerUI.built) MixerUI.renderProgram(); location.hash = '#mixer'; setTimeout(() => { if (MixerUI.built){ Mixer.program = segs; MixerUI.renderProgram(); } }, 600); };
-  document.getElementById('crateCopy').onclick = () => { const t = Crate.list(); try { navigator.clipboard.writeText(t).then(() => msg.textContent = 'copied', () => msg.textContent = t); } catch (e){ msg.textContent = t; } };
-  document.getElementById('crateClear').onclick = () => { Crate.set([]); Crate.render(); }; } };
+window.PageHooks.crate = () => {
+  const shared = ((location.hash.split('?')[1] || '').match(/(?:^|&)c=([^&]+)/) || [])[1];
+  const sh = document.getElementById('crateShared');
+  if (sh){ const ids = shared ? decodeURIComponent(shared).split(',').filter(id => NODE[id]) : []; sh.innerHTML = ids.length ? `<div class="card tint"><h3>A crate someone shared</h3>${ids.map((id, i) => Crate.row(id, i, true)).join('')}<div class="row"><button class="sm" id="crateTake">Add all to my crate</button><button class="sm" id="cratePlayShared">▶ Play it</button></div></div>` : ''; if (ids.length){ document.getElementById('crateTake').onclick = () => { Crate.add(ids); Crate.render(); Crate.say('Added to your crate'); }; document.getElementById('cratePlayShared').onclick = () => Dock.play(ids.map(id => Crate.item(id)), 0); sh.querySelectorAll('.crate-play').forEach(b => b.onclick = () => Dock.play(ids.map(id => Crate.item(id)), +b.dataset.i)); } }
+  Crate.render(); const msg = document.getElementById('crateMsg'); if (msg.dataset.done) return; msg.dataset.done = 1;
+  const playBtn = document.getElementById('cratePlay'); if (!(window.Dock && Dock.ok())) playBtn.hidden = true;
+  playBtn.onclick = () => { const ids = Crate.ids(); if (!ids.length){ Crate.say('Star some records first'); return; } if (!Dock.play(ids.map(id => Crate.item(id)), 0)) Crate.say('None of these has a player yet'); };
+  document.getElementById('crateSort').onchange = e => { Crate.sort = e.target.value; Crate.render(); };
+  document.getElementById('crateSet').onclick = () => { const segs = Crate.ids().map(id => Crate.presetFor(id)).filter(Boolean).filter((g, i, a) => a.indexOf(g) === i).map(g => ({ genre: g, bars: 16, trans: 4 })); if (!segs.length){ Crate.say('Star some records first'); return; } segs.sort((x, y) => PRESET(x.genre).bpm - PRESET(y.genre).bpm); Mixer.init(); Mixer.program = segs; if (window.MixerUI && MixerUI.built) MixerUI.renderProgram(); location.hash = '#mixer'; setTimeout(() => { if (MixerUI.built){ Mixer.program = segs; MixerUI.renderProgram(); } }, 600); };
+  document.getElementById('crateYt').onclick = () => { const u = Crate.youtube(); if (!u){ Crate.say('None of these has a YouTube video in the book yet'); return; } window.open(u, '_blank', 'noopener'); Crate.say('Opened as a YouTube playlist (up to 50 tracks); save it from there to keep it.'); };
+  document.getElementById('crateSpotify').onclick = () => Crate.spotifyStart();
+  document.getElementById('crateCsv').onclick = () => { if (!Crate.get().length){ Crate.say('Star some records first'); return; } Crate.download('my-crate.csv', Crate.csv(), 'text/csv'); Crate.say('Downloaded. <a href="https://www.tunemymusic.com/" target="_blank" rel="noopener">TuneMyMusic</a> and <a href="https://soundiiz.com/" target="_blank" rel="noopener">Soundiiz</a> can import the file into Apple Music, Tidal, Deezer, Amazon Music or YouTube Music.'); };
+  document.getElementById('crateCopy').onclick = () => { const t = Crate.list(); try { navigator.clipboard.writeText(t).then(() => Crate.say('Copied as "Artist - Title" lines, the format transfer services accept.'), () => Crate.say(t.replace(/\n/g, '<br>'))); } catch (e){ Crate.say(t.replace(/\n/g, '<br>')); } };
+  document.getElementById('crateShare').onclick = () => { if (!Crate.get().length){ Crate.say('Star some records first'); return; } const u = Crate.shareUrl(); try { navigator.clipboard.writeText(u).then(() => Crate.say('Link copied. Anyone who opens it sees your crate and can add it to theirs.'), () => Crate.say(u)); } catch (e){ Crate.say(u); } };
+  document.getElementById('crateClear').onclick = () => { if (!confirm('Empty your crate?')) return; Crate.set([]); Crate.render(); };
+};
+Crate.spotifyFinish();
+
 
 /* ---------- marginalia ---------- */
 window.Notes = {
@@ -239,17 +307,66 @@ window.Flyer = {
   }
 };
 
+/* ---------- the neural voice: Kokoro, run in the reader's own browser (web edition only) ---------- */
+window.Neural = {
+  MODEL: 'onnx-community/Kokoro-82M-v1.0-ONNX',
+  VOICES: [['bm_george', 'George', 'British'], ['bf_emma', 'Emma', 'British'], ['bm_lewis', 'Lewis', 'British'], ['bf_isabella', 'Isabella', 'British'], ['bm_fable', 'Fable', 'British'], ['af_heart', 'Heart', 'American'], ['am_michael', 'Michael', 'American']],
+  ok(){ return !!(window.SITE && SITE.embeds) && !/claudeusercontent|claude\.ai/.test(location.hostname) && typeof WebAssembly === 'object'; },
+  pref(){ try { return localStorage.getItem('dm-voice') || 'device'; } catch (e){ return 'device'; } },
+  setPref(v){ try { localStorage.setItem('dm-voice', v); } catch (e){} },
+  on(){ return this.ok() && this.pref() !== 'device'; },
+  voice(){ const v = this.pref(); return this.VOICES.some(x => x[0] === v) ? v : 'bm_george'; },
+  tts: null, loading: null, ctx: null, src: null, pct: 0,
+  audio(){ if (!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)(); if (this.ctx.state === 'suspended') this.ctx.resume(); return this.ctx; },
+  load(progress){
+    if (this.tts) return Promise.resolve(this.tts); if (this.loading) return this.loading;
+    const seen = {}; const cb = p => { if (p && p.file && p.total){ seen[p.file] = [p.loaded || 0, p.total]; const L = Object.values(seen).reduce((a, x) => a + x[0], 0), T = Object.values(seen).reduce((a, x) => a + x[1], 0); this.pct = T ? Math.round(L / T * 100) : 0; if (progress) progress(this.pct); } };
+    this.loading = import('./vendor/kokoro.web.js').then(m => m.KokoroTTS.from_pretrained(this.MODEL, { dtype: 'q8', device: 'wasm', progress_callback: cb })).then(t => (this.tts = t)).catch(e => { this.loading = null; throw e; });
+    return this.loading;
+  },
+  async speak(text){ const t = await this.load(); return t.generate(text, { voice: this.voice() }); },
+  play(a){ return new Promise(res => { const c = this.audio(); const buf = c.createBuffer(1, a.audio.length, a.sampling_rate); buf.copyToChannel(a.audio, 0); const s = c.createBufferSource(); s.buffer = buf; s.connect(c.destination); s.onended = () => res(); this.src = s; s.start(); }); },
+  stop(){ try { if (this.src) this.src.stop(); } catch (e){} this.src = null; },
+  /* sentences short enough for the model, never across paragraphs */
+  chunks(t){ const out = []; String(t).replace(/\s+/g, ' ').trim().split(/(?<=[.!?…])\s+(?=[“"‘'(A-Z0-9])/).forEach(s => { while (s.length > 320){ const k = s.lastIndexOf(', ', 300) > 80 ? s.lastIndexOf(', ', 300) + 1 : s.lastIndexOf(' ', 300); out.push(s.slice(0, k).trim()); s = s.slice(k).trim(); } if (s) out.push(s); }); return out; },
+  async selfTest(){ const t0 = performance.now(); await this.load(); const t1 = performance.now(); const a = await this.speak('Forty years of dance music, read aloud.'); return { loadMs: Math.round(t1 - t0), genMs: Math.round(performance.now() - t1), seconds: +(a.audio.length / a.sampling_rate).toFixed(2), rate: a.sampling_rate }; },
+  picker(){
+    let box = document.getElementById('voicePick'); if (box){ box.remove(); return; }
+    box = document.createElement('div'); box.id = 'voicePick'; box.className = 'streampick';
+    const cur = this.pref();
+    box.innerHTML = `<h4>Reading voice</h4><label><input type="radio" name="vp" value="device"${cur === 'device' ? ' checked' : ''}> This device's own voice</label><p class="cap">Neural voices sound close to a person. They run in your browser after a one-time download of about 90 MB, then work offline.</p>${this.VOICES.map(([id, n, a]) => `<label><input type="radio" name="vp" value="${id}"${cur === id ? ' checked' : ''}> ${n} <small>· ${a}</small></label>`).join('')}<div class="row"><button class="sm vp-try">Try it</button><button class="sm vp-close">Done</button><span class="cap vp-msg"></span></div>`;
+    document.body.appendChild(box);
+    const msg = box.querySelector('.vp-msg');
+    box.querySelectorAll('input[name=vp]').forEach(r => r.onchange = () => { this.setPref(r.value); msg.textContent = ''; });
+    box.querySelector('.vp-close').onclick = () => box.remove();
+    box.querySelector('.vp-try').onclick = async () => { const v = this.pref(); if (v === 'device'){ const u = new SpeechSynthesisUtterance('This is the voice your device reads with.'); const vv = Reader.voice(); if (vv) u.voice = vv; speechSynthesis.cancel(); speechSynthesis.speak(u); return; } this.audio(); try { msg.textContent = this.tts ? 'Speaking…' : 'Downloading the voice…'; const a = await (this.tts ? this.speak('This is how the book sounds, read aloud.') : this.load(p => msg.textContent = `Downloading the voice… ${p}%`).then(() => this.speak('This is how the book sounds, read aloud.'))); msg.textContent = ''; this.stop(); await this.play(a); } catch (e){ msg.textContent = 'The neural voice could not load here: ' + String(e.message || e).slice(0, 80); } };
+  }
+};
+
 /* ---------- audiobook: the browser reads the page ---------- */
 window.Reader = {
   on: false, queue: [], i: 0, bed: true,
   voice(){ const vs = speechSynthesis.getVoices(); return vs.find(v => /en[-_]GB/i.test(v.lang) && /natural|neural|premium|enhanced/i.test(v.name)) || vs.find(v => /en[-_]GB/i.test(v.lang)) || vs.find(v => /^en/i.test(v.lang)) || vs[0]; },
   items(){ const page = document.querySelector('.page.show'); if (!page) return []; return [...page.querySelectorAll('h2, .lede, h3, p, li, .framing p')].filter(e => !e.closest('.card, .pg, .morph, .margin-note, .pagenav, .forks, .chips, .runhead, .flyerbox, .rels, template') && e.textContent.trim().length > 2 && !e.classList.contains('cap') && !e.classList.contains('kicker')).filter((e, i, a) => !a.some((o, j) => j < i && o.contains(e))); },
   toggle(){ this.on ? this.stop() : this.start(); },
+  async neuralRun(){
+    const C = []; this.queue.forEach(e => Neural.chunks(e.textContent).forEach(t => C.push({ e, t }))); const btn = document.getElementById('readBtn');
+    if (!Neural.tts && btn) btn.textContent = '■ Loading voice';
+    try { await Neural.load(p => { if (this.on && btn) btn.textContent = `■ Voice ${p}%`; }); } catch (e){ if (btn) btn.textContent = '■ Reading'; Neural.setPref('device'); this.neural = false; this.speak(); return; }
+    if (!this.on) return; if (btn) btn.textContent = '■ Reading';
+    const gen = i => C[i] ? Neural.speak(C[i].t).catch(() => null) : Promise.resolve(null); let ahead = [gen(0), gen(1)];
+    for (let i = 0; i < C.length && this.on; i++){
+      const a = await ahead[0]; ahead = [ahead[1], gen(i + 2)]; if (!this.on) break;
+      if (!C[i].e.classList.contains('reading')){ document.querySelectorAll('.reading').forEach(x => x.classList.remove('reading')); C[i].e.classList.add('reading'); C[i].e.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+      if (a) await Neural.play(a);
+    }
+    if (this.on) this.stop();
+  },
   start(){ if (!('speechSynthesis' in window)){ alert('This browser has no speech voices.'); return; } this.queue = this.items(); if (!this.queue.length) return; this.on = true; this.i = 0; document.getElementById('readBtn').textContent = '■ Reading'; document.getElementById('readBtn').classList.add('on');
     if (this.bed){ const g = document.querySelector('.page.show .pgbox'); if (g && g._grid && typeof PatternGrid !== 'undefined'){ PatternGrid.play(g._grid); Mixer.demoDeck.setLevel(0.22); } }
-    this.speak(); },
+    if (window.Neural && Neural.on()){ this.neural = true; Neural.audio(); this.neuralRun(); return; } this.neural = false; this.speak(); },
   speak(){ if (!this.on) return; if (this.i >= this.queue.length){ this.stop(); return; } document.querySelectorAll('.reading').forEach(e => e.classList.remove('reading')); const e = this.queue[this.i]; e.classList.add('reading'); e.scrollIntoView({ block: 'center', behavior: 'smooth' }); const u = new SpeechSynthesisUtterance(e.textContent.replace(/\s+/g, ' ').trim()); const v = this.voice(); if (v) u.voice = v; u.rate = 1.0; u.pitch = 1; u.onend = () => { if (this.on){ this.i++; setTimeout(() => this.speak(), e.tagName === 'H2' || e.tagName === 'H3' ? 350 : 120); } }; u.onerror = () => { this.fails = (this.fails || 0) + 1; if (this.fails > 3){ this.stop(); return; } if (this.on){ this.i++; this.speak(); } }; u.onstart = () => { this.fails = 0; }; speechSynthesis.cancel(); speechSynthesis.speak(u); },
-  stop(){ this.on = false; try { speechSynthesis.cancel(); } catch (e){} document.querySelectorAll('.reading').forEach(e => e.classList.remove('reading')); const b = document.getElementById('readBtn'); if (b){ b.textContent = '🔈 Read'; b.classList.remove('on'); } if (typeof PatternGrid !== 'undefined' && PatternGrid.active){ PatternGrid.stop(); if (Mixer.demoDeck) Mixer.demoDeck.setLevel(1); } }
+  stop(){ this.on = false; if (window.Neural) Neural.stop(); try { speechSynthesis.cancel(); } catch (e){} document.querySelectorAll('.reading').forEach(e => e.classList.remove('reading')); const b = document.getElementById('readBtn'); if (b){ b.textContent = '🔈 Read'; b.classList.remove('on'); } if (typeof PatternGrid !== 'undefined' && PatternGrid.active){ PatternGrid.stop(); if (Mixer.demoDeck) Mixer.demoDeck.setLevel(1); } }
 };
 window.addEventListener('hashchange', () => { if (Reader.on) Reader.stop(); });
 if ('speechSynthesis' in window) speechSynthesis.getVoices();

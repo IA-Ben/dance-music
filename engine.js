@@ -29,6 +29,7 @@ function buildShell(){
   document.getElementById('menuBtn').onclick = () => side.classList.toggle('open');
   const applyTheme = () => { const paper = localStorage.getItem('dm-theme') !== 'dark'; document.body.classList.toggle('paper', paper); const tb = document.getElementById('themeBtn'); if (tb) tb.textContent = paper ? 'Dark' : 'Paper'; }; applyTheme();
   document.getElementById('readBtn').onclick = () => { if (window.Reader) Reader.toggle(); };
+  if (window.Neural && Neural.ok()){ const vb = document.createElement('button'); vb.id = 'voiceBtn'; vb.title = 'Choose the reading voice'; vb.textContent = 'Voice'; document.getElementById('readBtn').after(vb); vb.onclick = () => Neural.picker(); }
   document.getElementById('themeBtn').onclick = () => { localStorage.setItem('dm-theme', document.body.classList.contains('paper') ? 'dark' : 'paper'); applyTheme(); };
   window.addEventListener('hashchange', route); if (window.buildSearch) buildSearch();
 }

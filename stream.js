@@ -5,11 +5,11 @@
 window.Stream = {
   SERVICES: [
     ['spotify', 'Spotify', q => 'https://open.spotify.com/search/' + encodeURIComponent(q), true],
-    ['apple', 'Apple Music', q => 'https://music.apple.com/search?term=' + encodeURIComponent(q), false],
-    ['ytmusic', 'YouTube Music', q => 'https://music.youtube.com/search?q=' + encodeURIComponent(q), false],
+    ['apple', 'Apple Music', q => 'https://music.apple.com/search?term=' + encodeURIComponent(q), true],
+    ['ytmusic', 'YouTube Music', q => 'https://music.youtube.com/search?q=' + encodeURIComponent(q), true],
     ['youtube', 'YouTube', q => 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q), true],
     ['tidal', 'Tidal', q => 'https://listen.tidal.com/search?q=' + encodeURIComponent(q), false],
-    ['deezer', 'Deezer', q => 'https://www.deezer.com/search/' + encodeURIComponent(q), false],
+    ['deezer', 'Deezer', q => 'https://www.deezer.com/search/' + encodeURIComponent(q), true],
     ['bandcamp', 'Bandcamp', q => 'https://bandcamp.com/search?q=' + encodeURIComponent(q), false],
     ['soundcloud', 'SoundCloud', q => 'https://soundcloud.com/search?q=' + encodeURIComponent(q), false],
     ['beatport', 'Beatport', q => 'https://www.beatport.com/search?q=' + encodeURIComponent(q), false],
@@ -29,7 +29,7 @@ window.Stream = {
   pick(){
     let box = document.getElementById('streamPick'); if (box){ box.remove(); return; }
     box = document.createElement('div'); box.id = 'streamPick'; box.className = 'streampick';
-    box.innerHTML = `<b>Listen on…</b><p class="cap">Where the book's "listen" links open. Remembered in this browser only.</p>${this.SERVICES.map(([id, name, , emb]) => `<button class="${id === this.get() ? 'on' : ''}" data-id="${id}">${name}${emb ? ' <small>· player in page</small>' : ''}</button>`).join('')}`;
+    box.innerHTML = `<b>Listen on…</b><p class="cap">The player at the foot of the screen plays from this service where the book has the track there, and from YouTube otherwise. Services marked "link" open in a new tab. Remembered in this browser only.</p>${this.SERVICES.map(([id, name, , emb]) => `<button class="${id === this.get() ? 'on' : ''}" data-id="${id}">${name}${emb ? ' <small>· plays here</small>' : ' <small>· link</small>'}</button>`).join('')}`;
     box.querySelectorAll('button').forEach(b => b.onclick = () => { this.set(b.dataset.id); box.remove(); });
     document.body.appendChild(box);
     setTimeout(() => document.addEventListener('click', function h(e){ if (!box.contains(e.target) && e.target.id !== 'streamBtn'){ box.remove(); document.removeEventListener('click', h); } }), 0);
@@ -40,7 +40,7 @@ window.Stream = {
     // keep LINK.sp in step so freshly built chips use the choice
     if (window.LINK) LINK.sp = q => Stream.url(q);
     // only embed where the chosen service allows it
-    if (window.SpotifyEmbed){ const en = SpotifyEmbed.enabled.bind(SpotifyEmbed); SpotifyEmbed.enabled = () => en() && (Stream.get() === 'spotify' || Stream.get() === 'youtube'); }
+    /* the docked player plays from the chosen service where the book has the track there, and from YouTube otherwise */
     // relink after every route
     const mo = new MutationObserver(() => { clearTimeout(this._t); this._t = setTimeout(() => this.relink(), 60); });
     const book = document.getElementById('book'); if (book) mo.observe(book, { childList: true, subtree: true });

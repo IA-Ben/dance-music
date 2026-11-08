@@ -38,6 +38,8 @@ window.SpotifyEmbed = {
       if (a.dataset.sp) return; a.dataset.sp = 1;
       const q = a.dataset.q || decodeURIComponent((a.href.split('/search/')[1] || '')).replace(/\+/g, ' ');
       const label = a.textContent.replace(/·\s*(listen|play|Spotify|YouTube)\s*$/i, '').trim();
+      const it = { q, title: label };
+      if (window.Dock && Dock.playable(it)){ a.classList.add('has-embed'); a.addEventListener('click', e => { if (e.metaKey || e.ctrlKey) return; e.preventDefault(); Dock.play([it], 0); }); const s0 = a.querySelector('small'); if (s0) s0.textContent = '· play'; return; }
       const sid = this.idFor(q), yid = sid ? null : this.ytFor(q);
       if (!sid && !yid) return;
       a.classList.add('has-embed'); if (yid) a.classList.add('yt-embed');
@@ -49,7 +51,7 @@ window.SpotifyEmbed = {
       const id = this.ytFor(a.dataset.q); if (!id) return;
       a.classList.add('has-embed', 'yt-embed');
       const label = a.textContent.replace(/·\s*(watch|play)\s*$/, '').trim();
-      a.addEventListener('click', e => { e.preventDefault(); this.openYt(a, id, label); });
+      a.addEventListener('click', e => { if (e.metaKey || e.ctrlKey) return; e.preventDefault(); if (window.Dock && Dock.ok()) Dock.play([{ q: a.dataset.q, title: label }], 0); else this.openYt(a, id, label); });
       const s = a.querySelector('small'); if (s) s.textContent = '· play';
     });
   },
