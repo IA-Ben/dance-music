@@ -1,0 +1,37 @@
+[
+ {
+  "search": "Tresor Berlin club",
+  "prefix": "tresor",
+  "limit": 8
+ },
+ {
+  "search": "Sub Club Glasgow Jamaica Street",
+  "prefix": "subclub",
+  "limit": 6
+ },
+ {
+  "search": "84 King Street New York Paradise Garage",
+  "prefix": "garage",
+  "limit": 6
+ },
+ {
+  "search": "Turnmills Clerkenwell",
+  "prefix": "turnmills",
+  "limit": 6
+ },
+ {
+  "search": "Fridge Brixton nightclub",
+  "prefix": "fridge",
+  "limit": 6
+ },
+ {
+  "search": "Chicago skyline from lake",
+  "prefix": "chicago",
+  "limit": 6
+ },
+ {
+  "search": "E-Werk Berlin Mauerstra\u00dfe",
+  "prefix": "ewerk",
+  "limit": 6
+ }
+]
