@@ -1,0 +1,21 @@
+[
+ {"id": "space", "wiki": ["Space (Ibiza nightclub)"], "osm": ["Space Ibiza, Platja d'en Bossa"]},
+ {"id": "amnesia", "wiki": ["Amnesia (nightclub)"], "osm": ["Amnesia, Sant Rafel de sa Creu"]},
+ {"id": "pacha", "wiki": ["Pacha Ibiza", "es:Pachá Ibiza", "The Pacha Group"], "osm": ["Pacha, Avinguda 8 d'Agost, Eivissa"]},
+ {"id": "ku", "wiki": ["Privilege Ibiza"], "osm": ["Privilege, Sant Rafel de sa Creu"]},
+ {"id": "dc10", "wiki": ["DC-10 (nightclub)"], "osm": ["DC10, Ibiza", "DC 10, Sant Josep de sa Talaia"]},
+ {"id": "cafe-del-mar", "wiki": ["Café del Mar"], "osm": ["Café del Mar, Sant Antoni de Portmany"]},
+ {"id": "eden", "wiki": ["Eden (Ibiza nightclub)", "Eden Ibiza"], "osm": ["Eden, Sant Antoni de Portmany"]},
+ {"id": "es-paradis", "wiki": ["Es Paradís", "es:Es Paradís"], "osm": ["Es Paradis, Sant Antoni de Portmany"]},
+ {"id": "cafe-mambo", "wiki": ["Café Mambo"], "osm": ["Café Mambo, Sant Antoni de Portmany"]},
+ {"id": "ushuaia", "wiki": ["Ushuaïa Ibiza Beach Hotel", "es:Ushuaïa Ibiza Beach Hotel"], "osm": ["Ushuaïa Ibiza Beach Hotel"]},
+ {"id": "hi-ibiza", "wiki": ["Hï Ibiza"], "osm": ["Hï Ibiza, Platja d'en Bossa"]},
+ {"id": "pikes", "wiki": ["Pikes Hotel"], "osm": ["Pikes Hotel, Sant Antoni de Portmany"]},
+ {"id": "anjuna", "wiki": ["Anjuna"], "osm": ["Anjuna, Goa"]},
+ {"id": "hilltop", "osm": ["Hilltop, Vagator", "Hilltop Goa, Vagator"]},
+ {"id": "nine-bar", "osm": ["Nine Bar, Vagator", "9 Bar, Vagator"]},
+ {"id": "shiva-valley", "osm": ["Shiva Valley, Anjuna"]},
+ {"id": "disco-valley", "osm": ["Disco Valley, Vagator"]},
+ {"id": "paradiso", "osm": ["Club Paradiso, Anjuna", "Nyex Beach Club, Anjuna"]},
+ {"id": "curlies", "osm": ["Curlies, Anjuna"]}
+]

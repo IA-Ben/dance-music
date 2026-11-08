@@ -36,6 +36,10 @@ def one(item):
     return {'q': q, 'kind': item['kind'], 'error': err}
 
 if __name__ == '__main__':
+    if sys.argv[1].endswith('.geo.json'):
+        import geo; geo.main(sys.argv[1], sys.argv[2]); sys.exit(0)
+    if sys.argv[1].endswith('.links.json'):
+        import links; links.main(sys.argv[1], sys.argv[2]); sys.exit(0)
     done = 0
     with cf.ThreadPoolExecutor(6) as ex, open(sys.argv[2], 'w') as out:
         for r in ex.map(one, Q):
