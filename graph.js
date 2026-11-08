@@ -279,7 +279,7 @@ P('ron-hardy', 'Ron Hardy', 'chicago', '1974–1992', 'The Music Box', 'Faster, 
 P('dj-pierre', 'DJ Pierre', 'chicago', '1987–', 'Phuture', 'Twisted the 303\'s knobs and made "Acid Tracks".', ['house', 'rave', 'techno'], [['made', 'rec-acidtracks'], ['uses', 'tb303']], ['Phuture', 'Pierre']);
 P('alfredo', 'DJ Alfredo', 'ibiza', '1982–2024', 'Amnesia', 'Alfredo Fiorito, Argentine; the Amnesia terrace from midnight to dawn with no genre: the Balearic beat.', ['house', 'rave'], [['played', 'amnesia']], ['Alfredo Fiorito']);
 P('jose-padilla', 'José Padilla', 'ibiza', '1991–', 'Café del Mar', 'The sunset session; the chill-out as a form.', ['house'], [['played', 'cafe-del-mar']], ['Padilla']);
-P('paul-oakenfold', 'Paul Oakenfold', 'london', '1987–', 'Spectrum, Future, Perfecto', 'Took three friends to Ibiza for his birthday in August 1987; opened Spectrum at Heaven.', ['rave', 'house'], [['founded', 'spectrum'], ['played', 'heaven'], ['played', 'amnesia']], ['Oakenfold', 'Oakey']);
+P('paul-oakenfold', 'Paul Oakenfold', 'london', '1987–', 'Spectrum, Future, Perfecto', 'Took three friends to Ibiza for his birthday in late summer 1987; opened Spectrum at Heaven.', ['rave', 'house'], [['founded', 'spectrum'], ['played', 'heaven'], ['played', 'amnesia']], ['Oakenfold', 'Oakey']);
 P('danny-rampling', 'Danny Rampling', 'london', '1987–', 'Shoom', 'Came back from Ibiza and opened a gym to acid house in December 1987.', ['house', 'rave'], [['founded', 'shoom'], ['played', 'amnesia']], ['Rampling']);
 P('nicky-holloway', 'Nicky Holloway', 'london', '1987–', 'The Trip, Milk Bar', 'The Trip at the Astoria (June 1988): acid house on Charing Cross Road.', ['rave', 'house'], [['founded', 'the-trip']], ['Holloway']);
 P('johnny-walker', 'Johnny Walker', 'london', '1987–', 'the Ibiza four', 'The fourth of the 1987 trip; later a trance DJ.', ['rave', 'house'], []);
@@ -354,7 +354,7 @@ C('ku', 'Ku / Privilege', 'ibiza', '1978–', 'The biggest club in the world, op
 C('dc10', 'DC10', 'ibiza', '1999–', 'A shed by the runway; Circoloco Mondays.', ['house']);
 C('cafe-del-mar', 'Café del Mar', 'ibiza', '1980–', 'San Antonio sunset; José Padilla.', ['house']);
 C('warehouse', 'The Warehouse', 'chicago', '1977–82', 'Frankie Knuckles\'s club; the music was named after it.', ['house']);
-C('music-box', 'The Music Box', 'chicago', '1982–87', 'Ron Hardy\'s club; the first floor for Acid Tracks.', ['house']);
+C('music-box', 'The Music Box', 'chicago', '1983–87', 'Ron Hardy\'s club; the first floor for Acid Tracks.', ['house']);
 C('paradise-garage', 'Paradise Garage', 'newyork', '1977–87', 'Larry Levan; the sound system and the congregation.', ['house']);
 C('hacienda', 'The Haçienda', 'manchester', '1982–97', 'FAC 51; empty for years, then Nude (1986) and Hot (1988) made it Britain\'s first house club; closed by guns and debt.', ['house', 'rave'], [], ['Hacienda', 'FAC 51']);
 C('shoom', 'Shoom', 'london', '1987–90', 'A Southwark fitness centre on Saturday nights; Danny and Jenni Rampling; 300 people who opened everything else.', ['house', 'rave']);

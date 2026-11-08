@@ -73,9 +73,8 @@ window.Art = {
     y2025: 'A packed basement jungle night in a seaside town, under a low ceiling.',
     y2026: 'A record made of torn photographs: a warehouse, a field with a laser, a beach, a crowd and an empty room.'
   },
-  CREDIT: 'Collage illustration made with Krea for this book',
   /* the era stamp: name and dates, in the strand's colour */
-  STAMP: { cover: ['Dance music', '1986–2026', '--samp'], years: ['Forty years', '1986–2026', '--mix'], techno: ['Techno', '1985–', '--rumble'], house: ['House', '1977–', '--drums'], rave: ['Rave', '1988–', '--perc'], jungle: ['Jungle', '1992–', '--samp'], trance: ['Trance', '1990–', '--synth'], tech: ['The machines', '1980–2026', '--synth'], law: ['The law', '1985–2026', '--kick'], ibiza: ['Ibiza', '1983–', '--perc'], goa: ['Goa', '1987–', '--rumble'], anatomy: ['Anatomy', 'of a track', '--kick'], mixer: ['The mix', 'two decks', '--bass'], m25: ['The M25', '1988–90', '--perc'], lovepar: ['Love Parade', '1989–2010', '--samp'], detroit: ['Detroit', '1977–', '--rumble'], chicago: ['Chicago', '1977–', '--drums'], newyork: ['New York', '1970–', '--bass'], floor: ['From the floor', '1977–2026', '--drums'] },
+  STAMP: { cover: ['fortyyearsof.dance', '1986–2026', '--samp'], years: ['Forty years', '1986–2026', '--mix'], techno: ['Techno', '1985–', '--rumble'], house: ['House', '1977–', '--drums'], rave: ['Rave', '1988–', '--perc'], jungle: ['Jungle', '1992–', '--samp'], trance: ['Trance', '1990–', '--synth'], tech: ['The machines', '1980–2026', '--synth'], law: ['The law', '1985–2026', '--kick'], ibiza: ['Ibiza', '1983–', '--perc'], goa: ['Goa', '1987–', '--rumble'], anatomy: ['Anatomy', 'of a track', '--kick'], mixer: ['The mix', 'two decks', '--bass'], m25: ['The M25', '1988–90', '--perc'], lovepar: ['Love Parade', '1989–2010', '--samp'], detroit: ['Detroit', '1977–', '--rumble'], chicago: ['Chicago', '1977–', '--drums'], newyork: ['New York', '1970–', '--bass'], floor: ['From the floor', '1977–2026', '--drums'] },
   /* a year plate is stamped with its year, in the fluorescent ink of its collage */
   YEAR_INK: { 1986: 'or', 1987: 'or', 1988: 'ye', 1989: 'ye', 1990: 'mi', 1991: 'pi', 1992: 'ye', 1993: 'pi', 1994: 're', 1995: 'cy', 1996: 'or', 1997: 'mi', 1998: 'cy', 1999: 'pi', 2000: 'or', 2001: 'cy', 2002: 'mi', 2003: 'cy', 2004: 're', 2005: 'vi', 2006: 'pi', 2007: 'vi', 2008: 'ye', 2009: 're', 2010: 'vi', 2011: 'or', 2012: 'cy', 2013: 'mi', 2014: 're', 2015: 'vi', 2016: 'pi', 2017: 'or', 2018: 'mi', 2019: 'cy', 2020: 'vi', 2021: 'ye', 2022: 're', 2023: 'cy', 2024: 'vi', 2025: 'or', 2026: 'pi' },
   INKS: { or: 'var(--drums)', ye: 'var(--perc)', mi: 'var(--synth)', pi: 'var(--samp)', re: 'var(--kick)', cy: '#4fdcff', vi: 'var(--rumble)' },
@@ -88,7 +87,7 @@ window.Art = {
   },
   alt(k) { return this.ALT[k] || this.YEAR_ALT[k] || ''; },
   html(k, cls) {
-    return `<figure class="art-hero${cls ? ' ' + cls : ''}"><div class="art-frame"><img src="img/art/${k}-1376.webp" srcset="img/art/${k}-720.webp 720w, img/art/${k}-1376.webp 1376w" sizes="(max-width: 700px) 100vw, 1100px" width="1376" height="768" alt="${this.alt(k)}" loading="lazy" decoding="async">${this.stamp(k)}</div><figcaption>${this.CREDIT}</figcaption></figure>`;
+    return `<figure class="art-hero${cls ? ' ' + cls : ''}"><div class="art-frame"><img src="img/art/${k}-1376.webp" srcset="img/art/${k}-720.webp 720w, img/art/${k}-1376.webp 1376w" sizes="(max-width: 700px) 100vw, 1100px" width="1376" height="768" alt="${this.alt(k)}" loading="lazy" decoding="async">${this.stamp(k)}</div></figure>`;
   },
   mount(el, id) {
     let k = this.MAP[id]; if (!k && /^y\d{4}$/.test(id) && window.ART_YEARS.includes(+id.slice(1))) k = id;

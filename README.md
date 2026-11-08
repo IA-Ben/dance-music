@@ -1,4 +1,4 @@
-# Dance Music
+# fortyyearsof.dance
 
 **Forty years of dance music, 1986–2026 — an interactive book by Ben Dawson.**
 
