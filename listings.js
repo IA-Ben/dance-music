@@ -12,7 +12,7 @@ window.LISTINGS = [
 ['Medusa\'s', 'chicago', 'Medusa\'s', 1983, 1992, 'Fri–Sat', 'various', 'All-ages juice bar on Sheffield Avenue; the teenage half of Chicago house.', 'house'],
 ['Smart Bar', 'chicago', 'Smart Bar', 1982, null, 'Fri–Sat', 'various', 'Under the Metro on Clark Street; still open, still house and techno.', 'house'],
 /* ---- Detroit ---- */
-['music-institute', 'detroit', 'The Music Institute — Fridays', 1988, 1989, 'Fri', 'Derrick May, D-Wynn', 'Techno night; May closed the last night with "Strings of Life".', 'techno'],
+['music-institute', 'detroit', 'The Music Institute — Fridays', 1988, 1989, 'Fri', 'Derrick May, D-Wynn', 'Techno night; by most accounts the last record played was 808 State\'s "Pacific State".', 'techno'],
 ['music-institute', 'detroit', 'The Music Institute — Saturdays', 1988, 1989, 'Sat', 'Chez Damier, Alton Miller', 'The house night at 1315 Broadway.', 'house'],
 ['The Shelter', 'detroit', 'The Shelter', 1990, 2000, 'Sat', 'various', 'Basement of St Andrew\'s Hall; Richie Hawtin\'s and Kevin Saunderson\'s Detroit room in the 1990s.', 'techno'],
 ['set-packard', 'detroit', 'Plus 8 at the Packard Plant', 1994, 1994, 'one-off', 'Richie Hawtin, Plastikman', 'Spastik parties in the ruins of the car plant.', 'techno'],
@@ -77,7 +77,7 @@ window.LISTINGS = [
 ['Shelley\'s', 'stoke', 'Shelley\'s Laserdome — Delight', 1990, 1992, 'Fri', 'Sasha', 'Longton; the night Sasha became famous.', 'house'],
 ['que-club', 'birmingham', 'House of God', 1993, 2002, 'monthly', 'Surgeon, Regis, Female', 'The Methodist Central Hall; Birmingham\'s hard line.', 'techno'],
 ['que-club', 'birmingham', 'Atomic Jam', 1995, 2017, 'monthly', 'various', 'The big techno room under the chapel ceiling.', 'techno'],
-['Godskitchen', 'birmingham', 'Godskitchen', 1996, 2009, 'Fri', 'various', 'Code, Birmingham; the Midlands\' trance superclub.', 'trance'],
+['Godskitchen', 'birmingham', 'Godskitchen — Fridays', 1998, 2004, 'Fri', 'various', 'The Sanctuary in Digbeth, then its own club Code (2000), AIR from 2003; Saturdays from 2005.', 'trance'],
 ['sub-club', 'glasgow', 'Slam at the Sub Club', 1991, 1994, 'Sat', 'Slam', 'Jamaica Street; techno and house.', 'techno'],
 ['sub-club', 'glasgow', 'Subculture', 1994, null, 'Sat', 'Harri & Domenic', 'The longest-running weekly house night in the world.', 'house'],
 ['sub-club', 'glasgow', 'Optimo (Espacio)', 1997, 2010, 'Sun', 'JD Twitch, JG Wilkes', 'Sunday nights; everything from post-punk to techno.', 'techno'],
@@ -674,7 +674,7 @@ null,
 null,
 "Sat",
 "Terry Francis; guests",
-"Craig Richards stepped back from the weekly in October 2018 but kept playing regularly.",
+"Craig Richards stepped back from the weekly in October 2017 but kept playing regularly.",
 "techno"
 ],
 [

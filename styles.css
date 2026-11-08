@@ -294,7 +294,7 @@ details.otherframes summary{cursor:pointer;font:600 11px var(--f-mono);letter-sp
 #spineprog{font:10px var(--f-mono);color:var(--muted);letter-spacing:.08em;white-space:nowrap}
 @media(max-width:900px){.relrow{grid-template-columns:1fr}}
 
-.hero-img{margin:0 0 22px}.hero-img img{width:100%;max-height:420px;object-fit:cover;border-radius:14px;border:1px solid var(--line)}.hero-img figcaption{font:11px var(--f-mono);color:var(--muted);margin-top:6px}.hero-img a{color:var(--muted)}
+.hero-img{margin:0 0 22px}.hero-img img{width:100%;max-height:420px;object-fit:cover;border-radius:14px;border:1px solid var(--line)}.hero-img figcaption{font:11px var(--f-mono);color:var(--muted);margin-top:6px}.hero-img.hero-narrow img{width:auto;max-width:min(100%,var(--hw,100%));display:block;margin:0 auto}.hero-img.hero-narrow figcaption{text-align:center}.hero-img a{color:var(--muted)}
 .nodeimg img{max-height:460px;object-fit:cover}
 /* cover intro */
 .cover .byline{font:600 13px var(--f-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--text);margin:-6px 0 18px}
@@ -1128,3 +1128,8 @@ svg.pz:not(.pz-on) *{animation-play-state:paused!important}
 @keyframes pztrain{to{stroke-dashoffset:-100}}
 @media (prefers-reduced-motion:reduce){svg.pz *{animation:none!important}svg.pz .pz-train{display:none}}
 @media print{svg.diag.dg-pre .dg-m{opacity:1!important}svg.pz *{animation:none!important}svg.pz .pz-train{display:none}}
+/* ---------- the movement (movement.js) ---------- */
+.mv-tl svg{display:block;width:100%;height:auto}
+svg.diag .mv-dim{opacity:.1}
+.mv-play{margin:0 0 10px}
+.mv-say{min-height:2.6em}

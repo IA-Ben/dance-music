@@ -119,6 +119,7 @@ const NodeView = {
     const strands = n.strands.filter(s => STRANDS[s]);
     const spot = strands.map(s => `<a class="chip" href="#${s}-${n.id}" style="--c:var(${STRANDS[s].color})"><i></i>${STRANDS[s].title} strand</a>`).join('');
     const spotTree = n.type === 'genre' ? `<a class="chip" href="#genres?g=${n.id}" style="--c:var(--synth)"><i></i>On the family tree</a>` : '';
+    const deep = (window.DEEP_DIVES || {})[n.id]; const spotDeep = deep && (!window.PAGE_IDS || PAGE_IDS.includes(deep)) ? `<a class="chip" href="#${deep}" style="--c:var(--kick)"><i></i>${/^tw/.test(deep) ? 'The town, in depth' : /^cb/.test(deep) ? 'The full story of the room' : 'Read the chapter'}</a>` : '';
     const links = [['sp', 'listen', n.q], ['yt', 'watch', n.q + (n.type === 'person' ? ' DJ set' : n.type === 'club' ? ' club' : '')], ['dg', 'discogs', n.q], ['g', 'search', n.q]].filter(l => !(n.type === 'city' && l[0] === 'sp')).filter(l => !(n.type === 'machine' && l[0] === 'sp'));
     const cc = `<a class="chip dg" target="_blank" rel="noopener" href="https://commons.wikimedia.org/w/index.php?search=${encodeURIComponent(n.q)}&ns6=1"><i></i>Creative Commons images<small style="color:var(--muted)">· Wikimedia Commons</small></a>`;
     const body = document.getElementById('node-' + n.id); // optional hand-written body in HTML
@@ -145,7 +146,7 @@ const NodeView = {
     art.innerHTML = `
       <p class="kicker"><span>${TYPE_LABEL[n.type] || n.type}${n.city && NODE[n.city] ? ' · ' + NODE[n.city].title : ''}${n.years ? ' · ' + String(n.years).replace(/(\d)s\b/g, '$1<span class="lc">s</span>') : ''}</span></p>
       <h2>${n.title}</h2>
-      <div class="chips" style="margin-top:4px">${spot}${spotTree}</div>
+      <div class="chips" style="margin-top:4px">${spot}${spotTree}${spotDeep}</div>
       ${n.blurb ? `<p class="lede">${n.blurb}</p>` : ''}
       ${img}
       <div class="grid2">

@@ -21,10 +21,18 @@ const STRANDS = {
   detroit: { title: 'Detroit', color: '--rumble', spine: ['det0','det1','det2','det3','det4','det5'] },
   chicago: { title: 'Chicago', color: '--drums', spine: ['chi0','chi1','chi2','chi3','chi4','chi5'] },
   newyork: { title: 'New York', color: '--bass', spine: ['ny0','ny1','ny2','ny3','ny4','ny5'] },
+  roots: { title: 'Roots', color: '--bass', spine: ['rt0','rt1','rt2','rt3','rt4','rt5','rt6','rt7','rt8'] },
+  clubs: { title: 'The clubs', color: '--kick', spine: ['cb0','cb1','cb2','cb3','cb4','cb5','cb6','cb7','cb8','cb9','cb10','cb11','cb12','cb13','cb14','cb15'] },
+  towns: { title: 'Small towns', color: '--drums', spine: ['tw0','tw1','tw2','tw3','tw4','tw5','tw6','tw7','tw8','tw9','tw10'] },
+  edm: { title: 'EDM in America', color: '--samp', spine: ['ed0','ed1','ed2','ed3','ed4','ed5'] },
   anatomy:{ title: 'Anatomy', color: '--kick', spine: ['a0', 'a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9'] },
   mixer:  { title: 'Mixer', color: '--seq', spine: ['mixer'] }
 };
 const CHAPTER_TITLES = {
+  rt0: 'Roots', rt1: 'West and Central Africa, and the Atlantic crossing', rt2: 'Blues, ragtime and jazz', rt3: 'Gospel, R&B, soul and funk', rt4: 'Disco and the backlash', rt5: 'The machines: electro, house and techno', rt6: 'Jamaica and Britain', rt7: 'Everywhere: the music multiplies', rt8: 'Back home: the return and the reckoning',
+  cb0: 'The clubs', cb1: 'Amnesia, Ibiza', cb2: 'The Warehouse, Chicago', cb3: 'Paradise Garage, New York', cb4: 'The Fridge, Brixton', cb5: 'The Haçienda, Manchester', cb6: 'Rex Club, Paris', cb7: 'The Music Institute, Detroit', cb8: 'Space, Ibiza', cb9: 'Tresor, Berlin', cb10: 'Ministry of Sound, London', cb11: 'Yellow, Tokyo', cb12: 'Godskitchen', cb13: 'fabric, London', cb14: 'Berghain, Berlin', cb15: 'Bassiani, Tbilisi',
+  tw0: 'Small towns', tw1: 'Hastings', tw2: 'Belleville, Michigan', tw3: 'Wigan, Blackburn and Morley', tw4: 'Riccione and the Riviera', tw5: 'Kastellaun and Boom', tw6: 'Tisno', tw7: 'Ko Pha Ngan', tw8: 'Tulum', tw9: 'Itajaí and Warung', tw10: 'Ozora and Idanha-a-Nova',
+  ed0: 'EDM in America', ed1: 'The American underground, 1985–2002', ed2: 'Raves become festivals, 1997–2010', ed3: 'The boom, 2009–16', ed4: 'Harm, law and the reckoning', ed5: 'After EDM, 2017–26',
   orb0: 'The orbital', orb1: 'Out of the clubs, 1987–88', orb2: 'The summer of 1989', orb3: 'Phone lines, pirates and convoys', orb4: 'The Bright Bill and the end, 1990', orb5: 'Remembering the orbital, 1990–2026',
   lp0: 'The Love Parade', lp1: 'Friede, Freude, Eierkuchen, 1989–91', lp2: 'The techno city, 1992–96', lp3: 'A million in the Tiergarten, 1997–2003', lp4: 'Cancelled, revived, Duisburg, 2004–10', lp5: 'After the parade, 2011–26',
   det0: 'Detroit', det1: 'Before techno, 1977–85', det2: 'The Belleville Three, 1985–89', det3: 'Underground Resistance and the second wave, 1989–95', det4: 'Movement and the house heads, 1996–2010', det5: 'Detroit now, 2011–26',
@@ -104,6 +112,13 @@ const FORKS = {
 (FORKS['r1'] = FORKS['r1'] || []).push(...[['The M25 raves in full: six chapters', 'orb0', 'm25']]);
 (FORKS['l2'] = FORKS['l2'] || []).push(...[['The parties the law was aimed at → the M25 raves', 'orb3', 'm25']]);
 (FORKS['h2'] = FORKS['h2'] || []).push(...[['Detroit, the whole city', 'det0', 'detroit']]);
+/* the movement: chapters that open onto a club, a town or the roots */
+[['ldn', 'Hastings, the whole town', 'tw1', 'towns'], ['h2', 'Belleville, the small town where it began', 'tw2', 'towns'], ['det2', 'Belleville, the small town', 'tw2', 'towns'],
+ ['hh1', 'The Warehouse, in depth', 'cb2', 'clubs'], ['hh2', 'Paradise Garage, in depth', 'cb3', 'clubs'], ['hh3', 'Amnesia, in depth', 'cb1', 'clubs'], ['hh5', 'The Haçienda, in depth', 'cb5', 'clubs'],
+ ['h4', 'Tresor, in depth', 'cb9', 'clubs'], ['h6', 'Berghain, in depth', 'cb14', 'clubs'], ['h7', 'Space, in depth', 'cb8', 'clubs'], ['h8', 'Bassiani, in depth', 'cb15', 'clubs'],
+ ['r6', 'Ministry of Sound, in depth', 'cb10', 'clubs'], ['t3', 'Godskitchen, in depth', 'cb12', 'clubs'], ['ny1', 'Disco and the backlash', 'rt4', 'roots'], ['chi1', 'The Warehouse, in depth', 'cb2', 'clubs'], ['det2', 'The Music Institute, in depth', 'cb7', 'clubs'],
+ ['h0', 'Roots: where the music came from', 'rt0', 'roots'], ['house0', 'Roots: where the music came from', 'rt0', 'roots']
+].forEach(([from, label, to, strand]) => (FORKS[from] = FORKS[from] || []).push([label, to, strand]));
 (FORKS['hh1'] = FORKS['hh1'] || []).push(...[['Chicago, the whole city', 'chi0', 'chicago']]);
 
 const NODES = [];
@@ -320,7 +335,7 @@ P('sven-marquardt', 'Sven Marquardt', 'berlin', '2004–', 'Berghain door', 'Pho
 
 /* ---------- clubs ---------- */
 const C = (id, name, city, years, blurb, strands, rel = [], aliases = []) => N(id, 'club', name, { city, years, blurb, strands, rel: [['in', city], ...rel], aliases });
-C('music-institute', 'The Music Institute', 'detroit', '1988–89', 'Juice bar at 1315 Broadway, midnight to 9am, from May 1988 to 24 November 1989, when Derrick May closed it with "Strings of Life".', ['techno']);
+C('music-institute', 'The Music Institute', 'detroit', '1988–89', 'Juice bar at 1315 Broadway, midnight to 9am, from May 1988 until it closed in November 1989.', ['techno']);
 C('tresor', 'Tresor', 'berlin', '1991–', 'The Wertheim vault from 13 March 1991 to 2005; the Kraftwerk power station from 2007.', ['techno'], [], ['Tresor Berlin']);
 C('ufo', 'UFO', 'berlin', '1988–90', 'West Berlin\'s first acid/techno basement; Interfisch, Dr. Motte, Tanith.', ['techno']);
 C('e-werk', 'E-Werk', 'berlin', '1993–97', 'A substation on Wilhelmstraße, Planet\'s successor and the big room of Berlin\'s 90s.', ['techno'], [], ['Planet']);
@@ -348,7 +363,7 @@ C('womb', 'Womb', 'tokyo', '2000–', 'Shibuya; the mirrorball the size of a car
 C('bassiani', 'Bassiani', 'tbilisi', '2014–', 'Under the Dinamo stadium; raided May 2018.', ['techno']);
 C('khidi', 'Khidi', 'tbilisi', '2016–', 'The harder, industrial counterpart.', ['techno']);
 C('space', 'Space', 'ibiza', '1989–2016', 'Playa d\'en Bossa, the Terrace under the flight path; Carl Cox 2001–16; ENTER.; closed 2 October 2016.', ['techno', 'house'], [], ['Space Ibiza']);
-C('amnesia', 'Amnesia', 'ibiza', '1976–', 'A farmhouse with no roof until 1990: Alfredo\'s Balearic terrace (house), Cocoon on Mondays from 2000 (techno).', ['house', 'techno', 'rave']);
+C('amnesia', 'Amnesia', 'ibiza', '1976–', 'A farmhouse with no roof until 1991: Alfredo\'s Balearic terrace (house), Cocoon on Mondays from 1999 (techno).', ['house', 'techno', 'rave']);
 C('pacha', 'Pacha', 'ibiza', '1973–', 'Ricardo Urgell\'s club in Ibiza Town; Music On from 2012.', ['house', 'techno']);
 C('ku', 'Ku / Privilege', 'ibiza', '1978–', 'The biggest club in the world, open to the sky, a pool on the floor; Privilege from 1995.', ['house', 'rave'], [], ['Privilege']);
 C('dc10', 'DC10', 'ibiza', '1999–', 'A shed by the runway; Circoloco Mondays.', ['house']);
@@ -441,7 +456,7 @@ R('rec-planetrock', 'Afrika Bambaataa & Soulsonic Force', 'Planet Rock', 1982, n
 R('rec-clear', 'Cybotron', 'Clear', 1983, null, ['techno'], 'Atkins and Davis; the first Detroit record that sounds like what followed.', 'juan-atkins', [], 'g-electro');
 R('rec-noufos', 'Model 500', 'No UFO\'s', 1985, 'metroplex', ['techno'], 'The first techno record.', 'juan-atkins', ['tr909'], 'g-detroit');
 R('rec-nudephoto', 'Rhythim Is Rhythim', 'Nude Photo', 1987, 'transmat', ['techno'], 'The open hat on the offbeat; Detroit\'s groove.', 'derrick-may', ['tr909'], 'g-detroit');
-R('rec-strings', 'Rhythim Is Rhythim', 'Strings of Life', 1987, 'transmat', ['techno', 'rave', 'house'], 'Michael James\'s piano, a 909, no bassline; the record that closed the Music Institute and opened the Liquid Room.', 'derrick-may', ['tr909'], 'g-detroit');
+R('rec-strings', 'Rhythim Is Rhythim', 'Strings of Life', 1987, 'transmat', ['techno', 'rave', 'house'], 'Michael James\'s piano, a 909, no bassline; the record that opened the Liquid Room.', 'derrick-may', ['tr909'], 'g-detroit');
 R('rec-acidtracks', 'Phuture', 'Acid Tracks', 1987, 'trax', ['house', 'rave', 'techno'], 'The 303 twisted until it squealed; the crossing\'s founding record.', 'dj-pierre', ['tb303'], 'g-acidhouse');
 R('rec-bigfun', 'Inner City', 'Big Fun', 1988, 'kms', ['techno', 'house'], 'Detroit in the UK top ten.', 'kevin-saunderson', [], 'g-detroit');
 R('rec-technocomp', 'Various', 'Techno! The New Dance Sound of Detroit', 1988, 'network', ['techno'], 'The compilation that named the genre.', 'neil-rushton', [], 'g-detroit');
@@ -466,7 +481,7 @@ R('rec-28gun', 'A Guy Called Gerald', '28 Gun Bad Boy', 1992, null, ['rave'], 'M
 R('rec-valley', 'Origin Unknown', 'Valley of the Shadows', 1993, null, ['rave'], 'Jungle\'s anthem, by Andy C and Ant Miles, with its "31 seconds".', null, [], 'g-jungle');
 R('rec-helicopter', 'Deep Blue', 'The Helicopter Tune', 1993, 'moving-shadow', ['rave'], 'Sean O\'Keeffe\'s break; the drum & bass hinge.', null, [], 'g-jungle');
 R('rec-papua', 'The Future Sound of London', 'Papua New Guinea', 1991, null, ['rave', 'techno'], 'Lisa Gerrard and a breakbeat; the rave sublime.', null, ['sampler']);
-R('rec-hardcoreuproar', 'Together', 'Hardcore Uproar', 1990, null, ['rave'], 'Recorded with the Haçienda crowd by Jon Dasilva and Suddi Raval.', null, [], 'g-hardcore');
+R('rec-hardcoreuproar', 'Together', 'Hardcore Uproar', 1990, null, ['rave'], 'Jon Dasilva and Suddi Raval built it around Raval\'s recording of the crowd at a Hardcore Uproar party.', null, [], 'g-hardcore');
 R('rec-loaded', 'Primal Scream', 'Loaded (Weatherall remix)', 1990, null, ['house', 'rave'], 'The rock band remade for the dancefloor.', 'andrew-weatherall');
 R('rec-spiraltribe', 'Spiral Tribe', 'Forward the Revolution', 1992, null, ['rave', 'techno'], 'The sound system on vinyl; Big Life signed them after Castlemorton.', 'spiral-tribe', [], 'g-acidtek');
 R('rec-sonicdestroyer', 'X-101', 'Sonic Destroyer', 1991, 'tresor-records', ['techno'], 'Tresor 001, which put UR in the vault.', 'ur', [], 'g-berlin');
@@ -850,7 +865,7 @@ PRESS('press-last-night', 'Last Night a DJ Saved My Life', null, '1999', 'Brewst
 SOUND('sound-richard-long', 'Richard Long & Associates', 'newyork', '1970s–86', 'The Paradise Garage system designer: the Levan horns, the bass array, the sound the whole genre was built to be played on.', ['house'], ['Richard Long']);
 SOUND('sound-alex-rosner', 'Alex Rosner', 'newyork', '1960s–', 'Rosie\'s mixer for Francis Grasso and the Loft systems; the engineer who gave the DJ a cue button.', ['house']);
 SOUND('sound-turbosound', 'Turbosound', 'london', '1978–', 'Tony Andrews and John Newsham\'s company: the Glastonbury rig, the Haçienda\'s system, Funktion-One\'s parent.', ['rave', 'house']);
-SOUND('sound-tony-andrews', 'Tony Andrews', 'london', '1970s–', 'The engineer behind Turbosound and Funktion-One: horn-loading, the Resolution series, the system of Space, fabric and Berghain.', ['techno', 'house']);
+SOUND('sound-tony-andrews', 'Tony Andrews', 'london', '1970s–', 'The engineer behind Turbosound and Funktion-One: horn-loading, the Resolution series, the systems of Space and Berghain.', ['techno', 'house']);
 SOUND('sound-jah-shaka', 'Jah Shaka Sound System', 'london', '1970s–', 'The south London dub sound system whose bass taught the jungle producers what a room could do.', ['jungle']);
 SOUND('sound-spiral-tribe-rig', 'The Spiral Tribe rig', 'london', '1990–', 'The free party sound system: the Castlemorton rig, impounded after the Criminal Justice Act, rebuilt in France.', ['rave']);
 SOUND('sound-bedlam', 'Bedlam Sound System', 'london', '1990–', 'The free party crew whose rig stood beside Spiral Tribe\'s at Castlemorton; a decade of unlicensed parties.', ['rave']);
@@ -1116,6 +1131,7 @@ const CONTENTS = [
   { part: 'Forty years', sub: `one page a year, ${BOOK.from} to ${BOOK.to}, and the year before`, strands: ['years'] },
   { part: 'The music', sub: 'five strands, one for each family of sound', strands: ['techno', 'house', 'rave', 'jungle', 'trance'] },
   { part: 'The places', sub: 'follow the music from New York to Goa', strands: ['newyork', 'chicago', 'detroit', 'ibiza', 'm25', 'lovepar', 'goa'] },
+  { part: 'The movement', sub: 'where the music came from, the rooms that made it, the towns it reached', strands: ['roots', 'clubs', 'towns', 'edm'] },
   { part: 'The forces', sub: 'the machines that made it and the law that chased it', strands: ['tech', 'law'] },
   { part: 'Make it', sub: 'take a track apart, then build a set', strands: ['anatomy', 'mixer'], pages: ['make'] },
   { part: 'Explore', sub: 'cut across the whole book', groups: [
@@ -1125,7 +1141,7 @@ const CONTENTS = [
     ['about', 'About this book', ['disputes', 'credits']]
   ] }
 ];
-const STRAND_SUB = { years: `one page a year, ${BOOK.from} to ${BOOK.to}`, techno: 'Detroit, Berlin and the machine', house: 'Chicago, New York and the floor', rave: 'Britain, from the M25 to the Criminal Justice Act', jungle: 'the breakbeat at 170', trance: 'Frankfurt, Goa and the breakdown', newyork: 'the Loft, the Garage and the club kids', chicago: 'house music\'s home town, from the Warehouse to footwork', detroit: 'techno\'s home town, before and after', ibiza: 'the island, from the bohemians to the superclubs', m25: 'the orbital raves, 1987–90', lovepar: 'Berlin\'s street party, 1989–2010', goa: 'the beach parties and the trance they made', tech: 'from the bargain-bin 808 to the browser', law: 'drugs, licences and the dance floor', anatomy: 'a techno track taken apart, layer by layer', mixer: 'two decks, one clock' };
+const STRAND_SUB = { years: `one page a year, ${BOOK.from} to ${BOOK.to}`, techno: 'Detroit, Berlin and the machine', house: 'Chicago, New York and the floor', rave: 'Britain, from the M25 to the Criminal Justice Act', jungle: 'the breakbeat at 170', trance: 'Frankfurt, Goa and the breakdown', newyork: 'the Loft, the Garage and the club kids', chicago: 'house music\'s home town, from the Warehouse to footwork', detroit: 'techno\'s home town, before and after', ibiza: 'the island, from the bohemians to the superclubs', m25: 'the orbital raves, 1987–90', lovepar: 'Berlin\'s street party, 1989–2010', goa: 'the beach parties and the trance they made', tech: 'from the bargain-bin 808 to the browser', law: 'drugs, licences and the dance floor', anatomy: 'a techno track taken apart, layer by layer', mixer: 'two decks, one clock', roots: 'a history of Black music, from West Africa to the world and back', clubs: 'fifteen rooms on four continents', towns: 'from Hastings Pier to the psytrance villages', edm: 'the American scene, from the underground to the boom' };
 /* pages outside the strands, and the part of the contents they sit in */
 const STANDALONE = {}; CONTENTS.forEach(p => { (p.pages || []).forEach(id => { STANDALONE[id] = p.part; }); (p.groups || []).forEach(([, , ids]) => ids.forEach(id => { STANDALONE[id] = p.part; })); });
 /* strands in the order of the contents (folios, fallbacks and filters follow it) */

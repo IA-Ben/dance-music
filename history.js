@@ -270,7 +270,7 @@ function drawExchange(){
 function drawIbiza(){
   const svg = document.getElementById('ibizaRoad'); if (!svg) return; const W = 900, H = 200; clearSvg(svg, W, H);
   el('path', { d: 'M40 120 C 250 60, 450 160, 860 100', fill: 'none', stroke: '#3a3a48', 'stroke-width': 10, 'stroke-linecap': 'round' }, svg);
-  const stops = [[60, 'San Antonio', '(house strand: Café del Mar, Es Paradis)', 'cafe-del-mar'], [250, 'San Rafael', 'Amnesia — Cocoon 1999–2017 · Music On 2012–18', 'amnesia'], [520, 'Ibiza Town', 'Pacha — Cocoon 2018–19 · Music On 2019–', 'pacha'], [700, 'Playa d\'en Bossa', 'Space — Carl Cox 2001–16 · ENTER. 2012–15 · Hï 2017', 'space'], [850, 'the airport', 'DC10 — Circoloco (house strand)', 'dc10']];
+  const stops = [[60, 'San Antonio', '(house strand: Café del Mar, Es Paradis)', 'cafe-del-mar'], [250, 'San Rafael', 'Amnesia — Cocoon 1999–2017 and 2019 · Music On 2012–18', 'amnesia'], [520, 'Ibiza Town', 'Pacha — Cocoon 2018 · Music On 2019–', 'pacha'], [700, 'Playa d\'en Bossa', 'Space — Carl Cox 2001–16 · ENTER. 2012–15 · Hï 2017', 'space'], [850, 'the airport', 'DC10 — Circoloco (house strand)', 'dc10']];
   stops.forEach(([x, name, clubs, id]) => {
     const y = 120 - Math.sin(x / 900 * Math.PI) * 30; const g = el('g', {}, svg);
     el('circle', { cx: x, cy: y, r: 9, fill: css('--perc') }, g); el('circle', { class: 'dg-hit', cx: x, cy: y, r: 18 }, g);
@@ -420,7 +420,7 @@ const PEOPLE = [
   ['Miss Djax', 'Eindhoven', '1989–', 'Djax-Up-Beats', 'Ran one of Europe\'s first techno labels and put Chicago acid on it.', '--synth']
 ];
 const CLUBS = [
-  ['The Music Institute', 'Detroit · 1988–89', '1315 Broadway. Juice bar, no alcohol, midnight to 9am. Derrick May closed the last night on 24 November 1989 with "Strings of Life".', 'Music Institute Detroit 1315 Broadway'],
+  ['The Music Institute', 'Detroit · 1988–89', '1315 Broadway. Juice bar, no alcohol, midnight to 9am. It closed in November 1989; accounts of the last record differ.', 'Music Institute Detroit 1315 Broadway'],
   ['Amnesia (Cocoon)', 'Ibiza · 1999–2017', 'The farmhouse super-club\'s Monday night, Sven Väth\'s for eighteen summers until Cocoon moved to Pacha in 2018. The club\'s own Balearic origin is in the house strand.', 'Cocoon Amnesia Ibiza Sven Vath'],
   ['Space', 'Ibiza · 1989–2016', 'Pepe Roselló\'s Playa d\'en Bossa club; the Terrace under the flight path; Carl Cox for 15 summers; closed 2 October 2016. Hï stands there now.', 'Space Ibiza Carl Cox terrace'],
   ['Tresor', 'Berlin · 1991–', 'The Wertheim vault (13 March 1991–2005), then the Kraftwerk power station from 2007. The Detroit–Berlin alliance in a cage.', 'Tresor Berlin club vault'],
@@ -637,7 +637,7 @@ function heroFor(id){
   const art = document.querySelector(`.page[data-page="${id}"]`); if (!art || art.dataset.hero) return; art.dataset.hero = 1;
   const im = (window.IMAGES || {})['ch:' + id]; if (!im) return;
   const lede = art.querySelector('.lede'); if (!lede) return;
-  const fig = document.createElement('figure'); fig.className = 'hero-img'; fig.innerHTML = `<img src="${im.src}" alt="${imgCaption(im).replace(/"/g, '&quot;')}" loading="lazy"><figcaption>${imgCaption(im)} · ${im.author} · <a href="${im.page}" target="_blank" rel="noopener">${im.license}</a> via Wikimedia Commons</figcaption>`;
+  const fig = document.createElement('figure'); fig.className = 'hero-img'; if (im.w && im.w < 720){ fig.classList.add('hero-narrow'); fig.style.setProperty('--hw', Math.round(im.w * 1.3) + 'px'); } fig.innerHTML = `<img src="${im.src}" alt="${imgCaption(im).replace(/"/g, '&quot;')}" loading="lazy"><figcaption>${imgCaption(im)} · ${im.author} · <a href="${im.page}" target="_blank" rel="noopener">${im.license}</a> via Wikimedia Commons</figcaption>`;
   lede.insertAdjacentElement('afterend', fig);
 }
 Object.keys(CHAPTER_TITLES).forEach(id => { const prev = window.PageHooks[id]; window.PageHooks[id] = () => { if (prev) prev(); heroFor(id); }; });
