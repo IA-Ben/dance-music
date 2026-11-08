@@ -214,5 +214,6 @@ window.Dg = (() => {
     });
     return bar;
   }
-  return { mark, wire, legend, show, clear, sentence, flash, esc };
+  function dirty(svg){ CENT.delete(svg); }
+  return { mark, wire, legend, show, clear, sentence, flash, esc, dirty };
 })();
