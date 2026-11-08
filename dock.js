@@ -2,8 +2,9 @@
    DOCK — one player for the whole book, docked at the foot of the
    screen so a track keeps playing while the reader turns pages.
    Sources, in the reader's order of preference (the ♪ service button):
-   YouTube and Spotify ids from media-ids.js; Apple Music, Deezer and
-   Bandcamp ids looked up when the site is built (window.STREAM_IDS);
+   YouTube and Spotify ids from media-ids.js; Apple Music and Deezer ids
+   looked up when the site is built (window.STREAM_IDS); Bandcamp is for
+   buying a release, so it is a link on record pages, never a player;
    SoundCloud where a page gives a track URL. Web edition only: the
    claude.ai edition blocks other sites' players, so links stay links.
    =================================================================== */
@@ -12,7 +13,7 @@ window.Dock = {
   ok(){ return !!(window.SpotifyEmbed && SpotifyEmbed.enabled()); },
   esc(s){ return String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]); },
   ids(q){ q = String(q || '').trim(); const S = window.STREAM_IDS || {}; return S[q] || S[q.toLowerCase()] || {}; },
-  NAMES: { youtube: 'YouTube', spotify: 'Spotify', apple: 'Apple Music', deezer: 'Deezer', bandcamp: 'Bandcamp', soundcloud: 'SoundCloud' },
+  NAMES: { youtube: 'YouTube', spotify: 'Spotify', apple: 'Apple Music', deezer: 'Deezer', soundcloud: 'SoundCloud' },
   /* every source this track can play from, the reader's chosen service first */
   sources(it){
     const q = it.q, S = this.ids(q), out = [];
@@ -20,7 +21,6 @@ window.Dock = {
     const yt = window.SpotifyEmbed ? SpotifyEmbed.ytFor(q) : null; if (yt) out.push(['youtube', `https://www.youtube-nocookie.com/embed/${yt}?autoplay=1&rel=0&playsinline=1&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`, 0, yt]);
     if (S.apple && S.apple.trackId){ const slug = String(S.apple.collection || 'album').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'album'; out.push(['apple', `https://embed.music.apple.com/gb/album/${slug}/${S.apple.collectionId}?i=${S.apple.trackId}`, 175]); }
     if (S.deezer && S.deezer.id) out.push(['deezer', `https://widget.deezer.com/widget/dark/track/${S.deezer.id}`, 150]);
-    if (S.bandcamp && S.bandcamp.id) out.push(['bandcamp', `https://bandcamp.com/EmbeddedPlayer/${S.bandcamp.type === 'a' ? 'album' : 'track'}=${S.bandcamp.id}/size=large/bgcol=111111/linkcol=f5c542/tracklist=false/artwork=small/transparent=true/`, 120]);
     if (it.soundcloud || S.soundcloud) out.push(['soundcloud', `https://w.soundcloud.com/player/?url=${encodeURIComponent(it.soundcloud || S.soundcloud)}&auto_play=true&visual=false&color=%23f5c542`, 120]);
     const pref = window.Stream ? Stream.get() : 'youtube'; const map = { ytmusic: 'youtube' }; const want = map[pref] || pref;
     out.sort((a, b) => (b[0] === want) - (a[0] === want) || (a[0] === 'youtube' ? -1 : b[0] === 'youtube' ? 1 : 0));

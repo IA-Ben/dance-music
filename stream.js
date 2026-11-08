@@ -10,7 +10,6 @@ window.Stream = {
     ['youtube', 'YouTube', q => 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q), true],
     ['tidal', 'Tidal', q => 'https://listen.tidal.com/search?q=' + encodeURIComponent(q), false],
     ['deezer', 'Deezer', q => 'https://www.deezer.com/search/' + encodeURIComponent(q), true],
-    ['bandcamp', 'Bandcamp', q => 'https://bandcamp.com/search?q=' + encodeURIComponent(q), false],
     ['soundcloud', 'SoundCloud', q => 'https://soundcloud.com/search?q=' + encodeURIComponent(q), false],
     ['beatport', 'Beatport', q => 'https://www.beatport.com/search?q=' + encodeURIComponent(q), false],
     ['amazon', 'Amazon Music', q => 'https://music.amazon.com/search/' + encodeURIComponent(q), false]

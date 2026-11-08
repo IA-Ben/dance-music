@@ -1170,3 +1170,4 @@ body.docked footer{padding-bottom:120px}
 .crate-tools select{margin-left:6px}
 [hidden]{display:none!important}
 .pt-yl{font-size:.85em;white-space:nowrap}
+.crate-buy{font:11px var(--f-mono);color:var(--muted);margin:0 4px}
