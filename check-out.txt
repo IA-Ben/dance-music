@@ -1,0 +1,74 @@
+{
+ "neural_ok": true,
+ "stream_ids": 249,
+ "dock_sample": [
+  [
+   "Kraftwerk Autobahn",
+   [
+    "youtube",
+    "apple",
+    "deezer"
+   ]
+  ],
+  [
+   "Kraftwerk — Autobahn",
+   [
+    "apple",
+    "deezer"
+   ]
+  ],
+  [
+   "Donna Summer I Feel Love",
+   [
+    "youtube",
+    "apple",
+    "deezer"
+   ]
+  ],
+  [
+   "Donna Summer — I Feel Love",
+   [
+    "apple",
+    "deezer"
+   ]
+  ],
+  [
+   "Kraftwerk Trans-Europe Express",
+   [
+    "youtube",
+    "apple",
+    "deezer"
+   ]
+  ],
+  [
+   "Kraftwerk — Trans-Europe Express",
+   [
+    "apple",
+    "deezer"
+   ]
+  ]
+ ],
+ "dock_urls": {
+  "youtube": "https://www.youtube-nocookie.com/embed/x-G28iyPtz0?autoplay=1&rel=0&playsinline=1&enablejsapi=1&origin=https%3A%2F%2Fia-ben.github.io",
+  "apple": "https://embed.music.apple.com/gb/album/autobahn-remastered/726154713?i=726155181",
+  "deezer": "https://widget.deezer.com/widget/dark/track/4262733"
+ },
+ "embed_apple": [
+  200,
+  null,
+  "default-src 'self' https://*.apple.com musics: itmss://*.apple.com; img-src 'self' https://*.apple.com https://*.mzstatic.com artwork: data:; style-src 'self' h"
+ ],
+ "embed_deezer": [
+  200,
+  null,
+  ""
+ ],
+ "neural": {
+  "loadMs": 3726,
+  "genMs": 6312,
+  "seconds": 3.77,
+  "rate": 24000
+ },
+ "neural_wall_s": 10.0,
+ "errors": []
+}
