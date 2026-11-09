@@ -117,14 +117,13 @@ function buildMentions(){
 
 /* where the book sends you, by what a page is:
    listen — the reader's streaming service (the dock plays it where it can); watch — YouTube;
-   mixes, radio shows and new artists — SoundCloud; buy a release — Bandcamp, and Beatport for DJ copies of the dance-era records;
+   mixes and radio shows — SoundCloud; buy a release — Bandcamp, and Beatport for DJ copies of the dance-era records;
    the catalogue and second-hand vinyl — Discogs */
 function platformChips(n){
   const yr = +((String(n.years || '').match(/\d{4}/) || [0])[0]); const out = [];
   if (n.type === 'record'){ out.push(['bc', 'buy', n.q]); if (yr >= 1985) out.push(['bp', 'buy for DJs', n.q]); }
   if (n.type === 'set') out.push(['sc', 'the mix', n.q]);
   if (n.type === 'station') out.push(['sc', 'shows', n.title]);
-  if ((n.type === 'person' || n.type === 'collective') && yr >= 2010) out.push(['sc', 'new music', n.title]);
   return out;
 }
 /* ---------- node page ---------- */
