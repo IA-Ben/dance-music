@@ -1,5 +1,5 @@
 /* ===================================================================
-   GENRE MAP — the family tree of the book's forty genres.
+   GENRE MAP — the family tree of the book's genres, by the families in build/families.js.
    Time runs left to right; each genre is a bar from its first year to
    its last (or to now); lines show what grew out of what. Tap a genre
    to light up its line of descent, hear its pattern and open its page;
@@ -11,15 +11,9 @@ window.GenreMap = (() => {
   const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const col = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim() || '#999';
   const reduce = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  /* families in reading order; rows inside each keep children near their parents */
-  const FAMILIES = [
-    ['techno', 'Techno', ['g-electro', 'g-detroit', 'g-bleep', 'g-idm', 'g-berlin', 'g-schranz', 'g-minimal', 'g-berghain', 'g-dub', 'g-hypnotic', 'g-bham', 'g-industrial', 'g-acidtek', 'g-peak', 'g-hard']],
-    ['house', 'House', ['g-house', 'g-deephouse', 'g-garage', 'g-ukgarage', 'g-frenchtouch', 'g-techhouse', 'g-balearic', 'g-acidhouse']],
-    ['rave', 'Rave', ['g-newbeat', 'g-hardcore', 'g-happy', 'g-gabber']],
-    ['jungle', 'Jungle & D&B', ['g-jungle', 'g-raggajungle', 'g-jumpup', 'g-intelligent', 'g-liquid', 'g-techstep', 'g-neurofunk']],
-    ['trance', 'Trance', ['g-trance', 'g-frankfurt-trance', 'g-uplifting', 'g-hardtrance', 'g-goa', 'g-progressive']]
-  ];
-  const Y0 = 1975, Y1 = (window.BOOK && BOOK.to) || 2027, W = 1000, L = 16, R = 16, ROW = 22, GAP = 26, TOP = 34;
+  /* families, their order and their genres come from build/families.js (the cover graph uses the same table); rows inside each keep children near their parents */
+  const famColor = f => (Families.byKey[f] || Families.across).color;
+  const Y0 = 1966, Y1 = (window.BOOK && BOOK.to) || 2027, W = 1000, L = 16, R = 16, ROW = 22, GAP = 26, TOP = 34;
   const x = y => L + (y - Y0) * (W - L - R) / (Y1 - Y0);
   /* "1985–" → [1985, now]; "1989–91" → [1989, 1991]; "1981 / 2010s" → two spans */
   function spans(years){
@@ -35,27 +29,28 @@ window.GenreMap = (() => {
   function build(box){
     if (!box || box.dataset.done) return; box.dataset.done = 1;
     const G = {}; NODES.filter(n => n.type === 'genre').forEach(n => { G[n.id] = n; });
+    const FAMILIES = Families.all.map(f => [f.k, f.label, Families.order(f.k)]).filter(f => f[2].length);
     const parents = {}, kids = {};
-    Object.values(G).forEach(n => { parents[n.id] = n.rel.filter(r => r[0] === 'from' && G[r[1]]).map(r => r[1]); });
+    Object.values(G).forEach(n => { parents[n.id] = Families.parents(n.id).filter(p => G[p]); });
     Object.entries(parents).forEach(([c, ps]) => ps.forEach(p => { (kids[p] = kids[p] || []).push(c); }));
     const rows = {}; let yy = TOP; const famOf = {}; const famTop = [];
     FAMILIES.forEach(([f, label, ids]) => { famTop.push([f, label, yy]); yy += 16; ids.filter(id => G[id]).forEach(id => { rows[id] = yy + ROW / 2; famOf[id] = f; yy += ROW; }); yy += GAP - 10; });
-    Object.keys(G).filter(id => !rows[id]).forEach(id => { rows[id] = yy + ROW / 2; famOf[id] = (G[id].strands || ['techno'])[0]; yy += ROW; });
+    Object.keys(G).filter(id => !rows[id]).forEach(id => { rows[id] = yy + ROW / 2; famOf[id] = (Families.of(id) || {}).fam || 'across'; yy += ROW; });
     const H = yy + 6;
-    const colour = id => col((STRANDS[famOf[id]] || STRANDS.techno).color);
+    const colour = id => col(famColor(famOf[id]));
     box.innerHTML = `<div class="gm-bar">
         <button class="play gm-play">Play the tree</button>
         <label class="gm-snd"><input type="checkbox" checked> with sound</label>
-        <span class="gm-filters">${FAMILIES.map(([f, label]) => `<button class="gm-f on" data-f="${f}" style="--c:var(${(STRANDS[f] || STRANDS.techno).color})"><i></i>${label}</button>`).join('')}</span>
+        <span class="gm-filters">${FAMILIES.map(([f, label]) => `<button class="gm-f on" data-f="${f}" style="--c:var(${famColor(f)})"><i></i>${label}</button>`).join('')}</span>
       </div>
       <div class="gm-scroll"><svg class="diag gm-svg" viewBox="0 0 ${W} ${H}" role="group" aria-label="The genre family tree, ${Y0} to ${Y1}"></svg></div>
       <div class="gm-card" aria-live="polite"><p class="cap">Tap a genre to follow its line of descent, hear its pattern and open its page. Lines run from a genre to the ones that grew out of it.</p></div>`;
     const svg = box.querySelector('svg');
     /* decades */
     const grid = mk('g', { class: 'gm-grid' }, svg);
-    for (let d = 1980; d <= Y1; d += 10){ mk('line', { x1: x(d), y1: TOP - 10, x2: x(d), y2: H - 4 }, grid); const t = mk('text', { x: x(d), y: TOP - 16, 'text-anchor': 'middle' }, grid); t.textContent = d; }
+    for (let d = Math.ceil(Y0 / 10) * 10; d <= Y1; d += 10){ mk('line', { x1: x(d), y1: TOP - 10, x2: x(d), y2: H - 4 }, grid); const t = mk('text', { x: x(d), y: TOP - 16, 'text-anchor': 'middle' }, grid); t.textContent = d; }
     const now = mk('line', { class: 'gm-now', x1: x(Y1), y1: TOP - 10, x2: x(Y1), y2: H - 4 }, grid);
-    famTop.forEach(([f, label, top]) => { const c = col((STRANDS[f] || STRANDS.techno).color); mk('line', { class: 'gm-famline', x1: L, x2: W - R, y1: top + 6, y2: top + 6, stroke: c }, svg); const t = mk('text', { class: 'gm-fam', x: L, y: top + 10, fill: c }, svg); t.textContent = label.toUpperCase(); });
+    famTop.forEach(([f, label, top]) => { const c = col(famColor(f)); mk('line', { class: 'gm-famline', x1: L, x2: W - R, y1: top + 6, y2: top + 6, stroke: c }, svg); const t = mk('text', { class: 'gm-fam', x: L, y: top + 10, fill: c }, svg); t.textContent = label.toUpperCase(); });
     /* lines of descent */
     const edges = mk('g', { class: 'gm-edges' }, svg); const E = [];
     Object.entries(parents).forEach(([c, ps]) => ps.forEach(p => {
@@ -83,7 +78,7 @@ window.GenreMap = (() => {
       Object.entries(nodes).forEach(([k, o]) => { o.a.classList.toggle('lit', on.has(k)); o.a.classList.toggle('me', k === id); });
       E.forEach(e => e.classList.toggle('lit', on.has(e.dataset.a) && on.has(e.dataset.b) && ((up.has(e.dataset.a) || e.dataset.a === id) && (up.has(e.dataset.b) || e.dataset.b === id) || (down.has(e.dataset.b) && (down.has(e.dataset.a) || e.dataset.a === id)))));
     };
-    const chip = id => `<a class="chip gm-jump" href="#${id}" data-id="${id}" style="--c:var(${(STRANDS[famOf[id]] || STRANDS.techno).color})"><i></i>${esc(G[id].title)}</a>`;
+    const chip = id => `<a class="chip gm-jump" href="#${id}" data-id="${id}" style="--c:var(${famColor(famOf[id])})"><i></i>${esc(G[id].title)}</a>`;
     const card = box.querySelector('.gm-card');
     const show = id => {
       const n = G[id]; const city = n.city && NODE[n.city] ? NODE[n.city].title : '';
@@ -128,7 +123,7 @@ window.GenreMap = (() => {
     box.querySelector('.gm-play').onclick = () => {
       if (state.timer){ stopTree(); if (window.SoundBus) try { SoundBus.all(); } catch (e) {} return; }
       state.pinned = null; light(null); svg.classList.add('gm-playing'); head.setAttribute('opacity', 1); box.querySelector('.gm-play').textContent = 'Stop';
-      const sound = box.querySelector('.gm-snd input').checked; let yr = 1979; const step = reduce() ? 1 : 0.25; const ms = reduce() ? 600 : 160;
+      const sound = box.querySelector('.gm-snd input').checked; let yr = Y0 + 1; const step = reduce() ? 1 : 0.25; const ms = reduce() ? 600 : 160;
       const sc = box.querySelector('.gm-scroll'); let lastSound = 0;
       state.timer = setInterval(() => {
         const before = yr; yr += step; reveal(yr);

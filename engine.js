@@ -42,7 +42,9 @@ function pageFlipSound(){
 }
 function goTo(delta){ const sp = STRANDS[CURSTRAND].spine; const i = sp.indexOf(CUR); if (i < 0){ if (delta < 0) history.back(); return; } const n = sp[i + delta]; if (n) location.hash = '#' + CURSTRAND + '-' + n; }
 function route(){
-  const { id, strand: hinted } = parseHash(); const strand = strandFor(id, hinted);
+  const { id, strand: hinted } = parseHash();
+  if (CUR && id === CUR && !hinted && window.PageHooks && PageHooks[id + '?']){ PageHooks[id + '?'](); return; }   /* only the ?params changed on the same page (the cover graph's view): let the page move, don't turn it */
+  const strand = strandFor(id, hinted);
   if (FLIPPING){ PENDING = location.hash; return; }
   const isNode = !pageEl(id) && !!NODE[id]; const inEl = isNode ? pageEl('node') : pageEl(id); const outEl = CUR ? (pageEl(CUR) || pageEl('node')) : null;
   const sp = STRANDS[strand].spine; const idx = sp.indexOf(id); const fromIdx = CUR ? sp.indexOf(CUR) : -1;

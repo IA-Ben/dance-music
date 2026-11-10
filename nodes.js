@@ -307,34 +307,349 @@ window.PageHooks.year = () => YearView.build();
 window.PageHooks.explore = () => Explore.build();
 
 /* ---------- cover: the whole book as a graph ---------- */
-function drawCoverGraph(){
-  const svg = document.getElementById('coverGraph'); if (!svg || svg.dataset.drawn) return; svg.dataset.drawn = 1;
-  const W = 900, H = 610, cx = 450, cy = 300; const rOf = y => y < 1980 ? 40 + (y - 1920) / 60 * 50 : 90 + (y - 1980) / 46 * 160; clearSvg(svg, W, H);
-  const order = ['techno', 'house', 'rave', 'jungle', 'trance']; const span = Math.PI * 2 / order.length;
+/* moved to build/covergraph.js (assembled onto the end of this file): families from build/families.js, zoom, branching and the address */
+
+/* ===================================================================
+   COVER GRAPH — the whole book as a tree you can open.
+   The centre is the book; each musical family (build/families.js) is a
+   branch and a sector; each genre page is a limb off its family at the
+   year it began, joined to what it grew out of; every other page is a dot
+   placed by family and by year. Drawn on a canvas so it stays quick while
+   zooming. State lives in the address: #home?f=house&g=g-acidhouse&n=phuture
+   =================================================================== */
+window.CoverGraph = (() => {
+  const TAU = Math.PI * 2;
+  const reduce = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const CC = {}; const col = v => CC[v] || (CC[v] = getComputedStyle(document.documentElement).getPropertyValue(v).trim() || '#9a9aae');
+  const rgba = (c, a) => { const m = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})/i.exec(c); return m ? `rgba(${parseInt(m[1], 16)},${parseInt(m[2], 16)},${parseInt(m[3], 16)},${a})` : c; };
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const hash = s => { let h = 7; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 1000003; return h / 1000003; };
-  const pos = {};
-  NODES.forEach(n => { const st = order.indexOf((n.strands || [])[0]); const si = st < 0 ? 0 : st; const yy = YearView.years(n); const yr = yy ? Math.min(2026, Math.max(1920, yy[0])) : null; const r = yr ? rOf(yr) + (hash(n.id + 'r') - .5) * 10 : 262; const a = -Math.PI / 2 + si * span + 0.06 + hash(n.id) * (span - 0.12); pos[n.id] = [cx + Math.cos(a) * r, cy + Math.sin(a) * r, n]; });
-  [1950, 1980, 1990, 2000, 2010, 2020].forEach(y => { const r = rOf(y); el('circle', { cx, cy, r, fill: 'none', stroke: '#1e1e28' }, svg); text(svg, cx - 4, cy - r + 9, y, { 'font-size': 8, fill: '#6a6a80', 'text-anchor': 'end' }); });
-  order.forEach((s, i) => { const a = -Math.PI / 2 + i * span; el('line', { x1: cx, y1: cy, x2: cx + Math.cos(a) * 275, y2: cy + Math.sin(a) * 275, stroke: '#1e1e28' }, svg); const am = a + span / 2; const first = (STRANDS[s].spine || [])[0]; const link = el('a', { href: '#' + first, 'aria-label': STRANDS[s].title + ' strand: start reading' }, svg); text(link, cx + Math.cos(am) * 278, cy + Math.sin(am) * 278 + 4, STRANDS[s].title.toUpperCase(), { 'text-anchor': 'middle', 'font-size': 9, 'letter-spacing': '.14em', fill: css(STRANDS[s].color) }); });
-  const g = el('g', { opacity: .18, class: 'cg-edges' }, svg); let links = 0;
-  NODES.forEach(n => n.rel.forEach(([r, t]) => { const q = pos[t]; if (!q || r === 'in') return; links++; const p = pos[n.id]; el('line', { x1: p[0], y1: p[1], x2: q[0], y2: q[1], stroke: css(TYPE_COLOR[n.type] || '--text'), 'stroke-width': .6 }, g); }));
-  const hl = el('g', { 'pointer-events': 'none' }, svg); /* the lit links of the dot under the pointer */
-  const dots = {};
-  NODES.forEach(n => { const [x, y] = pos[n.id]; if (n.type === 'city') return; const deg = n.rel.length + ((BACK[n.id] || []).length); const a = el('a', { href: '#' + n.id, 'aria-label': n.title + ', ' + (TYPE_LABEL[n.type] || n.type) + (n.years ? ', ' + n.years : '') }, svg); a.dataset.dgk = n.type; a.style.setProperty('--dgd', Math.round(Math.max(0, Math.hypot(x - cx, y - cy) - 40) / 225 * 1500) + 'ms'); el('circle', { cx: x, cy: y, r: Math.min(6, 1.6 + Math.sqrt(deg) * .55), fill: css(TYPE_COLOR[n.type] || '--text'), opacity: .9 }, a); dots[n.id] = a; });
-  const near = id => { const s = new Set(); (NODE[id].rel || []).forEach(([r, t]) => { if (pos[t] && r !== 'in') s.add(t); }); (BACK[id] || []).forEach(([, src]) => { if (pos[src]) s.add(src); }); return [...s]; };
-  Dg.wire(svg, { reach: 16, onlight(m){ while (hl.firstChild) hl.removeChild(hl.firstChild); if (!m || !m.dataset.dgk) return; const id = m.getAttribute('href').slice(1); const p = pos[id]; if (!p) return; const c = css(TYPE_COLOR[NODE[id].type] || '--text'); near(id).forEach(t => { const q = pos[t]; el('line', { x1: p[0], y1: p[1], x2: q[0], y2: q[1], stroke: c, 'stroke-width': 1.1, opacity: .85 }, hl); if (dots[t]) dots[t].classList.add('dg-lit'); }); } });
-  Object.entries(dots).forEach(([id, a]) => Dg.mark(a, () => { const n = NODE[id]; const k = near(id).length; return { id, meta: [TYPE_LABEL[n.type] || n.type, n.years, k + (k === 1 ? ' link' : ' links')].filter(Boolean).join(' · ') }; }));
-  const types = ['person', 'club', 'record', 'label', 'event', 'set', 'genre', 'machine', 'station', 'collective', 'border'];
-  const bar = Dg.legend(svg, types.filter(t => TYPE_LABEL[t]).map(t => [t, TYPE_LABEL[t], css(TYPE_COLOR[t])]), 'after');
-  /* light up a name */
-  const find = document.createElement('input'); find.type = 'search'; find.className = 'dg-findbox'; find.placeholder = 'Light up a name…'; find.setAttribute('aria-label', 'Light up pages on the graph by name');
-  bar.appendChild(find);
   const norm = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[‘’“”'"]/g, '').toLowerCase();
-  let hits = [];
-  find.addEventListener('input', () => { const q = norm(find.value.trim()); svg.querySelectorAll('.dg-lit').forEach(e => e.classList.remove('dg-lit')); hits = []; if (q.length < 2){ svg.classList.remove('dg-hl'); return; } Object.entries(dots).forEach(([id, a]) => { const n = NODE[id]; if ([n.title, ...(n.aliases || [])].some(t => norm(t).includes(q))){ a.classList.add('dg-lit'); hits.push(id); } }); svg.classList.toggle('dg-hl', hits.length > 0); });
-  find.addEventListener('keydown', e => { if (e.key === 'Enter' && hits.length){ e.preventDefault(); location.hash = '#' + hits[0]; } if (e.key === 'Escape'){ find.value = ''; find.dispatchEvent(new Event('input')); } });
-  const count = t => NODES.filter(n => n.type === t).length; const chapters = Object.values(STRANDS).reduce((s, v) => s + v.spine.length, 0);
-  const st = document.getElementById('coverStats'); if (st) st.innerHTML = `<b>${NODES.length}</b> pages · ${count('person')} people · ${count('club')} clubs and rooms · ${count('record')} records · ${count('label')} labels · ${count('event')} events · ${count('set')} landmark sets · ${count('machine')} machines · ${count('genre')} genres · <b>${NODES.reduce((s, n) => s + n.rel.length, 0)}</b> links, each followed both ways · ${chapters} chapters across ${Object.keys(STRANDS).length} strands · ${typeof GENRE_NAMES !== 'undefined' ? GENRE_NAMES.length : ''} sound presets. Placed by strand and by year, rings mark 1950, 1980, 1990, 2000, 2010 and 2020; dots scale with how connected a page is. Point at a dot to light its links, click to open it; the chips switch kinds of page off and on.`;
-}
-(() => { const prev = window.PageHooks.home; window.PageHooks.home = () => { if (prev) prev(); drawCoverGraph(); }; })();
-if (!location.hash || location.hash === '#home') setTimeout(drawCoverGraph, 50);
+  /* years run outward: 1920–80 squeezed into the inner ring, 1980–2026 across the rest */
+  const R0 = 0.1, R_EDGE = 1, R_NOYEAR = 0.965;
+  const rOf = y => y < 1980 ? R0 + Math.max(0, y - 1920) / 60 * 0.2 : 0.3 + (Math.min(y, 2026) - 1980) / 46 * 0.62;
+  const TYPES = ['person', 'club', 'record', 'label', 'event', 'set', 'genre', 'machine', 'sound', 'station', 'collective', 'shop', 'press', 'law', 'border'];
+  const startYear = n => { const yy = YearView.years(n); return yy ? Math.min(2026, Math.max(1920, yy[0])) : null; };
+
+  let M = null, V = null, box, cv, ctx, stage, W = 0, H = 0, DPR = 1, base = 1;
+  const st = { f: null, g: null, n: null }; let hover = null, cursor = null, lit = new Set(), offTypes = new Set(), flyAnim = 0, wantFly = false;
+  const stats = { frames: [], last: 0 };
+
+  /* ---------- the model: sectors, limbs, dots ---------- */
+  function build(){
+    const F = Families; F.compute();
+    const nodes = NODES.filter(n => n.type !== 'city' && F.of(n.id));
+    const byFam = {}; F.all.forEach(f => { byFam[f.k] = []; }); nodes.forEach(n => byFam[F.of(n.id).fam].push(n));
+    /* genre marks per family, in tree order: what grew out of what sits side by side */
+    const marks = {};
+    F.all.forEach(f => {
+      if (f.k === 'across'){ marks[f.k] = []; return; }
+      const gs = F.genres(f.k).filter(id => startYear(NODE[id]) != null); const inF = new Set(gs);
+      const kids = {}; gs.forEach(id => F.parents(id).filter(p => inF.has(p)).forEach(p => (kids[p] = kids[p] || []).push(id)));
+      const yr = id => startYear(NODE[id]); const seen = new Set(), out = [];
+      const walk = id => { if (seen.has(id)) return; seen.add(id); out.push(id); (kids[id] || []).sort((a, b) => yr(a) - yr(b)).forEach(walk); };
+      gs.filter(id => !F.parents(id).some(p => inF.has(p))).sort((a, b) => yr(a) - yr(b)).forEach(walk); gs.forEach(walk);
+      marks[f.k] = out;
+    });
+    /* sector widths: by size, softened so small families keep room for their limbs */
+    const wt = k => Math.pow(Math.max(40, byFam[k].length + 14 * marks[k].length), 0.5);
+    const tot = F.all.reduce((s, f) => s + wt(f.k), 0); const sec = {}; let a = -Math.PI / 2;
+    F.all.forEach(f => { const span = wt(f.k) / tot * TAU; sec[f.k] = { k: f.k, a0: a, a1: a + span, mid: a + span / 2, n: byFam[f.k].length, color: col(f.color) }; a += span; });
+    /* the neutral sector is split into its groups */
+    const groups = {}; { const s = sec.across; const cnt = {}; byFam.across.forEach(n => { const g = F.of(n.id).group || 'venues'; cnt[g] = (cnt[g] || 0) + 1; }); let b = s.a0; const all = Families.across.groups.map(x => x[0]).filter(g => cnt[g]); const t = all.reduce((x, g) => x + cnt[g], 0); all.forEach(g => { const sp = cnt[g] / t * (s.a1 - s.a0); groups[g] = { a0: b, a1: b + sp, mid: b + sp / 2, n: cnt[g] }; b += sp; }); }
+    const P = {}; /* genre marks */
+    Object.entries(marks).forEach(([k, ids]) => { const s = sec[k], pad = Math.min(0.06, (s.a1 - s.a0) * 0.1), span = s.a1 - s.a0 - 2 * pad;
+      ids.forEach((id, i) => { const ang = s.a0 + pad + (i + 0.5) / ids.length * span; const r = rOf(startYear(NODE[id])); P[id] = { id, k, a: ang, r, x: Math.cos(ang) * r, y: Math.sin(ang) * r, mark: true, spread: Math.min(0.11, span / ids.length * 0.48) }; }); });
+    const D = []; const idx = {};
+    nodes.forEach(n => {
+      if (P[n.id]){ idx[n.id] = P[n.id]; return; }
+      const o = F.of(n.id); const s = sec[o.fam]; const y = startYear(n);
+      let ang; const m = o.sub && P[o.sub] && P[o.sub].k === o.fam ? P[o.sub] : null;
+      if (m) ang = Math.max(s.a0 + 0.01, Math.min(s.a1 - 0.01, m.a + (hash(n.id) - 0.5) * 2 * m.spread));
+      else { const g = o.fam === 'across' ? groups[o.group || 'venues'] : s; const pad = Math.min(0.03, (g.a1 - g.a0) * 0.06); ang = g.a0 + pad + hash(n.id) * (g.a1 - g.a0 - 2 * pad); }
+      const r = y != null ? rOf(y) + (hash(n.id + 'r') - 0.5) * 0.026 : R_NOYEAR + (hash(n.id + 'r') - 0.5) * 0.03;
+      const deg = n.rel.length + (BACK[n.id] || []).length;
+      const d = { id: n.id, n, k: o.fam, a: ang, r, x: Math.cos(ang) * r, y: Math.sin(ang) * r, deg, rad: Math.min(6, 1.6 + Math.sqrt(deg) * 0.55), color: col(TYPE_COLOR[n.type] || '--text'), type: n.type };
+      D.push(d); idx[n.id] = d;
+    });
+    Object.values(P).forEach(p => { const n = NODE[p.id]; p.n = n; p.deg = n.rel.length + (BACK[n.id] || []).length; p.type = 'genre'; p.color = sec[p.k].color; });
+    /* links (a page's "in" link to its city is not drawn: cities are not dots) */
+    const E = [], nb = {}; const link = (a, b) => { if (a === b || !idx[a] || !idx[b]) return; (nb[a] = nb[a] || new Set()).add(b); (nb[b] = nb[b] || new Set()).add(a); };
+    nodes.forEach(n => n.rel.forEach(([r, t]) => { if (r === 'in' || !idx[t]) return; link(n.id, t); E.push([idx[n.id], idx[t], col(TYPE_COLOR[n.type] || '--text')]); }));
+    /* limbs: from each genre's parents, or from its family's branch */
+    const L = []; Object.values(P).forEach(p => { const ps = Families.parents(p.id).filter(q => P[q]); if (ps.length) ps.forEach(q => L.push([P[q], p, true])); else L.push([null, p, false]); });
+    M = { F, nodes, byFam, marks, sec, groups, P, D, idx, E, nb, L };
+  }
+
+  /* ---------- view ---------- */
+  const toS = (x, y) => [x * V.s + V.ox, y * V.s + V.oy];
+  const toW = (x, y) => [(x - V.ox) / V.s, (y - V.oy) / V.s];
+  const K = () => V.s / base;
+  function clampV(v){
+    v.s = Math.max(base * 0.85, Math.min(base * 60, v.s));
+    const cx = (W / 2 - v.ox) / v.s, cy = (H / 2 - v.oy) / v.s, d = Math.hypot(cx, cy), lim = 1.1;
+    if (d > lim){ v.ox = W / 2 - cx / d * lim * v.s; v.oy = H / 2 - cy / d * lim * v.s; }
+    return v;
+  }
+  const fitBox = (x0, y0, x1, y1, pad = 0.08, maxK = 12) => { const bw = (x1 - x0) * (1 + pad * 2), bh = (y1 - y0) * (1 + pad * 2); const s = Math.min(base * maxK, Math.min(W / bw, H / bh)); return clampV({ s, ox: W / 2 - (x0 + x1) / 2 * s, oy: H / 2 - (y0 + y1) / 2 * s }); };
+  const bookView = () => ({ s: base, ox: W / 2, oy: H / 2 });
+  function sectorView(k){ /* fit the family's own dots and styles, with its label */ const s = M.sec[k]; const pts = [...M.byFam[k].map(n => M.idx[n.id]), ...M.marks[k].map(id => M.P[id])].map(d => [d.x, d.y]); pts.push([Math.cos(s.mid) * 1.1, Math.sin(s.mid) * 1.1]);
+    return fitBox(Math.min(...pts.map(p => p[0])), Math.min(...pts.map(p => p[1])), Math.max(...pts.map(p => p[0])), Math.max(...pts.map(p => p[1])), 0.06, 6); }
+  function genreView(g){ const pts = [M.P[g], ...members(g).map(id => M.idx[id]).filter(d => d && d.k === M.P[g].k)]; const xs = pts.map(p => p.x), ys = pts.map(p => p.y); let x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys); const m = 0.12; if (x1 - x0 < m){ const c = (x0 + x1) / 2; x0 = c - m / 2; x1 = c + m / 2; } if (y1 - y0 < m){ const c = (y0 + y1) / 2; y0 = c - m / 2; y1 = c + m / 2; } return fitBox(x0, y0, x1, y1, 0.12, 10); }
+  function nodeView(id, from){ const d = M.idx[id]; const s = Math.max(from.s, base * 3.2); return clampV({ s, ox: W / 2 - d.x * s, oy: H / 2 - d.y * s }); }
+  function targetView(){
+    let v = st.g ? genreView(st.g) : st.f ? sectorView(st.f) : bookView();
+    if (st.n && M.idx[st.n]){ const d = M.idx[st.n]; const [x, y] = toS(d.x, d.y); const onScreen = x > 20 && x < W - 20 && y > 20 && y < H - 20 && K() >= 1.4; if (wantFly || !onScreen){ const vv = st.g || st.f ? v : V; v = nodeView(st.n, vv); } else v = V; }
+    wantFly = false; return v;
+  }
+  function fly(to, ms){
+    cancelAnimationFrame(flyAnim); if (reduce() || !ms || !V){ V = to; queue(); return; }
+    const from = { ...V }; const wc0 = [(W / 2 - from.ox) / from.s, (H / 2 - from.oy) / from.s], wc1 = [(W / 2 - to.ox) / to.s, (H / 2 - to.oy) / to.s]; const t0 = performance.now();
+    const step = now => { const t = Math.min(1, (now - t0) / ms), e = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; const s = Math.exp(Math.log(from.s) + (Math.log(to.s) - Math.log(from.s)) * e); const cx = wc0[0] + (wc1[0] - wc0[0]) * e, cy = wc0[1] + (wc1[1] - wc0[1]) * e; V = { s, ox: W / 2 - cx * s, oy: H / 2 - cy * s }; draw(); if (t < 1) flyAnim = requestAnimationFrame(step); else { V = to; queue(); } };
+    flyAnim = requestAnimationFrame(step);
+  }
+  function zoomAbout(x, y, f){ cancelAnimationFrame(flyAnim); const [wx, wy] = toW(x, y); const s = V.s * f; V = clampV({ s, ox: x - wx * Math.max(base * 0.85, Math.min(base * 60, s)), oy: y - wy * Math.max(base * 0.85, Math.min(base * 60, s)) }); queue(); }
+
+  /* ---------- what is in focus ---------- */
+  const memo = {};
+  function members(g){ if (memo[g]) return memo[g]; const s = new Set(Families.members(g)); (M.nb[g] || []).forEach(x => s.add(x)); s.delete(g); return (memo[g] = [...s]); }
+  function focusSet(){
+    if (st.g){ const s = new Set([st.g, ...members(st.g), ...Families.parents(st.g).filter(p => M.P[p])]); Object.values(M.P).forEach(p => { if (Families.parents(p.id).includes(st.g)) s.add(p.id); }); return s; }
+    if (st.f) return new Set([...M.byFam[st.f].map(n => n.id)]);
+    return null;
+  }
+
+  /* ---------- drawing ---------- */
+  let queued = 0; const queue = () => { if (!queued) queued = requestAnimationFrame(() => { queued = 0; draw(); }); };
+  let labelBoxes = [], famBoxes = [];
+  const clash = (b, list) => list.some(o => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
+  function wedge(k, r0, r1){ const s = M.sec[k]; ctx.beginPath(); ctx.arc(V.ox, V.oy, r1 * V.s, s.a0, s.a1); ctx.arc(V.ox, V.oy, r0 * V.s, s.a1, s.a0, true); ctx.closePath(); }
+  function draw(){
+    if (!M || !W) return; const t0 = performance.now(); const k = K(); const phone = W < 520;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.clearRect(0, 0, W, H);
+    const focus = focusSet(); const sel = st.n && M.idx[st.n] ? M.idx[st.n] : null; const near = sel ? (M.nb[sel.id] || new Set()) : null;
+    const hv = hover && M.idx[hover] ? M.idx[hover] : null; const hnear = hv ? (M.nb[hv.id] || new Set()) : null;
+    const searching = lit.size > 0;
+    const inView = (x, y, m = 40) => x > -m && x < W + m && y > -m && y < H + m;
+    /* sectors */
+    Object.values(M.sec).forEach(s => { const open = st.f === s.k, dim = st.f && !open; wedge(s.k, R0 * 0.6, R_EDGE); ctx.fillStyle = rgba(s.color, s.k === 'across' ? (open ? 0.07 : 0.025) : open ? 0.1 : dim ? 0.018 : 0.045); ctx.fill();
+      ctx.strokeStyle = '#1e1e28'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(V.ox, V.oy); ctx.lineTo(V.ox + Math.cos(s.a0) * R_EDGE * V.s, V.oy + Math.sin(s.a0) * R_EDGE * V.s); ctx.stroke(); });
+    if (M.groups){ Object.values(M.groups).forEach((g, i) => { if (!i) return; ctx.setLineDash([2, 4]); ctx.strokeStyle = '#2a2a35'; ctx.beginPath(); ctx.moveTo(V.ox + Math.cos(g.a0) * 0.3 * V.s, V.oy + Math.sin(g.a0) * 0.3 * V.s); ctx.lineTo(V.ox + Math.cos(g.a0) * R_EDGE * V.s, V.oy + Math.sin(g.a0) * R_EDGE * V.s); ctx.stroke(); ctx.setLineDash([]); }); }
+    /* year rings */
+    const mono = '"JetBrains Mono", ui-monospace, monospace', ui = 'Archivo, system-ui, sans-serif';
+    ctx.font = `${phone ? 8 : 9}px ${mono}`; ctx.textAlign = 'right';
+    [1950, 1980, 1990, 2000, 2010, 2020].forEach(y => { const r = rOf(y) * V.s; ctx.strokeStyle = '#1e1e28'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(V.ox, V.oy, r, 0, TAU); ctx.stroke(); ctx.fillStyle = '#6a6a80'; ctx.fillText(y, V.ox - 4, V.oy - r + 10); });
+    /* branches and limbs */
+    Object.values(M.sec).forEach(s => { if (s.k === 'across') return; const dim = st.f && st.f !== s.k; ctx.strokeStyle = rgba(s.color, dim ? 0.12 : 0.45); ctx.lineWidth = Math.min(3, 1.4 + k * 0.1); ctx.beginPath(); ctx.moveTo(V.ox + Math.cos(s.mid) * R0 * 0.6 * V.s, V.oy + Math.sin(s.mid) * R0 * 0.6 * V.s); ctx.lineTo(V.ox + Math.cos(s.mid) * rOf(2026) * V.s, V.oy + Math.sin(s.mid) * rOf(2026) * V.s); ctx.stroke(); });
+    M.L.forEach(([p, c, real]) => {
+      const s = M.sec[c.k]; const on = !focus || focus.has(c.id) && (!p || focus.has(p.id) || st.f); const a = on ? (real ? 0.75 : 0.4) : 0.08;
+      const r0 = p ? p.r : Math.max(R0, c.r - 0.05), a0 = p ? p.a : s.mid; const [x0, y0] = toS(Math.cos(a0) * r0, Math.sin(a0) * r0); const [x1, y1] = toS(c.x, c.y); const [qx, qy] = toS(Math.cos(c.a) * r0, Math.sin(c.a) * r0);
+      ctx.strokeStyle = rgba(s.color, a); ctx.lineWidth = real ? Math.min(2.6, 1.2 + k * 0.08) : 1; if (!real) ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(x0, y0); ctx.quadraticCurveTo(qx, qy, x1, y1); ctx.stroke(); ctx.setLineDash([]);
+    });
+    /* links */
+    const lw = Math.min(1.2, 0.5 + k * 0.03); ctx.lineWidth = lw;
+    const byCol = {}; M.E.forEach(e => { const [a, b, c] = e; if (offTypes.has(a.type) || offTypes.has(b.type)) return; if (focus && !focus.has(a.id) && !focus.has(b.id)) return; (byCol[c] = byCol[c] || []).push(e); });
+    const baseA = sel || hv || searching ? 0.05 : focus ? 0.22 : 0.13;
+    Object.entries(byCol).forEach(([c, es]) => { ctx.strokeStyle = rgba(c, baseA); ctx.beginPath(); es.forEach(([a, b]) => { const [x0, y0] = toS(a.x, a.y), [x1, y1] = toS(b.x, b.y); if (!inView(x0, y0, 0) && !inView(x1, y1, 0) && Math.hypot(x1 - x0, y1 - y0) < Math.max(W, H)) return; ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); }); ctx.stroke(); });
+    const litLinks = (d, nbs, c) => { const [x0, y0] = toS(d.x, d.y); ctx.strokeStyle = c; ctx.lineWidth = 1.3; ctx.beginPath(); nbs.forEach(id => { const q = M.idx[id]; if (!q || offTypes.has(q.type)) return; const [x1, y1] = toS(q.x, q.y); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); }); ctx.stroke(); };
+    if (sel) litLinks(sel, near, rgba('#ebebf1', 0.8));
+    if (hv && hv !== sel) litLinks(hv, hnear, rgba(hv.color, 0.85));
+    /* ties to a second family, for the family that is open */
+    if (st.f && !st.g){ ctx.setLineDash([2, 3]); ctx.lineWidth = 0.8; M.byFam[st.f].forEach(n => { const o = Families.of(n.id); if (!o.fam2 || !M.sec[o.fam2]) return; const d = M.idx[n.id]; const [x0, y0] = toS(d.x, d.y); const s2 = M.sec[o.fam2]; const a2 = Math.abs(s2.a0 - d.a) < Math.abs(s2.a1 - d.a) ? s2.a0 + 0.02 : s2.a1 - 0.02; const [x1, y1] = toS(Math.cos(a2) * d.r, Math.sin(a2) * d.r); ctx.strokeStyle = rgba(s2.color, 0.35); ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke(); }); ctx.setLineDash([]); }
+    /* dots */
+    const grow = Math.min(1.9, 1 + Math.log2(Math.max(1, k)) * 0.22) * (phone ? 0.85 : 1);
+    M.D.forEach(d => { if (offTypes.has(d.type)) return; const [x, y] = toS(d.x, d.y); if (!inView(x, y, 8)) return; let a = 0.9;
+      if (searching) a = lit.has(d.id) ? 1 : 0.15; else if (sel) a = d === sel || near.has(d.id) ? 1 : focus && focus.has(d.id) ? 0.35 : 0.12; else if (focus) a = focus.has(d.id) ? 0.95 : 0.1;
+      ctx.globalAlpha = a; ctx.fillStyle = d.color; ctx.beginPath(); ctx.arc(x, y, d.rad * grow, 0, TAU); ctx.fill();
+      if ((searching && lit.has(d.id)) || d === sel){ ctx.strokeStyle = '#fff'; ctx.lineWidth = d === sel ? 2 : 1.2; ctx.stroke(); } });
+    ctx.globalAlpha = 1;
+    /* genre marks: a diamond at the year the style began */
+    if (!offTypes.has('genre')) Object.values(M.P).forEach(p => { const [x, y] = toS(p.x, p.y); if (!inView(x, y, 10)) return; const on = !focus || focus.has(p.id) || (st.f === p.k && !st.g); const z = (phone ? 4 : 4.6) * Math.min(1.5, grow); ctx.globalAlpha = searching ? (lit.has(p.id) ? 1 : 0.2) : sel ? (p === sel || near.has(p.id) ? 1 : 0.3) : on ? 1 : 0.18;
+      ctx.fillStyle = p.color; ctx.strokeStyle = '#0e0e13'; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(x, y - z); ctx.lineTo(x + z, y); ctx.lineTo(x, y + z); ctx.lineTo(x - z, y); ctx.closePath(); ctx.fill(); ctx.stroke(); if (p === sel || st.g === p.id){ ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.6; ctx.stroke(); } });
+    ctx.globalAlpha = 1;
+    /* labels: families round the edge, then genres, then names, none overlapping */
+    labelBoxes = []; famBoxes = [];
+    const place = (txt, x, y, font, fill, align = 'left', always = false, bg = false) => { ctx.font = font; const w = ctx.measureText(txt).width, h = +((/([\d.]+)px/.exec(font) || [])[1] || 10); const bx = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x; const b = [bx - 2, y - h, bx + w + 2, y + 3]; if (!always && (clash(b, labelBoxes) || b[0] < 2 || b[2] > W - 2 || b[1] < 2 || b[3] > H - 2)) return null; labelBoxes.push(b); if (bg){ ctx.fillStyle = 'rgba(14,14,19,.72)'; ctx.fillRect(b[0], b[1], b[2] - b[0], b[3] - b[1]); } ctx.fillStyle = fill; ctx.textAlign = align; ctx.fillText(txt, x, y); return b; };
+    Families.all.forEach(f => { const s = M.sec[f.k]; const dim = st.f && st.f !== f.k; const rr = R_EDGE * V.s + (phone ? 10 : 14); const x = V.ox + Math.cos(s.mid) * rr, y = V.oy + Math.sin(s.mid) * rr; const c = Math.cos(s.mid); const align = Math.abs(c) < 0.25 ? 'center' : c > 0 ? 'left' : 'right';
+      const lines = phone && f.label.length > 11 ? (/ and /.test(f.label) ? f.label.replace(/ and /, ' and\n') : f.label.replace(/ (?=\S+$)/, '\n')).split('\n') : [f.label]; const fs = phone ? 9 : 10.5; const y0 = y + 4 - (lines.length - 1) * fs * 0.6 + (Math.sin(s.mid) > 0.6 ? 6 : 0);
+      ctx.font = `600 ${fs}px ${mono}`; const tw = Math.max(...lines.map(t => ctx.measureText(t.toUpperCase()).width)); let xx = x; const left = align === 'center' ? x - tw / 2 : align === 'right' ? x - tw : x; if (left < 4) xx += 4 - left; if (left + tw > W - 4) xx -= left + tw - (W - 4);
+      ctx.globalAlpha = dim ? 0.45 : 1; const bs = lines.map((t, i) => place(t.toUpperCase(), xx, y0 + i * (fs + 2), `600 ${fs}px ${mono}`, f.k === 'across' ? '#9a9aae' : s.color, align, true, true)).filter(Boolean); ctx.globalAlpha = 1;
+      if (bs.length){ const b = [Math.min(...bs.map(q => q[0])) - 6, Math.min(...bs.map(q => q[1])) - 6, Math.max(...bs.map(q => q[2])) + 6, Math.max(...bs.map(q => q[3])) + 6]; famBoxes.push([f.k, b]); if (cursor && cursor.kind === 'fam' && cursor.id === f.k){ ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5; ctx.strokeRect(b[0], b[1], b[2] - b[0], b[3] - b[1]); } } });
+    if ((st.f === 'across' || (k > 2.2 && !st.f)) && M.groups) Object.entries(M.groups).forEach(([g, q]) => { const rr = 0.24 * V.s; place(Families.groupLabel(g), V.ox + Math.cos(q.mid) * rr, V.oy + Math.sin(q.mid) * rr, `600 ${phone ? 8.5 : 9.5}px ${mono}`, '#9a9aae', 'center', false, true); });
+    if (sel){ const [x, y] = toS(sel.x, sel.y); place(sel.n.title, x + 9, y + 4, `600 ${phone ? 11 : 12}px ${ui}`, '#fff', 'left', true, true); }
+    if (hv && hv !== sel){ const [x, y] = toS(hv.x, hv.y); place(hv.n.title, x + 9, y + 4, `600 12px ${ui}`, '#fff', 'left', true, true); }
+    const showGenres = k >= (phone ? 1.9 : 1.6) || st.f;
+    if (showGenres && !offTypes.has('genre')){ const gs = Object.values(M.P).filter(p => (!focus || focus.has(p.id) || st.f === p.k) && (!st.f || st.f === p.k || (focus && focus.has(p.id)))).sort((a, b) => (b.id === st.g) - (a.id === st.g) || members(b.id).length - members(a.id).length);
+      gs.forEach(p => { if (p === sel) return; const [x, y] = toS(p.x, p.y); const t = p.n.title.length > 26 ? p.n.title.replace(/\s*\/.*$/, '').slice(0, 26) : p.n.title; const fnt = `${st.g === p.id ? 700 : 600} ${phone ? 10 : 11}px ${ui}`, c = st.g === p.id ? '#fff' : rgba(p.color, 1);
+        place(t, x + 8, y + 4, fnt, c, 'left', false, true) || place(t, x - 8, y + 4, fnt, c, 'right', false, true) || place(t, x, y - 9, fnt, c, 'center', false, true) || place(t, x, y + 17, fnt, c, 'center', false, true); }); }
+    const kk = focus ? k * 1.5 : k; const maxNames = kk < 2.4 ? 0 : kk < 4 ? 25 : kk < 7 ? 60 : kk < 12 ? 120 : 220; const minDeg = 0;   /* names come in as you zoom: the best-linked first */
+    const cands = M.D.filter(d => !offTypes.has(d.type) && d !== sel && d !== hv && ((near && near.has(d.id)) || (searching && lit.has(d.id)) || (maxNames > 0 && (!focus || focus.has(d.id)) && !sel)));
+    cands.sort((a, b) => ((near && near.has(b.id)) - (near && near.has(a.id))) || b.deg - a.deg); let shown = 0;
+    for (const d of cands){ if (shown >= maxNames && !(near && near.has(d.id)) && !(searching && lit.has(d.id))) continue; const [x, y] = toS(d.x, d.y); if (!inView(x, y, 0)) continue; const t = d.n.title.length > 30 ? d.n.title.slice(0, 29) + '…' : d.n.title; const fnt = `${phone ? 9.5 : 10.5}px ${ui}`, c = near && near.has(d.id) ? '#fff' : '#d6d6e0'; if (place(t, x + 6, y + 3.5, fnt, c, 'left', false, true) || place(t, x - 6, y + 3.5, fnt, c, 'right', false, true)) shown++; }
+    /* the keyboard cursor */
+    if (cursor && cursor.kind !== 'fam'){ const d = M.idx[cursor.id]; if (d){ const [x, y] = toS(d.x, d.y); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.setLineDash([3, 2]); ctx.beginPath(); ctx.arc(x, y, 10, 0, TAU); ctx.stroke(); ctx.setLineDash([]); } }
+    stage.classList.toggle('zoomed', k > 1.03);
+    const dt = performance.now() - t0; stats.last = dt; stats.frames.push(dt); if (stats.frames.length > 240) stats.frames.shift();
+    countsSoon();
+  }
+
+  /* ---------- hit testing ---------- */
+  function hit(x, y, touch){
+    for (const [k, b] of famBoxes) if (x >= b[0] && x <= b[2] && y >= b[1] && y <= b[3]) return { kind: 'fam', id: k };
+    const reach = touch ? 20 : 11; let best = null, bd = reach * reach;
+    if (!offTypes.has('genre')) Object.values(M.P).forEach(p => { const [px, py] = toS(p.x, p.y); const d = (px - x) ** 2 + (py - y) ** 2; if (d < bd * 1.3){ bd = d / 1.3; best = { kind: 'genre', id: p.id }; } });
+    M.D.forEach(q => { if (offTypes.has(q.type)) return; const [px, py] = toS(q.x, q.y); const d = (px - x) ** 2 + (py - y) ** 2; if (d < bd){ bd = d; best = { kind: 'node', id: q.id }; } });
+    if (best) return best;
+    const [wx, wy] = toW(x, y); const r = Math.hypot(wx, wy); if (r > R_EDGE * 1.04) return null;
+    let a = Math.atan2(wy, wx); const s = Object.values(M.sec).find(q => { let aa = a; while (aa < q.a0) aa += TAU; while (aa > q.a0 + TAU) aa -= TAU; return aa <= q.a1; });
+    return s ? { kind: 'sector', id: s.k } : null;
+  }
+
+  /* ---------- state and the address ---------- */
+  function readHash(){ const q = new URLSearchParams((location.hash.split('?')[1] || '')); const f = q.get('f'), g = q.get('g'), n = q.get('n');
+    st.f = f && M.sec[f] ? f : null; st.g = g && M.P[g] ? g : null; st.n = n && M.idx[n] ? n : null;
+    if (st.g && !st.f) st.f = M.P[st.g].k; if (st.n && !st.f) st.f = Families.of(st.n).fam; if (st.g && st.f !== M.P[st.g].k) st.g = null; }
+  const hashOf = s => { const q = []; if (s.f) q.push('f=' + encodeURIComponent(s.f)); if (s.g) q.push('g=' + encodeURIComponent(s.g)); if (s.n) q.push('n=' + encodeURIComponent(s.n)); return '#home' + (q.length ? '?' + q.join('&') : ''); };
+  function go(s, fly){ if (fly) wantFly = true; const h = hashOf(s); if (h === location.hash || (h === '#home' && !location.hash)) apply(true); else location.hash = h; }
+  function apply(anim){ if (!M) return; readHash(); cursor = null; const to = targetView(); fly(to, anim ? 480 : 0); ui(); }
+  const up = () => { if (st.n) go({ f: st.f, g: st.g && members(st.g).includes(st.n) ? st.g : null }); else if (st.g) go({ f: st.f }); else if (st.f) go({}); };
+  function choose(h){
+    if (!h) return;
+    if (h.kind === 'fam') go(st.f === h.id && !st.g && !st.n ? {} : { f: h.id });
+    else if (h.kind === 'genre') go(st.g === h.id && !st.n ? { f: st.f } : { f: M.P[h.id].k, g: h.id });
+    else if (h.kind === 'node'){ if (st.n === h.id){ location.hash = '#' + h.id; return; } const f = Families.of(h.id).fam; const g = st.g && members(st.g).includes(h.id) ? st.g : (Families.of(h.id).sub && M.P[Families.of(h.id).sub] && st.f === f ? (st.g || null) : null); go({ f, g, n: h.id }); }
+    else if (h.kind === 'sector'){ if (st.n) go({ f: st.f, g: st.g }); else if (st.f !== h.id) go({ f: h.id }); }
+  }
+
+  /* ---------- the panels, the crumb, the chips ---------- */
+  const title = id => (NODE[id] || {}).title || id;
+  const famChip = k => `<button type="button" class="dg-f cg-fam${st.f === k ? ' on' : ''}" data-f="${k}" aria-pressed="${st.f === k}" style="--k:${M.sec[k].color}"><i></i>${esc(Families.label(k))} <small>${M.sec[k].n}</small></button>`;
+  function ui(){
+    const F = Families; const crumb = box.querySelector('.cg-crumb'); const parts = [['#home', 'Book']];
+    if (st.f) parts.push([hashOf({ f: st.f }), F.label(st.f)]); if (st.g) parts.push([hashOf({ f: st.f, g: st.g }), title(st.g)]); if (st.n) parts.push([hashOf(st), title(st.n)]);
+    crumb.innerHTML = parts.map(([h, t], i) => i === parts.length - 1 ? `<b aria-current="location">${esc(t)}</b>` : `<a href="${h}">${esc(t)}</a>`).join('<span aria-hidden="true">›</span>');
+    box.querySelectorAll('.cg-fam').forEach(b => { const on = b.dataset.f === st.f; b.classList.toggle('on', on || !st.f); b.setAttribute('aria-pressed', on); });
+    const side = box.querySelector('.cg-side'); let h = '';
+    if (st.n){ const n = NODE[st.n], o = F.of(st.n) || {}; const nbs = [...(M.nb[st.n] || [])].filter(id => M.idx[id]).sort((a, b) => M.idx[b].deg - M.idx[a].deg);
+      h += `<div class="cg-card"><small>${esc([TYPE_LABEL[n.type] || n.type, n.years].filter(Boolean).join(' · '))}</small><b>${esc(n.title)}</b><p>${esc(n.blurb || '')}</p>
+        <p class="cap">${o.fam === 'across' ? esc(F.across.label + ' · ' + F.groupLabel(o.group)) : esc(F.label(o.fam))}${o.fam2 ? ' · tied also to ' + esc(F.label(o.fam2)) : ''}</p>
+        <a class="chip cg-open" href="#${n.id}" style="--c:var(${TYPE_COLOR[n.type] || '--mix'});--ci:var(${TYPE_COLOR[n.type] || '--mix'})"><i></i>Open page →</a>
+        ${nbs.length ? `<div class="cg-nb"><small>Linked to ${nbs.length} · tap to step along</small>${nbs.slice(0, 24).map(id => `<button type="button" class="chip cg-step" data-n="${id}" style="--c:var(${TYPE_COLOR[NODE[id].type] || '--mix'});--ci:var(${TYPE_COLOR[NODE[id].type] || '--mix'})"><i></i>${esc(title(id))}</button>`).join('')}${nbs.length > 24 ? `<small>and ${nbs.length - 24} more on the page</small>` : ''}</div>` : ''}</div>`;
+    }
+    if (st.g){ const g = NODE[st.g]; const ps = F.parents(st.g).filter(p => M.P[p]); const ks = Object.keys(M.P).filter(id => F.parents(id).includes(st.g)); const ms = members(st.g);
+      h += `<div class="cg-card"><small>Genre · ${esc(g.years || '')}</small><b style="color:${M.P[st.g].color}">${esc(g.title)}</b>${st.n ? '' : `<p>${esc(g.blurb || '')}</p>`}
+        ${ps.length ? `<div class="cg-nb"><small>Grew out of</small>${ps.map(id => `<a class="chip" href="${hashOf({ f: M.P[id].k, g: id })}" style="--c:${M.P[id].color};--ci:${M.P[id].color}"><i></i>${esc(title(id))}</a>`).join('')}</div>` : ''}
+        ${ks.length ? `<div class="cg-nb"><small>Led to</small>${ks.map(id => `<a class="chip" href="${hashOf({ f: M.P[id].k, g: id })}" style="--c:${M.P[id].color};--ci:${M.P[id].color}"><i></i>${esc(title(id))}</a>`).join('')}</div>` : ''}
+        <p class="cap">${ms.length} page${ms.length === 1 ? '' : 's'} tied to it are lit. <a class="xl" href="#${st.g}">Open the genre page →</a></p></div>`;
+    }
+    if (st.f && !st.g && !st.n){ const gs = M.marks[st.f] || []; const fam = F.byKey[st.f];
+      h += `<div class="cg-card"><small>Family · ${M.sec[st.f].n} pages</small><b style="color:${st.f === 'across' ? '#9a9aae' : M.sec[st.f].color}">${esc(fam.label)}</b><p>${esc(fam.about)}</p>
+        ${gs.length ? `<div class="cg-nb"><small>${gs.length} styles, in order of descent · tap one</small>${gs.map(id => `<a class="chip" href="${hashOf({ f: st.f, g: id })}" style="--c:${M.P[id].color};--ci:${M.P[id].color}"><i></i>${esc(title(id))} <small>${startYear(NODE[id])}</small></a>`).join('')}</div>` : st.f === 'across' ? `<p class="cap">Pages the book does not tie to one music: ${Object.entries(M.groups).map(([g, q]) => esc(F.groupLabel(g)) + ' (' + q.n + ')').join(', ')}.</p>` : ''}</div>`;
+    }
+    if (!st.f) h = `<div class="cg-card"><small>The whole book</small><b>${M.D.length + Object.keys(M.P).length} pages in ${Families.list.length} families</b><p>Each sector is a family of music; its branch runs out from the centre and each style is a limb at the year it began, joined to what it grew out of. ${esc(F.across.label)}, in grey, holds the machines, the law, the trade and the rooms the book does not tie to one sound.</p><p class="cap">Tap a family to open it; pinch or scroll to zoom; drag to move.</p></div>`;
+    side.innerHTML = h;
+    side.querySelectorAll('.cg-step').forEach(b => b.onclick = () => { wantFly = true; choose({ kind: 'node', id: b.dataset.n }); });
+    if (window.smarten) try { smarten(side); } catch (e) {}
+    live(st.n ? `${title(st.n)} selected. Enter opens the page; arrow keys step along its links; Escape goes back.` : st.g ? `${title(st.g)}: ${members(st.g).length} pages. Arrow keys move through them; Escape goes back.` : st.f ? `${F.label(st.f)} open: ${M.sec[st.f].n} pages. Arrow keys move along its styles; Escape goes back to the book.` : 'The whole book. Arrow keys move between the families; Enter opens one.');
+    countsSoon(true);
+  }
+  let liveT = 0; const live = t => { clearTimeout(liveT); liveT = setTimeout(() => { const l = box.querySelector('.cg-live'); if (l) l.textContent = t; }, 250); };
+  let cT = 0; function countsSoon(now){ clearTimeout(cT); cT = setTimeout(counts, now ? 0 : 160); }
+  function counts(){ const focus = focusSet(); const c = {}; [...M.D, ...Object.values(M.P)].forEach(d => { if (focus && !focus.has(d.id)) return; const [x, y] = toS(d.x, d.y); if (x < 0 || x > W || y < 0 || y > H) return; c[d.type] = (c[d.type] || 0) + 1; }); box.querySelectorAll('.cg-type').forEach(b => { b.querySelector('small').textContent = c[b.dataset.k] || 0; }); }
+
+  /* ---------- keyboard ---------- */
+  function items(){
+    if (st.n) return [st.n, ...[...(M.nb[st.n] || [])].filter(id => M.idx[id]).sort((a, b) => M.idx[a].a - M.idx[b].a)].map(id => ({ kind: M.P[id] ? 'genre' : 'node', id }));
+    if (st.g) return [st.g, ...members(st.g).filter(id => M.idx[id] && !M.P[id]).sort((a, b) => (M.idx[a].r - M.idx[b].r))].map(id => ({ kind: id === st.g ? 'genre' : 'node', id }));
+    if (st.f) return (M.marks[st.f].length ? M.marks[st.f] : M.byFam[st.f].map(n => n.id).sort((a, b) => M.idx[a].r - M.idx[b].r)).map(id => ({ kind: M.P[id] ? 'genre' : 'node', id }));
+    return Families.all.map(f => ({ kind: 'fam', id: f.k }));
+  }
+  function key(e){
+    const it = items(); let i = cursor ? it.findIndex(x => x.id === cursor.id) : -1;
+    const move = d => { e.preventDefault(); i = (i + d + it.length) % it.length; cursor = it[i]; const q = M.idx[cursor.id]; if (q){ const [x, y] = toS(q.x, q.y); if (x < 30 || x > W - 30 || y < 30 || y > H - 30) fly(clampV({ s: V.s, ox: W / 2 - q.x * V.s, oy: H / 2 - q.y * V.s }), 250); }
+      const lbl = cursor.kind === 'fam' ? `${Families.label(cursor.id)}, ${M.sec[cursor.id].n} pages` : `${title(cursor.id)}, ${cursor.kind === 'genre' ? 'genre, ' + (NODE[cursor.id].years || '') : (TYPE_LABEL[NODE[cursor.id].type] || '') + (NODE[cursor.id].years ? ', ' + NODE[cursor.id].years : '')}`; live(`${lbl}. ${i + 1} of ${it.length}.`); queue(); };
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') move(1);
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') move(-1);
+    else if (e.key === 'Home'){ i = 0; move(0); } else if (e.key === 'End'){ i = it.length - 1; move(0); }
+    else if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); const c = cursor || (st.n ? { kind: 'node', id: st.n } : null); if (!c) return; if (c.kind === 'node' && c.id === st.n) location.hash = '#' + c.id; else { wantFly = c.kind === 'node'; choose(c); } }
+    else if (e.key === 'Escape'){ if (st.f || st.g || st.n){ e.preventDefault(); up(); } }
+    else if (e.key === '+' || e.key === '='){ e.preventDefault(); zoomAbout(W / 2, H / 2, 1.5); } else if (e.key === '-'){ e.preventDefault(); zoomAbout(W / 2, H / 2, 1 / 1.5); }
+  }
+
+  /* ---------- pointer, touch, wheel ---------- */
+  function wire(){
+    const ptr = new Map(); let drag = null, pinch = null, lastTap = null;
+    const pos = e => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+    cv.addEventListener('pointerdown', e => { cv.setPointerCapture && cv.setPointerCapture(e.pointerId); ptr.set(e.pointerId, pos(e)); cancelAnimationFrame(flyAnim);
+      if (ptr.size === 1){ const [x, y] = pos(e); drag = { x, y, ox: V.ox, oy: V.oy, moved: false, t: performance.now(), type: e.pointerType }; pinch = null; }
+      else if (ptr.size === 2){ const [a, b] = [...ptr.values()]; pinch = { d: Math.hypot(a[0] - b[0], a[1] - b[1]), m: [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], v: { ...V } }; drag = null; } });
+    cv.addEventListener('pointermove', e => {
+      if (!ptr.has(e.pointerId)){ if (e.pointerType === 'mouse'){ const [x, y] = pos(e); const h = hit(x, y, false); const id = h && (h.kind === 'node' || h.kind === 'genre') ? h.id : null; cv.style.cursor = h && h.kind !== 'sector' ? 'pointer' : 'grab'; if (id !== hover){ hover = id; queue(); } } return; }
+      ptr.set(e.pointerId, pos(e));
+      if (pinch && ptr.size >= 2){ const [a, b] = [...ptr.values()]; const d = Math.hypot(a[0] - b[0], a[1] - b[1]), m = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2]; const wx = (pinch.m[0] - pinch.v.ox) / pinch.v.s, wy = (pinch.m[1] - pinch.v.oy) / pinch.v.s; const s = Math.max(base * 0.85, Math.min(base * 60, pinch.v.s * d / pinch.d)); V = clampV({ s, ox: m[0] - wx * s, oy: m[1] - wy * s }); queue(); return; }
+      if (drag){ const [x, y] = pos(e); if (!drag.moved && Math.hypot(x - drag.x, y - drag.y) > 5) drag.moved = true; if (drag.moved){ V = clampV({ s: V.s, ox: drag.ox + x - drag.x, oy: drag.oy + y - drag.y }); cv.style.cursor = 'grabbing'; queue(); } }
+    });
+    const end = e => { const had = ptr.has(e.pointerId); ptr.delete(e.pointerId); if (!had) return;
+      if (pinch){ if (ptr.size < 2) pinch = null; if (ptr.size === 1){ const [p] = [...ptr.values()]; drag = { x: p[0], y: p[1], ox: V.ox, oy: V.oy, moved: true }; } return; }
+      if (drag && !drag.moved && e.type === 'pointerup'){ const [x, y] = pos(e); const touch = drag.type !== 'mouse'; const now = performance.now();
+        if (touch && lastTap && now - lastTap.t < 320 && Math.hypot(x - lastTap.x, y - lastTap.y) < 30){ lastTap = null; dbl(x, y); }
+        else { lastTap = { t: now, x, y }; choose(hit(x, y, touch)); } }
+      drag = null; cv.style.cursor = 'grab'; };
+    cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+    cv.addEventListener('pointerleave', () => { if (hover){ hover = null; queue(); } });
+    cv.addEventListener('dblclick', e => { e.preventDefault(); const [x, y] = pos(e); dbl(x, y); });
+    const dbl = (x, y) => { const [wx, wy] = toW(x, y); let a = Math.atan2(wy, wx); const s = Object.values(M.sec).find(q => { let aa = a; while (aa < q.a0) aa += TAU; while (aa > q.a0 + TAU) aa -= TAU; return aa <= q.a1; }); if (s) go({ f: s.k }); };
+    cv.addEventListener('wheel', e => { e.preventDefault(); const [x, y] = pos(e); const dy = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY; zoomAbout(x, y, Math.exp(-dy * (e.ctrlKey ? 0.01 : 0.0022))); }, { passive: false });
+    /* two fingers zoom the chart, never the page; one finger at the whole-book view still scrolls the page (touch-action: pan-y) */
+    cv.addEventListener('touchstart', e => { e.stopPropagation(); if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
+    cv.addEventListener('touchmove', e => { if (e.touches.length > 1 || K() > 1.03) e.preventDefault(); }, { passive: false });
+    cv.addEventListener('touchend', e => e.stopPropagation());
+    cv.addEventListener('keydown', key);
+    cv.addEventListener('focus', () => { if (!cursor){ const it = items(); cursor = st.n ? { kind: 'node', id: st.n } : it[0]; queue(); } });
+    cv.addEventListener('blur', () => { cursor = null; queue(); });
+    /* buttons */
+    box.querySelector('.cg-ctl').addEventListener('click', e => { const b = e.target.closest('[data-z]'); if (!b) return; if (b.dataset.z === 'in') zoomAbout(W / 2, H / 2, 1.6); else if (b.dataset.z === 'out') zoomAbout(W / 2, H / 2, 1 / 1.6); else { if (st.f || st.g || st.n) go({}); else fly(bookView(), 400); } });
+    box.querySelector('.cg-fams').addEventListener('click', e => { const b = e.target.closest('.cg-fam'); if (b) choose({ kind: 'fam', id: b.dataset.f }); });
+    box.querySelector('.cg-types').addEventListener('click', e => { const b = e.target.closest('.cg-type'); if (!b) return; b.classList.toggle('on'); b.setAttribute('aria-pressed', b.classList.contains('on')); if (!box.querySelector('.cg-type.on')) box.querySelectorAll('.cg-type').forEach(x => { x.classList.add('on'); x.setAttribute('aria-pressed', 'true'); }); offTypes = new Set([...box.querySelectorAll('.cg-type:not(.on)')].map(x => x.dataset.k)); queue(); });
+    /* light up a name: matches glow as you type, the best few are offered, choosing one flies to it */
+    const find = box.querySelector('.cg-find input'), sug = box.querySelector('.cg-sugg'); let hits = [];
+    const pick = id => { find.value = ''; sug.innerHTML = ''; sug.hidden = true; lit = new Set(); wantFly = true; choose({ kind: M.P[id] ? 'genre' : 'node', id }); if (M.P[id]) { /* a genre opens as a limb */ } };
+    find.addEventListener('input', () => { const q = norm(find.value.trim()); lit = new Set(); hits = []; if (q.length >= 2){ [...M.D, ...Object.values(M.P)].forEach(d => { const n = d.n; const t = norm(n.title); const sc = t === q ? 0 : t.startsWith(q) ? 1 : (' ' + t).includes(' ' + q) ? 2 : t.includes(q) ? 3 : (n.aliases || []).some(a => norm(a).includes(q)) ? 4 : -1; if (sc >= 0){ lit.add(d.id); hits.push([sc, d]); } }); hits.sort((a, b) => a[0] - b[0] || b[1].deg - a[1].deg); }
+      sug.innerHTML = hits.slice(0, 6).map(([, d], i) => `<button type="button" role="option" data-id="${d.id}"${i ? '' : ' aria-selected="true"'}><i style="background:${d.color}"></i>${esc(d.n.title)}<small>${esc(TYPE_LABEL[d.type] || d.type)}${d.n.years ? ' · ' + esc(d.n.years) : ''}</small></button>`).join('') + (q.length >= 2 && !hits.length ? '<p class="cap">No page by that name.</p>' : '');
+      sug.hidden = !sug.innerHTML; queue(); });
+    find.addEventListener('keydown', e => { if (e.key === 'Enter' && hits.length){ e.preventDefault(); pick(hits[0][1].id); } else if (e.key === 'Escape'){ find.value = ''; find.dispatchEvent(new Event('input')); } else if (e.key === 'ArrowDown'){ const f = sug.querySelector('button'); if (f){ e.preventDefault(); f.focus(); } } });
+    sug.addEventListener('click', e => { const b = e.target.closest('button[data-id]'); if (b) pick(b.dataset.id); });
+    sug.addEventListener('keydown', e => { const b = e.target.closest('button'); if (!b) return; if (e.key === 'ArrowDown' && b.nextElementSibling){ e.preventDefault(); b.nextElementSibling.focus(); } if (e.key === 'ArrowUp'){ e.preventDefault(); (b.previousElementSibling || find).focus(); } if (e.key === 'Escape'){ find.focus(); } });
+    new ResizeObserver(() => size()).observe(stage);
+  }
+  function size(){
+    const r = stage.getBoundingClientRect(); if (!r.width) return; const was = W; W = r.width; H = r.height; DPR = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR); base = Math.min(W, H) / 2 / (W < 520 ? 1.3 : 1.2);
+    if (!V || !was){ readHash(); V = bookView(); V = targetView(); ui(); } else V = targetView();
+    draw();
+  }
+
+  /* ---------- mount ---------- */
+  function mount(){
+    box = document.getElementById('coverGraph'); if (!box || box.dataset.drawn) return; box.dataset.drawn = 1;
+    build();
+    box.innerHTML = `<nav class="cg-crumb" aria-label="Where you are in the graph"></nav>
+      <div class="cg-stage"><canvas tabindex="0" role="application" aria-roledescription="graph" aria-label="The whole book as a tree: ${Families.list.length} families of music and ${esc(Families.across.label)}. Arrow keys move, Enter opens, Escape goes back, plus and minus zoom." aria-describedby="cgHelp"></canvas></div>
+      <div class="cg-ctl"><button type="button" class="chip" data-z="in" aria-label="Zoom in">+</button><button type="button" class="chip" data-z="out" aria-label="Zoom out">−</button><button type="button" class="chip" data-z="reset">Reset view</button>
+        <span class="cg-find"><input type="search" class="dg-findbox" placeholder="Light up a name…" aria-label="Find a page on the graph" autocomplete="off"><span class="cg-sugg" role="listbox" hidden></span></span></div>
+      <div class="cg-side"></div>
+      <div class="dg-bar cg-fams" role="group" aria-label="Families: tap one to open it">${Families.all.map(f => famChip(f.k)).join('')}</div>
+      <div class="dg-bar cg-types" role="group" aria-label="Kinds of page: switch them off and on (counts are for the current view)">${TYPES.filter(t => TYPE_LABEL[t] && NODES.some(n => n.type === t)).map(t => `<button type="button" class="dg-f on cg-type" data-k="${t}" aria-pressed="true" style="--k:${col(TYPE_COLOR[t])}"><i></i>${esc(TYPE_LABEL[t])} <small>0</small></button>`).join('')}</div>
+      <p class="cap cg-help" id="cgHelp">Pinch, scroll or use + and − to zoom; drag to move; double-tap a sector to fit it. Tap a family, then a style, then a dot; the address keeps your place, and Back steps out again. Keyboard: arrow keys, Enter, Escape.</p>
+      <p class="cg-live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></p>`;
+    stage = box.querySelector('.cg-stage'); cv = stage.querySelector('canvas'); ctx = cv.getContext('2d');
+    wire(); size();
+    const count = t => NODES.filter(n => n.type === t).length; const chapters = Object.values(STRANDS).reduce((s, v) => s + v.spine.length, 0);
+    const stt = document.getElementById('coverStats'); if (stt) stt.innerHTML = `<b>${NODES.length}</b> pages · ${count('person')} people · ${count('club')} clubs and rooms · ${count('record')} records · ${count('label')} labels · ${count('event')} events · ${count('machine')} machines · ${count('genre')} genres · <b>${NODES.reduce((s, n) => s + n.rel.length, 0)}</b> links · ${chapters} chapters across ${Object.keys(STRANDS).length} strands. Placed by family and by year: rings mark 1950, 1980, 1990, 2000, 2010 and 2020; dots scale with how connected a page is; diamonds are styles, drawn where they began and joined to what they grew out of.`;
+  }
+  return { mount, apply: () => apply(true), stats, state: st, view: () => V, model: () => M, famBoxes: () => famBoxes, base: () => base, hit: (x, y) => hit(x, y, false), toS: (x, y) => toS(x, y) };
+})();
+/* the cover's hooks: drawn when the cover opens; ?f= g= n= changes on the cover move the graph without leaving the page */
+function drawCoverGraph(){ CoverGraph.mount(); }
+(() => { const prev = window.PageHooks.home; window.PageHooks.home = () => { if (prev) prev(); drawCoverGraph(); }; window.PageHooks['home?'] = () => CoverGraph.apply(); })();
+if (!location.hash || /^#home(\?|$)/.test(location.hash)) setTimeout(drawCoverGraph, 50);
