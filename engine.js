@@ -31,6 +31,7 @@ function buildShell(){
   document.getElementById('readBtn').onclick = () => { if (window.Reader) Reader.toggle(); };
   if (window.Neural && Neural.ok()){ const vb = document.createElement('button'); vb.id = 'voiceBtn'; vb.title = 'Choose the reading voice'; vb.textContent = 'Voice'; document.getElementById('readBtn').after(vb); vb.onclick = () => Neural.picker(); }
   document.getElementById('themeBtn').onclick = () => { localStorage.setItem('dm-theme', document.body.classList.contains('paper') ? 'dark' : 'paper'); applyTheme(); };
+  try { const q = new URLSearchParams(location.search), pid = q.get('p'); if (pid && /^[\w-]+$/.test(pid)){ q.delete('p'); const rest = q.toString(); history.replaceState(null, '', location.pathname + '#' + pid + (rest ? '?' + rest : '')); } } catch (e) {}
   window.addEventListener('hashchange', route); if (window.buildSearch) buildSearch();
 }
 function pageFlipSound(){
@@ -168,6 +169,7 @@ const AudioCore = (() => {
   }
   function get(){
     if (!ctx){
+      try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) {}
       ctx = new (window.AudioContext || window.webkitAudioContext)();
       chain = build(ctx, true);
     }

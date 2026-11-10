@@ -155,7 +155,7 @@ window.Crate = {
   csv(){ const q = s => '"' + String(s || '').replace(/"/g, '""') + '"'; return 'Artist,Title,Year,Label\n' + this.ids().map(id => { const p = this.parts(id); return [p.artist, p.title, this.year(id) || '', p.label].map(q).join(','); }).join('\n'); },
   download(name, text, type){ const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name; document.body.appendChild(a); a.click(); a.remove(); },
   youtube(){ const vids = this.ids().map(id => window.SpotifyEmbed ? SpotifyEmbed.ytFor(NODE[id].q) : null).filter(Boolean).slice(0, 50); return vids.length ? 'https://www.youtube.com/watch_videos?video_ids=' + vids.join(',') : null; },
-  shareUrl(){ return location.origin + location.pathname + '#crate?c=' + this.get().join(','); },
+  shareUrl(){ return location.origin + location.pathname + '?p=crate&c=' + this.get().join(','); },
   /* Spotify: the reader's own account, by PKCE; needs the site's Spotify app id in config */
   async spotifyStart(){
     const cid = (window.SITE_KEYS || {}).spotify; if (!cid){ this.say('Saving to Spotify needs the site\'s Spotify app ID, which isn\'t set up yet. Meanwhile, use the CSV or the list with a transfer service.'); return; }
