@@ -84,7 +84,7 @@ window.Place = (() => {
     function pick(i) {
       const m = M[i]; svg.querySelectorAll('.pm-mk.sel').forEach(e => e.classList.remove('sel')); const e = svg.querySelector(`.pm-mk[data-i="${i}"]`); if (e) e.classList.add('sel');
       const yrs = m.date ? esc(m.date) : m.yrs[0] ? `${m.yrs[0]}–${m.yrs[1] === null ? '' : m.yrs[1] === m.yrs[0] ? '' : m.yrs[1]}`.replace(/–$/, m.yrs[1] === null ? '–' : '') : '';
-      info.innerHTML = `<h4>${link(m.title || m.name, m.name)}</h4><p class="cap">${esc(KIND[m.kind] || m.kind || '')}${m.site ? ' · ' + esc(m.site) : m.area ? ' · ' + esc(m.area) : ''}${yrs ? ' · ' + yrs : ''}${m.crowd ? ' · ' + esc(m.crowd) : ''}</p>${m.note ? `<p>${esc(m.note)}</p>` : ''}${m.source ? `<p class="cap"><a href="${esc(m.source)}" target="_blank" rel="noopener">Source</a></p>` : ''}`;
+      info.innerHTML = `<h4>${link(m.title || m.name, m.name)}</h4><p class="cap">${esc(KIND[m.kind] || m.kind || '')}${m.site ? ' · ' + esc(m.site) : m.area ? ' · ' + esc(m.area) : ''}${yrs ? ' · ' + yrs : ''}${m.crowd ? ' · ' + esc(m.crowd) : ''}</p>${m.note ? `<p>${esc(m.note)}</p>` : ''}${m.source || (window.Street && m.coords) ? `<p class="cap">${m.source ? `<a href="${esc(m.source)}" target="_blank" rel="noopener">Source</a>` : ''}${m.source && window.Street && m.coords ? ' · ' : ''}${window.Street && m.coords ? Street.a(m.coords, m.title || m.name, /coordinates are (those|that) of|estimated|not surveyed|placed by|approximate/i.test(m.note || '')) : ''}</p>` : ''}`;
       if (window.autolink) try { autolink(info, null); } catch (e) {}
     }
     svg.addEventListener('click', ev => { const e = ev.target.closest('.pm-mk'); if (e) pick(+e.dataset.i); });

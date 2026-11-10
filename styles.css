@@ -1171,3 +1171,15 @@ body.docked footer{padding-bottom:120px}
 [hidden]{display:none!important}
 .pt-yl{font-size:.85em;white-space:nowrap}
 .crate-buy{font:11px var(--f-mono);color:var(--muted);margin:0 4px}
+
+/* street view */
+#svSheet{position:fixed;left:50%;top:6vh;transform:translateX(-50%);z-index:70;width:min(960px,calc(100vw - 24px));background:#121218;color:#ebebf1;border:1px solid #2a2a35;border-radius:12px;box-shadow:0 18px 60px rgba(0,0,0,.55);overflow:hidden;font-family:var(--f-ui)}
+#svSheet .sv-bar{display:flex;align-items:center;gap:8px;padding:8px 10px;flex-wrap:wrap}
+#svSheet .sv-now{flex:1;min-width:0;display:flex;flex-direction:column}
+#svSheet .sv-title{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#svSheet .sv-meta{font-size:11px;color:#8f8fa0}
+#svSheet .sv-out{color:#ebebf1;text-decoration:none;border:1px solid #2a2a35;border-radius:6px;padding:4px 8px;font-size:12px}
+#svSheet iframe{display:block;width:100%;height:min(68vh,600px);border:0;background:#000}
+.sv-list{list-style:none;margin:0;padding:0;font-size:14px;line-height:1.7}
+.sv-list small,.sv-group h3 small{color:var(--muted);font-weight:400}
+.sv-line{margin-top:-4px}

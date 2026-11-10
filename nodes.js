@@ -167,7 +167,7 @@ const NodeView = {
     art.innerHTML = `
       <p class="kicker"><span>${TYPE_LABEL[n.type] || n.type}${n.city && NODE[n.city] ? ' · ' + NODE[n.city].title : ''}${n.years ? ' · ' + String(n.years).replace(/(\d)s\b/g, '$1<span class="lc">s</span>') : ''}</span></p>
       <h2>${n.title}</h2>
-      <div class="chips" style="margin-top:4px">${spot}${spotTree}${spotDeep}</div>${spotReads}
+      <div class="chips" style="margin-top:4px">${spot}${spotTree}${window.Street ? Street.chip(n) : ''}${spotDeep}</div>${spotReads}
       ${n.blurb ? `<p class="lede">${n.blurb}</p>` : ''}
       ${img}
       <div class="grid2">
