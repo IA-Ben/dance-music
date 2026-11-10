@@ -1252,7 +1252,7 @@
 <article class="page" data-page="credits" style="--c:var(--mix)">
   <p class="kicker">Explore · images</p>
   <h2>Image credits</h2>
-  <p class="lede">Every photograph in the book is a Creative Commons or public-domain image from Wikimedia Commons, bundled with the work under its own licence. The book's own text, diagrams and sounds are CC BY-NC-SA 4.0; the collage illustrations were made with Krea, an AI image generator. Each entry links to the original file page.</p>
+  <p class="lede">Every photograph in the book is a Creative Commons or public-domain image from Wikimedia Commons, bundled with the work under its own licence. The book's own text, diagrams and sounds are CC BY-NC-SA 4.0; the collage illustrations were made with Krea, an AI image generator. Each entry links to the original file page. To have a picture credited differently, replaced or removed, use the “Report this image” link under it, or see <a class="xl" href="#rights">Rights and takedown</a>.</p>
   <div id="creditList" class="cards"></div>
 </article>
 
@@ -10772,6 +10772,32 @@
   <p class="lede">The rest of this book is about the people who made the records, ran the rooms and played the sets. This page is about the people who were dancing: what they saw, heard and felt, from published interviews, memoirs, oral histories and readers' memories. Each account is retold in the book's own words and credited, with at most one short quotation, and links to the original.</p>
   <div id="floorIndex"></div>
   <p class="cap">Were you there? The margin on every page is where to add your own night.</p>
+</article>
+
+<!-- ======================= RIGHTS AND TAKEDOWN (build/rights.js fills the request box and the removed list) ======================= -->
+<article class="page" data-page="rights" style="--c:var(--mix)">
+  <p class="kicker">Explore · about this book</p>
+  <h2>Rights and takedown</h2>
+  <p class="lede">What the book shows, on what basis, and how to have anything in it credited differently, replaced or taken out.</p>
+  <h3>What the book shows</h3>
+  <ul>
+    <li><b>Photographs</b> are published under Creative Commons or public-domain licences, most of them from Wikimedia Commons. Each one is credited to its author, with its licence, where it appears and on the <a class="xl" href="#credits">Image credits</a> page.</li>
+    <li><b>Flyers, posters and logos</b> are reproduced at reduced size to document the nights, clubs, labels and festivals they advertised. Each one is credited to its designer, promoter or source where these are known, where it appears and on the Image credits page.</li>
+    <li><b>The text</b> is © the author except where marked, and is shared under the CC BY-NC-SA 4.0 licence. The collage illustrations were made for the book with Krea, an AI image generator, and are labelled where they appear.</li>
+  </ul>
+  <h3>Asking for a change</h3>
+  <p>If you made or own something shown here, or you appear in a photograph, you can ask for it to be credited differently, replaced or removed. You do not need to give a reason. Anything you ask to have taken down is taken down promptly, without argument.</p>
+  <h3>What to send</h3>
+  <ul>
+    <li><b>The page or picture.</b> The page's address, or the picture's name. Every picture has a “Report this image” link under it that fills this in for you.</li>
+    <li><b>Who you are.</b> The designer, promoter, photographer or owner, the person in the photograph, or someone acting for one of them.</li>
+    <li><b>What you want done.</b> Credited differently (with the wording you want), replaced (with what), or removed.</li>
+  </ul>
+  <h3>How to send it</h3>
+  <p id="rightsHow"></p>
+  <div class="card" id="rightsRequest"></div>
+  <h3>Removed on request</h3>
+  <div id="rightsRemoved"></div>
 </article>
 <!-- ===================================================================
      NODE BODIES — hand-written pages for the most connected nodes.
@@ -32930,7 +32956,7 @@
 <script src="extras.js"></script>
 <script src="flyers.js"></script>
 <script src="listings.js"></script>
-<script src="spread.js"></script><script src="roles-gen.js"></script><script src="roles.js"></script><script src="places-geo.js"></script><script src="place-data.js"></script><script src="place.js"></script><script src="floor.js"></script><script src="art.js"></script>
+<script src="spread.js"></script><script src="roles-gen.js"></script><script src="roles.js"></script><script src="places-geo.js"></script><script src="place-data.js"></script><script src="place.js"></script><script src="floor.js"></script><script src="art.js"></script><script src="rights.js"></script>
 <script src="spotify.js"></script>
 <script src="gallery.js"></script>
 <script src="stream.js"></script>

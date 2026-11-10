@@ -4,7 +4,9 @@
    Relations are declared one way; backlinks are computed.
    =================================================================== */
 /* the span the book celebrates: the breakout year to forty years on; earlier years are the prologue */
-const BOOK = { from: 1987, to: 2027, span: '1987–2027' };
+const BOOK = { from: 1987, to: 2027, span: '1987–2027',
+  /* where rights and takedown requests go: an email address or a URL. Empty = a pre-filled issue on the public repository (build/rights.js) */
+  rightsContact: '' };
 const STRANDS = {
   years:  { title: 'Forty years', color: '--mix', spine: ['timeline', ...Object.keys(window.YEARS || {}).map(y => 'y' + y), 'forty'] },
   techno: { title: 'Techno', color: '--rumble', spine: ['h0', 'pre', 'h1', 'h2', 'h3', 'ldn', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'h11', 'h12', 'h13', 'h14'] },
@@ -57,7 +59,7 @@ const CHAPTER_TITLES = {
   r0: 'What a rave is', r1: 'Acid house parties and the orbital raves, 1988–90', r2: 'Pirate radio', r3: 'Hardcore, 1990–92', r4: 'The free party and the protest', r5: 'The Criminal Justice Act, 1994', r6: 'Licensed raves and the superclubs', r7: 'Jungle, happy hardcore and after', r8: 'Rave people, crews and stations',
   house0: 'The house strand', hh1: 'Chicago, 1977–88', hh2: 'New York and the garage', hh3: 'Ibiza: the island\'s own story', hh4: 'The Ibiza Four and London', hh5: 'Madchester and the North', hh6: 'House after 1990',
   j0: 'What jungle is', j1: 'Rage and the breakbeat, 1988–92', j2: 'Jungle, 1993–95', j3: 'Drum & bass, 1995–2000', j4: 'The 2000s and the revival', j5: 'Jungle people, labels and rooms',
-  t0: 'What trance is', t1: 'Frankfurt and Berlin, 1990–95', t2: 'Goa and psytrance', t3: 'The boom, 1995–2001', t4: 'After the peak', t5: 'Trance people, labels and rooms', credits: 'Image credits', forty: 'Forty of everything', timeline: 'Forty years in one line', listings: 'What was on: listings', nights: 'Club nights', flyers: 'Real flyers', djs: 'DJs and producers', cities: 'Cities and the spread', streets: 'Street view', visuals: 'Visualiser', rooms: 'Walk the rooms', tours: 'Guided tours', path: 'Six degrees', quiz: 'Blind test', crate: 'Your crate', notes: 'Marginalia',
+  t0: 'What trance is', t1: 'Frankfurt and Berlin, 1990–95', t2: 'Goa and psytrance', t3: 'The boom, 1995–2001', t4: 'After the peak', t5: 'Trance people, labels and rooms', credits: 'Image credits', rights: 'Rights and takedown', forty: 'Forty of everything', timeline: 'Forty years in one line', listings: 'What was on: listings', nights: 'Club nights', flyers: 'Real flyers', djs: 'DJs and producers', cities: 'Cities and the spread', streets: 'Street view', visuals: 'Visualiser', rooms: 'Walk the rooms', tours: 'Guided tours', path: 'Six degrees', quiz: 'Blind test', crate: 'Your crate', notes: 'Marginalia',
   a0: 'The map', a1: 'Kick', a2: 'Drums', a3: 'Percussion', a4: 'Rumble', a5: 'Bass', a6: 'Synth', a7: 'Sampling', a8: 'Mix', a9: 'Studio sequencer', mixer: 'The set builder', make: 'Learn to make each genre', disputes: 'Corrections and open questions', charts: 'What charted', shops: 'Record shops', press: 'The press', sound: 'Sound systems', year: 'Everywhere in one year', explore: 'Explore the graph', genres: 'The genre family tree'
 };
 /* chapters merged from the newer strands: build/movement2.html (see merge2.py) */
@@ -2045,7 +2047,7 @@ const CONTENTS = [
     ['scenes', 'Scenes and sources', ['nights', 'listings', 'flyers', 'floor', 'shops', 'press', 'sound', 'charts']],
     ['ways', 'Ways through', ['tours', 'genres', 'explore', 'cities', 'streets', 'rooms', 'year', 'path']],
     ['keep', 'Play and keep', ['visuals', 'quiz', 'crate', 'notes']],
-    ['about', 'About this book', ['disputes', 'credits']]
+    ['about', 'About this book', ['disputes', 'credits', 'rights']]
   ] }
 ];
 const STRAND_SUB = { rigs: 'sound systems and the kit of a rave, from the scoop bin to the line array', fests: 'the world\'s dance festivals, continent by continent', stage: 'the live acts and the festivals, from the rave PA to Glastonbury', booth: 'the DJ\'s own machines: decks, mixers, CD players and laptops', years: `one page a year, ${BOOK.from} to ${BOOK.to}`, techno: 'Detroit, Berlin and the machine', house: 'Chicago, New York and the floor', rave: 'Britain, from the M25 to the Criminal Justice Act', jungle: 'the breakbeat at 170', trance: 'Frankfurt, Goa and the breakdown', newyork: 'the Loft, the Garage and the club kids', chicago: 'house music\'s home town, from the Warehouse to footwork', detroit: 'techno\'s home town, before and after', ibiza: 'the island, from the bohemians to the superclubs', m25: 'the orbital raves, 1987–90', lovepar: 'Berlin\'s street party, 1989–2010', goa: 'the beach parties and the trance they made', tech: 'the machines and software records are made on, from the bargain-bin 808 to the browser', law: 'drugs, licences and the dance floor', anatomy: 'a techno track taken apart, layer by layer', mixer: 'two decks, one clock', roots: 'a history of Black music, from West Africa to the world and back', clubs: 'fifteen rooms on four continents', towns: 'from Hastings Pier to the psytrance villages', edm: 'the American scene, from the underground to the boom', women: 'from the Radiophonic Workshop to the headline slot', queer: 'the rooms the music was made in, city by city', bass: 'UK garage, grime, dubstep and after', clubmusic: 'Miami, Chicago, Detroit, Baltimore and Newark after house', wider: 'Africa, Latin America, the Mediterranean, the Middle East, Eastern Europe, Russia and Asia', recshops: 'the counters the records passed over' };

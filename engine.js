@@ -71,11 +71,12 @@ function route(){
   if (window.SoundBus && CUR && CUR !== id) SoundBus.all();
   Trail.push(id, titleOf(id)); Visited.add(id);
   if (typeof Contents !== 'undefined') Contents.sync(id, strand, idx >= 0);
-  if (window.Notes && id !== 'home' && !/^(year|explore|tours|path|quiz|crate|notes|credits|mixer)$/.test(id)) Notes.mount(inEl, id);
+  if (window.Notes && id !== 'home' && !/^(year|explore|tours|path|quiz|crate|notes|credits|rights|mixer)$/.test(id)) Notes.mount(inEl, id);
   if (isNode && window.Flyer) Flyer.autoMount(inEl, id);
   if (window.SpotifyEmbed) setTimeout(() => { SpotifyEmbed.wire(inEl); if (isNode) SpotifyEmbed.feature(inEl, id); }, 50);
   if (window.Gallery) Gallery.mount(inEl, id, isNode);
   if (window.Flyers) Flyers.mount(inEl, id, isNode);
+  if (window.ClubFlyers) ClubFlyers.mount(inEl, id, isNode);
   if (window.Listings) Listings.mount(inEl, id, isNode);
   if (window.HowTo && isNode){ inEl.dataset.node = id; HowTo.mount(inEl); }
   if (window.Panels){ Panels.mountAll(inEl); if (!isNode) Panels.mountChapter(inEl, id); }
