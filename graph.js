@@ -23,17 +23,18 @@ const STRANDS = {
   newyork: { title: 'New York', color: '--bass', spine: ['ny0','ny1','ny2','ny3','ny4','ny5'] },
   roots: { title: 'Roots', color: '--bass', spine: ['rt0','rt1','rt2','rt3','rt4','rt5','rt6','rt7','rt8'] },
   clubs: { title: 'The clubs', color: '--kick', spine: ['cb0','cb1','cb2','cb3','cb4','cb5','cb6','cb7','cb8','cb9','cb10','cb11','cb12','cb13','cb14','cb15'] },
-  towns: { title: 'Small towns', color: '--drums', spine: ['tw0','tw1','tw2','tw3','tw4','tw5','tw6','tw7','tw8','tw9','tw10'] },
+  towns: { title: 'Small towns', color: '--drums', spine: ['tw0','tw1','tw2','tw3','tw4','tw5','tw6','tw7','tw8','tw9','tw10','tw11'] },
   edm: { title: 'EDM in America', color: '--samp', spine: ['ed0','ed1','ed2','ed3','ed4','ed5'] },
   women: { title: 'Women', color: '--synth', spine: ['wn0','wn1','wn2','wn3','wn4','wn5','wn6','wn7','wn8','wn9','wn10'] },
   queer: { title: 'Queer floors', color: '--perc', spine: ['qf0','qf1','qf2','qf3','qf4','qf5','qf6','qf7','qf8','qf9','qf10','qf11','qf12','qf13'] },
   bass: { title: 'UK bass', color: '--bass', spine: ['ub0','ub1','ub2','ub3','ub4','ub5'] },
   clubmusic: { title: 'Club music', color: '--kick', spine: ['cm0','cm1','cm2','cm3','cm4','cm5'] },
-  wider: { title: 'The wider map', color: '--rumble', spine: ['wm0','wm1','wm2','wm3','wm4','wm5','wm6','wm7','wm8','wm9','wm10','wm11','wm12','wm13','wm14'] },
+  wider: { title: 'The wider map', color: '--rumble', spine: ['wm0','wm1','wm2','wm3','wm4','wm5','wm6','wm7','wm8','wm9','wm10','wm11','wm12','wm13','wm14','wm15','wm16','wm17'] },
   recshops: { title: 'Record shops', color: '--samp', spine: ['rs0','rs1','rs2','rs3','rs4','rs5'] },
   booth: { title: 'The booth', color: '--mix', spine: ['bt0','bt1','bt2','bt3','bt4','bt5'] },
+  rigs: { title: 'The rig', color: '--kick', spine: ['sy0','sy1','sy2','sy3','sy4','sy5'] },
   stage: { title: 'On stage', color: '--bass', spine: ['st0','st1','st2','st3','st4','st5','st6'] },
-  fests: { title: 'Festivals', color: '--drums', spine: ['fs0','fs1','fs2','fs3','fs4','fs5','fs6','fs7'] },
+  fests: { title: 'Festivals', color: '--drums', spine: ['fs0','fs1','fs2','fs3','fs4','fs5','fs6','fs7','fs8'] },
   anatomy:{ title: 'Anatomy', color: '--kick', spine: ['a0', 'a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9'] },
   mixer:  { title: 'Mixer', color: '--seq', spine: ['mixer'] }
 };
@@ -60,7 +61,7 @@ const CHAPTER_TITLES = {
   a0: 'The map', a1: 'Kick', a2: 'Drums', a3: 'Percussion', a4: 'Rumble', a5: 'Bass', a6: 'Synth', a7: 'Sampling', a8: 'Mix', a9: 'Studio sequencer', mixer: 'The set builder', make: 'Learn to make each genre', disputes: 'Corrections and open questions', charts: 'What charted', shops: 'Record shops', press: 'The press', sound: 'Sound systems', year: 'Everywhere in one year', explore: 'Explore the graph', genres: 'The genre family tree'
 };
 /* chapters merged from the newer strands: build/movement2.html (see merge2.py) */
-Object.assign(CHAPTER_TITLES, /*MV2*/{"wn0": "Women", "wn1": "Before the booth", "wn2": "The voices: sung, credited, paid", "wn3": "America behind the decks", "wn4": "Britain: door, booth and page", "wn5": "Continental Europe", "wn6": "Radio and the superclubs", "wn7": "Running it", "wn8": "Producers and machines", "wn9": "Counting it and changing it", "wn10": "The headline years", "rs0": "Record shops", "rs1": "Soho on foot", "rs2": "London beyond Soho", "rs4": "New York, Chicago and Detroit", "rs3": "Britain's counters"}/*MV2*/);
+Object.assign(CHAPTER_TITLES, /*MV2*/{"wn0": "Women", "wn1": "Before the booth", "wn2": "The voices: sung, credited, paid", "wn3": "America behind the decks", "wn4": "Britain: door, booth and page", "wn5": "Continental Europe", "wn6": "Radio and the superclubs", "wn7": "Running it", "wn8": "Producers and machines", "wn9": "Counting it and changing it", "wn10": "The headline years", "rs0": "Record shops", "rs1": "Soho on foot", "rs2": "London beyond Soho", "rs4": "New York, Chicago and Detroit", "rs3": "Britain's counters", "rs5": "Europe, Japan and online"}/*MV2*/);
 Object.keys(window.YEARS || {}).forEach(y => { CHAPTER_TITLES['y' + y] = y + (+y < BOOK.from ? ' · the year before' : +y === BOOK.from ? ' · the breakout year' : +y === BOOK.to ? ' · forty years on' : ''); });
 /* forks: where a chapter's history divides. [label, target, strand] */
 const FORKS = {
@@ -853,7 +854,7 @@ SHOP('shop-lucky-spin', 'Lucky Spin', 'london', '1990s', 'Jumpin\' Jack Frost\'s
 SHOP('shop-boogie-times', 'Boogie Times', 'london', '1990–98', 'Romford: Danny Donnelly\'s shop and Suburban Base label, hardcore and jungle\'s Essex end.', ['rave', 'jungle']);
 SHOP('shop-unity', 'Unity Records', 'london', '1990s', 'Soho: the shop under the Unity FM crew; hardcore and jungle twelves by the box.', ['jungle', 'rave']);
 SHOP('shop-hard-wax', 'Hard Wax', 'berlin', '1989–', 'Mark Ernestus\'s Kreuzberg shop: Basic Channel\'s counter, the source of Berlin\'s techno and dub taste, still open.', ['techno']);
-SHOP('shop-delirium', 'Delirium Records', 'frankfurt', '1988–', 'Frankfurt\'s techno shop, the counter behind the city\'s 1990s scene.', ['techno', 'trance']);
+SHOP('shop-delirium', 'Delirium Records', 'frankfurt', '1992–', 'Frankfurt\'s techno shop, the counter behind the city\'s 1990s scene.', ['techno', 'trance']);
 SHOP('shop-rush-hour', 'Rush Hour', 'amsterdam', '1997–', 'Amsterdam\'s shop, label and distributor; the Dutch techno and house counter since 1997.', ['techno', 'house']);
 SHOP('shop-clone', 'Clone', 'rotterdam', '1993–', 'Serge Verschuur\'s Rotterdam shop and label.', ['techno']);
 SHOP('shop-pure-groove', 'Pure Groove', 'london', '1989–2010', 'The UK garage counter where the two-step white labels went first, from a Camden stall in 1988 to Holloway Road and then Smithfield.', ['house']);
@@ -1155,7 +1156,7 @@ const CONTENTS = [
   { part: 'The places', sub: 'follow the music from New York to Goa', strands: ['newyork', 'chicago', 'detroit', 'ibiza', 'm25', 'lovepar', 'goa', 'wider', 'fests'] },
   { part: 'The people', sub: 'who built it, who danced, and who was left out of the story', strands: ['women', 'queer'] },
   { part: 'The movement', sub: 'where the music came from, the rooms that made it, the towns it reached', strands: ['roots', 'clubs', 'towns', 'edm', 'recshops'] },
-  { part: 'The forces', sub: 'the machines that made it and the law that chased it', strands: ['tech', 'booth', 'law'] },
+  { part: 'The forces', sub: 'the machines that made it and the law that chased it', strands: ['tech', 'booth', 'rigs', 'law'] },
   { part: 'Make it', sub: 'take a track apart, then build a set', strands: ['anatomy', 'mixer'], pages: ['make'] },
   { part: 'Explore', sub: 'cut across the whole book', groups: [
     ['scenes', 'Scenes and sources', ['nights', 'listings', 'flyers', 'floor', 'shops', 'press', 'sound', 'charts']],
@@ -1164,7 +1165,7 @@ const CONTENTS = [
     ['about', 'About this book', ['disputes', 'credits']]
   ] }
 ];
-const STRAND_SUB = { fests: 'the world\'s dance festivals, continent by continent', stage: 'the live acts and the festivals, from the rave PA to Glastonbury', booth: 'the DJ\'s own machines: decks, mixers, CD players and laptops', years: `one page a year, ${BOOK.from} to ${BOOK.to}`, techno: 'Detroit, Berlin and the machine', house: 'Chicago, New York and the floor', rave: 'Britain, from the M25 to the Criminal Justice Act', jungle: 'the breakbeat at 170', trance: 'Frankfurt, Goa and the breakdown', newyork: 'the Loft, the Garage and the club kids', chicago: 'house music\'s home town, from the Warehouse to footwork', detroit: 'techno\'s home town, before and after', ibiza: 'the island, from the bohemians to the superclubs', m25: 'the orbital raves, 1987–90', lovepar: 'Berlin\'s street party, 1989–2010', goa: 'the beach parties and the trance they made', tech: 'from the bargain-bin 808 to the browser', law: 'drugs, licences and the dance floor', anatomy: 'a techno track taken apart, layer by layer', mixer: 'two decks, one clock', roots: 'a history of Black music, from West Africa to the world and back', clubs: 'fifteen rooms on four continents', towns: 'from Hastings Pier to the psytrance villages', edm: 'the American scene, from the underground to the boom', women: 'from the Radiophonic Workshop to the headline slot', queer: 'the rooms the music was made in, city by city', bass: 'UK garage, grime, dubstep and after', clubmusic: 'Miami, Chicago, Detroit, Baltimore and Newark after house', wider: 'Africa, Latin America, the Mediterranean, Eastern Europe, Russia and Asia', recshops: 'the counters the records passed over' };
+const STRAND_SUB = { rigs: 'sound systems and the kit of a rave, from the scoop bin to the line array', fests: 'the world\'s dance festivals, continent by continent', stage: 'the live acts and the festivals, from the rave PA to Glastonbury', booth: 'the DJ\'s own machines: decks, mixers, CD players and laptops', years: `one page a year, ${BOOK.from} to ${BOOK.to}`, techno: 'Detroit, Berlin and the machine', house: 'Chicago, New York and the floor', rave: 'Britain, from the M25 to the Criminal Justice Act', jungle: 'the breakbeat at 170', trance: 'Frankfurt, Goa and the breakdown', newyork: 'the Loft, the Garage and the club kids', chicago: 'house music\'s home town, from the Warehouse to footwork', detroit: 'techno\'s home town, before and after', ibiza: 'the island, from the bohemians to the superclubs', m25: 'the orbital raves, 1987–90', lovepar: 'Berlin\'s street party, 1989–2010', goa: 'the beach parties and the trance they made', tech: 'from the bargain-bin 808 to the browser', law: 'drugs, licences and the dance floor', anatomy: 'a techno track taken apart, layer by layer', mixer: 'two decks, one clock', roots: 'a history of Black music, from West Africa to the world and back', clubs: 'fifteen rooms on four continents', towns: 'from Hastings Pier to the psytrance villages', edm: 'the American scene, from the underground to the boom', women: 'from the Radiophonic Workshop to the headline slot', queer: 'the rooms the music was made in, city by city', bass: 'UK garage, grime, dubstep and after', clubmusic: 'Miami, Chicago, Detroit, Baltimore and Newark after house', wider: 'Africa, Latin America, the Mediterranean, the Middle East, Eastern Europe, Russia and Asia', recshops: 'the counters the records passed over' };
 /* pages outside the strands, and the part of the contents they sit in */
 const STANDALONE = {}; CONTENTS.forEach(p => { (p.pages || []).forEach(id => { STANDALONE[id] = p.part; }); (p.groups || []).forEach(([, , ids]) => ids.forEach(id => { STANDALONE[id] = p.part; })); });
 /* strands in the order of the contents (folios, fallbacks and filters follow it) */

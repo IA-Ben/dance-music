@@ -129,7 +129,7 @@ window.Movement = (() => {
   /* ---------- page hooks ---------- */
   function hookAll(){
     window.PageHooks = window.PageHooks || {};
-    ['rt0', 'cb0', 'tw0', 'ed0', 'wn0', 'qf0', 'ub0', 'cm0', 'wm0', 'rs0', 'bt0', 'vz0', 'st0', 'fs0'].forEach(id => { const prev = PageHooks[id]; PageHooks[id] = () => { if (prev) prev(); chapterList(document.querySelector(`.page[data-page="${id}"] .mv-list`)); }; });
+    ['rt0', 'cb0', 'tw0', 'ed0', 'wn0', 'qf0', 'ub0', 'cm0', 'wm0', 'rs0', 'bt0', 'vz0', 'st0', 'fs0', 'sy0'].forEach(id => { const prev = PageHooks[id]; PageHooks[id] = () => { if (prev) prev(); chapterList(document.querySelector(`.page[data-page="${id}"] .mv-list`)); }; });
     Object.keys(MOVE.tl || {}).forEach(id => { const prev = PageHooks[id]; PageHooks[id] = () => { if (prev) prev(); timeline(document.querySelector(`.page[data-page="${id}"]`), id); }; });
     const opener = (id, fn) => { const prev = PageHooks[id]; PageHooks[id] = () => { if (prev) prev(); try { fn(); } catch (e) { console.warn(e); } }; };
     opener('cb0', () => map(document.getElementById('mvClubMap'), MOVE.clubs || [], { views: [['world', 'World'], ['europe', 'Europe'], ['britain', 'Britain']] }));
