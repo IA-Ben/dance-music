@@ -1220,3 +1220,6 @@ body.docked footer{padding-bottom:120px}
 .mv-walk-list li.on{background:color-mix(in srgb,var(--c,var(--samp)) 14%,transparent)}
 .mv-walk-list small{opacity:.75}
 .mv-walk-list i{display:block;font-style:normal;opacity:.8}
+
+/* role chips on a person page (build/roles.js): smaller than the strand chips */
+.page .chips .rolechip{font-size:11px;padding:4px 10px;gap:5px}
