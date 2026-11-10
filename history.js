@@ -74,7 +74,7 @@ const TL = [
   [2026, 'US', 'Juan Atkins dies', 'h2', '31 October, Mexico City, aged 64, before a scheduled set. The Originator; the man who named it.'],
   [2024, 'DE', 'Berlin techno listed as heritage', 'h9', '13 March: added to Germany\'s UNESCO intangible-heritage inventory. Watergate closes on 31 December.'],
   [2025, 'EU', 'Liquid Room at 30', 'h13', 'Mills tours for the mix\'s thirtieth anniversary; London and Paris see unseen footage of the original night.'],
-  [2023, 'UK', 'Detroit Techno Militia in Hastings', 'ldn', 'Easter Sunday: the 313 plays a Sussex seaside town; the Hastings Techno Militia follows.']
+  [2023, 'UK', 'Detroit Techno Militia in Hastings', 'ldn', 'Easter Sunday: Detroit Techno Militia play a Sussex seaside town; the Hastings Techno Militia follows.']
 ];
 TL.sort((a, b) => a[0] - b[0]);
 function drawTimeline(){
