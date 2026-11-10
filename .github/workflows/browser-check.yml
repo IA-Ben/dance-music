@@ -18,11 +18,12 @@ jobs:
           python-version: '3.12'
       - run: pip install playwright && python -m playwright install --with-deps chromium
       - run: timeout 900 python check.py > check-out.txt 2>&1 || true
+      - run: if [ -f sv.py ]; then timeout 300 python sv.py > sv-out.txt 2>&1 || true; fi
       - run: cat check-out.txt
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add check-out.txt
+          git add check-out.txt sv-out.txt sv-*.png 2>/dev/null || git add check-out.txt
           git commit -m "Browser check" || echo "nothing to commit"
           git pull --rebase origin media-work || true
           git push origin HEAD:media-work
