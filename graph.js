@@ -127,7 +127,7 @@ const FORKS = {
 (FORKS['l2'] = FORKS['l2'] || []).push(...[['The parties the law was aimed at → the M25 raves', 'orb3', 'm25']]);
 (FORKS['h2'] = FORKS['h2'] || []).push(...[['Detroit, the whole city', 'det0', 'detroit']]);
 /* the movement: chapters that open onto a club, a town or the roots */
-[['ldn', 'Hastings, the whole town', 'tw1', 'towns'], ['h2', 'Belleville, the small town where it began', 'tw2', 'towns'], ['det2', 'Belleville, the small town', 'tw2', 'towns'],
+[['det5', 'Detroit Techno Militia in Hastings', 'tw1', 'towns'], ['h2', 'Belleville, the small town where it began', 'tw2', 'towns'], ['det2', 'Belleville, the small town', 'tw2', 'towns'],
  ['hh1', 'The Warehouse, in depth', 'cb2', 'clubs'], ['hh2', 'Paradise Garage, in depth', 'cb3', 'clubs'], ['hh3', 'Amnesia, in depth', 'cb1', 'clubs'], ['hh5', 'The Haçienda, in depth', 'cb5', 'clubs'],
  ['h4', 'Tresor, in depth', 'cb9', 'clubs'], ['h6', 'Berghain, in depth', 'cb14', 'clubs'], ['h7', 'Space, in depth', 'cb8', 'clubs'], ['h8', 'Bassiani, in depth', 'cb15', 'clubs'],
  ['r6', 'Ministry of Sound, in depth', 'cb10', 'clubs'], ['t3', 'Godskitchen, in depth', 'cb12', 'clubs'], ['ny1', 'Disco and the backlash', 'rt4', 'roots'], ['chi1', 'The Warehouse, in depth', 'cb2', 'clubs'], ['det2', 'The Music Institute, in depth', 'cb7', 'clubs'],
