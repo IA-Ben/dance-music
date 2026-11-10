@@ -1,0 +1,43 @@
+{
+ "svembed_hdr": [
+  200,
+  null,
+  "object-src 'none';base-uri 'self';script-src 'nonce-m7DuVBHI2c26_-wRFdk-Tg' 'strict-dynamic' 'report-sample' 'unsafe-eva"
+ ],
+ "svembed_q_hdr": [
+  200,
+  null,
+  "object-src 'none';base-uri 'self';script-src 'nonce-aSi6yCSql2lt9GFIy2gi1A' 'strict-dynamic' 'report-sample' 'unsafe-eva"
+ ],
+ "embed_q_hdr": [
+  200,
+  null,
+  "object-src 'none';base-uri 'self';script-src 'nonce-Pnx014bh3lFdiDkqmZezpA' 'strict-dynamic' 'report-sample' 'unsafe-eva"
+ ],
+ "pano_url_hdr": [
+  200,
+  "SAMEORIGIN",
+  ""
+ ],
+ "svembed_frame": {
+  "frames": 2,
+  "url": "https://www.google.com/maps/embed?origin=mfe&pb=!6m6!1m5!2m2!1d51.5134!2d-0.134!4f-0!5f1",
+  "title": "",
+  "canvas": 3,
+  "text": "119 Wardour St\nLondon, England\nView on Google Maps\nRotate the view\nKeyboard shortcuts\n\u00a9 2026 Google\nTerms\nReport a problem"
+ },
+ "svembed_q_frame": {
+  "frames": 2,
+  "url": "https://www.google.com/maps/embed?origin=mfe&pb=!6m6!1m5!2m2!1d51.5134!2d-0.134!4f-0!5f1",
+  "title": "",
+  "canvas": 3,
+  "text": "119 Wardour St\nLondon, England\nView on Google Maps\nRotate the view\nKeyboard shortcuts\n\u00a9 2026 Google\nTerms\nReport a problem"
+ },
+ "embed_q_frame": {
+  "frames": 3,
+  "url": "https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s51.5134,-0.134!6i18",
+  "title": "",
+  "canvas": 0,
+  "text": "Keyboard shortcuts\nMap data \u00a92026 Google\nTerms\nReport a map error"
+ }
+}

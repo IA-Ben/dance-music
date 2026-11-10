@@ -64,11 +64,11 @@
   ""
  ],
  "neural": {
-  "loadMs": 3726,
-  "genMs": 6312,
+  "loadMs": 3551,
+  "genMs": 6178,
   "seconds": 3.77,
   "rate": 24000
  },
- "neural_wall_s": 10.0,
+ "neural_wall_s": 9.7,
  "errors": []
 }
