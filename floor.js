@@ -974,7 +974,7 @@ window.FLOOR = [
 "pages": [
 "Love Parade"
 ],
-"story": "Arriving on the Thursday, the group stumbled on a street party outside a McDonald's where even the staff were dancing. On the Saturday they took the train into streets packed with people and floats, bass coming from every side, followed the Pacha float and camped near the Victory Column. For all its size the crowd was easy to move through; people climbed trees and light poles. Paul van Dyk closed on the Sunday night, and the writer, on six hours' sleep in three days, felt no photograph could convey it.",
+"story": "Arriving on the Thursday, the group stumbled on a street party outside a McDonald's where even the staff were dancing. On the Saturday they took the train into streets packed with people and floats, bass coming from every side, followed the Pacha float and camped near the Victory Column. For all its size the crowd was easy to move through; people climbed trees and light poles. Paul van Dyk closed the night, and the writer, on six hours' sleep in three days, felt no photograph could convey it.",
 "quote": "The world's biggest dance street party",
 "source_title": "Resident Advisor — Love Parade 2001 [Berlin, Germany]",
 "source_url": "https://es-mx.ra.co/reviews/54",

@@ -65,7 +65,7 @@ const TOURS = [
     ['paul-oakenfold', 'Oakenfold\'s birthday trip: four friends, one summer, and London changed when they got home.'],
     ['danny-rampling', 'Shoom, December 1987: the first attempt to rebuild Amnesia in a Southwark gym.'],
     ['balearic', 'The crossing: Balearic as a house dialect, as rave\'s origin story, and as techno\'s summer residency.'],
-    ['space', 'Playa d\'en Bossa: Carl Cox\'s fifteen summers, the terrace with the planes overhead.'],
+    ['space', 'Playa d\'en Bossa: Carl Cox\'s sixteen summers, the terrace with the planes overhead.'],
     ['sven-vath', 'Cocoon at Amnesia from 2000: techno gets a Monday on the island, and keeps it for nineteen years.'] ] }
 ];
 window.Tour = {
