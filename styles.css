@@ -1183,3 +1183,15 @@ body.docked footer{padding-bottom:120px}
 .sv-list{list-style:none;margin:0;padding:0;font-size:14px;line-height:1.7}
 .sv-list small,.sv-group h3 small{color:var(--muted);font-weight:400}
 .sv-line{margin-top:-4px}
+
+/* visualiser */
+.vis-stage{position:relative;background:#000;border-radius:8px;overflow:hidden;aspect-ratio:16/9}
+.vis-stage:fullscreen{border-radius:0;aspect-ratio:auto;display:flex;align-items:center;justify-content:center}
+.vis-cv{display:block;width:100%;height:100%}
+.vis-stage:fullscreen .vis-cv{object-fit:contain}
+.vis-tag{position:absolute;left:10px;bottom:8px;font:11px var(--f-mono);letter-spacing:.08em;color:rgba(255,255,255,.7);text-shadow:0 1px 3px #000}
+.vis-eras{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 6px}
+.vis-eras .on{outline:2px solid var(--c,var(--mix));outline-offset:1px}
+.vis-ctl{align-items:center;gap:8px;flex-wrap:wrap;margin:0}
+.vis-sel{font:13px var(--f-mono);background:var(--bg3);color:var(--text);border:1px solid var(--line,#2a2a35);border-radius:6px;padding:6px 8px;max-width:100%}
+.vis-str{font-size:13px;display:inline-flex;align-items:center;gap:4px}
