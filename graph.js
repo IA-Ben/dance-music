@@ -128,6 +128,17 @@ const FORKS = {
  ['h0', 'Roots: where the music came from', 'rt0', 'roots'], ['house0', 'Roots: where the music came from', 'rt0', 'roots']
 ].forEach(([from, label, to, strand]) => (FORKS[from] = FORKS[from] || []).push([label, to, strand]));
 (FORKS['hh1'] = FORKS['hh1'] || []).push(...[['Chicago, the whole city', 'chi0', 'chicago']]);
+/* the people: chapters that open onto the Women strand */
+[['pre', 'The women who built electronic sound', 'wn1', 'women'], ['k1', 'Before the booth: Oram, Derbyshire, Carlos, Ciani', 'wn1', 'women'],
+ ['rt4', 'The voices: who sang, who was credited, who was paid', 'wn2', 'women'], ['hh6', 'The voices of house', 'wn2', 'women'],
+ ['ny2', 'Sharon White at the Saint; Judy Weinstein\'s pool', 'wn3', 'women'], ['chi3', 'Superjane and Chicago\'s women DJs', 'wn3', 'women'], ['det3', 'K-Hand, Stacey Hale and Women on Wax', 'wn3', 'women'],
+ ['hh4', 'The women at Future and on the Shoom door', 'wn4', 'women'], ['i3', 'Nancy Noise, Lisa Loud and the friends who went first', 'wn4', 'women'], ['j2', 'Kemistry, Storm and DJ Rap', 'wn4', 'women'],
+ ['h4', 'The women of Berlin and the continent', 'wn5', 'women'], ['cb9', 'Regina Baer, who built the vault', 'wn5', 'women'],
+ ['r6', 'Radio, the superclubs and the image problem', 'wn6', 'women'], ['i4', 'Sonique, Lottie and the Ibiza residencies', 'wn6', 'women'],
+ ['r2', 'Women on the pirates and Radio 1', 'wn6', 'women'], ['cb15', 'Naja Orashvili and the people who run it', 'wn7', 'women'],
+ ['k4', 'Producers and machines: who gets the credit', 'wn8', 'women'], ['h8', 'Counting the line-ups, 2013–26', 'wn9', 'women'], ['h9', 'The headline years: techno\'s women at the top of the bill', 'wn10', 'women'],
+ ['h10', 'Women: the history left out', 'wn0', 'women']
+].forEach(([from, label, to, strand]) => (FORKS[from] = FORKS[from] || []).push([label, to, strand]));
 
 const NODES = [];
 const N = (id, type, title, o = {}) => { const n = { id, type, title, years: o.years || '', city: o.city || '', strands: o.strands || ['techno'], blurb: o.blurb || '', rel: o.rel || [], aliases: o.aliases || [], q: o.q || title, color: o.color }; NODES.push(n); return n; };
