@@ -10,9 +10,13 @@ Visited.load();
 /* ---------- alias index for autolinking ---------- */
 let ALIASES = null;
 /* names that point at a page without being its title: members, festivals, teams, nicknames (used only while no page has the name) */
-const ALIAS_EXTRA = { acid: ['Acid House', 'Acid house'], balearic: ['Balearic Beat', 'Balearic beat'], orbital: ['Paul Hartnoll', 'Phil Hartnoll'], movement: ['DEMF', 'Detroit Electronic Music Festival', 'Movement festival'], 'masters-at-work': ['Louie Vega', 'Kenny Dope', 'Little Louie Vega'], 'dance-2-trance': ['Rolf Ellmer'], wbmx: ['Hot Mix 5', 'Hot Mix Five'], 'paradise-garage': ['the Garage', 'The Garage'] };
+const ALIAS_EXTRA = { acid: ['Acid House', 'Acid house'], balearic: ['Balearic Beat', 'Balearic beat'], orbital: ['Paul Hartnoll', 'Phil Hartnoll'], movement: ['DEMF', 'Detroit Electronic Music Festival', 'Movement festival'], 'masters-at-work': ['Louie Vega', 'Kenny Dope', 'Little Louie Vega'], 'dance-2-trance': ['Rolf Ellmer'], wbmx: ['Hot Mix 5', 'Hot Mix Five'], 'paradise-garage': ['the Garage', 'The Garage'],
+  /* club nights named in the text by another form (nights audit, November 2026) */
+  spectrum: ['Land of Oz'], rage: ['Rage'], 'flesh-hacienda': ['Flesh'], 'home-of-la-troya': ['La Troya', 'La Troya Asesina', 'La Vaca Asesina'], 'horoom-nights': ['Horoom'], 'queen-smartbar': ['Queen!'], 'enter-ibiza': ['ENTER.'], 'we-love': ['We Love…'], 'heavenly-sunday-social': ['Heavenly Social'], 'set-metalheadz': ['Metalheadz Sunday Sessions', 'Metalheadz Sundays'], 'the-loft': ['Love Saves the Day'], homoelectric: ['Homobloc'] };
 /* a name another page claims by mistake */
-const ALIAS_FORCE = { Universe: 'tribal-gathering', Trax: 'trax', Cocoon: 'cocoon', 'Golden Pudel Club': 'golden-pudel' };
+const ALIAS_FORCE = { Universe: 'tribal-gathering', Trax: 'trax', Cocoon: 'cocoon', 'Golden Pudel Club': 'golden-pudel',
+  /* nights whose one-word names are on ALIAS_DENY: linked only in these longer forms the text uses */
+  "Energy's": 'energy', "Energy's Jeremy Taylor": 'energy', "Energy's second party": 'energy', "Energy's Quentin Chambers": 'energy', "Energy's Chambers and Taylor": 'energy', "Bukem's Speed": 'speed', 'Pure in Edinburgh': 'pure', 'Sunday night Orange': 'orange-nation', "Bryan Gee's Movement": 'bar-rumba', 'Bedrock became a night': 'bedrock-night', 'Monday-night Trash': 'trash-the-end' };
 /* words that are also something else: never linked on their own */
 const ALIAS_DENY = /^(Paradiso|January|February|March|April|May|June|July|August|September|October|November|December|Live|Papua New Guinea|Last Night a DJ Saved My Life|Space|Future|Hospital|Virus|Planet|Flying|Base|Release|Harmony|Drop|Cyclone|Trip|Music|Energy|Strings|Circles|Original|Loaded|Pure|Speed|Flavour|Incredible|Terrorist|Movement|the End|the Loop|the Box|the Club|the Room|the Gallery)$/;
 /* the same, for names on the generated subject pages (graph-gen.js, written by /tmp/deep2/tools/gen_nodes.py); a page marked exact links only on its name as written, case for case */
