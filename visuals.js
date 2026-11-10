@@ -178,5 +178,5 @@ window.Visuals = (() => {
   window.PageHooks.visuals = () => { if (prev) prev(); autoMount(document.querySelector('.page[data-page="visuals"]')); const q = (location.hash.split('?')[1] || '').match(/era=([a-z]+)/); if (q && BY[q[1]]) S.mounts.forEach(m => { m.auto = false; m.era = q[1]; m.st = {}; paint(m); }); };
   window.addEventListener('hashchange', () => setTimeout(() => { autoMount(); }, 400));
   document.addEventListener('visibilitychange', () => { if (!document.hidden) start(); });
-  return { ERAS, eraFor, mount, autoMount, heard, state: S };
+  return { ERAS, eraFor, mount, autoMount, heard, state: S, audio: () => { if (!S.raf) listen(performance.now()); return A; } };
 })();

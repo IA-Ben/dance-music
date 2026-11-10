@@ -1195,3 +1195,12 @@ body.docked footer{padding-bottom:120px}
 .vis-ctl{align-items:center;gap:8px;flex-wrap:wrap;margin:0}
 .vis-sel{font:13px var(--f-mono);background:var(--bg3);color:var(--text);border:1px solid var(--line,#2a2a35);border-radius:6px;padding:6px 8px;max-width:100%}
 .vis-str{font-size:13px;display:inline-flex;align-items:center;gap:4px}
+
+/* rooms */
+.rm-stage{background:#000;border-radius:8px;overflow:hidden;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+.rm-stage canvas{display:block;width:100%!important;height:100%!important;touch-action:none;cursor:grab;outline-offset:-2px}
+.rm-msg{color:#b9b9c6;padding:20px;text-align:center}
+.rm-info h3 small{color:var(--muted);font-weight:400}
+.rm-info h4{margin:12px 0 4px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rm-info ul{margin:0 0 6px 18px;padding:0;font-size:14px;line-height:1.55}
+.rm-walk{touch-action:none;user-select:none}
