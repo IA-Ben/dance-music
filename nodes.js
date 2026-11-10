@@ -15,6 +15,8 @@ const ALIAS_EXTRA = { acid: ['Acid House', 'Acid house'], balearic: ['Balearic B
 const ALIAS_FORCE = { Universe: 'tribal-gathering', Trax: 'trax', Cocoon: 'cocoon', 'Golden Pudel Club': 'golden-pudel' };
 /* words that are also something else: never linked on their own */
 const ALIAS_DENY = /^(Paradiso|January|February|March|April|May|June|July|August|September|October|November|December|Live|Papua New Guinea|Last Night a DJ Saved My Life|Space|Future|Hospital|Virus|Planet|Flying|Base|Release|Harmony|Drop|Cyclone|Trip|Music|Energy|Strings|Circles|Original|Loaded|Pure|Speed|Flavour|Incredible|Terrorist|Movement|the End|the Loop|the Box|the Club|the Room|the Gallery)$/;
+/* the same, for names on the generated subject pages (graph-gen.js, written by /tmp/deep2/tools/gen_nodes.py); a page marked exact links only on its name as written, case for case */
+const ALIAS_DENY_GEN = new Set(window.GEN_ALIAS_DENY || []);
 /* chapter titles too generic to link from running text */
 const CHAPTER_NOLINK = /^(a\d|h11)$/;
 /* spelling variants of a name: accents, apostrophes, curly quotes (as strong as the name itself) */
@@ -38,14 +40,14 @@ function aliasShortenings(a, n){
 }
 function buildAliases(){
   if (ALIASES) return ALIASES; const claim = new Map();
-  const ok = a => a && a.length >= 3 && !ALIAS_DENY.test(a);
-  const strong = n => { const names = [n.title, ...(n.aliases || [])]; if (n.type === 'record'){ const t = n.title.split(' — ')[1]; if (t){ const bare = t.replace(/\s*\([^)]*\)\s*$/, ''); names.push('"' + bare + '"', '“' + bare + '”'); if (bare !== t) names.push('"' + t + '"'); } } return names.filter(Boolean).flatMap(a => aliasSpellings(a, n)).filter(a => !(n.type === 'record' && !/\s/.test(a) && !/^["“]/.test(a) && a.length < 9)); };
+  const ok = a => a && a.length >= 3 && !ALIAS_DENY.test(a) && !ALIAS_DENY_GEN.has(a);
+  const strong = n => { const names = [n.title, ...(n.aliases || [])]; if (n.exact) return names.filter(Boolean); if (n.type === 'record'){ const t = n.title.split(' — ')[1]; if (t){ const bare = t.replace(/\s*\([^)]*\)\s*$/, ''); names.push('"' + bare + '"', '“' + bare + '”'); if (bare !== t) names.push('"' + t + '"'); } } return names.filter(Boolean).flatMap(a => aliasSpellings(a, n)).filter(a => !(n.type === 'record' && !/\s/.test(a) && !/^["“]/.test(a) && a.length < 9)); };
   /* 1. names and their spellings (a later page wins a shared name, as before) */
   NODES.forEach(n => strong(n).forEach(a => { if (ok(a)) claim.set(a, n.id); }));
   /* 2. extra names, where free */
   Object.entries(ALIAS_EXTRA).forEach(([id, names]) => { if (typeof NODE !== 'undefined' && !NODE[id]) return; names.forEach(a => { if (ok(a) && !claim.has(a)) claim.set(a, id); }); });
   /* 3. shortened forms, where free and not claimed by two pages at once */
-  const weak = new Map(); NODES.forEach(n => [n.title, ...(n.aliases || [])].filter(Boolean).forEach(nm => aliasShortenings(nm, n).forEach(a => { if (!ok(a) || claim.has(a)) return; const w = weak.get(a); weak.set(a, w && w !== n.id ? null : n.id); })));
+  const weak = new Map(); NODES.filter(n => !n.exact).forEach(n => [n.title, ...(n.aliases || [])].filter(Boolean).forEach(nm => aliasShortenings(nm, n).forEach(a => { if (!ok(a) || claim.has(a)) return; const w = weak.get(a); weak.set(a, w && w !== n.id ? null : n.id); })));
   weak.forEach((id, a) => { if (id) claim.set(a, id); });
   Object.entries(ALIAS_FORCE).forEach(([a, id]) => { if (typeof NODE === 'undefined' || NODE[id]) claim.set(a, id); });
   /* 4. chapter titles and years */
@@ -92,15 +94,27 @@ function smarten(root){
 const unsmart = s => s.replace(/[‘’]/g, "'").replace(/[“”″]/g, '"');
 /* photo captions: a written caption where there is one, else a tidied Commons file name */
 function imgCaption(im){ if (im.caption) return im.caption; return String(im.title || '').replace(/^File:/, '').replace(/\.(jpe?g|png|webp|tiff?)$/i, '').replace(/\s*-\s*geograph\.org\.uk\s*-\s*\d+/i, '').replace(/\s*\(\d{6,}\)/g, '').replace(/_/g, ' ').trim(); }
-/* links: the first mention of each page in every section (a heading, a card or a fact box starts a new one), so a reader who lands mid-page still finds the names linked where they are reading */
-const LINK_SECTION = /^(H2|H3|H4|ASIDE|TABLE|FIGURE|DETAILS)$/;
+/* links: one rule for the whole book. In running prose a target (a person, club, label, place, record, chapter or year) is linked at its
+   first mention on the page and not again. A list or card (People, Records, Nights, a fact box, a timeline, a table) is its own scope and may
+   link each item once. A hand-written link counts as the mention of what it points to; a later hand-written link in prose to the same target
+   is unwrapped to plain text, and one that points somewhere else is left alone. */
+const LINK_SCOPE = '.card, .facts, .glance, aside, table, figure, details, .lsstrip, .flyerstrip, .gallery, .relrow, .rels';
+const LINK_PROSE = 'p, li, .fact span, .pcard, .ccard, .lede, .quote, td, .framing, .node-body';
+const LINK_SKIP = 'a, button, h1, h2, .nolink, .kicker, .tag, code, .chip, .trackchip, .chips, select, option, .seq-table, .deckgrid, .cap, .pagenum, .trail, svg, textarea, input';
 function autolink(root, selfId){
-  const A = buildAliases(); let done = new Set([selfId]);
-  const skip = 'a, button, h1, h2, .nolink, .kicker, .tag, code, .chip, .trackchip, .chips, select, option, .seq-table, .deckgrid, .cap, .pagenum, .trail, svg, textarea, input';
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, { acceptNode(t){ if (t.nodeType === 1) return (t !== root && (t.tagName === 'A' || LINK_SECTION.test(t.tagName) || t.classList.contains('card') || t.classList.contains('facts') || t.classList.contains('glance'))) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP; const p = t.parentElement; if (!p || p.closest(skip)) return NodeFilter.FILTER_REJECT; if (!p.closest('p, li, .fact span, .pcard, .ccard, .lede, .quote, td, .framing, .node-body')) return NodeFilter.FILTER_REJECT; return NodeFilter.FILTER_ACCEPT; } });
+  const A = buildAliases(); const scopes = new Map();
+  const doneFor = el => { const sc = el.closest(LINK_SCOPE); const key = sc && sc !== root && root.contains(sc) ? sc : root; let d = scopes.get(key); if (!d){ d = new Set([selfId]); scopes.set(key, d); } return [d, key]; };
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, { acceptNode(t){ if (t.nodeType === 1) return (t !== root && t.tagName === 'A') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP; const p = t.parentElement; if (!p || p.closest(LINK_SKIP)) return NodeFilter.FILTER_REJECT; if (!p.closest(LINK_PROSE)) return NodeFilter.FILTER_REJECT; return NodeFilter.FILTER_ACCEPT; } });
   const texts = []; let t; while ((t = walker.nextNode())) texts.push(t);
   texts.forEach(tn => {
-    if (tn.nodeType === 1){ if (tn.tagName === 'A'){ const h = (tn.getAttribute('href') || '').match(/^#(?:[a-z0-9]+-)?([^?&]+)/); if (h){ done.add(h[1]); const full = (tn.getAttribute('href') || '').slice(1).split(/[?&]/)[0]; done.add(full); } return; } done = new Set([selfId]); return; }
+    if (tn.nodeType === 1){
+      const p = tn.parentElement; const full = (tn.getAttribute('href') || '').slice(1).split(/[?&]/)[0]; const h = (tn.getAttribute('href') || '').match(/^#(?:[a-z0-9]+-)?([^?&]+)/);
+      if (!h || !p || p.closest(LINK_SKIP) || !p.closest(LINK_PROSE)) return;   /* navigation, chips and captions are not mentions */
+      const [done, key] = doneFor(p);
+      if (key === root && (!tn.className || tn.className === 'xl') && !tn.target && (done.has(h[1]) || done.has(full)) && h[1] !== selfId){ tn.replaceWith(document.createTextNode(tn.textContent)); return; }
+      done.add(h[1]); done.add(full); return;
+    }
+    const [done] = doneFor(tn.parentElement);
     const s = tn.nodeValue; A.re.lastIndex = 0; let m, last = 0; const frag = document.createDocumentFragment(); let any = false;
     const capped = tn.parentElement.classList.contains('lede') && tn === tn.parentElement.firstChild; /* the drop cap would split a link on the opening word */
     while ((m = A.re.exec(s))){ const name = m[2], id = A.map[name] || A.map[unsmart(name)]; if (capped && !s.slice(0, m.index + m[1].length).trim()) continue; if (!id || done.has(id) || !linkable(s, m.index + m[1].length, name)){ continue; } done.add(id); any = true; const start = m.index + m[1].length; frag.appendChild(document.createTextNode(s.slice(last, start))); const a = document.createElement('a'); a.href = '#' + id; a.className = 'xl'; a.textContent = name; frag.appendChild(a); last = start + name.length; }
