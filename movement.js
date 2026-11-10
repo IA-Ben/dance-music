@@ -103,6 +103,29 @@ window.Movement = (() => {
     if (!ol || ol.dataset.done || typeof STRANDS === 'undefined') return; const S = STRANDS[ol.dataset.strand]; if (!S) return; ol.dataset.done = 1;
     ol.innerHTML = S.spine.slice(1).map(id => { const pg = document.querySelector(`.page[data-page="${id}"]`); const k = pg && pg.querySelector('.kicker'); const yrs = k ? k.textContent.split('·').pop().trim() : ''; return `<li><a class="xl" href="#${id}">${esc((typeof CHAPTER_TITLES !== 'undefined' && CHAPTER_TITLES[id]) || id)}</a>${yrs ? ` <small>${esc(yrs)}</small>` : ''}</li>`; }).join('');
   }
+  /* ---------- a walk: numbered stops on a sketch of the route, each with a street view link ---------- */
+  function walk(card){
+    if (!card || card.dataset.done) return; const src = card.querySelector('script[type="application/json"]'); if (!src) return;
+    let S; try { S = JSON.parse(src.textContent); } catch (e) { return; } S = S.filter(p => isFinite(p.lat) && isFinite(p.lon)); if (!S.length) return; card.dataset.done = 1;
+    const W = 340, pad = 22, cos = Math.cos(S[0].lat * Math.PI / 180);
+    const xs = S.map(p => p.lon * cos), ys = S.map(p => p.lat); const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+    const k = (W - pad * 2) / Math.max(x1 - x0, 1e-6), H = Math.round((y1 - y0) * k + pad * 2);
+    const P = S.map((p, i) => [pad + (xs[i] - x0) * k, pad + (y1 - p.lat) * k]);
+    /* nudge stops that sit on top of each other so every number can be tapped */
+    for (let n = 0; n < 40; n++) for (let i = 0; i < P.length; i++) for (let j = i + 1; j < P.length; j++){ const dx = P[j][0] - P[i][0], dy = P[j][1] - P[i][1], d = Math.hypot(dx, dy) || 0.01; if (d < 21){ const m = (21 - d) / 2, ux = dx / d, uy = dy / d; P[i][0] -= ux * m; P[i][1] -= uy * m; P[j][0] += ux * m; P[j][1] += uy * m; } }
+    const line = P.map(q => q.map(v => v.toFixed(1)).join(',')).join(' ');
+    const dots = P.map((q, i) => `<g class="mv-walk-stop" data-i="${i}" tabindex="0" role="button" aria-label="Stop ${i + 1}: ${esc(S[i].name)}" transform="translate(${q[0].toFixed(1)},${q[1].toFixed(1)})"><circle r="10"/><text y="4" text-anchor="middle">${i + 1}</text></g>`).join('');
+    const gm = (a, b) => { const part = S.slice(a, b + 1); const ll = p => p.lat.toFixed(5) + ',' + p.lon.toFixed(5); return `https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=${ll(part[0])}&destination=${ll(part[part.length - 1])}${part.length > 2 ? '&waypoints=' + part.slice(1, -1).map(ll).join('%7C') : ''}`; };
+    const half = Math.min(S.length - 1, 8);
+    const sv = p => (window.Street && Street.a) ? Street.a([p.lat, p.lon], p.name, p.precision !== 'building', 'xl') : '';
+    const items = S.map((p, i) => `<li data-i="${i}"><b>${esc(p.name)}</b>${p.address ? ` <small>${esc(p.address)}</small>` : ''}${p.years ? ` <small>· ${esc(p.years)}</small>` : ''}<br>${esc(p.note || '')}${p.now ? ` <i>Now: ${esc(p.now)}</i>` : ''}${sv(p) ? ' ' + sv(p) : ''}</li>`).join('');
+    card.querySelector('.mv-walk-out').innerHTML = `<div class="mv-walk-map"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Sketch of the walk, ${S.length} stops in order"><polyline points="${line}"/>${dots}</svg></div>
+      <p class="cap">A sketch of the route, north at the top. Positions are to the street, not the door. Tap a number for its stop.</p>
+      <p class="mv-walk-go"><a class="chip" href="${gm(0, half)}" target="_blank" rel="noopener">Walk stops 1–${half + 1} in Google Maps</a>${S.length - 1 > half ? ` <a class="chip" href="${gm(half, S.length - 1)}" target="_blank" rel="noopener">Stops ${half + 1}–${S.length}</a>` : ''}</p>
+      <ol class="mv-walk-list">${items}</ol>`;
+    const pick = i => { card.querySelectorAll('.mv-walk-stop').forEach(g => g.classList.toggle('on', +g.dataset.i === i)); const li = card.querySelector(`.mv-walk-list li[data-i="${i}"]`); card.querySelectorAll('.mv-walk-list li').forEach(l => l.classList.toggle('on', l === li)); if (li) li.scrollIntoView({ block: 'nearest', behavior: reduce() ? 'auto' : 'smooth' }); };
+    card.querySelectorAll('.mv-walk-stop').forEach(g => { g.addEventListener('click', () => pick(+g.dataset.i)); g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); pick(+g.dataset.i); } }); });
+  }
   /* ---------- page hooks ---------- */
   function hookAll(){
     window.PageHooks = window.PageHooks || {};
@@ -113,7 +136,8 @@ window.Movement = (() => {
     opener('tw0', () => map(document.getElementById('mvTownMap'), MOVE.towns || [], { views: [['world', 'World'], ['europe', 'Europe'], ['britain', 'Britain']] }));
     opener('ed0', () => map(document.getElementById('mvUsMap'), MOVE.usa || [], { view: 'usa', labels: true }));
     opener('rt0', () => routes(document.getElementById('mvRoutes'), MOVE.routes || []));
+    document.querySelectorAll('.page .mv-walk').forEach(c => { const pg = c.closest('.page'); if (pg) opener(pg.dataset.page, () => walk(c)); });
   }
   hookAll();
-  return { timeline, map, routes };
+  return { timeline, map, routes, walk };
 })();

@@ -57,7 +57,7 @@ const CHAPTER_TITLES = {
   a0: 'The map', a1: 'Kick', a2: 'Drums', a3: 'Percussion', a4: 'Rumble', a5: 'Bass', a6: 'Synth', a7: 'Sampling', a8: 'Mix', a9: 'Studio sequencer', mixer: 'The set builder', make: 'Learn to make each genre', disputes: 'Corrections and open questions', charts: 'What charted', shops: 'Record shops', press: 'The press', sound: 'Sound systems', year: 'Everywhere in one year', explore: 'Explore the graph', genres: 'The genre family tree'
 };
 /* chapters merged from the newer strands: build/movement2.html (see merge2.py) */
-Object.assign(CHAPTER_TITLES, /*MV2*/{"wn0": "Women", "wn1": "Before the booth", "wn2": "The voices: sung, credited, paid", "wn3": "America behind the decks", "wn4": "Britain: door, booth and page", "wn5": "Continental Europe", "wn6": "Radio and the superclubs", "wn7": "Running it", "wn8": "Producers and machines", "wn9": "Counting it and changing it", "wn10": "The headline years"}/*MV2*/);
+Object.assign(CHAPTER_TITLES, /*MV2*/{"wn0": "Women", "wn1": "Before the booth", "wn2": "The voices: sung, credited, paid", "wn3": "America behind the decks", "wn4": "Britain: door, booth and page", "wn5": "Continental Europe", "wn6": "Radio and the superclubs", "wn7": "Running it", "wn8": "Producers and machines", "wn9": "Counting it and changing it", "wn10": "The headline years", "rs0": "Record shops", "rs1": "Soho on foot"}/*MV2*/);
 Object.keys(window.YEARS || {}).forEach(y => { CHAPTER_TITLES['y' + y] = y + (+y < BOOK.from ? ' · the year before' : +y === BOOK.from ? ' · the breakout year' : +y === BOOK.to ? ' · forty years on' : ''); });
 /* forks: where a chapter's history divides. [label, target, strand] */
 const FORKS = {

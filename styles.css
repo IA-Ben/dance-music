@@ -1204,3 +1204,19 @@ body.docked footer{padding-bottom:120px}
 .rm-info h4{margin:12px 0 4px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .rm-info ul{margin:0 0 6px 18px;padding:0;font-size:14px;line-height:1.55}
 .rm-walk{touch-action:none;user-select:none}
+
+/* a walk through a neighbourhood: sketch map, numbered stops */
+.mv-walk-map{background:var(--paper2,#f6f1e7);border:1px solid var(--line,#d9d2c3);border-radius:12px;padding:6px;max-width:420px}
+.mv-walk-map svg{display:block;width:100%;height:auto}
+.mv-walk-map polyline{fill:none;stroke:var(--c,var(--samp));stroke-width:2;stroke-dasharray:4 4;opacity:.7}
+.mv-walk-stop{cursor:pointer}
+.mv-walk-stop circle{fill:var(--paper,#fff);stroke:var(--c,var(--samp));stroke-width:2}
+.mv-walk-stop text{font:700 10px/1 var(--mono,ui-monospace,monospace);fill:var(--ink,#1a1a1a)}
+.mv-walk-stop.on circle,.mv-walk-stop:focus circle{fill:var(--c,var(--samp))}
+.mv-walk-stop:focus{outline:none}
+.mv-walk-go{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.mv-walk-list{padding-left:1.4em;margin:8px 0 0}
+.mv-walk-list li{margin:0 0 10px;padding:4px 6px;border-radius:8px}
+.mv-walk-list li.on{background:color-mix(in srgb,var(--c,var(--samp)) 14%,transparent)}
+.mv-walk-list small{opacity:.75}
+.mv-walk-list i{display:block;font-style:normal;opacity:.8}
