@@ -1,0 +1,1946 @@
+[
+{
+"id": "delia-derbyshire",
+"kind": "artist",
+"name": "Delia Derbyshire",
+"hint": {
+"years": "1937–2001",
+"city": "london"
+}
+},
+{
+"id": "bbc-radiophonic-workshop",
+"kind": "artist",
+"name": "BBC Radiophonic Workshop",
+"hint": {
+"years": "1958–",
+"city": "london"
+}
+},
+{
+"id": "suzanne-ciani",
+"kind": "artist",
+"name": "Suzanne Ciani",
+"hint": {
+"years": "1946–",
+"city": "newyork"
+}
+},
+{
+"id": "laurie-spiegel",
+"kind": "artist",
+"name": "Laurie Spiegel",
+"hint": {
+"years": "1945–",
+"city": "newyork"
+}
+},
+{
+"id": "pauline-oliveros",
+"kind": "artist",
+"name": "Pauline Oliveros",
+"hint": {
+"years": "1932–2016",
+"city": ""
+}
+},
+{
+"id": "eliane-radigue",
+"kind": "artist",
+"name": "Éliane Radigue",
+"hint": {
+"years": "–2026",
+"city": "paris"
+}
+},
+{
+"id": "bebe-barron",
+"kind": "artist",
+"name": "Bebe Barron",
+"hint": {
+"years": "1925–",
+"city": "newyork"
+}
+},
+{
+"id": "martha-wash",
+"kind": "artist",
+"name": "Martha Wash",
+"hint": {
+"years": "",
+"city": ""
+}
+},
+{
+"id": "loleatta-holloway",
+"kind": "artist",
+"name": "Loleatta Holloway",
+"hint": {
+"years": "1946–2011",
+"city": "chicago"
+}
+},
+{
+"id": "jocelyn-brown",
+"kind": "artist",
+"name": "Jocelyn Brown",
+"hint": {
+"years": "",
+"city": "newyork"
+}
+},
+{
+"id": "kym-mazelle",
+"kind": "artist",
+"name": "Kym Mazelle",
+"hint": {
+"years": "1960–",
+"city": "chicago"
+}
+},
+{
+"id": "donna-summer",
+"kind": "artist",
+"name": "Donna Summer",
+"hint": {
+"years": "–2012",
+"city": ""
+}
+},
+{
+"id": "robin-s",
+"kind": "artist",
+"name": "Robin S.",
+"hint": {
+"years": "",
+"city": "newyork"
+}
+},
+{
+"id": "crystal-waters",
+"kind": "artist",
+"name": "Crystal Waters",
+"hint": {
+"years": "",
+"city": ""
+}
+},
+{
+"id": "adeva",
+"kind": "artist",
+"name": "Adeva",
+"hint": {
+"years": "",
+"city": ""
+}
+},
+{
+"id": "ultra-nate",
+"kind": "artist",
+"name": "Ultra Naté",
+"hint": {
+"years": "",
+"city": ""
+}
+},
+{
+"id": "diane-charlemagne",
+"kind": "artist",
+"name": "Diane Charlemagne",
+"hint": {
+"years": "1964–2015",
+"city": "manchester"
+}
+},
+{
+"id": "liz-torres-house",
+"kind": "artist",
+"name": "Liz Torres",
+"hint": {
+"years": "",
+"city": "chicago"
+}
+},
+{
+"id": "sharon-white",
+"kind": "artist",
+"name": "Sharon White",
+"hint": {
+"years": "1975–",
+"city": "newyork"
+}
+},
+{
+"id": "screamin-rachael",
+"kind": "artist",
+"name": "Screamin' Rachael",
+"hint": {
+"years": "1980s–",
+"city": "chicago"
+}
+},
+{
+"id": "teri-bristol",
+"kind": "artist",
+"name": "Teri Bristol",
+"hint": {
+"years": "late 1980s–2023",
+"city": "chicago"
+}
+},
+{
+"id": "stacey-hotwaxx-hale",
+"kind": "artist",
+"name": "Stacey 'Hotwaxx' Hale",
+"hint": {
+"years": "1980s–",
+"city": "detroit"
+}
+},
+{
+"id": "k-hand",
+"kind": "artist",
+"name": "K-Hand",
+"hint": {
+"years": "1990–2021",
+"city": "detroit"
+}
+},
+{
+"id": "dj-minx",
+"kind": "artist",
+"name": "DJ Minx",
+"hint": {
+"years": "1990s–",
+"city": "detroit"
+}
+},
+{
+"id": "superjane",
+"kind": "artist",
+"name": "Superjane",
+"hint": {
+"years": "1997–",
+"city": "chicago"
+}
+},
+{
+"id": "your-sisters-house",
+"kind": "artist",
+"name": "Your Sisters' House",
+"hint": {
+"years": "1993–1994",
+"city": ""
+}
+},
+{
+"id": "lisa-loud",
+"kind": "artist",
+"name": "Lisa Loud",
+"hint": {
+"years": "1985–",
+"city": "london"
+}
+},
+{
+"id": "nancy-noise",
+"kind": "artist",
+"name": "Nancy Noise",
+"hint": {
+"years": "1986–",
+"city": "london"
+}
+},
+{
+"id": "smokin-jo",
+"kind": "artist",
+"name": "Smokin Jo",
+"hint": {
+"years": "1990–",
+"city": "london"
+}
+},
+{
+"id": "mrs-wood",
+"kind": "artist",
+"name": "Mrs Wood",
+"hint": {
+"years": "1990–",
+"city": "london"
+}
+},
+{
+"id": "rachel-auburn",
+"kind": "artist",
+"name": "Rachel Auburn",
+"hint": {
+"years": "",
+"city": "london"
+}
+},
+{
+"id": "princess-julia",
+"kind": "artist",
+"name": "Princess Julia",
+"hint": {
+"years": "",
+"city": "london"
+}
+},
+{
+"id": "dj-flight",
+"kind": "artist",
+"name": "DJ Flight",
+"hint": {
+"years": "1997–",
+"city": "london"
+}
+},
+{
+"id": "electric-indigo",
+"kind": "artist",
+"name": "Electric Indigo",
+"hint": {
+"years": "1989–",
+"city": ""
+}
+},
+{
+"id": "gudrun-gut",
+"kind": "artist",
+"name": "Gudrun Gut",
+"hint": {
+"years": "1975–",
+"city": "berlin"
+}
+},
+{
+"id": "monika-kruse",
+"kind": "artist",
+"name": "Monika Kruse",
+"hint": {
+"years": "1991–",
+"city": ""
+}
+},
+{
+"id": "marusha",
+"kind": "artist",
+"name": "Marusha",
+"hint": {
+"years": "1991–",
+"city": "berlin"
+}
+},
+{
+"id": "miss-kittin",
+"kind": "artist",
+"name": "Miss Kittin",
+"hint": {
+"years": "1994–",
+"city": ""
+}
+},
+{
+"id": "cassy",
+"kind": "artist",
+"name": "Cassy",
+"hint": {
+"years": "1990s–",
+"city": ""
+}
+},
+{
+"id": "sister-bliss",
+"kind": "artist",
+"name": "Sister Bliss",
+"hint": {
+"years": "1995–",
+"city": "london"
+}
+},
+{
+"id": "sonique",
+"kind": "artist",
+"name": "Sonique",
+"hint": {
+"years": "1990s–",
+"city": "london"
+}
+},
+{
+"id": "lisa-lashes",
+"kind": "artist",
+"name": "Lisa Lashes",
+"hint": {
+"years": "1992–",
+"city": "birmingham"
+}
+},
+{
+"id": "andrea-parker",
+"kind": "artist",
+"name": "Andrea Parker",
+"hint": {
+"years": "1993–",
+"city": "london"
+}
+},
+{
+"id": "mira-calix",
+"kind": "artist",
+"name": "Mira Calix",
+"hint": {
+"years": "1993–2022",
+"city": "london"
+}
+},
+{
+"id": "cooly-g",
+"kind": "artist",
+"name": "Cooly G",
+"hint": {
+"years": "2008–",
+"city": "london"
+}
+},
+{
+"id": "jlin",
+"kind": "artist",
+"name": "Jlin",
+"hint": {
+"years": "2011–",
+"city": ""
+}
+},
+{
+"id": "holly-herndon",
+"kind": "artist",
+"name": "Holly Herndon",
+"hint": {
+"years": "2010s–",
+"city": "berlin"
+}
+},
+{
+"id": "sophie",
+"kind": "artist",
+"name": "SOPHIE",
+"hint": {
+"years": "2013–2021",
+"city": "glasgow"
+}
+},
+{
+"id": "leila-arab",
+"kind": "artist",
+"name": "Leila",
+"hint": {
+"years": "1990s–",
+"city": "london"
+}
+},
+{
+"id": "arca",
+"kind": "artist",
+"name": "Arca",
+"hint": {
+"years": "2012–",
+"city": "barcelona"
+}
+},
+{
+"id": "avalon-emerson",
+"kind": "artist",
+"name": "Avalon Emerson",
+"hint": {
+"years": "2012–",
+"city": "berlin"
+}
+},
+{
+"id": "saffron-bristol",
+"kind": "artist",
+"name": "Saffron",
+"hint": {
+"years": "2015–",
+"city": "bristol"
+}
+},
+{
+"id": "honey-dijon",
+"kind": "artist",
+"name": "Honey Dijon",
+"hint": {
+"years": "1968–",
+"city": "chicago"
+}
+},
+{
+"id": "the-blessed-madonna",
+"kind": "artist",
+"name": "The Blessed Madonna",
+"hint": {
+"years": "2012–",
+"city": "chicago"
+}
+},
+{
+"id": "peggy-gou",
+"kind": "artist",
+"name": "Peggy Gou",
+"hint": {
+"years": "2016–",
+"city": "berlin"
+}
+},
+{
+"id": "jayda-g",
+"kind": "artist",
+"name": "Jayda G",
+"hint": {
+"years": "2016–",
+"city": "london"
+}
+},
+{
+"id": "haai",
+"kind": "artist",
+"name": "HAAi",
+"hint": {
+"years": "2016–",
+"city": "london"
+}
+},
+{
+"id": "eris-drew",
+"kind": "artist",
+"name": "Eris Drew",
+"hint": {
+"years": "1994–",
+"city": "chicago"
+}
+},
+{
+"id": "octo-octa",
+"kind": "artist",
+"name": "Octo Octa",
+"hint": {
+"years": "",
+"city": ""
+}
+},
+{
+"id": "sama-abdulhadi",
+"kind": "artist",
+"name": "Sama' Abdulhadi",
+"hint": {
+"years": "2018–",
+"city": ""
+}
+},
+{
+"id": "uncle-waffles",
+"kind": "artist",
+"name": "Uncle Waffles",
+"hint": {
+"years": "2021–",
+"city": ""
+}
+},
+{
+"id": "dbn-gogo",
+"kind": "artist",
+"name": "DBN Gogo",
+"hint": {
+"years": "2020–",
+"city": ""
+}
+},
+{
+"id": "anna-dj",
+"kind": "artist",
+"name": "ANNA",
+"hint": {
+"years": "2014–",
+"city": "barcelona"
+}
+},
+{
+"id": "indira-paganotto",
+"kind": "artist",
+"name": "Indira Paganotto",
+"hint": {
+"years": "2020s",
+"city": ""
+}
+},
+{
+"id": "quando-quango",
+"kind": "artist",
+"name": "Quando Quango",
+"hint": {
+"years": "1980–1986",
+"city": ""
+}
+},
+{
+"id": "mike-huckaby",
+"kind": "artist",
+"name": "Mike Huckaby",
+"hint": {
+"years": "1990s–2020",
+"city": "detroit"
+}
+},
+{
+"id": "joe-claussell",
+"kind": "artist",
+"name": "Joe Claussell",
+"hint": {
+"years": "1989–",
+"city": "newyork"
+}
+},
+{
+"id": "chip-e",
+"kind": "artist",
+"name": "Chip E.",
+"hint": {
+"years": "1984–",
+"city": "chicago"
+}
+},
+{
+"id": "manny-lehman",
+"kind": "artist",
+"name": "Manny Lehman",
+"hint": {
+"years": "1981–",
+"city": "newyork"
+}
+},
+{
+"id": "killasan",
+"kind": "artist",
+"name": "Killasan",
+"hint": {
+"years": "",
+"city": ""
+}
+},
+{
+"id": "ata",
+"kind": "artist",
+"name": "Ata",
+"hint": {
+"years": "late 1980s–",
+"city": "frankfurt"
+}
+},
+{
+"id": "michael-mayer",
+"kind": "artist",
+"name": "Michael Mayer",
+"hint": {
+"years": "1993–",
+"city": "cologne"
+}
+},
+{
+"id": "adamski",
+"kind": "artist",
+"name": "Adamski",
+"hint": {
+"years": "1989–",
+"city": "london"
+}
+},
+{
+"id": "guru-josh",
+"kind": "artist",
+"name": "Guru Josh",
+"hint": {
+"years": "1988–2015",
+"city": ""
+}
+},
+{
+"id": "n-joi",
+"kind": "artist",
+"name": "N-Joi",
+"hint": {
+"years": "1989–",
+"city": ""
+}
+},
+{
+"id": "the-shamen",
+"kind": "artist",
+"name": "The Shamen",
+"hint": {
+"years": "1985–",
+"city": ""
+}
+},
+{
+"id": "utah-saints",
+"kind": "artist",
+"name": "Utah Saints",
+"hint": {
+"years": "1991–",
+"city": ""
+}
+},
+{
+"id": "seal",
+"kind": "artist",
+"name": "Seal",
+"hint": {
+"years": "1989–1991 (in this story)",
+"city": "london"
+}
+},
+{
+"id": "the-klf",
+"kind": "artist",
+"name": "The KLF",
+"hint": {
+"years": "1987–1992",
+"city": "london"
+}
+},
+{
+"id": "jimmy-cauty",
+"kind": "artist",
+"name": "Jimmy Cauty",
+"hint": {
+"years": "1980s–",
+"city": "london"
+}
+},
+{
+"id": "the-orb",
+"kind": "artist",
+"name": "The Orb",
+"hint": {
+"years": "1988–",
+"city": "london"
+}
+},
+{
+"id": "extreme-noise-terror",
+"kind": "artist",
+"name": "Extreme Noise Terror",
+"hint": {
+"years": "1985–",
+"city": "ipswich"
+}
+},
+{
+"id": "keith-flint",
+"kind": "artist",
+"name": "Keith Flint",
+"hint": {
+"years": "1969–2019",
+"city": "braintree"
+}
+},
+{
+"id": "maxim",
+"kind": "artist",
+"name": "Maxim",
+"hint": {
+"years": "1991–",
+"city": "braintree"
+}
+},
+{
+"id": "leeroy-thornhill",
+"kind": "artist",
+"name": "Leeroy Thornhill",
+"hint": {
+"years": "1990–2000 with The Prodigy",
+"city": "braintree"
+}
+},
+{
+"id": "richard-russell",
+"kind": "artist",
+"name": "Richard Russell",
+"hint": {
+"years": "1991–",
+"city": "london"
+}
+},
+{
+"id": "the-chemical-brothers",
+"kind": "artist",
+"name": "The Chemical Brothers",
+"hint": {
+"years": "1992–",
+"city": "london"
+}
+},
+{
+"id": "fatboy-slim",
+"kind": "artist",
+"name": "Fatboy Slim",
+"hint": {
+"years": "1995–",
+"city": "brighton"
+}
+},
+{
+"id": "underworld",
+"kind": "artist",
+"name": "Underworld",
+"hint": {
+"years": "1987–",
+"city": "romford"
+}
+},
+{
+"id": "leftfield",
+"kind": "artist",
+"name": "Leftfield",
+"hint": {
+"years": "1989–2002, 2010–",
+"city": "london"
+}
+},
+{
+"id": "faithless",
+"kind": "artist",
+"name": "Faithless",
+"hint": {
+"years": "1995–",
+"city": "london"
+}
+},
+{
+"id": "basement-jaxx",
+"kind": "artist",
+"name": "Basement Jaxx",
+"hint": {
+"years": "1994–",
+"city": "london"
+}
+},
+{
+"id": "massive-attack",
+"kind": "artist",
+"name": "Massive Attack",
+"hint": {
+"years": "1988–",
+"city": "bristol"
+}
+},
+{
+"id": "hatcha",
+"kind": "artist",
+"name": "DJ Hatcha",
+"hint": {
+"years": "c.1999–",
+"city": ""
+}
+},
+{
+"id": "artwork",
+"kind": "artist",
+"name": "Artwork",
+"hint": {
+"years": "1990s–",
+"city": ""
+}
+},
+{
+"id": "benga",
+"kind": "artist",
+"name": "Benga",
+"hint": {
+"years": "2002–",
+"city": ""
+}
+},
+{
+"id": "plastician",
+"kind": "artist",
+"name": "Plastician",
+"hint": {
+"years": "2000–",
+"city": ""
+}
+},
+{
+"id": "magnetic-man",
+"kind": "artist",
+"name": "Magnetic Man",
+"hint": {
+"years": "2007–",
+"city": ""
+}
+},
+{
+"id": "mad-professor",
+"kind": "artist",
+"name": "Mad Professor",
+"hint": {
+"years": "1979–",
+"city": ""
+}
+},
+{
+"id": "saint-etienne",
+"kind": "artist",
+"name": "Saint Etienne",
+"hint": {
+"years": "1990–2025",
+"city": ""
+}
+},
+{
+"id": "francis-grasso",
+"kind": "artist",
+"name": "Francis Grasso",
+"hint": {
+"years": "1948–2001",
+"city": "newyork"
+}
+},
+{
+"id": "tom-moulton",
+"kind": "artist",
+"name": "Tom Moulton",
+"hint": {
+"years": "active 1970s–",
+"city": "newyork"
+}
+},
+{
+"id": "david-mancuso",
+"kind": "artist",
+"name": "David Mancuso",
+"hint": {
+"years": "d. 2016",
+"city": "newyork"
+}
+},
+{
+"id": "brenda-fassie",
+"kind": "artist",
+"name": "Brenda Fassie",
+"hint": {
+"years": "1964–2004",
+"city": ""
+}
+},
+{
+"id": "oskido",
+"kind": "artist",
+"name": "Oskido",
+"hint": {
+"years": "1980s–",
+"city": ""
+}
+},
+{
+"id": "boom-shaka",
+"kind": "artist",
+"name": "Boom Shaka",
+"hint": {
+"years": "1993–2000",
+"city": ""
+}
+},
+{
+"id": "black-coffee",
+"kind": "artist",
+"name": "Black Coffee",
+"hint": {
+"years": "2000s–",
+"city": ""
+}
+},
+{
+"id": "dj-lag",
+"kind": "artist",
+"name": "DJ Lag",
+"hint": {
+"years": "1995–",
+"city": ""
+}
+},
+{
+"id": "rudeboyz",
+"kind": "artist",
+"name": "Rudeboyz",
+"hint": {
+"years": "2011–",
+"city": ""
+}
+},
+{
+"id": "distruction-boyz",
+"kind": "artist",
+"name": "Distruction Boyz",
+"hint": {
+"years": "2010s",
+"city": ""
+}
+},
+{
+"id": "tony-amado",
+"kind": "artist",
+"name": "Tony Amado",
+"hint": {
+"years": "1990s–",
+"city": ""
+}
+},
+{
+"id": "buraka-som-sistema",
+"kind": "artist",
+"name": "Buraka Som Sistema",
+"hint": {
+"years": "2002–2016, 2026",
+"city": ""
+}
+},
+{
+"id": "dj-marfox",
+"kind": "artist",
+"name": "DJ Marfox",
+"hint": {
+"years": "2002–",
+"city": ""
+}
+},
+{
+"id": "nidia",
+"kind": "artist",
+"name": "Nídia",
+"hint": {
+"years": "2015–",
+"city": ""
+}
+},
+{
+"id": "dj-marlboro",
+"kind": "artist",
+"name": "DJ Marlboro",
+"hint": {
+"years": "1980s–",
+"city": ""
+}
+},
+{
+"id": "dj-rennan-da-penha",
+"kind": "artist",
+"name": "DJ Rennan da Penha",
+"hint": {
+"years": "2010s–",
+"city": ""
+}
+},
+{
+"id": "hernan-cattaneo",
+"kind": "artist",
+"name": "Hernán Cattáneo",
+"hint": {
+"years": "1965–",
+"city": ""
+}
+},
+{
+"id": "naafi",
+"kind": "artist",
+"name": "N.A.A.F.I",
+"hint": {
+"years": "2010–",
+"city": ""
+}
+},
+{
+"id": "cosmicat",
+"kind": "artist",
+"name": "Cosmicat",
+"hint": {
+"years": "2018–",
+"city": "jeddah"
+}
+},
+{
+"id": "dish-dash",
+"kind": "artist",
+"name": "Dish Dash",
+"hint": {
+"years": "2016 or 2017–",
+"city": "jeddah"
+}
+},
+{
+"id": "vinyl-mode",
+"kind": "artist",
+"name": "Vinyl Mode",
+"hint": {
+"years": "2005–",
+"city": "jeddah"
+}
+},
+{
+"id": "baloo",
+"kind": "artist",
+"name": "Baloo",
+"hint": {
+"years": "1997–",
+"city": "riyadh"
+}
+},
+{
+"id": "michael-dog",
+"kind": "artist",
+"name": "Michael Dog",
+"hint": {
+"years": "1984–",
+"city": "london"
+}
+},
+{
+"id": "lab-4",
+"kind": "artist",
+"name": "Lab 4",
+"hint": {
+"years": "1994–",
+"city": "london"
+}
+},
+{
+"id": "mixmaster-morris",
+"kind": "artist",
+"name": "Mixmaster Morris",
+"hint": {
+"years": "1990s–",
+"city": "london"
+}
+},
+{
+"id": "tuff-jam",
+"kind": "artist",
+"name": "Tuff Jam",
+"hint": {
+"years": "1993–",
+"city": "london"
+}
+},
+{
+"id": "dreem-teem",
+"kind": "artist",
+"name": "Dreem Teem",
+"hint": {
+"years": "1995–",
+"city": "london"
+}
+},
+{
+"id": "todd-edwards",
+"kind": "artist",
+"name": "Todd Edwards",
+"hint": {
+"years": "1990–",
+"city": ""
+}
+},
+{
+"id": "so-solid-crew",
+"kind": "artist",
+"name": "So Solid Crew",
+"hint": {
+"years": "1998–",
+"city": "london"
+}
+},
+{
+"id": "ms-dynamite",
+"kind": "artist",
+"name": "Ms Dynamite",
+"hint": {
+"years": "1990s–",
+"city": "london"
+}
+},
+{
+"id": "pay-as-u-go",
+"kind": "artist",
+"name": "Pay As U Go",
+"hint": {
+"years": "1999–",
+"city": "london"
+}
+},
+{
+"id": "wiley",
+"kind": "artist",
+"name": "Wiley",
+"hint": {
+"years": "1998–",
+"city": "london"
+}
+},
+{
+"id": "dizzee-rascal",
+"kind": "artist",
+"name": "Dizzee Rascal",
+"hint": {
+"years": "1984–",
+"city": ""
+}
+},
+{
+"id": "boy-better-know",
+"kind": "artist",
+"name": "Boy Better Know",
+"hint": {
+"years": "2005–",
+"city": ""
+}
+},
+{
+"id": "skepta",
+"kind": "artist",
+"name": "Skepta",
+"hint": {
+"years": "2005–",
+"city": "london"
+}
+},
+{
+"id": "stormzy",
+"kind": "artist",
+"name": "Stormzy",
+"hint": {
+"years": "2014–",
+"city": "london"
+}
+},
+{
+"id": "digital-mystikz",
+"kind": "artist",
+"name": "Digital Mystikz",
+"hint": {
+"years": "2003–",
+"city": "london"
+}
+},
+{
+"id": "skream",
+"kind": "artist",
+"name": "Skream",
+"hint": {
+"years": "1986–",
+"city": ""
+}
+},
+{
+"id": "burial",
+"kind": "artist",
+"name": "Burial",
+"hint": {
+"years": "2005–",
+"city": "london"
+}
+},
+{
+"id": "2-live-crew",
+"kind": "artist",
+"name": "2 Live Crew",
+"hint": {
+"years": "1984–present",
+"city": "miami"
+}
+},
+{
+"id": "mr-mixx",
+"kind": "artist",
+"name": "Mr. Mixx",
+"hint": {
+"years": "1980s–",
+"city": "miami"
+}
+},
+{
+"id": "dj-magic-mike",
+"kind": "artist",
+"name": "DJ Magic Mike",
+"hint": {
+"years": "1980s–",
+"city": ""
+}
+},
+{
+"id": "big-freedia",
+"kind": "artist",
+"name": "Big Freedia",
+"hint": {
+"years": "1998–present",
+"city": ""
+}
+},
+{
+"id": "katey-red",
+"kind": "artist",
+"name": "Katey Red",
+"hint": {
+"years": "1998–present",
+"city": ""
+}
+},
+{
+"id": "dj-deeon",
+"kind": "artist",
+"name": "DJ Deeon",
+"hint": {
+"years": "c.1967–2023",
+"city": "chicago"
+}
+},
+{
+"id": "dj-funk",
+"kind": "artist",
+"name": "DJ Funk",
+"hint": {
+"years": "1971–2025",
+"city": "chicago"
+}
+},
+{
+"id": "rp-boo",
+"kind": "artist",
+"name": "RP Boo",
+"hint": {
+"years": "",
+"city": "chicago"
+}
+},
+{
+"id": "dj-rashad",
+"kind": "artist",
+"name": "DJ Rashad",
+"hint": {
+"years": "1979–2014",
+"city": "chicago"
+}
+},
+{
+"id": "teklife",
+"kind": "artist",
+"name": "Teklife",
+"hint": {
+"years": "c.2003–",
+"city": "chicago"
+}
+},
+{
+"id": "dj-assault",
+"kind": "artist",
+"name": "DJ Assault",
+"hint": {
+"years": "",
+"city": "detroit"
+}
+},
+{
+"id": "dj-godfather",
+"kind": "artist",
+"name": "DJ Godfather",
+"hint": {
+"years": "",
+"city": "detroit"
+}
+},
+{
+"id": "disco-d",
+"kind": "artist",
+"name": "Disco D",
+"hint": {
+"years": "died 2007",
+"city": ""
+}
+},
+{
+"id": "scottie-b",
+"kind": "artist",
+"name": "Scottie B",
+"hint": {
+"years": "1980s–present",
+"city": ""
+}
+},
+{
+"id": "robbie-leslie",
+"kind": "artist",
+"name": "Robbie Leslie",
+"hint": {
+"years": "DJ from 1977",
+"city": "newyork"
+}
+},
+{
+"id": "patrick-cowley",
+"kind": "artist",
+"name": "Patrick Cowley",
+"hint": {
+"years": "1950–1982",
+"city": ""
+}
+},
+{
+"id": "sylvester",
+"kind": "artist",
+"name": "Sylvester",
+"hint": {
+"years": "1947–1988",
+"city": ""
+}
+},
+{
+"id": "bronski-beat",
+"kind": "artist",
+"name": "Bronski Beat",
+"hint": {
+"years": "1983–",
+"city": "london"
+}
+},
+{
+"id": "horse-meat-disco",
+"kind": "artist",
+"name": "Horse Meat Disco",
+"hint": {
+"years": "2004–",
+"city": "london"
+}
+},
+{
+"id": "daz-saund",
+"kind": "artist",
+"name": "Daz Saund",
+"hint": {
+"years": "1988–",
+"city": "london"
+}
+},
+{
+"id": "junior-vasquez",
+"kind": "artist",
+"name": "Junior Vasquez",
+"hint": {
+"years": "b. 1946",
+"city": "newyork"
+}
+},
+{
+"id": "the-carry-nation",
+"kind": "artist",
+"name": "The Carry Nation",
+"hint": {
+"years": "2012–",
+"city": "newyork"
+}
+},
+{
+"id": "honey-soundsystem",
+"kind": "artist",
+"name": "Honey Soundsystem",
+"hint": {
+"years": "2006–",
+"city": ""
+}
+},
+{
+"id": "urban-shakedown",
+"kind": "artist",
+"name": "Urban Shakedown",
+"hint": {
+"years": "1991–",
+"city": ""
+}
+},
+{
+"id": "mfr-souls",
+"kind": "artist",
+"name": "MFR Souls",
+"hint": {
+"years": "2010s–",
+"city": ""
+}
+},
+{
+"id": "kabza-de-small",
+"kind": "artist",
+"name": "Kabza De Small",
+"hint": {
+"years": "2010s–",
+"city": ""
+}
+},
+{
+"id": "dj-maphorisa",
+"kind": "artist",
+"name": "DJ Maphorisa",
+"hint": {
+"years": "2010s–",
+"city": ""
+}
+},
+{
+"id": "scorpion-kings",
+"kind": "artist",
+"name": "Scorpion Kings",
+"hint": {
+"years": "2019–",
+"city": ""
+}
+},
+{
+"id": "kelvin-momo",
+"kind": "artist",
+"name": "Kelvin Momo",
+"hint": {
+"years": "2010s–",
+"city": ""
+}
+},
+{
+"id": "major-league-djz",
+"kind": "artist",
+"name": "Major League DJz",
+"hint": {
+"years": "2010s–",
+"city": ""
+}
+},
+{
+"id": "tyla",
+"kind": "artist",
+"name": "Tyla",
+"hint": {
+"years": "2020s–",
+"city": ""
+}
+},
+{
+"id": "dennis-ferrer",
+"kind": "artist",
+"name": "Dennis Ferrer",
+"hint": {
+"years": "2012",
+"city": ""
+}
+},
+{
+"id": "soulwax",
+"kind": "artist",
+"name": "Soulwax / 2manydjs",
+"hint": {
+"years": "1995–",
+"city": "ghent"
+}
+},
+{
+"id": "lcd-soundsystem",
+"kind": "artist",
+"name": "LCD Soundsystem",
+"hint": {
+"years": "2002–",
+"city": "newyork"
+}
+},
+{
+"id": "disclosure",
+"kind": "artist",
+"name": "Disclosure",
+"hint": {
+"years": "2010–",
+"city": ""
+}
+},
+{
+"id": "fred-again",
+"kind": "artist",
+"name": "Fred again..",
+"hint": {
+"years": "1993–",
+"city": "london"
+}
+},
+{
+"id": "overmono",
+"kind": "artist",
+"name": "Overmono",
+"hint": {
+"years": "2016–",
+"city": "london"
+}
+},
+{
+"id": "dj-tameil",
+"kind": "artist",
+"name": "DJ Tameil",
+"hint": {
+"years": "1990s–",
+"city": ""
+}
+},
+{
+"id": "brick-bandits",
+"kind": "artist",
+"name": "Brick Bandits",
+"hint": {
+"years": "early 2000s–",
+"city": ""
+}
+},
+{
+"id": "tim-dolla",
+"kind": "artist",
+"name": "Tim Dolla",
+"hint": {
+"years": "early 2000s–2022",
+"city": ""
+}
+},
+{
+"id": "dj-sliink",
+"kind": "artist",
+"name": "DJ Sliink",
+"hint": {
+"years": "2000s–",
+"city": ""
+}
+},
+{
+"id": "uniiqu3",
+"kind": "artist",
+"name": "UNIIQU3",
+"hint": {
+"years": "2000s–",
+"city": ""
+}
+},
+{
+"id": "dj-jayhood",
+"kind": "artist",
+"name": "DJ Jayhood",
+"hint": {
+"years": "2000s–",
+"city": ""
+}
+},
+{
+"id": "dj-smallz-732",
+"kind": "artist",
+"name": "DJ Smallz 732",
+"hint": {
+"years": "2010s–",
+"city": ""
+}
+},
+{
+"id": "dj-sega",
+"kind": "artist",
+"name": "DJ Sega",
+"hint": {
+"years": "2000s–",
+"city": ""
+}
+},
+{
+"id": "mcvertt",
+"kind": "artist",
+"name": "MCVertt",
+"hint": {
+"years": "2020–",
+"city": ""
+}
+},
+{
+"id": "bandmanrill",
+"kind": "artist",
+"name": "Bandmanrill",
+"hint": {
+"years": "2020–",
+"city": ""
+}
+},
+{
+"id": "robert-henke",
+"kind": "artist",
+"name": "Monolake",
+"hint": {
+"years": "",
+"city": "berlin"
+}
+},
+{
+"id": "takkyu-ishino",
+"kind": "artist",
+"name": "Takkyu Ishino",
+"hint": {
+"years": "1989–",
+"city": "tokyo"
+}
+},
+{
+"id": "nastia",
+"kind": "artist",
+"name": "Nastia",
+"hint": {
+"years": "2005–",
+"city": ""
+}
+},
+{
+"id": "vakula",
+"kind": "artist",
+"name": "Vakula",
+"hint": {
+"years": "2009–",
+"city": ""
+}
+},
+{
+"id": "stanislav-tolkachev",
+"kind": "artist",
+"name": "Stanislav Tolkachev",
+"hint": {
+"years": "2000s–",
+"city": ""
+}
+},
+{
+"id": "etapp-kyle",
+"kind": "artist",
+"name": "Etapp Kyle",
+"hint": {
+"years": "2010s–",
+"city": "berlin"
+}
+},
+{
+"id": "yellow-magic-orchestra",
+"kind": "artist",
+"name": "Yellow Magic Orchestra",
+"hint": {
+"years": "1978–1983",
+"city": "tokyo"
+}
+},
+{
+"id": "susumu-yokota",
+"kind": "artist",
+"name": "Susumu Yokota",
+"hint": {
+"years": "1993–2015",
+"city": "tokyo"
+}
+},
+{
+"id": "fumiya-tanaka",
+"kind": "artist",
+"name": "Fumiya Tanaka",
+"hint": {
+"years": "1990–",
+"city": "tokyo"
+}
+},
+{
+"id": "denki-groove",
+"kind": "artist",
+"name": "Denki Groove",
+"hint": {
+"years": "1989–",
+"city": "tokyo"
+}
+},
+{
+"id": "satoshi-tomiie",
+"kind": "artist",
+"name": "Satoshi Tomiie",
+"hint": {
+"years": "1989–",
+"city": "tokyo"
+}
+},
+{
+"id": "soichi-terada",
+"kind": "artist",
+"name": "Soichi Terada",
+"hint": {
+"years": "1989–",
+"city": "tokyo"
+}
+},
+{
+"id": "dj-nobu",
+"kind": "artist",
+"name": "DJ Nobu",
+"hint": {
+"years": "2001–",
+"city": "tokyo"
+}
+},
+{
+"id": "yaeji",
+"kind": "artist",
+"name": "Yaeji",
+"hint": {
+"years": "2017–",
+"city": "newyork"
+}
+},
+{
+"id": "park-hye-jin",
+"kind": "artist",
+"name": "Park Hye Jin",
+"hint": {
+"years": "2018–",
+"city": ""
+}
+},
+{
+"id": "250-producer",
+"kind": "artist",
+"name": "250",
+"hint": {
+"years": "2010s–",
+"city": ""
+}
+},
+{
+"id": "rhadoo",
+"kind": "artist",
+"name": "Rhadoo",
+"hint": {
+"years": "1990s–",
+"city": ""
+}
+},
+{
+"id": "umek",
+"kind": "artist",
+"name": "Umek",
+"hint": {
+"years": "1993–",
+"city": ""
+}
+},
+{
+"id": "tzusing",
+"kind": "artist",
+"name": "Tzusing",
+"hint": {
+"years": "2010s–",
+"city": ""
+}
+},
+{
+"id": "howie-lee",
+"kind": "artist",
+"name": "Howie Lee",
+"hint": {
+"years": "2011–",
+"city": ""
+}
+},
+{
+"id": "hyph11e",
+"kind": "artist",
+"name": "Hyph11E",
+"hint": {
+"years": "2015–",
+"city": ""
+}
+},
+{
+"id": "33emybw",
+"kind": "artist",
+"name": "33EMYBW",
+"hint": {
+"years": "2016–",
+"city": ""
+}
+},
+{
+"id": "islam-chipsy",
+"kind": "artist",
+"name": "Islam Chipsy",
+"hint": {
+"years": "2013–",
+"city": ""
+}
+},
+{
+"id": "dj-figo",
+"kind": "artist",
+"name": "DJ Figo",
+"hint": {
+"years": "c. 2007–",
+"city": ""
+}
+},
+{
+"id": "hassan-shakosh",
+"kind": "artist",
+"name": "Hassan Shakosh",
+"hint": {
+"years": "2010s–",
+"city": ""
+}
+},
+{
+"id": "jazar-crew",
+"kind": "artist",
+"name": "Jazar Crew",
+"hint": {
+"years": "2011–",
+"city": "haifa"
+}
+},
+{
+"id": "deena-abdelwahed",
+"kind": "artist",
+"name": "Deena Abdelwahed",
+"hint": {
+"years": "2010s–",
+"city": ""
+}
+},
+{
+"id": "amine-k",
+"kind": "artist",
+"name": "Amine K",
+"hint": {
+"years": "2009–",
+"city": ""
+}
+},
+{
+"id": "maalem-mahmoud-guinia",
+"kind": "artist",
+"name": "Maâlem Mahmoud Guinia",
+"hint": {
+"years": "died 2015",
+"city": ""
+}
+},
+{
+"id": "guedra-guedra",
+"kind": "artist",
+"name": "Guedra Guedra",
+"hint": {
+"years": "2004–",
+"city": ""
+}
+}
+]
