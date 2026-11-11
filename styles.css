@@ -528,6 +528,32 @@ table.charts{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}ta
 .streampick button small{color:var(--muted);font-size:11px}
 #streamBtn{white-space:nowrap}
 @media (max-width:700px){.streampick{right:8px;left:8px;top:auto;bottom:64px}}
+
+/* ---------- release lists from MusicBrainz (build/catalogue.js) ---------- */
+.catalogue{margin:22px 0 8px}
+.catalogue h4{margin:16px 0 4px;font-size:15px;font-weight:600}
+.catalogue h4 small{font:12px var(--f-mono);color:var(--muted);font-weight:400}
+.catalogue .cat-sum{margin:2px 0 10px}
+body.paper .page .catalogue p.cap{font-family:var(--f-ui);font-size:13.5px;line-height:1.5}
+.catalogue .cat-on{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0 6px;font-size:14px;line-height:1.6}
+.catalogue .cat-on b{flex:0 0 auto;font:12px var(--f-mono);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding-top:2px}
+.catalogue .cat-on>span{flex:1 1 220px;min-width:0}
+.catalogue .cat-n{color:var(--muted);font-size:13px}
+.catlist{list-style:none;margin:0;padding:0}
+.catlist li,body.paper .page .catlist li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;padding:7px 0;border-top:1px solid var(--line);font-family:var(--f-ui);font-size:15px;line-height:1.4}
+.catlist li:last-child{border-bottom:1px solid var(--line)}
+.catlist .cy{flex:0 0 2.9em;font:12px var(--f-mono);color:var(--muted)}
+.catlist .ct{flex:1 1 0;min-width:0;overflow-wrap:anywhere}
+.catlist .cc{font:12px var(--f-mono);color:var(--muted);white-space:nowrap}
+.catlist .cm{display:block;color:var(--muted);font-size:12.5px;margin-top:1px}
+.catlist .catp{display:contents}
+.catlist .catp .chip{flex:0 0 auto;padding:3px 9px;font-size:11px;gap:5px;align-self:center}
+.catlist .catp .chip small{color:var(--muted)}
+.catlist .spbox{flex:1 0 100%;margin:6px 0 2px}
+.cat-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.catalogue .cat-ctl{margin:10px 0 4px}
+.catalogue .cat-more{min-height:36px}
+.catalogue .cat-credit{margin-top:8px}
 /* =====================================================================
    BOOK SKIN — paper pages, dark plates, spreads on wide screens
    ===================================================================== */

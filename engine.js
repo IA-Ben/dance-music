@@ -76,6 +76,7 @@ function route(){
   if (window.Notes && id !== 'home' && !/^(year|explore|tours|path|quiz|crate|notes|credits|rights|mixer)$/.test(id)) Notes.mount(inEl, id);
   if (isNode && window.Flyer) Flyer.autoMount(inEl, id);
   if (window.SpotifyEmbed) setTimeout(() => { SpotifyEmbed.wire(inEl); if (isNode) SpotifyEmbed.feature(inEl, id); }, 50);
+  if (window.Catalogue && isNode) Catalogue.mount(inEl, id);
   if (window.Gallery) Gallery.mount(inEl, id, isNode);
   if (window.Flyers) Flyers.mount(inEl, id, isNode);
   if (window.ClubFlyers) ClubFlyers.mount(inEl, id, isNode);
