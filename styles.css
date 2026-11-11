@@ -554,6 +554,11 @@ body.paper .page .catalogue p.cap{font-family:var(--f-ui);font-size:13.5px;line-
 .catalogue .cat-ctl{margin:10px 0 4px}
 .catalogue .cat-more{min-height:36px}
 .catalogue .cat-credit{margin-top:8px}
+.catalogue h4.cat-as{margin-top:22px}
+.catalogue .cat-dec{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}
+.catalogue .cat-dec button{min-height:34px}
+.catalogue .cat-dec button[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.catalogue .cat-dec small{opacity:.7;font-size:11px}
 /* =====================================================================
    BOOK SKIN — paper pages, dark plates, spreads on wide screens
    ===================================================================== */
