@@ -8,7 +8,8 @@ window.RIGHTS_REMOVED = [];
    build/removed-images.json with reason "request": date and what only).
    The contact route is BOOK.rightsContact in build/graph.js: an email
    address or a URL. Empty = a pre-filled issue on the public repository.
-   Removal: python3 /tmp/deep2/tools/takedown.py <id or file>.
+   Removal: python3 /tmp/deep2/tools/takedown.py <id or file>; for a Pictures-strip
+   photograph (id "gallery:<page>"): python3 /tmp/deep2/tools/gallery_merge.py --remove <page> <file>.
    =================================================================== */
 window.Rights = {
   REPO_NEW: 'https://github.com/IA-Ben/dance-music/issues/new',
@@ -28,6 +29,7 @@ window.Rights = {
     const cf = (window.CLUB_FLYERS || []).find(f => f.id === id || (file && f.src === file)); if (cf) return { src: cf.src, what: ClubFlyers.caption(cf), credit: ClubFlyers.creditText(cf) };
     const cm = (window.FLYERS || []).find(f => file && base(f.src) === base(file)); if (cm) return { src: cm.src, what: cm.title.replace(/^File:/, ''), credit: `${cm.author} · ${cm.license}` };
     const byFile = Object.values(window.IMAGES || {}).find(v => v && file && base(v.src) === base(file)); if (byFile) return { src: byFile.src, what: imgCaption(byFile), credit: `${byFile.author} · ${byFile.license}` };
+    const gv = window.Gallery && Gallery.findFile && file ? Gallery.findFile(file) : null; if (gv) return { src: gv.thumb, what: Gallery.label(gv), credit: `${gv.author} · ${gv.lic}` };   /* a vetted Pictures-strip photograph (build/gallery-vetted.json) */
     return null;
   },
   build(){

@@ -1,33 +1,51 @@
+window.GALLERY_INDEX = {"v":"","p":{}};
 /* ===================================================================
-   GALLERIES — on the web edition, each page can pull more Creative
-   Commons pictures straight from Wikimedia Commons (CC/PD only), with
-   credits, in a lightbox. Nothing is fetched until the reader asks.
+   GALLERIES — on the web edition, a page can show a strip of Creative
+   Commons photographs from Wikimedia Commons, with credits, in a
+   lightbox. Only vetted pictures are shown: each page's list was
+   searched once, filtered, and every picture looked at before it was
+   allowed (pipeline: /tmp/mw/gal.py, review kit /tmp/deep2/GALLERY-REVIEW.md,
+   merge /tmp/deep2/tools/gallery_merge.py → build/gallery-vetted.json).
+   Nothing is searched in the reader's browser. A page with no vetted
+   entry shows no strip. SITE.galleries is the on/off switch.
+   The build (build/assemble.py) bundles build/gallery-vetted.json as
+   window.GALLERY_INDEX (page id → shard number, below) and the shards
+   site/gallery-<n>.js, loaded on demand with a <script> tag (works from
+   file:// too); each shard calls Gallery.got(n, {pageId: [items]}).
+   Item: { title, thumb, url, page, lic, licUrl, author, desc, w, h, caption? }
    =================================================================== */
 window.Gallery = {
+  data: {}, waiting: {},
   enabled(){ return !!(window.SITE && SITE.galleries); },
-  FREE: /^(CC BY(-SA)?( \d\.\d)?|CC0|Public domain|CC-BY(-SA)?|Attribution)/i, BAD: /(NC|ND|Fair use)/i,
-  /* a picture must be about the page: its file name, description or categories have to carry the page's name, and for most
-     pages the city or a music word as well; names that are ordinary words (Lost, Space, Trade) need all three. People get no
-     live gallery: a keyword search cannot tell one person from another. Fewer than three matches and the section is not shown. */
-  MUSIC: /\b(night ?clubs?|clubs?|clubbing|raves?|djs?|disc jockeys?|techno|house music|acid house|dance music|electronic music|festivals?|party|parties|dance ?floors?|sound ?systems?|disco|drum and bass|jungle|trance|synthesi[sz]ers?|drum machines?|turntables?)\b/i,
-  COMMON: /^(lost|space|trade|heaven|fire|rage|future|flying|shoom|spectrum|energy|sunrise|universe|pure|base|home|cream|shine|slam|bugged out|the end|the fridge|the gallery|the loft|the warehouse|the box|the hub|the edge|the eclipse|the sanctuary|the orbit|the cross|turnmills|trip|land of oz|helter skelter|fantazia|obsessed|raindance|biology|genesis|vision|dreamscape|amnesia|pacha|ku|privilege|eden|es paradis|output|smart ?bar|stereo|twilo|sound factory|tunnel|limelight|palladium|area|danceteria|world|zanzibar|power plant|music box|den|omen|dorian gray|planet|e-werk|bunker|walfisch|ufo|matrix|ostgut|watergate|bar 25|golden gate|about blank|sisyphos|tresor|fuse|rex|concrete|robert johnson|womb|ageha|contact|vent|liquid room|yellow|air|unit|zouk|velvet|mint|shelter|vinyl|save the robots)$/i,
-  relFor(id, isNode){ const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); const word = s => new RegExp('(^|[^a-z0-9])' + esc(s.toLowerCase()).replace(/\s+/g, '[\\s_-]+') + '([^a-z0-9]|$)', 'i');
-    if (!isNode) return txt => this.MUSIC.test(txt);
-    const n = NODE[id]; if (!n) return () => false; const name = n.title.replace(/\s*\([^)]*\)\s*$/, ''); const bare = name.replace(/^the\s+/i, ''); const nameRe = word(bare);
-    const city = n.city && NODE[n.city] ? word(NODE[n.city].title) : null; const generic = this.COMMON.test(name) || this.COMMON.test(bare) || (!/\s/.test(bare) && bare.length <= 5);
-    if (n.type === 'machine') return txt => nameRe.test(txt);
-    if (n.type === 'city') return txt => nameRe.test(txt) && this.MUSIC.test(txt);
-    return txt => { if (!nameRe.test(txt)) return false; const c = city ? city.test(txt) : false, m = this.MUSIC.test(txt); return generic ? (c && m) : /^(club|event|festival|shop|collective)$/.test(n.type) ? m : (c || m); }; },
-  queryFor(id, isNode){ if (/^y\d{4}$/.test(id)){ const y = +id.slice(1); return (y < 1994 ? 'acid house rave ' : y < 2000 ? 'techno club ' : y < 2012 ? 'nightclub techno ' : 'techno festival ') + y; } if (isNode){ const n = NODE[id]; if (!n || /^(record|label|genre|border|set|person)$/.test(n.type)) return null; const city = n.city && NODE[n.city] ? ' ' + NODE[n.city].title : ''; return n.type === 'city' ? n.title + ' nightlife' : n.type === 'machine' ? n.title : '"' + n.title.replace(/\s*\([^)]*\)\s*$/, '') + '"' + city; } return ({ h2: 'Detroit techno', h3: 'rave Britain 1990s', ldn: 'London nightclub techno', h4: 'Tresor Berlin club', h5: 'techno festival Europe', h6: 'minimal techno Berlin', h7: 'Ibiza club', h8: 'Berghain', h9: 'techno rave 2020s', r1: 'acid house rave 1989', r3: 'rave 1991 hardcore', r4: 'free party sound system', castlemorton: 'Castlemorton Common festival', r5: 'Criminal Justice Act protest 1994', j2: 'jungle drum and bass', t2: 'Goa trance party', t3: 'trance festival', hh1: 'Chicago house music', hh2: 'Paradise Garage New York', hh3: 'Ibiza Amnesia', hh5: 'Haçienda Manchester' })[id] || null; },
-  mount(pageEl, id, isNode){ if (!this.enabled()) return; pageEl.querySelectorAll('.gallery').forEach(g => g.remove()); const q = this.queryFor(id, isNode); if (!q) return; const box = document.createElement('div'); box.className = 'gallery'; box.innerHTML = `<h3>Pictures</h3><p class="cap" style="margin-bottom:8px">Creative Commons photographs from Wikimedia Commons, with their credits, loaded as you reach them and kept only when the file's own description names this page's subject. Click one to see it large.</p><div class="row" style="margin:0"><button class="sm gload">Load pictures · “${q.replace(/"/g, '')}”</button><span class="cap gmsg"></span></div><div class="ggrid"></div>`; const nav = pageEl.querySelector('.margin-note') || pageEl.querySelector('.pagenav'); if (nav) pageEl.insertBefore(box, nav); else pageEl.appendChild(box); const rel = this.relFor(id, isNode); box.querySelector('.gload').onclick = () => this.load(box, q, rel); if ('IntersectionObserver' in window){ const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)){ io.disconnect(); const b = box.querySelector('.gload'); if (b && !b.disabled) this.load(box, q, rel); } }, { rootMargin: '300px 0px' }); io.observe(box); } },
-  async load(box, q, rel){ const btn = box.querySelector('.gload'), msg = box.querySelector('.gmsg'), grid = box.querySelector('.ggrid'); btn.disabled = true; msg.textContent = 'asking Commons…';
-    try { const u = 'https://commons.wikimedia.org/w/api.php?' + new URLSearchParams({ action: 'query', generator: 'search', gsrsearch: q + ' filetype:bitmap', gsrnamespace: '6', gsrlimit: '40', prop: 'imageinfo', iiprop: 'url|extmetadata|size', iiurlwidth: '480', iiextmetadatafilter: 'LicenseShortName|Artist|ImageDescription|LicenseUrl|Categories|ObjectName', format: 'json', origin: '*' });
-      const r = await fetch(u); const j = await r.json(); const pages = Object.values((j.query || {}).pages || {});
-      const strip = s => String(s || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-      const items = pages.map(p => { const ii = (p.imageinfo || [])[0]; if (!ii) return null; const m = ii.extmetadata || {}; const lic = strip((m.LicenseShortName || {}).value); if (!lic || this.BAD.test(lic) || !this.FREE.test(lic)) return null; if (ii.width < 500) return null; if (/\.(svg|gif)$/i.test(ii.url)) return null; if (rel && !rel([p.title, strip((m.ImageDescription || {}).value), strip((m.Categories || {}).value), strip((m.ObjectName || {}).value)].join(' | '))) return null; return { title: p.title.replace(/^File:/, '').replace(/\.(jpe?g|png|tiff?)$/i, ''), thumb: ii.thumburl, url: ii.url, page: ii.descriptionurl, lic, licUrl: strip((m.LicenseUrl || {}).value), author: strip((m.Artist || {}).value).slice(0, 80) || 'unknown', desc: strip((m.ImageDescription || {}).value).slice(0, 140), w: ii.width, h: ii.height }; }).filter(Boolean).slice(0, 12);
-      if (items.length < 3){ box.remove(); return; } msg.textContent = `${items.length} pictures · CC and public domain only`;
-      grid.innerHTML = items.map((it, i) => `<figure class="gitem" data-i="${i}"><img src="${it.thumb}" alt="${it.title.replace(/"/g, '')}" loading="lazy"><figcaption>${it.title.slice(0, 60)}<small>${it.author} · ${it.lic}</small></figcaption></figure>`).join(''); box._items = items;
-      grid.querySelectorAll('.gitem').forEach(f => f.onclick = () => this.lightbox(items, +f.dataset.i)); btn.textContent = 'Loaded';
-    } catch (e){ msg.textContent = 'Commons did not answer — try again later'; btn.disabled = false; } },
-  lightbox(items, i){ let lb = document.getElementById('lightbox'); if (!lb){ lb = document.createElement('div'); lb.id = 'lightbox'; document.body.appendChild(lb); } const it = items[i]; const big = it.url.replace(/\/commons\/(.)\/(..)\//, '/commons/thumb/$1/$2/') + '/1600px-' + it.url.split('/').pop(); lb.innerHTML = `<div class="lbin"><img src="${it.w > 1600 ? big : it.url}" alt="${it.title.replace(/"/g, '')}"><div class="lbcap"><b>${it.title}</b><span>${it.desc ? it.desc + ' · ' : ''}${it.author} · <a href="${it.licUrl || it.page}" target="_blank" rel="noopener">${it.lic}</a> · <a href="${it.page}" target="_blank" rel="noopener">Wikimedia Commons</a></span></div><div class="lbnav"><button class="sm lbprev">‹</button><span>${i + 1} / ${items.length}</span><button class="sm lbnext">›</button><button class="sm lbclose">close</button></div></div>`; lb.classList.add('show'); lb.onclick = e => { if (e.target === lb) lb.classList.remove('show'); }; lb.querySelector('.lbclose').onclick = () => lb.classList.remove('show'); lb.querySelector('.lbprev').onclick = () => this.lightbox(items, (i - 1 + items.length) % items.length); lb.querySelector('.lbnext').onclick = () => this.lightbox(items, (i + 1) % items.length); document.onkeydown = e => { if (!lb.classList.contains('show')) return; if (e.key === 'Escape') lb.classList.remove('show'); if (e.key === 'ArrowRight') this.lightbox(items, (i + 1) % items.length); if (e.key === 'ArrowLeft') this.lightbox(items, (i - 1 + items.length) % items.length); }; }
+  idx(){ return window.GALLERY_INDEX || { v: '', p: {} }; },
+  esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]); },
+  has(id){ return !!this.idx().p[id]; },
+  load(shard, cb){
+    if (this.data[shard]) return cb(this.data[shard]);
+    const w = this.waiting[shard] = this.waiting[shard] || []; w.push(cb); if (w.length > 1) return;
+    const s = document.createElement('script'); s.src = 'gallery-' + shard + '.js' + (this.idx().v ? '?v=' + this.idx().v : ''); s.async = true;
+    s.onerror = () => { const q = this.waiting[shard] || []; delete this.waiting[shard]; q.forEach(f => f(null)); };
+    document.head.appendChild(s);
+  },
+  got(shard, d){ this.data[shard] = d; const q = this.waiting[shard] || []; delete this.waiting[shard]; q.forEach(f => f(d)); },
+  /* the vetted picture with this file, among the shards already loaded (for the Rights page) */
+  findFile(file){ const b = String(file || '').split('/').pop(); if (!b) return null; for (const d of Object.values(this.data)) for (const [p, list] of Object.entries(d || {})) for (const it of list) if (String(it.url).split('/').pop() === b) return Object.assign({ pageId: p }, it); return null; },
+  mount(pageEl, id, isNode){ pageEl.querySelectorAll('.gallery').forEach(g => g.remove()); if (!this.enabled()) return; const shard = this.idx().p[id]; if (!shard) return;
+    const box = document.createElement('div'); box.className = 'gallery'; box.innerHTML = `<h3>Pictures</h3><p class="cap" style="margin-bottom:8px">Photographs from Wikimedia Commons under Creative Commons licences or in the public domain, each checked against this page before it was added, with their credits. Click one to see it large.</p><div class="ggrid"></div>`;
+    const nav = pageEl.querySelector('.margin-note') || pageEl.querySelector('.pagenav'); if (nav) pageEl.insertBefore(box, nav); else pageEl.appendChild(box);
+    const go = () => this.load(shard, d => { const items = d && d[id]; if (!items || !items.length || !box.isConnected){ box.remove(); return; } this.render(box, items, id); });
+    if ('IntersectionObserver' in window){ const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)){ io.disconnect(); go(); } }, { rootMargin: '300px 0px' }); io.observe(box); } else go(); },
+  label(it){ return it.caption || String(it.title || '').replace(/^File:/, '').replace(/\.(jpe?g|png|tiff?|webp)$/i, '').replace(/_/g, ' '); },
+  render(box, items, id){ const E = s => this.esc(s); items = items.map(it => Object.assign({ rid: 'gallery:' + id, node: id }, it));
+    box.querySelector('.ggrid').innerHTML = items.map((it, i) => `<figure class="gitem" data-i="${i}"><img src="${E(it.thumb)}" alt="${E(this.label(it))}" loading="lazy"${it.w && it.h ? ` width="${+it.w}" height="${+it.h}"` : ''}><figcaption>${E(this.label(it).slice(0, 80))}<small>${E(it.author)} · ${E(it.lic)}</small></figcaption></figure>`).join('');
+    box.querySelectorAll('.gitem').forEach(f => f.onclick = () => this.lightbox(items, +f.dataset.i)); },
+  lightbox(items, i){ const E = s => this.esc(s); let lb = document.getElementById('lightbox'); if (!lb){ lb = document.createElement('div'); lb.id = 'lightbox'; document.body.appendChild(lb); } const it = items[i];
+    const commons = /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/(.)\/(..)\//.test(it.url || ''); const big = commons ? it.url.replace(/\/commons\/(.)\/(..)\//, '/commons/thumb/$1/$2/') + '/1600px-' + it.url.split('/').pop() : it.url;
+    const file = it.url || it.src || ''; const rid = it.rid || String(file).split('/').pop().replace(/\.[a-z]+$/i, ''); const report = window.Rights ? ' · ' + Rights.link(rid, file, it.node || '') : '';
+    const desc = it.caption ? it.caption : it.desc;
+    lb.innerHTML = `<div class="lbin"><img src="${E(commons && it.w > 1600 ? big : it.url)}" alt="${E(this.label(it))}"><div class="lbcap"><b>${E(this.label(it))}</b><span>${desc && desc !== this.label(it) ? E(desc) + ' · ' : ''}${E(it.author)} · <a href="${E(it.licUrl || it.page)}" target="_blank" rel="noopener">${E(it.lic)}</a>${it.page ? ` · <a href="${E(it.page)}" target="_blank" rel="noopener">${commons ? 'Wikimedia Commons' : 'source'}</a>` : ''}${report}</span></div><div class="lbnav"><button class="sm lbprev" aria-label="previous picture">‹</button><span>${i + 1} / ${items.length}</span><button class="sm lbnext" aria-label="next picture">›</button><button class="sm lbclose">close</button></div></div>`;
+    lb.classList.add('show'); lb.onclick = e => { if (e.target === lb) lb.classList.remove('show'); }; lb.querySelector('.lbclose').onclick = () => lb.classList.remove('show');
+    const rep = lb.querySelector('a.report'); if (rep) rep.addEventListener('click', () => lb.classList.remove('show'));
+    lb.querySelector('.lbprev').onclick = () => this.lightbox(items, (i - 1 + items.length) % items.length); lb.querySelector('.lbnext').onclick = () => this.lightbox(items, (i + 1) % items.length);
+    document.onkeydown = e => { if (!lb.classList.contains('show')) return; if (e.key === 'Escape') lb.classList.remove('show'); if (e.key === 'ArrowRight') this.lightbox(items, (i + 1) % items.length); if (e.key === 'ArrowLeft') this.lightbox(items, (i - 1 + items.length) % items.length); }; }
 };
