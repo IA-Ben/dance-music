@@ -44,6 +44,8 @@ if __name__ == '__main__':
         import stream; stream.main(sys.argv[1], sys.argv[2]); sys.exit(0)
     if sys.argv[1].endswith('.mb.json'):
         import mb; mb.main(sys.argv[1], sys.argv[2]); sys.exit(0)
+    if sys.argv[1].endswith('.gal.json'):
+        import gal; gal.main(sys.argv[1], sys.argv[2]); sys.exit(0)
     if sys.argv[1].endswith('.links.json'):
         import links; links.main(sys.argv[1], sys.argv[2]); sys.exit(0)
     done = 0

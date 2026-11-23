@@ -1,0 +1,210 @@
+{
+"shard": "sample",
+"budget_min": 80,
+"pages": [
+{
+"id": "lost",
+"type": "club",
+"name": "Lost",
+"city": "London",
+"generic": true,
+"node": true,
+"queries": [
+"\"Lost\" London nightclub",
+"\"Lost\" London warehouse",
+"\"Lost\" London"
+],
+"alt": [],
+"blurb": "Steve Bicknell and Sheree Rashit's warehouse night; Jeff Mills's London home.",
+"has_bundled": false
+},
+{
+"id": "fabric",
+"type": "club",
+"name": "fabric",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"fabric\" London nightclub",
+"\"fabric\" London"
+],
+"alt": [],
+"blurb": "Three rooms under Smithfield; the bodysonic floor; closed September 2016, reopened January 2017.",
+"has_bundled": true
+},
+{
+"id": "berghain",
+"type": "club",
+"name": "Berghain / Panorama Bar",
+"city": "Berlin",
+"generic": false,
+"node": true,
+"queries": [
+"\"Berghain\" Berlin nightclub",
+"\"Berghain\" Berlin",
+"\"Panorama Bar\" Berlin"
+],
+"alt": [
+"Panorama Bar",
+"Berghain"
+],
+"blurb": "A 1953 power plant, with Panorama Bar from October 2004 and the main floor from December; Funktion-One and Klubnacht.",
+"has_bundled": true
+},
+{
+"id": "tresor",
+"type": "club",
+"name": "Tresor",
+"city": "Berlin",
+"generic": true,
+"node": true,
+"queries": [
+"\"Tresor\" Berlin nightclub",
+"\"Tresor\" Berlin",
+"\"Tresor Berlin\""
+],
+"alt": [
+"Tresor Berlin"
+],
+"blurb": "The Wertheim vault from 13 March 1991 to 2005; the Kraftwerk power station from 2007.",
+"has_bundled": true
+},
+{
+"id": "space",
+"type": "club",
+"name": "Space",
+"city": "Ibiza",
+"generic": true,
+"node": true,
+"queries": [
+"\"Space\" Ibiza nightclub",
+"\"Space\" Ibiza",
+"\"Space Ibiza\""
+],
+"alt": [
+"Space Ibiza"
+],
+"blurb": "Playa d'en Bossa, the Terrace under the flight path; Carl Cox 2001–16; ENTER.; closed 2 October 2016.",
+"has_bundled": true
+},
+{
+"id": "castlemorton",
+"type": "border",
+"name": "Castlemorton Common, May 1992",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"Castlemorton Common festival",
+"\"Castlemorton\" rave",
+"\"Castlemorton Common\""
+],
+"alt": [
+"Castlemorton",
+"Castlemorton Common"
+],
+"blurb": "A week-long free festival of 20–40,000 on a Worcestershire common; the end of the free party era and the beginning of acid techno's exile.",
+"has_bundled": true
+},
+{
+"id": "tr909",
+"type": "machine",
+"name": "Roland TR-909",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Roland TR-909\"",
+"\"TR-909\"",
+"Roland TR-909"
+],
+"alt": [
+"TR-909"
+],
+"blurb": "Drum machine — Roland's first with MIDI; the kick, hats and clap of house and techno for forty years.",
+"has_bundled": true
+},
+{
+"id": "detroit",
+"type": "city",
+"name": "Detroit",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"Detroit nightclub",
+"Detroit techno",
+"Detroit nightlife"
+],
+"alt": [],
+"blurb": "Motor City. Techno's birthplace: Belleville, the Music Institute, UR, Submerge, Movement.",
+"has_bundled": true
+},
+{
+"id": "hacienda",
+"type": "club",
+"name": "The Haçienda",
+"city": "Manchester",
+"generic": false,
+"node": true,
+"queries": [
+"\"The Haçienda\" Manchester nightclub",
+"\"The Haçienda\" Manchester",
+"\"Hacienda\" Manchester"
+],
+"alt": [
+"Hacienda",
+"FAC 51"
+],
+"blurb": "FAC 51; empty for years, then Nude (1986) and Hot (1988) made it Britain's first house club; closed by guns and debt.",
+"has_bundled": true
+},
+{
+"id": "trade",
+"type": "club",
+"name": "Trade",
+"city": "London",
+"generic": true,
+"node": true,
+"queries": [
+"\"Trade\" \"Turnmills\"",
+"\"Trade\" London nightclub",
+"\"Trade\" London"
+],
+"alt": [],
+"blurb": "Turnmills, Sunday mornings; Tony De Vit; the gay after-hours that became hard house.",
+"has_bundled": true
+},
+{
+"id": "glastonbury-festival",
+"type": "event",
+"name": "Glastonbury Festival",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Glastonbury\" festival",
+"\"Glastonbury Festival\""
+],
+"alt": [],
+"blurb": "The festival at Worthy Farm, where dance music moved from market stalls and travellers' fields to the Pyramid Stage between 1989 and 1997.",
+"has_bundled": false
+},
+{
+"id": "sabresonic",
+"type": "event",
+"name": "Sabresonic",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Sabresonic\" London nightclub",
+"\"Sabresonic\" London"
+],
+"alt": [],
+"blurb": "Andrew Weatherall's Friday techno night at Happy Jax under London Bridge, where the Chemical Brothers played their first live gig.",
+"has_bundled": false
+}
+]
+}

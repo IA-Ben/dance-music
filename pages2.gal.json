@@ -1,0 +1,3274 @@
+{
+"shard": "2/5",
+"budget_min": 80,
+"pages": [
+{
+"id": "h2",
+"type": "chapter",
+"name": "Detroit, 1985–92",
+"city": "",
+"generic": false,
+"node": false,
+"queries": [
+"Detroit techno"
+],
+"alt": [],
+"blurb": "Techno · 02 · 1985–1992 Detroit: hi-tech soul Three friends from Belleville High School, a radio DJ called The Wizard, a club with no alcohol licence, and a compilation that gave the music its name. Detroit made techno in about five years, then spent the next thirty reminding everyone. The Bellevill",
+"has_bundled": false
+},
+{
+"id": "h7",
+"type": "chapter",
+"name": "Ibiza, 2000–",
+"city": "",
+"generic": false,
+"node": false,
+"queries": [
+"Ibiza club"
+],
+"alt": [],
+"blurb": "Techno · 08 · 2000– Ibiza: techno's summer residency For most of its clubbing history the island had little to do with techno. Its own story (Pacha, Ku, Alfredo's Balearic nights at Amnesia, the 1987 trip that lit acid house in London) is house history and is told in that strand. Techno took up resi",
+"has_bundled": false
+},
+{
+"id": "hh3",
+"type": "chapter",
+"name": "Ibiza: the island's own story",
+"city": "",
+"generic": false,
+"node": false,
+"queries": [
+"Ibiza Amnesia"
+],
+"alt": [],
+"blurb": "House · 03 · 1973–1990 Ibiza and the Balearic beat The island's own story runs through hippies, Glory's, Pacha, Ku and Amnesia to the Argentine DJ whose anything-goes terrace sets became a genre. The clubs Pacha opened outside Ibiza Town in 1973 (Ricardo and Piti Urgell) and Es Paradís in San Antoni",
+"has_bundled": false
+},
+{
+"id": "r3",
+"type": "chapter",
+"name": "Hardcore, 1990–92",
+"city": "",
+"generic": false,
+"node": false,
+"queries": [
+"rave 1991 hardcore"
+],
+"alt": [],
+"blurb": "Rave · 03 · 1990–1992 Hardcore Hardcore was rave's own music. Faster than house and built from samples rather than synths, it had a breakbeat where the kick should be and a piano where the chord should be. In 1991–92 it was all over the singles chart, made in bedrooms and sold from the boot of a car",
+"has_bundled": false
+},
+{
+"id": "amsterdam",
+"type": "city",
+"name": "Amsterdam",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"Amsterdam nightclub",
+"Amsterdam club",
+"Amsterdam nightlife"
+],
+"alt": [],
+"blurb": "Awakenings, ADE, Dekmantel, the RoXY and Paradiso.",
+"has_bundled": true
+},
+{
+"id": "berlin",
+"type": "city",
+"name": "Berlin",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"Berlin nightclub",
+"Berlin techno",
+"Berlin nightlife"
+],
+"alt": [],
+"blurb": "Techno's capital since 1991: UFO, Tresor, E-Werk, Hard Wax, Berghain.",
+"has_bundled": true
+},
+{
+"id": "breda",
+"type": "city",
+"name": "Breda",
+"city": "",
+"generic": true,
+"node": true,
+"queries": [
+"Breda nightclub",
+"Breda club",
+"Breda nightlife"
+],
+"alt": [],
+"blurb": "",
+"has_bundled": false
+},
+{
+"id": "chicago",
+"type": "city",
+"name": "Chicago",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"Chicago nightclub",
+"Chicago house music",
+"Chicago nightlife"
+],
+"alt": [],
+"blurb": "House's birthplace: the Warehouse, the Music Box, Trax, the 303.",
+"has_bundled": true
+},
+{
+"id": "dubai",
+"type": "city",
+"name": "Dubai",
+"city": "",
+"generic": true,
+"node": true,
+"queries": [
+"Dubai nightclub",
+"Dubai club",
+"Dubai nightlife"
+],
+"alt": [],
+"blurb": "Gulf city whose clubs sit in licensed hotels: the Lodge and Cyclone in 1997, Peppermint and Trilogy in the 2000s, WHITE at Meydan from 2013.",
+"has_bundled": false
+},
+{
+"id": "france",
+"type": "city",
+"name": "France",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"France nightclub",
+"France club",
+"France nightlife"
+],
+"alt": [],
+"blurb": "",
+"has_bundled": false
+},
+{
+"id": "goa",
+"type": "city",
+"name": "Goa",
+"city": "",
+"generic": true,
+"node": true,
+"queries": [
+"Goa nightclub",
+"Goa club",
+"Goa nightlife"
+],
+"alt": [],
+"blurb": "",
+"has_bundled": true
+},
+{
+"id": "hertfordshire",
+"type": "city",
+"name": "Hertfordshire",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"Hertfordshire nightclub",
+"Hertfordshire club",
+"Hertfordshire nightlife"
+],
+"alt": [],
+"blurb": "",
+"has_bundled": false
+},
+{
+"id": "jeddah",
+"type": "city",
+"name": "Jeddah",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"Jeddah nightclub",
+"Jeddah club",
+"Jeddah nightlife"
+],
+"alt": [],
+"blurb": "Red Sea port, home of Cosmicat, Dish Dash and Vinyl Mode; site of the January 2017 Mohammed Abdo concert and of Balad Beast.",
+"has_bundled": false
+},
+{
+"id": "liverpool",
+"type": "city",
+"name": "Liverpool",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"Liverpool nightclub",
+"Liverpool club",
+"Liverpool nightlife"
+],
+"alt": [],
+"blurb": "",
+"has_bundled": false
+},
+{
+"id": "miami",
+"type": "city",
+"name": "Miami",
+"city": "",
+"generic": true,
+"node": true,
+"queries": [
+"Miami nightclub",
+"Miami club",
+"Miami nightlife"
+],
+"alt": [],
+"blurb": "",
+"has_bundled": false
+},
+{
+"id": "nottingham",
+"type": "city",
+"name": "Nottingham",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"Nottingham nightclub",
+"Nottingham club",
+"Nottingham nightlife"
+],
+"alt": [],
+"blurb": "",
+"has_bundled": false
+},
+{
+"id": "rome",
+"type": "city",
+"name": "Rome",
+"city": "",
+"generic": true,
+"node": true,
+"queries": [
+"Rome nightclub",
+"Rome club",
+"Rome nightlife"
+],
+"alt": [],
+"blurb": "",
+"has_bundled": false
+},
+{
+"id": "sheffield",
+"type": "city",
+"name": "Sheffield",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"Sheffield nightclub",
+"Sheffield club",
+"Sheffield nightlife"
+],
+"alt": [],
+"blurb": "Warp Records and bleep, 1989–91.",
+"has_bundled": true
+},
+{
+"id": "stoke",
+"type": "city",
+"name": "Stoke",
+"city": "",
+"generic": true,
+"node": true,
+"queries": [
+"Stoke nightclub",
+"Stoke club",
+"Stoke nightlife"
+],
+"alt": [],
+"blurb": "",
+"has_bundled": false
+},
+{
+"id": "utrecht",
+"type": "city",
+"name": "Utrecht",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"Utrecht nightclub",
+"Utrecht club",
+"Utrecht nightlife"
+],
+"alt": [],
+"blurb": "",
+"has_bundled": false
+},
+{
+"id": "zurich",
+"type": "city",
+"name": "Zurich",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"Zurich nightclub",
+"Zurich club",
+"Zurich nightlife"
+],
+"alt": [],
+"blurb": "",
+"has_bundled": false
+},
+{
+"id": "anjuna",
+"type": "club",
+"name": "Anjuna beach",
+"city": "Goa",
+"generic": false,
+"node": true,
+"queries": [
+"\"Anjuna beach\" Goa nightclub",
+"\"Anjuna beach\" Goa"
+],
+"alt": [],
+"blurb": "The full-moon parties; Goa Gil; where trance went psychedelic.",
+"has_bundled": true
+},
+{
+"id": "backstreet-atlanta",
+"type": "club",
+"name": "Backstreet",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Backstreet\" nightclub",
+"\"Backstreet\" club",
+"\"Backstreet\""
+],
+"alt": [],
+"blurb": "Midtown Atlanta's 24-hour gay club on Peachtree Street, run by the Vara family; the city refused to renew its 24-hour licence in 2003 and it closed in 2004.",
+"has_bundled": false
+},
+{
+"id": "bassiani",
+"type": "club",
+"name": "Bassiani",
+"city": "Tbilisi",
+"generic": false,
+"node": true,
+"queries": [
+"\"Bassiani\" Tbilisi nightclub",
+"\"Bassiani\" Tbilisi"
+],
+"alt": [],
+"blurb": "Under the Dinamo stadium; raided May 2018.",
+"has_bundled": false
+},
+{
+"id": "blue-note",
+"type": "club",
+"name": "The Blue Note",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"The Blue Note\" London nightclub",
+"\"The Blue Note\" London"
+],
+"alt": [],
+"blurb": "Hoxton Square; the drum & bass room of the Metalheadz Sunday Sessions.",
+"has_bundled": false
+},
+{
+"id": "cafe-mambo",
+"type": "club",
+"name": "Café Mambo",
+"city": "Ibiza",
+"generic": false,
+"node": true,
+"queries": [
+"\"Café Mambo\" Ibiza nightclub",
+"\"Café Mambo\" Ibiza"
+],
+"alt": [],
+"blurb": "The Sunset Strip's other bar; Radio 1's Ibiza home.",
+"has_bundled": false
+},
+{
+"id": "circus-disco",
+"type": "club",
+"name": "Circus Disco",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Circus Disco\" nightclub",
+"\"Circus Disco\" club",
+"\"Circus Disco\""
+],
+"alt": [],
+"blurb": "Latinx-centred gay club at 6655 Santa Monica Boulevard, Hollywood, founded by Gene LaPietra and Ed Lemos; demolished in spring 2016.",
+"has_bundled": false
+},
+{
+"id": "continental-baths",
+"type": "club",
+"name": "Continental Baths",
+"city": "New York",
+"generic": false,
+"node": true,
+"queries": [
+"\"Continental Baths\" New York nightclub",
+"\"Continental Baths\" New York"
+],
+"alt": [],
+"blurb": "Steve Ostrow's bathhouse in the Ansonia basement, where Bette Midler sang and Larry Levan and Frankie Knuckles learned to DJ.",
+"has_bundled": false
+},
+{
+"id": "curlies",
+"type": "club",
+"name": "Curlies",
+"city": "Goa",
+"generic": false,
+"node": true,
+"queries": [
+"\"Curlies\" Goa nightclub",
+"\"Curlies\" Goa"
+],
+"alt": [],
+"blurb": "Beach shack at Anjuna's southern end grown into a bar, restaurant and club, known for its sunsets; in a coastal-zone demolition case since 2016.",
+"has_bundled": false
+},
+{
+"id": "disco-valley",
+"type": "club",
+"name": "Disco Valley",
+"city": "Goa",
+"generic": false,
+"node": true,
+"queries": [
+"\"Disco Valley\" Goa nightclub",
+"\"Disco Valley\" Goa"
+],
+"alt": [],
+"blurb": "Open ground at Vagator beach where some of the first organised Goa trance parties ran, c.1991–93; later used only at Christmas and New Year.",
+"has_bundled": false
+},
+{
+"id": "e-werk",
+"type": "club",
+"name": "E-Werk",
+"city": "Berlin",
+"generic": true,
+"node": true,
+"queries": [
+"\"E-Werk\" Berlin nightclub",
+"\"E-Werk\" Berlin",
+"\"Planet\" Berlin"
+],
+"alt": [
+"Planet"
+],
+"blurb": "A substation on Wilhelmstraße, Planet's successor and the big room of Berlin's 90s.",
+"has_bundled": true
+},
+{
+"id": "es-paradis",
+"type": "club",
+"name": "Es Paradís",
+"city": "Ibiza",
+"generic": false,
+"node": true,
+"queries": [
+"\"Es Paradís\" Ibiza nightclub",
+"\"Es Paradís\" Ibiza"
+],
+"alt": [],
+"blurb": "San Antonio's pyramid; the water parties.",
+"has_bundled": false
+},
+{
+"id": "flamingo-new-york",
+"type": "club",
+"name": "Flamingo (New York)",
+"city": "New York",
+"generic": false,
+"node": true,
+"queries": [
+"\"Flamingo\" New York nightclub",
+"\"Flamingo\" New York"
+],
+"alt": [],
+"blurb": "Michael Fesco's members-only gay club at 599 Broadway, home of the Black Party, which lost its members to the Saint.",
+"has_bundled": false
+},
+{
+"id": "future",
+"type": "club",
+"name": "Future",
+"city": "London",
+"generic": true,
+"node": true,
+"queries": [
+"\"Future\" \"Heaven\"",
+"\"Future\" London nightclub",
+"\"Future\" London"
+],
+"alt": [],
+"blurb": "Oakenfold's Balearic Thursday at Heaven.",
+"has_bundled": true
+},
+{
+"id": "godskitchen",
+"type": "club",
+"name": "Godskitchen",
+"city": "Birmingham",
+"generic": false,
+"node": true,
+"queries": [
+"\"Godskitchen\" Birmingham nightclub",
+"\"Godskitchen\" Birmingham"
+],
+"alt": [],
+"blurb": "The UK's trance brand, from the Junction in Cambridge to weekly nights in Northampton from 1996, then Birmingham.",
+"has_bundled": false
+},
+{
+"id": "guesthouse-bucharest",
+"type": "club",
+"name": "Club Guesthouse",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Club Guesthouse\" nightclub",
+"\"Club Guesthouse\" club",
+"\"Club Guesthouse\""
+],
+"alt": [],
+"blurb": "Bucharest club begun in 2010 at Traian 42, an incubator of the city's minimal scene; it moved downtown in 2020.",
+"has_bundled": false
+},
+{
+"id": "heavenly-sunday-social",
+"type": "club",
+"name": "Heavenly Sunday Social",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Heavenly Sunday Social\" London nightclub",
+"\"Heavenly Sunday Social\" London"
+],
+"alt": [],
+"blurb": "Heavenly Recordings' thirteen Sunday nights, 7 August to 30 October 1994, in the Albany's basement on Great Portland Street; the Dust Brothers were residents.",
+"has_bundled": false
+},
+{
+"id": "house-of-god",
+"type": "club",
+"name": "House of God",
+"city": "Birmingham",
+"generic": false,
+"node": true,
+"queries": [
+"\"House of God\" Birmingham nightclub",
+"\"House of God\" Birmingham"
+],
+"alt": [],
+"blurb": "Birmingham's hard techno night; Surgeon's residency.",
+"has_bundled": true
+},
+{
+"id": "k41",
+"type": "club",
+"name": "∄ (K41)",
+"city": "",
+"generic": true,
+"node": true,
+"queries": [],
+"alt": [],
+"skip": "generic name and no city: the relevance rule cannot pass",
+"blurb": "Techno club in a former brewery at Kyrylivska 41, Podil; a shelter in 2022, later a non-profit raising money for the front.",
+"has_bundled": false
+},
+{
+"id": "klub-industrija",
+"type": "club",
+"name": "Klub Industrija",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Klub Industrija\" nightclub",
+"\"Klub Industrija\" club",
+"\"Klub Industrija\""
+],
+"alt": [],
+"blurb": "Basement club for about 800 under a central Belgrade bookshop that kept techno going through war, sanctions and the 1999 bombing.",
+"has_bundled": false
+},
+{
+"id": "labrynth",
+"type": "club",
+"name": "Labrynth at the Four Aces",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Labrynth at the Four Aces\" London nightclub",
+"\"Labrynth at the Four Aces\" London"
+],
+"alt": [],
+"blurb": "The rave night at the former Four Aces club in Dalston where The Prodigy played their first PA in February 1991.",
+"has_bundled": false
+},
+{
+"id": "le-palace-paris",
+"type": "club",
+"name": "Le Palace",
+"city": "Paris",
+"generic": false,
+"node": true,
+"queries": [
+"\"Le Palace\" Paris nightclub",
+"\"Le Palace\" Paris"
+],
+"alt": [],
+"blurb": "Fabrice Emaer's theatre-club at 8 rue du Faubourg-Montmartre, opened 1 March 1978 with Grace Jones and a door that mixed Paris on purpose.",
+"has_bundled": false
+},
+{
+"id": "manto",
+"type": "club",
+"name": "Manto",
+"city": "Manchester",
+"generic": true,
+"node": true,
+"queries": [
+"\"Manto\" Manchester nightclub",
+"\"Manto\" Manchester"
+],
+"alt": [],
+"blurb": "Glass-fronted Canal Street bar opened just before Christmas 1990 by Carol Ainscow and Peter Dalton; it closed in October 2013.",
+"has_bundled": false
+},
+{
+"id": "ministry-of-sound",
+"type": "club",
+"name": "Ministry of Sound",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Ministry of Sound\" London nightclub",
+"\"Ministry of Sound\" London"
+],
+"alt": [],
+"blurb": "Elephant and Castle; built around the sound system, Garage-style; the superclub as brand.",
+"has_bundled": false
+},
+{
+"id": "nightingale-birmingham",
+"type": "club",
+"name": "Nightingale Club",
+"city": "Birmingham",
+"generic": false,
+"node": true,
+"queries": [
+"\"Nightingale Club\" Birmingham nightclub",
+"\"Nightingale Club\" Birmingham"
+],
+"alt": [],
+"blurb": "Birmingham gay club begun in a Camp Hill restaurant bought for £600 in 1967 or 1968; on Kent Street since 1999.",
+"has_bundled": false
+},
+{
+"id": "ostgut",
+"type": "club",
+"name": "Ostgut",
+"city": "Berlin",
+"generic": true,
+"node": true,
+"queries": [
+"\"Ostgut\" Berlin nightclub",
+"\"Ostgut\" Berlin"
+],
+"alt": [],
+"blurb": "Snax's permanent home in a railway depot; Panorama Bar upstairs from 2000; closed 6 January 2003 after 30 hours.",
+"has_bundled": false
+},
+{
+"id": "paradise-club",
+"type": "club",
+"name": "The Paradise Club",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"The Paradise Club\" London nightclub",
+"\"The Paradise Club\" London"
+],
+"alt": [],
+"blurb": "Islington; AWOL (A Way of Life), jungle's breeding ground.",
+"has_bundled": false
+},
+{
+"id": "pawnshop-taipei",
+"type": "club",
+"name": "Pawnshop",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Pawnshop\" \"Korner\"",
+"\"Pawnshop\" nightclub",
+"\"Pawnshop\" club"
+],
+"alt": [],
+"blurb": "Three-room Da'an club with Funktion-One, opened December 2019 by the people behind Korner; closed about three months by Covid rules in 2021.",
+"has_bundled": false
+},
+{
+"id": "precious-hall",
+"type": "club",
+"name": "Precious Hall",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Precious Hall\" nightclub",
+"\"Precious Hall\" club",
+"\"Precious Hall\""
+],
+"alt": [],
+"blurb": "Sapporo's oldest operating club by RA's 2016 account; a room inspired by David Mancuso that James Murphy cites as an inspiration for Despacio.",
+"has_bundled": false
+},
+{
+"id": "que-club",
+"type": "club",
+"name": "The Que Club",
+"city": "Birmingham",
+"generic": false,
+"node": true,
+"queries": [
+"\"The Que Club\" \"House of God\"",
+"\"The Que Club\" Birmingham nightclub",
+"\"The Que Club\" Birmingham"
+],
+"alt": [],
+"blurb": "A Methodist hall: House of God, Atomic Jam, Surgeon and Regis most weeks.",
+"has_bundled": true
+},
+{
+"id": "roxy",
+"type": "club",
+"name": "RoXY",
+"city": "Amsterdam",
+"generic": true,
+"node": true,
+"queries": [
+"\"RoXY\" Amsterdam nightclub",
+"\"RoXY\" Amsterdam"
+],
+"alt": [],
+"blurb": "Amsterdam's house institution; burned down in 1999.",
+"has_bundled": false
+},
+{
+"id": "shelleys",
+"type": "club",
+"name": "Shelley's Laserdome",
+"city": "Stoke",
+"generic": false,
+"node": true,
+"queries": [
+"\"Shelley's Laserdome\" Stoke nightclub",
+"\"Shelley's Laserdome\" Stoke"
+],
+"alt": [],
+"blurb": "Sasha's residency; the North's rave club.",
+"has_bundled": false
+},
+{
+"id": "sound-factory",
+"type": "club",
+"name": "Sound Factory",
+"city": "New York",
+"generic": true,
+"node": true,
+"queries": [
+"\"Sound Factory\" New York nightclub",
+"\"Sound Factory\" New York warehouse",
+"\"Sound Factory\" New York"
+],
+"alt": [
+"the Sound Factory"
+],
+"blurb": "Chelsea warehouse club at 530 West 27th Street (1989–95) where Junior Vasquez played all-morning sets to a ballroom crowd; the building became Twilo.",
+"has_bundled": false
+},
+{
+"id": "stonewall-inn",
+"type": "club",
+"name": "Stonewall Inn",
+"city": "New York",
+"generic": false,
+"node": true,
+"queries": [
+"\"Stonewall Inn\" New York nightclub",
+"\"Stonewall Inn\" New York"
+],
+"alt": [],
+"blurb": "The Greenwich Village bar where dancing was allowed and whose raid on 28 June 1969 set off the riots that began the gay liberation marches.",
+"has_bundled": false
+},
+{
+"id": "the-end",
+"type": "club",
+"name": "The End",
+"city": "London",
+"generic": true,
+"node": true,
+"queries": [
+"\"The End\" London nightclub",
+"\"The End\" London",
+"\"West Central Street\" London"
+],
+"alt": [
+"West Central Street"
+],
+"blurb": "Mr. C and Layo Paskin's club in a former Post Office building at 18 West Central Street, once home to its delivery horses, designed by Layo's architect father Douglas: the booth on the floor, the system before the décor. Opened December 1995; Subterrain, Flavour, Superfreq, Trash; End Recordings; AKA next door from 1998. Closed with a 24-hour party on 24 January 2009.",
+"has_bundled": true
+},
+{
+"id": "the-orbit",
+"type": "club",
+"name": "The Orbit",
+"city": "Leeds",
+"generic": true,
+"node": true,
+"queries": [
+"\"The Orbit\" Leeds nightclub",
+"\"The Orbit\" Leeds",
+"\"Orbit\" Leeds"
+],
+"alt": [
+"Orbit"
+],
+"blurb": "After Dark in Morley, which brought every Detroit, Berlin and Birmingham name to a mill town.",
+"has_bundled": false
+},
+{
+"id": "the-saint-new-york",
+"type": "club",
+"name": "The Saint",
+"city": "New York",
+"generic": true,
+"node": true,
+"queries": [
+"\"The Saint\" New York nightclub",
+"\"The Saint\" New York"
+],
+"alt": [],
+"blurb": "Bruce Mailman's members-only club in the former Fillmore East, under a planetarium dome, whose membership the AIDS epidemic emptied.",
+"has_bundled": false
+},
+{
+"id": "tresor",
+"type": "club",
+"name": "Tresor",
+"city": "Berlin",
+"generic": true,
+"node": true,
+"queries": [
+"\"Tresor\" Berlin nightclub",
+"\"Tresor\" Berlin",
+"\"Tresor Berlin\""
+],
+"alt": [
+"Tresor Berlin"
+],
+"blurb": "The Wertheim vault from 13 March 1991 to 2005; the Kraftwerk power station from 2007.",
+"has_bundled": true
+},
+{
+"id": "ufo",
+"type": "club",
+"name": "UFO",
+"city": "Berlin",
+"generic": true,
+"node": true,
+"queries": [
+"\"UFO\" Berlin nightclub",
+"\"UFO\" Berlin"
+],
+"alt": [],
+"blurb": "West Berlin's first acid/techno basement; Interfisch, Dr. Motte, Tanith.",
+"has_bundled": false
+},
+{
+"id": "vurt-seoul",
+"type": "club",
+"name": "vurt.",
+"city": "",
+"generic": true,
+"node": true,
+"queries": [],
+"alt": [],
+"skip": "generic name and no city: the relevance rule cannot pass",
+"blurb": "Techno club beneath a karaoke bar in Hapjeong, founded in 2014 under the slogan Ancient Future.",
+"has_bundled": false
+},
+{
+"id": "white-dubai",
+"type": "club",
+"name": "WHITE Dubai",
+"city": "Dubai",
+"generic": false,
+"node": true,
+"queries": [
+"\"WHITE Dubai\" Dubai nightclub",
+"\"WHITE Dubai\" Dubai"
+],
+"alt": [],
+"blurb": "Club at Meydan run by Addmind, holding about 2,000, with a top-20 DJ Mag placing; a seated dinner venue under Covid rules by November 2020.",
+"has_bundled": false
+},
+{
+"id": "zhao-dai",
+"type": "club",
+"name": "Zhao Dai",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Zhao Dai\" nightclub",
+"\"Zhao Dai\" club",
+"\"Zhao Dai\""
+],
+"alt": [],
+"blurb": "Beijing techno club opened in 2017; shut eight months by the 2022 lockdown, reopened December 2022.",
+"has_bundled": false
+},
+{
+"id": "arcadia-spectacular",
+"type": "collective",
+"name": "Arcadia",
+"city": "Bristol",
+"generic": false,
+"node": true,
+"queries": [
+"\"Arcadia\" Bristol",
+"\"Arcadia\""
+],
+"alt": [],
+"blurb": "Pip Rush and Bertie Cole's company, builders of the Afterburner, the 50-tonne Spider (2010) and the Dragonfly (2024) at Glastonbury.",
+"has_bundled": false
+},
+{
+"id": "boy-better-know",
+"type": "collective",
+"name": "Boy Better Know",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Boy Better Know\""
+],
+"alt": [],
+"act": true,
+"blurb": "Independent label and crew founded by brothers Skepta and Jme Adenuga in north London.",
+"has_bundled": false
+},
+{
+"id": "camp-question-mark",
+"type": "collective",
+"name": "Camp Question Mark",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Camp Question Mark\""
+],
+"alt": [],
+"blurb": "Burning Man bass camp at 2:00 running PK Sound rigs for peak crowds of 10,000 to 15,000, by Mixmag's account.",
+"has_bundled": false
+},
+{
+"id": "distruction-boyz",
+"type": "collective",
+"name": "Distruction Boyz",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Distruction Boyz\""
+],
+"alt": [],
+"act": true,
+"blurb": "Durban duo Que and Goldmax, producers of Babes Wodumo's 'Wololo', makers of 'Omunye' and of the 2017 album 'Gqom Is the Future'.",
+"has_bundled": false
+},
+{
+"id": "furacao-2000",
+"type": "collective",
+"name": "Furacão 2000",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Furacão 2000\" sound system",
+"\"Furacão 2000\""
+],
+"alt": [],
+"blurb": "Rio sound system and producer, merged from Som 2000 and Guarani 2000, behind the Tornado Muito Nervoso compilations and Gaiola das Popozudas.",
+"has_bundled": false
+},
+{
+"id": "honey-soundsystem",
+"type": "collective",
+"name": "Honey Soundsystem",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Honey Soundsystem\" party",
+"\"Honey Soundsystem\""
+],
+"alt": [],
+"blurb": "Party crew and label founded by Jacob Sperber and Ken Woodard, curators of Patrick Cowley's archive and of Tea With Honey and Deviants.",
+"has_bundled": false
+},
+{
+"id": "jazar-crew",
+"type": "collective",
+"name": "Jazar Crew",
+"city": "Haifa",
+"generic": false,
+"node": true,
+"queries": [
+"\"Jazar Crew\" party",
+"\"Jazar Crew\" Haifa",
+"\"Jazar Crew\""
+],
+"alt": [],
+"blurb": "Haifa collective of five friends, throwing parties from 2011, who played Boiler Room's first Palestine broadcast in 2018.",
+"has_bundled": false
+},
+{
+"id": "livestyle",
+"type": "collective",
+"name": "SFX Entertainment / LiveStyle",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"SFX Entertainment\"",
+"\"SFX Entertainment / LiveStyle\""
+],
+"alt": [
+"LiveStyle",
+"SFX Entertainment"
+],
+"blurb": "Robert Sillerman's dance-event roll-up, bankrupt in 2016 and renamed LiveStyle; sold ID&T to Superstruct in 2021.",
+"has_bundled": false
+},
+{
+"id": "mayan-warrior",
+"type": "collective",
+"name": "Mayan Warrior",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Mayan Warrior\""
+],
+"alt": [],
+"blurb": "Pablo González Vargas's Mexico City art car, at Burning Man from 2012; destroyed by fire in 2023 and rebuilt for 2024.",
+"has_bundled": false
+},
+{
+"id": "opulent-temple",
+"type": "collective",
+"name": "Opulent Temple",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Opulent Temple\""
+],
+"alt": [],
+"blurb": "Burning Man sound camp from 2003, with a flame-throwing DJ booth; its big-name guests were not paid, Syd Gris said in 2014.",
+"has_bundled": false
+},
+{
+"id": "pxssy-palace",
+"type": "collective",
+"name": "Pxssy Palace",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Pxssy Palace\" London",
+"\"Pxssy Palace\""
+],
+"alt": [],
+"blurb": "London queer collective known for tiered ticketing, a trained support team and calling its spaces 'intentional' rather than 'safe'.",
+"has_bundled": false
+},
+{
+"id": "robot-heart",
+"type": "collective",
+"name": "Robot Heart",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Robot Heart\""
+],
+"alt": [],
+"blurb": "Art car built on a 1972 Leland double-decker bus, on the playa since 2008; its camp numbered 90 to 100 people in 2024.",
+"has_bundled": false
+},
+{
+"id": "siren-collective",
+"type": "collective",
+"name": "SIREN",
+"city": "London",
+"generic": true,
+"node": true,
+"queries": [
+"\"SIREN\" party",
+"\"SIREN\" London",
+"\"SIREN\""
+],
+"alt": [],
+"blurb": "Five-member London collective running parties, a zine, workshops and an online platform for marginalised people in nightlife.",
+"has_bundled": false
+},
+{
+"id": "subdub",
+"type": "collective",
+"name": "SubDub",
+"city": "Leeds",
+"generic": false,
+"node": true,
+"queries": [
+"\"SubDub\" festival",
+"\"SubDub\" Leeds",
+"\"SubDub\""
+],
+"alt": [],
+"blurb": "Leeds bass night with Iration Steppas as resident system; its crew put together the first Outlook festival in 2008.",
+"has_bundled": false
+},
+{
+"id": "the-carry-nation",
+"type": "collective",
+"name": "The Carry Nation",
+"city": "New York",
+"generic": false,
+"node": true,
+"queries": [
+"\"The Carry Nation\" party",
+"\"The Carry Nation\" New York",
+"\"The Carry Nation\""
+],
+"alt": [],
+"blurb": "Party formed by Will Automagic and Nita Aviance, named for the temperance campaigner; a monthly at Good Room in Brooklyn.",
+"has_bundled": false
+},
+{
+"id": "waifu-tokyo",
+"type": "collective",
+"name": "WAIFU",
+"city": "Tokyo",
+"generic": true,
+"node": true,
+"queries": [
+"\"WAIFU\" party",
+"\"WAIFU\" Tokyo",
+"\"WAIFU\""
+],
+"alt": [],
+"blurb": "Queer and femme collective formed in 2019 after a trans woman was refused entry to a Ni-chōme party.",
+"has_bundled": false
+},
+{
+"id": "adonis-london",
+"type": "event",
+"name": "Adonis",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Adonis\" rave",
+"\"Adonis\" London"
+],
+"alt": [],
+"blurb": "Queer rave started by Shay Malt in Tottenham, with Hannah Holland and Grace Sands as residents and a vibe-based door.",
+"has_bundled": false
+},
+{
+"id": "analog-room",
+"type": "event",
+"name": "Analog Room",
+"city": "Dubai",
+"generic": false,
+"node": true,
+"queries": [
+"\"Analog Room\" Dubai nightclub",
+"\"Analog Room\" Dubai"
+],
+"alt": [],
+"blurb": "Dubai club night founded by the Iranian promoter Mehdi Ansari, which booked only local performers for a year and brought Mutek to the city.",
+"has_bundled": false
+},
+{
+"id": "astroworld-2021",
+"type": "event",
+"name": "Astroworld Festival, 2021",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Astroworld , 2021\" festival",
+"\"Astroworld Festival, 2021\""
+],
+"alt": [],
+"blurb": "Houston festival where a crowd surge killed ten on 5 November 2021; no indictments, wrongful-death suits settled by May 2024.",
+"has_bundled": false
+},
+{
+"id": "ava-festival",
+"type": "event",
+"name": "AVA Festival",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"AVA\" festival",
+"\"AVA Festival\""
+],
+"alt": [],
+"blurb": "Sarah McBriar's Audio Visual Arts festival in Belfast, begun as a one-day event in 2014; Titanic Slipways in 2026.",
+"has_bundled": false
+},
+{
+"id": "back-to-the-future",
+"type": "event",
+"name": "Back to the Future",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Back to the Future\" festival",
+"\"Back to the Future\" London"
+],
+"alt": [],
+"blurb": "Dave Roberts's 1989 party series, run alongside Sunrise: grain silos in Hampshire that April, then a joint festival with Sunrise at Longwick in August.",
+"has_bundled": false
+},
+{
+"id": "beanfield",
+"type": "event",
+"name": "The Battle of the Beanfield",
+"city": "Wiltshire",
+"generic": false,
+"node": true,
+"queries": [
+"\"The Battle of the Beanfield\" festival",
+"\"The Battle of the Beanfield\" Wiltshire"
+],
+"alt": [],
+"blurb": "Police against the Peace Convoy on the way to Stonehenge, just over the border in Hampshire; the free festival's original wound.",
+"has_bundled": true
+},
+{
+"id": "big-day-out",
+"type": "event",
+"name": "Big Day Out",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Big Day Out\" festival",
+"\"Big Day Out\""
+],
+"alt": [],
+"blurb": "Ken West and Vivian Lees's touring festival, whose Boiler Room was its dance stage from 1994.",
+"has_bundled": false
+},
+{
+"id": "blackburn-raves",
+"type": "event",
+"name": "The Blackburn raves",
+"city": "Blackburn",
+"generic": false,
+"node": true,
+"queries": [
+"\"The Blackburn raves\" rave",
+"\"The Blackburn raves\" Blackburn"
+],
+"alt": [],
+"blurb": "Warehouse parties of thousands every weekend, until the police broke them in 1990.",
+"has_bundled": false
+},
+{
+"id": "boomtown",
+"type": "event",
+"name": "Boomtown",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Boomtown\" festival",
+"\"Boomtown\""
+],
+"alt": [],
+"blurb": "Theatrical festival at the Matterley Estate since 2011, about 76,000 in 2025, permitted until 2030.",
+"has_bundled": false
+},
+{
+"id": "bugged-out",
+"type": "event",
+"name": "Bugged Out",
+"city": "Manchester",
+"generic": true,
+"node": true,
+"queries": [
+"\"Bugged Out\" \"Amnesia\"",
+"\"Bugged Out\" Manchester nightclub",
+"\"Bugged Out\" Manchester"
+],
+"alt": [],
+"blurb": "Manchester techno night of 1994, at Sankeys Soap in Ancoats on Fridays, that became a brand and later came to Amnesia in Ibiza.",
+"has_bundled": false
+},
+{
+"id": "cja",
+"type": "event",
+"name": "The Criminal Justice and Public Order Act",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"The Criminal Justice and Public Order Act\" London nightclub",
+"\"The Criminal Justice and Public Order Act\" London"
+],
+"alt": [
+"Criminal Justice Act"
+],
+"blurb": "Section 63: gatherings of 100+ playing music \"wholly or predominantly characterised by the emission of a succession of repetitive beats\".",
+"has_bundled": true
+},
+{
+"id": "cream-ibiza",
+"type": "event",
+"name": "Cream Ibiza",
+"city": "Ibiza",
+"generic": false,
+"node": true,
+"queries": [
+"\"Cream Ibiza\" \"Amnesia\"",
+"\"Cream Ibiza\" Ibiza nightclub",
+"\"Cream Ibiza\" Ibiza"
+],
+"alt": [],
+"blurb": "The Liverpool promoters' summer night at Amnesia from 1995, on Thursdays in later years, until RA reported its departure after 22 years in 2018.",
+"has_bundled": true
+},
+{
+"id": "daisy-chain",
+"type": "event",
+"name": "Daisy Chain",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Daisy Chain\" London nightclub",
+"\"Daisy Chain\" London"
+],
+"alt": [],
+"blurb": "One of the nights Andrew Czezowski and Susan Carrington created at the Fridge in Brixton, running from 1987 to 1990.",
+"has_bundled": true
+},
+{
+"id": "distant-heat",
+"type": "event",
+"name": "Distant Heat",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Distant Heat\" festival",
+"\"Distant Heat\""
+],
+"alt": [],
+"blurb": "Desert electronic festival in southern Jordan, 2003 to 2010, that drew several thousand before apparently foundering on permits (taz).",
+"has_bundled": false
+},
+{
+"id": "dreamscape",
+"type": "event",
+"name": "Dreamscape",
+"city": "Milton Keynes",
+"generic": true,
+"node": true,
+"queries": [
+"\"Dreamscape\" \"The Sanctuary\"",
+"\"Dreamscape\" Milton Keynes nightclub",
+"\"Dreamscape\" Milton Keynes"
+],
+"alt": [],
+"blurb": "The Sanctuary; the tape packs every teenager owned.",
+"has_bundled": false
+},
+{
+"id": "duckie",
+"type": "event",
+"name": "Duckie",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Duckie\" \"Royal Vauxhall Tavern\"",
+"\"Duckie\" London nightclub",
+"\"Duckie\" London"
+],
+"alt": [],
+"blurb": "Club and cabaret night founded in 1995 by Simon Casson and friends; at the Royal Vauxhall Tavern until 2022, then the Eagle.",
+"has_bundled": true
+},
+{
+"id": "electric-forest",
+"type": "event",
+"name": "Electric Forest",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Electric Forest\" festival",
+"\"Electric Forest\""
+],
+"alt": [],
+"blurb": "Insomniac and Madison House's woodland festival at Rothbury, Michigan, grown from the Rothbury Festival of 2008.",
+"has_bundled": false
+},
+{
+"id": "enter-ibiza",
+"type": "event",
+"name": "Enter.",
+"city": "Ibiza",
+"generic": false,
+"node": true,
+"queries": [
+"\"Enter.\" \"Space\"",
+"\"Enter.\" Ibiza nightclub",
+"\"Enter.\" Ibiza"
+],
+"alt": [
+"Enter"
+],
+"blurb": "Richie Hawtin's Thursday at Space, 2012–15: his first solo Ibiza residency, with themed rooms, a sake bar and new lighting in the main room.",
+"has_bundled": true
+},
+{
+"id": "fabriclive",
+"type": "event",
+"name": "FABRICLIVE",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"FABRICLIVE\" \"fabric\"",
+"\"FABRICLIVE\" London nightclub",
+"\"FABRICLIVE\" London"
+],
+"alt": [],
+"blurb": "fabric's Friday: begun as a monthly of drum and bass, hip hop and breaks, with James Lavelle in the 3–5am slot, it grew into a survey of British beats where grime and dubstep grew up; its bass nights were halved after 2016.",
+"has_bundled": true
+},
+{
+"id": "flesh-hacienda",
+"type": "event",
+"name": "Flesh at the Haçienda",
+"city": "Manchester",
+"generic": false,
+"node": true,
+"queries": [
+"\"Flesh at the Haçienda\" Manchester nightclub",
+"\"Flesh at the Haçienda\" Manchester"
+],
+"alt": [],
+"blurb": "Paul Cons and Lucy Scher's monthly gay night from late October 1991, eight years after the club's short-lived Gay Mondays, with DJ Paulette in the Pussy Parlour.",
+"has_bundled": true
+},
+{
+"id": "freedom-to-party",
+"type": "event",
+"name": "Freedom to Party",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Freedom to Party\" rave",
+"\"Freedom to Party\" London"
+],
+"alt": [],
+"blurb": "The orbital promoters' campaign against the rave crackdown and Graham Bright's bill: launched October 1989, rallies in London in January and March 1990.",
+"has_bundled": false
+},
+{
+"id": "fusion-festival",
+"type": "event",
+"name": "Fusion Festival",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Fusion\" festival",
+"\"Fusion Festival\""
+],
+"alt": [],
+"blurb": "Kulturkosmos Müritz's festival on a former Soviet airfield at Lärz: no sponsors or headliners and tickets by lottery (Nordkurier, 2025); about 79,000 on site in 2024.",
+"has_bundled": false
+},
+{
+"id": "glastonbury-1997-prodigy",
+"type": "event",
+"name": "The Prodigy at Glastonbury, 27 June 1997",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"The Prodigy at Glastonbury, 27 June 1997\" nightclub",
+"\"The Prodigy at Glastonbury, 27 June 1997\""
+],
+"alt": [],
+"blurb": "The Friday-night Pyramid Stage headline set that Emily Eavis has called the first by a dance band at Glastonbury.",
+"has_bundled": false
+},
+{
+"id": "global-gathering",
+"type": "event",
+"name": "Global Gathering",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Global Gathering\" \"Godskitchen\"",
+"\"Global Gathering\" festival",
+"\"Global Gathering\""
+],
+"alt": [],
+"blurb": "Angel Music Group's festival at Long Marston Airfield, sister to the Godskitchen club brand; after thirteen years it took a break from 2015.",
+"has_bundled": false
+},
+{
+"id": "herrensauna",
+"type": "event",
+"name": "Herrensauna",
+"city": "Berlin",
+"generic": false,
+"node": true,
+"queries": [
+"\"Herrensauna\" Berlin nightclub",
+"\"Herrensauna\" Berlin"
+],
+"alt": [],
+"blurb": "Hard techno party founded by Nicolas Endlicher and Cem Dukkha, two DJs from Vienna; about 5,000 came to its September 2021 return.",
+"has_bundled": false
+},
+{
+"id": "hospitality",
+"type": "event",
+"name": "Hospitality",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Hospitality\" \"Brixton Academy\"",
+"\"Hospitality\" London nightclub",
+"\"Hospitality\" London"
+],
+"alt": [],
+"blurb": "Hospital Records' parties; Brixton Academy, Finsbury Park.",
+"has_bundled": false
+},
+{
+"id": "innovation",
+"type": "event",
+"name": "Innovation",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Innovation\" \"Ministry of Sound\"",
+"\"Innovation\" rave",
+"\"Innovation\" London"
+],
+"alt": [],
+"blurb": "Micky Finn's drum and bass event, among the big raves of the jungle years, held on Fridays at Ministry of Sound.",
+"has_bundled": false
+},
+{
+"id": "kala-festival",
+"type": "event",
+"name": "Kala",
+"city": "",
+"generic": true,
+"node": true,
+"queries": [],
+"alt": [],
+"skip": "generic name and no city: the relevance rule cannot pass",
+"blurb": "A week-long festival with a capacity of under 2,000 on Albania's Ionian coast, run by the team behind Snowboxx; first held 2018.",
+"has_bundled": false
+},
+{
+"id": "knowledge-sw1",
+"type": "event",
+"name": "Knowledge at the SW1 Club",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Knowledge at the SW1 Club\" London nightclub",
+"\"Knowledge at the SW1 Club\" London"
+],
+"alt": [],
+"blurb": "Friday techno night at the SW1 Club in Victoria with Colin Dale, Colin Faver and Dave Angel: purist techno before Final Frontier.",
+"has_bundled": false
+},
+{
+"id": "life-festival",
+"type": "event",
+"name": "Life Festival",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Life\" festival",
+"\"Life Festival\""
+],
+"alt": [],
+"blurb": "Irish electronic festival first held in 2006, at Belvedere House, Mullingar, by 2014; did not run there in 2024.",
+"has_bundled": false
+},
+{
+"id": "loud-noise",
+"type": "event",
+"name": "Loud Noise",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Loud Noise\" London nightclub",
+"\"Loud Noise\" London"
+],
+"alt": [],
+"blurb": "Lisa Loud and Nancy Noise's midweek night, which lasted only a few months; Lisa Loud describes two women running a night as groundbreaking.",
+"has_bundled": false
+},
+{
+"id": "lp-duisburg",
+"type": "event",
+"name": "Love Parade disaster, Duisburg 2010",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Love Parade disaster, Duisburg 2010\""
+],
+"alt": [],
+"blurb": "The crowd crush at the Love Parade in Duisburg on 24 July 2010 that killed 21 and ended the parade; the trial closed in 2020 without a verdict.",
+"has_bundled": false
+},
+{
+"id": "megadog",
+"type": "event",
+"name": "Megadog",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Megadog\" London nightclub",
+"\"Megadog\" London"
+],
+"alt": [],
+"blurb": "Monthly all-nighter at the Rocket on Holloway Road and a touring show of live electronic acts, DJs, lights and circus, grown from Club Dog.",
+"has_bundled": false
+},
+{
+"id": "mister-sunday",
+"type": "event",
+"name": "Mister Sunday",
+"city": "New York",
+"generic": false,
+"node": true,
+"queries": [
+"\"Mister Sunday\" New York nightclub",
+"\"Mister Sunday\" New York"
+],
+"alt": [],
+"blurb": "Justin Carter and Eamon Harkin's daytime Sunday party, moved from Industry City to Nowadays in April 2016.",
+"has_bundled": false
+},
+{
+"id": "muccassassina",
+"type": "event",
+"name": "Muccassassina",
+"city": "Rome",
+"generic": false,
+"node": true,
+"queries": [
+"\"Muccassassina\" Rome nightclub",
+"\"Muccassassina\" Rome"
+],
+"alt": [],
+"blurb": "Weekly Friday party begun in October 1990 to fund the Mario Mieli association's HIV work; now at Qube.",
+"has_bundled": false
+},
+{
+"id": "mysteryland",
+"type": "event",
+"name": "Mysteryland",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Mysteryland\" festival",
+"\"Mysteryland\""
+],
+"alt": [],
+"blurb": "ID&T's open-air festival, first held in 1993 and at the former Floriade grounds in Haarlemmermeer from 2003; paused in 2026.",
+"has_bundled": false
+},
+{
+"id": "noite-principe",
+"type": "event",
+"name": "Noite Príncipe",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Noite Príncipe\" nightclub",
+"\"Noite Príncipe\""
+],
+"alt": [],
+"blurb": "Príncipe's monthly night at Musicbox in Cais do Sodré, which brought bairro DJs to a central club sound system.",
+"has_bundled": false
+},
+{
+"id": "ozora",
+"type": "event",
+"name": "Ozora",
+"city": "Everywhere",
+"generic": true,
+"node": true,
+"queries": [
+"\"Ozora\" festival",
+"\"Ozora\" Everywhere"
+],
+"alt": [
+"O.Z.O.R.A."
+],
+"blurb": "Week-long psytrance and arts festival at Dádpuszta near Ozora, Hungary, grown from the Solipse eclipse gathering of August 1999; annual since 2004.",
+"has_bundled": false
+},
+{
+"id": "peach-night",
+"type": "event",
+"name": "Peach",
+"city": "London",
+"generic": true,
+"node": true,
+"queries": [
+"\"Peach\" \"Camden Palace\"",
+"\"Peach\" London nightclub",
+"\"Peach\" London"
+],
+"alt": [],
+"blurb": "Graham Gold's night at Camden Palace from 1993 to 2004; Peach also had Fridays of trance at Bagley's in King's Cross.",
+"has_bundled": true
+},
+{
+"id": "pyramid-amnesia",
+"type": "event",
+"name": "Pyramid at Amnesia",
+"city": "Ibiza",
+"generic": false,
+"node": true,
+"queries": [
+"\"Pyramid at Amnesia\" \"Amnesia\"",
+"\"Pyramid at Amnesia\" Ibiza nightclub",
+"\"Pyramid at Amnesia\" Ibiza"
+],
+"alt": [],
+"blurb": "The night that took Cocoon's Mondays at Amnesia in 2018, opening with Villalobos on the Terrace and Ben Klock in the Club room; in 2026 it held Sundays from 14 June to 4 October.",
+"has_bundled": true
+},
+{
+"id": "rave-the-planet",
+"type": "event",
+"name": "Rave The Planet",
+"city": "Berlin",
+"generic": false,
+"node": true,
+"queries": [
+"\"Rave The Planet\" rave",
+"\"Rave The Planet\" Berlin"
+],
+"alt": [],
+"blurb": "Dr. Motte's yearly Berlin techno demonstration since 2022, run by a non-profit company, whose campaign won techno heritage status in 2024.",
+"has_bundled": false
+},
+{
+"id": "rural-festival",
+"type": "event",
+"name": "Rural",
+"city": "",
+"generic": true,
+"node": true,
+"queries": [],
+"alt": [],
+"skip": "generic name and no city: the relevance rule cannot pass",
+"blurb": "Atsushi Maeda's open-air techno festival, at Naeba Green Land in 2023 and Camp Nowhere in Fukushima from 2024.",
+"has_bundled": false
+},
+{
+"id": "second-summer",
+"type": "event",
+"name": "The Second Summer of Love",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"The Second Summer of Love\" \"Spectrum\"",
+"\"The Second Summer of Love\" London nightclub",
+"\"The Second Summer of Love\" London"
+],
+"alt": [],
+"blurb": "Acid house goes national: Shoom, Spectrum, the Trip, the Haçienda's Hot, the smiley, the tabloids.",
+"has_bundled": false
+},
+{
+"id": "sex-garage-raid",
+"type": "event",
+"name": "Sex Garage raid",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Sex Garage raid\" festival",
+"\"Sex Garage raid\""
+],
+"alt": [],
+"blurb": "Police raid on a loft after-hours party on 16 July 1990, called Montreal's Stonewall; it led to the Divers/Cité festival.",
+"has_bundled": false
+},
+{
+"id": "slammin-vinyl",
+"type": "event",
+"name": "Slammin' Vinyl",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Slammin' Vinyl\" \"Bagley's\"",
+"\"Slammin' Vinyl\" London nightclub",
+"\"Slammin' Vinyl\" London"
+],
+"alt": [],
+"blurb": "Event and label; the harder sounds at Bagley's.",
+"has_bundled": false
+},
+{
+"id": "soundscapes-bahrain",
+"type": "event",
+"name": "Soundscapes",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Soundscapes\" nightclub",
+"\"Soundscapes\""
+],
+"alt": [],
+"blurb": "Bahraini pop-up party series founded in 2015, with no table service or sponsors, drawing 500 people or more by 2019.",
+"has_bundled": false
+},
+{
+"id": "street-parade",
+"type": "event",
+"name": "Street Parade",
+"city": "Zurich",
+"generic": false,
+"node": true,
+"queries": [
+"\"Street Parade\" Zurich"
+],
+"alt": [],
+"blurb": "A million around the lake; Zürich techno listed as heritage in 2017.",
+"has_bundled": true
+},
+{
+"id": "sun-and-bass",
+"type": "event",
+"name": "Sun and Bass",
+"city": "Sardinia",
+"generic": false,
+"node": true,
+"queries": [
+"\"Sun and Bass\" Sardinia nightclub",
+"\"Sun and Bass\" Sardinia"
+],
+"alt": [],
+"blurb": "A week of drum & bass on a beach.",
+"has_bundled": false
+},
+{
+"id": "symbiosis-gathering",
+"type": "event",
+"name": "Symbiosis Gathering",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Symbiosis Gathering\" festival",
+"\"Symbiosis Gathering\""
+],
+"alt": [],
+"blurb": "California festival at Woodward Reservoir that moved to Oregon for the 2017 solar eclipse.",
+"has_bundled": false
+},
+{
+"id": "the-glade",
+"type": "event",
+"name": "The Glade (Glastonbury)",
+"city": "",
+"generic": true,
+"node": true,
+"queries": [],
+"alt": [],
+"skip": "generic name and no city: the relevance rule cannot pass",
+"blurb": "Glastonbury's outdoor dance stage among the trees, opened in 2000, which gave its name to the Glade Festival, first held in 2004.",
+"has_bundled": false
+},
+{
+"id": "tomorrowland-around-the-world",
+"type": "event",
+"name": "Tomorrowland Around the World",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Tomorrowland Around the World\" festival",
+"\"Tomorrowland Around the World\""
+],
+"alt": [],
+"blurb": "Tomorrowland's virtual festival of 25–26 July 2020: green-screen studios on four continents, eight stages and over a million viewers.",
+"has_bundled": false
+},
+{
+"id": "trash-the-end",
+"type": "event",
+"name": "Trash",
+"city": "London",
+"generic": true,
+"node": true,
+"queries": [
+"\"Trash\" \"The End\"",
+"\"Trash\" London nightclub",
+"\"Trash\" London"
+],
+"alt": [],
+"blurb": "Erol Alkan's Monday night at The End, indie into electro, the night that made his name.",
+"has_bundled": true
+},
+{
+"id": "ultra-europe",
+"type": "event",
+"name": "Ultra Europe",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Ultra Europe\" nightclub",
+"\"Ultra Europe\""
+],
+"alt": [],
+"blurb": "Joe Bašić's Croatian edition of Ultra, at Split's Poljud stadium from 2013 and later at Park mladeži.",
+"has_bundled": false
+},
+{
+"id": "unsound",
+"type": "event",
+"name": "Unsound",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Unsound\" festival",
+"\"Unsound\""
+],
+"alt": [],
+"blurb": "Kraków's experimental music festival, started in 2003 by Mat Schulz and Stephen Berkley and later run by the non-profit Gosia Płysa founded.",
+"has_bundled": false
+},
+{
+"id": "we-love",
+"type": "event",
+"name": "We Love… Sundays at Space",
+"city": "Ibiza",
+"generic": false,
+"node": true,
+"queries": [
+"\"We Love… Sundays at Space\" \"Space\"",
+"\"We Love… Sundays at Space\" Ibiza nightclub",
+"\"We Love… Sundays at Space\" Ibiza"
+],
+"alt": [
+"We Love Space",
+"We Love Sundays"
+],
+"blurb": "Space's Sunday party, grown from Darren Hughes's Home and programmed by Mark and Sarah Broadbent: terrace and club, until it left for Sankeys in 2015.",
+"has_bundled": true
+},
+{
+"id": "winter-music-conference",
+"type": "event",
+"name": "Winter Music Conference",
+"city": "Miami",
+"generic": false,
+"node": true,
+"queries": [
+"\"Winter Music Conference\" Miami nightclub",
+"\"Winter Music Conference\" Miami"
+],
+"alt": [],
+"blurb": "The industry's March; house's trade fair.",
+"has_bundled": false
+},
+{
+"id": "xanadu-turnmills",
+"type": "event",
+"name": "Xanadu",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Xanadu\" \"Turnmills\"",
+"\"Xanadu\" London nightclub",
+"\"Xanadu\" London"
+],
+"alt": [],
+"blurb": "Laurence Malice's Saturday night at Turnmills early in 1990, run with the promoter Robert Pereno; it lasted five or six months, and Trade followed that October.",
+"has_bundled": true
+},
+{
+"id": "zumbar",
+"type": "event",
+"name": "Zumbar",
+"city": "Manchester",
+"generic": false,
+"node": true,
+"queries": [
+"\"Zumbar\" Manchester nightclub",
+"\"Zumbar\" Manchester"
+],
+"alt": [],
+"blurb": "Paul Cons's Wednesday cabaret-and-house night at the Haçienda, replaced by Hot in summer 1988.",
+"has_bundled": true
+},
+{
+"id": "law-covid",
+"type": "law",
+"name": "Covid closures, 2020–21",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Covid closures, 2020–21\" protest",
+"\"Covid closures, 2020–21\" London",
+"\"Covid closures, 2020–21\""
+],
+"alt": [],
+"blurb": "Clubs in England shut from March 2020 to 19 July 2021, with Scotland, Wales and Northern Ireland on their own timetables; the Night Time Industries Association's count of what did not reopen.",
+"has_bundled": false
+},
+{
+"id": "law-licensing-2003",
+"type": "law",
+"name": "Licensing Act 2003",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Licensing Act 2003\" London",
+"\"Licensing Act 2003\""
+],
+"alt": [],
+"blurb": "Flexible licensing hours for pubs and clubs alike, in force from November 2005; the club trade argued it eroded what had made late-night venues distinct.",
+"has_bundled": false
+},
+{
+"id": "law-pay-party-unit",
+"type": "law",
+"name": "The Pay Party Unit",
+"city": "Kent",
+"generic": false,
+"node": true,
+"queries": [
+"\"The Pay Party Unit\" Kent",
+"\"The Pay Party Unit\""
+],
+"alt": [],
+"blurb": "Kent Police's unit against the orbital raves, run by Chief Superintendent Ken Tappenden from Dartford and then Gravesend.",
+"has_bundled": false
+},
+{
+"id": "law-sound-equipment-regs-1995",
+"type": "law",
+"name": "Police (Disposal of Sound Equipment) Regulations 1995",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Police (Disposal of Sound Equipment) Regulations 1995\" London",
+"\"Police (Disposal of Sound Equipment) Regulations 1995\""
+],
+"alt": [],
+"blurb": "Statutory instrument 1995/722: six months after a court forfeits a seized rig it is to be sold, and the proceeds go to the police authority's fund.",
+"has_bundled": false
+},
+{
+"id": "access-virus",
+"type": "machine",
+"name": "Access Virus",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Access Virus\"",
+"Access Virus"
+],
+"alt": [
+"Virus"
+],
+"blurb": "Virtual-analogue synth — A German virtual-analogue that became a studio workhorse of trance and techno from the late 1990s.",
+"has_bundled": false
+},
+{
+"id": "alphatheta",
+"type": "machine",
+"name": "AlphaTheta Corporation",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"AlphaTheta Corporation\"",
+"AlphaTheta Corporation"
+],
+"alt": [],
+"blurb": "Pioneer DJ's company name from January 2020; owned by Noritsu Koki from April 2020; its own product brand from 2024.",
+"has_bundled": false
+},
+{
+"id": "auto-tune",
+"type": "machine",
+"name": "Antares Auto-Tune",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Antares Auto-Tune\"",
+"Antares Auto-Tune"
+],
+"alt": [],
+"blurb": "Released in 1997 as a subtle pitch corrector; a retune speed of zero turned it into a vocal effect.",
+"has_bundled": false
+},
+{
+"id": "casio-cz",
+"type": "machine",
+"name": "Casio CZ-5000 / CZ-101",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Casio CZ-5000\"",
+"\"CZ-101\"",
+"\"CZ-5000\""
+],
+"alt": [
+"CZ-101",
+"Casio CZ-5000",
+"CZ-5000",
+"reese"
+],
+"blurb": "Phase-distortion synth — A Casio home keyboard whose detuned patch became the \"reese\": Kevin Saunderson's \"Just Want Another Chance\" bassline, later jungle's and drum & bass's signature.",
+"has_bundled": false
+},
+{
+"id": "cdj3000",
+"type": "machine",
+"name": "Pioneer DJ CDJ-3000",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Pioneer DJ CDJ-3000\"",
+"Pioneer DJ CDJ-3000"
+],
+"alt": [],
+"blurb": "Flagship player of September 2020 with no CD drive: nine-inch touchscreen, MPU processor, Key Shift; $2,299 / £2,169 at launch.",
+"has_bundled": false
+},
+{
+"id": "clay-paky-golden-scan",
+"type": "machine",
+"name": "Clay Paky Golden Scan",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Clay Paky Golden Scan\"",
+"Clay Paky Golden Scan"
+],
+"alt": [],
+"blurb": "Moving-mirror scanner with a 575 W or 1,200 W HMI lamp, credited as the first light to use stepper motors.",
+"has_bundled": false
+},
+{
+"id": "denon-prime",
+"type": "machine",
+"name": "Denon DJ Prime and Engine DJ",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Denon DJ Prime and Engine DJ\"",
+"Denon DJ Prime and Engine DJ"
+],
+"alt": [],
+"blurb": "Denon DJ's standalone players and mixers from NAMM 2017 (SC5000 Prime, $1,899), with streaming from 2020 and stems from 2024.",
+"has_bundled": false
+},
+{
+"id": "efx500",
+"type": "machine",
+"name": "Pioneer EFX-500",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Pioneer EFX-500\"",
+"Pioneer EFX-500"
+],
+"alt": [],
+"blurb": "Pioneer's outboard effects unit: tempo-locked beat effects on one side, a jog wheel for jet, zip and wah on the other.",
+"has_bundled": false
+},
+{
+"id": "fasttracker-2",
+"type": "machine",
+"name": "FastTracker 2",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"FastTracker 2\"",
+"FastTracker 2"
+],
+"alt": [],
+"blurb": "Shareware PC tracker by Mr H and Vogue of Triton; its XM format allowed 32 channels and envelopes.",
+"has_bundled": false
+},
+{
+"id": "funktion-one",
+"type": "machine",
+"name": "Funktion-One",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Funktion-One\"",
+"\"Funktion One\"",
+"Funktion-One"
+],
+"alt": [
+"Funktion One"
+],
+"blurb": "Sound system — Tony Andrews's horn-loaded system, from Turbosound: Berghain, Space, fabric's rooms, Glastonbury's stages; the sound of the 2000s and 2010s club.",
+"has_bundled": false
+},
+{
+"id": "jp8000",
+"type": "machine",
+"name": "Roland JP-8000",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Roland JP-8000\"",
+"\"JP-8000\"",
+"\"supersaw\""
+],
+"alt": [
+"JP-8000",
+"supersaw"
+],
+"blurb": "Virtual-analogue synth — The supersaw: seven detuned saws in one oscillator, and trance's lead from the late 1990s on.",
+"has_bundled": false
+},
+{
+"id": "korg-ms",
+"type": "machine",
+"name": "Korg MS-10 / MS-20",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Korg MS-10\"",
+"\"MS-20\"",
+"\"MS-10\""
+],
+"alt": [
+"MS-20",
+"Korg MS-10",
+"MS-10"
+],
+"blurb": "Monosynth — The semi-modular Korg whose filter screams; Juan Atkins's first synthesiser, bought for him by his grandmother in 1979.",
+"has_bundled": false
+},
+{
+"id": "martin-roboscan",
+"type": "machine",
+"name": "Martin Roboscan 1004",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Martin Roboscan 1004\"",
+"Martin Roboscan 1004"
+],
+"alt": [],
+"blurb": "Scanner from the Danish fog-machine maker Martin, introduced in September 1989 and built for the discotheque market.",
+"has_bundled": false
+},
+{
+"id": "minimoog",
+"type": "machine",
+"name": "Minimoog",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Minimoog\"",
+"Minimoog"
+],
+"alt": [],
+"blurb": "Monosynth — Bob Moog's portable; the bass of Parliament and the lead of Kraftwerk's \"Autobahn\", the sound Detroit grew up on.",
+"has_bundled": false
+},
+{
+"id": "mwm-phase",
+"type": "machine",
+"name": "MWM Phase",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"MWM Phase\"",
+"MWM Phase"
+],
+"alt": [],
+"blurb": "Wireless timecode: remotes on the turntable spindle replace control vinyl; on sale from April 2019 at $450 and up.",
+"has_bundled": false
+},
+{
+"id": "numark-ns7",
+"type": "machine",
+"name": "Numark NS7",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Numark NS7\"",
+"Numark NS7"
+],
+"alt": [],
+"blurb": "Controller with motor-driven seven-inch vinyl platters, shown at winter NAMM 2008 for Serato Itch.",
+"has_bundled": false
+},
+{
+"id": "pioneer-dmp555",
+"type": "machine",
+"name": "Pioneer DMP-555",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Pioneer DMP-555\"",
+"Pioneer DMP-555"
+],
+"alt": [],
+"blurb": "Short-lived deck that played MP3s from SD cards and had, by Pioneer's account, its first sync button; made for one year and eight months.",
+"has_bundled": false
+},
+{
+"id": "pure-data",
+"type": "machine",
+"name": "Pure Data",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Pure Data\"",
+"Pure Data"
+],
+"alt": [],
+"blurb": "Miller Puckette's free, open-source patching environment, continuing the tradition of Max.",
+"has_bundled": false
+},
+{
+"id": "reaktor",
+"type": "machine",
+"name": "Native Instruments Generator / Reaktor",
+"city": "Berlin",
+"generic": false,
+"node": true,
+"queries": [
+"\"Native Instruments Generator\"",
+"\"Reaktor\"",
+"Native Instruments Generator / Reaktor"
+],
+"alt": [
+"Reaktor",
+"Native Instruments Generator"
+],
+"blurb": "A modular environment for building instruments and effects; Generator was shown in 1996 and became Reaktor 2.0 in 1999.",
+"has_bundled": false
+},
+{
+"id": "rla-x3000",
+"type": "machine",
+"name": "Richard Long's DJ crossover (RLA X3000A)",
+"city": "New York",
+"generic": false,
+"node": true,
+"queries": [
+"\"Richard Long's DJ crossover\"",
+"\"RLA X3000A\"",
+"Richard Long's DJ crossover (RLA X3000A)"
+],
+"alt": [
+"RLA X3000A"
+],
+"blurb": "Richard Long's crossover gave the DJ sub-bass and tweeter controls, as at the Paradise Garage; Rane built the X3000A for him from 1985.",
+"has_bundled": false
+},
+{
+"id": "serato-scratch-live",
+"type": "machine",
+"name": "Serato Scratch Live",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Serato Scratch Live\"",
+"Serato Scratch Live"
+],
+"alt": [],
+"blurb": "Timecode-vinyl DJ system from Serato, sold with Rane's USB interfaces from 2004; worked only with Rane hardware.",
+"has_bundled": false
+},
+{
+"id": "sound-fabric-floor",
+"type": "machine",
+"name": "fabric's Room One floor",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"fabric's Room One floor\"",
+"fabric's Room One floor"
+],
+"alt": [],
+"blurb": "Tactile dance floor on Bodysonic transducers, 450 by the London Museum's count, rebuilt in 2025 on 36 Powersoft Movers and tuned with Deaf Rave.",
+"has_bundled": false
+},
+{
+"id": "steinberg-pro24",
+"type": "machine",
+"name": "Steinberg Pro-24",
+"city": "Hamburg",
+"generic": false,
+"node": true,
+"queries": [
+"\"Steinberg Pro-24\"",
+"Steinberg Pro-24"
+],
+"alt": [],
+"blurb": "Werner Kracht's 24-channel MIDI sequencer for the Atari ST, the forerunner of Cubase.",
+"has_bundled": false
+},
+{
+"id": "sylenth1",
+"type": "machine",
+"name": "LennarDigital Sylenth1",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"LennarDigital Sylenth1\"",
+"LennarDigital Sylenth1"
+],
+"alt": [],
+"blurb": "A CPU-light virtual analogue synth that Dance Music Northwest called the first pick of trance and EDM producers in 2017.",
+"has_bundled": false
+},
+{
+"id": "technics-sl1200mk7",
+"type": "machine",
+"name": "Technics SL-1200MK7",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Technics SL-1200MK7\"",
+"Technics SL-1200MK7"
+],
+"alt": [],
+"blurb": "DJ turntable of 2019 with a coreless direct-drive motor and reverse play, following the SL-1200G revival of 2016.",
+"has_bundled": false
+},
+{
+"id": "tr606",
+"type": "machine",
+"name": "Roland TR-606 Drumatix",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Roland TR-606 Drumatix\"",
+"\"TR-606\"",
+"Roland TR-606 Drumatix"
+],
+"alt": [
+"TR-606"
+],
+"blurb": "Drum machine — The 303's companion, a cheap analogue drum box with a sync socket; its hi-hats are the sound of early Chicago and of acid.",
+"has_bundled": false
+},
+{
+"id": "traktor",
+"type": "machine",
+"name": "Native Instruments Traktor",
+"city": "Berlin",
+"generic": false,
+"node": true,
+"queries": [
+"\"Native Instruments Traktor\"",
+"Native Instruments Traktor"
+],
+"alt": [],
+"blurb": "Native Instruments' DJ software, first released in 2000; the engine of Traktor Final Scratch, Traktor Scratch and the Kontrol controllers.",
+"has_bundled": false
+},
+{
+"id": "twelve-inch-single",
+"type": "machine",
+"name": "The twelve-inch single",
+"city": "New York",
+"generic": false,
+"node": true,
+"queries": [
+"\"The twelve-inch single\"",
+"The twelve-inch single"
+],
+"alt": [],
+"blurb": "Wider groove spacing gave a louder cut with more bass; promos reached DJs in 1975 and Salsoul sold the format from May 1976.",
+"has_bundled": false
+},
+{
+"id": "vst-plugins",
+"type": "machine",
+"name": "VST (Virtual Studio Technology)",
+"city": "Hamburg",
+"generic": true,
+"node": true,
+"queries": [
+"\"VST\"",
+"VST (Virtual Studio Technology)"
+],
+"alt": [],
+"blurb": "Steinberg's plug-in standard: effects in 1996, instruments with VST 2.0 in 1999, VST 3 with Cubase 4 in 2006 (SDK 2008), open under the MIT licence in 2025.",
+"has_bundled": false
+},
+{
+"id": "xone92",
+"type": "machine",
+"name": "Allen & Heath Xone:92",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Allen & Heath Xone:92\"",
+"\"Xone:92\"",
+"Allen & Heath Xone:92"
+],
+"alt": [
+"Xone:92"
+],
+"blurb": "DJ mixer — Allen & Heath's four-band, twin-filter mixer (2003), grown from Richie Hawtin's MIDI-modded Xone:62; the techno booth standard before his Model 1.",
+"has_bundled": false
+},
+{
+"id": "ibiza-uncovered",
+"type": "press",
+"name": "Ibiza Uncovered",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Ibiza Uncovered\""
+],
+"alt": [],
+"blurb": "Sky One's 1997 documentary series on young Britons in San Antonio; it began the Uncovered franchise (to 2002) and the Brits-abroad TV template.",
+"has_bundled": false
+},
+{
+"id": "press-acid-tabloids",
+"type": "press",
+"name": "The tabloids and acid house, 1988–89",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"The tabloids and acid house, 1988–89\" London",
+"\"The tabloids and acid house, 1988–89\""
+],
+"alt": [],
+"blurb": "How the Sun went from selling smiley T-shirts in October 1988 to 'Evils of Ecstasy' a week later, and led the press campaign against the raves until 1990.",
+"has_bundled": false
+},
+{
+"id": "press-eternity",
+"type": "press",
+"name": "Eternity",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Eternity\" magazine",
+"\"Eternity\" London",
+"\"Eternity\""
+],
+"alt": [],
+"blurb": "The hardcore and happy hardcore magazine, the rave scene reporting on itself after the press moved on.",
+"has_bundled": false
+},
+{
+"id": "press-groove",
+"type": "press",
+"name": "Groove",
+"city": "Berlin",
+"generic": false,
+"node": true,
+"queries": [
+"\"Groove\" Berlin",
+"\"Groove\""
+],
+"alt": [],
+"blurb": "Founded as a fanzine by DJ T. in 1989, edited in Frankfurt and from 2000 in Berlin; print until 2018, online since, run by its writers from 2024.",
+"has_bundled": false
+},
+{
+"id": "press-muzik",
+"type": "press",
+"name": "Muzik",
+"city": "London",
+"generic": true,
+"node": true,
+"queries": [
+"\"Muzik\" magazine",
+"\"Muzik\" London",
+"\"Muzik\""
+],
+"alt": [],
+"blurb": "IPC's dance monthly: the Muzik Awards, the serious long reads of the superclub years.",
+"has_bundled": false
+},
+{
+"id": "press-wire",
+"type": "press",
+"name": "The Wire",
+"city": "London",
+"generic": true,
+"node": true,
+"queries": [
+"\"The Wire\" magazine",
+"\"The Wire\" London",
+"\"The Wire\""
+],
+"alt": [],
+"blurb": "The experimental monthly that took techno seriously as music in the 1990s; Kodwo Eshun and Simon Reynolds's writing.",
+"has_bundled": false
+},
+{
+"id": "shop-a1-records",
+"type": "shop",
+"name": "A-1 Record Shop",
+"city": "New York",
+"generic": false,
+"node": true,
+"queries": [
+"\"A-1 Record Shop\" New York record shop",
+"\"A-1 Record Shop\" New York",
+"\"A-1 Record Shop\" shop"
+],
+"alt": [],
+"blurb": "Second-hand shop at 439 East 6th Street, founded by Isaac Kosman; a hip-hop producers' digging spot whose staff included Ron Morelli and Daniel Wang.",
+"has_bundled": false
+},
+{
+"id": "shop-boogie-times",
+"type": "shop",
+"name": "Boogie Times",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Boogie Times\" London record shop",
+"\"Boogie Times\" London",
+"\"Boogie Times\" shop"
+],
+"alt": [],
+"blurb": "Romford: Danny Donnelly's shop and Suburban Base label, hardcore and jungle's Essex end.",
+"has_bundled": false
+},
+{
+"id": "shop-crazy-beat",
+"type": "shop",
+"name": "Crazy Beat Records",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Crazy Beat Records\" London record shop",
+"\"Crazy Beat Records\" London",
+"\"Crazy Beat Records\" shop"
+],
+"alt": [],
+"blurb": "Upminster shop at 87 Corbets Tey Road, open almost forty years, with classic house and UK garage among its biggest sellers.",
+"has_bundled": false
+},
+{
+"id": "shop-disk-union",
+"type": "shop",
+"name": "Disk Union (Shibuya Club Music Shop)",
+"city": "Tokyo",
+"generic": false,
+"node": true,
+"queries": [
+"\"Disk Union\" Tokyo record shop",
+"\"Disk Union\" Tokyo",
+"\"Disk Union\" shop"
+],
+"alt": [],
+"blurb": "The Tokyo chain's club floor in the Antenna 21 building, Udagawacho, with more than 25,000 hip hop, house and techno records.",
+"has_bundled": false
+},
+{
+"id": "shop-flashback",
+"type": "shop",
+"name": "Flashback Records",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Flashback Records\" London record shop",
+"\"Flashback Records\" London",
+"\"Flashback Records\" shop"
+],
+"alt": [],
+"blurb": "Second-hand chain that began on Essex Road, Islington, and added Crouch End in 2006 and Shoreditch in 2014.",
+"has_bundled": false
+},
+{
+"id": "shop-hard-wax",
+"type": "shop",
+"name": "Hard Wax",
+"city": "Berlin",
+"generic": false,
+"node": true,
+"queries": [
+"\"Hard Wax\" Berlin record shop",
+"\"Hard Wax\" Berlin",
+"\"Hard Wax\" shop"
+],
+"alt": [],
+"blurb": "Mark Ernestus's Berlin shop, in Kreuzberg until 2023 and in Mitte since: Basic Channel's counter, the source of Berlin's techno and dub taste, still open.",
+"has_bundled": false
+},
+{
+"id": "shop-juno",
+"type": "shop",
+"name": "Juno Records",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Juno Records\" London record shop",
+"\"Juno Records\" London",
+"\"Juno Records\" shop"
+],
+"alt": [],
+"blurb": "The online shop that replaced the counter for most of the world, with the distributor-sized catalogue of the 2000s.",
+"has_bundled": false
+},
+{
+"id": "shop-lucky-spin",
+"type": "shop",
+"name": "Lucky Spin",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Lucky Spin\" London record shop",
+"\"Lucky Spin\" London",
+"\"Lucky Spin\" shop"
+],
+"alt": [],
+"blurb": "Jungle shop and label: King's Road, then Holloway Road from 1994; DJ Trace and Harmony worked its counter.",
+"has_bundled": false
+},
+{
+"id": "shop-phonica",
+"type": "shop",
+"name": "Phonica",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Phonica\" London record shop",
+"\"Phonica\" London",
+"\"Phonica\" shop"
+],
+"alt": [],
+"blurb": "Poland Street, Soho: the dance shop of the 2000s and 2010s, still open where Black Market and the rest closed.",
+"has_bundled": false
+},
+{
+"id": "shop-record-time",
+"type": "shop",
+"name": "Record Time",
+"city": "Detroit",
+"generic": false,
+"node": true,
+"queries": [
+"\"Record Time\" Detroit record shop",
+"\"Record Time\" Detroit",
+"\"Record Time\" shop"
+],
+"alt": [],
+"blurb": "Roseville, Michigan: the back room where Detroit's second wave bought their imports; Plus 8 and Transmat in the racks.",
+"has_bundled": false
+},
+{
+"id": "shop-rounder",
+"type": "shop",
+"name": "Rounder Records",
+"city": "Brighton",
+"generic": false,
+"node": true,
+"queries": [
+"\"Rounder Records\" Brighton record shop",
+"\"Rounder Records\" Brighton",
+"\"Rounder Records\" shop"
+],
+"alt": [],
+"blurb": "Brighton Square shop and ticket outlet where Norman Cook and Skint's Damian Harris both worked; it closed on 29 July 2012.",
+"has_bundled": false
+},
+{
+"id": "shop-selectadisc",
+"type": "shop",
+"name": "Selectadisc",
+"city": "Nottingham",
+"generic": false,
+"node": true,
+"queries": [
+"\"Selectadisc\" Nottingham record shop",
+"\"Selectadisc\" Nottingham",
+"\"Selectadisc\" shop"
+],
+"alt": [],
+"blurb": "Brian Selby's Nottingham shop, where Graeme Park bought the singles; it began on Mansfield market and closed on Market Street.",
+"has_bundled": false
+},
+{
+"id": "shop-swag",
+"type": "shop",
+"name": "Swag Records",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Swag Records\" record shop",
+"\"Swag Records\"",
+"\"Swag Records\" shop"
+],
+"alt": [],
+"blurb": "Croydon shop run by Liz Edwards, with Terry Francis behind the counter, credited by him with the name tech-house.",
+"has_bundled": false
+},
+{
+"id": "shop-vinyl-dreams",
+"type": "shop",
+"name": "Vinyl Dreams (593 Haight Street)",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Vinyl Dreams\" record shop",
+"\"Vinyl Dreams\"",
+"\"Vinyl Dreams\" shop"
+],
+"alt": [],
+"blurb": "Mike Battaglia's dance shop at 593 Haight Street, the below-ground space that was Tweekin Records in the 1990s and 2000s.",
+"has_bundled": false
+},
+{
+"id": "pk-sound",
+"type": "sound",
+"name": "PK Sound",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"PK Sound\""
+],
+"alt": [],
+"blurb": "Loudspeaker maker founded by Jeremy Bridge and Eroca Colins, directors of Shambhala's Village stage, whose rigs ran all but one of its main stages, by EDM Maniac's account.",
+"has_bundled": false
+},
+{
+"id": "sound-black-moon",
+"type": "sound",
+"name": "Black Moon Sound System",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Black Moon Sound System\""
+],
+"alt": [],
+"blurb": "Derbyshire free-party system whose rig was seized near Corby in July 1995 and forfeited in 1996, the first under the 1994 Act by SQUALL's account.",
+"has_bundled": false
+},
+{
+"id": "sound-court-acoustics",
+"type": "sound",
+"name": "Court Acoustics",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Court Acoustics\""
+],
+"alt": [],
+"blurb": "Stephen Court's loudspeaker firm of 1973: studio monitors, rock PAs and the Black Box rig that ran Glastonbury's NME Stage in 1994.",
+"has_bundled": false
+},
+{
+"id": "sound-downbeat",
+"type": "sound",
+"name": "Sir Coxsone's Downbeat",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Sir Coxsone's Downbeat\""
+],
+"alt": [],
+"blurb": "Clement Dodd's Kingston sound, stocked with American rhythm and blues from 1953, the root of Studio One.",
+"has_bundled": false
+},
+{
+"id": "sound-jah-shaka",
+"type": "sound",
+"name": "Jah Shaka Sound System",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Jah Shaka Sound System\" London",
+"\"Jah Shaka Sound System\""
+],
+"alt": [],
+"blurb": "Neville Powell's south-east London roots reggae sound, 1970–2023: home-made sirens, dubplates and sub-bass that jungle and dubstep DJs later cited.",
+"has_bundled": false
+},
+{
+"id": "sound-levan-horn",
+"type": "sound",
+"name": "The Levan horn",
+"city": "New York",
+"generic": false,
+"node": true,
+"queries": [
+"\"The Levan horn\" New York",
+"\"The Levan horn\""
+],
+"alt": [],
+"blurb": "Richard Long's sub-bass horn for the Paradise Garage: two 500-watt 18-inch drivers, a 28-square-foot mouth, rated to 30 Hz.",
+"has_bundled": false
+},
+{
+"id": "sound-phazon",
+"type": "sound",
+"name": "Phazon",
+"city": "New York",
+"generic": false,
+"node": true,
+"queries": [
+"\"Phazon\" New York",
+"\"Phazon\""
+],
+"alt": [],
+"blurb": "New York design and installation company of which Steve Dash was a principal, maker of the PDS subs; systems for Twilo, Vinyl, Cream, Home and crobar.",
+"has_bundled": false
+},
+{
+"id": "sound-skan-pa",
+"type": "sound",
+"name": "Skan PA",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Skan PA\""
+],
+"alt": [],
+"blurb": "Hire company that has run Glastonbury's second stage since 1991, with a Court Black Box rig in 1994 and Turbosound Floodlight stock by 1995.",
+"has_bundled": false
+},
+{
+"id": "sound-tom-the-great-sebastian",
+"type": "sound",
+"name": "Tom the Great Sebastian",
+"city": "",
+"generic": false,
+"node": true,
+"queries": [
+"\"Tom the Great Sebastian\""
+],
+"alt": [],
+"blurb": "Tom Wong's Kingston sound, from 1950, with Count Machuki on the microphone and Duke Vin selecting.",
+"has_bundled": false
+},
+{
+"id": "centreforce",
+"type": "station",
+"name": "Centreforce 88.3",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Centreforce 88.3\" radio",
+"\"Centreforce 88.3\" London"
+],
+"alt": [],
+"blurb": "East London's seven-day rave station of 1989, by its own claim the first; raided and back on air through the year.",
+"has_bundled": false
+},
+{
+"id": "dream-fm-leeds",
+"type": "station",
+"name": "Dream FM (Leeds)",
+"city": "Leeds",
+"generic": false,
+"node": true,
+"queries": [
+"\"Dream FM\" radio",
+"\"Dream FM\" Leeds"
+],
+"alt": [],
+"blurb": "Leeds pirate station where Rachel Fox presented as Daisy & Havoc and a good share of the DJs were women.",
+"has_bundled": false
+},
+{
+"id": "kool-fm",
+"type": "station",
+"name": "Kool FM",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"Kool FM\" radio",
+"\"Kool FM\" London"
+],
+"alt": [],
+"blurb": "The jungle station; Hype, Brockie, Eastman.",
+"has_bundled": false
+},
+{
+"id": "the-breezeblock",
+"type": "station",
+"name": "The Breezeblock",
+"city": "London",
+"generic": false,
+"node": true,
+"queries": [
+"\"The Breezeblock\" radio",
+"\"The Breezeblock\" London"
+],
+"alt": [],
+"blurb": "Mary Anne Hobbs's BBC Radio 1 programme of experimental electronic music, begun on 17 February 1997 and renamed in 2006.",
+"has_bundled": false
+},
+{
+"id": "y-fm",
+"type": "station",
+"name": "YFM",
+"city": "",
+"generic": true,
+"node": true,
+"queries": [],
+"alt": [],
+"skip": "generic name and no city: the relevance rule cannot pass",
+"blurb": "Johannesburg youth radio station, on air from 1997 with a less-talk, more-tunes format, that rode the wave of kwaito and house.",
+"has_bundled": false
+},
+{
+"id": "y1990",
+"type": "year",
+"name": "1990",
+"city": "",
+"generic": false,
+"node": false,
+"queries": [
+"acid house rave 1990"
+],
+"alt": [],
+"blurb": "Forty years · 1990",
+"has_bundled": false
+},
+{
+"id": "y1995",
+"type": "year",
+"name": "1995",
+"city": "",
+"generic": false,
+"node": false,
+"queries": [
+"techno club 1995"
+],
+"alt": [],
+"blurb": "Forty years · 1995",
+"has_bundled": false
+},
+{
+"id": "y2000",
+"type": "year",
+"name": "2000",
+"city": "",
+"generic": false,
+"node": false,
+"queries": [
+"nightclub techno 2000"
+],
+"alt": [],
+"blurb": "Forty years · 2000",
+"has_bundled": false
+},
+{
+"id": "y2005",
+"type": "year",
+"name": "2005",
+"city": "",
+"generic": false,
+"node": false,
+"queries": [
+"nightclub techno 2005"
+],
+"alt": [],
+"blurb": "Forty years · 2005",
+"has_bundled": false
+},
+{
+"id": "y2010",
+"type": "year",
+"name": "2010",
+"city": "",
+"generic": false,
+"node": false,
+"queries": [
+"nightclub techno 2010"
+],
+"alt": [],
+"blurb": "Forty years · 2010",
+"has_bundled": false
+},
+{
+"id": "y2015",
+"type": "year",
+"name": "2015",
+"city": "",
+"generic": false,
+"node": false,
+"queries": [
+"techno festival 2015"
+],
+"alt": [],
+"blurb": "Forty years · 2015",
+"has_bundled": false
+},
+{
+"id": "y2020",
+"type": "year",
+"name": "2020",
+"city": "",
+"generic": false,
+"node": false,
+"queries": [
+"techno festival 2020"
+],
+"alt": [],
+"blurb": "Forty years · 2020",
+"has_bundled": false
+},
+{
+"id": "y2025",
+"type": "year",
+"name": "2025",
+"city": "",
+"generic": false,
+"node": false,
+"queries": [
+"techno festival 2025"
+],
+"alt": [],
+"blurb": "Forty years · 2025",
+"has_bundled": false
+}
+]
+}
