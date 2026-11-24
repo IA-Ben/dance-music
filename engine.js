@@ -11,6 +11,7 @@ const onSpine = (s, id) => STRANDS[s] && STRANDS[s].spine.includes(id);
 const titleOf = id => CHAPTER_TITLES[id] || (NODE[id] && NODE[id].title) || id;
 function parseHash(){
   let h = (location.hash || '#home').slice(1).split(/[?&]/)[0]; let strand = null;
+  if (h.startsWith('lgbtq-')) h = 'queer-' + h.slice(6);   /* the strand's public address; the internal key stays 'queer' */
   for (const s of STRAND_KEYS){ if (h.startsWith(s + '-')){ const rest = h.slice(s.length + 1); if (pageExists(rest)){ strand = s; h = rest; break; } } }
   if (!pageExists(h) && MOVED[h]) h = MOVED[h];   /* a page folded into another keeps its old address */
   MISSING = (!pageExists(h) && h && h !== 'home') ? h : null; if (!pageExists(h)) h = 'home'; return { id: h, strand };
@@ -96,6 +97,7 @@ function route(){
   const sp = STRANDS[strand].spine; const idx = sp.indexOf(id); const fromIdx = CUR ? sp.indexOf(CUR) : -1;
   let dir = 0; if (outEl && outEl !== inEl){ dir = (idx >= 0 && fromIdx >= 0) ? Math.sign(idx - fromIdx) || 1 : 1; }
   CURSTRAND = strand; noteMissing();
+  if (location.hash.startsWith('#queer-')){ try { history.replaceState(history.state, '', '#lgbtq-' + location.hash.slice(7)); } catch (e) {} }   /* show the new address; old links still arrive here */
   if (isNode) NodeView.render(id, strand);
   const crumb = document.getElementById('crumb'); crumb.innerHTML = id === 'home' ? '<b>Cover</b>' : `${(STANDALONE[id] || STRANDS[strand].title)} · <b>${titleOf(id)}</b>`; crumb.style.setProperty('--c', `var(${STRANDS[strand].color})`);
   const spine = document.getElementById('spine'); if (spine){ spine.style.setProperty('--c', `var(${STRANDS[strand].color})`); spine.firstElementChild.style.width = (idx >= 0 ? (idx + 1) / sp.length * 100 : 0) + '%'; }

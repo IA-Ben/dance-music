@@ -69,6 +69,7 @@ const ALIAS_DENY = /^(Paradiso|January|February|March|April|May|June|July|August
 /* the same, for names on the generated subject pages (graph-gen.js, written by /tmp/deep2/tools/gen_nodes.py); a page marked exact links only on its name as written, case for case */
 const ALIAS_DENY_GEN = new Set(window.GEN_ALIAS_DENY || []);
 /* chapter titles too generic to link from running text */
+const CHAPTER_SEARCH = { qf0: 'queer floors' };   /* the strand's old name (renamed LGBTQ+ dance floors, Nov 2026) still finds it in the search box */
 const CHAPTER_NOLINK = /^(a\d|h11|qf7|qf14)$/;   /* qf7 "Trade" (the club page and the Department of Trade keep the word), qf14 "Vauxhall" (a place name all over the book) */
 /* spelling variants of a name: accents, apostrophes, curly quotes (as strong as the name itself) */
 function aliasSpellings(a, n){
@@ -355,7 +356,7 @@ function buildSearch(){
   /* accents, quotes and case don't matter: "hacienda" finds the Haçienda, "vath" finds Väth */
   const norm = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/['’‘`]/g, '').replace(/[“”"]/g, '').replace(/\s+/g, ' ').trim();
   let index = null;
-  const build = () => { index = []; NODES.forEach(n => index.push({ t: n.title, id: n.id, ty: TYPE_LABEL[n.type], col: TYPE_COLOR[n.type], k: norm(n.title), a: norm((n.aliases || []).join(' | ')) })); Object.entries(CHAPTER_TITLES).forEach(([id, t]) => index.push({ t, id, ty: 'Chapter', col: '--mix', k: norm(t), a: '' })); };
+  const build = () => { index = []; NODES.forEach(n => index.push({ t: n.title, id: n.id, ty: TYPE_LABEL[n.type], col: TYPE_COLOR[n.type], k: norm(n.title), a: norm((n.aliases || []).join(' | ')) })); Object.entries(CHAPTER_TITLES).forEach(([id, t]) => index.push({ t, id, ty: 'Chapter', col: '--mix', k: norm(t), a: norm(CHAPTER_SEARCH[id] || '') })); };
   const score = (e, s) => e.k === s ? 0 : e.k.startsWith(s) ? 1 : (' ' + e.k).includes(' ' + s) ? 2 : e.k.includes(s) ? 3 : e.a.includes(s) ? 4 : -1;
   const go = a => { input.value = ''; out.innerHTML = ''; document.getElementById('side').classList.remove('open'); if (a) location.hash = a.getAttribute('href'); };
   input.oninput = () => {

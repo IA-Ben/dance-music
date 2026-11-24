@@ -346,7 +346,7 @@ function drawClubAnatomy(){
   text(main, 250, 150, 'stacks: subs on the floor, mids/highs flown', { 'font-size': 9 });
   room(630, 20, 250, 110, 'Second floor', 'house, slower, windows (Panorama Bar);|or the harder room (Tresor\'s vault)', '--drums', null);
   room(630, 150, 250, 80, 'Bar', 'club mate · water · no glass', '--mix', null);
-  room(630, 250, 250, 70, 'Darkroom / lab', 'the queer lineage of the music', '--perc', null);
+  room(630, 250, 250, 70, 'Darkroom / lab', 'the LGBTQ+ lineage of the music', '--perc', null);
   room(190, 340, 420, 60, 'Garden / terrace', 'daylight · Space\'s terrace, Berghain\'s garden, DC10\'s', '--synth', null);
   room(630, 340, 250, 60, 'Sound engineer', 'the only person who matters at 7am', '--bass', 'sound engineer');
   text(svg, 20, 240, 'A composite: Berghain\'s', { 'font-size': 9 }); text(svg, 20, 252, 'plan, Tresor\'s vault,', { 'font-size': 9 }); text(svg, 20, 264, 'Space\'s terrace, fabric\'s', { 'font-size': 9 }); text(svg, 20, 276, 'three rooms.', { 'font-size': 9 });
