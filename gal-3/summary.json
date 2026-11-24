@@ -1,0 +1,10 @@
+{
+ "shard": "3/5",
+ "pages": 212,
+ "ok": 212,
+ "errors": 0,
+ "items": 592,
+ "api_calls": 423,
+ "stopped_early": false,
+ "minutes": 57.2
+}
