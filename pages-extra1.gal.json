@@ -1,0 +1,28 @@
+{
+ "shard": "extra1",
+ "budget_min": 20,
+ "pages": [
+  {
+   "id": "creamfields",
+   "type": "event",
+   "name": "Creamfields",
+   "city": "Liverpool",
+   "generic": false,
+   "node": true,
+   "queries": [
+    "\"Creamfields\" Daresbury",
+    "\"Creamfields\" Cheshire",
+    "\"Creamfields\" Halton",
+    "\"Creamfields\" 2008",
+    "\"Creamfields\" 2012",
+    "\"Creamfields\" Speke",
+    "\"Creamfields\" UK festival"
+   ],
+   "alt": [
+    "Creamfields UK"
+   ],
+   "blurb": "Cream's festival; the superclub outdoors. UK editions at Daresbury, Cheshire (and earlier Winchester and Speke, Liverpool).",
+   "has_bundled": false
+  }
+ ]
+}
