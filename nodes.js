@@ -53,9 +53,13 @@ const ALIAS_LOCAL = { future: ['hh4', 'i3', 'orb1'], output: ['ny5', 'rs4'], 'ho
   virgin: ['blake-baxter', 'detroit', 'g-detroit', 'h2', 'h3', 'neil-rushton', 'network', 'photek', 'rec-noufos', 'glasgow', 'rec-positiveeducation', 'roule', 'slam', 'soma', 'juan-atkins', 'rec-dafunk', 'kevin-saunderson', 'rec-technocomp', 'rec-papua', 'sven-vath', 'rec-bigfun', 'g-idm', 'birmingham', 'g-frenchtouch', 'liverpool', 'eddie-richards', 'heaven', 'frankie-knuckles', 'rage', 'kms', 'omni-trio', 'chase-status', 'donato-dozzy', 'mark-reeder', 'bigfun', 'spectrum', 'rec-nitenichiryu', 'rec-musicsounds', 'coventry', 'ipswich', 'cream', 'cb2', 'cb12', 'wn4', 'qf4', 'tw11', 'daft-punk', 'rec-ricochet'],
   trace: ['no-u-turn', 'ed-rush-optical', 'g-techstep', 'shop-lucky-spin', 'don-fm', 'virus', 'casio-cz'],
   roland: ['g-electro', 'tr909', 'tb303', 'tr707', 'rec-acidtracks'],
-  'kool-kat': ['neil-rushton', 'network', 'rec-technocomp', 'birmingham'] };
+  'kool-kat': ['neil-rushton', 'network', 'rec-technocomp', 'birmingham'],
+  /* Wayne Shires's clubs (November 2026): bare "Crash" is also Leeds's Crash Records (rs3), "Area" New York's Area (ny2, ny3, cb3, cb10) and Gray Area, "Substation" an ordinary word */
+  'crash-vauxhall': ['wayne-shires', 'area-vauxhall', 'east-bloc', 'substation-london'],
+  'area-vauxhall': ['wayne-shires', 'crash-vauxhall', 'lost', 'steve-bicknell'],
+  'substation-london': ['wayne-shires', 'crash-vauxhall'] };
 /* words that are also something else: never linked on their own */
-const ALIAS_DENY = /^(Paradiso|January|February|March|April|May|June|July|August|September|October|November|December|Live|Papua New Guinea|Last Night a DJ Saved My Life|Space|Future|Hospital|Virus|Planet|Flying|Base|Release|Harmony|Drop|Cyclone|Trip|Music|Energy|Strings|Circles|Original|Loaded|Pure|Speed|Flavour|Incredible|Terrorist|Movement|the End|the Loop|the Box|the Club|the Room|the Gallery|Prince|Virgin|Roland|Kool Kat|Trace)$/;
+const ALIAS_DENY = /^(Paradiso|January|February|March|April|May|June|July|August|September|October|November|December|Live|Papua New Guinea|Last Night a DJ Saved My Life|Space|Future|Hospital|Virus|Planet|Flying|Base|Release|Harmony|Drop|Cyclone|Trip|Music|Energy|Strings|Circles|Original|Loaded|Pure|Speed|Flavour|Incredible|Terrorist|Movement|the End|the Loop|the Box|the Club|the Room|the Gallery|Prince|Virgin|Roland|Kool Kat|Trace|Crash|Area|Substation)$/;
 /* the same, for names on the generated subject pages (graph-gen.js, written by /tmp/deep2/tools/gen_nodes.py); a page marked exact links only on its name as written, case for case */
 const ALIAS_DENY_GEN = new Set(window.GEN_ALIAS_DENY || []);
 /* chapter titles too generic to link from running text */
