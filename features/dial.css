@@ -1,0 +1,70 @@
+/* Tune the dial (Rave: Pirate radio) */
+.feat-dial{--c:var(--samp);--pir:var(--samp);--lic:var(--bass);margin:34px 0;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--bg2);color:var(--text);max-width:100%;box-sizing:border-box;overflow-wrap:anywhere}
+.feat-dial *{box-sizing:border-box}
+.feat-dial h3{margin:0 0 6px;font-family:var(--f-display);font-size:30px;line-height:1;color:var(--text)}
+.feat-dial h4{margin:18px 0 8px;font:700 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.feat-dial p,.feat-dial li,.feat-dial dd,.feat-dial dt,body.paper .page .feat-dial p,body.paper .page .feat-dial li{font:14px/1.5 var(--f-ui);margin:0 0 8px}
+.feat-dial .dl-lede,body.paper .page .feat-dial .dl-lede{font-size:15.5px;max-width:40rem}
+.feat-dial .dl-row{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center}
+.feat-dial .dl-lab{display:flex;align-items:center;gap:8px;font:600 12px var(--f-mono);color:var(--muted)}
+.feat-dial select{min-height:44px;padding:0 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg3);color:var(--text);font:600 14px var(--f-ui)}
+.feat-dial button{min-height:44px;min-width:44px;padding:0 14px;border-radius:8px;border:1px solid var(--line);background:var(--bg3);color:var(--text);font:600 12px var(--f-mono);letter-spacing:.04em;cursor:pointer;width:auto;height:auto;text-transform:none}
+.feat-dial button:hover{border-color:var(--c)}
+.feat-dial button:focus-visible,.feat-dial input:focus-visible,.feat-dial select:focus-visible,.feat-dial a:focus-visible,.feat-dial summary:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+.feat-dial .dl-yr{display:flex;align-items:center;gap:6px;flex:1 1 240px;min-width:0}
+.feat-dial .dl-ylab{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
+.feat-dial .dl-yout{font:800 26px/1 var(--f-display);min-width:2.4em;font-variant-numeric:tabular-nums}
+.feat-dial input[type=range]{width:100%;min-width:0;height:44px;margin:0;accent-color:var(--c);background:transparent}
+.feat-dial .dl-radio{margin:14px 0 6px;padding:12px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}
+.feat-dial .dl-svg{display:block;width:100%;height:auto}
+.feat-dial .dl-bg{fill:var(--bg3)}
+.feat-dial .dl-tk{stroke:var(--muted);stroke-width:1.5}
+.feat-dial .dl-tk.mj{stroke:var(--text);stroke-width:2.5}
+.feat-dial .dl-tn{fill:var(--muted);font-family:var(--f-mono);font-weight:600;text-anchor:middle}
+.feat-dial .dl-st{cursor:pointer}
+.feat-dial .dl-st line{stroke-width:2;stroke-dasharray:3 3}
+.feat-dial .dl-st text{font-family:var(--f-ui);font-weight:700}
+.feat-dial .dl-st.kp line,.feat-dial .dl-st.kp rect{stroke:var(--pir);fill:var(--pir)}.feat-dial .dl-st.kp text{fill:var(--pir)}
+.feat-dial .dl-st.kl line{stroke:var(--lic)}.feat-dial .dl-st.kl rect{stroke:var(--lic);fill:none;stroke-width:2.5}.feat-dial .dl-st.kl text{fill:var(--lic)}
+.feat-dial .dl-st.hit text{text-decoration:line-through;text-decoration-thickness:2px}
+.feat-dial .dl-st.cur text{fill:var(--text)}
+.feat-dial .dl-st.cur rect{fill:var(--text);stroke:var(--text)}
+.feat-dial .dl-needle{stroke:var(--kick);stroke-width:4;stroke-linecap:round}
+.feat-dial .dl-none{fill:var(--muted);font-family:var(--f-ui);font-weight:600}
+.feat-dial .dl-ctl{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;margin-top:4px}
+.feat-dial .dl-power{min-width:104px;background:var(--c);color:#111;border-color:var(--c);font-size:13px}
+.feat-dial .dl-power[aria-pressed=true]{background:var(--bg3);color:var(--text)}
+.feat-dial .dl-f{font:700 16px var(--f-mono);font-variant-numeric:tabular-nums;min-width:7.5em;text-align:center;flex:1}
+.feat-dial .dl-legend{display:flex;flex-wrap:wrap;gap:4px 14px;margin:12px 0 0!important}
+.feat-dial .dl-k{font:12px var(--f-mono);color:var(--muted)}
+.feat-dial .dl-k::before{content:'';display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px;border-radius:2px}
+.feat-dial .dl-kp::before{background:var(--pir)}.feat-dial .dl-kl::before{border:2px solid var(--lic)}
+.feat-dial .dl-kr::before{content:'×';width:auto;height:auto;color:var(--text);font-weight:700}
+.feat-dial .dl-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:10px}
+@media (min-width:760px){.feat-dial .dl-grid{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}}
+.feat-dial .dl-card{border:1px solid var(--line);border-left:4px solid var(--c);border-radius:10px;padding:12px 14px;background:var(--bg);min-height:120px}
+.feat-dial .dl-ck{font:600 11px var(--f-mono)!important;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 4px!important}
+.feat-dial h4.dl-cn{margin:0 0 8px;font:800 24px/1.05 var(--f-display);letter-spacing:0;text-transform:none;color:var(--text)}
+.feat-dial dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr);gap:2px}
+.feat-dial dt{font:600 11px var(--f-mono)!important;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:6px 0 0!important}
+.feat-dial dd{margin:0!important}
+.feat-dial dd ul{margin:0;padding-left:18px}
+.feat-dial dd li{margin:0!important}
+.feat-dial .dl-cs,.feat-dial .dl-static,.feat-dial .dl-desc,.feat-dial .dl-made,.feat-dial .dl-msg,body.paper .page .feat-dial .dl-cs,body.paper .page .feat-dial .dl-desc,body.paper .page .feat-dial .dl-made,body.paper .page .feat-dial .dl-msg{font:12.5px/1.5 var(--f-ui);color:var(--muted)}
+.feat-dial .dl-made{font-style:italic;margin-top:14px}
+.feat-dial .dl-msg:empty{display:none}
+.feat-dial .dl-go{font:600 13px var(--f-ui);color:var(--text)}
+.feat-dial .dl-src{color:inherit;font-size:11.5px;white-space:nowrap;text-decoration:underline;text-decoration-color:color-mix(in srgb,currentColor 40%,transparent);text-underline-offset:2px;opacity:.85}
+.feat-dial .dl-side h4{margin-top:0}
+.feat-dial .dl-side ul,.feat-dial .dl-ev{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.feat-dial .dl-pick{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;width:100%;text-align:left;padding:6px 12px;font:600 13px var(--f-ui);letter-spacing:0}
+.feat-dial .dl-pick small{font:11px var(--f-mono);color:var(--muted);font-weight:400}
+.feat-dial .dl-pick.on{border-color:var(--c);box-shadow:inset 3px 0 0 var(--c)}
+.feat-dial details{margin-top:10px}
+.feat-dial summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font:600 12px var(--f-mono);color:var(--muted)}
+.feat-dial details ul{margin-top:4px}
+.feat-dial .dl-ev li,body.paper .page .feat-dial .dl-ev li{border-left:3px solid var(--line);padding:2px 0 2px 10px;margin:0}
+.feat-dial .dl-ev .e-on{border-left-color:var(--synth)}.feat-dial .dl-ev .e-raid,.feat-dial .dl-ev .e-off{border-left-color:var(--kick)}.feat-dial .dl-ev .e-legal{border-left-color:var(--lic)}
+.feat-dial .dl-ev .e-none{color:var(--muted)}
+.feat-dial .dl-none2{color:var(--muted);font-size:13px}
+@media (max-width:480px){.feat-dial{padding:14px;margin:24px -4px}.feat-dial h3{font-size:26px}.feat-dial .dl-radio{padding:8px}.feat-dial .dl-seek{padding:0 10px}.feat-dial .dl-ctl{grid-template-columns:auto minmax(0,1fr) auto}.feat-dial .dl-power{grid-column:1/-1}}

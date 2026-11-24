@@ -25,6 +25,39 @@ function strandFor(id, hinted){
   if (NODE[id]){ const s = NODE[id].strands.find(x => STRANDS[x]); if (s) return s; }
   return CURSTRAND;
 }
+/* ---------- interactive features (build/features/<name>.js and .css), loaded only on the pages that carry them ----------
+   FEATS is written by assemble.py: name -> { p: page ids, t: subject-page types, a: the h3 to follow, v: content hash }.
+   Each module registers { name, pages, anchor, mount(pageEl, id), unmount(pageEl) } in window.FEATURES. On every page
+   show the last page's features are unmounted (subject pages share one element) and this page's are mounted. */
+const FEATS = {"beatmatch":{"p":["bt1"],"v":"765ab16d"},"chop":{"p":["j2","j1","j3"],"v":"a0fdbed8"},"crate":{"p":["crate"],"v":"a1ad862f"},"dial":{"p":["r2"],"a":"The stations","v":"4d0dd8b6"},"flyer":{"p":["flyers","r6","sy5"],"v":"a68b6c10"},"mynights":{"p":["mynights"],"t":["club","event","city"],"v":"87a0485b"},"phoneline":{"p":["orb3"],"a":"Saturday night, step by step","v":"a7adfd62"},"planparty":{"p":["l0","l1","l2","l3","l4","l5","l6","r5","orb4","sy2","go4","ed4","law-mdma","law-misuse","law-bright-bill","law-pay-party-unit","law-leah-betts","law-safer-dancing","law-licensing-2003","law-form-696","law-fabric-closure","law-night-czar","law-agent-of-change","law-the-loop","law-covid","law-psychoactive","law-cja-link","law-goa-ban","law-sound-equipment-regs-1995","law-hse-pm19","law-radio-investigation-service","law-pop-code-1995","law-noise-at-work-2005","who-safe-listening-standard","berlin-noise-protection-fund"],"t":["law"],"v":"d7c5c040"},"pump":{"p":["k7"],"v":"54c16a7a"},"stack":{"p":["sy4"],"v":"d1b2b928"}};
+const Feat = {
+  seq: 0, on: [], got: {},
+  names(id, isNode){ const ty = isNode && NODE[id] ? NODE[id].type : ''; return Object.keys(FEATS).filter(k => FEATS[k].p.includes(id) || (ty && (FEATS[k].t || []).includes(ty))); },
+  leave(){ const on = this.on; this.on = []; on.forEach(([f, el]) => { try { f.unmount(el); } catch (e) { console.warn('feature ' + f.name, e); } }); },
+  load(name){
+    if (this.got[name]) return this.got[name];
+    const v = FEATS[name].v, put = el => new Promise(res => { el.onload = () => res(true); el.onerror = () => res(false); document.head.appendChild(el); });
+    const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = `features/${name}.css?v=${v}`;
+    const js = document.createElement('script'); js.src = `features/${name}.js?v=${v}`; js.async = true;
+    return (this.got[name] = Promise.all([put(css), put(js)]).then(() => (window.FEATURES || []).find(f => f.name === name) || null));
+  },
+  show(el, id, isNode){
+    this.leave(); const seq = ++this.seq;
+    this.names(id, isNode).forEach(name => this.load(name).then(f => {
+      if (!f || seq !== this.seq) return;
+      let sec = null; try { sec = f.mount(el, id); } catch (e) { console.error('feature ' + name, e); return; }
+      this.on.push([f, el]); if (sec && sec.nodeType === 1) this.place(el, sec, FEATS[name].a);
+    }));
+  },
+  /* after the top-level block that holds the anchor h3; otherwise where the module put it, as long as that is above the
+     margin and the page navigation */
+  place(el, sec, anchor){
+    const top = n => { while (n && n.parentNode !== el) n = n.parentNode; return n; };
+    if (anchor){ const h = [...el.querySelectorAll('h3')].find(x => !sec.contains(x) && x.textContent.trim() === anchor); const t = h && top(h); if (t && t !== sec){ t.after(sec); return; } }
+    const foot = el.querySelector(':scope > .margin-note') || el.querySelector(':scope > .pagenav'); if (!foot) return;
+    if (!el.contains(sec) || (foot.compareDocumentPosition(sec) & Node.DOCUMENT_POSITION_FOLLOWING)) el.insertBefore(sec, foot);
+  }
+};
 function buildShell(){
   const side = document.getElementById('side'); side.innerHTML = '<a class="brand" href="#home">fortyyearsof.dance<small>dance music · ' + BOOK.span + '</small></a><div id="sideSearch"><input type="search" placeholder="search people, clubs, records…"><div class="results"></div></div>';
   if (typeof Contents !== 'undefined'){ Contents.buildSide(side); const home = document.getElementById('homeToc'); if (home) Contents.buildHome(home); if (window.smarten){ smarten(side); if (home) smarten(home); } }
@@ -35,6 +68,17 @@ function buildShell(){
   document.getElementById('themeBtn').onclick = () => { localStorage.setItem('dm-theme', document.body.classList.contains('paper') ? 'dark' : 'paper'); applyTheme(); };
   try { const q = new URLSearchParams(location.search), pid = q.get('p'); if (pid && /^[\w-]+$/.test(pid)){ q.delete('p'); const rest = q.toString(); history.replaceState(null, '', location.pathname + '#' + pid + (rest ? '?' + rest : '')); } } catch (e) {}
   window.addEventListener('hashchange', route); if (window.buildSearch) buildSearch();
+  const fit = () => setTimeout(barFit, 0); if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fit); else fit();
+  try { matchMedia(BAR_NARROW).addEventListener('change', barFit); } catch (e) {}
+}
+/* on narrow screens the bar's Voice, listen-on (stream.js) and Dark/Paper buttons live in the Contents panel instead */
+const BAR_NARROW = '(max-width: 600px)';
+function barFit(){
+  const tb = document.getElementById('topbar'), side = document.getElementById('side'); if (!tb || !side) return;
+  let row = document.getElementById('sideTools'); if (!row){ row = document.createElement('div'); row.id = 'sideTools'; row.className = 'side-tools'; row.setAttribute('aria-label', 'Reading settings'); const s = document.getElementById('sideSearch'); if (s) s.after(row); else side.prepend(row); }
+  const narrow = matchMedia(BAR_NARROW).matches;
+  ['voiceBtn', 'streamBtn', 'themeBtn'].forEach(k => { const b = document.getElementById(k); if (b && b.parentNode !== (narrow ? row : tb)) (narrow ? row : tb).appendChild(b); });
+  row.hidden = !narrow || !row.children.length;
 }
 function pageFlipSound(){
   const ch = AudioCore.peek(); if (!ch || ch.c.state !== 'running') return; const c = ch.c, t = c.currentTime;
@@ -75,7 +119,7 @@ function route(){
   if (window.SoundBus && CUR && CUR !== id) SoundBus.all();
   Trail.push(id, titleOf(id)); Visited.add(id);
   if (typeof Contents !== 'undefined') Contents.sync(id, strand, idx >= 0);
-  if (window.Notes && id !== 'home' && !/^(year|explore|tours|path|quiz|crate|notes|credits|rights|mixer)$/.test(id)) Notes.mount(inEl, id);
+  if (window.Notes && id !== 'home' && !/^(year|explore|tours|path|quiz|crate|mynights|notes|credits|rights|mixer)$/.test(id)) Notes.mount(inEl, id);
   if (isNode && window.Flyer) Flyer.autoMount(inEl, id);
   if (window.SpotifyEmbed) setTimeout(() => { SpotifyEmbed.wire(inEl); if (isNode) SpotifyEmbed.feature(inEl, id); }, 50);
   if (window.Catalogue && isNode) Catalogue.mount(inEl, id);
@@ -87,8 +131,9 @@ function route(){
   if (window.Panels){ Panels.mountAll(inEl); if (!isNode) Panels.mountChapter(inEl, id); }
   if (window.Art) Art.mount(inEl, id);
   if (window.Floor) Floor.mount(inEl, id, isNode);
-  if (/^vz[1-5]$/.test(id)){ if (window.Lights) Lights.mount(inEl, id); else { window._lightsPending = [inEl, id]; if (!document.getElementById('lights-js')){ const s = document.createElement('script'); s.id = 'lights-js'; s.src = 'lights.js?v=9c9f83d5'; s.async = true; document.head.appendChild(s); } } }   /* build/lights.js, loaded only on the vz pages */
+  if (/^vz[1-5]$/.test(id)){ if (window.Lights) Lights.mount(inEl, id); else { window._lightsPending = [inEl, id]; if (!document.getElementById('lights-js')){ const s = document.createElement('script'); s.id = 'lights-js'; s.src = 'lights.js?v=61eff914'; s.async = true; document.head.appendChild(s); } } }   /* build/lights.js, loaded only on the vz pages */
   if (window.Place) Place.mountAll(inEl);
+  Feat.show(inEl, id, isNode);   /* build/features/: unmounts the last page's features, loads and mounts this page's */
   if (isNode && NODE[id].type === 'record' && window.Crate){ const slot = inEl.querySelector('.chips'); if (slot && !slot.querySelector('.crate-btn')) slot.appendChild(Crate.button(id)); }
   const finish = () => { if (outEl && outEl !== inEl) outEl.classList.remove('show', 'lift', 'out-fwd', 'in-back'); inEl.classList.remove('lift', 'in-back'); inEl.classList.add('show'); FLIPPING = false; if (PageHooks[id]) PageHooks[id](); if (!isNode && window.autolink) setTimeout(() => { try { autolink(inEl, id); } catch (e) {} }, 60); if (window.smarten){ smarten(inEl); smarten(document.getElementById('crumb')); setTimeout(() => smarten(inEl), 800); } if (PENDING){ const p = PENDING; PENDING = null; if (p !== location.hash) location.hash = p; } };
   CUR = id;
@@ -193,6 +238,7 @@ function reg(ch, node, stopAt){ if (ch.live) Voices.push({ node, stopAt }); retu
 function pruneVoices(now){ for (let i = Voices.length - 1; i >= 0; i--) if (Voices[i].stopAt < now) Voices.splice(i, 1); }
 function stopAll(){
   if (window.MixerStop) MixerStop(); if (window.GridStop) GridStop();
+  if (window.SoundBus && SoundBus.stopRegistered) SoundBus.stopRegistered();   /* the features' and lights' sounds (build/soundbus.js) */
   if (window.Fade) Fade.cut();
   Voices.forEach(v => { try { v.node.stop(0); } catch (e) {} });
   Voices.length = 0;

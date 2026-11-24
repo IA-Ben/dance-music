@@ -152,7 +152,7 @@ function imgCaption(im){ if (im.caption) return im.caption; return String(im.tit
    is unwrapped to plain text, and one that points somewhere else is left alone. */
 const LINK_SCOPE = '.card, .facts, .glance, aside, table, figure, details, .lsstrip, .flyerstrip, .gallery, .relrow, .rels';
 const LINK_PROSE = 'p, li, .fact span, .pcard, .ccard, .lede, .quote, td, .framing, .node-body';
-const LINK_SKIP = 'a, button, h1, h2, .nolink, .kicker, .tag, code, .chip, .trackchip, .chips, select, option, .seq-table, .deckgrid, .cap, .pagenum, .trail, svg, textarea, input';
+const LINK_SKIP = '.feature, a, button, h1, h2, .nolink, .kicker, .tag, code, .chip, .trackchip, .chips, select, option, .seq-table, .deckgrid, .cap, .pagenum, .trail, svg, textarea, input';
 function autolink(root, selfId){
   const A = buildAliases(); const scopes = new Map();
   const heads = [...root.querySelectorAll('h3')].filter(h => !h.closest(LINK_SCOPE));   /* in running prose a name is linked at its first mention in each section, not once per page */

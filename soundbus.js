@@ -5,8 +5,17 @@
 const _G = n => { try { return eval(n); } catch (e) { return undefined; } };
 window.SoundBus = {
   closeEmbeds(){ document.querySelectorAll('.spbox').forEach(b => b.remove()); },
+  /* one registry of stop functions for sounds that live outside the engine (the features in build/features/, the
+     lighting features): a feature calls SoundBus.register(name, stop) when it mounts and unregister(name) when it
+     unmounts, and SoundBus.claim(name) before it makes a sound. Any other claim, a page turn (SoundBus.all) or the
+     Stop button (stopAll in the engine) runs every registered stop except the claimer's own. */
+  stops: {},
+  register(name, fn){ if (name && typeof fn === 'function') this.stops[name] = fn; },
+  unregister(name, fn){ if (!fn || this.stops[name] === fn) delete this.stops[name]; },
+  stopRegistered(except){ for (const k of Object.keys(this.stops)) if (k !== except) try { this.stops[k](); } catch (e) {} },
   // stop everything except the kind that is about to start
   claim(kind){
+    this.stopRegistered(kind);
     try { if (window.Fade) Fade.cut(); else if (typeof Voices !== 'undefined'){ Voices.forEach(v => { try { v.node.stop(0); } catch (e) {} }); Voices.length = 0; } } catch (e) {}
     try { const Sq = _G('Seq'); if (kind !== 'seq' && Sq && Sq.playing) Sq.stop(); } catch (e) {}
     try { const Mx = _G('Mixer'); if (kind !== 'mixer' && Mx && Mx.playing){ if (window.MixerStop) MixerStop(); else Mx.stop(); } } catch (e) {}

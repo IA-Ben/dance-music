@@ -1,0 +1,56 @@
+/* CHOP — "Chop the break" */
+.feat-chop{--chop-acc:var(--c,#e0a030);margin:28px 0;padding:18px 16px 14px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;max-width:100%;box-sizing:border-box;overflow:hidden}
+.feat-chop *{box-sizing:border-box}
+.feat-chop h3{margin:0 0 6px}
+.feat-chop p{margin:6px 0 10px}
+.feat-chop .chop-intro,.feat-chop .chop-note{font-size:15px;line-height:1.5}
+.feat-chop .chop-note{min-height:3em;color:color-mix(in srgb,var(--text) 85%,var(--bg))}
+.feat-chop button{min-height:44px;min-width:44px;font:600 12px var(--f-mono,ui-monospace,monospace);letter-spacing:.03em;text-transform:none;background:var(--bg3);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer;white-space:normal;line-height:1.2}
+.feat-chop button small{display:block;font-weight:400;font-size:10.5px;color:var(--muted);margin-top:2px}
+.feat-chop button[aria-pressed="true"]{border-color:var(--chop-acc);background:color-mix(in srgb,var(--chop-acc) 22%,var(--bg3))}
+.feat-chop button:disabled{opacity:.6;cursor:progress}
+.feat-chop :focus-visible{outline:3px solid var(--chop-acc);outline-offset:2px}
+.feat-chop .chop-presets{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:10px 0 4px}
+.feat-chop .chop-pre{text-align:left}
+.feat-chop .chop-wave{position:relative;margin:8px 0 10px}
+.feat-chop .chop-wave canvas{display:block;width:100%;height:110px;border-radius:8px;background:var(--bg);border:1px solid var(--line)}
+.feat-chop .chop-transport{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:6px 0}
+.feat-chop .chop-play{min-width:110px;justify-content:center;font:600 14px var(--f-ui,system-ui,sans-serif);border-radius:999px}
+.feat-chop .chop-tempo{display:flex;align-items:center;gap:8px;flex:1 1 220px;font:600 12px var(--f-mono,monospace)}
+.feat-chop .chop-tempo input{flex:1;min-width:120px;height:44px;accent-color:var(--chop-acc)}
+.feat-chop .chop-tempo output{min-width:62px;text-align:right}
+.feat-chop .chop-modes{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.feat-chop .chop-modes [data-m]{flex:1 1 140px;text-align:left}
+.feat-chop .chop-grain{display:flex;align-items:center;gap:6px;font:600 12px var(--f-mono,monospace)}
+.feat-chop .chop-grain[hidden]{display:none}
+.feat-chop select{min-height:44px;background:var(--bg3);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:0 8px;font:inherit}
+.feat-chop .chop-howto{font-size:13px;color:var(--muted);margin:10px 0 6px}
+.feat-chop .chop-row{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.feat-chop .chop-grid[data-cols="8"] .chop-row{grid-template-columns:repeat(8,1fr)}
+.feat-chop .chop-grid[data-cols="16"] .chop-row{grid-template-columns:repeat(16,1fr)}
+.feat-chop .chop-step{padding:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;height:48px;position:relative}
+.feat-chop .chop-step b{font-size:14px}
+.feat-chop .chop-step b.em{color:var(--muted);font-weight:400}
+.feat-chop .chop-step i{font-style:normal;font-size:10px;color:var(--muted);min-height:12px}
+.feat-chop .chop-step.beat{border-left:3px solid color-mix(in srgb,var(--text) 35%,var(--line))}
+.feat-chop .chop-step.on{background:color-mix(in srgb,var(--chop-acc) 14%,var(--bg3))}
+.feat-chop .chop-step.sel{border-color:var(--chop-acc);box-shadow:inset 0 0 0 2px var(--chop-acc)}
+.feat-chop .chop-step.cur::after{content:"";position:absolute;left:6px;right:6px;bottom:3px;height:3px;border-radius:2px;background:var(--text)}
+.feat-chop .chop-edit{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:10px 0;min-height:44px;font-size:13px}
+.feat-chop .chop-ed-lab{flex:1 1 100%;font:600 12px var(--f-mono,monospace)}
+.feat-chop .chop-pitch{display:inline-flex;align-items:center;gap:4px}
+.feat-chop .chop-pitch output{min-width:48px;text-align:center;font:600 12px var(--f-mono,monospace)}
+.feat-chop .chop-pads{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0}
+.feat-chop .chop-pad{height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.feat-chop .chop-pad b{font-size:15px}
+.feat-chop .chop-tools{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 4px}
+.feat-chop .chop-desc{font-size:13px;color:var(--muted)}
+.feat-chop .chop-cap{font-size:12.5px}
+.feat-chop .muted{color:var(--muted)}
+@media (min-width:700px){
+  .feat-chop{padding:22px 22px 16px}
+  .feat-chop .chop-presets{grid-template-columns:repeat(4,1fr)}
+  .feat-chop .chop-pads{grid-template-columns:repeat(8,1fr)}
+  .feat-chop .chop-wave canvas{height:130px}
+}
+@media (prefers-reduced-motion:reduce){.feat-chop *{transition:none!important;animation:none!important}}

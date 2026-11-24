@@ -803,6 +803,20 @@ body.paper .page.hero-page .toc a{color:var(--text)}
 .grid2>div,.grid3>div,.card,.pgbox,.page{min-width:0}
 .pg{overflow-x:auto}
 @media (max-width:700px){.page{overflow-x:hidden}.card:has(.seq-table){overflow-x:auto}}
+
+/* the bottom bar on phones: Voice, "listen on" and Dark/Paper move into the Contents panel (barFit in the engine),
+   so every control left in the bar has a 44 px target at 360 px */
+.side-tools{display:flex;gap:8px;margin:10px 0 6px;flex-wrap:wrap}
+.side-tools[hidden]{display:none}
+.side-tools button{flex:1 1 0;min-height:44px;font:600 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;background:var(--bg3);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:0 12px;cursor:pointer;white-space:nowrap}
+.side-tools button:hover{border-color:var(--muted)}
+@media (max-width:600px){
+  #topbar{gap:6px;padding:8px}
+  #topbar button{padding:12px 8px;min-width:44px;min-height:44px}
+  #topbar .arrows{gap:6px;flex:0 0 auto}
+  #topbar .arrows button{flex:0 0 auto;width:50px}
+  #topbar button{letter-spacing:.03em;white-space:nowrap;flex:1 1 auto}
+}
 /* =====================================================================
    DESIGN PASS — type, reading layout, illustrations, maps, charts, stories.
    Loaded last; book.css keeps the paper skin.

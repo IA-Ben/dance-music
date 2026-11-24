@@ -1,0 +1,48 @@
+/* PLAN THE PARTY — history of the rules for a party plan, year by year */
+.feat-planparty{--pp-ink:var(--ci,var(--kick,#ff5252));margin:28px 0;padding:18px 16px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg2);color:var(--text);max-width:var(--measure,44rem);box-sizing:border-box;overflow-wrap:anywhere;break-inside:avoid;column-span:all}
+.feat-planparty *{box-sizing:border-box}
+.feat-planparty h3{margin:0 0 6px;font-size:22px}
+.feat-planparty h4{margin:18px 0 8px;font:700 13px var(--f-ui,system-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.feat-planparty .pp-intro{margin:0 0 8px}
+.feat-planparty .pp-legal{margin:0 0 14px;padding:9px 12px;border-left:3px solid var(--pp-ink);background:var(--bg3);font:500 14px/1.45 var(--f-ui,system-ui);border-radius:0 8px 8px 0}
+.feat-planparty .sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.feat-planparty .pp-controls{display:grid;gap:12px}
+.feat-planparty fieldset.pp-set{border:0;margin:0;padding:0;min-width:0}
+.feat-planparty legend,.feat-planparty .pp-year>label,.feat-planparty .pp-sels label{font:600 12px var(--f-mono,monospace);color:var(--muted);letter-spacing:.04em;text-transform:uppercase;padding:0;margin-bottom:6px}
+.feat-planparty .pp-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px}
+.feat-planparty .pp-opt{position:relative;display:block;cursor:pointer}
+.feat-planparty .pp-opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.feat-planparty .pp-opt span{display:flex;align-items:center;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:var(--bg);font:600 14px/1.25 var(--f-ui,system-ui)}
+.feat-planparty .pp-opt input:checked+span{border-color:var(--pp-ink);box-shadow:inset 0 0 0 1px var(--pp-ink);background:color-mix(in srgb,var(--pp-ink) 12%,var(--bg))}
+.feat-planparty .pp-opt input:checked+span::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--pp-ink);margin-right:8px;flex:none}
+.feat-planparty .pp-opt input:focus-visible+span,.feat-planparty button:focus-visible,.feat-planparty select:focus-visible,.feat-planparty input[type=range]:focus-visible,.feat-planparty a:focus-visible{outline:3px solid var(--pp-ink);outline-offset:2px}
+.feat-planparty .pp-year>label{display:flex;align-items:baseline;gap:10px}
+.feat-planparty .pp-yv{font:800 30px/1 var(--f-display,system-ui);color:var(--text);letter-spacing:0}
+.feat-planparty .pp-yrow{display:flex;align-items:center;gap:8px}
+.feat-planparty .pp-range{flex:1;min-width:0;height:44px;accent-color:var(--pp-ink);margin:0}
+.feat-planparty .pp-step{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--bg3);color:var(--text);font:700 20px/1 var(--f-ui,system-ui);cursor:pointer}
+.feat-planparty .pp-ends{display:flex;justify-content:space-between;padding:0 52px;font:500 11px var(--f-mono,monospace);color:var(--muted)}
+.feat-planparty .pp-sels{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.feat-planparty .pp-sels label{display:flex;flex-direction:column;gap:6px}
+.feat-planparty select{min-height:44px;width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text);font:600 14px var(--f-ui,system-ui)}
+.feat-planparty .pp-out{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+.feat-planparty .pp-sum{margin:0 0 6px;font:500 16px/1.45 var(--f-ui,system-ui)}
+.feat-planparty .pp-thin,.feat-planparty .pp-fn{margin:6px 0}
+.feat-planparty .pp-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.feat-planparty .pp-list>li{margin:0;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:var(--bg);font:400 14.5px/1.5 var(--f-ui,system-ui)!important}
+.feat-planparty .pp-list>li b{display:block;font-weight:700}
+.feat-planparty .pp-tag{display:inline-block;margin-bottom:3px;font:600 10.5px var(--f-mono,monospace);text-transform:uppercase;letter-spacing:.05em;color:var(--pp-ink)}
+.feat-planparty .pp-place{display:inline-block;font:600 11px var(--f-mono,monospace);color:var(--muted)}
+.feat-planparty .pp-txt{display:block;margin-top:3px}
+.feat-planparty .pp-src{display:block;margin-top:5px;font:500 12px/1.4 var(--f-ui,system-ui);color:var(--muted)}
+.feat-planparty .pp-src a{color:inherit;text-decoration:underline;text-underline-offset:2px;display:inline-block;min-height:24px;padding:2px 0}
+.feat-planparty .pp-none{color:var(--muted);font-style:italic}
+.feat-planparty .pp-cols{display:grid;gap:4px 16px}
+.feat-planparty .pp-risk h4{color:var(--pp-ink)}
+@media (min-width:760px){.feat-planparty{padding:22px 24px 16px}.feat-planparty .pp-cols{grid-template-columns:1fr 1fr}}
+.feat-planparty .pp-nextbox{margin-top:16px}
+.feat-planparty .pp-next{min-height:44px;padding:10px 16px;border-radius:22px;border:1px solid var(--pp-ink);background:color-mix(in srgb,var(--pp-ink) 14%,var(--bg2));color:var(--text);font:700 15px var(--f-ui,system-ui);cursor:pointer}
+.feat-planparty .pp-diff{list-style:none;margin:8px 0 0;padding:0;font:400 13.5px/1.45 var(--f-ui,system-ui)}
+.feat-planparty .pp-diff li{margin:3px 0!important;font-size:13.5px!important;font-family:var(--f-ui,system-ui)!important}
+.feat-planparty .pp-dk{font:600 10.5px var(--f-mono,monospace);text-transform:uppercase;color:var(--muted);margin-right:4px}
+.feat-planparty .pp-cap{margin:14px 0 0}

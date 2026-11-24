@@ -119,7 +119,7 @@ window.Lights = (() => {
     if (S.wired) return; S.wired = true;
     document.addEventListener('visibilitychange', () => { if (document.hidden) pauseAll('the tab was hidden'); });
     const sa = document.getElementById('stopAll'); if (sa) sa.addEventListener('click', () => pauseAll('stopped'));
-    if (window.SoundBus && !SoundBus.claim._lights){ const f = SoundBus.claim; SoundBus.claim = function(kind){ if (kind !== 'lights') pauseAll('another sound started'); return f.apply(this, arguments); }; SoundBus.claim._lights = 1; }
+    if (window.SoundBus && SoundBus.register) SoundBus.register('lights', () => pauseAll('another sound started'));   /* the book's one stop registry (build/soundbus.js) */
   }
   function shell(pageEl, id, spec){
     const box = h('section', 'card lights', null, { 'data-lid': id, 'aria-label': spec.title });

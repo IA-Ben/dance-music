@@ -291,6 +291,7 @@
 {"id":"path","title":"Six degrees","blurb":"Pick any two pages and the book finds the shortest chain of links between them — a person to a club to a record to a machine — with each hop explained.","type":"page"},
 {"id":"quiz","title":"Blind test","blurb":"The engine plays an era or a record's anatomy; you say where and when.","type":"page"},
 {"id":"crate","title":"Your crate","blurb":"Star records as you read and they land here.","type":"page"},
+{"id":"mynights","title":"My nights","blurb":"Every club, night, festival and city page has an \"I was there\" button.","type":"page"},
 {"id":"notes","title":"Marginalia","blurb":"Every page has a margin.","type":"page"},
 {"id":"forty","title":"Forty of everything","blurb":"Forty records, forty rooms, forty people, forty nights — one for each year of the celebration, chosen to be argued with.","type":"chapter"},
 {"id":"timeline","title":"Forty years in one line","blurb":"Every page in the book placed on one line, from 1986, the year before the breakout, to 2027, forty years on: the records as dots, the rooms as bars from the night they opened to…","type":"chapter"},
