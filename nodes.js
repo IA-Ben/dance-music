@@ -107,7 +107,9 @@ const LINK_PROSE = 'p, li, .fact span, .pcard, .ccard, .lede, .quote, td, .frami
 const LINK_SKIP = 'a, button, h1, h2, .nolink, .kicker, .tag, code, .chip, .trackchip, .chips, select, option, .seq-table, .deckgrid, .cap, .pagenum, .trail, svg, textarea, input';
 function autolink(root, selfId){
   const A = buildAliases(); const scopes = new Map();
-  const doneFor = el => { const sc = el.closest(LINK_SCOPE); const key = sc && sc !== root && root.contains(sc) ? sc : root; let d = scopes.get(key); if (!d){ d = new Set([selfId]); scopes.set(key, d); } return [d, key]; };
+  const heads = [...root.querySelectorAll('h3')].filter(h => !h.closest(LINK_SCOPE));   /* in running prose a name is linked at its first mention in each section, not once per page */
+  const sectionOf = el => { let s = root; for (const h of heads){ if (h.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING) s = h; else break; } return s; };
+  const doneFor = el => { const sc = el.closest(LINK_SCOPE); const inScope = sc && sc !== root && root.contains(sc); const key = inScope ? sc : sectionOf(el); let d = scopes.get(key); if (!d){ d = new Set([selfId]); scopes.set(key, d); } return [d, inScope ? key : root]; };
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, { acceptNode(t){ if (t.nodeType === 1) return (t !== root && t.tagName === 'A') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP; const p = t.parentElement; if (!p || p.closest(LINK_SKIP)) return NodeFilter.FILTER_REJECT; if (!p.closest(LINK_PROSE)) return NodeFilter.FILTER_REJECT; return NodeFilter.FILTER_ACCEPT; } });
   const texts = []; let t; while ((t = walker.nextNode())) texts.push(t);
   texts.forEach(tn => {
