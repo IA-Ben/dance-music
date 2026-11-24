@@ -85,6 +85,7 @@ function route(){
   if (window.Panels){ Panels.mountAll(inEl); if (!isNode) Panels.mountChapter(inEl, id); }
   if (window.Art) Art.mount(inEl, id);
   if (window.Floor) Floor.mount(inEl, id, isNode);
+  if (/^vz[1-5]$/.test(id)){ if (window.Lights) Lights.mount(inEl, id); else { window._lightsPending = [inEl, id]; if (!document.getElementById('lights-js')){ const s = document.createElement('script'); s.id = 'lights-js'; s.src = 'lights.js?v=10d556ff'; s.async = true; document.head.appendChild(s); } } }   /* build/lights.js, loaded only on the vz pages */
   if (window.Place) Place.mountAll(inEl);
   if (isNode && NODE[id].type === 'record' && window.Crate){ const slot = inEl.querySelector('.chips'); if (slot && !slot.querySelector('.crate-btn')) slot.appendChild(Crate.button(id)); }
   const finish = () => { if (outEl && outEl !== inEl) outEl.classList.remove('show', 'lift', 'out-fwd', 'in-back'); inEl.classList.remove('lift', 'in-back'); inEl.classList.add('show'); FLIPPING = false; if (PageHooks[id]) PageHooks[id](); if (!isNode && window.autolink) setTimeout(() => { try { autolink(inEl, id); } catch (e) {} }, 60); if (window.smarten){ smarten(inEl); smarten(document.getElementById('crumb')); setTimeout(() => smarten(inEl), 800); } if (PENDING){ const p = PENDING; PENDING = null; if (p !== location.hash) location.hash = p; } };

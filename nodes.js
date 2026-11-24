@@ -12,11 +12,28 @@ let ALIASES = null;
 /* names that point at a page without being its title: members, festivals, teams, nicknames (used only while no page has the name) */
 const ALIAS_EXTRA = { acid: ['Acid House', 'Acid house'], balearic: ['Balearic Beat', 'Balearic beat'], orbital: ['Paul Hartnoll', 'Phil Hartnoll'], movement: ['DEMF', 'Detroit Electronic Music Festival', 'Movement festival'], 'masters-at-work': ['Louie Vega', 'Kenny Dope', 'Little Louie Vega'], 'dance-2-trance': ['Rolf Ellmer'], wbmx: ['Hot Mix 5', 'Hot Mix Five'], 'paradise-garage': ['the Garage', 'The Garage'],
   /* club nights named in the text by another form (nights audit, November 2026) */
-  spectrum: ['Land of Oz'], rage: ['Rage'], 'flesh-hacienda': ['Flesh'], 'home-of-la-troya': ['La Troya', 'La Troya Asesina', 'La Vaca Asesina'], 'horoom-nights': ['Horoom'], 'queen-smartbar': ['Queen!'], 'enter-ibiza': ['ENTER.'], 'we-love': ['We Love…'], 'heavenly-sunday-social': ['Heavenly Social'], 'set-metalheadz': ['Metalheadz Sunday Sessions', 'Metalheadz Sundays'], 'the-loft': ['Love Saves the Day'], homoelectric: ['Homobloc'] };
+  spectrum: ['Land of Oz'], rage: ['Rage'], 'flesh-hacienda': ['Flesh'], 'home-of-la-troya': ['La Troya', 'La Troya Asesina', 'La Vaca Asesina'], 'horoom-nights': ['Horoom'], 'queen-smartbar': ['Queen!'], 'enter-ibiza': ['ENTER.'], 'we-love': ['We Love…'], 'heavenly-sunday-social': ['Heavenly Social'], 'set-metalheadz': ['Metalheadz Sunday Sessions', 'Metalheadz Sundays'], 'the-loft': ['Love Saves the Day'], homoelectric: ['Homobloc'],
+  /* short forms the text uses for pages titled with a suffix, a member or an old name (alias audit, November 2026) */
+  warp: ['Warp'], rs: ['R&S'], 'rinse-fm': ['Rinse'], centreforce: ['Centreforce'], 'kiss-fm': ['Kiss 100'], armada: ['Armada'], tip: ['TIP'], wjlb: ['WGPR'], behringer: ['Behringer'], zurich: ['Zürich'],
+  'g-jungle': ['jungle'], 'glastonbury-festival': ['Glastonbury'], 'ultra-music-festival': ['Ultra'], shambhala: ['Shambhala'], mutek: ['MUTEK'], 'electric-daisy-carnival': ['EDC'],
+  'commodore-amiga': ['Amiga'], 'sound-diy': ['DiY'], 'labyrinth-festival': ['Labyrinth festival'], 'skint-records': ['Skint'], 'tempa-records': ['Tempa'], superstruct: ['Superstruct'], 'the-breezeblock': ['Breezeblock'],
+  'digital-mystikz': ['Mala', 'Coki'], 'the-orb': ['Alex Paterson'], 'fatboy-slim': ['Norman Cook'], 'lcd-soundsystem': ['James Murphy'], underworld: ['Darren Emerson'], 'the-chemical-brothers': ['Dust Brothers'],
+  'shop-warp': ['Warp shop'], alphatheta: ['AlphaTheta'], cdj3000: ['CDJ-3000'], livestyle: ['SFX'], 'sound-metro': ['Percival Miller'], 'g-berghain': ['Berghain sound'] };
 /* a name another page claims by mistake */
 const ALIAS_FORCE = { Universe: 'tribal-gathering', Trax: 'trax', Cocoon: 'cocoon', 'Golden Pudel Club': 'golden-pudel',
   /* nights whose one-word names are on ALIAS_DENY: linked only in these longer forms the text uses */
-  "Energy's": 'energy', "Energy's Jeremy Taylor": 'energy', "Energy's second party": 'energy', "Energy's Quentin Chambers": 'energy', "Energy's Chambers and Taylor": 'energy', "Bukem's Speed": 'speed', 'Pure in Edinburgh': 'pure', 'Sunday night Orange': 'orange-nation', "Bryan Gee's Movement": 'bar-rumba', 'Bedrock became a night': 'bedrock-night', 'Monday-night Trash': 'trash-the-end' };
+  "Energy's": 'energy', "Energy's Jeremy Taylor": 'energy', "Energy's second party": 'energy', "Energy's Quentin Chambers": 'energy', "Energy's Chambers and Taylor": 'energy', "Bukem's Speed": 'speed', 'Pure in Edinburgh': 'pure', 'Sunday night Orange': 'orange-nation', "Bryan Gee's Movement": 'bar-rumba', 'Bedrock became a night': 'bedrock-night', 'Monday-night Trash': 'trash-the-end',
+  /* the bar, not Energy 52's record (the record keeps its quoted title) */
+  'Café del Mar': 'cafe-del-mar', 'Cafe del Mar': 'cafe-del-mar', "Oakenfold's Future": 'future', "Milan's Plastic": 'plastic-milan' };
+/* longer names that hold a linked name but are something else: matched whole, so the name inside them is not linked */
+const ALIAS_SHIELD = ['Circus Warp', 'Mind Warp', 'TIP!', 'original Dust Brothers', 'the Shambhala', 'Groove Armada', 'albums for Ultra', 'The Jungle', 'called Jungle', 'Glastonbury water', 'began as SFX', 'formed SFX',
+  "Ku'damm", 'Ku Klux', 'BT Voicebank', "BT's Voicebank", "BT's message", 'BT Digital', 'in the jungle', 'the Tulum jungle', 'jungle site', 'jungle venue', 'jungle and cenote'];
+/* names under three characters: these only, whole word, case for case */
+const ALIAS_SHORT = new Set(['BT', 'Ku']);
+/* single words of an "X / Y" title that are names; other single words there are ordinary ones (house, trance, Garage, Ambient) */
+const SLASH_PART = /^(Schranz|hardgroove|psytrance|Jungle|Reaktor|Soulwax)$/;
+/* a name kept off by the deny lists still links on the chapters that tell its page (its "told" relations) and on the pages listed here; "-id" takes a page away */
+const ALIAS_LOCAL = { future: ['hh4', 'i3', 'orb1'], output: ['ny5', 'rs4'], 'hot-hacienda': ['hh5', 'hacienda', 'mike-pickering', 'second-summer'], 'sound-metro': ['-wm12'], 'bedrock-night': ['-tw1'] };
 /* words that are also something else: never linked on their own */
 const ALIAS_DENY = /^(Paradiso|January|February|March|April|May|June|July|August|September|October|November|December|Live|Papua New Guinea|Last Night a DJ Saved My Life|Space|Future|Hospital|Virus|Planet|Flying|Base|Release|Harmony|Drop|Cyclone|Trip|Music|Energy|Strings|Circles|Original|Loaded|Pure|Speed|Flavour|Incredible|Terrorist|Movement|the End|the Loop|the Box|the Club|the Room|the Gallery)$/;
 /* the same, for names on the generated subject pages (graph-gen.js, written by /tmp/deep2/tools/gen_nodes.py); a page marked exact links only on its name as written, case for case */
@@ -36,7 +53,7 @@ function aliasShortenings(a, n){
   const out = new Set(); const add = x => { x = x.replace(/\s+/g, ' ').trim(); if (x.length >= 3 && x !== a) out.add(x); };
   add(a.replace(/\s*\([^)]*\)\s*$/, ''));                                               /* "Club UK (Final Frontier)" → "Club UK" */
   add(a.replace(/\.$/, ''));
-  if (n.type !== 'record' && / \/ /.test(a)) a.split(' / ').forEach(x => { if (/\s/.test(x) || /^[A-Z0-9]{3,}$/.test(x)) add(x); });
+  if (n.type !== 'record' && / \/ /.test(a)) a.split(' / ').forEach(x => { if (/\s/.test(x) || /^[A-Z0-9]{3,}$/.test(x) || /\d|[a-z][A-Z]/.test(x) || SLASH_PART.test(x)) add(x); });   /* "Juno-106", "LiveStyle", "Schranz" */
   if (/"[^"]+"/.test(a)){ add(a.replace(/"([^"]+)"/g, '$1')); add(a.replace(/\s*"[^"]+"\s*/g, ' ')); add(a.replace(/"([^"]+)"/g, '“$1”')); }
   [a, ...out].forEach(x => { if (/^The /.test(x)){ const rest = x.slice(4); if (/\s/.test(rest)) add(rest); else if (/^[A-ZÀ-Þ]/.test(rest)) add('the ' + rest); } });
   if (n.type === 'record'){ const t = (n.title.split(' — ')[1] || '').replace(/\s*\([^)]*\)\s*$/, ''); if (t && t.split(/\s+/).length >= 3 && t.length >= 12) add(t); }
@@ -44,7 +61,8 @@ function aliasShortenings(a, n){
 }
 function buildAliases(){
   if (ALIASES) return ALIASES; const claim = new Map();
-  const ok = a => a && a.length >= 3 && !ALIAS_DENY.test(a) && !ALIAS_DENY_GEN.has(a);
+  const ok = a => a && (a.length >= 3 || ALIAS_SHORT.has(a)) && !ALIAS_DENY.test(a) && !ALIAS_DENY_GEN.has(a);
+  const denied = a => a && a.length >= 3 && (ALIAS_DENY.test(a) || ALIAS_DENY_GEN.has(a));
   const strong = n => { const names = [n.title, ...(n.aliases || [])]; if (n.exact) return names.filter(Boolean); if (n.type === 'record'){ const t = n.title.split(' — ')[1]; if (t){ const bare = t.replace(/\s*\([^)]*\)\s*$/, ''); names.push('"' + bare + '"', '“' + bare + '”'); if (bare !== t) names.push('"' + t + '"'); } } return names.filter(Boolean).flatMap(a => aliasSpellings(a, n)).filter(a => !(n.type === 'record' && !/\s/.test(a) && !/^["“]/.test(a) && a.length < 9)); };
   /* 1. names and their spellings (a later page wins a shared name, as before) */
   NODES.forEach(n => strong(n).forEach(a => { if (ok(a)) claim.set(a, n.id); }));
@@ -56,10 +74,20 @@ function buildAliases(){
   Object.entries(ALIAS_FORCE).forEach(([a, id]) => { if (typeof NODE === 'undefined' || NODE[id]) claim.set(a, id); });
   /* 4. chapter titles and years */
   Object.entries(CHAPTER_TITLES).forEach(([id, t]) => { if (!/^(home|year|explore)$/.test(id) && !CHAPTER_NOLINK.test(id) && ok(t)) claim.set(t, id); if (/^y\d{4}$/.test(id)) claim.set(id.slice(1), id); });
+  /* 5. deny-listed names, on their own chapters only (see ALIAS_LOCAL) */
+  const local = {}; NODES.forEach(n => { const extra = ALIAS_LOCAL[n.id] || []; const pages = new Set([...n.rel.filter(r => r[0] === 'told').map(r => r[1]), ...extra.filter(x => x[0] !== '-')]); extra.filter(x => x[0] === '-').forEach(x => pages.delete(x.slice(1))); if (!pages.size) return;
+    [...strong(n), ...(n.exact ? [] : [n.title, ...(n.aliases || [])].filter(Boolean).flatMap(nm => aliasShortenings(nm, n)))].forEach(a => { if (!denied(a) || claim.has(a)) return; (local[a] = local[a] || []).push({ id: n.id, pages }); }); });
+  Object.keys(local).forEach(a => claim.set(a, ''));
+  ALIAS_SHIELD.forEach(a => { if (!claim.has(a)) claim.set(a, ''); });
+  /* record titles in italics: an <em> that is the whole title of a record links it, where the title is not a name already */
+  const em = {}; NODES.forEach(n => { if (n.type !== 'record') return; const [by, tt] = n.title.split(' — '); const t = (tt || '').replace(/\s*\([^)]*\)\s*$/, ''); if (!t || t.length < 3 || claim.get(t)) return;
+    em[t] = t in em && em[t].id !== n.id ? null : { id: n.id, by: by.split(/\s+(?:&|and|feat\.|ft\.|vs\.?|with|\/)\s+|,\s*/).map(x => x.replace(/^(The|DJ|MC) /, '')).filter(x => x.length >= 3) }; });
   const list = [...claim.entries()].sort((a, b) => b[0].length - a[0].length);
   const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const q = s => esc(s).replace(/['’]/g, "['’]").replace(/["“”]/g, '["“”]');
-  ALIASES = { list, re: new RegExp('(^|[^\\w\\-])(' + list.map(x => q(x[0])).join('|') + ')(?![\\w\\-])', 'g'), map: Object.fromEntries(list) };
+  ALIASES = { list, re: new RegExp('(^|[^\\w\\-])(' + list.map(x => q(x[0])).join('|') + ')(?![\\w\\-])', 'g'), map: Object.fromEntries(list), local, em };
+  /* which page a matched name points at on page `self` ('' for a shield, or a deny-listed name off its own chapters or inside an italic title) */
+  ALIASES.id = (name, self, italic) => { const id = ALIASES.map[name] || ALIASES.map[unsmart(name)]; if (id || italic) return id; const l = local[name] || local[unsmart(name)]; const e = l && l.find(x => x.pages.has(self)); return e ? e.id : ''; };
   return ALIASES;
 }
 /* a bare one-word name inside a longer name ("Desert Storm", "Front 242", "House of God", "Stoke Newington") is not that page */
@@ -123,7 +151,11 @@ function autolink(root, selfId){
     const [done] = doneFor(tn.parentElement);
     const s = tn.nodeValue; A.re.lastIndex = 0; let m, last = 0; const frag = document.createDocumentFragment(); let any = false;
     const capped = tn.parentElement.classList.contains('lede') && tn === tn.parentElement.firstChild; /* the drop cap would split a link on the opening word */
-    while ((m = A.re.exec(s))){ const name = m[2], id = A.map[name] || A.map[unsmart(name)]; if (capped && !s.slice(0, m.index + m[1].length).trim()) continue; if (!id || done.has(id) || !linkable(s, m.index + m[1].length, name)){ continue; } done.add(id); any = true; const start = m.index + m[1].length; frag.appendChild(document.createTextNode(s.slice(last, start))); const a = document.createElement('a'); a.href = '#' + id; a.className = 'xl'; a.textContent = name; frag.appendChild(a); last = start + name.length; }
+    /* ... only beside its artist's name, so a series title (DJ-Kicks) or another work of the same name is left alone */
+    const pe = tn.parentElement, emR = pe.matches('em, i') && pe.childNodes.length === 1 && A.em[s.trim()], emBlk = emR && (pe.parentElement.closest('p, li, td, dd, .lede, blockquote, .fact') || pe.parentElement).textContent;
+    const emId = emR && emR.by.some(x => emBlk.includes(x)) ? emR.id : null;
+    if (emId && !done.has(emId) && emId !== selfId){ done.add(emId); const lead = s.match(/^\s*/)[0], tail = s.match(/\s*$/)[0]; const a = document.createElement('a'); a.href = '#' + emId; a.className = 'xl'; a.textContent = s.trim(); tn.replaceWith(document.createTextNode(lead), a, document.createTextNode(tail)); return; }
+    while ((m = A.re.exec(s))){ const name = m[2], id = A.id(name, selfId, !!pe.closest('em, i')); if (capped && !s.slice(0, m.index + m[1].length).trim()) continue; if (!id || done.has(id) || !linkable(s, m.index + m[1].length, name)){ continue; } done.add(id); any = true; const start = m.index + m[1].length; frag.appendChild(document.createTextNode(s.slice(last, start))); const a = document.createElement('a'); a.href = '#' + id; a.className = 'xl'; a.textContent = name; frag.appendChild(a); last = start + name.length; }
     if (any){ frag.appendChild(document.createTextNode(s.slice(last))); tn.parentNode.replaceChild(frag, tn); }
   });
 }
@@ -131,7 +163,7 @@ function autolink(root, selfId){
 let MENTIONS = null;
 function buildMentions(){
   if (MENTIONS) return MENTIONS; MENTIONS = {}; const A = buildAliases();
-  document.querySelectorAll('.page[data-page]').forEach(pg => { const id = pg.dataset.page; if (id === 'node' || id === 'home') return; const text = pg.textContent; A.re.lastIndex = 0; let m; const seen = new Set(); while ((m = A.re.exec(text))){ const nid = A.map[m[2]] || A.map[unsmart(m[2])]; if (nid && nid !== id && !seen.has(nid) && linkable(text, m.index + m[1].length, m[2])){ seen.add(nid); (MENTIONS[nid] = MENTIONS[nid] || []).push(id); } } });
+  document.querySelectorAll('.page[data-page]').forEach(pg => { const id = pg.dataset.page; if (id === 'node' || id === 'home') return; const text = pg.textContent; A.re.lastIndex = 0; let m; const seen = new Set(); while ((m = A.re.exec(text))){ const nid = A.id(m[2], id); if (nid && nid !== id && !seen.has(nid) && linkable(text, m.index + m[1].length, m[2])){ seen.add(nid); (MENTIONS[nid] = MENTIONS[nid] || []).push(id); } } });
   return MENTIONS;
 }
 
