@@ -2531,11 +2531,11 @@ if (window.PAGE_IDS) { const have = new Set(window.PAGE_IDS); Object.keys(STRAND
 const CONTENTS = [
   { part: 'Forty years', sub: `one page a year, ${BOOK.from} to ${BOOK.to}, and the year before`, strands: ['years'] },
   { part: 'The music', sub: 'a strand for each family of sound', strands: ['techno', 'house', 'rave', 'jungle', 'trance', 'bass', 'clubmusic', 'stage'] },
-  { part: 'The places', sub: 'follow the music from New York to Goa', strands: ['newyork', 'chicago', 'detroit', 'ibiza', 'm25', 'lovepar', 'goa', 'wider', 'fests'] },
+  { part: 'The places', sub: 'follow the music from New York to Goa, and out to the small towns', strands: ['newyork', 'chicago', 'detroit', 'ibiza', 'm25', 'lovepar', 'goa', 'wider', 'towns', 'fests'] },
   { part: 'The people', sub: 'who built it, who danced, and who was left out of the story', strands: ['women', 'queer'], groups: [
     ['roles', 'By role', ['djs', 'producers', 'liveacts', 'vocalists', 'promoters', 'clubowners', 'labelfounders', 'shopstaff', 'engineers', 'radio', 'writers', 'managers', 'dancers', 'campaigners']]   /* the role indexes (build/roles.js); a role with too few people has no page and is skipped */
   ] },
-  { part: 'The movement', sub: 'where the music came from, the rooms that made it, the towns it reached', strands: ['roots', 'clubs', 'towns', 'edm', 'recshops'] },
+  { part: 'The movement', sub: 'where the music came from, the rooms that made it, how it was sold', strands: ['roots', 'clubs', 'edm', 'recshops'] },
   { part: 'The forces', sub: 'the machines that made it and the law that chased it', strands: ['tech', 'booth', 'rigs', 'visuals', 'law'] },
   { part: 'Make it', sub: 'take a track apart, then build a set', strands: ['anatomy', 'mixer'], pages: ['make'] },
   { part: 'Explore', sub: 'cut across the whole book', groups: [
