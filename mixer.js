@@ -322,7 +322,7 @@ class Deck {
     this.load(GENRE_NAMES[0]);
   }
   load(name){
-    const G = (window.PRESET ? PRESET(name) : GENRES[name]) || GENRES[GENRE_NAMES[0]]; this.genre = name;
+    const G = (window.PRESET ? PRESET(name) : GENRES[name]) || GENRES[GENRE_NAMES[0]]; this.genre = name; this._loadN = (this._loadN || 0) + 1;
     this.P = JSON.parse(JSON.stringify({ bassNotes: G.bassNotes || null, leadNotes: G.leadNotes || null, pianoChord: G.pianoChord || null, kick: G.kick, hat: G.hat, stab: G.stab, acid: G.acid, sub: G.sub, offCutoff: G.offCutoff, acidNotes: G.acidNotes, swing: G.swing, sc: { amt: G.sc, rel: 0.22, on: true }, root: G.key[1], key: G.key[0], bpm: G.bpm, rumble: G.rumble, rumbleLp: G.rumbleLp }));
     DECK_LAYERS.forEach(([lid]) => { this.pat[lid] = parsePat(G.pat[lid] || E16); this.mute[lid] = false; const lv = lid === 'rumble' ? G.rumble : (G.levels && G.levels[lid] != null ? G.levels[lid] : 0.8); this.tr[lid].gain.setTargetAtTime(lv, this.ch.c.currentTime, 0.02); });
     this.rlp.frequency.setTargetAtTime(G.rumbleLp, this.ch.c.currentTime, 0.02);
@@ -379,23 +379,41 @@ const Mixer = {
   },
   ensureDemo(){ if (!this.demoDeck){ const ch = AudioCore.get(); this.demoDeck = new Deck('D', ch); this.demoDeck.xf.gain.value = 1; } return this.demoDeck; },
   setBpm(v){ this.bpm = v; this.decks && Object.values(this.decks).forEach(d => d.setDelayForBpm(v)); if (typeof MixerUI !== 'undefined' && MixerUI.built){ MixerUI.updatePitch('A'); MixerUI.updatePitch('B'); } const el = document.getElementById('mxBpm'); if (el) el.firstChild.nodeValue = v.toFixed(1); const r = document.getElementById('mxBpmRange'); if (r && Math.abs(+r.value - v) > 0.05) r.value = v; },
-  setXF(v){ this.xf = v; this.applyXF(); const r = document.getElementById('xfader'); if (r && Math.abs(+r.value - v) > 0.005) r.value = v; },
+  setXF(v){ this.xf = v; this.applyXF(); ['xfader', 'xfader2'].forEach(k => { const r = document.getElementById(k); if (r && Math.abs(+r.value - v) > 0.005) r.value = v; }); },
   applyXF(){ const a = Math.cos((this.xf + 1) / 2 * Math.PI / 2), b = Math.sin((this.xf + 1) / 2 * Math.PI / 2); this.decks.A.setXF(a); this.decks.B.setXF(b); },
+  LOOK: 0.2,   // seconds scheduled ahead of the audio clock (a phone's main thread can stall for 100 ms)
+  // make sure the audio clock is running before anything is scheduled: phones start or leave it suspended
+  wake(fn){
+    this.init(); const ch = AudioCore.get(), c = ch.c; if (c.state === 'running'){ fn(); return; }
+    let done = false; const go = () => { if (done) return; done = true; fn(); };
+    try { c.resume().then(go, go); } catch (e) { go(); } setTimeout(go, 700);   // an interrupted context may never answer: schedule anyway, from its clock
+  },
+  // a hard stop (the book's Stop, a page turn, another sound starting) also cuts the echo and reverb tails
+  hush(){ if (!this.decks) return; const t = this.ch.c.currentTime; Object.values(this.decks).forEach(dk => { const g = dk.input.gain; g.cancelScheduledValues(t); g.setValueAtTime(g.value, t); g.linearRampToValueAtTime(0, t + 0.03); g.setValueAtTime(0, t + 3); g.linearRampToValueAtTime(1, t + 3.05); }); },
+  unhush(){ if (!this.decks) return; const t = this.ch.c.currentTime; Object.values(this.decks).forEach(dk => { const g = dk.input.gain; g.cancelScheduledValues(t); g.setValueAtTime(g.value, t); g.linearRampToValueAtTime(1, t + 0.02); }); },
   start(){
     if (this.playing) return; this.init(); AudioCore.get(); if (window.Seq) Seq.stop();
-    this.playing = true; this.step = 0; this.globalStep = 0; this.seconds = 0; this.nextTime = this.ch.c.currentTime + 0.06; this.queue = [];
+    this.unhush();
+    this.playing = true; this.step = 0; this.globalStep = 0; this.seconds = 0; this.nextTime = this.ch.c.currentTime + 0.08; this.queue = [];
     this.timer = setInterval(() => this.tick(), 25); this.tick();
   },
   stop(){
     this.playing = false; clearInterval(this.timer); this.timer = null; this.queue = []; this.auto = null;
-    if (this.decks) Object.values(this.decks).forEach(d => { d.playing = false; });
+    if (this.decks) Object.values(this.decks).forEach(d => { d.playing = false; d.cued = false; });
     document.querySelectorAll('#mixerRoot .cur').forEach(e => e.classList.remove('cur'));
     MixerUI.refresh();
   },
   tick(){
-    const c = this.ch.c;
-    while (this.nextTime < c.currentTime + 0.15){
+    const c = this.ch.c, now = c.currentTime;
+    // the page was frozen (phone locked, tab hidden) while the clock ran on: skip what was missed instead of firing it all at once
+    if (this.nextTime < now - 0.05){
+      const d = 60 / this.bpm / 4, miss = Math.ceil((now + 0.05 - this.nextTime) / d);
+      for (let k = 0; k < miss; k++){ this.nextTime += d; this.seconds += d; this.step = (this.step + 1) % 16; this.globalStep++; if (this.step === 0) Object.values(this.decks).forEach(dk => { if (dk.playing) dk.bar++; }); }
+      this.queue = [];
+    }
+    while (this.nextTime < now + this.LOOK){
       const d = 60 / this.bpm / 4;
+      if (this.step === 0) Object.values(this.decks).forEach(dk => { if (dk.cued){ dk.cued = false; dk.playing = true; dk.bar = 0; MixerUI.later(); } });
       if (this.auto) this.auto.onStep(this.globalStep);
       Object.values(this.decks).forEach(dk => { if (dk.playing) dk.scheduleStep(this.step, this.nextTime, this.bpm); });
       this.queue.push({ step: this.step, g: this.globalStep, time: this.nextTime });
@@ -403,35 +421,44 @@ const Mixer = {
       if (this.step === 0) Object.values(this.decks).forEach(dk => { if (dk.playing) dk.bar++; });
     }
   },
-  deckPlay(id){ this.init(); AudioCore.get(); const dk = this.decks[id]; if (dk.playing) return; dk.playing = true; dk.bar = 0; if (!this.playing){ this.setBpm(dk.P.bpm); this.start(); } MixerUI.refresh(); },
-  deckStop(id){ const dk = this.decks[id]; dk.playing = false; if (!Object.values(this.decks).some(d => d.playing) && !this.auto) this.stop(); MixerUI.refresh(); },
+  // a deck started while the other plays waits for the next bar, so the two kicks land together
+  deckPlay(id){
+    this.wake(() => {
+      const dk = this.decks[id]; if (dk.playing) return;
+      if (this.playing){ dk.cued = !dk.cued; }
+      else { dk.playing = true; dk.cued = false; dk.bar = 0; this.setBpm(dk.P.bpm); this.start(); }
+      MixerUI.refresh();
+    });
+  },
+  deckStop(id){ const dk = this.decks[id]; dk.playing = false; dk.cued = false; if (!Object.values(this.decks).some(d => d.playing || d.cued) && !this.auto) this.stop(); MixerUI.refresh(); },
   timeStr(){ const s = Math.floor(this.seconds); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); },
-  addLog(line){ this.log.push(line); const el = document.getElementById('setlog'); if (el){ el.textContent = this.log.join('\n'); el.scrollTop = el.scrollHeight; } },
+  addLog(line){ this.log.push(line); MixerUI.later('log'); },
   /* ---- auto set ---- */
-  playSet(){
+  playSet(){ this.wake(() => this._playSet()); },
+  _playSet(){
     this.init(); this.stop(); this.log = []; this.seconds = 0; const prog = this.program.filter(s => PRESET(s.genre) && s.bars > 0); if (!prog.length) return;
     const self = this; const A = this.decks.A, B = this.decks.B;
     this.auto = {
       idx: 0, active: A, idle: B, segStart: 0, prepared: false, transStart: 0,
-      begin(){ A.load(prog[0].genre); self.setBpm(PRESET(prog[0].genre).bpm); self.setXF(-1); A.setEQ('low', 0); B.setEQ('low', 0); A.setLevel(1); B.setLevel(1); A.playing = true; A.bar = 0; B.playing = false; self.addLog(`${self.timeStr()}  ▶ ${prog[0].genre} · ${PRESET(prog[0].genre).bpm} BPM · key ${PRESET(prog[0].genre).key[0]}`); MixerUI.refresh(); },
+      begin(){ A.load(prog[0].genre); self.setBpm(PRESET(prog[0].genre).bpm); self.setXF(-1); A.setEQ('low', 0); B.setEQ('low', 0); A.setLevel(1); B.setLevel(1); A.playing = true; A.bar = 0; B.playing = false; A.cued = B.cued = false; self.addLog(`${self.timeStr()}  ▶ ${prog[0].genre} · ${PRESET(prog[0].genre).bpm} BPM · key ${PRESET(prog[0].genre).key[0]}`); MixerUI.refresh(); },
       onStep(g){
         const seg = prog[this.idx], next = prog[this.idx + 1]; const elapsed = (g - this.segStart) / 16; const trans = Math.min(seg.trans, seg.bars);
         if (next && !this.prepared && elapsed >= seg.bars - trans){
           this.prepared = true; this.transStart = g; this.idle.load(next.genre); this.idle.setEQ('low', -40); this.idle.setLevel(1); this.idle.setFilter(0); this.idle.playing = true; this.idle.bar = 0;
-          self.addLog(`${self.timeStr()}  ↗ mixing in ${next.genre} over ${trans} bars (bass swap)`); MixerUI.refresh();
+          self.addLog(`${self.timeStr()}  ↗ mixing in ${next.genre} over ${trans} bars (bass swap)`); MixerUI.later();
         }
         if (this.prepared && next){
           const p = Math.min(1, (g - this.transStart) / Math.max(1, trans * 16)); const from = this.active === A ? -1 : 1;
           self.setXF(from * (1 - 2 * p)); self.setBpm(PRESET(seg.genre).bpm + (PRESET(next.genre).bpm - PRESET(seg.genre).bpm) * p);
           this.active.setEQ('low', p < 0.5 ? -40 * (p * 2) : -40); this.idle.setEQ('low', p < 0.5 ? -40 : -40 * (1 - (p - 0.5) * 2));
-          MixerUI.syncEQ();
+          MixerUI.later('eq');
         }
         if (elapsed >= seg.bars){
-          if (!next){ self.addLog(`${self.timeStr()}  ■ end of set`); self.stop(); return; }
+          if (!next){ self.addLog(`${self.timeStr()}  ■ end of set`); self.auto = null; Object.values(self.decks).forEach(d => { d.playing = false; d.cued = false; }); setTimeout(() => self.stop(), 0); return; }
           this.active.playing = false; this.active.setEQ('low', 0); this.active.setFilter(0);
           const tmp = this.active; this.active = this.idle; this.idle = tmp; this.idx++; this.segStart = g; this.prepared = false;
           self.setXF(this.active === A ? -1 : 1); self.setBpm(PRESET(next.genre).bpm);
-          self.addLog(`${self.timeStr()}  ▶ ${next.genre} · ${PRESET(next.genre).bpm} BPM · key ${PRESET(next.genre).key[0]}`); MixerUI.refresh(); MixerUI.syncEQ();
+          self.addLog(`${self.timeStr()}  ▶ ${next.genre} · ${PRESET(next.genre).bpm} BPM · key ${PRESET(next.genre).key[0]}`); MixerUI.later();
         }
       }
     };
@@ -439,7 +466,7 @@ const Mixer = {
   },
   totalBars(){ return this.program.reduce((a, s) => a + (s.bars || 0), 0); }
 };
-window.MixerStop = () => { if (Mixer.playing) Mixer.stop(); };
+window.MixerStop = () => { if (Mixer.playing) Mixer.stop(); Mixer.hush(); };
 
 /* ---------- Era demo for history pages ---------- */
 function playGenre(name, bars, btn){
@@ -450,52 +477,87 @@ function playGenre(name, bars, btn){
 }
 
 /* ---------- UI ---------- */
+const MX_DB = v => (v > 0 ? '+' : '') + (Math.round(v * 2) / 2) + ' dB';
+const MX_FLT = v => +v === 0 ? 'off' : (+v < 0 ? 'LP ' : 'HP ') + Math.round(Math.abs(v) * 100) + '%';
 const MixerUI = {
-  built: false,
+  built: false, _later: 0, _laterEq: false, _laterLog: false,
+  // UI work asked for from inside the audio scheduler runs on the next frame, never in the tick
+  later(what){
+    if (what === 'eq') this._laterEq = true; else if (what === 'log') this._laterLog = true; else this._laterAll = true;
+    if (this._later) return;
+    const run = () => { this._later = 0; if (this._laterAll){ this._laterAll = false; this._laterEq = false; this.refresh(); } if (this._laterEq){ this._laterEq = false; this.syncEQ(); } if (this._laterLog){ this._laterLog = false; const el = document.getElementById('setlog'); if (el){ el.textContent = Mixer.log.join('\n'); el.scrollTop = el.scrollHeight; } } };
+    this._later = document.hidden ? setTimeout(run, 0) : requestAnimationFrame(run);
+  },
   build(){
     if (this.built) return; this.built = true; Mixer.init();
     const root = document.getElementById('mixerRoot');
     root.innerHTML = `
+      <p class="mx-first"><b>Start here:</b> press <b>▶ Play</b> on deck A. Then press <b>▶ Play</b> on deck B (it joins on the next bar) and slide the crossfader from A to B. Or press <b>Play set</b> further down and let it mix for you.</p>
+      <p class="mx-audio" id="mxAudio" role="status" aria-live="polite" hidden></p>
       <div class="mixer">
         <div class="deck A" id="deckA"></div>
         <div class="centre">
           <div class="bigbpm" id="mxBpm">128.0<small>master bpm · decks synced</small></div>
-          <input type="range" id="mxBpmRange" min="110" max="180" step="0.1" value="128">
-          <div class="xfader"><div class="lab">Crossfader</div><input type="range" id="xfader" min="-1" max="1" step="0.01" value="-1"><div class="ab"><span>A</span><span>B</span></div></div>
-          <div><div class="lab">Master</div><input type="range" id="mxMaster" min="0" max="1" step="0.01" value="${ST.master}"></div>
-          <canvas id="mixSpectrum" class="diag" style="height:120px"></canvas>
+          <input type="range" id="mxBpmRange" min="110" max="180" step="0.1" value="128" aria-label="Master tempo, BPM">
+          <div class="xfader"><div class="lab" id="xfLab">Crossfader</div><input type="range" id="xfader" min="-1" max="1" step="0.01" value="-1" aria-labelledby="xfLab"><div class="ab"><span>A</span><span>B</span></div></div>
+          <div><div class="lab" id="mxMasterLab">Master</div><input type="range" id="mxMaster" min="0" max="1" step="0.01" value="${ST.master}" aria-labelledby="mxMasterLab"></div>
+          <canvas id="mixSpectrum" class="diag" style="height:120px" aria-hidden="true"></canvas>
           <button class="play stopbtn" id="mxStopAll" style="justify-content:center">Stop all</button>
+          <button class="sm synthlite" id="mxLite" title="Light uses fewer voices: try it if the sound crackles on a phone">${window.SynthV2 && SynthV2.lite ? 'Quality: light' : 'Quality: full'}</button>
         </div>
         <div class="deck B" id="deckB"></div>
+        <div class="mixstrip" id="mixStrip" aria-label="Quick controls">
+          <button class="mxs-play A" data-deck="A" aria-label="Play deck A">▶ A</button>
+          <div class="mxs-mid"><span class="mxs-bpm" id="mxsBpm">128.0 BPM</span><input type="range" id="xfader2" min="-1" max="1" step="0.01" value="-1" aria-label="Crossfader, A to B"></div>
+          <button class="mxs-play B" data-deck="B" aria-label="Play deck B">▶ B</button>
+        </div>
       </div>
       <div class="card program">
         <h3 style="margin-top:0">Set programme</h3>
-        <p style="color:var(--muted);font-size:14px;margin-bottom:8px">Each row is a segment: the genre, how many bars it runs, and over how many bars it mixes into the next one (crossfade + bass swap + tempo ramp). Press <b>Play set</b> and the decks take over; you can still grab any fader or EQ while it runs.</p>
-        <div class="row"><button class="play" id="playSet">Play set</button><button class="play stopbtn" id="stopSet">Stop</button><button class="sm" id="addSeg">+ add segment</button><select id="journeySel" style="font:12px 'JetBrains Mono',monospace;background:var(--bg3);color:var(--text);border:1px solid var(--line);border-radius:7px;padding:7px 10px">${Object.keys(JOURNEYS).map(j => `<option>${j}</option>`).join('')}</select><button class="sm" id="resetSet">Load journey</button><span style="font:11px 'JetBrains Mono',monospace;color:var(--muted)" id="setInfo"></span></div>
-        <svg id="setTimeline" class="diag" style="margin:10px 0"></svg>
+        <p style="color:var(--muted);font-size:14px;margin-bottom:8px">Each row is a segment: the genre, how many bars it runs, and over how many bars it mixes into the next one (crossfade + bass swap + tempo ramp). Press <b>Play set</b> and the decks take over; you can still grab any fader or EQ while it runs. Use the arrows to change the running order.</p>
+        <div class="row"><button class="play" id="playSet">Play set</button><button class="play stopbtn" id="stopSet">Stop</button><button class="sm" id="addSeg">+ Add segment</button></div>
+        <div class="row"><select id="journeySel" aria-label="Choose a ready-made journey">${Object.keys(JOURNEYS).map(j => `<option>${j}</option>`).join('')}</select><button class="sm" id="resetSet">Load journey</button></div>
+        <div class="mx-info" id="setInfo"></div>
+        <svg id="setTimeline" class="diag" style="margin:10px 0" aria-hidden="true"></svg>
         <div class="prog-table" id="progTable"></div>
         <h3>Set list</h3>
-        <div class="row"><button class="sm" id="copyLog">Copy set list</button><span style="font:11px 'JetBrains Mono',monospace;color:var(--muted)" id="copyMsg"></span></div>
+        <div class="row"><button class="sm" id="copyLog">Copy set list</button><span class="mx-info" id="copyMsg" role="status"></span></div>
         <div class="setlist" id="setlog" style="min-height:80px;max-height:220px;overflow:auto">(press Play set — every mix is logged here with its time, tempo and key)</div>
       </div>`;
     ['A', 'B'].forEach(id => this.buildDeck(id));
-    document.getElementById('mxBpmRange').oninput = e => Mixer.setBpm(+e.target.value);
-    document.getElementById('xfader').oninput = e => Mixer.setXF(+e.target.value);
-    document.getElementById('mxMaster').oninput = e => { ST.master = +e.target.value; applyLevels(); };
-    document.getElementById('mxStopAll').onclick = () => stopAll();
-    document.getElementById('playSet').onclick = () => Mixer.playSet();
-    document.getElementById('stopSet').onclick = () => Mixer.stop();
-    document.getElementById('addSeg').onclick = () => { Mixer.program.push({ genre: GENRE_NAMES[0], bars: 16, trans: 4 }); this.renderProgram(); };
-    document.getElementById('resetSet').onclick = () => { const j = JOURNEYS[document.getElementById('journeySel').value] || DEFAULT_SET; Mixer.program = j.map(([g, bars, trans]) => ({ genre: g, bars, trans })); this.renderProgram(); };
-    document.getElementById('copyLog').onclick = () => { const txt = Mixer.log.join('\n') || ''; const msg = document.getElementById('copyMsg'); try { navigator.clipboard.writeText(txt).then(() => msg.textContent = 'copied', () => msg.textContent = 'select the text and copy manually'); } catch (e){ msg.textContent = 'select the text and copy manually'; } setTimeout(() => msg.textContent = '', 2500); };
+    const $ = id => document.getElementById(id);
+    $('mxBpmRange').oninput = e => Mixer.setBpm(+e.target.value);
+    $('xfader').oninput = e => Mixer.setXF(+e.target.value);
+    $('xfader2').oninput = e => Mixer.setXF(+e.target.value);
+    $('mxMaster').oninput = e => { ST.master = +e.target.value; applyLevels(); };
+    $('mxStopAll').onclick = () => stopAll();
+    $('mxLite').onclick = () => { if (window.SynthV2) SynthV2.setLite(!SynthV2.lite); };
+    root.querySelectorAll('.mxs-play').forEach(b => b.onclick = () => { const id = b.dataset.deck, dk = Mixer.decks[id]; (dk.playing || dk.cued) ? Mixer.deckStop(id) : Mixer.deckPlay(id); });
+    $('playSet').onclick = () => Mixer.playSet();
+    $('stopSet').onclick = () => Mixer.stop();
+    $('addSeg').onclick = () => { Mixer.program.push({ genre: GENRE_NAMES[0], bars: 16, trans: 4 }); this.renderProgram(); };
+    $('resetSet').onclick = () => { const j = JOURNEYS[$('journeySel').value] || DEFAULT_SET; Mixer.program = j.map(([g, bars, trans]) => ({ genre: g, bars, trans })); this.renderProgram(); };
+    $('copyLog').onclick = () => { const txt = Mixer.log.join('\n') || ''; const msg = $('copyMsg'); try { navigator.clipboard.writeText(txt).then(() => msg.textContent = 'copied', () => msg.textContent = 'select the text and copy it by hand'); } catch (e){ msg.textContent = 'select the text and copy it by hand'; } setTimeout(() => msg.textContent = '', 2500); };
+    // a drag on a fader must never turn the page (the book turns pages on a sideways swipe)
+    ['touchstart', 'touchmove', 'touchend'].forEach(ev => root.addEventListener(ev, e => e.stopPropagation(), { passive: true }));
+    document.addEventListener('dm-audiostate', () => this.audioNote());
+    // the strip sits just above the book's bottom bar on phones
+    const tbh = () => { const tb = document.getElementById('topbar'); const fixedBottom = tb && getComputedStyle(tb).position === 'fixed' && tb.getBoundingClientRect().top > innerHeight / 2; root.style.setProperty('--mx-tb', (fixedBottom ? tb.offsetHeight : 0) + 'px'); };
+    tbh(); addEventListener('resize', tbh, { passive: true });
+    if (!Mixer.playing) Mixer.setBpm(Mixer.decks.A.P.bpm);
     this.renderProgram(); this.refresh(); this.animate();
+  },
+  audioNote(){
+    const el = document.getElementById('mxAudio'); if (!el) return; const ch = AudioCore.peek(), st = ch ? ch.c.state : 'running';
+    const off = Mixer.playing && st !== 'running';
+    el.hidden = !off; if (off) el.textContent = 'The phone paused the sound (a call, an alarm or the screen lock). Tap anywhere on the page to bring it back.';
   },
   buildDeck(id){
     const dk = Mixer.decks[id], el = document.getElementById('deck' + id);
     el.innerHTML = `
-      <div class="dh"><div class="badge">${id}</div><select class="gsel" title="put a record on">${GENRE_NAMES.map(n => `<option ${n === dk.genre ? 'selected' : ''}>${n}</option>`).join('')}</select></div>
+      <div class="dh"><div class="badge" aria-hidden="true">${id}</div><select class="gsel" aria-label="Deck ${id}: choose a record">${GENRE_NAMES.map(n => `<option ${n === dk.genre ? 'selected' : ''}>${n}</option>`).join('')}</select></div>
       <div class="tt">
-        <svg class="ttsvg" viewBox="0 0 320 262">
+        <svg class="ttsvg" viewBox="0 0 320 262" aria-hidden="true">
           <rect x="2" y="2" width="316" height="258" rx="12" fill="#17171f" stroke="#2a2a35"/>
           <g class="strobe">${Array.from({ length: 72 }, (_, i) => { const a = i / 72 * Math.PI * 2; return `<rect x="${(122 + Math.cos(a) * 106).toFixed(1)}" y="${(128 + Math.sin(a) * 106).toFixed(1)}" width="2.2" height="2.2" fill="#3a3a48" transform="rotate(${(i / 72 * 360).toFixed(1)} ${(122 + Math.cos(a) * 106).toFixed(1)} ${(128 + Math.sin(a) * 106).toFixed(1)})"/>`; }).join('')}</g>
           <g class="platter">
@@ -517,42 +579,51 @@ const MixerUI = {
           <rect class="armrest" x="296" y="130" width="10" height="22" rx="3" fill="#2d2d38"/>
           <text x="236" y="248" font-size="7" fill="#55556a" font-family="JetBrains Mono, monospace" letter-spacing=".16em">33 · PITCH ±8</text>
         </svg>
-        <div class="ttside"><input type="range" class="pitch" min="-8" max="8" step="0.1" value="0" title="pitch"><output class="pitchout">+0.0%</output></div>
-        <button class="startstop dplay">START · STOP</button>
+        <div class="ttside"><input type="range" class="pitch" min="-8" max="8" step="0.1" value="0" aria-label="Deck ${id} pitch, per cent"><button class="pitchout val" title="reset the pitch to 0" aria-label="Pitch: tap to reset">+0.0%</button></div>
+        <button class="startstop dplay" aria-pressed="false">▶ PLAY</button>
       </div>
-      <div class="readout"><span>key <b class="rk"></b></span><span>native <b class="rb"></b> bpm</span><span>at <b class="rnow"></b></span><span>bar <b class="rbar">—</b></span><span class="rst"></span></div>
-      <div class="eqrow"><span>High</span><input type="range" class="eq" data-band="high" min="-30" max="6" step="0.5" value="0"><output>0 dB</output><button class="kill" data-band="high">K</button></div>
-      <div class="eqrow"><span>Mid</span><input type="range" class="eq" data-band="mid" min="-30" max="6" step="0.5" value="0"><output>0 dB</output><button class="kill" data-band="mid">K</button></div>
-      <div class="eqrow"><span>Low</span><input type="range" class="eq" data-band="low" min="-30" max="6" step="0.5" value="0"><output>0 dB</output><button class="kill" data-band="low">K</button></div>
-      <div class="ctl" style="margin-top:8px"><span>Filter</span><input type="range" class="flt" min="-1" max="1" step="0.01" value="0"><output>off</output></div>
-      <div class="ctl fader"><span>Fader</span><input type="range" class="fdr" min="0" max="1" step="0.01" value="1"><output>100%</output></div>
-      <div class="vu"><i></i></div>
-      <div class="lab" style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:10px">Layers (click to mute)</div>
+      <div class="readout"><span>key <b class="rk"></b></span><span>native <b class="rb"></b> bpm</span><span>at <b class="rnow"></b></span><span>bar <b class="rbar">—</b></span><span class="rst" role="status"></span></div>
+      ${['high', 'mid', 'low'].map(b => `<div class="eqrow"><span>${b[0].toUpperCase() + b.slice(1)}</span><input type="range" class="eq" data-band="${b}" min="-30" max="6" step="0.5" value="0" aria-label="Deck ${id} ${b} EQ"><button class="val" data-band="${b}" title="reset to 0 dB">0 dB</button><button class="kill" data-band="${b}" aria-pressed="false" aria-label="Kill deck ${id} ${b}">Kill</button></div>`).join('')}
+      <div class="ctl" style="margin-top:8px"><span>Filter</span><input type="range" class="flt" min="-1" max="1" step="0.01" value="0" aria-label="Deck ${id} filter: left low-pass, right high-pass"><button class="val fltout" title="filter off">off</button></div>
+      <div class="ctl fader"><span>Fader</span><input type="range" class="fdr" min="0" max="1" step="0.01" value="1" aria-label="Deck ${id} channel fader"><output>100%</output></div>
+      <div class="vu" aria-hidden="true"><i></i></div>
+      <div class="lab" style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:10px">Layers (tap to mute)</div>
       <div class="layers"></div>
       <p class="notes" style="font-size:12.5px;color:var(--muted);margin:6px 0"></p>
-      <button class="sm togglegrid">Show / edit pattern</button>
+      <button class="sm togglegrid" aria-expanded="false">Show / edit pattern</button>
       <div class="deckgrid" style="display:none"></div>`;
     el.querySelector('.gsel').onchange = e => { dk.load(e.target.value); if (!Mixer.playing) Mixer.setBpm(dk.P.bpm); this.refreshDeck(id); };
-    el.querySelector('.dplay').onclick = () => dk.playing ? Mixer.deckStop(id) : Mixer.deckPlay(id);
+    el.querySelector('.dplay').onclick = () => (dk.playing || dk.cued) ? Mixer.deckStop(id) : Mixer.deckPlay(id);
     const pitch = el.querySelector('.pitch'); pitch.oninput = () => { const v = +pitch.value; Mixer.setBpm(+(dk.P.bpm * (1 + v / 100)).toFixed(1)); }; pitch.ondblclick = () => { pitch.value = 0; pitch.oninput(); };
-    el.querySelectorAll('.eq').forEach(r => r.oninput = () => { dk.setEQ(r.dataset.band, +r.value); r.nextElementSibling.textContent = (+r.value > 0 ? '+' : '') + r.value + ' dB'; });
-    el.querySelectorAll('.kill').forEach(b => b.onclick = () => { dk.setKill(b.dataset.band, !dk.kills[b.dataset.band]); b.classList.toggle('on', dk.kills[b.dataset.band]); });
-    const flt = el.querySelector('.flt'); flt.oninput = () => { dk.setFilter(+flt.value); flt.nextElementSibling.textContent = +flt.value === 0 ? 'off' : (+flt.value < 0 ? 'LP ' : 'HP ') + Math.round(Math.abs(flt.value) * 100) + '%'; };
-    flt.ondblclick = () => { flt.value = 0; flt.oninput(); };
+    el.querySelector('.pitchout').onclick = () => { pitch.value = 0; pitch.oninput(); };
+    el.querySelectorAll('.eq').forEach(r => { r.oninput = () => { dk.setEQ(r.dataset.band, +r.value); r.nextElementSibling.textContent = MX_DB(+r.value); }; r.ondblclick = () => { r.value = 0; r.oninput(); }; r.nextElementSibling.onclick = () => { r.value = 0; r.oninput(); }; });
+    el.querySelectorAll('.kill').forEach(b => b.onclick = () => { dk.setKill(b.dataset.band, !dk.kills[b.dataset.band]); b.classList.toggle('on', dk.kills[b.dataset.band]); b.setAttribute('aria-pressed', dk.kills[b.dataset.band]); });
+    const flt = el.querySelector('.flt'); flt.oninput = () => { dk.setFilter(+flt.value); flt.nextElementSibling.textContent = MX_FLT(flt.value); };
+    flt.ondblclick = () => { flt.value = 0; flt.oninput(); }; el.querySelector('.fltout').onclick = () => { flt.value = 0; flt.oninput(); };
     const fdr = el.querySelector('.fdr'); fdr.oninput = () => { dk.setLevel(+fdr.value); fdr.nextElementSibling.textContent = Math.round(fdr.value * 100) + '%'; };
-    el.querySelector('.togglegrid').onclick = () => { const g = el.querySelector('.deckgrid'); g.style.display = g.style.display === 'none' ? 'grid' : 'none'; };
+    el.querySelector('.togglegrid').onclick = e => { const g = el.querySelector('.deckgrid'), open = g.style.display === 'none'; g.style.display = open ? 'grid' : 'none'; e.currentTarget.setAttribute('aria-expanded', open); };
     this.refreshDeck(id);
+  },
+  // status only (cheap): play state, bar, pitch
+  statusDeck(id){
+    const dk = Mixer.decks[id], el = document.getElementById('deck' + id); if (!el) return;
+    el.querySelector('.rbar').textContent = dk.playing ? (dk.bar + 1) : '—';
+    el.querySelector('.rst').textContent = dk.playing ? '● playing' : dk.cued ? '◐ cued: starts on the next bar' : '○ stopped';
+    const pb = el.querySelector('.dplay'), on = dk.playing || dk.cued; pb.classList.toggle('flash', dk.playing); pb.classList.toggle('cued', dk.cued); pb.setAttribute('aria-pressed', on); pb.textContent = dk.playing ? '■ STOP' : dk.cued ? '◐ CUED · CANCEL' : '▶ PLAY';
+    el.classList.toggle('on', dk.playing); el.classList.toggle('cued', dk.cued);
+    el.querySelector('.tt').classList.toggle('playing', dk.playing);
+    const sb = document.querySelector(`#mixStrip .mxs-play.${id}`); if (sb){ sb.classList.toggle('on', dk.playing); sb.classList.toggle('cued', dk.cued); sb.textContent = (dk.playing ? '■ ' : dk.cued ? '◐ ' : '▶ ') + id; sb.setAttribute('aria-label', (dk.playing ? 'Stop' : dk.cued ? 'Cancel cue on' : 'Play') + ' deck ' + id); sb.setAttribute('aria-pressed', on); }
+    MixerUI.updatePitch(id);
   },
   refreshDeck(id){
     const dk = Mixer.decks[id], el = document.getElementById('deck' + id); if (!el) return;
+    this.statusDeck(id);
+    const sig = dk._loadN + '|' + JSON.stringify(dk.mute); if (el._sig === sig) return; el._sig = sig;   // rebuild the layers and grid only when the record changed
     el.querySelector('.gsel').value = dk.genre; el.querySelector('.rk').textContent = dk.P.key; el.querySelector('.rb').textContent = dk.P.bpm;
-    el.querySelector('.rbar').textContent = dk.playing ? (dk.bar + 1) : '—'; el.querySelector('.rst').textContent = dk.playing ? '● playing' : '';
-    const pb = el.querySelector('.dplay'); pb.classList.toggle('flash', dk.playing);
-    const tt = el.querySelector('.tt'); tt.classList.toggle('playing', dk.playing); const parts = dk.genre.match(/^(.*?)(\s\d{4})?$/); tt.querySelector('.lbl1').textContent = (parts[1] || dk.genre).toUpperCase().slice(0, 18); tt.querySelector('.lbl2').textContent = (parts[2] || '').trim() + (parts[2] ? ' · ' : '') + dk.P.key[0]; tt.querySelector('.lbl3').textContent = dk.P.bpm + ' BPM · ' + (PRESET(dk.genre).city || '').toUpperCase().slice(0, 16);
-    MixerUI.updatePitch(id);
+    const tt = el.querySelector('.tt'); const parts = dk.genre.match(/^(.*?)(\s\d{4})?$/); tt.querySelector('.lbl1').textContent = (parts[1] || dk.genre).toUpperCase().slice(0, 18); tt.querySelector('.lbl2').textContent = (parts[2] || '').trim() + (parts[2] ? ' · ' : '') + dk.P.key[0]; tt.querySelector('.lbl3').textContent = dk.P.bpm + ' BPM · ' + (PRESET(dk.genre).city || '').toUpperCase().slice(0, 16);
     el.querySelector('.notes').textContent = PRESET(dk.genre).notes;
     const lay = el.querySelector('.layers'); lay.innerHTML = '';
-    DECK_LAYERS.forEach(([lid, name]) => { const b = document.createElement('button'); b.textContent = name; const has = lid === 'rumble' ? dk.pat.kick.some(v => v) && PRESET(dk.genre).rumble > 0 : dk.pat[lid].some(v => v); b.classList.toggle('has', has); b.classList.toggle('off', dk.mute[lid]); b.onclick = () => { dk.mute[lid] = !dk.mute[lid]; b.classList.toggle('off', dk.mute[lid]); }; lay.appendChild(b); });
+    DECK_LAYERS.forEach(([lid, name]) => { const b = document.createElement('button'); b.textContent = name; const has = lid === 'rumble' ? dk.pat.kick.some(v => v) && PRESET(dk.genre).rumble > 0 : dk.pat[lid].some(v => v); b.classList.toggle('has', has); b.classList.toggle('off', dk.mute[lid]); b.setAttribute('aria-pressed', !dk.mute[lid]); b.title = has ? (dk.mute[lid] ? 'muted: tap to bring it back' : 'playing in this pattern: tap to mute') : 'not in this pattern'; b.onclick = () => { dk.mute[lid] = !dk.mute[lid]; b.classList.toggle('off', dk.mute[lid]); b.setAttribute('aria-pressed', !dk.mute[lid]); el._sig = dk._loadN + '|' + JSON.stringify(dk.mute); }; lay.appendChild(b); });
     const grid = el.querySelector('.deckgrid'); grid.innerHTML = '';
     DECK_LAYERS.forEach(([lid, name]) => {
       if (lid === 'rumble') return; const l = document.createElement('div'); l.className = 'lbl'; l.textContent = name; grid.appendChild(l);
@@ -560,22 +631,32 @@ const MixerUI = {
         c.onclick = () => { const cur = dk.pat[lid][i]; const nv = lid === 'acid' ? (cur + 1) % 4 : (cur ? 0 : 1); dk.pat[lid][i] = nv; c.classList.toggle('on', nv === 1); c.classList.toggle('acc', nv === 2); c.classList.toggle('sl', nv === 3); }; grid.appendChild(c); }
     });
   },
-  updatePitch(id){ const dk = Mixer.decks && Mixer.decks[id], el = document.getElementById('deck' + id); if (!dk || !el) return; const ratio = Mixer.bpm / dk.P.bpm; const pct = (ratio - 1) * 100; const pitch = el.querySelector('.pitch'); if (pitch && Math.abs(+pitch.value - pct) > 0.05) pitch.value = Math.max(-8, Math.min(8, pct)); el.querySelector('.pitchout').textContent = (pct >= 0 ? '+' : '') + pct.toFixed(1) + '%'; el.querySelector('.rnow').textContent = Mixer.bpm.toFixed(1); el.querySelector('.platter').style.animationDuration = (1.8 / Math.max(.3, ratio)).toFixed(3) + 's'; },
-  syncEQ(){ ['A', 'B'].forEach(id => { const dk = Mixer.decks[id], el = document.getElementById('deck' + id); if (!el) return; el.querySelectorAll('.eq').forEach(r => { r.value = dk.eq[r.dataset.band]; r.nextElementSibling.textContent = (dk.eq[r.dataset.band] > 0 ? '+' : '') + Math.round(dk.eq[r.dataset.band]) + ' dB'; }); const f = el.querySelector('.fdr'); f.value = dk.level; f.nextElementSibling.textContent = Math.round(dk.level * 100) + '%'; }); },
-  refresh(){ if (!this.built) return; ['A', 'B'].forEach(id => this.refreshDeck(id)); this.syncEQ(); this.renderTimeline(); },
+  updatePitch(id){ const dk = Mixer.decks && Mixer.decks[id], el = document.getElementById('deck' + id); if (!dk || !el) return; const ratio = Mixer.bpm / dk.P.bpm; const pct = (ratio - 1) * 100; const pitch = el.querySelector('.pitch'); if (pitch && Math.abs(+pitch.value - pct) > 0.05) pitch.value = Math.max(-8, Math.min(8, pct)); el.querySelector('.pitchout').textContent = (pct >= 0 ? '+' : '') + pct.toFixed(1) + '%'; el.querySelector('.rnow').textContent = Mixer.bpm.toFixed(1); el.querySelector('.platter').style.animationDuration = (1.8 / Math.max(.3, ratio)).toFixed(3) + 's'; const sb = document.getElementById('mxsBpm'); if (sb) sb.textContent = Mixer.bpm.toFixed(1) + ' BPM'; },
+  syncEQ(){ ['A', 'B'].forEach(id => { const dk = Mixer.decks[id], el = document.getElementById('deck' + id); if (!el) return; el.querySelectorAll('.eq').forEach(r => { if (+r.value !== dk.eq[r.dataset.band]) r.value = dk.eq[r.dataset.band]; r.nextElementSibling.textContent = MX_DB(dk.eq[r.dataset.band]); }); const f = el.querySelector('.fdr'); f.value = dk.level; f.nextElementSibling.textContent = Math.round(dk.level * 100) + '%'; const fl = el.querySelector('.flt'); if (+fl.value !== dk.filter){ fl.value = dk.filter; fl.nextElementSibling.textContent = MX_FLT(dk.filter); } }); },
+  refresh(){ if (!this.built) return; ['A', 'B'].forEach(id => this.refreshDeck(id)); this.syncEQ(); this.renderTimeline(); this.markSegment(); this.audioNote(); },
+  markSegment(){ const n = Mixer.auto ? Mixer.auto.idx : -1; document.querySelectorAll('#progTable .seg:not(.h)').forEach((r, k) => { r.classList.toggle('cur', k === n); if (k === n) r.setAttribute('aria-current', 'step'); else r.removeAttribute('aria-current'); }); },
   renderProgram(){
-    const t = document.getElementById('progTable'); t.innerHTML = '<div class="h">#</div><div class="h">Genre</div><div class="h">Bars</div><div class="h">BPM</div><div class="h">Mix over</div><div></div>';
+    const t = document.getElementById('progTable'); t.innerHTML = '<div class="seg h" aria-hidden="true"><div>#</div><div>Genre</div><div>Bars</div><div>BPM</div><div>Mix over</div><div>Order</div></div>';
+    const n0 = Mixer.program.length;
     Mixer.program.forEach((seg, n) => {
-      const row = [];
-      const num = document.createElement('div'); num.textContent = n + 1; num.style.color = 'var(--muted)';
-      const sel = document.createElement('select'); const og1 = document.createElement('optgroup'); og1.label = 'Eras'; GENRE_NAMES.forEach(g => { const o = document.createElement('option'); o.textContent = g; o.selected = g === seg.genre; og1.appendChild(o); }); sel.appendChild(og1); const og2 = document.createElement('optgroup'); og2.label = 'Records'; Object.keys(RECORD_PRESETS).forEach(g => { const o = document.createElement('option'); o.textContent = g; o.selected = g === seg.genre; og2.appendChild(o); }); sel.appendChild(og2); sel.onchange = () => { seg.genre = sel.value; bpm.value = GENRES[seg.genre].bpm; this.renderTimeline(); };
-      const bars = document.createElement('input'); bars.type = 'number'; bars.min = 4; bars.max = 128; bars.step = 4; bars.value = seg.bars; bars.oninput = () => { seg.bars = Math.max(1, +bars.value || 0); this.renderTimeline(); };
+      const row = document.createElement('div'); row.className = 'seg';
+      const num = document.createElement('div'); num.className = 'num'; num.textContent = n + 1;
+      const lab = (txt, el) => { const w = document.createElement('label'); w.className = 'f'; const sp = document.createElement('span'); sp.textContent = txt; w.append(sp, el); return w; };
+      const sel = document.createElement('select'); sel.setAttribute('aria-label', `Segment ${n + 1}: genre or record`); const og1 = document.createElement('optgroup'); og1.label = 'Eras'; GENRE_NAMES.forEach(g => { const o = document.createElement('option'); o.textContent = g; o.selected = g === seg.genre; og1.appendChild(o); }); sel.appendChild(og1); const og2 = document.createElement('optgroup'); og2.label = 'Records'; Object.keys(typeof RECORD_PRESETS !== 'undefined' ? RECORD_PRESETS : {}).forEach(g => { const o = document.createElement('option'); o.textContent = g; o.selected = g === seg.genre; og2.appendChild(o); }); sel.appendChild(og2);
+      const bars = document.createElement('input'); bars.type = 'number'; bars.inputMode = 'numeric'; bars.min = 4; bars.max = 128; bars.step = 4; bars.value = seg.bars; bars.oninput = () => { seg.bars = Math.max(1, +bars.value || 0); this.renderTimeline(); };
       const bpm = document.createElement('input'); bpm.type = 'number'; bpm.value = PRESET(seg.genre).bpm; bpm.disabled = true; bpm.title = 'tempo comes from the genre preset';
-      const trans = document.createElement('input'); trans.type = 'number'; trans.min = 0; trans.max = 32; trans.value = seg.trans; trans.oninput = () => { seg.trans = Math.max(0, +trans.value || 0); };
-      const del = document.createElement('button'); del.textContent = '×'; del.onclick = () => { Mixer.program.splice(n, 1); this.renderProgram(); };
-      [num, sel, bars, bpm, trans, del].forEach(e => t.appendChild(e));
+      sel.onchange = () => { seg.genre = sel.value; bpm.value = (PRESET(seg.genre) || {}).bpm || ''; this.renderTimeline(); };
+      const trans = document.createElement('input'); trans.type = 'number'; trans.inputMode = 'numeric'; trans.min = 0; trans.max = 32; trans.value = seg.trans; trans.oninput = () => { seg.trans = Math.max(0, +trans.value || 0); };
+      const ord = document.createElement('div'); ord.className = 'ord';
+      const mk = (txt, aria, fn, dis) => { const b = document.createElement('button'); b.textContent = txt; b.setAttribute('aria-label', aria); b.disabled = !!dis; b.onclick = fn; ord.appendChild(b); return b; };
+      const move = d => { const P = Mixer.program, [x] = P.splice(n, 1); P.splice(n + d, 0, x); this.renderProgram(); const f = document.querySelectorAll('#progTable .seg:not(.h)')[n + d]; if (f){ const b = f.querySelector(d < 0 ? '.ord button:first-child' : '.ord button:nth-child(2)'); (b && !b.disabled ? b : f.querySelector('select')).focus(); } };
+      mk('↑', `Move segment ${n + 1} up`, () => move(-1), n === 0);
+      mk('↓', `Move segment ${n + 1} down`, () => move(1), n === n0 - 1);
+      mk('×', `Remove segment ${n + 1}`, () => { Mixer.program.splice(n, 1); this.renderProgram(); });
+      row.append(num, lab('Genre', sel), lab('Bars', bars), lab('BPM', bpm), lab('Mix over', trans), ord);
+      t.appendChild(row);
     });
-    this.renderTimeline();
+    this.renderTimeline(); this.markSegment();
   },
   renderTimeline(){
     const svg = document.getElementById('setTimeline'); if (!svg) return; const W = 900, H = 90; clearSvg(svg, W, H);
@@ -592,23 +673,26 @@ const MixerUI = {
   },
   animate(){
     requestAnimationFrame(() => this.animate()); if (!Mixer.ch) return;
+    const root = document.getElementById('mixerRoot'); if (!root || !root.offsetParent) return;   // page not shown: no drawing
     const now = Mixer.ch.c.currentTime;
     if (Mixer.playing){
       let cur = null; while (Mixer.queue.length && Mixer.queue[0].time <= now) cur = Mixer.queue.shift();
       if (cur){
-        document.querySelectorAll('#mixerRoot .deckgrid .st.cur').forEach(e => e.classList.remove('cur'));
-        ['A', 'B'].forEach(id => { const dk = Mixer.decks[id]; const el = document.getElementById('deck' + id); if (!el) return; if (dk.playing){ el.querySelectorAll(`.deckgrid .st[data-step="${cur.step}"]`).forEach(e => e.classList.add('cur')); el.querySelector('.rbar').textContent = dk.bar + 1; } });
+        root.querySelectorAll('.deckgrid .st.cur').forEach(e => e.classList.remove('cur'));
+        ['A', 'B'].forEach(id => { const dk = Mixer.decks[id]; const el = document.getElementById('deck' + id); if (!el) return; if (dk.playing){ const g = el.querySelector('.deckgrid'); if (g.style.display !== 'none') g.querySelectorAll(`.st[data-step="${cur.step}"]`).forEach(e => e.classList.add('cur')); el.querySelector('.rbar').textContent = (dk.bar + 1) + '.' + (Math.floor(cur.step / 4) + 1); } });
         const ph = document.getElementById('playhead'); if (ph && Mixer.auto){ const total = Mixer.totalBars() || 1; ph.setAttribute('opacity', 1); const x = Math.min(900, cur.g / 16 / total * 900); ph.setAttribute('x1', x); ph.setAttribute('x2', x); }
       }
     }
     const cv = document.getElementById('mixSpectrum'); if (cv && cv.clientWidth){
-      const an = Mixer.ch.analyser, data = new Uint8Array(an.frequencyBinCount); an.getByteFrequencyData(data);
-      const dpr = window.devicePixelRatio || 1; if (cv.width !== cv.clientWidth * dpr){ cv.width = cv.clientWidth * dpr; cv.height = cv.clientHeight * dpr; }
-      const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); const W = cv.clientWidth, H = cv.clientHeight; g.clearRect(0, 0, W, H); const nyq = Mixer.ch.c.sampleRate / 2;
-      for (let x = 0; x < W; x += 2){ const f = 20 * Math.pow(1000, x / W), bin = Math.min(data.length - 1, Math.floor(f / nyq * data.length)); const v = data[bin] / 255; g.fillStyle = f < 150 ? css('--rumble') : f < 400 ? css('--bass') : f < 4000 ? css('--synth') : css('--drums'); g.globalAlpha = .85; g.fillRect(x, H - v * H, 2, v * H); }
+      const an = Mixer.ch.analyser, data = this._fft && this._fft.length === an.frequencyBinCount ? this._fft : (this._fft = new Uint8Array(an.frequencyBinCount)); an.getByteFrequencyData(data);
+      const dpr = window.devicePixelRatio || 1; if (cv.width !== cv.clientWidth * dpr){ cv.width = cv.clientWidth * dpr; cv.height = cv.clientHeight * dpr; this._cols = null; }
+      if (!this._cols) this._cols = [css('--rumble'), css('--bass'), css('--synth'), css('--drums')];
+      const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); const W = cv.clientWidth, H = cv.clientHeight; g.clearRect(0, 0, W, H); const nyq = Mixer.ch.c.sampleRate / 2, C = this._cols;
+      g.globalAlpha = .85; for (let x = 0; x < W; x += 2){ const f = 20 * Math.pow(1000, x / W), bin = Math.min(data.length - 1, Math.floor(f / nyq * data.length)); const v = data[bin] / 255; g.fillStyle = f < 150 ? C[0] : f < 400 ? C[1] : f < 4000 ? C[2] : C[3]; g.fillRect(x, H - v * H, 2, v * H); }
       g.globalAlpha = 1;
     }
-    ['A', 'B'].forEach(id => { const dk = Mixer.decks && Mixer.decks[id]; const el = document.getElementById('deck' + id); if (!dk || !el) return; const vu = el.querySelector('.vu i'); const a = Math.cos((Mixer.xf + 1) / 2 * Math.PI / 2), b = Math.sin((Mixer.xf + 1) / 2 * Math.PI / 2); vu.style.width = (dk.playing ? dk.level * (id === 'A' ? a : b) * 100 : 0) + '%'; });
+    const a = Math.cos((Mixer.xf + 1) / 2 * Math.PI / 2), b = Math.sin((Mixer.xf + 1) / 2 * Math.PI / 2);
+    ['A', 'B'].forEach(id => { const dk = Mixer.decks && Mixer.decks[id]; const el = document.getElementById('deck' + id); if (!dk || !el) return; const vu = el.querySelector('.vu i'); vu.style.width = (dk.playing ? dk.level * (id === 'A' ? a : b) * 100 : 0) + '%'; });
   }
 };
 window.PageHooks = window.PageHooks || {};
