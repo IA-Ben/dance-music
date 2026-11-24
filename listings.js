@@ -25,7 +25,7 @@ window.LISTINGS = [
 ['paradise-garage', 'newyork', 'Paradise Garage — Saturdays', 1977, 1987, 'Sat', 'Larry Levan', 'Members only; the night the word "garage" refers to. Fridays were the straight night.', 'house'],
 ['Sound Factory', 'newyork', 'Sound Factory', 1989, 1995, 'Sat', 'Junior Vasquez', 'West 27th Street; the Garage\'s successor as the marathon.', 'house'],
 ['Club Zanzibar', 'newyork', 'Club Zanzibar (Newark)', 1979, 1993, 'Fri–Sat', 'Tony Humphries', 'Jersey garage: the other meaning of the word.', 'house'],
-['Twilo', 'newyork', 'Twilo — Sasha & Digweed', 1997, 2001, 'monthly', 'Sasha, John Digweed', 'The progressive residency; Danny Tenaglia\'s Fridays in the same room.', 'trance'],
+['Twilo', 'newyork', 'Twilo — Sasha & Digweed', 1997, 2001, 'monthly', 'Sasha, John Digweed', 'The progressive residency; Danny Tenaglia\'s Saturdays in the same room.', 'trance'],
 ['Limelight', 'newyork', 'Limelight — Future Shock / NASA', 1992, 1996, 'Fri', 'DB, Scotto', 'Rave in a deconsecrated church; the New York end of hardcore and jungle.', 'rave'],
 /* ---- London ---- */
 ['camden-palace', 'london', 'Camden Palace — Colin Faver & Eddie Richards', 1982, 1987, 'Fri', 'Colin Faver, Eddie Richards', 'Electro, Chicago and the first Detroit imports; Mr. C on the mic from 1986.', 'techno'],
