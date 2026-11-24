@@ -18,7 +18,9 @@ const ALIAS_EXTRA = { acid: ['Acid House', 'Acid house'], balearic: ['Balearic B
   'g-jungle': ['jungle'], 'glastonbury-festival': ['Glastonbury'], 'ultra-music-festival': ['Ultra'], shambhala: ['Shambhala'], mutek: ['MUTEK'], 'electric-daisy-carnival': ['EDC'],
   'commodore-amiga': ['Amiga'], 'sound-diy': ['DiY'], 'labyrinth-festival': ['Labyrinth festival'], 'skint-records': ['Skint'], 'tempa-records': ['Tempa'], superstruct: ['Superstruct'], 'the-breezeblock': ['Breezeblock'],
   'digital-mystikz': ['Mala', 'Coki'], 'the-orb': ['Alex Paterson'], 'fatboy-slim': ['Norman Cook'], 'lcd-soundsystem': ['James Murphy'], underworld: ['Darren Emerson'], 'the-chemical-brothers': ['Dust Brothers'],
-  'shop-warp': ['Warp shop'], alphatheta: ['AlphaTheta'], cdj3000: ['CDJ-3000'], livestyle: ['SFX'], 'sound-metro': ['Percival Miller'], 'g-berghain': ['Berghain sound'] };
+  'shop-warp': ['Warp shop'], alphatheta: ['AlphaTheta'], cdj3000: ['CDJ-3000'], livestyle: ['SFX'], 'sound-metro': ['Percival Miller'], 'g-berghain': ['Berghain sound'],
+  /* the Visuals strand (vz4): the show's own title, not The End; the venue as the text names it (November 2026) */
+  'anyma-end-of-genesys': ['The End of Genesys'], 'sphere-las-vegas': ['the Sphere'] };
 /* a name another page claims by mistake */
 const ALIAS_FORCE = { Universe: 'tribal-gathering', Trax: 'trax', Cocoon: 'cocoon', 'Golden Pudel Club': 'golden-pudel',
   /* nights whose one-word names are on ALIAS_DENY: linked only in these longer forms the text uses */

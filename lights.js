@@ -90,22 +90,23 @@ window.Lights = (() => {
 
   /* ---------- the flash governor (features 2–5) ---------- */
   function Guard(cv){
-    const s = document.createElement('canvas'); s.width = 16; s.height = 9; const sg = s.getContext('2d', { willReadFrequently: true });
+    /* mean relative luminance of the whole frame and of each twelfth of it (4 × 3 cells); a rise of more than T that would
+       start a fourth flash within a second is held down, in that cell only, until a third of a second has passed */
+    const SW = 64, SH = 36, s = document.createElement('canvas'); s.width = SW; s.height = SH; const sg = s.getContext('2d', { willReadFrequently: true }); sg.imageSmoothingQuality = 'high';
     const LUT = new Float32Array(256); for (let i = 0; i < 256; i++){ const v = i / 255; LUT[i] = v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
-    const G = { up: false, lo: null, hi: 0, last: -1e9, T: 0.08, held: 0 };
-    G.lum = () => { sg.clearRect(0, 0, 16, 9); sg.drawImage(cv, 0, 0, 16, 9); const d = sg.getImageData(0, 0, 16, 9).data; let L = 0; for (let i = 0; i < d.length; i += 4) L += 0.2126 * LUT[d[i]] + 0.7152 * LUT[d[i + 1]] + 0.0722 * LUT[d[i + 2]]; return L / 144; };
+    const T = 0.06, cells = Array.from({ length: 13 }, () => ({ up: false, lo: null, hi: 0, last: -1e9 })), G = { held: 0, cells };
+    const dim = (g, k, L, lo) => { const f = clamp(1 - Math.pow((lo + T * 0.9) / Math.max(L, 1e-4), 1 / 2.2), 0, 1); const w = cv.width, h = cv.height; g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.globalCompositeOperation = 'source-over'; g.fillStyle = `rgba(0,0,0,${f})`; if (k === 12) g.fillRect(0, 0, w, h); else g.fillRect(Math.floor((k % 4) * w / 4), Math.floor((k / 4 | 0) * h / 3), Math.ceil(w / 4), Math.ceil(h / 3)); g.restore(); G.held++; };
     G.check = (g, now) => {
-      let L; try { L = G.lum(); } catch (e) { return; }
-      if (G.lo == null){ G.lo = G.hi = L; return; }
-      if (!G.up){
-        if (L - G.lo > G.T){
-          if (now - G.last < 334){                         /* too soon after the last flash: hold this frame down */
-            const tgt = G.lo + G.T * 0.9, k = Math.pow(tgt / L, 1 / 2.2);
-            g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.globalCompositeOperation = 'source-over'; g.fillStyle = `rgba(0,0,0,${clamp(1 - k, 0, 1)})`; g.fillRect(0, 0, cv.width, cv.height); g.restore(); G.held++;
-          } else { G.up = true; G.hi = L; G.last = now; }
-        } else G.lo = Math.min(G.lo, L);
-      } else {
-        if (G.hi - L > G.T){ G.up = false; G.lo = L; } else G.hi = Math.max(G.hi, L);
+      let d; try { sg.clearRect(0, 0, SW, SH); sg.drawImage(cv, 0, 0, SW, SH); d = sg.getImageData(0, 0, SW, SH).data; } catch (e) { return; }
+      const L = new Float32Array(13);
+      for (let y = 0; y < SH; y++) for (let x = 0; x < SW; x++){ const i = (y * SW + x) * 4, l = 0.2126 * LUT[d[i]] + 0.7152 * LUT[d[i + 1]] + 0.0722 * LUT[d[i + 2]]; L[(y / 12 | 0) * 4 + (x >> 4)] += l / 192; L[12] += l / 2304; }
+      for (let k = 12; k >= 0; k--){
+        const c = cells[k], v = L[k];
+        if (c.lo == null){ c.lo = c.hi = v; continue; }
+        if (!c.up){
+          if (v - c.lo > T){ if (now - c.last < 334) dim(g, k, v, c.lo); else { c.up = true; c.hi = v; c.last = now; } }
+          else c.lo = Math.min(c.lo, v);
+        } else if (c.hi - v > T){ c.up = false; c.lo = v; } else c.hi = Math.max(c.hi, v);
       }
     };
     return G;
@@ -538,7 +539,7 @@ gl_FragColor=vec4(o,1.);}`;
     vz4: { anchor: 'Cubes', title: 'Map the cube', notice: true, audio: true, build: cube,
       intro: 'A white cube on a dark stage, and one projector. A projector only throws a flat rectangle, so each picture has to be warped to fit its face. Drag the corner pins to the cube\'s corners, then play the show.',
       alt: 'An isometric cube with three visible faces, each carrying a generated pattern. Where a picture is not pinned to its face, the light spills on the wall behind.' },
-    vz5: { anchor: 'The man at the board', title: 'Busk the desk', notice: true, audio: true, build: desk,
+    vz5: { anchor: 'The man at the board', title: 'Work the desk', notice: true, audio: true, build: desk,
       intro: 'A small club room with a few groups of lights, and a desk to play them. Press Play for a kick and hats, tap the tempo, pick a chase, push the faders, hold the flash buttons and throw a blackout on the drop. Then try the dark room.',
       alt: 'A club room in silhouette: a truss of lights above a DJ booth and a crowd. Coloured washes, white beams in haze, a green laser fan and warm blinders respond to the desk.' }
   };
