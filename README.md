@@ -1,6 +1,6 @@
 # fortyyearsof.dance
 
-**Forty years of dance music, 1987–2027 — an interactive book by Ben Dawson.**
+**Forty years of dance music, 1987–2027 — an interactive book.**
 
 Read it at **https://fortyyearsof.dance**
 
