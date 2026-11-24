@@ -22,7 +22,9 @@ const ALIAS_EXTRA = { acid: ['Acid House', 'Acid house'], balearic: ['Balearic B
   /* the Visuals strand (vz4): the show's own title, not The End; the venue as the text names it (November 2026) */
   'anyma-end-of-genesys': ['The End of Genesys'], 'sphere-las-vegas': ['the Sphere'],
   /* the festival by its own name links to its dance tents' page (profiles check, November 2026) */
-  'coachella-sahara-tent': ['Coachella'] };
+  'coachella-sahara-tent': ['Coachella'],
+  /* Paul O'Grady's drag character (qf4, qf14) */
+  'paul-o-grady': ['Lily Savage'], 'market-tavern': ['Market Tavern'] };
 /* a name another page claims by mistake */
 const ALIAS_FORCE = { Universe: 'tribal-gathering', Trax: 'trax', Cocoon: 'cocoon', 'Golden Pudel Club': 'golden-pudel',
   /* nights whose one-word names are on ALIAS_DENY: linked only in these longer forms the text uses */
@@ -57,13 +59,17 @@ const ALIAS_LOCAL = { future: ['hh4', 'i3', 'orb1'], output: ['ny5', 'rs4'], 'ho
   /* Wayne Shires's clubs (November 2026): bare "Crash" is also Leeds's Crash Records (rs3), "Area" New York's Area (ny2, ny3, cb3, cb10) and Gray Area, "Substation" an ordinary word */
   'crash-vauxhall': ['wayne-shires', 'area-vauxhall', 'east-bloc', 'substation-london'],
   'area-vauxhall': ['wayne-shires', 'crash-vauxhall', 'lost', 'steve-bicknell'],
-  'substation-london': ['wayne-shires', 'crash-vauxhall'] };
+  'substation-london': ['wayne-shires', 'crash-vauxhall'],
+  /* Vauxhall (qf14, November 2026): bare club names link only in the chapter and these pages */
+  'fire-vauxhall': ['area-vauxhall', 'steve-bicknell'], 'barcode-vauxhall': ['area-vauxhall'] };
+/* bare names for generated pages (graph-gen.js has no aliases for them): all are on ALIAS_DENY, so they link only where ALIAS_LOCAL and "told" allow */
+const ALIAS_GEN = { 'fire-vauxhall': ['Fire'], 'barcode-vauxhall': ['Barcode'], 'chariots-vauxhall': ['Chariots'], 'orange-nation': ['Orange'] };
 /* words that are also something else: never linked on their own */
-const ALIAS_DENY = /^(Paradiso|January|February|March|April|May|June|July|August|September|October|November|December|Live|Papua New Guinea|Last Night a DJ Saved My Life|Space|Future|Hospital|Virus|Planet|Flying|Base|Release|Harmony|Drop|Cyclone|Trip|Music|Energy|Strings|Circles|Original|Loaded|Pure|Speed|Flavour|Incredible|Terrorist|Movement|the End|the Loop|the Box|the Club|the Room|the Gallery|Prince|Virgin|Roland|Kool Kat|Trace|Crash|Area|Substation)$/;
+const ALIAS_DENY = /^(Paradiso|January|February|March|April|May|June|July|August|September|October|November|December|Live|Papua New Guinea|Last Night a DJ Saved My Life|Space|Future|Hospital|Virus|Planet|Flying|Base|Release|Harmony|Drop|Cyclone|Trip|Music|Energy|Strings|Circles|Original|Loaded|Pure|Speed|Flavour|Incredible|Terrorist|Movement|the End|the Loop|the Box|the Club|the Room|the Gallery|Prince|Virgin|Roland|Kool Kat|Trace|Crash|Area|Substation|Barcode|Chariots|Fire|Union|Later|Beyond|Orange|Gravity|Juicy)$/;
 /* the same, for names on the generated subject pages (graph-gen.js, written by /tmp/deep2/tools/gen_nodes.py); a page marked exact links only on its name as written, case for case */
 const ALIAS_DENY_GEN = new Set(window.GEN_ALIAS_DENY || []);
 /* chapter titles too generic to link from running text */
-const CHAPTER_NOLINK = /^(a\d|h11)$/;
+const CHAPTER_NOLINK = /^(a\d|h11|qf7|qf14)$/;   /* qf7 "Trade" (the club page and the Department of Trade keep the word), qf14 "Vauxhall" (a place name all over the book) */
 /* spelling variants of a name: accents, apostrophes, curly quotes (as strong as the name itself) */
 function aliasSpellings(a, n){
   const out = new Set([a]);
@@ -85,6 +91,7 @@ function aliasShortenings(a, n){
 }
 function buildAliases(){
   if (ALIASES) return ALIASES; const claim = new Map();
+  Object.entries(ALIAS_GEN).forEach(([id, a]) => { const n = NODES.find(x => x.id === id); if (n) n.aliases = [...new Set([...(n.aliases || []), ...a])]; });
   const ok = a => a && (a.length >= 3 || ALIAS_SHORT.has(a)) && !ALIAS_DENY.test(a) && !ALIAS_DENY_GEN.has(a);
   const denied = a => a && a.length >= 3 && (ALIAS_DENY.test(a) || ALIAS_DENY_GEN.has(a));
   const strong = n => { const names = [n.title, ...(n.aliases || [])]; if (n.exact) return names.filter(Boolean); if (n.type === 'record'){ const t = n.title.split(' — ')[1]; if (t){ const bare = t.replace(/\s*\([^)]*\)\s*$/, ''); names.push('"' + bare + '"', '“' + bare + '”'); if (bare !== t) names.push('"' + t + '"'); } } return names.filter(Boolean).flatMap(a => aliasSpellings(a, n)).filter(a => !(n.type === 'record' && !/\s/.test(a) && !/^["“]/.test(a) && a.length < 9)); };
