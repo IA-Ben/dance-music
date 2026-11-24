@@ -1406,6 +1406,26 @@ body.docked footer{padding-bottom:120px}
 .dg-f small{color:var(--muted);font-weight:500}.cg-fams .dg-f,.cg-types .dg-f{min-height:36px}
 .cg-card small{display:block;font:600 10px var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}.cg-card > b{display:block;font-size:17px;line-height:1.25;margin:3px 0 6px}.cg-card p{font-size:14px;margin:0 0 8px}
 .cg-nb{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.cg-nb > small{flex:1 1 100%}.cg-nb .chip{margin:0;font-size:11px;padding:5px 10px}
+/* ---------- a strand opener's list of its chapters (build/movement.js, chapterList): one row per chapter, the whole row a link ---------- */
+.page .mv-list.mv-chs,.page .mv-list.mv-more{list-style:none;margin:4px 0 0;padding:0;columns:auto}
+.page .mv-list.mv-chs>li,.page .mv-list.mv-more>li{margin:0;padding:0;border-top:1px solid var(--line);break-inside:avoid}
+.page .mv-list.mv-chs>li:first-child,.page .mv-list.mv-more>li:first-child{border-top:0}
+.page .mv-list a.mv-ch{display:grid;grid-template-columns:2.2em minmax(0,1fr);column-gap:12px;align-items:baseline;min-height:44px;box-sizing:border-box;padding:10px 4px;margin:0;color:var(--text);text-decoration:none;border:0;border-radius:6px}
+.page .mv-list a.mv-ch:hover,.page .mv-list a.mv-ch:focus-visible{background:color-mix(in srgb,var(--c) 10%,transparent)}
+.page .mv-ch .mv-n{font:600 12px/1.5 var(--f-mono);color:var(--c);letter-spacing:.02em;text-align:right}
+.page .mv-ch .mv-b{min-width:0;overflow-wrap:break-word}
+.page .mv-ch .mv-t{font-family:var(--f-ui);font-weight:700;font-size:15.5px;line-height:1.35;border-bottom:1px solid color-mix(in srgb,var(--c) 55%,transparent)}
+.page .mv-ch:hover .mv-t{color:var(--c);border-bottom-color:var(--c)}
+.page .mv-ch .mv-y{display:inline-block;font:500 11.5px/1.4 var(--f-mono);color:var(--muted);margin-left:4px}
+.page .mv-ch .mv-d{display:block;margin-top:3px;font-size:14px;line-height:1.45;color:color-mix(in srgb,var(--text) 76%,var(--bg))}
+.page .mv-years{margin:6px 0 4px}
+.page .mv-years a.yr{min-height:44px;display:flex;align-items:center;justify-content:center;box-sizing:border-box}
+@media (min-width:900px){.page>.card>.mv-list.mv-chs{columns:2;column-gap:36px}}
+body.paper .page .mv-ch .mv-n{color:var(--ci)}
+body.paper .page .mv-ch .mv-t{border-bottom-color:color-mix(in srgb,var(--ci) 50%,transparent)}
+body.paper .page .mv-ch:hover .mv-t{color:var(--ci);border-bottom-color:var(--ci)}
+body.paper .page .mv-ch .mv-d{font-family:var(--f-body);font-size:15px}
+body.paper .page .mv-list a.mv-ch:hover,body.paper .page .mv-list a.mv-ch:focus-visible{background:color-mix(in srgb,var(--ci) 8%,transparent)}
 /* ---------- LIGHTS: the playable lighting features of the Visuals strand (build/lights.js) ---------- */
 .lights{margin:22px 0;container-type:inline-size;break-inside:avoid}
 .lights .lt-h{margin:0 0 6px}

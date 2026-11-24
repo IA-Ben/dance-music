@@ -98,10 +98,67 @@ window.Movement = (() => {
     addEventListener('hashchange', stop);
   }
 
-  /* ---------- an opener lists its chapters, with the years from each kicker ---------- */
+  /* ---------- every strand opener lists its chapters ----------
+     Built from STRANDS[s].spine each time the book loads (after graph.js has dropped the chapters held back from
+     publication), so the list cannot fall behind the strand. Each entry: the chapter's own number (from its kicker),
+     its short title (CHAPTER_TITLES, or the subject page's title for a crossing), where and when (the rest of the
+     kicker, or the crossing's years) and one line that already exists: CHAPTER_LINES, else the chapter's own heading
+     where it says more than the short title, else a crossing's one-line blurb. An opener carries
+     <ol class="mv-list" data-strand="..."> where it wants the list; one without gets a card above its sources.
+     The Forty years strand gets its years as a grid instead. */
+  const yrTail = /,\s*(?:c\.\s*)?\d{4}s?(?:\s*[–-]\s*(?:\d{2,4}s?)?)?$/;
+  const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  function headLine(h2, title){
+    const t = norm(title.replace(yrTail, '')), H = norm(h2.replace(yrTail, '')); if (!H || !t || H === t) return '';
+    const c = h2.indexOf(': ');
+    if (c > 0){ const pre = norm(h2.slice(0, c)), post = norm(h2.slice(c + 2).replace(yrTail, ''));
+      if (pre && (t.startsWith(pre) || pre.startsWith(t))) return h2.slice(c + 2).replace(yrTail, '');   /* "Detroit: hi-tech soul" under "Detroit" */
+      if (post && (post === t || t.includes(post))) return h2.slice(0, c);                                  /* "Saint disease: the dance floor in the epidemic" */
+      if (post && post.includes(t)) return h2.replace(yrTail, ''); }
+    if (t.length >= 12 && (H.includes(t) || t.includes(H))) return '';
+    return h2.replace(yrTail, '');
+  }
+  function chapterInfo(id){
+    const pg = document.querySelector(`.page[data-page="${id}"]`), n = !pg && typeof NODE !== 'undefined' ? NODE[id] : null;
+    let title = (typeof titleOf === 'function' ? titleOf(id) : (CHAPTER_TITLES[id] || id)) || id, num = '', meta = '', desc = '', cross = false;
+    if (pg){
+      const k = pg.querySelector('.kicker'), parts = k ? k.textContent.replace(/\s+/g, ' ').split('·').map(s => s.trim()).filter(Boolean) : [];
+      const ni = parts.findIndex(s => /^\d{1,2}[a-z]?$/.test(s));
+      if (ni >= 0){ num = parts[ni]; meta = parts.slice(ni + 1).filter(s => norm(s) !== norm(title)).join(' · '); }
+      const h = pg.querySelector('h2'), h2 = h ? h.textContent.replace(/\s+/g, ' ').trim() : '';
+      desc = (typeof CHAPTER_LINES !== 'undefined' && CHAPTER_LINES[id]) || headLine(h2, title);
+    } else if (n){ cross = n.type === 'border'; meta = [cross ? 'crossing' : '', n.years || ''].filter(Boolean).join(' · '); desc = n.blurb || ''; }
+    if (meta && norm(meta).startsWith(norm(title) + ' ')) meta = meta.slice(meta.toLowerCase().indexOf(',', title.length - 1) + 1).trim();   /* "Hastings, 1872–" under "Hastings": the place once */
+    const tail = (title.match(yrTail) || [''])[0];
+    if (meta && tail && norm(tail) === norm(meta)) title = title.replace(yrTail, '');                        /* "Jungle, 1993–95" and 1993–1995 */
+    else if (meta && norm(title).includes(norm(meta))) meta = '';                                            /* "The summer of 1989", 1989 */
+    if (/\d{4}/.test(meta)) title = title.replace(yrTail, '') || title;   /* the years are shown once, beside the title */
+    return { num, title, meta, desc, cross };
+  }
+  function yearGrid(box){
+    const S = STRANDS.years, yrs = S.spine.filter(id => /^y\d{4}$/.test(id)), rest = S.spine.slice(1).filter(id => !/^y\d{4}$/.test(id));
+    const cls = id => { const y = +id.slice(1); return y < BOOK.from ? ' pro' : y === BOOK.from ? ' one' : y === BOOK.to ? ' on' : ''; };
+    box.innerHTML = `<div class="yeargrid home mv-years">${yrs.map(id => `<a class="yr${cls(id)}" href="#years-${id}" title="${esc(titleOf(id))}">${id.slice(1)}</a>`).join('')}</div>` +
+      (rest.length ? `<ol class="mv-list mv-more">${rest.map(id => `<li><a class="mv-ch" href="#years-${id}"><span class="mv-n">${id === 'forty' ? '40' : '·'}</span><span class="mv-b"><b class="mv-t">${esc(titleOf(id))}</b></span></a></li>`).join('')}</ol>` : '');
+  }
   function chapterList(ol){
-    if (!ol || ol.dataset.done || typeof STRANDS === 'undefined') return; const S = STRANDS[ol.dataset.strand]; if (!S) return; ol.dataset.done = 1;
-    ol.innerHTML = S.spine.slice(1).map(id => { const pg = document.querySelector(`.page[data-page="${id}"]`); const k = pg && pg.querySelector('.kicker'); const yrs = k ? k.textContent.split('·').pop().trim() : ''; return `<li><a class="xl" href="#${id}">${esc((typeof CHAPTER_TITLES !== 'undefined' && CHAPTER_TITLES[id]) || id)}</a>${yrs ? ` <small>${esc(yrs)}</small>` : ''}</li>`; }).join('');
+    if (!ol || ol.dataset.done || typeof STRANDS === 'undefined') return; const s = ol.dataset.strand, S = STRANDS[s]; if (!S) return; ol.dataset.done = 1;
+    if (s === 'years'){ const box = document.createElement('div'); ol.replaceWith(box); yearGrid(box); return; }
+    ol.classList.add('mv-chs');
+    const info = S.spine.slice(1).map(id => [id, chapterInfo(id)]), named = new Set(info.map(([, c]) => norm(c.title)));
+    info.forEach(([, c]) => { if (c.desc && named.has(norm(c.desc))) c.desc = ''; });   /* a heading that is another entry's title says nothing here */
+    ol.innerHTML = info.map(([id, c]) => {
+      return `<li${c.cross ? ' class="mv-x"' : ''}><a class="mv-ch" href="#${s}-${id}"><span class="mv-n"${c.num ? '' : ' aria-hidden="true"'}>${esc(c.num || '×')}</span><span class="mv-b"><b class="mv-t">${esc(c.title)}</b>${c.meta ? ` <small class="mv-y">${esc(c.meta)}</small>` : ''}${c.desc ? `<span class="mv-d">${esc(c.desc)}</span>` : ''}</span></a></li>`; }).join('');
+  }
+  /* the opener of every strand of more than one page: its list, or a card for one, filled once */
+  function openerLists(){
+    if (typeof STRANDS === 'undefined') return;
+    Object.keys(STRANDS).forEach(s => { const sp = STRANDS[s].spine; if (sp.length < 2) return; const pg = document.querySelector(`.page[data-page="${sp[0]}"]`); if (!pg) return;
+      let ol = pg.querySelector(`.mv-list[data-strand="${s}"]`);
+      if (!ol && !pg.querySelector('.mv-years')){ const card = document.createElement('div'); card.className = 'card mv-chapters'; card.innerHTML = `<h3>${s === 'years' ? 'The years' : 'The chapters'}</h3><ol class="mv-list" data-strand="${s}"></ol>`;
+        const cap = [...pg.querySelectorAll(':scope > p.cap')].pop(), foot = pg.querySelector(':scope > .margin-note, :scope > .pagenav');
+        pg.insertBefore(card, cap || foot || null); ol = card.querySelector('ol'); }
+      chapterList(ol); });
   }
   /* ---------- a walk: numbered stops on a sketch of the route, each with a street view link ---------- */
   function walk(card){
@@ -129,7 +186,7 @@ window.Movement = (() => {
   /* ---------- page hooks ---------- */
   function hookAll(){
     window.PageHooks = window.PageHooks || {};
-    ['rt0', 'cb0', 'tw0', 'ed0', 'wn0', 'qf0', 'ub0', 'cm0', 'wm0', 'rs0', 'bt0', 'vz0', 'st0', 'fs0', 'sy0'].forEach(id => { const prev = PageHooks[id]; PageHooks[id] = () => { if (prev) prev(); chapterList(document.querySelector(`.page[data-page="${id}"] .mv-list`)); }; });
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', openerLists); else setTimeout(openerLists, 0);   /* after every script, so the spines and subject pages are final */
     Object.keys(MOVE.tl || {}).forEach(id => { const prev = PageHooks[id]; PageHooks[id] = () => { if (prev) prev(); timeline(document.querySelector(`.page[data-page="${id}"]`), id); }; });
     const opener = (id, fn) => { const prev = PageHooks[id]; PageHooks[id] = () => { if (prev) prev(); try { fn(); } catch (e) { console.warn(e); } }; };
     opener('cb0', () => map(document.getElementById('mvClubMap'), MOVE.clubs || [], { views: [['world', 'World'], ['europe', 'Europe'], ['britain', 'Britain']] }));
@@ -139,5 +196,5 @@ window.Movement = (() => {
     document.querySelectorAll('.page .mv-walk').forEach(c => { const pg = c.closest('.page'); if (pg) opener(pg.dataset.page, () => walk(c)); });
   }
   hookAll();
-  return { timeline, map, routes, walk };
+  return { timeline, map, routes, walk, openerLists };
 })();
