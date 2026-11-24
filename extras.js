@@ -243,8 +243,10 @@ window.Margin = {
     const show = H('button', { type: 'button', cls: 'sm mn-show', 'aria-controls': u + '-list', onclick: () => this.load(id, list, show) }, 'Show what readers have added');
     box.append(H('section', { cls: 'mn-readers', 'aria-labelledby': u + '-rh' }, H('h4', { id: u + '-rh', text: 'From readers' }), H('p', { cls: 'cap', text: 'Memories and photos sent in by readers. Each one was read by the author before it appeared.' }), show, list));
     const det = H('details', { cls: 'mn-add' }); det.append(H('summary', { text: 'Add to the margin' }));
-    const f = this.form(u, page, id); det.append(f);
-    det.addEventListener('toggle', () => { if (det.open) this.turnstile(f.querySelector('.mn-ts'), page); });
+    /* the form is built only when a reader opens it, and closed forms on other pages are cleared: hundreds of hidden forms slowed every page turn */
+    document.querySelectorAll('.mn-readers, .mn-add:not([open])').forEach(e => { if (!box.contains(e)) e.remove(); });
+    let f = null;
+    det.addEventListener('toggle', () => { if (!det.open) return; if (!f){ f = this.form(u, page, id); det.append(f); } this.turnstile(f.querySelector('.mn-ts'), page); });
     box.append(det);
   },
 

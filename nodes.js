@@ -18,9 +18,11 @@ const ALIAS_EXTRA = { acid: ['Acid House', 'Acid house'], balearic: ['Balearic B
   'g-jungle': ['jungle'], 'glastonbury-festival': ['Glastonbury'], 'ultra-music-festival': ['Ultra'], shambhala: ['Shambhala'], mutek: ['MUTEK'], 'electric-daisy-carnival': ['EDC'],
   'commodore-amiga': ['Amiga'], 'sound-diy': ['DiY'], 'labyrinth-festival': ['Labyrinth festival'], 'skint-records': ['Skint'], 'tempa-records': ['Tempa'], superstruct: ['Superstruct'], 'the-breezeblock': ['Breezeblock'],
   'digital-mystikz': ['Mala', 'Coki'], 'the-orb': ['Alex Paterson'], 'fatboy-slim': ['Norman Cook'], 'lcd-soundsystem': ['James Murphy'], underworld: ['Darren Emerson'], 'the-chemical-brothers': ['Dust Brothers'],
-  'shop-warp': ['Warp shop'], alphatheta: ['AlphaTheta'], cdj3000: ['CDJ-3000'], livestyle: ['SFX'], 'sound-metro': ['Percival Miller'], 'g-berghain': ['Berghain sound'],
+  'shop-warp': ['Warp shop'], cdj3000: ['CDJ-3000'], livestyle: ['SFX'], 'sound-metro': ['Percival Miller'], 'g-berghain': ['Berghain sound'],
   /* the Visuals strand (vz4): the show's own title, not The End; the venue as the text names it (November 2026) */
-  'anyma-end-of-genesys': ['The End of Genesys'], 'sphere-las-vegas': ['the Sphere'] };
+  'anyma-end-of-genesys': ['The End of Genesys'], 'sphere-las-vegas': ['the Sphere'],
+  /* the festival by its own name links to its dance tents' page (profiles check, November 2026) */
+  'coachella-sahara-tent': ['Coachella'] };
 /* a name another page claims by mistake */
 const ALIAS_FORCE = { Universe: 'tribal-gathering', Trax: 'trax', Cocoon: 'cocoon', 'Golden Pudel Club': 'golden-pudel',
   /* nights whose one-word names are on ALIAS_DENY: linked only in these longer forms the text uses */
@@ -29,15 +31,31 @@ const ALIAS_FORCE = { Universe: 'tribal-gathering', Trax: 'trax', Cocoon: 'cocoo
   'Café del Mar': 'cafe-del-mar', 'Cafe del Mar': 'cafe-del-mar', "Oakenfold's Future": 'future', "Milan's Plastic": 'plastic-milan' };
 /* longer names that hold a linked name but are something else: matched whole, so the name inside them is not linked */
 const ALIAS_SHIELD = ['Circus Warp', 'Mind Warp', 'TIP!', 'original Dust Brothers', 'the Shambhala', 'Groove Armada', 'albums for Ultra', 'The Jungle', 'called Jungle', 'Glastonbury water', 'began as SFX', 'formed SFX',
-  "Ku'damm", 'Ku Klux', 'BT Voicebank', "BT's Voicebank", "BT's message", 'BT Digital', 'in the jungle', 'the Tulum jungle', 'jungle site', 'jungle venue', 'jungle and cenote'];
+  "Ku'damm", 'Ku Klux', 'BT Voicebank', "BT's Voicebank", "BT's message", 'BT Digital', 'in the jungle', 'the Tulum jungle', 'jungle site', 'jungle venue', 'jungle and cenote',
+  /* profiles (November 2026): Court Acoustics' Black Box speaker system, not the band */
+  'Court Black Box', 'the Black Box',
+  /* the Kraftwerk power station in Berlin (Tresor, Hard Wax, Berlin Atonal), not the band */
+  'Kraftwerk Berlin', 'Kraftwerk Mitte', 'Kraftwerk power station', 'Kraftwerk complex', 'the Kraftwerk Mitte', 'the Kraftwerk power station', 'the Kraftwerk complex', 'the Kraftwerk Berlin', 'the Kraftwerk at', '2007–: Kraftwerk', 'at Kraftwerk', 'of Kraftwerk became', 'hall of Kraftwerk', 'building Kraftwerk', 'christened Kraftwerk', 'Kino, Kraftwerk', 'SKALAR, Kraftwerk',
+  /* song titles, not the singer */
+  'James Brown Is Still Alive',
+  /* the Anatomy desk's mute button, not the label */
+  'Mute and solo',
+  /* the Virgin record shops, not the label */
+  'Virgin Records shop'];
 /* names under three characters: these only, whole word, case for case */
 const ALIAS_SHORT = new Set(['BT', 'Ku']);
 /* single words of an "X / Y" title that are names; other single words there are ordinary ones (house, trance, Garage, Ambient) */
 const SLASH_PART = /^(Schranz|hardgroove|psytrance|Jungle|Reaktor|Soulwax)$/;
 /* a name kept off by the deny lists still links on the chapters that tell its page (its "told" relations) and on the pages listed here; "-id" takes a page away */
-const ALIAS_LOCAL = { future: ['hh4', 'i3', 'orb1'], output: ['ny5', 'rs4'], 'hot-hacienda': ['hh5', 'hacienda', 'mike-pickering', 'second-summer'], 'sound-metro': ['-wm12'], 'bedrock-night': ['-tw1'] };
+const ALIAS_LOCAL = { future: ['hh4', 'i3', 'orb1'], output: ['ny5', 'rs4'], 'hot-hacienda': ['hh5', 'hacienda', 'mike-pickering', 'second-summer'], 'sound-metro': ['-wm12'], 'bedrock-night': ['-tw1'],
+  /* profiles (November 2026): bare names that mean the subject only on these pages (the profile checkers' hand-link lists) */
+  prince: ['bagleys', 'blake-baxter', 'detroit', 'mojo', 'rex-club', 'set-alfredo', 'shut-up-and-dance-p', 'trevor-fung', 'wjlb', 'cb3', 'cb6', 'tw2', 'kraftwerk', 'gary-numan', 'moodymann'],
+  virgin: ['blake-baxter', 'detroit', 'g-detroit', 'h2', 'h3', 'neil-rushton', 'network', 'photek', 'rec-noufos', 'glasgow', 'rec-positiveeducation', 'roule', 'slam', 'soma', 'juan-atkins', 'rec-dafunk', 'kevin-saunderson', 'rec-technocomp', 'rec-papua', 'sven-vath', 'rec-bigfun', 'g-idm', 'birmingham', 'g-frenchtouch', 'liverpool', 'eddie-richards', 'heaven', 'frankie-knuckles', 'rage', 'kms', 'omni-trio', 'chase-status', 'donato-dozzy', 'mark-reeder', 'bigfun', 'spectrum', 'rec-nitenichiryu', 'rec-musicsounds', 'coventry', 'ipswich', 'cream', 'cb2', 'cb12', 'wn4', 'qf4', 'tw11', 'daft-punk', 'rec-ricochet'],
+  trace: ['no-u-turn', 'ed-rush-optical', 'g-techstep', 'shop-lucky-spin', 'don-fm', 'virus', 'casio-cz'],
+  roland: ['g-electro', 'tr909', 'tb303', 'tr707', 'rec-acidtracks'],
+  'kool-kat': ['neil-rushton', 'network', 'rec-technocomp', 'birmingham'] };
 /* words that are also something else: never linked on their own */
-const ALIAS_DENY = /^(Paradiso|January|February|March|April|May|June|July|August|September|October|November|December|Live|Papua New Guinea|Last Night a DJ Saved My Life|Space|Future|Hospital|Virus|Planet|Flying|Base|Release|Harmony|Drop|Cyclone|Trip|Music|Energy|Strings|Circles|Original|Loaded|Pure|Speed|Flavour|Incredible|Terrorist|Movement|the End|the Loop|the Box|the Club|the Room|the Gallery)$/;
+const ALIAS_DENY = /^(Paradiso|January|February|March|April|May|June|July|August|September|October|November|December|Live|Papua New Guinea|Last Night a DJ Saved My Life|Space|Future|Hospital|Virus|Planet|Flying|Base|Release|Harmony|Drop|Cyclone|Trip|Music|Energy|Strings|Circles|Original|Loaded|Pure|Speed|Flavour|Incredible|Terrorist|Movement|the End|the Loop|the Box|the Club|the Room|the Gallery|Prince|Virgin|Roland|Kool Kat|Trace)$/;
 /* the same, for names on the generated subject pages (graph-gen.js, written by /tmp/deep2/tools/gen_nodes.py); a page marked exact links only on its name as written, case for case */
 const ALIAS_DENY_GEN = new Set(window.GEN_ALIAS_DENY || []);
 /* chapter titles too generic to link from running text */

@@ -12,9 +12,11 @@ const titleOf = id => CHAPTER_TITLES[id] || (NODE[id] && NODE[id].title) || id;
 function parseHash(){
   let h = (location.hash || '#home').slice(1).split(/[?&]/)[0]; let strand = null;
   for (const s of STRAND_KEYS){ if (h.startsWith(s + '-')){ const rest = h.slice(s.length + 1); if (pageExists(rest)){ strand = s; h = rest; break; } } }
+  if (!pageExists(h) && MOVED[h]) h = MOVED[h];   /* a page folded into another keeps its old address */
   MISSING = (!pageExists(h) && h && h !== 'home') ? h : null; if (!pageExists(h)) h = 'home'; return { id: h, strand };
 }
 let MISSING = null;
+const MOVED = { alphatheta: 'pioneer' };
 function noteMissing(){ if (!MISSING) return; let n = document.getElementById('missingNote'); if (!n){ n = document.createElement('div'); n.id = 'missingNote'; n.setAttribute('role', 'status'); document.body.appendChild(n); } let h = MISSING; try { h = decodeURIComponent(h); } catch (e) {} n.textContent = `There is no page at “${h}”, so here is the cover. Try the search in the contents.`; n.classList.add('show'); clearTimeout(n._t); n._t = setTimeout(() => n.classList.remove('show'), 7000); }
 function strandFor(id, hinted){
   if (hinted && (onSpine(hinted, id) || (NODE[id] && NODE[id].strands.includes(hinted)))) return hinted;
