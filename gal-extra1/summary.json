@@ -1,0 +1,10 @@
+{
+ "shard": "extra1",
+ "pages": 1,
+ "ok": 1,
+ "errors": 0,
+ "items": 5,
+ "api_calls": 7,
+ "stopped_early": false,
+ "minutes": 0.5
+}
