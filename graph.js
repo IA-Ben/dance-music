@@ -6,7 +6,12 @@
 /* the span the book celebrates: the breakout year to forty years on; earlier years are the prologue */
 const BOOK = { from: 1987, to: 2027, span: '1987–2027',
   /* where rights and takedown requests go: an email address or a URL. Empty = a pre-filled issue on the public repository (build/rights.js) */
-  rightsContact: '' };
+  rightsContact: '',
+  /* the shared margin (build/extras.js, Margin): the Cloudflare Worker's address, e.g. 'https://margin.<account>.workers.dev', and the
+     Turnstile widget's site key (public). Both empty = off: the Margin box stays the private note only. window.SITE.marginApi and
+     window.SITE.turnstileSiteKey (site/config.js) override these, for testing. */
+  marginApi: '',
+  turnstileSiteKey: '' };
 const STRANDS = {
   years:  { title: 'Forty years', color: '--mix', spine: ['timeline', ...Object.keys(window.YEARS || {}).map(y => 'y' + y), 'forty'] },
   techno: { title: 'Techno', color: '--rumble', spine: ['h0', 'pre', 'h1', 'h2', 'h3', 'ldn', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'h11', 'h12', 'h13', 'h14'] },

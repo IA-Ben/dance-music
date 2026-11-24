@@ -56,6 +56,7 @@ window.Rights = {
       go.textContent = !c ? 'Open the request on GitHub' : isMail ? 'Write the email' : 'Open the request page';
     };
     box.querySelectorAll('select, textarea').forEach(el => el.addEventListener('input', update)); update();
+    const mg = document.getElementById('rightsMargin'); if (mg){ mg.hidden = !(window.Margin && Margin.on()); if (!mg.hidden && q.get('s') === 'margin') setTimeout(() => { const t = document.getElementById('margin-how'); if (t) t.scrollIntoView({ block: 'start' }); }, 30); }   /* the shared margin's section (build/extras.js, Margin) */
     if (rem && !rem.dataset.done){ rem.dataset.done = 1; const R = window.RIGHTS_REMOVED || []; rem.innerHTML = R.length ? `<ul>${R.map(r => `<li>${this.esc(r.date)}: ${this.esc(r.what)}</li>`).join('')}</ul>` : '<p class="cap">Nothing has been removed on request yet.</p>'; }
   }
 };

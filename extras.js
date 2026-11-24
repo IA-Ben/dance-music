@@ -209,11 +209,185 @@ window.Notes = {
     const nav = pageEl.querySelector('.pagenav'); if (nav) pageEl.insertBefore(box, nav); else pageEl.appendChild(box);
     box.querySelector('.mn-save').onclick = () => { const v = box.querySelector('.mn-text').value; const a = this.all(); if (v.trim()) a[id] = v; else delete a[id]; this.save(a); box.querySelector('.mn-msg').textContent = 'saved'; };
     const post = box.querySelector('.mn-post'); if (post) post.onclick = () => this.post(id, box.querySelector('.mn-text').value, box);
-    if (this.shared) this.loadShared(id, box); },
+    if (this.shared) this.loadShared(id, box);
+    if (window.Margin && Margin.on()) Margin.mount(box, id); },
   async post(id, text, box){ if (!text.trim()) return; try { await this.shared.write(id, text); box.querySelector('.mn-msg').textContent = 'posted'; this.loadShared(id, box); } catch (e){ box.querySelector('.mn-msg').textContent = 'could not post'; } },
   async loadShared(id, box){ try { const rows = await this.shared.read(id); const el = box.querySelector('.mn-shared'); el.innerHTML = rows.length ? `<h4 style="margin:12px 0 6px">Shared margin</h4>` + rows.map(r => `<blockquote class="mn-q">${String(r.text).replace(/</g, '&lt;')}<small>${r.when || ''}</small></blockquote>`).join('') : ''; } catch (e){} }
 };
 window.PageHooks.notes = () => { const box = document.getElementById('notesAll'); const all = Notes.all(); const ids = Object.keys(all); box.innerHTML = ids.length ? ids.map(id => `<div class="card" style="margin-bottom:10px"><h3><a class="xl" href="${hashFor(id)}">${nodeTitle(id)}</a></h3><p style="white-space:pre-wrap;font-size:14px">${all[id].replace(/</g, '&lt;')}</p></div>`).join('') : '<p class="cap">Nothing in the margins yet. Every page has a box above its page-turn links.</p>'; };
+
+/* ---------- the shared margin: readers' memories and photos, screened by an AI and approved by the author ----------
+   Off until BOOK.marginApi and BOOK.turnstileSiteKey (build/graph.js) are set; then each Margin box also gets
+   "From readers" (approved notes, fetched only when asked for) and "Add to the margin" (the form).
+   The service is a Cloudflare Worker (margin-worker, README-setup.md): POST /submit, GET /notes, POST /report.
+   Everything readers sent is put on the page with textContent, never as HTML. Photos are redrawn through a
+   canvas before upload, so EXIF and GPS data stay on the reader's device. */
+window.Margin = {
+  KINDS: [['own_photo', 'My photo'], ['flyer', 'Flyer'], ['memorabilia', 'Ticket or memorabilia']],
+  MAX_TEXT: 1200, MAX_NAME: 40, MAX_PHOTOS: 3, MAX_BYTES: 6 * 1024 * 1024, LONG_EDGE: 2000, QUALITY: 0.85,
+  CONSENT_OWN: 'This is my own memory in my own words; any photo is one I took, or a flyer, ticket or keepsake I own. I\'m happy for fortyyearsof.dance to show it, and I can ask for it to be removed at any time.',
+  CONSENT_PROCESS: 'I\'ve read how this is checked: an AI screens it first and the author decides. Nothing appears until he approves it.',
+  HOW: '#rights?s=margin',
+  n: 0,
+  conf(k){ const s = (window.SITE || {})[k]; return String(s || (typeof BOOK !== 'undefined' && BOOK[k]) || '').trim(); },
+  api(){ const s = this.conf('marginApi').replace(/\/+$/, ''); return /^https:\/\/[A-Za-z0-9.-]+(:\d+)?$/.test(s) || /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(s) ? s : ''; },
+  siteKey(){ return this.conf('turnstileSiteKey'); },
+  on(){ return !!(this.api() && this.siteKey()); },
+  /* build elements with text only */
+  h(tag, attrs, ...kids){ const e = document.createElement(tag); Object.entries(attrs || {}).forEach(([k, v]) => { if (v == null || v === false) return; if (k === 'text') e.textContent = v; else if (k === 'cls') e.className = v; else if (k.startsWith('on')) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v === true ? '' : v); }); kids.flat().forEach(k => { if (k != null && k !== false) e.append(k); }); return e; },
+  fmt(n){ return Number(n).toLocaleString('en-GB'); },
+
+  mount(box, id){
+    const H = this.h.bind(this), u = 'mn' + (++this.n), page = { id, photos: [], token: '', widget: null };
+    const list = H('div', { cls: 'mn-list', id: u + '-list' });
+    const show = H('button', { type: 'button', cls: 'sm mn-show', 'aria-controls': u + '-list', onclick: () => this.load(id, list, show) }, 'Show what readers have added');
+    box.append(H('section', { cls: 'mn-readers', 'aria-labelledby': u + '-rh' }, H('h4', { id: u + '-rh', text: 'From readers' }), H('p', { cls: 'cap', text: 'Memories and photos sent in by readers. Each one was read by the author before it appeared.' }), show, list));
+    const det = H('details', { cls: 'mn-add' }); det.append(H('summary', { text: 'Add to the margin' }));
+    const f = this.form(u, page, id); det.append(f);
+    det.addEventListener('toggle', () => { if (det.open) this.turnstile(f.querySelector('.mn-ts'), page); });
+    box.append(det);
+  },
+
+  /* ---------- From readers ---------- */
+  async load(id, list, btn){
+    btn.disabled = true; btn.textContent = 'Loading…'; list.setAttribute('aria-busy', 'true');
+    try {
+      const r = await fetch(this.api() + '/notes?page=' + encodeURIComponent(id), { credentials: 'omit' }); const d = await r.json();
+      if (!r.ok || !d.ok) throw new Error('bad');
+      list.textContent = ''; const notes = Array.isArray(d.notes) ? d.notes : [];
+      if (!notes.length) list.append(this.h('p', { cls: 'cap', text: 'Nothing from readers on this page yet. You could be the first: add to the margin below.' }));
+      notes.forEach(n => list.append(this.note(n, list)));
+      btn.remove();
+    } catch (e) { btn.disabled = false; btn.textContent = 'Try again'; list.textContent = ''; list.append(this.h('p', { cls: 'cap', role: 'alert', text: 'Readers\' notes could not be loaded just now.' })); }
+    list.removeAttribute('aria-busy');
+  },
+  okImg(url){ const a = this.api(); return typeof url === 'string' && url.startsWith(a + '/img/') && /^[a-f0-9]{32}$/.test(url.slice(a.length + 5)); },
+  note(n, list){
+    const H = this.h.bind(this); const name = String(n.name || 'A reader'); const imgs = (Array.isArray(n.images) ? n.images : []).filter(im => im && this.okImg(im.url)).slice(0, 3);
+    const el = H('article', { cls: 'mn-q mn-reader nosmart', 'aria-label': 'A reader\'s contribution' });   /* nosmart: a reader's words are shown exactly as sent */
+    el.append(H('div', { cls: 'mn-tag', text: 'A reader\'s contribution' }));
+    if (n.text) el.append(H('div', { cls: 'mn-body', text: String(n.text) }));
+    const label = im => (this.KINDS.find(k => k[0] === im.kind) || [, 'Photo'])[1];
+    if (imgs.length){
+      const items = imgs.map(im => ({ url: im.url, caption: `Photo from a reader: ${label(im).toLowerCase()}${n.year ? ', ' + n.year : ''}${n.place ? ', ' + n.place : ''}`, author: name, lic: 'Reader\'s contribution', licUrl: this.HOW, page: '', reportHtml: '<button type="button" class="sm mn-lbreport">Report</button>', wire: lb => { const b = lb.querySelector('.mn-lbreport'); if (b) b.onclick = () => { lb.classList.remove('show'); this.askReport(n, el, list); }; } }));
+      el.append(H('div', { cls: 'mn-thumbs' }, imgs.map((im, i) => H('button', { type: 'button', cls: 'mn-thumb', 'aria-label': `Open photo ${i + 1}: ${label(im).toLowerCase()}`, onclick: () => { if (window.Gallery && Gallery.lightbox) Gallery.lightbox(items, i); else window.open(im.url, '_blank', 'noopener'); } }, H('img', { src: im.url, alt: `Photo from a reader: ${label(im).toLowerCase()}`, loading: 'lazy' })))));
+    }
+    const meta = [name, n.year, n.place, n.approved ? 'added ' + n.approved : ''].filter(Boolean).map(String).join(' · ');
+    el.append(H('small', {}, meta + ' · ', H('button', { type: 'button', cls: 'mn-link mn-report', onclick: () => this.askReport(n, el, list) }, 'Report')));
+    return el;
+  },
+  askReport(n, el, list){
+    if (el.querySelector('.mn-confirm')) { el.querySelector('.mn-confirm textarea').focus(); return; }
+    const H = this.h.bind(this), u = 'mr' + (++this.n);
+    const why = H('textarea', { id: u, rows: 2, maxlength: 500 });
+    const msg = H('p', { cls: 'cap', role: 'alert' });
+    const box = H('div', { cls: 'mn-confirm', role: 'group', 'aria-labelledby': u + '-q' },
+      H('p', { id: u + '-q', text: 'Hide this from the page and ask the author to look at it? It disappears at once.' }),
+      H('label', { for: u, text: 'Why (optional; only the author sees this)' }), why,
+      H('div', { cls: 'row' }, H('button', { type: 'button', cls: 'sm mn-doreport', onclick: async e => {
+        e.target.disabled = true; msg.textContent = 'Sending…';
+        try { const r = await fetch(this.api() + '/report', { method: 'POST', credentials: 'omit', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: String(n.id || ''), reason: why.value.slice(0, 500) }) }); const d = await r.json().catch(() => ({}));
+          if (!r.ok || !d.ok) throw new Error(d.message || ''); const done = H('p', { cls: 'cap mn-reported', role: 'status', text: 'Thank you. It is hidden while the author looks at it.' }); el.replaceWith(done); }
+        catch (err) { e.target.disabled = false; msg.textContent = (err && err.message) || 'The report could not be sent. You can also use the Rights page.'; } } }, 'Report it'), H('button', { type: 'button', cls: 'sm', onclick: () => box.remove() }, 'Cancel')), msg);
+    el.append(box); why.focus();
+  },
+
+  /* ---------- Add to the margin ---------- */
+  form(u, page, id){
+    const H = this.h.bind(this); const how = () => H('a', { cls: 'xl', href: this.HOW, text: 'How this works' });
+    const field = (key, label, hint, input) => { input.id = u + '-' + key; if (hint) input.setAttribute('aria-describedby', u + '-' + key + '-hint'); return H('div', { cls: 'mn-field' }, H('label', { for: input.id }, label, hint ? H('span', { cls: 'cap', id: u + '-' + key + '-hint', text: ' ' + hint }) : null), input); };
+    const text = H('textarea', { name: 'text', rows: 5, maxlength: this.MAX_TEXT });
+    const count = H('span', { cls: 'cap mn-count', id: u + '-count', 'aria-live': 'polite', text: `0 of ${this.fmt(this.MAX_TEXT)}` });
+    text.addEventListener('input', () => { count.textContent = `${this.fmt([...text.value].length)} of ${this.fmt(this.MAX_TEXT)}`; });
+    const file = H('input', { type: 'file', id: u + '-file', accept: 'image/*', multiple: true, 'aria-describedby': u + '-photohelp', cls: 'mn-file' });
+    const files = H('ul', { cls: 'mn-files', 'aria-live': 'polite' });
+    const c1 = H('input', { type: 'checkbox', id: u + '-c1' }), c2 = H('input', { type: 'checkbox', id: u + '-c2' });
+    const errors = H('div', { cls: 'mn-errors', role: 'alert' }), status = H('p', { cls: 'cap mn-status', role: 'status' });
+    const send = H('button', { type: 'submit', cls: 'play mn-send' }, 'Send to the author');
+    const f = H('form', { cls: 'mn-form', novalidate: true, 'aria-label': 'Add to the margin' },
+      H('p', { cls: 'cap' }, 'Send the author a memory of this, or a photo. Nothing appears on the page until the author has read it and approved it. ', how(), '.'),
+      field('text', 'Your memory', `(up to ${this.fmt(this.MAX_TEXT)} characters)`, text), count,
+      H('fieldset', { cls: 'mn-photos' }, H('legend', {}, 'Photos ', H('span', { cls: 'cap', text: `(up to ${this.MAX_PHOTOS}, optional)` })),
+        H('p', { cls: 'cap', id: u + '-photohelp', text: 'Your own photos, or flyers, tickets and keepsakes you own. Each photo is shrunk and re-saved in your browser before it is sent, so the hidden camera data, including any GPS location, never leaves your device.' }),
+        H('label', { for: u + '-file', cls: 'sm mn-filebtn', text: 'Choose photos' }), file, files),
+      H('div', { cls: 'mn-two' }, field('year', 'Roughly when', '(optional)', H('input', { type: 'text', maxlength: 20, placeholder: 'e.g. 1992', autocomplete: 'off' })), field('place', 'Where', '(optional)', H('input', { type: 'text', maxlength: 80, placeholder: 'e.g. Clink Street, London', autocomplete: 'off' }))),
+      field('name', 'Name to show', '(optional; leave it blank to appear as "A reader")', H('input', { type: 'text', maxlength: this.MAX_NAME, autocomplete: 'nickname' })),
+      field('email', 'Email', '(optional and never shown: only so the author can reply)', H('input', { type: 'email', maxlength: 254, autocomplete: 'email', inputmode: 'email' })),
+      H('div', { cls: 'mn-consent' }, c1, H('label', { for: c1.id, text: this.CONSENT_OWN })), H('p', { cls: 'cap mn-consent-how' }, how()),
+      H('div', { cls: 'mn-consent' }, c2, H('label', { for: c2.id, text: this.CONSENT_PROCESS })), H('p', { cls: 'cap mn-consent-how' }, how()),
+      H('div', { cls: 'mn-ts' }), errors, H('div', { cls: 'row' }, send), status);
+    text.setAttribute('aria-describedby', text.getAttribute('aria-describedby') + ' ' + u + '-count');
+    file.addEventListener('change', () => { this.addFiles([...file.files], page, files, errors); file.value = ''; });
+    f.addEventListener('submit', e => { e.preventDefault(); this.submit(f, u, page, id, { text, c1, c2, errors, status, send, files }); });
+    return f;
+  },
+  async addFiles(list, page, ul, errors){
+    errors.textContent = '';
+    const room = this.MAX_PHOTOS - page.photos.length; if (list.length > room) this.showErrors(errors, [`Up to ${this.MAX_PHOTOS} photos. The first ${Math.max(room, 0) === 1 ? 'one was' : Math.max(room, 0) + ' were'} added.`]);
+    for (const fl of list.slice(0, Math.max(room, 0))){
+      const ph = { name: fl.name, blob: null, kind: '', url: '' }; page.photos.push(ph); this.renderFiles(page, ul);
+      try { ph.blob = await this.reencode(fl); ph.url = URL.createObjectURL(ph.blob); }
+      catch (e) { page.photos.splice(page.photos.indexOf(ph), 1); this.showErrors(errors, ['One of the photos could not be opened or made small enough. Try a JPEG or PNG.']); }
+      this.renderFiles(page, ul);
+    }
+  },
+  renderFiles(page, ul){
+    const H = this.h.bind(this); ul.textContent = '';
+    page.photos.forEach((ph, i) => {
+      const sel = H('select', { id: ul.closest('form').querySelector('.mn-file').id + '-k' + i, 'aria-label': `What is photo ${i + 1}?`, cls: 'mn-kind' }, H('option', { value: '', text: 'What is it?' }), this.KINDS.map(([v, t]) => H('option', { value: v, text: t, selected: ph.kind === v })));
+      sel.onchange = () => { ph.kind = sel.value; sel.removeAttribute('aria-invalid'); };
+      ul.append(H('li', {}, ph.url ? H('img', { src: ph.url, alt: `Your photo ${i + 1}` }) : H('span', { cls: 'mn-wait cap', text: 'Preparing…' }), H('span', { cls: 'mn-fmeta' }, H('label', { for: sel.id, text: `Photo ${i + 1}` }), sel, H('span', { cls: 'cap', text: ph.blob ? `${Math.max(1, Math.round(ph.blob.size / 1024))} KB, ready to send` : '' })), H('button', { type: 'button', cls: 'sm', 'aria-label': `Remove photo ${i + 1}`, onclick: () => { if (ph.url) URL.revokeObjectURL(ph.url); page.photos.splice(page.photos.indexOf(ph), 1); this.renderFiles(page, ul); } }, 'Remove')));
+    });
+  },
+  /* redraw through a canvas: at most LONG_EDGE pixels on the long side, JPEG; the file's EXIF and GPS data are not carried over */
+  async reencode(file){
+    let src, w, h, done = () => {};
+    try { const bm = await createImageBitmap(file, { imageOrientation: 'from-image' }); src = bm; w = bm.width; h = bm.height; done = () => bm.close && bm.close(); }
+    catch (e) { const url = URL.createObjectURL(file); const img = new Image(); img.src = url; await img.decode(); src = img; w = img.naturalWidth; h = img.naturalHeight; done = () => URL.revokeObjectURL(url); }
+    if (!w || !h) throw new Error('empty');
+    const k = Math.min(1, this.LONG_EDGE / Math.max(w, h)); const cw = Math.max(1, Math.round(w * k)), ch = Math.max(1, Math.round(h * k));
+    const c = document.createElement('canvas'); c.width = cw; c.height = ch; const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, cw, ch); g.drawImage(src, 0, 0, cw, ch); done();
+    let q = this.QUALITY, blob = await new Promise(r => c.toBlob(r, 'image/jpeg', q));
+    while (blob && blob.size > this.MAX_BYTES && q > 0.45){ q -= 0.1; blob = await new Promise(r => c.toBlob(r, 'image/jpeg', q)); }
+    if (!blob || blob.size > this.MAX_BYTES) throw new Error('too big');
+    return blob;
+  },
+  turnstile(box, page){
+    if (!box || page.widget != null) return; box.textContent = '';
+    const render = () => { try { page.widget = window.turnstile.render(box, { sitekey: this.siteKey(), action: 'margin-submit', callback: t => { page.token = t; }, 'expired-callback': () => { page.token = ''; }, 'error-callback': () => { page.token = ''; } }); } catch (e) {} };
+    if (window.turnstile) { render(); return; }
+    let s = document.getElementById('cf-turnstile-js');
+    if (!s){ s = document.createElement('script'); s.id = 'cf-turnstile-js'; s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; s.async = true; document.head.appendChild(s); }
+    s.addEventListener('load', render, { once: true });
+  },
+  showErrors(box, errs){ box.textContent = ''; if (!errs.length) return; box.append(this.h('p', { text: errs.length === 1 ? 'Please fix this:' : 'Please fix these:' }), this.h('ul', {}, errs.map(t => this.h('li', { text: t })))); },
+  async submit(f, u, page, id, el){
+    const v = k => f.querySelector('#' + u + '-' + k); const errs = [], bad = [];
+    const text = el.text.value.trim(), name = v('name').value.trim(), email = v('email').value.trim();
+    f.querySelectorAll('[aria-invalid]').forEach(x => x.removeAttribute('aria-invalid'));
+    if (!text && !page.photos.length){ errs.push('Write something or add a photo.'); bad.push(el.text); }
+    if ([...text].length > this.MAX_TEXT){ errs.push(`Please keep it to ${this.fmt(this.MAX_TEXT)} characters.`); bad.push(el.text); }
+    if ([...name].length > this.MAX_NAME){ errs.push(`The name can be up to ${this.MAX_NAME} characters.`); bad.push(v('name')); }
+    if (email && !/^[^\s@<>()[\]\\,;:"]{1,64}@[A-Za-z0-9.-]{1,190}\.[A-Za-z]{2,24}$/.test(email)){ errs.push('That email address does not look right. It is optional: you can leave it blank.'); bad.push(v('email')); }
+    if (page.photos.some(p => !p.blob)) errs.push('Please wait for the photos to finish preparing.');
+    page.photos.forEach((p, i) => { if (!p.kind){ errs.push(`Say what photo ${i + 1} is.`); bad.push(f.querySelectorAll('.mn-kind')[i]); } });
+    if (!el.c1.checked || !el.c2.checked){ errs.push('Please tick both boxes.'); bad.push(...[el.c1, el.c2].filter(c => !c.checked)); }
+    if (!page.token && !errs.length) errs.push('Please wait a moment for the check that you are a person to finish, then send again.');
+    bad.filter(Boolean).forEach(x => x.setAttribute('aria-invalid', 'true'));
+    this.showErrors(el.errors, errs); if (errs.length){ el.status.textContent = ''; (bad.find(Boolean) || el.send).focus(); return; }
+    const fd = new FormData(); fd.append('pageId', id); fd.append('text', text); fd.append('name', name); fd.append('email', email); fd.append('year', v('year').value.trim()); fd.append('place', v('place').value.trim());
+    fd.append('consentOwn', 'yes'); fd.append('consentProcess', 'yes'); fd.append('cf-turnstile-response', page.token);
+    page.photos.forEach((p, i) => { fd.append('photo', p.blob, `photo-${i + 1}.jpg`); fd.append('photoKind', p.kind); });
+    el.send.disabled = true; el.status.textContent = 'Sending…';
+    try {
+      const r = await fetch(this.api() + '/submit', { method: 'POST', body: fd, credentials: 'omit' }); const d = await r.json().catch(() => ({}));
+      if (!r.ok || !d.ok) throw new Error(typeof d.message === 'string' ? d.message : 'It could not be sent just now. Please try again later.');
+      page.photos.forEach(p => p.url && URL.revokeObjectURL(p.url)); page.photos = []; f.reset(); this.renderFiles(page, el.files); el.text.dispatchEvent(new Event('input'));
+      el.status.textContent = `${d.message || 'Thank you.'} Your reference is ${String(d.ref || '')}.`;
+    } catch (e) { this.showErrors(el.errors, [String(e.message || e)]); el.status.textContent = ''; }
+    el.send.disabled = false; page.token = ''; try { if (window.turnstile && page.widget != null) window.turnstile.reset(page.widget); } catch (e) {}
+  }
+};
 
 /* ---------- flyer press ---------- */
 window.Flyer = {

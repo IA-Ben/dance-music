@@ -559,6 +559,52 @@ body.paper .page .catalogue p.cap{font-family:var(--f-ui);font-size:13.5px;line-
 .catalogue .cat-dec button{min-height:34px}
 .catalogue .cat-dec button[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
 .catalogue .cat-dec small{opacity:.7;font-size:11px}
+
+/* ---------- the shared margin: From readers and Add to the margin (build/extras.js, Margin; off until BOOK.marginApi is set) ---------- */
+.margin-note .mn-readers{margin-top:18px}
+.margin-note .mn-readers h4{margin:0 0 4px}
+.mn-reader{position:relative}
+.margin-note .mn-reader .mn-tag{display:block;margin:0 0 4px;font:600 10px var(--f-mono,var(--f-mono));letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.margin-note .mn-reader .mn-body{font-size:15px;line-height:1.5;margin:0 0 6px;white-space:pre-wrap;overflow-wrap:anywhere}
+.mn-reader small{display:block;color:var(--muted);font:11px var(--f-mono,var(--f-mono));margin-top:4px;overflow-wrap:anywhere}
+.mn-thumbs{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.mn-thumb{padding:0;border:1px solid var(--line);border-radius:6px;background:none;cursor:zoom-in;line-height:0}
+.mn-thumb img{width:96px;height:96px;object-fit:cover;border-radius:5px}
+.mn-link{background:none;border:0;padding:0;font:inherit;color:var(--text);text-decoration:underline;cursor:pointer;min-height:24px}
+.mn-confirm{margin:8px 0 2px;padding:10px;border:1px solid var(--line);border-radius:8px;font:14px var(--f-ui,system-ui,sans-serif)}
+.mn-confirm p{margin:0 0 6px}
+.mn-confirm label{display:block;font-size:13px;color:var(--muted)}
+.mn-confirm textarea,.mn-form input[type=text],.mn-form input[type=email],.mn-form select,.mn-form textarea{display:block;width:100%;box-sizing:border-box;margin-top:4px;font:16px var(--f-ui,system-ui,sans-serif);background:var(--bg3);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:8px;min-height:44px}
+.mn-confirm .row,.mn-form .row{margin:8px 0 0;gap:8px;flex-wrap:wrap}
+.mn-add{margin-top:16px}
+.mn-add summary{cursor:pointer;font:600 14px var(--f-ui,system-ui,sans-serif);padding:10px 0;min-height:24px}
+.mn-form{font:14px var(--f-ui,system-ui,sans-serif);max-width:640px}
+.mn-form .mn-field{margin:12px 0 0}
+.mn-form label{font-size:14px}
+.mn-form .mn-count{display:block;text-align:right;margin-top:2px}
+.mn-form fieldset{border:1px solid var(--line);border-radius:8px;margin:14px 0 0;padding:8px 12px 12px}
+.mn-form legend{font-weight:600;padding:0 4px}
+.mn-form .mn-file{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.mn-form .mn-filebtn{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;font-size:12px}
+.mn-form .mn-file:focus-visible + .mn-files,.mn-form .mn-file:focus + .mn-files{outline:0}
+.mn-form .mn-file:focus-visible ~ .mn-filebtn,.mn-form fieldset:focus-within .mn-filebtn{outline:2px solid var(--c);outline-offset:2px}
+.mn-files{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.mn-files li{display:flex;gap:10px;align-items:center}
+.mn-files img,.mn-files .mn-wait{width:64px;height:64px;object-fit:cover;border-radius:6px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--bg3)}
+.mn-files .mn-fmeta{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.mn-files .mn-fmeta select{margin-top:0}
+.mn-two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mn-consent{display:flex;gap:10px;align-items:flex-start;margin:14px 0 0}
+.mn-consent input{width:22px;height:22px;flex:none;margin:2px 0 0}
+.mn-consent label{font-size:14px;line-height:1.45}
+.mn-consent-how{margin:2px 0 0 32px}
+.mn-form [aria-invalid=true]{border-color:#d9534f!important;outline:1px solid #d9534f}
+.mn-errors:not(:empty){margin:12px 0 0;padding:8px 12px;border-left:3px solid #d9534f;font-size:14px}
+.mn-errors p{margin:0 0 4px;font-weight:600}.mn-errors ul{margin:0;padding-left:18px}
+.mn-ts{margin:12px 0 0;min-height:0}
+.mn-form .mn-send{min-height:44px}
+.mn-status:not(:empty){margin:8px 0 0}
+@media (max-width:480px){.mn-two{grid-template-columns:1fr}.mn-thumb img{width:84px;height:84px}}
 /* =====================================================================
    BOOK SKIN — paper pages, dark plates, spreads on wide screens
    ===================================================================== */
