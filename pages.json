@@ -325,6 +325,7 @@
 {"id":"writers","title":"Writers and photographers","blurb":"The people who wrote it down or took the pictures: journalists, critics, authors, editors and photographers.","type":"page"},
 {"id":"managers","title":"Agents and managers","blurb":"The people who booked and managed the artists.","type":"page"},
 {"id":"a0","title":"The map","blurb":"A techno mix is a negotiation over about ten octaves.","type":"chapter"},
+{"id":"ag","title":"Every genre, stripped","blurb":"Every genre the book's engine can play, one loop at a time, taken apart into its layers.","type":"chapter"},
 {"id":"a1","title":"Kick","blurb":"In techno the kick is the loudest element, the tuning reference and the thing everything else is carved around.","type":"chapter"},
 {"id":"a2","title":"Drums","blurb":"The kick says where the beat is.","type":"chapter"},
 {"id":"a3","title":"Percussion","blurb":"Kick and hats define the grid.","type":"chapter"},

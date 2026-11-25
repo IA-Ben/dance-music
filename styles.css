@@ -1500,3 +1500,75 @@ body.paper .page .lights .lt-desk{background:var(--bg2)}
 .lt-allow{margin-top:10px;min-height:44px}
 .lt-allow input{width:20px;height:20px}
 @container (max-width:400px){.lt-rng{grid-template-columns:84px 1fr minmax(36px,auto)}.lt-flash{min-width:56px;padding:8px}}
+/* =====================================================================
+   ANATOMY BY GENRE — the genre bar, the per-genre note, the demo captions
+   and the genre explorer (build/anatomy-genre.js)
+   ===================================================================== */
+.ag-bar{margin:4px 0 12px;padding:10px 12px 6px;border:1px solid color-mix(in srgb,var(--c) 30%,var(--line));border-radius:12px;background:var(--bg2);max-width:100%;min-width:0;box-sizing:border-box;break-inside:avoid;column-span:all}
+.ag-top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;justify-content:space-between}
+.page .ag-now{margin:0;flex:1 1 220px;min-width:0;font:13px/1.35 var(--f-ui);color:var(--text)}
+.ag-lab{font:600 10px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.ag-name{font:700 16px/1.2 var(--f-ui);color:var(--text)}
+.ag-meta{font:12px var(--f-mono);color:var(--muted);white-space:nowrap}
+.ag-nav{display:flex;gap:6px;flex:none}
+.ag-btn{min-height:44px;min-width:44px;padding:0 13px;border-radius:999px;border:1px solid var(--line);background:var(--bg3);color:var(--text);font:600 14px var(--f-ui);cursor:pointer;line-height:1}
+.ag-btn.ag-prev,.ag-btn.ag-next{font-size:20px;padding:0}
+.ag-btn:hover{border-color:var(--c)}
+.ag-chips{display:flex;align-items:center;gap:6px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding:8px 3px 8px;margin:4px -3px 0;max-width:calc(100% + 6px)}
+.ag-grp{display:flex;align-items:center;gap:6px;flex:none}
+.ag-grp+.ag-grp{margin-left:10px;padding-left:10px;border-left:1px solid var(--line)}
+.ag-fam{flex:none;font:600 10px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 2px}
+.ag-chip{flex:none;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg3);color:var(--text);font:12px var(--f-mono);cursor:pointer;white-space:nowrap}
+.ag-chip:hover{border-color:var(--c)}
+.ag-chip[aria-pressed=true]{background:var(--c);border-color:var(--c);color:#000;font-weight:700}
+.ag-chip:focus-visible,.ag-btn:focus-visible,.agx button:focus-visible,.agx select:focus-visible,.agx input:focus-visible,.ag-cap a:focus-visible,.ag-note a:focus-visible{outline:3px solid var(--ci,var(--c));outline-offset:2px}
+.ag-note{margin:0 0 16px;padding:10px 14px 11px;border-left:3px solid var(--c);background:var(--bg2);border-radius:0 10px 10px 0;break-inside:avoid;column-span:all;max-width:var(--measure,46rem)}
+.page .ag-note p{margin:0;font:14.5px/1.5 var(--f-ui);color:var(--text)}
+.page .ag-note p.ag-nt{font:600 10px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ci,var(--c));margin-bottom:4px}
+.ag-note .ag-nl{display:inline-flex;align-items:center;min-height:44px;margin:2px 0 -8px;font:600 12px var(--f-mono);color:var(--text);text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--c) 60%,transparent);text-underline-offset:3px;padding:0}
+.page .ag-cap{margin:-4px 0 10px;font:12.5px/1.45 var(--f-ui);color:var(--muted)}
+.page .ag-cap a{color:var(--text);text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--c) 60%,transparent);text-underline-offset:2px;font-weight:600}
+.play:disabled{opacity:.42;cursor:not-allowed}
+.play:disabled:hover{background:var(--bg3);border-color:color-mix(in srgb,var(--c) 45%,var(--line))}
+.play:disabled:active{transform:none}
+.play:disabled::before{border-left-color:var(--muted)}
+/* ---------- the genre explorer ---------- */
+.agx-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.agx-head .play{min-height:44px}
+.agx .agx-tempo{flex:1 1 240px;grid-template-columns:52px minmax(0,1fr) 70px;min-width:0}
+.agx-tempo input{min-height:32px}
+.agx-treset{min-height:44px}
+.agx-strips{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:8px;margin:14px 0 6px}
+.agx-strip{display:flex;flex-direction:column;gap:7px;min-width:0;padding:9px 10px 10px;border:1px solid var(--line);border-top:3px solid var(--c);border-radius:10px;background:var(--bg3)}
+.agx-strip.out{opacity:.5}
+.agx-sn{min-width:0;min-height:34px}
+.agx-sn b{display:block;font:700 13px/1.2 var(--f-ui);color:var(--text)}
+.agx-sn small{display:block;margin-top:2px;font:10.5px/1.3 var(--f-mono);color:var(--muted);overflow-wrap:anywhere}
+.agx-meter{display:block;height:8px;border-radius:4px;background:color-mix(in srgb,var(--text) 10%,transparent);overflow:hidden}
+.agx-meter i{display:block;width:100%;height:100%;background:var(--c);transform-origin:0 50%;transform:scaleX(0)}
+.agx-sm{display:flex;gap:6px}
+.agx-sm button{flex:1;min-width:44px;min-height:44px;border-radius:8px;border:1px solid var(--line);background:var(--bg2);color:var(--text);font:700 13px var(--f-mono);cursor:pointer}
+.agx-sm button:hover{border-color:var(--c)}
+.agx-solo[aria-pressed=true]{background:var(--c);border-color:var(--c);color:#000}
+.agx-mute[aria-pressed=true]{background:var(--text);border-color:var(--text);color:var(--bg2)}
+.page .agx-cap{margin:2px 0 14px}
+.agx-morph{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,2fr) 44px;gap:8px 12px;align-items:center;margin-top:4px}
+.agx-ml{font:600 12px var(--f-mono);color:var(--text)}
+.agx-morph select{min-height:44px;min-width:0;max-width:100%;font:12px var(--f-mono);background:var(--bg3);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:0 8px}
+.agx-morph input{min-height:32px}
+.agx-morph output{font:12px var(--f-mono);color:var(--text);text-align:right}
+.agx-read{margin-top:10px}
+@media (max-width:700px){
+  .ag-bar{padding:9px 10px 4px}
+  .ag-name{font-size:15px}
+  .agx-morph{grid-template-columns:minmax(0,1fr) 44px}
+  .agx-ml{grid-column:1/-1}
+  .agx-morph select{grid-column:1/-1}
+  .agx .agx-tempo{grid-template-columns:46px minmax(0,1fr) 62px}
+}
+@media (prefers-reduced-motion: reduce){
+  .ag-chips{scroll-behavior:auto}
+  .ag-chip,.ag-btn,.agx-strip,.agx-meter i{transition:none!important}
+}
+/* paper: on the two pages whose colour is the Studio's white, the chosen chip is in ink (white would vanish on paper) */
+body.paper .page[data-page=a9] .ag-chip[aria-pressed=true],body.paper .page[data-page=ag] .ag-chip[aria-pressed=true]{background:var(--text);border-color:var(--text);color:var(--bg);box-shadow:inset 0 -3px 0 var(--c)}
