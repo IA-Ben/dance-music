@@ -13,7 +13,7 @@ window.PatternGrid = {
       const G = PRESET(st.genre);
       box.innerHTML = `<div class="pg">
         ${st.tabs.length > 1 ? `<div class="pgtabs">${st.tabs.map(g => `<button class="${g === st.genre ? 'on' : ''}" data-g="${g}">${g}</button>`).join('')}</div>` : ''}
-        <div class="pghead"><button class="play pgplay">${st.playing ? 'Stop' : 'Play the pattern'}</button><span class="pgmeta"><b>${st.genre}</b> · ${G.bpm} BPM · swing ${Math.round(G.swing * 100)}% · key ${G.key[0]}${G.rumble > 0 ? ' · rumble ' + Math.round(G.rumble * 100) + '%' : ''}</span><button class="sm pgreset">reset</button><select class="pgadd"><option value="">+ layer</option>${DECK_LAYERS.filter(([lid]) => lid !== 'rumble' && !st.pat[lid].some(v => v) && !(st.shown && st.shown.has(lid))).map(([lid, n]) => `<option value="${lid}">${n}</option>`).join('')}</select></div>
+        <div class="pghead"><button class="play pgplay">${st.playing ? 'Stop' : 'Play the pattern'}</button><span class="pgmeta"><b>${st.genre}</b> · ${G.bpm} BPM · swing ${Math.round(50 + G.swing * 50)}% · key ${G.key[0]}${G.rumble > 0 ? ' · rumble ' + Math.round(G.rumble * 100) + '%' : ''}</span><button class="sm pgreset">reset</button><select class="pgadd"><option value="">+ layer</option>${DECK_LAYERS.filter(([lid]) => lid !== 'rumble' && !st.pat[lid].some(v => v) && !(st.shown && st.shown.has(lid))).map(([lid, n]) => `<option value="${lid}">${n}</option>`).join('')}</select></div>
         <div class="deckgrid pgrid" style="--dk:${opts.color || 'var(--c, var(--kick))'}"><div class="lbl"></div>${Array.from({ length: 16 }, (_, i) => `<div class="lbl pgnum${i % 4 === 0 ? ' beat' : ''}">${i % 4 === 0 ? i / 4 + 1 : '·'}</div>`).join('')}</div>
         <p class="pgnote">${G.notes || ''} <span class="muted">Click a step to add or remove a hit; click a layer name to mute it; the acid row cycles off → note → accent → slide.</span></p>
       </div>`;
@@ -33,16 +33,18 @@ window.PatternGrid = {
   play(st){
     if (this.active && this.active !== st) this.stop();
     AudioCore.get(); if (window.MixerStop) MixerStop(); if (window.Seq) Seq.stop();
-    const dk = Mixer.ensureDemo(); dk.load(st.genre); dk.pat = st.pat; dk.mute = st.mute; const G = PRESET(st.genre); dk.setDelayForBpm(G.bpm);
+    const dk = Mixer.ensureDemo(); dk.load(st.genre); dk.pat = st.pat; dk.mute = st.mute; const G = PRESET(st.genre);
+    const bpmNow = () => (st.over && st.over.bpmOverride) || G.bpm;   /* read on every step, so a panel's tempo knob works while it runs */
+    dk.setDelayForBpm(bpmNow());
     st.playing = true; st.step = 0; st.nextTime = dk.ch.c.currentTime + 0.06; st.queue = []; this.active = st;
-    const tick = () => { const c = dk.ch.c; while (st.nextTime < c.currentTime + 0.15){ const d = 60 / G.bpm / 4; dk.scheduleStep(st.step, st.nextTime, G.bpm); st.queue.push({ step: st.step, time: st.nextTime }); st.nextTime += d; st.step = (st.step + 1) % 16; } };
+    const tick = () => { const c = dk.ch.c; while (st.nextTime < c.currentTime + 0.15){ const bpm = bpmNow(), d = 60 / bpm / 4; dk.scheduleStep(st.step, st.nextTime, bpm); st.queue.push({ step: st.step, time: st.nextTime + (st.step % 2 ? (dk.P.swing || 0) * d : 0) }); st.nextTime += d; st.step = (st.step + 1) % 16; } };
     st.timer = setInterval(tick, 25); tick(); st.render(); this.animate();
   },
   stop(){ const st = this.active; if (!st) return; clearInterval(st.timer); st.playing = false; st.queue = []; this.active = null; st.box.querySelectorAll('.cur').forEach(e => e.classList.remove('cur')); st.render(); },
   animate(){
     const st = this.active; if (!st) return; requestAnimationFrame(() => this.animate());
     const now = Mixer.demoDeck.ch.c.currentTime; let cur = null; while (st.queue.length && st.queue[0].time <= now) cur = st.queue.shift();
-    if (cur !== null && cur){ st.box.querySelectorAll('.st.cur').forEach(e => e.classList.remove('cur')); st.box.querySelectorAll(`.st[data-step="${cur.step}"]`).forEach(e => e.classList.add('cur')); }
+    if (cur !== null && cur){ st.box.querySelectorAll('.st.cur, .hwst.cur, .hwcell.cur').forEach(e => e.classList.remove('cur')); st.box.querySelectorAll(`.st[data-step="${cur.step}"], .hwsteps .hwst[data-i="${cur.step}"], .hwcell[data-i="${cur.step}"]`).forEach(e => e.classList.add('cur')); }
   },
   /* auto-mount: every .era card on a page becomes a grid with one tab per era button */
   autoMount(root){

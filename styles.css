@@ -504,6 +504,8 @@ body.paper .makerow{background:var(--bg3)}
 .hwrr.blk .hwcell{background:#15151a}
 .hwcell{height:14px;background:#22222a;border:1px solid #2e2e38;border-radius:2px;cursor:pointer;padding:0}
 .hwcell.on{background:var(--hwacc);box-shadow:0 0 5px var(--hwacc)}
+.hwcell.cur{border-color:var(--hwacc)}.hwcell.on.cur{filter:brightness(1.35)}
+@media (prefers-reduced-motion: reduce){.hwcell.cur,.hwsteps .hwst.cur{transition:none}}
 .hwmods .hwmodule{flex-direction:column;align-items:center;gap:4px}
 .hwjack{font-size:9px;color:#8f8fa0;border:1px solid #44444e;border-radius:10px;padding:2px 8px;margin-top:4px}
 .hwmod.patched .hwjack{border-color:var(--hwacc);color:var(--hwacc)}
